@@ -3,14 +3,16 @@
 openpyxl writes formulas without cached values, so nothing can be read back until a spreadsheet engine
 has computed them. This follows the approach of the Anthropic xlsx skill's `recalc.py`: a throwaway
 LibreOffice profile holding a one-line Basic macro (calculateAll, store), so the user's own LibreOffice
-profile is never touched. LibreOffice is the test-time engine (CLAUDE.md); Excel for Mac is checked by hand.
+profile is never touched. The throwaway profile is shared by all recalculations of one Python process. LibreOffice is the test-time engine (CLAUDE.md); Excel for Mac is checked by hand.
 """
 from __future__ import annotations
 
+import atexit
 import shutil
 import subprocess
 import tempfile
 from dataclasses import dataclass, field
+from functools import lru_cache
 from pathlib import Path
 
 from openpyxl import load_workbook
@@ -98,10 +100,19 @@ def scan(path: Path) -> RecalcReport:
     return RecalcReport(path=path, total_formulas=total, errors=errors)
 
 
+@lru_cache(maxsize=1)
+def _shared_profile(soffice: str, timeout_s: int) -> str:
+    """One throwaway profile per Python process: creating a profile costs as much as a recalculation.
+
+    Recalculations run one after another, so sharing it is safe; it is deleted when the process exits.
+    """
+    tmp = tempfile.mkdtemp(prefix="bbtools-lo-profile-")
+    atexit.register(shutil.rmtree, tmp, ignore_errors=True)
+    return _make_profile(Path(tmp), soffice, timeout_s)
+
+
 def recalc(path: Path, timeout_s: int = 120) -> RecalcReport:
     """Recalculate `path` in place with LibreOffice headless and return what it computed."""
     soffice = soffice_path()
-    with tempfile.TemporaryDirectory(prefix="bbtools-lo-profile-", ignore_cleanup_errors=True) as tmp:
-        profile_url = _make_profile(Path(tmp), soffice, timeout_s)
-        _run_macro(path.resolve(), profile_url, soffice, timeout_s)
+    _run_macro(path.resolve(), _shared_profile(soffice, timeout_s), soffice, timeout_s)
     return scan(path)

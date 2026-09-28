@@ -15,7 +15,14 @@ from pathlib import Path
 from openpyxl import Workbook
 from openpyxl.workbook.properties import CalcProperties
 
-from bbtools import sheet_capability, sheet_normal, sheet_sigma, sheet_tables, sheet_variance
+from bbtools import (
+    sheet_capability,
+    sheet_confusion,
+    sheet_normal,
+    sheet_sigma,
+    sheet_tables,
+    sheet_variance,
+)
 from bbtools.constants import ROOT, load_all
 from bbtools.readme import write_readme
 from bbtools.recalc import RecalcReport, recalc
@@ -24,7 +31,7 @@ OUTPUT = ROOT / "build" / "bb_toolkit.xlsx"
 
 # Calculator sheets in approved order (inventory/approved_tools.md). Each module exposes SHEET, HEADER, DOC and
 # build_sheet(ws). The Tables sheet comes last: calculators look constants up there, users rarely need it.
-TOOL_SHEETS = (sheet_capability, sheet_normal, sheet_sigma, sheet_variance)
+TOOL_SHEETS = (sheet_capability, sheet_normal, sheet_sigma, sheet_variance, sheet_confusion)
 
 
 def build_workbook() -> Workbook:
