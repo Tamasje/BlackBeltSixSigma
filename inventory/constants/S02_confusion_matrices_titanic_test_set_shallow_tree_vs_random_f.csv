@@ -1,0 +1,5 @@
+Model,True \ Predicted,not survived,survived,source_file,source_page,table_name
+shallow tree,not survived,128,9,source/course/Les 6/20260626_naert.pdf,27,Confusion matrices Titanic test set: shallow tree vs random forest
+shallow tree,survived,41,45,source/course/Les 6/20260626_naert.pdf,27,Confusion matrices Titanic test set: shallow tree vs random forest
+random forest,not survived,127,10,source/course/Les 6/20260626_naert.pdf,27,Confusion matrices Titanic test set: shallow tree vs random forest
+random forest,survived,37,49,source/course/Les 6/20260626_naert.pdf,27,Confusion matrices Titanic test set: shallow tree vs random forest

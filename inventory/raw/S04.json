@@ -1,0 +1,650 @@
+{
+  "slice_id": "S04",
+  "files_read": [
+    {"file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf", "pages": "1-28"},
+    {"file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf", "pages": "1-18"},
+    {"file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.xlsm", "pages": "1-6 (sheets: distributions, normal distribution, defective probabilities, lot fraction defectives, sampling distribution, variable sampling plan)"}
+  ],
+  "topics": [
+    {"topic": "Quality definitions, the quality ladder, and Deming's system view of quality", "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf", "pages": [4,5,6,7,8]},
+    {"topic": "Process variation, normal distribution, and process capability (Cpk)", "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf", "pages": [9,10,11,12]},
+    {"topic": "Necessity of lot sampling; the acceptance sampling procedure overview (introductory)", "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf", "pages": [13,14]},
+    {"topic": "Case example: estimating lot fraction defectives by simple random sampling (SRS); hypergeometric/binomial sampling distribution", "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf", "pages": [15,16]},
+    {"topic": "Stratified sampling: proportional pre-stratification, post-stratification, optimal stratification", "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf", "pages": [17,18,19]},
+    {"topic": "Cluster sampling", "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf", "pages": [20]},
+    {"topic": "Systematic sampling, convenience sampling, non-response bias and representativity", "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf", "pages": [21,22]},
+    {"topic": "The acceptance sampling procedure: AQL, LQL/LTPD, producer's and consumer's risk", "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf", "pages": [23]},
+    {"topic": "The acceptance sampling procedure: AQL, LQL/LTPD, producer's and consumer's risk", "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf", "pages": [2]},
+    {"topic": "Sampling plans for attributes: single, double, sequential (Wald-Wolfowitz); risks and efficiency, OC-curve, ASN", "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf", "pages": [24,25]},
+    {"topic": "Single-stage sampling plans for attributes (definitions, OC(p), AQL/LQL via OC)", "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf", "pages": [4]},
+    {"topic": "Double sampling plans for attributes (OC, Pi(p), ASN)", "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf", "pages": [5]},
+    {"topic": "Sequential sampling for attributes: Wald SPRT (likelihood ratio, accept/reject boundaries, OC and ASN)", "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf", "pages": [6,7,8]},
+    {"topic": "Sampling plans for one continuous quality characteristic with a single (lower) specification limit, single plan (n,k)", "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf", "pages": [26,27,28]},
+    {"topic": "Sampling plans for variables: (n,k), computation of k and n", "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf", "pages": [9]},
+    {"topic": "Rectifying inspection: AOQ, AOQL, ATI", "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf", "pages": [10]},
+    {"topic": "Skip-lot sampling plans for attributes (qualification/interruption/resumption/disqualification states)", "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf", "pages": [11]},
+    {"topic": "International standards - sampling systems: ISO2859 (attributes), ISO3951 (variables), MIL-STD-105 lineage", "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf", "pages": [12]},
+    {"topic": "Deming's inspection criterion: total quality cost model, break-even quality", "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf", "pages": [13,14,15]},
+    {"topic": "Certified quality provider / ship-to-stock agreements", "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf", "pages": [16]},
+    {"topic": "Exercises: construction of sampling plans for attributes; inventive inspection; sample size vs lot size", "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf", "pages": [17,18]},
+    {"topic": "Excel workbook: distributions demo (uniform, exponential, normal pdf) and a process-variation time series (chart source data, supports main deck page 9)", "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.xlsm", "pages": [1], "sheet": "distributions"},
+    {"topic": "Excel workbook: normal pdf/cdf/inverse demo (NORM.DIST, NORM.INV) and two-strata Xbar-distribution chart data (supports main deck pages 10-11 and 19)", "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.xlsm", "pages": [2], "sheet": "normal distribution"},
+    {"topic": "Excel workbook: process-capability binomial defectives-in-lot table for 3-sigma/4-sigma processes, N=10000 (supports main deck page 12)", "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.xlsm", "pages": [3], "sheet": "defective probabilities"},
+    {"topic": "Excel workbook: simulated lot of 10000 ceramic tiles (Nr/Box/Palette/Batch/Defective) with live SRS, pre-stratified and cluster-sample draw formulas (supports main deck pages 15-20)", "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.xlsm", "pages": [4], "sheet": "lot fraction defectives"},
+    {"topic": "Excel workbook: exact hypergeometric/binomial sampling-distribution tables for SRS and pre-stratified sampling, plus a 10000-run Monte Carlo cluster-sampling simulation with summary mean/variance (supports main deck pages 16-20)", "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.xlsm", "pages": [5], "sheet": "sampling distribution"},
+    {"topic": "Excel workbook: interactive single sampling plan for variables (n,k) with a 100-run Monte Carlo 'lot acceptance probability' button (supports main deck pages 26-28 and Further Reading page 9)", "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.xlsm", "pages": [6], "sheet": "variable sampling plan"}
+  ],
+  "formulas": [
+    {
+      "name": "Central limit theorem statement (as printed)",
+      "expression": "Xi IID => SUM(Xi) ~ N(mu,sigma)",
+      "symbols": {"Xi": "identically and independently distributed inputs", "mu": "mean", "sigma": "standard deviation"},
+      "conditions": "used to motivate why the normal distribution is prevalent for process outputs",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 9
+    },
+    {
+      "name": "Process capability index Cpk",
+      "expression": "C_pk = min( (X_U - mu)/(3*sigma) , (mu - X_L)/(3*sigma) )",
+      "symbols": {"X_U": "upper specification limit", "X_L": "lower specification limit", "mu": "process mean", "sigma": "process standard deviation"},
+      "conditions": "X ~ N(mu,sigma); slide shows X_U - X_L = 6*sigma giving Cpk=1 (99.73% conform, 0.27% defective) and X_U - X_L = 8*sigma giving Cpk=1.33 (99.9937% conform, 63 ppm defective)",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 10
+    },
+    {
+      "name": "Normal distribution in Excel",
+      "expression": "phi(x1) = 1/(sigma*sqrt(2*pi)) * exp(-(x1-mu)^2/(2*sigma^2)) = NORM.DIST(x1,mu,sigma,FALSE); Phi(x2) = INTEGRAL_{-inf}^{x2} phi(x) dx = NORM.DIST(x2,mu,sigma,TRUE); x2 = Phi^-1(p) = X_p = NORM.INV(p,mu,sigma)",
+      "symbols": {"phi": "normal pdf", "Phi": "normal cdf", "X_p": "p-th quantile"},
+      "conditions": "to generate a pseudo-random normal sample: =NORM.INV(RAND(),MU,SIGMA)",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 11
+    },
+    {
+      "name": "Probability of i non-conformities in a lot (binomial)",
+      "expression": "P[i] = C_N^i * pi^i * (1-pi)^(N-i)",
+      "symbols": {"i": "number of non-conforming items in the lot", "N": "lot size", "pi": "process fraction non-conforming", "C_N^i": "number of combinations of N items taken i at a time"},
+      "conditions": "defects occur independently over time (stable process)",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 12
+    },
+    {
+      "name": "SRS sampling distribution of number of defectives (hypergeometric, binomial approximation)",
+      "expression": "P[d=i] = (C_D^i * C_(N-D)^(n-i)) / C_N^n  ~=  C_n^i * pi^i * (1-pi)^(n-i)  (binomial)",
+      "symbols": {"d": "number of defectives found in the sample", "D": "number of defectives in the lot", "N": "lot size", "n": "sample size", "pi": "D/N = lot fraction defectives"},
+      "conditions": "exact distribution is hypergeometric; binomial approximation is used unless the population is small",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 16
+    },
+    {
+      "name": "Sampling variance of P (SRS, binomial)",
+      "expression": "sigma^2[P] = pi*(1-pi)/n",
+      "symbols": {"P": "sample fraction defectives = d/n", "pi": "lot fraction defectives", "n": "sample size"},
+      "conditions": "",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 16
+    },
+    {
+      "name": "Pre-stratified sample: unbiasedness and variance of the combined estimator",
+      "expression": "E[P] = E[P_s] = pi;  sigma^2[P_s] = (W_A*sigma_A^2 + W_B*sigma_B^2)/n;  sigma^2[P] = (W_A*sigma_A^2 + W_B*sigma_B^2 + W_A*W_B*(pi_A-pi_B)^2)/n",
+      "symbols": {"W_A": "population weight of stratum A (=N_A/N)", "W_B": "population weight of stratum B (=N_B/N)", "pi_A": "fraction defectives in stratum A", "pi_B": "fraction defectives in stratum B", "sigma_A^2": "pi_A*(1-pi_A)", "sigma_B^2": "pi_B*(1-pi_B)", "sigma^2": "pi*(1-pi)", "n": "total sample size", "P_s": "proportional pre-stratified estimator = W_A*P_A + W_B*P_B", "P": "SRS estimator"},
+      "conditions": "proportional pre-stratification: n_A = W_A*n, n_B = W_B*n",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 17
+    },
+    {
+      "name": "General two-stratum mean/variance decomposition (used to derive the stratification formulas)",
+      "expression": "mu = W_A*mu_A + W_B*mu_B;  sigma^2 = W_A*sigma_A^2 + W_B*sigma_B^2 + W_A*(mu_A-mu)^2 + W_B*(mu_B-mu)^2",
+      "symbols": {"mu_A": "mean of stratum A", "mu_B": "mean of stratum B"},
+      "conditions": "given in the notes as the general identity behind the page-17 formulas",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 17
+    },
+    {
+      "name": "Optimal vs proportional pre-stratification sample allocation",
+      "expression": "n_A = (W_A*sigma_A)/(W_A*sigma_A + W_B*sigma_B) * n  (idem for n_B), with sigma_A = sqrt(pi_A*(1-pi_A)) (idem sigma_B). Proportional stratification: n_A/n_B = W_A/W_B. Optimal stratification: n_A/n_B = (W_A*sigma_A)/(W_B*sigma_B)",
+      "symbols": {"n_A": "sample size drawn from stratum A", "n_B": "sample size drawn from stratum B"},
+      "conditions": "optimal stratification requires prior knowledge of pi_A, pi_B (e.g. via a prior sample from each stratum)",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 18
+    },
+    {
+      "name": "Distribution of the number of defectives in a (pre-)stratified sample",
+      "expression": "P[d_s=i] = SUM_{k=0}^{i} [ C_nA^k * piA^k * (1-piA)^(nA-k) * C_nB^(i-k) * piB^(i-k) * (1-piB)^(nB-i+k) ]",
+      "symbols": {"d_s": "number of defectives in the stratified sample", "n_A": "sample size from stratum A", "n_B": "sample size from stratum B"},
+      "conditions": "based on binomial probabilities within each stratum; hypergeometric to be exact",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 18
+    },
+    {
+      "name": "Two equally-sized normally distributed strata: variance of the population and of the sample mean",
+      "expression": "sigma^2 = sigma_S^2 + (mu_A-mu_B)^2/4;  E[Xbar] = E[Xbar_S] = mu;  sigma^2[Xbar_S] = sigma_S^2/n;  sigma^2[Xbar] = sigma^2[Xbar_S] + (mu_A-mu_B)^2/(4n)",
+      "symbols": {"sigma_S^2": "common within-stratum variance", "mu_A": "mean of stratum A", "mu_B": "mean of stratum B", "Xbar": "SRS sample mean (printed as X with an overline)", "Xbar_S": "proportionally pre-stratified sample mean", "n": "sample size"},
+      "conditions": "two equally sized strata (W_A=W_B=1/2), each normally distributed, same variance sigma_S^2, different means",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 19
+    },
+    {
+      "name": "Cluster-sampling probability of zero defectives (worked extreme-concentration case)",
+      "expression": "P[d_C=0] = ( C_9^2 * C_100^5 * C_100^5 + 9 * C_100^5 * C_80^5 ) / ( C_10^2 * C_100^5 * C_100^5 ) = 86%",
+      "symbols": {"d_C": "number of defectives found in the cluster sample", "C_9^2": "ways to pick 2 of the 9 defect-free palettes", "C_10^2": "ways to pick 2 of the 10 palettes", "C_100^5": "ways to pick 5 of the 100 boxes on a palette", "C_80^5": "ways to pick 5 defect-free boxes out of the 80 defect-free boxes on the one palette that holds all 20 defective boxes"},
+      "conditions": "extreme case: all 200 defectives in the lot are concentrated in 20 boxes of a single palette (out of 10 palettes of 100 boxes); cluster plan = 2 palettes drawn at random, 5 boxes drawn at random from each",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 20
+    },
+    {
+      "name": "Long-run equivalence of SRS and cluster-sample binomial probabilities (3-defectives example)",
+      "expression": "SRS (n=20): C_20^3 * pi^3 * (1-pi)^17 = 1140*pi^3*(1-pi)^17.  Cluster (2 boxes of 10 tiles fully inspected out of 10 boxes): 2*C_10^0*pi^0*(1-pi)^10*C_10^3*pi^3*(1-pi)^7 + 2*C_10^1*pi^1*(1-pi)^9*C_10^2*pi^2*(1-pi)^8 = 2*(C_10^3 + 10*C_10^2)*pi^3*(1-pi)^17 = 1140*pi^3*(1-pi)^17",
+      "symbols": {"pi": "per-item fraction defective (stable process)"},
+      "conditions": "shown to illustrate that, when the lots come from a stable process with a given pi, cluster sampling and SRS give the same (binomial) sampling distribution in the long run",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 20
+    },
+    {
+      "name": "Non-response bias / variance of the sample mean",
+      "expression": "sigma^2[Xbar] = sigma^2/n",
+      "symbols": {"Xbar": "sample mean", "sigma^2": "population variance", "n": "sample size"},
+      "conditions": "used to explain that sampling error (random) and bias (systematic, from an unrepresentative frame) both contribute to total error; a small SRS from the full population can beat a large SRS from a biased frame",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 22
+    },
+    {
+      "name": "Single-stage sampling plan for attributes - OC curve",
+      "expression": "OC(p) = P(X<=c | p) = H(c;N,M_p,n) with M_p = [N*p]",
+      "symbols": {"p": "lot fraction defectives", "c": "acceptance number", "N": "lot size", "n": "sample size", "M_p": "number of defectives in the lot = [N*p] (nearest integer)", "H": "hypergeometric c.d.f. (in R: phyper(c,M,N-M,n))"},
+      "conditions": "AQL = p such that OC(p) = 1-alpha (=95% stated as the default); LQL = p such that OC(p) = beta (=10% stated as the default). Specifying both AQL and LQL uniquely characterizes the (n,c) plan.",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 4
+    },
+    {
+      "name": "Double sampling plan for attributes - OC, Pi(p), ASN(p)",
+      "expression": "OC(p) = H(c1;H,M_p,n1) + SUM_{j=c1+1}^{c2-1} h(j;N,M_p,n1) * H(c3-j; N-n1, M_p-j, n2);  Pi(p) = H(c1;N,M_p,n1) + 1 - H(c2-1;N,M_p,n1);  ASN(p) = n1*Pi(p) + (n1+n2)*(1-Pi(p))",
+      "symbols": {"h": "hypergeometric p.m.f.", "H": "hypergeometric c.d.f.", "Pi(p)": "probability of reaching a decision after the first sample", "ASN": "average sample number", "n1,c1,c2": "first-stage sample size and limits", "n2,c3": "second-stage sample size and limit"},
+      "conditions": "as printed; the first OC(p) term uses 'H' as the population-size argument of H(.), which is inconsistent with the N used in the Pi(p) formula directly below (see ambiguities)",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 5
+    },
+    {
+      "name": "SPRT likelihood ratio and log-likelihood (Wald sequential probability ratio test)",
+      "expression": "Lambda(X_n,n;p0,pt) = (pt/p0)^X_n * ((1-pt)/(1-p0))^(n-X_n);  log(Lambda) = X_n*( log(pt/p0) - log((1-pt)/(1-p0)) ) + n*log((1-p0)/(1-pt))",
+      "symbols": {"X_n": "number of defectives found after n inspections", "p0": "AQL fraction defective", "pt": "LQL fraction defective (course also writes p1/pt)"},
+      "conditions": "stop and accept if log(Lambda) < log(A) (A = beta/(1-alpha) < 1); stop and reject if log(Lambda) > log(B) (B = (1-beta)/alpha > 1); PR = 1-OC(p0) = alpha (producer's risk), CR = OC(pt) = beta (consumer's risk). For binomial instead of hypergeometric, OK if lot size is large compared to sample size.",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 6
+    },
+    {
+      "name": "SPRT reject/accept boundaries (graphical form Xn vs n)",
+      "expression": "Reject: X_n >= h2 + s*n, with h2 = log((1-beta)/alpha) / log( pt*(1-p0) / (p0*(1-pt)) )  and  s = log((1-p0)/(1-pt)) / log( pt*(1-p0) / (p0*(1-pt)) ), both > 0.  Accept: X_n <= -h1 + s*n, with h1 = log((1-alpha)/beta) / log( pt*(1-p0) / (p0*(1-pt)) ) > 0",
+      "symbols": {"h1,h2": "intercepts of the accept/reject lines", "s": "common slope of the accept/reject lines"},
+      "conditions": "example given: p0=0.01, pt=0.05, alpha=beta=0.05 => h1=h2=1.78 and s=0.025",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 7
+    },
+    {
+      "name": "SPRT OC and ASN functions",
+      "expression": "p(tau) = [1 - ((1-pt)/(1-p0))^tau] / [ (pt/p0)^tau - ((1-pt)/(1-p0))^tau ];  ASN(p) = { [OC(p)*log(beta/(1-alpha)) + (1-OC(p))*log((1-beta)/alpha)] / [p*log(pt/p0) + (1-p)*log((1-pt)/(1-p0))]  if p != s ;  h1*h2/(s*(1-s))  if p = s };  OC(p(tau)) = [ ((1-beta)/alpha)^tau - 1 ] / [ ((1-beta)/alpha)^tau - (beta/(1-alpha))^tau ]",
+      "symbols": {"tau": "parameter indexing points on the OC curve (tau=-infinity: p(tau)=1; tau=-1: p(tau)=pt; tau=0: p(tau)=s in [p0,pt]; tau=1: p(tau)=p0; tau=+infinity: p(tau)=0)"},
+      "conditions": "given without proof; verifiable by simulation with the course's R-function OC_SPRT.TXT",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 8
+    },
+    {
+      "name": "Single sampling plan for variables - inspection statistic and OC curve",
+      "expression": "Q = (Xbar - xi)/s;  accept the lot if Q >= k  <=>  Xbar - k*s >= xi;  OC(p) ~= 1 - Phi( (z_p+k)*sqrt(n) / (1+k^2/2)^(1/2) )",
+      "symbols": {"Xbar": "sample mean", "s": "sample standard deviation", "xi": "lower specification limit", "k": "acceptance constant (counterpart of c for attribute plans)", "z_p": "standard-normal quantile for fraction defective p", "n": "sample size", "Phi": "standard normal c.d.f."},
+      "conditions": "lot acceptable if p <= AQL = p0 <=> xi <= X_p0; given n, k can be found so that OC(AQL=p0) = 1-alpha: k ~= t(1-alpha,p0,n)",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 9
+    },
+    {
+      "name": "Variable sampling plan: k and n from AQL and LQL",
+      "expression": "k = (z_pt*z_alpha + z_p0*z_beta) / (z_(1-alpha) + z_(1-beta));  n = (z_(1-alpha)+z_(1-beta))^2 * (1+k^2/2) / (z_pt - z_p0)^2",
+      "symbols": {"p0": "AQL", "pt": "LQL", "alpha": "producer's risk (OC(AQL=p0)=1-alpha)", "beta": "consumer's risk (OC(LQL=pt)=beta)"},
+      "conditions": "derivation left as an exercise; worked example: (p0=0.5%, 1-alpha=95%) and (pt=3.5%, beta=5%) => k=2.1939, n=64",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 9
+    },
+    {
+      "name": "Variable-sampling k-factor t(alpha,beta,n) (main-deck derivation)",
+      "expression": "t(alpha,beta,n) = [ Z_(1-beta) + Z_(1-alpha)*sqrt( 1/n + Z^2_(1-beta)/(2n) - Z^2_(1-alpha)/(2n^2) ) ] / [ 1 - Z^2_(1-alpha)/(2n) ];  hence t(1-alpha,p0,n) = [ Z_(1-p0) + Z_alpha*sqrt( 1/n + Z^2_(1-p0)/(2n) - Z^2_alpha/(2n^2) ) ] / [ 1 - Z^2_alpha/(2n) ]",
+      "symbols": {"Z": "standard normal N(0,1) quantile"},
+      "conditions": "valid for sufficiently large n; used so that with probability 1-alpha at least a fraction 1-beta of the population is >= Xbar - k*s",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 27
+    },
+    {
+      "name": "Rectifying inspection: AOQ, AOQL, ATI",
+      "expression": "AOQ(p) = p*OC(p)*(1 - (n/N)*R_s*) ~= p*OC(p)  [for n<<N], with R_s* = H(c-1;N-1,[Np]-1,n-1) / H(c;N,[Np],n);  AOQL(p) = max_p AOQ(p);  ATI(p) = n*OC(p) + N*(1-OC(p))",
+      "symbols": {"AOQ": "Average Outgoing Quality", "AOQL": "Average Outgoing Quality Limit", "ATI": "Average Total Inspection effort"},
+      "conditions": "assumes non-destructive tests, defectives found are replaced by good ones, and rejected lots undergo full rectification (100% inspection with replacement); formula for R_s* assumes single-stage sampling",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 10
+    },
+    {
+      "name": "Skip-lot qualification probability (worked example)",
+      "expression": "P_q = B(3;640,p) * B^2(0;80,p)   (B = binomial c.d.f.)",
+      "symbols": {"P_q": "probability of qualifying for the skip-lot state", "p": "overall probability of producing a defective item"},
+      "conditions": "worked example: plan (80,2) on lots of size 1000, AQL=1%, assuming the last 10 lots were accepted; condition = first 8 samples have <=3 defectives total AND last two samples are defect-free",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 11
+    },
+    {
+      "name": "Deming's inspection criterion - total quality cost",
+      "expression": "TC = C1 + C2 + C3;  C1 = n*k1/q;  C2 = (N-n)*(1-Q)*k1/q;  C3 = (N-n)*p''*Q*k2;  TC = N*k1*[ 1/q + Q*(k2/k1)*(1-n/N)*(p'' - (k1/k2)*(1/q)) ]",
+      "symbols": {"n": "sample size", "N": "lot size", "q": "1-p", "k1": "unit inspection cost", "k2": "unit cost of an assembly failure (dismantle/repair/reassemble)", "Q": "probability of accepting a lot on average (= OC(p))", "p''": "average fraction defectives in lots passing inspection"},
+      "conditions": "parts delivered in lots of size N, single-stage attribute plan (n,Ac); rejected lots are screened and fully rectified; assumes k1 << k2",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 14
+    },
+    {
+      "name": "Deming's break-even rule",
+      "expression": "if p < k1/k2 then TC is minimal for n=0 (no inspection); if p > k1/k2 then TC is minimal for n=N (screening); k1/k2 is called the break-even quality",
+      "symbols": {},
+      "conditions": "proved via an R-function referenced as DEMING.TXT in the course; assumes the process is stable at percentage defectives p",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 15
+    },
+    {
+      "name": "Deming's model - Q and p'' as sums over the lot's defect count D",
+      "expression": "Q = OC(p) = SUM_{D=0}^{N} pi_D * beta_D ;  p'' = SUM_{D=0}^{N} (pi_D/beta_D) * SUM_{j=0}^{Ac} beta_j*(D-j)/(N-n)  >  SUM_{D=0}^{N} (pi_D/beta_D) * SUM_{j=0}^{Ac} beta_j*D/N = SUM_{D=0}^{N} pi_D*D/N = p",
+      "symbols": {"pi_D": "probability of exactly D defectives in the lot = binomial = b(D;N,p)", "beta_D": "probability of accepting a lot with D defectives = hypergeometric = H(Ac;N,D,n)"},
+      "conditions": "shown to demonstrate p'' > p, i.e. lots that pass inspection are on average worse than the incoming lot quality p; see course R-functions OC_SAI.TXT and OQ_SAI.TXT",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 15
+    }
+  ],
+  "worked_examples": [
+    {
+      "id": "S04-WE01",
+      "tool": "binomial-defectives-in-lot",
+      "given": {"N": "10000", "Cpk_case1": "1", "Cpk_case2": "1.33"},
+      "stated_answers": {"pi_case1 (fraction defective)": "0.27%", "E[i]_case1": "27 (range observed approx 12 to 44)", "pi_case2": "0.0063%", "E[i]_case2": "0.6", "P[i] formula": "P[i]=C_N^i*pi^i*(1-pi)^(N-i)", "note": "at Cpk=1.33 there will in practice never be more than 3 non-conform items in lots of size 10000"},
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 12,
+      "legible": true
+    },
+    {
+      "id": "S04-WE02",
+      "tool": "binomial-defectives-in-lot",
+      "given": {"data_ref": "20260529_ottoy_Acceptance Sampling.xlsm::defective probabilities!A3:K103 (N in F2=10000; rows 3-4 give the 3-sigma/4-sigma conform fraction, ppm, and the full P[i] table for i=0..100)"},
+      "stated_answers": {
+        "B3 (3sigma, P[-3<=Z<=3])": "0.9973002039367398",
+        "C3 (3sigma, 1-B3, fraction defective)": "0.002699796063260207",
+        "D3 (3sigma, ppm)": "2699.796063260207",
+        "B4 (4sigma, P[-4<=Z<=4])": "0.9999366575163338",
+        "C4 (4sigma, fraction defective)": "6.334248366623996e-05",
+        "D4 (4sigma, ppm)": "63.34248366623996",
+        "J1 (=SUM(F*G), E[i] for 3sigma)": "26.997960632599728",
+        "K1 (=SUM(F*H), E[i] for 4sigma)": "0.6334248366621309",
+        "G1 (sum of 3sigma P[i], i=0..100, check)": "0.9999999999999128",
+        "H1 (sum of 4sigma P[i], i=0..100, check)": "0.999999999999576"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.xlsm",
+      "page": 3,
+      "legible": true
+    },
+    {
+      "id": "S04-WE03",
+      "tool": "stratified-vs-srs-sampling-variance",
+      "given": {
+        "N": "10000 ceramic tiles, packed in boxes of 10, stacked on 10 palettes of 100 boxes",
+        "batches": "A: N_A=6000, W_A=0.6, pi_A=3%; B: N_B=4000, W_B=0.4, pi_B=0.5%",
+        "population pi": "W_A*pi_A + W_B*pi_B = 2%",
+        "sample size n": "100"
+      },
+      "stated_answers": {
+        "sigma^2 (per-item, population)": "0.0196",
+        "sigma_A^2": "0.0291",
+        "sigma_B^2": "0.004975",
+        "sigma^2[P_s] (pre-stratified estimator)": "0.000195",
+        "sigma^2[P] (SRS estimator)": "0.000196",
+        "optimal-stratification share of sample to stratum A": "78% (instead of the proportional 60%; stratum B correspondingly 22% instead of 40%)"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 18,
+      "legible": true
+    },
+    {
+      "id": "S04-WE04",
+      "tool": "stratified-vs-srs-mean-variance-normal",
+      "given": {
+        "mu_A": "10", "mu_B": "15", "sigma_S^2 (common within-stratum variance)": "4", "n": "100", "W_A": "1/2", "W_B": "1/2",
+        "xlsm_data_ref": "20260529_ottoy_Acceptance Sampling.xlsm::normal distribution!AT2:AV19 (chart data; AU column uses NORM.DIST(x,12.5,SQRT(0.1025),FALSE), AV column uses NORM.DIST(x,12.5,SQRT(0.04),FALSE))"
+      },
+      "stated_answers": {
+        "population mean (=W_A*mu_A+W_B*mu_B)": "12.5",
+        "variance parameter used for SRS Xbar in the xlsm chart (=sigma^2[Xbar])": "0.1025",
+        "variance parameter used for stratified Xbar_S in the xlsm chart (=sigma^2[Xbar_S]=sigma_S^2/n)": "0.04"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 19,
+      "legible": true
+    },
+    {
+      "id": "S04-WE05",
+      "tool": "lot-population-summary",
+      "given": {"data_ref": "20260529_ottoy_Acceptance Sampling.xlsm::lot fraction defectives!A2:H12 and A5:E10004 (10000-row fixed synthetic lot with columns Nr, Box, Palette, Batch, Defective)"},
+      "stated_answers": {
+        "B3 (=COUNT(A5:A10004), lot size N)": "10000",
+        "H5 (=SUMIF batch A defectives)": "180",
+        "H6 (=SUMIF batch B defectives)": "20",
+        "H7 (=H5+H6, total defectives in lot)": "200",
+        "H10 (=COUNTIF(batch=A)/B3, W_A)": "0.6",
+        "H11 (W_B)": "0.4",
+        "H12 (=H10+H11)": "1"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.xlsm",
+      "page": 4,
+      "legible": true
+    },
+    {
+      "id": "S04-WE06",
+      "tool": "stratified-vs-srs-sampling-variance",
+      "given": {
+        "E1 (N)": "10000", "E2 (N_A)": "6000", "E3 (N_B)": "4000", "E4 (pi_A)": "0.03", "E5 (pi_B)": "0.005", "E6 (n)": "100",
+        "data_ref": "20260529_ottoy_Acceptance Sampling.xlsm::sampling distribution!A12:W250 (exact hypergeometric/binomial d-distribution tables for SRS and pre-stratified sampling) and AG16:AU10016 (10000-run Monte Carlo simulation of a cluster sample: 2 palettes x 5 boxes, AJ11=2, AJ12=5, AJ13=100, AJ15=10000 runs)"
+      },
+      "stated_answers": {
+        "E7 (population pi, =(E2*E4+E3*E5)/E1)": "0.02",
+        "E8 (#defectives in lot, =E7*E1)": "200",
+        "E11 (# possible SRS samples, =COMBIN(E1,E6))": "6.520846924547251e+241",
+        "D15 (hypergeometric fraction for d=2, i.e. same fraction defective as the lot)": "0.27479016334973905",
+        "C15 (# hypergeometric samples with d=2)": "1.7918645915749876e+241",
+        "G44 (mean of P, SRS, =SUMPRODUCT(B13:B113,E13:E113))": "0.019999999999999945",
+        "G45 (variance of P, SRS, array formula =SUMPRODUCT(E13:E113,(B13:B113-$G$44)^2))": "0.00019599999999999942",
+        "Y47 (mean of P_s, pre-stratified, =SUMPRODUCT(V13:V33,W13:W33))": "0.019999999999999893",
+        "Y48 (variance of P_s, pre-stratified, array formula =SUMPRODUCT(W13:W33,(V13:V33-$Y$47)^2))": "0.00019449999999998388",
+        "AL33 (mean of cluster-sample MC estimate, =AVERAGE(AG17:AG10016)/100)": "0.019767",
+        "AL34 (variance of cluster-sample MC estimate, =VAR.P(AG17:AG10016)/10000)": "0.000267155711"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.xlsm",
+      "page": 5,
+      "legible": true
+    },
+    {
+      "id": "S04-WE07",
+      "tool": "cluster-sampling-oc",
+      "given": {
+        "lot": "N=10000 tiles, 10 palettes of 100 boxes of 10 tiles; extreme case: all 200 defectives concentrated in 20 boxes of a single palette",
+        "cluster plan": "2 palettes drawn at random, 5 boxes drawn at random from each (n=100)"
+      },
+      "stated_answers": {
+        "P[d=0] for a SRS of size 100 (from the sampling distribution on page 18/xlsm 'sampling distribution')": "13%",
+        "P[d_C=0] for the cluster sample": "86%",
+        "max defectives observable in the cluster sample": "50",
+        "max defectives observable in a SRS of size 100": "100"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 20,
+      "legible": true
+    },
+    {
+      "id": "S04-WE08",
+      "tool": "cluster-vs-srs-binomial",
+      "given": {"illustration": "lot of 20 boxes of 10 tiles each, stable process with fraction defective pi; SRS of size 20 vs cluster sample of 2 boxes (10 tiles each) fully inspected"},
+      "stated_answers": {
+        "SRS P[3 defectives]": "C_20^3*pi^3*(1-pi)^17 = 1140*pi^3*(1-pi)^17",
+        "cluster P[3 defectives]": "2*C_10^0*pi^0*(1-pi)^10*C_10^3*pi^3*(1-pi)^7 + 2*C_10^1*pi^1*(1-pi)^9*C_10^2*pi^2*(1-pi)^8 = 2*(C_10^3+10*C_10^2)*pi^3*(1-pi)^17 = 1140*pi^3*(1-pi)^17 (identical to the SRS probability)"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 20,
+      "legible": true
+    },
+    {
+      "id": "S04-WE09",
+      "tool": "non-response-bias-example",
+      "given": {"SRS size": "100", "frame fraction defectives": "1%", "entire population fraction defectives": "4%"},
+      "stated_answers": {"average bias of the SRS drawn from the frame": "under-estimates the population fraction defectives by about 3% on average"},
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 22,
+      "legible": true
+    },
+    {
+      "id": "S04-WE10",
+      "tool": "sequential-sampling-sprt",
+      "given": {"plan": "sequential scheme (Ac*,Re*) shown in the SPRT-style chart on page 24 (limits calculated to obtain a desired OC)"},
+      "stated_answers": {"shortest path to reject": "3 steps", "shortest path to accept": "about 45 steps"},
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 24,
+      "legible": true
+    },
+    {
+      "id": "S04-WE11",
+      "tool": "sampling-plan-equivalence-workload",
+      "given": {"single plan": "(175,8)", "double plan": "(90,2,7)+(90,8)", "sequential plan": "the (Ac*,Re*) scheme shown on page 24"},
+      "stated_answers": {"equivalence": "all three plans are stated to be equivalent (same risks / same OC-curve), and interchangeable for both producer and consumer", "workload note": "for an equivalent double plan the workload is either n1 (typically smaller than n) or n1+n2 (typically larger); a sequential plan is stated to be efficiency-optimal"},
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 25,
+      "legible": true
+    },
+    {
+      "id": "S04-WE12",
+      "tool": "single-sampling-plan-n-c",
+      "given": {"p1": "0.5%", "1-alpha (target OC at p1)": "95%", "p2": "3.5%", "beta (target OC at p2)": "5%", "method": "method of Peach: R0=p2/p1, look up R0 (or next larger tabled value) in the plan tables"},
+      "stated_answers": {"R0 (=p2/p1)": "7", "tabled value used": "7.7", "c": "2", "n": "164", "approx. confirming chart plan": "(160,2)"},
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 4,
+      "legible": true
+    },
+    {
+      "id": "S04-WE13",
+      "tool": "double-sampling-plan-n1c1c2n2c3",
+      "given": {"target OC points": "(0.5%, 95%) and (3.5%, 5%)", "method": "method of Peach with n1=n2", "comparison single plan": "(164,2)"},
+      "stated_answers": {},
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 5,
+      "legible": true
+    },
+    {
+      "id": "S04-WE14",
+      "tool": "sequential-sampling-sprt",
+      "given": {"p0": "0.01", "pt": "0.05", "alpha": "0.05", "beta": "0.05"},
+      "stated_answers": {"h1": "1.78", "h2": "1.78", "s": "0.025"},
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 7,
+      "legible": true
+    },
+    {
+      "id": "S04-WE15",
+      "tool": "sequential-sampling-sprt",
+      "given": {"p0": "0.005", "pt": "3.5%", "alpha": "0.05", "beta": "0.05", "comparable single-plan sample size (method of Peach)": "164"},
+      "stated_answers": {"comparable single-plan n": "164", "ASN(p) chart shape": "the ASN(p) curve for this SPRT rises from about 100 near p=0, peaks at roughly 150 around p in the 0.01-0.02 range, then decreases toward about 40 near p=0.05 (read off the printed chart, not printed as exact numbers)"},
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 8,
+      "legible": true
+    },
+    {
+      "id": "S04-WE16",
+      "tool": "variable-sampling-plan",
+      "given": {"p0 (AQL)": "0.5%", "1-alpha": "95%", "pt (LQL)": "3.5%", "beta": "5%"},
+      "stated_answers": {"k": "2.1939", "n": "64"},
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 9,
+      "legible": true
+    },
+    {
+      "id": "S04-WE17",
+      "tool": "variable-sampling-plan",
+      "given": {"C3 (mu, lot distribution)": "10", "C4 (sigma, lot distribution)": "2", "F3 (n, sample size)": "10", "I3 (alpha)": "0.05", "C13 (p0, AQL)": "0.02", "I7 (k, manually set)": "2"},
+      "stated_answers": {
+        "C14 (Xp0 = xi = NORM.INV(p0,mu,sigma))": "5.892502178736355",
+        "C10 (p = NORM.DIST(xi,mu,sigma,TRUE), should equal p0)": "0.020000000000000014",
+        "I6 (t(1-alpha,p0,n) computed from the formula)": "1.337756376972078",
+        "F4 (Xbar of one random draw of n=10 items, NORM.INV(RAND(),mu,sigma))": "10.372944440560392",
+        "F5 (s, sample st.dev. of that draw)": "2.336766783402397",
+        "F6 (Q = (Xbar-xi)/s)": "1.9173681745426",
+        "I9 (Accept: Q>=k ?)": "NO",
+        "C17 (lot acceptance probability, based on a stored 100-run Monte Carlo)": "0.61"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.xlsm",
+      "page": 6,
+      "legible": true
+    },
+    {
+      "id": "S04-WE18",
+      "tool": "aoq-aoql",
+      "given": {"plan": "(250,5)", "N": "1000"},
+      "stated_answers": {"AOQL": "approximately 1.3%", "original % defectives at which AOQL occurs": "approximately 1.8%"},
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 10,
+      "legible": true
+    },
+    {
+      "id": "S04-WE19",
+      "tool": "skip-lot-sampling",
+      "given": {"plan": "(80,2)", "N": "1000", "AQL": "1%", "condition": "assuming the last 10 lots were accepted"},
+      "stated_answers": {
+        "table 9.16 condition (K&Z table)": "cumulative number of defectives over the 10 samples (800 items) should be smaller than 4",
+        "table 9.17 condition (K&Z table)": "the last two lots should be free of defectives",
+        "combined condition": "the first 8 samples should have no more than 3 defectives, and the last two should be free of defectives",
+        "P_q at p=AQL=1%": "2.4%",
+        "P_q at p=AQL/10=0.1%": "85%"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 11,
+      "legible": true
+    },
+    {
+      "id": "S04-WE20",
+      "tool": "iso2859-lookup",
+      "given": {"lot size": "1000", "inspection level": "II", "severity": "normal", "AQL": "1%", "procedure": "single sampling"},
+      "stated_answers": {"SSCL (Sample Size Code Letter)": "J", "plan (n,c)": "(80,2)"},
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 12,
+      "legible": true
+    },
+    {
+      "id": "S04-WE21",
+      "tool": "single-sampling-plan-n-c",
+      "given": {"target": "lots with 2% defectives should have acceptance probability 95%; lots with 4% defectives should have acceptance probability 5%", "instructions": "construct a single-stage plan, then a double plan giving the same protection, compare OC-curves, find P(accept) and P(reject) after the first sample of the double plan at p=3%, and compare inspection cost"},
+      "stated_answers": {},
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 17,
+      "legible": true
+    },
+    {
+      "id": "S04-WE22",
+      "tool": "single-sampling-plan-n-c",
+      "given": {"plan A": "(56,0)", "plan B": "(95,1)", "note printed": "both plans have the same LQL(*) value (percentage defectives with acceptance probability of 10%)", "described (non-standard) practice": "lots are normally inspected with plan (56,0); if exactly 1 defective is found, 39 extra items are tested; if all 39 are conforming, the lot is accepted after all (95 items tested, 1 defective total)"},
+      "stated_answers": {},
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 17,
+      "legible": true
+    }
+  ],
+  "conventions": [
+    {
+      "topic": "AQL / LQL (LTPD) definitions",
+      "as_stated": "AQL : acceptable quality level - should normally pass the inspection. LQL : limiting quality level (LTPD : lot tolerance percent defectives) - should normally be rejected. (Further Reading, p.2: 'Acceptable quality is described by the number AQL (acceptable quality level), while unacceptable quality is described by the number LQL (limiting quality level, synonym : LTPD = lot tolerance percent defectives). AQL and LQL should be agreed upon by both the parties involved.')",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 23
+    },
+    {
+      "topic": "Producer's risk and consumer's risk definitions",
+      "as_stated": "Main deck diagram (p.23): 'Producer's risk : risk of rejecting a good lot. Consumer's risk : risk of accepting a good lot.' Further Reading (p.2) states it more precisely: 'producer's risk (risk of rejecting a lot of good quality = type-I error) and consumer's risk (risk of accepting a lot of bad quality = type-II error).'",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 23
+    },
+    {
+      "topic": "Default alpha/beta for constructing an (n,c) plan from AQL and LQL (Peach method)",
+      "as_stated": "AQL = p such that OC(p) = 1 - alpha (= 95 %). LQL = p such that OC(p) = beta (= 10 %). 'normally alpha = 5%... In the same way for the LQL (LTPD), normally taken beta = 10%.'",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 4
+    },
+    {
+      "topic": "Distribution used for the OC-curve of attribute sampling plans",
+      "as_stated": "OC(p) = P(X<=c|p) = H(c;N,Mp,n) with Mp=[Np]; 'H = the hypergeometric c.d.f.' For SPRT: '(For binomial distribution instead of hypergeometric, OK if lot size is large compared to sample size.)'",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 4
+    },
+    {
+      "topic": "Rectifying inspection definitions (AOQ, AOQL, ATI)",
+      "as_stated": "AOQ(p) = pOC(p)(1-(n/N)Rs*) ~= pOC(p) for n<<N; 'AOQ = Average Outgoing Quality... The maximum value of the AOQ-curve is called the Average Outgoing Quality Limit (AOQL).' 'ATI stands for the Average Total Inspection effort to be made.'",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 10
+    },
+    {
+      "topic": "Excel functions used in the acceptance-sampling workbook",
+      "as_stated": "Cells use (with the openpyxl-visible _xlfn. prefix for post-2007 functions): _xlfn.NORM.DIST, _xlfn.NORM.INV, _xlfn.EXPON.DIST, _xlfn.HYPGEOM.DIST, _xlfn.RANK.EQ, _xlfn.STDEV.S, _xlfn.VAR.P, plus legacy COMBIN, RAND, SUMIF, SUMPRODUCT, VLOOKUP/HLOOKUP.",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.xlsm",
+      "page": 5
+    },
+    {
+      "topic": "Variable sampling plan: k factor and sigma known/unknown",
+      "as_stated": "'k is the counterpart of c for a single attributive plan'; the workbook and slides compute s as the sample standard deviation (sigma unknown, estimated from the sample: s = sqrt( 1/(n-1) * SUM(Xi-Xbar)^2 )), and set k ~= t(1-alpha,p0,n).",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 27
+    },
+    {
+      "topic": "sigma estimate used for process capability (Cpk)",
+      "as_stated": "'the actual measurements are taken from a limited process time intervals, i.e., mu and sigma are based on so-called within subgroup calculations. This will be further explained in the section on SPC.'",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 10
+    },
+    {
+      "topic": "Standards referenced for acceptance sampling",
+      "as_stated": "'Acceptance sampling plans can be found in the ISO-standards 2859 (attributes) and 3951 (variables). These standards have evolved out of the MIL-STD-105 which in turn resulted out of the pioneering work by Harold Dodge and Harry Romig at Bell Labs in the 1920's.' Further Reading p.12 adds: ISO2859 indexes plans by lot size, inspection level (I/II/III), AQL -> Sample Size Code Letter (SSCL) -> sampling plan; severity states normal/tightened/reduced with formal transition rules; sampling procedure can be single/double/multiple/sequential.",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 23
+    },
+    {
+      "topic": "Skip-lot sampling plan (SLSP) state-transition rules",
+      "as_stated": "Qualification: supplier has a stable manufacturing organisation, continuous production and a certified quality management system, AND 10 consecutive lots are accepted, AND the total number of defective items from the 10 samples is smaller than a given critical level (K&Z table 9.16 p.315), AND the number of defectives in each of the last two lots is smaller than a given critical level (K&Z table 9.17 p.316). Interruption: the number of defectives in a sample is equal to or larger than a given critical level (table 9.17 p.316). Resumption: 4 consecutive lots are accepted AND the number of defectives in each of the last two lots is strictly smaller than a given critical level. Disqualification: the supplier violates the qualification criteria OR within 10 consecutive lots, 2 lots are rejected. Skip-lot inspection probability starts at 0.5, then increases to 0.66(=2/3) and eventually 0.8(=4/5) as quality remains good (diagram shows the complementary inspection probabilities 0.5 -> 0.33 -> 0.2).",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 11
+    },
+    {
+      "topic": "Deming's inspection-cost model assumption",
+      "as_stated": "'If the process is stable at a given percentage of defectives, then either no inspection or 100% inspection is cost optimal. Deming's assumption is that the production process is stable. Sampling plans do not make this assumption and are designed for catching shifts in process levels.'",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 15
+    },
+    {
+      "topic": "Rounding of n and c (Peach method table lookup)",
+      "as_stated": "'Form R0 = p2/p1 and look for R0 in the table. When the value cannot be found, look for the next larger tabled value.' Example: R0=7 -> tabled value 7.7 used -> c=2, n=164 (approximately confirmed against a chart plan of (160,2)).",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 4
+    }
+  ],
+  "ambiguities": [
+    {
+      "issue": "Further Reading p.4 states the default convention for constructing a plan from AQL/LQL as OC(p)=beta with beta='10%' by default, but every worked numeric example that uses this method in the same document (pages 4, 5, 7, 8, 9) and the exercise on page 17 actually uses beta=5% (e.g. target points '(0.5%,95%)' and '(3.5%,5%)'). The course does not reconcile the stated default (10%) with the beta=5% used throughout its own examples.",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 4
+    },
+    {
+      "issue": "Main-deck diagram on p.23 states 'Consumer's risk : risk of accepting a good lot', which appears to be a typo for 'a bad lot' (it should be the mirror image of producer's risk). The Further Reading document (p.2) gives the standard, non-contradictory definition: 'consumer's risk (risk of accepting a lot of bad quality = type-II error)'. Transcribed exactly as printed in both places.",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 23
+    },
+    {
+      "issue": "The double-sampling OC(p) formula on Further Reading p.5 reads 'OC(p) = H(c1;H,Mp,n1) + ...', i.e. the first argument list of H(.) uses the letter 'H' as the population-size argument, instead of 'N' as used consistently everywhere else on the same page (e.g. the Pi(p) formula immediately below: H(c1;N,Mp,n1)). This looks like a printing/typesetting error; transcribed exactly as printed.",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 5
+    },
+    {
+      "issue": "Main-deck p.16 body text mixes decimal separators within the same paragraph: 'roughly 1.8x10^241' and '4.3x10^17' are printed with a period as decimal separator, while 'about 9,05x10^58' and 'around 1,4x10^-183' are printed with a comma as decimal separator. Transcribed exactly as printed; readers should not interpret the comma as a thousands separator.",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 16
+    },
+    {
+      "issue": "Further Reading p.11 prints 'ALQ = 1 %' where the surrounding text and the rest of the document consistently use 'AQL'. Transcribed exactly as printed (likely a typo for AQL).",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 11
+    },
+    {
+      "issue": "Further Reading p.8: the ASN(p) chart for the SPRT worked example (p0=0.005, pt=3.5%, alpha=beta=5%) shows a curve peaking at roughly 150 near p in the 0.01-0.02 range; these values were read off a printed chart (no axis gridline lines up exactly with the peak) rather than given as exact printed numbers, so the precision of 'peak ~150 near p~0.01-0.02' is uncertain.",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 8
+    },
+    {
+      "issue": "xlsm sheet 'variable sampling plan': the sample data (F8:F17), the resulting Xbar/s/Q (F4:F6) and the accept/reject decision (I9) are driven by =NORM.INV(RAND(),mu,sigma) and recompute on every recalculation (F9) or file open. The values captured in worked example S04-WE17 (e.g. Xbar=10.372944440560392) are therefore a single non-reproducible snapshot of the live tool, not a fixed course-stated worked example; only C17=0.61 (labeled 'Based on 100 runs') is a stored (non-live) result.",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.xlsm",
+      "page": 6
+    },
+    {
+      "issue": "xlsm sheets 'lot fraction defectives' and 'sampling distribution' contain large blocks of live =RAND()-driven formulas (the SRS/pre-stratified/cluster sample columns, and the 10000-row Monte Carlo simulation) that recompute on every recalculation. Per task instructions these raw ~10000-row simulations were not transcribed; only the fixed lot-population columns and the specific summary cells cited in worked examples S04-WE05/WE06 were recorded, and those summary cells (e.g. AL33/AL34 mean/variance of the cluster-sample Monte Carlo) will differ slightly on every recalculation of the workbook.",
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.xlsm",
+      "page": 5
+    }
+  ]
+}

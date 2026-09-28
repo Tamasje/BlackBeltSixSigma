@@ -1,0 +1,6000 @@
+[
+  {
+    "topic": "Intro / warming-up (vakantie, luchthavens experiment, 'Twee keer raden' krantenartikel over wisdom of crowds)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      1,
+      2,
+      4,
+      5
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "Wat is Six Sigma (definitie, 68-95-99.7 rule, DPMO/yield tabel)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      3,
+      6,
+      7,
+      8
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "De DMAIC fasen (overzicht, stage-gate structuur, communicatie in DMAIC)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      9,
+      28,
+      58,
+      152
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "Lean principes: valueflow, 3 M's (Mura/Muda/Muri), waste, flow efficiency, Little's law, wet van de bottlenecks, wet van het effect van variatie",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "Lean & Six Sigma combinatie (waste vs variatie)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      19
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "Agile DMAIC vs traditionele DMAIC",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      20
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "Design for Six Sigma (DMADV) vs Six Sigma (DMAIC)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      21
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "Six Sigma organisatie & belt-structuur (Champion, Sponsor, Black Belt, Green Belt, White Belt)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      22,
+      23,
+      24,
+      25,
+      26,
+      27
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "Waarom veranderen / kost van niet-kwaliteit (iceberg, 15-20% van omzet)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      30,
+      31,
+      51,
+      52
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "Kwaliteitsdenken (kwaliteit is..., waarom verbeteren, soorten aanpak/problemen, verbetering en borging, de verborgen fabriek, PDCA/continu verbeteren)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "Define: het probleem stellen (probleemdefinitie, focus, olifant-metafoor, voorbeelden gefocuste probleemdefinities, doorlooptijden voorbeeld)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "Overtuigen / sense of urgency (Ethos-Logos-Pathos, argument strategy vs DMAIC, understanding the reality)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      53,
+      54,
+      55,
+      56
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "Define fase structuur: create shared need / define wanted position / mobilize commitment; sponsor key success factors",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      57,
+      74
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "Doelstellingen: SMART, goal setting criteria, building/creating een goal statement, 'more than one' targets",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      59,
+      60,
+      61,
+      62,
+      63
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "One-slider / business case template en business case berekeningen (investeringen, cost savings, cost avoidance, break-even)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      64,
+      147,
+      148,
+      149
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "Strategie-alignering: strategy development & alignment, KPI-cascade naar DMAIC-projecten",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      65,
+      66,
+      67
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "Voice of the Customer (VOC) en Critical to Quality (CTQ) tree",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      68,
+      69,
+      70,
+      71
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "De juiste DMAIC-projecten kiezen; 'funneling' van de Xs doorheen DMAIC; projectduur GB/BB",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      72,
+      73
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "Measure fase: data, as-is proces begrijpen/meten, waar te beginnen (CtQ tree, initiële data, Ishikawa, procesmapping), kwalitatieve vs kwantitatieve data",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      75,
+      76,
+      77,
+      78,
+      79,
+      80
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "Datatypes: categorisch/numeriek (discreet/continu) en de vier meetschalen (nominaal/ordinaal/interval/ratio), oefenvraag meetniveau",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      81,
+      82,
+      83,
+      84
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "Datageletterdheid & kritisch denken: misleidende as, survivorship bias, confounding/correlatie vs causaliteit, Simpson's paradox, relatief vs absoluut risico, Goodhart's Law, checklist kritisch denken",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "Data-literacy oefening: 'welk dorp moet steun krijgen' (village income, gemiddelde vs verdeling)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      95,
+      96,
+      97,
+      98,
+      99
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "Conclusies trekken op basis van data (rapportage-voorbeeld % kinderen op reis zonder ouders)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      100
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "Extra leesmateriaal: levensverwachting (De Standaard), wet van Benford (De Morgen)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      101,
+      102,
+      103
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "Data verzamelen: 5W+1H, data collection plan",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      104,
+      106
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "Statistiek versus probabiliteit; probabilistisch model; random variabelen, distributies, histogram; random variatie in systemen",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      105,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "Industriële statistiek vs beschrijvende statistiek; de ingenieursmethode; voorbeeld lichtfilamenten",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      117,
+      118,
+      119,
+      120
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "Overzicht toegepaste/industriële statistiek (distributies, steekproefdistributies, BI, hypothesetesten, regressie, ANOVA, SPC, AS, DOE, MSA)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      121
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "Praktijkvoorbeelden die toegepaste statistiek vereisen: acceptance sampling, DOE, hypothesetest (methode A/B), life test/betrouwbaarheid, capability/SPC",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      122,
+      123,
+      124,
+      125,
+      126,
+      127
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "Steekproeven: begrippen (aselecte steekproef, statistiek), waarom/wanneer steekproeven nemen",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      128,
+      129
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "Parameters/statistieken van steekproeven: locatieparameters (gemiddelde, modus, mediaan) en spreidingsparameters (standaardafwijking, range)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      130,
+      131
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "Exploratory Data Analysis (EDA): definitie, Anscombe's quartet voorbeeld, verschil EDA vs klassieke data-analyse, Bayesiaanse data-analyse, 4-plot en interpretatie, gevolgen niet voldoen aan assumpties, belang voor modelvalidatie",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      132,
+      133,
+      134,
+      135,
+      136,
+      137,
+      138,
+      139,
+      140,
+      141,
+      142,
+      143,
+      144,
+      145
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "Stakeholdermanagement: stakeholder map, strategie voor stakeholders",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      150,
+      151
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "Teamvorming: wie heb je nodig, high performing team, Belbin teamrollen (people/thinking/action), team journey (forming-storming-norming-performing-adjourning)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      153,
+      154,
+      155,
+      156,
+      157,
+      158,
+      159
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "Verandermanagement: stappen in leiden van verandering (Insight-Prepare-Act-Reinforce), risico-matrix voor verandering, IPAR-reflectietabel",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260521_van volsem.pdf",
+    "pages": [
+      160,
+      161,
+      162
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "Associatie en interventie - titel en overzicht (Deel 1 Associatie, Deel 2 Interventie)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260522_naert_big data.pdf",
+    "pages": [
+      1,
+      2
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Data als grondstof voor inzicht; drie databronnen in de industrie; kansverdelingen visualiseren (pdf, cdf)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260522_naert_big data.pdf",
+    "pages": [
+      3,
+      4,
+      5
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Normale verdeling; niet-normale verdelingen (exponentieel voor wachttijden, beta voor afkeurcijfers, Poisson voor aantal klachten)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260522_naert_big data.pdf",
+    "pages": [
+      6,
+      7
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Sampling versus inference; inference als voorspelling (Poisson voorbeeld klantenstromen)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260522_naert_big data.pdf",
+    "pages": [
+      8,
+      9,
+      10
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Meerdimensionale data; kracht van associatie; multivariate normale verdeling; gemengde continu x discreet verdeling",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260522_naert_big data.pdf",
+    "pages": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Marginale kansverdeling",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260522_naert_big data.pdf",
+    "pages": [
+      17,
+      18
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Onafhankelijkheid van variabelen; drie equivalente uitdrukkingen; intuitie m/v-voorbeeld",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260522_naert_big data.pdf",
+    "pages": [
+      19,
+      22,
+      23
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Voorwaardelijke kansverdeling (visueel en formule)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260522_naert_big data.pdf",
+    "pages": [
+      20,
+      21
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Oefening productiekwaliteit: marginale en voorwaardelijke kansen berekenen (twee productielijnen)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260522_naert_big data.pdf",
+    "pages": [
+      24,
+      25
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Voorwaardelijke verwachtingswaarde E[Y|X] als regressielijn; link met supervised ML",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260522_naert_big data.pdf",
+    "pages": [
+      26,
+      27
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Van zien naar doen: ladder van causaliteit (Judea Pearl: association, intervention, counterfactuals)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260522_naert_big data.pdf",
+    "pages": [
+      28,
+      29
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Voorbeeld fabriek en carcinogene stof: observatie vs verwacht effect vs werkelijkheid na interventie; ijsverkoop/reddingsacties (confounder warm weer)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260522_naert_big data.pdf",
+    "pages": [
+      30,
+      31,
+      32,
+      33,
+      34,
+      35
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "PINO-principe (Prediction Is Not Optimization, cum hoc ergo propter hoc); Simpson's paradox en de confounder",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260522_naert_big data.pdf",
+    "pages": [
+      36,
+      37,
+      38,
+      39
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Associatie vs interventie: P(Y|X=x) versus P(Y|do(X=x))",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260522_naert_big data.pdf",
+    "pages": [
+      40
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Causale diagrammen (DAG): definitie, voorbeeld epidemiologisch model, interventie = verwijderen inkomende pijlen, directe/mediator/omgekeerde/confounder-structuren, voorbeeld koper legeren in staal met do(Cu=x)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260522_naert_big data.pdf",
+    "pages": [
+      41,
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Randomisatie: RCT als gouden standaard; DAG zonder/met randomisatie; A/B-testen in e-commerce; grenzen van randomisatie (ethisch, praktisch, financieel)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260522_naert_big data.pdf",
+    "pages": [
+      47,
+      48,
+      49,
+      50,
+      51
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Methoden voor causale statistiek: do-calculus en overzicht (matching/propensity, instrumentele variabelen, difference-in-differences, regression discontinuity, SEM)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260522_naert_big data.pdf",
+    "pages": [
+      52
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Praktijkvoorbeeld: koelt warm staal sneller af dan koud staal? Causaal model met meetfout, regression dilution / attenuation bias",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260522_naert_big data.pdf",
+    "pages": [
+      53,
+      54,
+      55,
+      56,
+      57
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Studiewijzer en verder lezen (Les 1): The Book of Why",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20260522_naert_big data.pdf",
+    "pages": [
+      58,
+      59
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Table of Contents (LMS listing only, geen inhoudelijke content)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/Table of Contents.html",
+    "pages": [
+      1
+    ],
+    "slice": "S01"
+  },
+  {
+    "topic": "Terminologie: AI/ML/DL/Data Science/Big Data; drie leerparadigma's (supervised, unsupervised, reinforcement); regressie vs classificatie; voorbeelden",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_naert.pdf",
+    "pages": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Loss-functies: basisvorm, MSE, MAE, Huber loss, cross-entropy; loss als modelleringskeuze",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_naert.pdf",
+    "pages": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Modellen en gewichten: wat is een model, voorbeelden (lineaire regressie, neuraal netwerk, beslissingsboom), trainen = optimaliseren, parameters vs hyperparameters",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_naert.pdf",
+    "pages": [
+      15,
+      16,
+      17,
+      18
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Cross-validatie: train-test splitsing, validatieset, k-voudige cross-validatie",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_naert.pdf",
+    "pages": [
+      19,
+      20,
+      21
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Underfitting en overfitting: drie scenario's, U-vormige bias-variance curve",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_naert.pdf",
+    "pages": [
+      22,
+      23,
+      24
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Bias-variance trade-off: theoretische decompositie, visuele decompositie, analogie met SPC (doelschijf)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_naert.pdf",
+    "pages": [
+      25,
+      26,
+      27,
+      28
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Confusion matrix: multi-klasse voorbeeld, 2x2 matrix, vier metrics (accuracy, recall, precision, F1), keuze van metric als domeinbeslissing",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_naert.pdf",
+    "pages": [
+      29,
+      30,
+      31,
+      32
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Lineaire regressie en uitbreidingen (Ridge, Lasso, Elastic Net, quantielregressie, Deming, logistisch, GLM)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_naert.pdf",
+    "pages": [
+      33,
+      34,
+      35
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Neurale netwerken: enkelvoudig neuron, lagen stapelen (deep learning), hoe een netwerk leert (backpropagation), universele approximatiestelling, overfitting-risico en regularisatie, architectuurvarianten (MLP, CNN, RNN/LSTM, Transformer, Autoencoder), wanneer wel/niet geschikt",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_naert.pdf",
+    "pages": [
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Boom-gebaseerde methoden: beslissingsbomen (voor- en nadelen), ensemble-methoden (Random Forest, Gradient Boosting, AdaBoost)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_naert.pdf",
+    "pages": [
+      43,
+      44,
+      45,
+      46
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Unsupervised methoden: clustering (K-means, hiërarchisch, DBSCAN), dimensiereductie (PCA, t-SNE/UMAP), anomaliedetectie (Isolation Forest, Autoencoder, One-class SVM)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_naert.pdf",
+    "pages": [
+      47,
+      48,
+      49,
+      50
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Bayesiaanse methoden: frequentistische vs Bayesiaanse filosofie, regel van Bayes (prior/likelihood/posterior), Bayesiaans netwerk, MCMC in de praktijk (PyMC/Stan), wanneer Bayesiaans (beperkt aantal observaties, domeinkennis)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_naert.pdf",
+    "pages": [
+      51,
+      52,
+      53,
+      54,
+      55
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Studiewijzer en verder lezen (Les 2): An Introduction to Statistical Learning, Hands-On Machine Learning, Probabilistic Machine Learning",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_naert.pdf",
+    "pages": [
+      56,
+      57
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "The acceptance sampling procedure: AQL, LQL/LTPD, producer's and consumer's risk",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+    "pages": [
+      2
+    ],
+    "slice": "S04"
+  },
+  {
+    "topic": "Single-stage sampling plans for attributes (definitions, OC(p), AQL/LQL via OC)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+    "pages": [
+      4
+    ],
+    "slice": "S04"
+  },
+  {
+    "topic": "Double sampling plans for attributes (OC, Pi(p), ASN)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+    "pages": [
+      5
+    ],
+    "slice": "S04"
+  },
+  {
+    "topic": "Sequential sampling for attributes: Wald SPRT (likelihood ratio, accept/reject boundaries, OC and ASN)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+    "pages": [
+      6,
+      7,
+      8
+    ],
+    "slice": "S04"
+  },
+  {
+    "topic": "Sampling plans for variables: (n,k), computation of k and n",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+    "pages": [
+      9
+    ],
+    "slice": "S04"
+  },
+  {
+    "topic": "Rectifying inspection: AOQ, AOQL, ATI",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+    "pages": [
+      10
+    ],
+    "slice": "S04"
+  },
+  {
+    "topic": "Skip-lot sampling plans for attributes (qualification/interruption/resumption/disqualification states)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+    "pages": [
+      11
+    ],
+    "slice": "S04"
+  },
+  {
+    "topic": "International standards - sampling systems: ISO2859 (attributes), ISO3951 (variables), MIL-STD-105 lineage",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+    "pages": [
+      12
+    ],
+    "slice": "S04"
+  },
+  {
+    "topic": "Deming's inspection criterion: total quality cost model, break-even quality",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+    "pages": [
+      13,
+      14,
+      15
+    ],
+    "slice": "S04"
+  },
+  {
+    "topic": "Certified quality provider / ship-to-stock agreements",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+    "pages": [
+      16
+    ],
+    "slice": "S04"
+  },
+  {
+    "topic": "Exercises: construction of sampling plans for attributes; inventive inspection; sample size vs lot size",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+    "pages": [
+      17,
+      18
+    ],
+    "slice": "S04"
+  },
+  {
+    "topic": "Quality definitions, the quality ladder, and Deming's system view of quality",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+    "pages": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "slice": "S04"
+  },
+  {
+    "topic": "Process variation, normal distribution, and process capability (Cpk)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+    "pages": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "slice": "S04"
+  },
+  {
+    "topic": "Necessity of lot sampling; the acceptance sampling procedure overview (introductory)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+    "pages": [
+      13,
+      14
+    ],
+    "slice": "S04"
+  },
+  {
+    "topic": "Case example: estimating lot fraction defectives by simple random sampling (SRS); hypergeometric/binomial sampling distribution",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+    "pages": [
+      15,
+      16
+    ],
+    "slice": "S04"
+  },
+  {
+    "topic": "Stratified sampling: proportional pre-stratification, post-stratification, optimal stratification",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+    "pages": [
+      17,
+      18,
+      19
+    ],
+    "slice": "S04"
+  },
+  {
+    "topic": "Cluster sampling",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+    "pages": [
+      20
+    ],
+    "slice": "S04"
+  },
+  {
+    "topic": "Systematic sampling, convenience sampling, non-response bias and representativity",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+    "pages": [
+      21,
+      22
+    ],
+    "slice": "S04"
+  },
+  {
+    "topic": "The acceptance sampling procedure: AQL, LQL/LTPD, producer's and consumer's risk",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+    "pages": [
+      23
+    ],
+    "slice": "S04"
+  },
+  {
+    "topic": "Sampling plans for attributes: single, double, sequential (Wald-Wolfowitz); risks and efficiency, OC-curve, ASN",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+    "pages": [
+      24,
+      25
+    ],
+    "slice": "S04"
+  },
+  {
+    "topic": "Sampling plans for one continuous quality characteristic with a single (lower) specification limit, single plan (n,k)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+    "pages": [
+      26,
+      27,
+      28
+    ],
+    "slice": "S04"
+  },
+  {
+    "topic": "Excel workbook: distributions demo (uniform, exponential, normal pdf) and a process-variation time series (chart source data, supports main deck page 9)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.xlsm",
+    "pages": [
+      1
+    ],
+    "slice": "S04"
+  },
+  {
+    "topic": "Excel workbook: normal pdf/cdf/inverse demo (NORM.DIST, NORM.INV) and two-strata Xbar-distribution chart data (supports main deck pages 10-11 and 19)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.xlsm",
+    "pages": [
+      2
+    ],
+    "slice": "S04"
+  },
+  {
+    "topic": "Excel workbook: process-capability binomial defectives-in-lot table for 3-sigma/4-sigma processes, N=10000 (supports main deck page 12)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.xlsm",
+    "pages": [
+      3
+    ],
+    "slice": "S04"
+  },
+  {
+    "topic": "Excel workbook: simulated lot of 10000 ceramic tiles (Nr/Box/Palette/Batch/Defective) with live SRS, pre-stratified and cluster-sample draw formulas (supports main deck pages 15-20)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.xlsm",
+    "pages": [
+      4
+    ],
+    "slice": "S04"
+  },
+  {
+    "topic": "Excel workbook: exact hypergeometric/binomial sampling-distribution tables for SRS and pre-stratified sampling, plus a 10000-run Monte Carlo cluster-sampling simulation with summary mean/variance (supports main deck pages 16-20)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.xlsm",
+    "pages": [
+      5
+    ],
+    "slice": "S04"
+  },
+  {
+    "topic": "Excel workbook: interactive single sampling plan for variables (n,k) with a 100-run Monte Carlo 'lot acceptance probability' button (supports main deck pages 26-28 and Further Reading page 9)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.xlsm",
+    "pages": [
+      6
+    ],
+    "slice": "S04"
+  },
+  {
+    "topic": "Betrouwbaarheidsinterval: probleem met puntschattingen, definitie en interpretatie (simulatie)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+    "pages": [
+      2,
+      3,
+      4
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Betrouwbaarheidsinterval voor mu - t-verdeling van Student (historiek, definitie, link met t-statistiek, robuustheid)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+    "pages": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Betrouwbaarheidsinterval voor mu1-mu2: paarsgewijze vs. niet-paarsgewijze vergelijking (theorie + cijfervoorbeeld schoenzolen)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+    "pages": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Betrouwbaarheidsinterval voor pi (proportie) - normale benadering en verwijzing naar exacte binomiale methode",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+    "pages": [
+      20
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Betrouwbaarheidsinterval voor sigma² (chi²-verdeling, asymmetrisch interval)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+    "pages": [
+      21
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Tolerantie-intervallen voor normale verdeling (dubbelzijdig/enkelzijdig, gekende en ongekende spreiding) en distributievrije tolerantie-intervallen",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+    "pages": [
+      22,
+      23
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Acceptance sampling case example motivating confidence intervals (lot of 10000 tiles, AQL=2%, n=100)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+    "pages": [
+      3,
+      4
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Confidence interval consistency of estimates vs point estimates (horseshoe-throwing analogy)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+    "pages": [
+      5
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Confidence vs accuracy trade-off for a given sample size; effect of increasing sample size",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+    "pages": [
+      6,
+      7
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Double sided CI - general function-inversion calculation principle",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+    "pages": [
+      8
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Double sided CI for the population mean - algebraic derivation via t-distribution",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+    "pages": [
+      9
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Double sided approximate CI for the population fraction defectives - normal approximation",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+    "pages": [
+      10
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "One sided CI - calculation principle",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+    "pages": [
+      11
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Confidence interval as alternative for classical hypothesis testing (test recipe using CI)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+    "pages": [
+      12
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Significance of a one-sided CI-based test",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+    "pages": [
+      13
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Equivalence of CI-based testing and classical testing - confirmation via OC-curve",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+    "pages": [
+      14
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Worked example: one-sided t-test for the mean via CI",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+    "pages": [
+      15
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Worked example: one-sided chi²-test for the standard deviation via CI",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+    "pages": [
+      16
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Excel simulation tool for CI of the mean (coverage demonstration, T.INV-based)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.xlsx",
+    "pages": [
+      1
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Excel: OC-curve computation for a (n,c) acceptance sampling plan via BINOM.DIST, incl. 3 confirmation points",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.xlsx",
+    "pages": [
+      2
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Excel: nomogram tables for CI of fraction defectives - exact binomial (BINOM.INV) and normal approximation (NORM.INV)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.xlsx",
+    "pages": [
+      3
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Excel: worked example one-sided t-test for the mean (CI-based)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.xlsx",
+    "pages": [
+      4
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Excel: worked example one-sided chi²-test for the standard deviation (CI-based)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.xlsx",
+    "pages": [
+      5
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Overzicht van specifieke hypothesetesten en algemene voorwaarden gekoppeld aan de testprocedure",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+    "pages": [
+      2,
+      3
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Testrecept: t-test voor mu",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+    "pages": [
+      4
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Testrecept: niet-paarsgewijze t-test voor mu1-mu2",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+    "pages": [
+      5,
+      6
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Testrecept: paarsgewijze t-test voor mu1-mu2",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+    "pages": [
+      7,
+      8
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Testrecept: Z-test voor pi",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+    "pages": [
+      9,
+      10
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Testrecept: chi²-test voor sigma",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+    "pages": [
+      11
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Intermezzo: de F-distributie (definitie, momenten, kritische waarden)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+    "pages": [
+      12
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Testrecept: F-test voor sigma1/sigma2",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+    "pages": [
+      13,
+      14
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Testrecept: chi²-test 'goodness of fit'",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+    "pages": [
+      15,
+      16,
+      17
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Testrecept: chi²-test 'contingency tables' (incl. Yates continuïteitscorrectie)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+    "pages": [
+      18,
+      19,
+      20
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Testrecept: Wilcoxon-Mann-Whitney-test",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+    "pages": [
+      21,
+      22
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Testrecept: Wilcoxon signed ranks-test",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+    "pages": [
+      23,
+      24
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Testrecept: runs-test (Wald-Wolfowitz-test)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+    "pages": [
+      25,
+      26
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Hoe werkt de testprocedure: mechanisme, type-I/II fouten, trade-off, effect van steekproefgrootte op beta, OC-curven, kracht (power/sensitiviteit)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses - Further Reading (Dutch).pdf",
+    "pages": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Recept eenzijdige test (met cijfervoorbeeld beeldbuizen mu0=1200)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses - Further Reading (Dutch).pdf",
+    "pages": [
+      10
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Beslissen op basis van de p-waarde",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses - Further Reading (Dutch).pdf",
+    "pages": [
+      11
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Eenzijdige test vs. dubbelzijdige test - verschillen, kracht, en recept dubbelzijdige test",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses - Further Reading (Dutch).pdf",
+    "pages": [
+      12,
+      13,
+      14
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Dubbelzijdige p-waarde",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses - Further Reading (Dutch).pdf",
+    "pages": [
+      15
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "De link tussen hypothesetoetsen en betrouwbaarheidsintervallen (algemeen en toegepast op pi, eenzijdig en dubbelzijdig)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses - Further Reading (Dutch).pdf",
+    "pages": [
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Valkuilen bij het toetsen van hypothesen",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses - Further Reading (Dutch).pdf",
+    "pages": [
+      21
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Oefening: Z-test voor pi (defectrate, n=400, d=10)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses - Further Reading (Dutch).pdf",
+    "pages": [
+      22
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Single sample acceptance sampling reformulated as a statistical hypothesis test (case example)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+    "pages": [
+      3
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Statistical testing errors: type-I and type-II error risk table, producer's/consumer's risk",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+    "pages": [
+      4
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Sampling distributions of the test statistic under H0 and HA",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+    "pages": [
+      5
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Setting the significance alpha (type-I risk) and the critical value",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+    "pages": [
+      6
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "The OC-curve of the test procedure; controlling beta given alpha via sample size",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+    "pages": [
+      7,
+      8
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Recapitulation - universal 7-step hypothesis testing procedure (one sided or two sided)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+    "pages": [
+      9
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "The notion of p-value",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+    "pages": [
+      10
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Pitfalls of statistical testing (setting alpha after the fact, accepting H0 as true, significance vs relevance, efficiency)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+    "pages": [
+      11
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Worked example: t-test for the mean",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+    "pages": [
+      12
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Worked example: chi²-test for the standard deviation",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+    "pages": [
+      13
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Excel: t vs Z density comparison data (chart source, T.DIST/NORM.DIST)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.xlsx",
+    "pages": [
+      1
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Excel: worked example t-test for the mean (classical hypothesis test)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.xlsx",
+    "pages": [
+      2
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Excel: chi² density comparison data (chart source, CHISQ.DIST)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.xlsx",
+    "pages": [
+      3
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Excel: worked example chi²-test for the standard deviation (classical hypothesis test)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.xlsx",
+    "pages": [
+      4
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Excel: F density comparison data (chart source, F.DIST)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.xlsx",
+    "pages": [
+      5
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Excel: sampling distribution of d (number of defectives) under H0 (P=2%) and HA (P=8%), n=100 - BINOM.DIST",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.xlsx",
+    "pages": [
+      6
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Excel: OC-curve (binomial) for (n=100,c=4) and (n=130,c=5) sampling plans",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.xlsx",
+    "pages": [
+      7
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "Excel: OC-curve (hypergeometric) - illustration of the 'big data fallacy trap', hypergeometric vs binomial",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.xlsx",
+    "pages": [
+      8
+    ],
+    "slice": "S03"
+  },
+  {
+    "topic": "One-way ANOVA: means model and effects model, hypotheses",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+    "pages": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "One-way ANOVA worked example: Paper Tensile Strength (Example 4.12, Table 4.4/4.7)",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+    "pages": [
+      4,
+      9,
+      10
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Residuals analysis / model adequacy checking (one-way ANOVA)",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+    "pages": [
+      11,
+      18,
+      19
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Post-hoc comparison of treatment means (graphical, Fisher's LSD)",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+    "pages": [
+      12,
+      19
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "One-way ANOVA worked example: synthetic fiber / cotton weight percentage (Table 3-1)",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+    "pages": [
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "One-way ANOVA worked example: three machines (Table 10-1)",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+    "pages": [
+      20
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Introduction to DOE: goals of modelling and experimenting, terminology (Dutch)",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+    "pages": [
+      21,
+      22,
+      23,
+      24
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Essential characteristics of a good experimental design; factorial design intro",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+    "pages": [
+      25,
+      26
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Advantages of full factorial experiments",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+    "pages": [
+      28
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Nuisance ('external') factors: blocking and randomisation",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+    "pages": [
+      29,
+      30,
+      31,
+      32,
+      33
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Illustrative example of confounding (chemical reaction: additive concentration vs reaction duration)",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+    "pages": [
+      34,
+      35,
+      36,
+      37,
+      38
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Planning, executing and analysing an experiment (7 steps)",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+    "pages": [
+      39
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Factorial experimental design: experimental units, runs, replications, balanced design",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+    "pages": [
+      40
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Factorial designs with several factors (golf experiment, 2/3/4-factor)",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+    "pages": [
+      41,
+      42,
+      43,
+      44
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Nuisance factors and confounding (definition)",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+    "pages": [
+      45
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Coding factor levels to -1/+1; design matrix (stacked vs unstacked); effect size definition",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+    "pages": [
+      46,
+      47,
+      48,
+      49,
+      50
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "2^2 factorial design: basic definitions, main effects, interaction",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+    "pages": [
+      51,
+      52,
+      53,
+      54
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "2^2 factorial design: effect estimates and contrasts, sums of squares",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+    "pages": [
+      55,
+      56,
+      57,
+      58
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "2^2 worked example: chemical process (reactant concentration x catalyst amount)",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+    "pages": [
+      59,
+      60,
+      61
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "2^3 factorial design: geometric view, design matrix, effects/interactions",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+    "pages": [
+      62,
+      63
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "2^k factorial design (k>=3): general effect estimate formulas for main effects and interactions",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+    "pages": [
+      64,
+      65,
+      66
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "2^k factorial design: contrasts, general effect and SS formulas",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+    "pages": [
+      66
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "2^k factorial design: standard error of effect and confidence interval on effect",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+    "pages": [
+      67,
+      68
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "2^3 worked example: surface finish quality (feed rate, depth of cut, tool angle)",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+    "pages": [
+      69,
+      70,
+      71
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Single replicate of 2^k design; sparsity-of-effects principle; pooling higher-order interactions",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+    "pages": [
+      72,
+      73,
+      74,
+      75,
+      76,
+      77
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Fractional replication: one-half fraction of 2^k, defining relation, aliases",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+    "pages": [
+      78,
+      79,
+      80,
+      81,
+      82
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Projection of fractional designs; design resolution (III, IV, V)",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+    "pages": [
+      83,
+      84,
+      85,
+      86
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Smaller fractions: 2^(k-p) design, design generators, complete defining relation, resolution",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+    "pages": [
+      87,
+      88,
+      89,
+      90,
+      91,
+      92
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Table 13.23: Selected 2^(k-p) fractional factorial designs (Montgomery reference table)",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+    "pages": [
+      93
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "DOE references",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+    "pages": [
+      94
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Introduction to empirical models; linear vs multiple regression model definition",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+    "pages": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Correlation vs causation; spurious/confounding relationships (Dutch slides)",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+    "pages": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Simple linear regression: assumed model, homoscedasticity",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+    "pages": [
+      16
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Least-squares estimation and normal equations (simple linear regression)",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+    "pages": [
+      17,
+      18,
+      19
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Simple linear regression worked example: oxygen purity vs hydrocarbon level (Example 11-1)",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+    "pages": [
+      20,
+      21,
+      22
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Analysis of variance for regression: SST = SSR + SSE, coefficient of determination R2",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+    "pages": [
+      23,
+      24,
+      25,
+      26,
+      27
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Inference on regression coefficients: t-tests for slope and intercept",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+    "pages": [
+      28,
+      29,
+      30,
+      31
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Significance of the regression: F-test",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+    "pages": [
+      32,
+      33
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Confidence intervals: slope, intercept, mean response",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+    "pages": [
+      34,
+      35,
+      36,
+      37
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Prediction interval for a future observation",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+    "pages": [
+      38,
+      39
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Checking model adequacy: residual plots, normal probability plot (simple regression)",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+    "pages": [
+      40,
+      41,
+      42,
+      43,
+      44
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Effect of outliers / influential observations",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+    "pages": [
+      45
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Multiple linear regression model (population and estimated response)",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+    "pages": [
+      46,
+      47,
+      48,
+      49
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Simple vs multiple regression compared: confounding of coefficients",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+    "pages": [
+      50
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Multiple regression worked example: oil consumption vs temperature & insulation (15 houses)",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+    "pages": [
+      51,
+      52,
+      53
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Explanatory power of multiple regression models: R2 and adjusted R2",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+    "pages": [
+      54,
+      55,
+      56
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Multiple regression: predictions and estimate of sigma",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+    "pages": [
+      57
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Polynomial models (second-order model, acetylene data Table 6-9)",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+    "pages": [
+      58,
+      59,
+      60,
+      61,
+      62
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Variable selection procedures: best subsets, backward elimination, forward selection, stepwise regression (shampoo data)",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+    "pages": [
+      63,
+      64,
+      65,
+      66
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Regression references",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+    "pages": [
+      67
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "DOE demo data: one-way ANOVA (synthetic fibre tensile strength)",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx",
+    "pages": [
+      1
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "DOE demo data: two-way ANOVA unreplicated (machine x operator)",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx",
+    "pages": [
+      2
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "DOE demo data: two-way ANOVA replicated n=5 (plant growth)",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx",
+    "pages": [
+      3
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "DOE demo data: 2^5 full factorial replicated n=3",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx",
+    "pages": [
+      4
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "DOE demo data: 2^(5-1) fractional factorial replicated n=3, generator ABCDE=I",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx",
+    "pages": [
+      5
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "DOE demo data: 2^(5-2) fractional factorial replicated n=3 (exercise, generators for D/E left blank)",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx",
+    "pages": [
+      6
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Regression demo data: simple linear regression exercises (Simple 1, Simple 2)",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_devuyst_Regression_demo.xlsx",
+    "pages": [
+      1,
+      2
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Regression demo data: multiple linear regression exercise (Strength vs A-E)",
+    "module": "Les 3",
+    "file": "source/course/Les 3/20260605_devuyst_Regression_demo.xlsx",
+    "pages": [
+      3
+    ],
+    "slice": "S05"
+  },
+  {
+    "topic": "Methodologies landscape (Kaizen, Lean, Agile, Six Sigma, TOC) & DMAIC",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      8,
+      9
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Six Sigma statistical point of view / dispersion / hypothesis uncertainty",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      10
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Data collection steps and sample size determination",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      11,
+      12
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Control/warning/specification limits (concept)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      13
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Galton board / normal distribution intuition",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      14,
+      15
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Normal distribution properties, kurtosis, inflexion points",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      16,
+      17
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Standard normal distribution, Z-score, 68-95-99.7 rule",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      18,
+      19
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Discrete data capability: DPO, DPMO, Yield, PPM",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      19
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "VOC vs VOP and sigma capability / DPMO / % yield table",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      20
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Goals of Lean Six Sigma (reduce variation / center process)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      21,
+      22
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Process variation pre/post project (short vs long term)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      24,
+      25
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Process stability & capability - foundation of SPC, normal distribution formula",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      26,
+      27
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Common causes vs special causes of variation",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      29,
+      30,
+      31
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Process capability Cp",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      32,
+      33
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Process capability Cpk",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      32,
+      34
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Cp/Cpk interpretation, target vs variation (need both centering and low variation)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      35
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Technical definition of Six Sigma & 1.5 sigma shift",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      36
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Process stability influences predictability/capability; stability notes",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      37,
+      38
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Cp/Cpk quality-level interpretation table (not capable/just capable/acceptable/good)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      39,
+      40
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Cp/Cpk combined scenarios (tunnel/truck analogy) and decision-guide tables",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      41,
+      42,
+      43,
+      44
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Process capability exercise: shaft length 71.4-72.8mm (Xbar-kaart, s-kaart)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      45,
+      46
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Minitab capability analysis example (report card, summary, process performance, diagnostic reports)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      47,
+      48,
+      49,
+      50,
+      51
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "SPC introduction: definition, purpose, control vs specification limits",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      53,
+      54,
+      55,
+      56
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "SPC process set up steps and PDCA cycle (achieving vs maintaining control)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      57,
+      58
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Measurement system spread (R&R) vs process spread vs tolerance",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      59
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Gauge R&R (MSA): repeatability, reproducibility, stability/drift",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      60
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Xbar-kaart: concept, sampling distribution, central limit theorem",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      62,
+      63
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Acting on control chart information (tampering vs underreacting mistakes)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      64
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Control limits vs specification limits (review)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      65
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Control chart decision rules: in control vs corrective action needed (outliers/trend/shift)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      66
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Western Electric rules / Shewhart sensitizing rules & zones A/B/C",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      67,
+      68
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Caution: in-control does not equal in-specification (four possible states)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      69
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "SPC exercise 1: Western Electric rules application",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      71
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Xbar-R chart example (oil data, 2 charts: sample mean & sample range)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      72
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Xbar/R- and Xbar/s-kaart formulas (fixed and variable sample size)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      73
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "SPC exercise 2: bleach product net weight, Xbar-R chart + Cpk (n=5, 20 samples)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "SPC exercise 3: bearing inner diameter, Xbar-R chart with outlier / revised limits (n=5, 24 samples)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      83
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "SPC exercise 4: effect of changing subgroup size (n=3 vs n=8) on control limits",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      84
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "SPC exercise 5: capability & % out of spec from summed Xbar/R data (n=5, m=25)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      85
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "SPC exercise 6: milled part critical dimension, Cp/Cpk, feasibility of centering",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      86
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "OSPC ArcelorMittal Gent example screenshots (production monitoring charts)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+    "pages": [
+      87,
+      88,
+      89
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Control chart constants (averages & standard deviations) - Six Sigma Demystified",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Control charts - constants.pdf",
+    "pages": [
+      1
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Control chart constants (ranges) & X charts E2 factor - Six Sigma Demystified",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Control charts - constants.pdf",
+    "pages": [
+      2
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Front matter: title page, copyright, about the authors, dedication, acknowledgments, contents",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Table of Contents (detailed)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Foreword (Stephen R. Covey)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      17,
+      18
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Introduction: about this book, conventions, foolish assumptions, how organized, icons",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Defining Six Sigma: managerial perspective, ROI, top commitment, process orientation",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Defining Six Sigma: historical perspective, infrastructure for change",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      33,
+      34
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Technical perspective: quality vs grade, CTX/CTQ, specifications, target and variation (Figures 1-1 to 1-3)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      35,
+      36,
+      37,
+      38
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "The journey from one to many; rolled throughput yield concept (dice example); hidden factory",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      38,
+      39,
+      40
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Short-term vs long-term variation (introductory, Figure 1-4)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      40,
+      41
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Why six and why sigma: Sigma Scale (Table 1-2) and How Good Is Good (Table 1-3)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      41,
+      42,
+      43,
+      44
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Breakthrough equation Y = f(X) + epsilon; principle of determinism (Figure 2-1)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      45,
+      46
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Cause and effect; correlation vs causation; superstitious delusions; confounding variables",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      47,
+      48,
+      49,
+      50
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Variation happens: common-cause vs special-cause variation; short-term/long-term intro",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      50,
+      51,
+      52,
+      53
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Thou Shalt Measure: measurement principle, Ys and Xs, the $1000 wallet example",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      54,
+      55,
+      56
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "The Power of Leverage: vital few vs trivial many (Pareto / 80-20 rule)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      56,
+      57,
+      58
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "DMAIC project strategy overview (Figure 3-1), five phases",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      59,
+      60
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Domains of activity: thinking, processing, designing (DFSS), managing for breakthrough; entitlement definition",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      61,
+      62,
+      63
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Six Sigma roles: deployment leader, Champion, core team and functional representatives",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      64,
+      65,
+      66,
+      67,
+      68
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Belt hierarchy: Master Black Belt, Black Belt, Green Belt, Yellow Belt (Figure 3-2); project value benchmarks",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      69,
+      70,
+      71,
+      72
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Lifecycle of a Six Sigma initiative: Initialize, Deploy, Implement, Expand, Sustain (Figure 3-4, Table 3-1)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      73,
+      74,
+      75,
+      76,
+      77
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Six Sigma project basics: project definition, financial impact criteria, project life cycle (Figure 4-1, 4-2)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      82,
+      83,
+      84
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Aligning Six Sigma with strategy; VOC and VOB; problem themes (Figure 4-3)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      85,
+      86
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Business case writing tool for project identification; affinity diagram technique",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      87,
+      88
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Six Sigma project definition: 8 steps, common mistakes, project definition worksheet (Figure 4-4)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      89,
+      90,
+      91
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Macro process mapping; time-series chart of baseline/actual/objective (Figures 4-5, 4-6, 4-7)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      92,
+      93
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Savings categories (hard/soft/potential); writing problem statements (with 3 worked examples)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      94,
+      95,
+      96
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Entitlement concept; hidden operation (Figure 4-8); 70 percent breakthrough improvement guideline (Figure 4-9)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      97,
+      98,
+      99
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Writing objective statements (with 3 worked examples); launching/approving a project",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      100,
+      101
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Problem difficulty distribution and Belt assignment (Figure 4-10); team sizing",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      102
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Statistics basics: why statistics, measurement 101, distributions (Figures 5-1, 5-2)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      103,
+      104,
+      105,
+      106
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Measures of variation location: mode, mean, median (Table 5-1, Figure 5-3)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      107,
+      108,
+      109
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Measures of variation spread: range, deviation score, squared error, variance, standard deviation (Table 5-2, Figure 5-4)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      109,
+      110,
+      111,
+      112,
+      113
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Short-term variation: definition, common cause, sequential-range method, sigma-ST formula (Figures 5-5, 5-6)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      114,
+      115,
+      116
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Long-term variation: definition, special/assignable cause, Table 5-3 (sigma-ST vs sigma-LT), entitlement",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      117,
+      118,
+      119,
+      120
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Dot plots and histograms: construction steps and interpretation (variation shape: normal, uniform, skewed, multi-modal)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      121,
+      122,
+      123,
+      124
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Bimodal histograms; variation average, range, outliers from dot plots/histograms",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      125,
+      126
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Box and whisker plots: construction (median, Q1, Q3, whiskers) and interpretation (Figures 5-14, 5-15)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      126,
+      127,
+      128,
+      129
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Scatter plots: construction, correlation (amount/direction), fat pencil test, main effects plot, slope",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      129,
+      130,
+      131,
+      132,
+      133,
+      134,
+      135
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Behavior charts (process behavior over time): construction, outliers, trends, runs, shifts (Figures 5-22 to 5-26)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      135,
+      136,
+      137,
+      138,
+      139,
+      140
+    ],
+    "slice": "S07"
+  },
+  {
+    "topic": "Specifications (SL, USL, LSL, target) and the RUMBA criteria",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      142,
+      143,
+      144
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "Traditional vs Six Sigma view of quality; Taguchi loss function",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      145,
+      146
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "Yield metrics: traditional yield (Y), first time yield (FTY), hidden factory, rolled throughput yield (RTY)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      146,
+      147,
+      148,
+      149,
+      150,
+      151
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "Defect rate metrics: DPU, DPO, DPMO, DPPM",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      151,
+      152,
+      153,
+      154,
+      155
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "Linking yield and defect rate: RTY = e^-DPU",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      156
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "Sigma (Z) score; short-term vs long-term sigma score",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      156,
+      157,
+      158,
+      159,
+      160
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "1.5-sigma shift (Z_LT = Z_ST - 1.5)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      159,
+      160,
+      161
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "Sigma score look-up table: Z vs DPMO (Table 6-3)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      160,
+      161
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "Short-term capability indices Cp and Cpk",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      162,
+      163,
+      164
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "Long-term capability indices Pp and Ppk",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      164,
+      165
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "Prescriptive capability improvement plan (Table 6-5)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      165,
+      166
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "Data types: attribute/category, ordinal, continuous/variable (Table 7-1)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      168,
+      169,
+      170
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "Measurement system variation: resolution, accuracy, linearity, stability, precision (repeatability & reproducibility)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      171,
+      172,
+      173,
+      174
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "Attribute measurement system studies (audits, pass/fail agreement studies, Pareto)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      174,
+      175,
+      176,
+      177
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "Gauge/continuous MSA: variance-ratio interpretation (Table 7-2)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      178,
+      179
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "Observational studies, data mining funnel, box-and-whisker/main-effects/interaction studies",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      180,
+      181,
+      182,
+      183,
+      184,
+      185
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "Central limit theorem",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      188,
+      189
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "Confidence intervals for means (Z for n>30, t for n<30)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      189,
+      190,
+      191,
+      192,
+      193
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "Confidence intervals for standard deviations (chi-square)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      194,
+      195
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "Confidence intervals for ratio of variances (F)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      195,
+      196
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "Confidence intervals for proportions and difference of two proportions",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      196,
+      197,
+      198
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "Correlation coefficient (r)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      198,
+      199,
+      200,
+      201
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "Simple linear regression, residual analysis, R-squared, F test of model validity",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      201,
+      202,
+      203,
+      204,
+      205,
+      206,
+      207,
+      208,
+      209,
+      210
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "Multiple linear regression",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      210,
+      211,
+      212
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "Design of experiments overview: observational study vs experiment, terminology, one-factor-at-a-time vs Six Sigma approach, screening/characterizing/optimizing",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      213,
+      214,
+      215,
+      216,
+      217,
+      218,
+      219,
+      220
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "2^k full factorial experiment design and analysis (ice cream carton filler worked example)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      220,
+      221,
+      222,
+      223,
+      224,
+      225,
+      226,
+      227,
+      228,
+      229,
+      230,
+      231,
+      232,
+      233
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "Additional DOE topics: curvature, replications, ANOVA, robustness, response surface methods, fractional factorials",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      234
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "Control planning: process management summary and process control plan",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      236,
+      237,
+      238
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "Statistical process control and control chart basics; control limits vs specification limits",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      239,
+      240,
+      241,
+      242,
+      243,
+      244
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "Control chart rules for special causes: zones, runs, trends, cycles, hugging (Table 10-1)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      245,
+      246,
+      247
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "Rational subgroups",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      248
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "Continuous data control charts: I-MR, X-bar-R, X-bar-S (Table 10-2 and constants)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      248,
+      249,
+      250,
+      251,
+      252,
+      253
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "Attribute data control charts: p chart and u chart (Table 10-3)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      253,
+      254,
+      255,
+      256
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "Poka-Yoke (mistake-proofing): prevention vs detection, Type-1 vs Type-2 corrective action",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      257,
+      258
+    ],
+    "slice": "S08"
+  },
+  {
+    "topic": "SIPOC (Suppliers-Inputs-Process-Outputs-Customers)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      263,
+      264,
+      265,
+      266,
+      273
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "CT (critical to) tree",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      263,
+      267,
+      268
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Process modeling (process maps, swim lanes, BPMN, mapping icons)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      263,
+      269,
+      270,
+      271,
+      272,
+      273
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Simulating a process (simulation tools and reports)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      263,
+      274,
+      275
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Cause-and-effect (C&E) matrix",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      263,
+      276
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Fishbone (Ishikawa) diagram",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      263,
+      277
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "FMEA (Failure Mode Effects Analysis) and RPN (risk priority number)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      263,
+      278,
+      279,
+      280
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Capability-complexity analysis (CCA), KISS, 3-Cs Explorer",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      263,
+      281,
+      282
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Plans: data collection plan, control plan, audit plan",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      263,
+      283,
+      284
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Voice of the customer / process / business (VOC/VOP/VOB)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      266
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Poka-Yoke (mistake-proofing)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      279
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Funnel reports (critical few vs trivial many)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      282
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Six Sigma statistical analysis tools overview (Table 11-6)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      285,
+      286
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Plots and charts (Table 11-7)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      287,
+      288
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Time-series analysis (trending, forecasting, decomposition, moving average, exponential smoothing, autocorrelation, cross-correlation)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      288,
+      289
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "ANOVA (analysis of variance) tool overview",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      289
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Tolerance analysis / Design for Manufacturability (DFM)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      289,
+      290
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Design of Experiments (DOE): steps, factorial/response surface/Taguchi designs",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      290,
+      291
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Process capability analysis tools (Table 11-8) and capability six-pack",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      291,
+      292
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Regression analysis (fitted line, least squares, partial least squares, logistic, stepwise, best fit)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      293
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Multivariate analysis (principal components, factor analysis, clustering, K-means, discriminant analysis, correspondence analysis)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      293,
+      294
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Exploratory data analysis tools (Table 11-9)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      294
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Measurement systems analysis (MSA): accuracy (linearity, bias, stability), precision (repeatability, reproducibility), Gauge R&R",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      294,
+      295,
+      296
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Reliability and survivability analysis",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      296
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Six Sigma software platforms and vendors (Minitab, JMP, Excel, iGrafx, SigmaFlow, Visio, Varyx, 3-Cs Explorer, Traxion; PC-Windows, Mac/Linux, enterprise architectures)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      296,
+      297,
+      298,
+      299,
+      300
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Six Sigma manager tools overview and constituencies",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      302,
+      303
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Types of management tools (communication, project management, reporting, knowledge management, learning)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      304
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Leadership communication tools (Table 12-1)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      305,
+      306
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Project management: ideation, definition, selection, tracking, reporting (Table 12-2)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      306,
+      307,
+      308,
+      309,
+      310,
+      311,
+      312,
+      313
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Project definition elements (Table 12-3): purpose, objectives, benefits, team, schedule, risk/controls",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      310
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Reporting tools and balanced scorecard",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      313,
+      314,
+      315
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Knowledge Management (KM) tools",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      316
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "E-learning for Six Sigma (CBT, synchronous mentored learning, asynchronous learning network)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      317,
+      318
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Ten Best Practices of Six Sigma (stretch goals, tangible results, determinism, think-before-act/DMAIC discipline, data-driven decisions, minimize variation, align projects, celebrate success, involve the owner, unleash potential)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      321,
+      322,
+      323,
+      324,
+      325
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Ten Pitfalls to Avoid (not enough time, no leader, scope too big, isolated pockets, overtraining, blind trust in measurement system, CL vs SL confusion, exaggerated opportunity counts, not leveraging technology)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      327,
+      328,
+      329,
+      330
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Ten Places to Go for Help (colleagues, corporations, associations/societies, conferences, publications, web portals, technology vendors, consultants, trainers)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      331,
+      332,
+      333,
+      334,
+      335,
+      336
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Appendix Glossary (overview)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      337,
+      338,
+      339,
+      340,
+      341,
+      342,
+      343,
+      344,
+      345
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: affinity diagram",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      337
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: ANOVA (analysis of variance)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      337
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: attribute data",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      337
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: average (mean)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      337
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: bar chart",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      337
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: Black Belt",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      337
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: breakthrough improvement",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      337
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: capability",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      337
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: cause-and-effect diagram",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      337
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: central tendency",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      337
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: Champion",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      337
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: characteristic",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      338
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: common causes of variation",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      338
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: complexity",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      338
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: control chart",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      338
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: control limits",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      338
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: correlation coefficient",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      338
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: cost of poor quality (COPQ)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      338
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: Cp",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      338
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: Cpk",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      338
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: critical-to-quality (CTQ)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      338
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: critical X",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      338
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: customer",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      338
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: cycle time",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      338
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: defect",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      338
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: defective",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      339
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: deployment",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      339
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: Design for Six Sigma (DFSS)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      339
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: Design of Experiments (DOE)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      339
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: DMAIC",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      339
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: DPMO (defects per million opportunities)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      339
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: DPU (defects per unit)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      339
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: entitlement",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      339
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: epsilon",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      339
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: experimental design",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      339
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: Failure mode effects analysis (FMEA)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      339
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: finance representative",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      339
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: fishbone diagram",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      339
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: flowchart",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      339
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: gauge R&R",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      340
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: Green Belt",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      340
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: hidden factory or operation",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      340
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: histogram",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      340
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: implementation team",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      340
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: input",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      340
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: Ishikawa diagram",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      340
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: least squares",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      340
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: long-term variation",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      340
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: lower control limit (LCL)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      340
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: lower specification limit (LSL)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      340
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: Master Black Belt (MBB)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      340
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: mean",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      341
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: measurement",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      341
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: measurement accuracy",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      341
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: measurement precision",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      341
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: Measurement Systems Analysis (MSA)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      341
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: median",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      341
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: metric",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      341
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: natural tolerances of a process",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      341
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: nominal group technique",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      341
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: non-value-added (NVA)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      341
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: normal distribution",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      341
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: objective statement",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      341
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: opportunities",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      341
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: out of control",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      341
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: output",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      341
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: Pareto chart",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      341
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: Pareto Principle",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      342
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: Poka-Yoke",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      342
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: probability",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      342
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: problem statement",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      342
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: process",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      342
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: process certification",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      342
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: process characterization",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      342
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: process flow diagram",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      342
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: process member",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      342
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: process owner",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      342
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: quality function deployment (QFD)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      342
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: range",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      342
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: regression analysis",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      342
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: repeatability",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      342
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: reproducibility",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      343
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: rework",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      343
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: risk priority number (RPN)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      343
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: rolled throughput yield (RTY)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      343
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: RUMBA",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      343
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: run chart",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      343
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: scatter plot",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      343
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: screening experiment",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      343
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: short-term variation",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      343
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: sigma score",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      343
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: significant Y",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      343
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: SIPOC",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      343
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: Six Sigma (definition)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      343
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: Six Sigma leader",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      344
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: Six Sigma project",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      344
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: special cause variation",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      344
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: specification limits",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      344
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: stability",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      344
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: standard deviation",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      344
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: statistical problem",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      344
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: statistical process control (SPC)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      344
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: statistical solution",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      344
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: supplier",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      344
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: trend",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      344
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: TSSW (thinking the Six Sigma way)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      344
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: two-level design",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      344
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: upper control limit (UCL)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      344
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: upper specification limit (USL)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      345
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: variability",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      345
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: variable data",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      345
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: variables",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      345
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: variance",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      345
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: variation",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      345
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: VOB (voice of the business)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      345
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: VOC (voice of the customer)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      345
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: VOP (voice of the process)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      345
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: waste",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      345
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: X (input characteristic)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      345
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: Y (output characteristic)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      345
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: Yellow Belt",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      345
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Glossary: Z score",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      345
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Afterword",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      347
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Book index (not itemised)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+    "pages": [
+      349,
+      350,
+      351,
+      352,
+      353,
+      354,
+      355,
+      356,
+      357,
+      358,
+      359,
+      360,
+      361,
+      362
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Why Six Sigma / cost of quality table (book summary)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder book summary.pdf",
+    "pages": [
+      2
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "The players in Six Sigma: Champions, Master Black Belts, Black Belts, Green Belts (inverted pyramid)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder book summary.pdf",
+    "pages": [
+      3
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Six Sigma Breakthrough Strategy: 8 phases (Recognize, Define, Measure, Analyze, Improve, Control, Standardize, Integrate) in 4 categories (Identification, Characterization, Optimization, Institutionalization)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder book summary.pdf",
+    "pages": [
+      4
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Three levels of Breakthrough: Business, Operations, Process",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder book summary.pdf",
+    "pages": [
+      4,
+      5,
+      6
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Business \"states\" and supporting systems",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder book summary.pdf",
+    "pages": [
+      4
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Importance of benchmarking (internal, competitive, functional)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder book summary.pdf",
+    "pages": [
+      5
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "What Black Belts need: psychology/motivation (compensation, promotion, recognition, permission to fail)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder book summary.pdf",
+    "pages": [
+      6
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Implementation and deployment of the strategy (dependencies, focus, structural elements)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder book summary.pdf",
+    "pages": [
+      6,
+      7,
+      8
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "GE: a Six Sigma success story",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder book summary.pdf",
+    "pages": [
+      7
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Project selection metrics: DPMO, net cost savings, cost of poor quality, capacity, cycle time",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder book summary.pdf",
+    "pages": [
+      8
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Polaroid's project selection criteria (low yield rate, cost of poor quality, capacity)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder book summary.pdf",
+    "pages": [
+      8
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Preparing an organization for Six Sigma (culture change)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder book summary.pdf",
+    "pages": [
+      8
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Six Sigma cost-of-quality vs sigma level table",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+    "pages": [
+      1
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Breakthrough Strategy four core phases (Measure, Analyze, Improve, Control) and statistics as separator of common sense from extraordinary reasoning",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+    "pages": [
+      2
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Cost-of-quality categories (5): failure in field, internal failure, appraisal/inspection, improving poor quality, opportunity costs",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+    "pages": [
+      2
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "GE Six Sigma history under Jack Welch",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+    "pages": [
+      3,
+      7
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Benchmarking types (internal, competitive, functional, quantitative)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+    "pages": [
+      3
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Changing what companies measure; CTQs; X vs Y focus",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+    "pages": [
+      4
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Hidden factory concept and first-time yield flaw",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+    "pages": [
+      4
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Throughput yield (TY), first-time yield (FTY), rolled throughput yield (RTY), normalized yield (NY) definitions and formulas",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+    "pages": [
+      4,
+      5
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Breakthrough Strategy organizational levels table (Business/Operations/Process x Recognize/Define/Measure/Analyze/Improve/Control/Standardize/Integrate)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+    "pages": [
+      6
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "1.5 sigma shift (process-centering error) and short- vs long-term sigma capability",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+    "pages": [
+      7
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Sources of variation (design margins, unstable parts/materials, insufficient process capability); Design for Six Sigma (DFSS)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+    "pages": [
+      7
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Implementation and deployment roles (Executive Mgmt, Senior/Deployment/Project Champion, Deployment Master Black Belt, Master Black Belt, Black Belt, Green Belt); compensation; supplier training",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+    "pages": [
+      8
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Six Sigma players comparison table (Champions, Master Black Belts, Black Belts, Green Belts): qualifications, training, ratio trained",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+    "pages": [
+      9
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Six Sigma Black Belts: role, selection, expected results",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+    "pages": [
+      9
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "AlliedSignal lessons learned (Six Sigma deployment)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+    "pages": [
+      10
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Six Sigma in the service industry (transactions vs parts); Foxboro accounts-receivable example",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+    "pages": [
+      10
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Project selection guidelines (ownership, top-down vs bottom-up, selection criteria, prioritization)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+    "pages": [
+      11
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Psychology of Six Sigma (Black Belt motivation: compensation, promotion, recognition, permission to fail); Tom Watson/IBM anecdote",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+    "pages": [
+      11
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Preparing an organization for Six Sigma (superstitious dance, results change cultures, history vs future)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+    "pages": [
+      12
+    ],
+    "slice": "S09"
+  },
+  {
+    "topic": "Standard normal (Z) table, full",
+    "module": "Les 4",
+    "file": "source/course/Les 4/___1.1 Ztable.pdf",
+    "pages": [
+      1,
+      2
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Statistical worksheet functions in Excel (Dutch function names, definitions)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/___1.2 statistische functionaliteit in excel.pdf",
+    "pages": [
+      1,
+      2,
+      3
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Excel Data Analysis toolpak (Histogram, Correlation, Covariance, Descriptive Statistics, F-test, t-tests, Z-test, ANOVA, Regression)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/___1.2 statistische functionaliteit in excel.pdf",
+    "pages": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "VBA random number generation (Rnd, Randomize, WorksheetFunction)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/___1.2 statistische functionaliteit in excel.pdf",
+    "pages": [
+      5,
+      6
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Bias correction factors for estimating standard deviations (Table A, Wheeler)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/___4.1 tabellen SPC.pdf",
+    "pages": [
+      1
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Guide for constructing control charts based on variables (Table 7.2)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/___4.1 tabellen SPC.pdf",
+    "pages": [
+      2
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "Factors for computing control-chart lines (Table 18, Crow/Davis/Maxfield)",
+    "module": "Les 4",
+    "file": "source/course/Les 4/___4.1 tabellen SPC.pdf",
+    "pages": [
+      2
+    ],
+    "slice": "S06"
+  },
+  {
+    "topic": "What is a measurement (Eisenhart definition, standard/reference value, measurement system)",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      2
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Importance of measuring / history of metrology (pyramids, Vasa ship, cost of measuring 2-7% of GNP)",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      3
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "The measurement process as a manufacturing process producing numbers; SWIPE error model (Standard, Workpiece, Instrument, Person, Environment)",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      4,
+      5
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Measurement terminology: standard (reference/calibration/working standard)",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      6
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "The 7 SI base units and their definitions (caesium standard)",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      7
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "The traceability chain (BIPM, NMI, accredited labs, gauge blocks)",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      8
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Measurement terminology: reference value, operational definition",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      9
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Measurement terminology: discrimination, effective resolution, data categories rule of thumb",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      10
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Measurement terminology: bias (Wheeler's operator/equipment bias extension), accuracy, ASTM",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      11
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Measurement terminology: stability",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      12
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Measurement terminology: linearity",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      13
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Measurement terminology: repeatability (EV), precision",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      14
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Measurement terminology: reproducibility (AV)",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      15
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Measurement terminology: consistency",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      16
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Measurement terminology: uniformity",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      17
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Measurement terminology: Gauge R&R (GRR) definition and formula",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      18
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Types of measurement system variation (classification diagram: bias / repeatability / reproducibility / stability / consistency / linearity / uniformity)",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      19
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Measurement system capability and performance (sigma_cap, sigma_perf)",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      20
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Effect of measurement system error on discrimination / effective resolution; Rayleigh-Ramsay argon example",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      21
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Effects of measurement system error on product decisions (Type I/II error, producer's/consumer's risk, gauge performance curve areas I/II/III)",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      22,
+      23
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Wheeler's PE (Probable Error) approach with tightened/widened specs; conclusions G/B/D and X/Y/Z",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      23
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Effects of measurement system error on process decisions: Cp relations, %GRR (process variation basis and tolerance basis), 5.15 vs 6 sigma convention",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      24,
+      25
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Effects of measurement system error on process decisions: process acceptance / buy-off example, process control / tampering example (Deming funnel)",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      26
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Gauge performance curve (GPC) definition and formula, worked numeric example",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      27
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Measurement uncertainty: definition, U = k*uc, coverage factor k=2 for 95% confidence",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      28
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Measurement uncertainty: type A / type B evaluation, propagation formulas",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      29
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Inadequate discrimination in process control: detection rule of thumb (Rheostat Knob Data illustration)",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      30
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Determining stability and consistency (reference standard procedure, bias and repeatability from X-bar/R chart)",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      31
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Determining bias (t-distribution statistic, Patnaik d2*/nu, confidence interval for true bias)",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      32
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Determining linearity (graphical method, regression of bias vs reference value, hypothesis tests on slope/intercept)",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      33
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Determining repeatability and reproducibility: Average and Range method - model and derivation of averages/ranges",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      34
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Determining repeatability and reproducibility: Average and Range method - EV, AV, PV, GRR, TV, %GRR formulas and K1/K2/K3 constants; acceptance thresholds (10%/30%)",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      35
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Determining repeatability and reproducibility: ANOVA method - two-way ANOVA table, EV/AV/PV from MS, residual model, proof of SST decomposition",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      36,
+      37
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Exercise: GRR study on steering-mechanism part (three operators, five parts, two trials, coded gauge readings) - see GRR - ANOVA - average and range - 2.xlsx",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+    "pages": [
+      38
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Worked example: uncertainty propagation for the width of a steel strip measured with a tape measure (type A/B components, combined and expanded uncertainty)",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Calculating the uncertainty in the width of a steel strip.pdf",
+    "pages": [
+      1,
+      2
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "GRR workbook - description sheet: text description of the steering-mechanism GRR exercise (matches slide 38)",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_GRR - ANOVA - avegage and range - 2.xlsx",
+    "pages": [
+      1
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "GRR workbook - measurements sheet: coded and actual-reading raw data for the GRR exercise (3 operators x 5 parts x 2 trials), ranges per part/operator, Rbarbar, XbarDIFF, Rbarp",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_GRR - ANOVA - avegage and range - 2.xlsx",
+    "pages": [
+      2
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "GRR workbook - 2way anova sheet: Excel 'Anova: Two-Factor With Replication' output and derived (pooled, additive-model) ANOVA table; calculation of EV, AV, PV, TV, %GRR via ANOVA method",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_GRR - ANOVA - avegage and range - 2.xlsx",
+    "pages": [
+      3
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "GRR workbook - ranges sheet: calculation of EV, AV, PV, TV, %GRR via the average and range method using d2 and d2* constants",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_GRR - ANOVA - avegage and range - 2.xlsx",
+    "pages": [
+      4
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "GRR workbook - on d2 and d2star sheet: Monte-Carlo simulation (volatile RAND()/NORM.INV formulas) demonstrating empirical convergence of average-range-based d2 and d2* estimates to their theoretical/tabulated values, for adjustable number of subgroups (1-5) and subgroup size (2-10); not a fixed constant table",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_GRR - ANOVA - avegage and range - 2.xlsx",
+    "pages": [
+      5
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "History of the meter (SI length standard): from artifact standards to the 1983 speed-of-light definition and the 2019 caesium-based definition; gauge block calibration by laser interferometry",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_MSA - meter unit.pdf",
+    "pages": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Rheostat Knob Data: illustration of inadequate discrimination in process control (measurement unit too large relative to process variation) using original data (to 1/1000 inch) vs rounded data (to 1/100 inch), with solved X-bar/R chart calculations",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Rheostat Knob Data.xls",
+    "pages": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Theoretical background of a GRR study: sampling distribution of the mean and of the range, chi-square distribution moments, distribution of the average squared range (Patnaik d2*, nu), derivation of EV/AV/PV/TV/%GRR formulas for the average-range method",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_Theoretical background of a GRR study.pdf",
+    "pages": [
+      1,
+      2
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Linearity data set: 5 parts with reference values and 12 measurements each, for the linearity exercise of slide 33",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_linearity.txt",
+    "pages": [
+      1
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "MSA constant table: 'Values associated with the Distribution of the Average Range' - degrees of freedom (nu, 1st line) and d2* (2nd line) per number of subgroups g (1-20) and subgroup size m (2-20), plus d2 and cd (constant difference) row for g -> infinity",
+    "module": "Les 5",
+    "file": "source/course/Les 5/20260619_ottoy_tabel MSA.pdf",
+    "pages": [
+      1
+    ],
+    "slice": "S10"
+  },
+  {
+    "topic": "Werkomgeving en AI: drie routes naar Python (JupyterLite, Google Colab, lokaal met VS Code); AI gebruiken zonder stuurloos te worden; keuze van AI-assistent (ChatGPT/Claude/Gemini, GitHub Copilot/Claude Code/Cursor)",
+    "module": "Les 6",
+    "file": "source/course/Les 6/20260626_naert.pdf",
+    "pages": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Mini-project lineaire/polynomiale regressie: California Housing dataset, modelcomplexiteit, train/validatie/test-discipline, resultaat polynomiale regressie (graad 1 t.e.m. 12), startprompt",
+    "module": "Les 6",
+    "file": "source/course/Les 6/20260626_naert.pdf",
+    "pages": [
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Mini-project neurale netwerken: Fashion-MNIST dataset, leercurven compact vs groot model, confusion matrix en foutanalyse, denkvragen, startprompt",
+    "module": "Les 6",
+    "file": "source/course/Les 6/20260626_naert.pdf",
+    "pages": [
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Mini-project beslissingsbomen op Titanic: dataset en concept, train/validatie/test-discipline, interpreteerbare boom, confusion matrices boom vs random forest, interpretatie, startprompt",
+    "module": "Les 6",
+    "file": "source/course/Les 6/20260626_naert.pdf",
+    "pages": [
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Mini-project Bayesiaanse onzekerheid: restaurantfooien dataset, heteroscedastisch model, posterior predictive, MCMC-controle (R-hat, ESS, divergences, traceplots), startprompt",
+    "module": "Les 6",
+    "file": "source/course/Les 6/20260626_naert.pdf",
+    "pages": [
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "Studiewijzer Les 6 (expliciet niet te kennen voor het examen)",
+    "module": "Les 6",
+    "file": "source/course/Les 6/20260626_naert.pdf",
+    "pages": [
+      38
+    ],
+    "slice": "S02"
+  },
+  {
+    "topic": "LMS Table of Contents listing (geen inhoud, enkel link naar 20260626_naert.pdf)",
+    "module": "Les 6",
+    "file": "source/course/Les 6/Table of Contents.html",
+    "pages": [
+      1
+    ],
+    "slice": "S02"
+  }
+]

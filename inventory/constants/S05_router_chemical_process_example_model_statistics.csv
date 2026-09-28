@@ -1,0 +1,9 @@
+Statistic,Value,source_file,source_page,table_name
+Std. Dev.,1.98,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,61,Router/chemical process example: model statistics
+Mean,27.50,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,61,Router/chemical process example: model statistics
+C.V.,7.20,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,61,Router/chemical process example: model statistics
+PRESS,70.50,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,61,Router/chemical process example: model statistics
+R-Squared,0.9030,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,61,Router/chemical process example: model statistics
+Adj R-Squared,0.8666,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,61,Router/chemical process example: model statistics
+Pred R-Squared,0.7817,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,61,Router/chemical process example: model statistics
+Adeq Precision,11.669,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,61,Router/chemical process example: model statistics

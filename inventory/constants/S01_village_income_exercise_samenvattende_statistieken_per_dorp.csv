@@ -1,0 +1,11 @@
+Metric,Abora,Bladir,Curo,source_file,source_page,table_name
+total village income,1440,1000,1300,source/course/Les 1/20260521_van volsem.pdf,100,Village income exercise - samenvattende statistieken per dorp
+average income,90,100,130,source/course/Les 1/20260521_van volsem.pdf,100,Village income exercise - samenvattende statistieken per dorp
+median income,90,20,126.5,source/course/Les 1/20260521_van volsem.pdf,100,Village income exercise - samenvattende statistieken per dorp
+mode income,90,20,258,source/course/Les 1/20260521_van volsem.pdf,100,Village income exercise - samenvattende statistieken per dorp
+max income,95,820,258,source/course/Les 1/20260521_van volsem.pdf,100,Village income exercise - samenvattende statistieken per dorp
+min income,85,20,8,source/course/Les 1/20260521_van volsem.pdf,100,Village income exercise - samenvattende statistieken per dorp
+% incomes below 50,0,90,50,source/course/Les 1/20260521_van volsem.pdf,100,Village income exercise - samenvattende statistieken per dorp
+% incomes below 100,100,90,50,source/course/Les 1/20260521_van volsem.pdf,100,Village income exercise - samenvattende statistieken per dorp
+average income m,90,180,250,source/course/Les 1/20260521_van volsem.pdf,100,Village income exercise - samenvattende statistieken per dorp
+average income f,90,20,10,source/course/Les 1/20260521_van volsem.pdf,100,Village income exercise - samenvattende statistieken per dorp

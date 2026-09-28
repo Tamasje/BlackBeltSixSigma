@@ -1,0 +1,7 @@
+confidence,CI lower,CI upper,source_file,source_page,table_name
+"0,0%","4,0%","4,0%",source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf,6,"CI for the sample (n=100, 4 defectives) at different confidence levels"
+"70,0%","2,1%","7,1%",source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf,6,"CI for the sample (n=100, 4 defectives) at different confidence levels"
+"95,0%","1,1%","9,9%",source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf,6,"CI for the sample (n=100, 4 defectives) at different confidence levels"
+"99,0%","0,7%","12,0%",source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf,6,"CI for the sample (n=100, 4 defectives) at different confidence levels"
+"99,9%","0,4%","14,8%",source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf,6,"CI for the sample (n=100, 4 defectives) at different confidence levels"
+"100,0%","0,0%","100,0%",source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf,6,"CI for the sample (n=100, 4 defectives) at different confidence levels"

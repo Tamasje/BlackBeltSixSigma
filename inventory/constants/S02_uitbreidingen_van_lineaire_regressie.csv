@@ -1,0 +1,8 @@
+Methode,Kernidee,source_file,source_page,table_name
+Ridge,L2-bestraffing → stabiliteit,source/course/Les 2/20260529_naert.pdf,35,Uitbreidingen van lineaire regressie
+Lasso,L1-bestraffing → variabelenselectie,source/course/Les 2/20260529_naert.pdf,35,Uitbreidingen van lineaire regressie
+Elastic Net,combinatie van Ridge + Lasso,source/course/Les 2/20260529_naert.pdf,35,Uitbreidingen van lineaire regressie
+Quantielregressie,mediaan i.p.v. gemiddelde,source/course/Les 2/20260529_naert.pdf,35,Uitbreidingen van lineaire regressie
+Deming,meetfout in zowel x als y,source/course/Les 2/20260529_naert.pdf,35,Uitbreidingen van lineaire regressie
+Logistisch,Voorspellen van binaire response (1/0),source/course/Les 2/20260529_naert.pdf,35,Uitbreidingen van lineaire regressie
+GLM,"niet-Gaussische uitkomsten (Poisson, binomiaal, ...)",source/course/Les 2/20260529_naert.pdf,35,Uitbreidingen van lineaire regressie

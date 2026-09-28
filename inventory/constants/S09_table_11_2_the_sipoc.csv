@@ -1,0 +1,6 @@
+Element,Definition,source_file,source_page,table_name
+S: Suppliers,"Suppliers are systems, people, organizations, or other sources of the materials, information, or other resources that are consumed or transformed in the process.",source/course/Les 4/Six Sigma For Dummies.pdf,265,Table 11-2: The SIPOC
+I: Inputs,"Inputs are materials, information, and other resources provided by the suppliers that are consumed or transformed in the process.",source/course/Les 4/Six Sigma For Dummies.pdf,265,Table 11-2: The SIPOC
+P: Process,The process is the set of actions and activities that transform the inputs into the outputs.,source/course/Les 4/Six Sigma For Dummies.pdf,265,Table 11-2: The SIPOC
+O: Outputs,Outputs are the products or services produced by the process and used by the customer.,source/course/Les 4/Six Sigma For Dummies.pdf,265,Table 11-2: The SIPOC
+C: Customer,"Customers are persons, groups of people, companies, systems, and downstream processes that receive the output of the process.",source/course/Les 4/Six Sigma For Dummies.pdf,265,Table 11-2: The SIPOC

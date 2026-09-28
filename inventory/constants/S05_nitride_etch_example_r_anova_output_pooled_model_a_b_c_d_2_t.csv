@@ -1,0 +1,12 @@
+Term,Df,Sum Sq,Mean Sq,F value,Pr(>F),source_file,source_page,table_name
+A,1,41311,41311,20.2765,0.006382 **,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,77,"Nitride etch example: R ANOVA output, pooled model (A+B+C+D)^2 (two-factor interactions retained)"
+B,1,11,11,0.0052,0.945391,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,77,"Nitride etch example: R ANOVA output, pooled model (A+B+C+D)^2 (two-factor interactions retained)"
+C,1,218,218,0.1068,0.757016,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,77,"Nitride etch example: R ANOVA output, pooled model (A+B+C+D)^2 (two-factor interactions retained)"
+D,1,374850,374850,183.9879,3.903e-05 ***,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,77,"Nitride etch example: R ANOVA output, pooled model (A+B+C+D)^2 (two-factor interactions retained)"
+A:B,1,248,248,0.1218,0.741315,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,77,"Nitride etch example: R ANOVA output, pooled model (A+B+C+D)^2 (two-factor interactions retained)"
+A:C,1,2475,2475,1.2148,0.320582,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,77,"Nitride etch example: R ANOVA output, pooled model (A+B+C+D)^2 (two-factor interactions retained)"
+A:D,1,94403,94403,46.3357,0.001042 **,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,77,"Nitride etch example: R ANOVA output, pooled model (A+B+C+D)^2 (two-factor interactions retained)"
+B:C,1,7700,7700,3.7794,0.109498,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,77,"Nitride etch example: R ANOVA output, pooled model (A+B+C+D)^2 (two-factor interactions retained)"
+B:D,1,2,2,0.0008,0.978978,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,77,"Nitride etch example: R ANOVA output, pooled model (A+B+C+D)^2 (two-factor interactions retained)"
+C:D,1,18,18,0.0089,0.928641,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,77,"Nitride etch example: R ANOVA output, pooled model (A+B+C+D)^2 (two-factor interactions retained)"
+Residuals,5,10187,2037,,,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,77,"Nitride etch example: R ANOVA output, pooled model (A+B+C+D)^2 (two-factor interactions retained)"

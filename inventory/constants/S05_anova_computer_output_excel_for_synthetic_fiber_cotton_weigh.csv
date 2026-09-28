@@ -1,0 +1,4 @@
+Source of Variation,SS,df,MS,F,P-value,F crit,source_file,source_page,table_name
+Between Groups,475.76,4,118.94,14.75682,9.12794E-06,2.866081,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,15,ANOVA Computer Output (Excel) for synthetic fiber / cotton weight experiment
+Within Groups,161.2,20,8.06,,,,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,15,ANOVA Computer Output (Excel) for synthetic fiber / cotton weight experiment
+Total,636.96,24,,,,,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,15,ANOVA Computer Output (Excel) for synthetic fiber / cotton weight experiment

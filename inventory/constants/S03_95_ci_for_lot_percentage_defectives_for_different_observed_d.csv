@@ -1,0 +1,4 @@
+defectives in sample,95% CI lower,95% CI upper,source_file,source_page,table_name
+0,0.0%,3.6%,source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf,5,95% CI for lot percentage defectives for different observed defectives (n=100 SRS from lot with true 2% defectives)
+2,0.3%,7.0%,source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf,5,95% CI for lot percentage defectives for different observed defectives (n=100 SRS from lot with true 2% defectives)
+4,1.1%,9.9%,source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf,5,95% CI for lot percentage defectives for different observed defectives (n=100 SRS from lot with true 2% defectives)

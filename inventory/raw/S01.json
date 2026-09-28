@@ -1,0 +1,531 @@
+{
+  "slice_id": "S01",
+  "files_read": [
+    {"file": "source/course/Les 1/20260521_van volsem.pdf", "pages": "1-162"},
+    {"file": "source/course/Les 1/Table of Contents.html", "pages": "1"}
+  ],
+  "topics": [
+    {"topic": "Intro / warming-up (vakantie, luchthavens experiment, 'Twee keer raden' krantenartikel over wisdom of crowds)", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [1,2,4,5]},
+    {"topic": "Wat is Six Sigma (definitie, 68-95-99.7 rule, DPMO/yield tabel)", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [3,6,7,8]},
+    {"topic": "De DMAIC fasen (overzicht, stage-gate structuur, communicatie in DMAIC)", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [9,28,58,152]},
+    {"topic": "Lean principes: valueflow, 3 M's (Mura/Muda/Muri), waste, flow efficiency, Little's law, wet van de bottlenecks, wet van het effect van variatie", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [10,11,12,13,14,15,16,17,18]},
+    {"topic": "Lean & Six Sigma combinatie (waste vs variatie)", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [19]},
+    {"topic": "Agile DMAIC vs traditionele DMAIC", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [20]},
+    {"topic": "Design for Six Sigma (DMADV) vs Six Sigma (DMAIC)", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [21]},
+    {"topic": "Six Sigma organisatie & belt-structuur (Champion, Sponsor, Black Belt, Green Belt, White Belt)", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [22,23,24,25,26,27]},
+    {"topic": "Waarom veranderen / kost van niet-kwaliteit (iceberg, 15-20% van omzet)", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [30,31,51,52]},
+    {"topic": "Kwaliteitsdenken (kwaliteit is..., waarom verbeteren, soorten aanpak/problemen, verbetering en borging, de verborgen fabriek, PDCA/continu verbeteren)", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [32,33,34,35,36,37,38,39,40,41]},
+    {"topic": "Define: het probleem stellen (probleemdefinitie, focus, olifant-metafoor, voorbeelden gefocuste probleemdefinities, doorlooptijden voorbeeld)", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [42,43,44,45,46,47,48,49,50]},
+    {"topic": "Overtuigen / sense of urgency (Ethos-Logos-Pathos, argument strategy vs DMAIC, understanding the reality)", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [53,54,55,56]},
+    {"topic": "Define fase structuur: create shared need / define wanted position / mobilize commitment; sponsor key success factors", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [57,74]},
+    {"topic": "Doelstellingen: SMART, goal setting criteria, building/creating een goal statement, 'more than one' targets", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [59,60,61,62,63]},
+    {"topic": "One-slider / business case template en business case berekeningen (investeringen, cost savings, cost avoidance, break-even)", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [64,147,148,149]},
+    {"topic": "Strategie-alignering: strategy development & alignment, KPI-cascade naar DMAIC-projecten", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [65,66,67]},
+    {"topic": "Voice of the Customer (VOC) en Critical to Quality (CTQ) tree", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [68,69,70,71]},
+    {"topic": "De juiste DMAIC-projecten kiezen; 'funneling' van de Xs doorheen DMAIC; projectduur GB/BB", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [72,73]},
+    {"topic": "Measure fase: data, as-is proces begrijpen/meten, waar te beginnen (CtQ tree, initiële data, Ishikawa, procesmapping), kwalitatieve vs kwantitatieve data", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [75,76,77,78,79,80]},
+    {"topic": "Datatypes: categorisch/numeriek (discreet/continu) en de vier meetschalen (nominaal/ordinaal/interval/ratio), oefenvraag meetniveau", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [81,82,83,84]},
+    {"topic": "Datageletterdheid & kritisch denken: misleidende as, survivorship bias, confounding/correlatie vs causaliteit, Simpson's paradox, relatief vs absoluut risico, Goodhart's Law, checklist kritisch denken", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [85,86,87,88,89,90,91,92,93,94]},
+    {"topic": "Data-literacy oefening: 'welk dorp moet steun krijgen' (village income, gemiddelde vs verdeling)", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [95,96,97,98,99]},
+    {"topic": "Conclusies trekken op basis van data (rapportage-voorbeeld % kinderen op reis zonder ouders)", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [100]},
+    {"topic": "Extra leesmateriaal: levensverwachting (De Standaard), wet van Benford (De Morgen)", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [101,102,103]},
+    {"topic": "Data verzamelen: 5W+1H, data collection plan", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [104,106]},
+    {"topic": "Statistiek versus probabiliteit; probabilistisch model; random variabelen, distributies, histogram; random variatie in systemen", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [105,107,108,109,110,111,112,113,114,115,116]},
+    {"topic": "Industriële statistiek vs beschrijvende statistiek; de ingenieursmethode; voorbeeld lichtfilamenten", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [117,118,119,120]},
+    {"topic": "Overzicht toegepaste/industriële statistiek (distributies, steekproefdistributies, BI, hypothesetesten, regressie, ANOVA, SPC, AS, DOE, MSA)", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [121]},
+    {"topic": "Praktijkvoorbeelden die toegepaste statistiek vereisen: acceptance sampling, DOE, hypothesetest (methode A/B), life test/betrouwbaarheid, capability/SPC", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [122,123,124,125,126,127]},
+    {"topic": "Steekproeven: begrippen (aselecte steekproef, statistiek), waarom/wanneer steekproeven nemen", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [128,129]},
+    {"topic": "Parameters/statistieken van steekproeven: locatieparameters (gemiddelde, modus, mediaan) en spreidingsparameters (standaardafwijking, range)", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [130,131]},
+    {"topic": "Exploratory Data Analysis (EDA): definitie, Anscombe's quartet voorbeeld, verschil EDA vs klassieke data-analyse, Bayesiaanse data-analyse, 4-plot en interpretatie, gevolgen niet voldoen aan assumpties, belang voor modelvalidatie", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [132,133,134,135,136,137,138,139,140,141,142,143,144,145]},
+    {"topic": "Stakeholdermanagement: stakeholder map, strategie voor stakeholders", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [150,151]},
+    {"topic": "Teamvorming: wie heb je nodig, high performing team, Belbin teamrollen (people/thinking/action), team journey (forming-storming-norming-performing-adjourning)", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [153,154,155,156,157,158,159]},
+    {"topic": "Verandermanagement: stappen in leiden van verandering (Insight-Prepare-Act-Reinforce), risico-matrix voor verandering, IPAR-reflectietabel", "file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [160,161,162]},
+    {"topic": "Table of Contents (LMS listing only, geen inhoudelijke content)", "file": "source/course/Les 1/Table of Contents.html", "pages": [1]}
+  ],
+  "formulas": [
+    {
+      "name": "Little's Law",
+      "expression": "Throughput time = flow units in process x cycle time",
+      "symbols": {
+        "Throughput time": "Dependent on the process system boundaries",
+        "flow units in process": "All flow units within the system boundaries",
+        "cycle time": "Average time between two flow units completing the activity"
+      },
+      "conditions": "",
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 16
+    },
+    {
+      "name": "Gemiddelde (steekproefgemiddelde)",
+      "expression": "x̄ = (Σ_{i=1}^{n} x_i) / n",
+      "symbols": {"x̄": "steekproefgemiddelde", "x_i": "i-de waarneming", "n": "steekproefgrootte"},
+      "conditions": "Locatieparameter",
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 131
+    },
+    {
+      "name": "Standaardafwijking (steekproef)",
+      "expression": "s = sqrt( Σ_{i=1}^{n} (X_i - X̄)² / (n - 1) )",
+      "symbols": {"s": "steekproefstandaardafwijking", "X_i": "i-de waarneming", "X̄": "steekproefgemiddelde", "n": "steekproefgrootte"},
+      "conditions": "Spreidingsparameter; noemer is n-1 zoals op de slide afgebeeld",
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 131
+    },
+    {
+      "name": "Range",
+      "expression": "Range (R): het verschil tussen de grootste en de kleinste waarde",
+      "symbols": {"R": "range"},
+      "conditions": "Spreidingsparameter, verbaal geformuleerd op de slide (geen symbolische formule getoond)",
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 131
+    },
+    {
+      "name": "Wet van Ohm (deterministisch model)",
+      "expression": "U = RI",
+      "symbols": {"U": "spanning", "R": "weerstand", "I": "stroom"},
+      "conditions": "Zogenaamd deterministisch model: als I en R gekend zijn, claimt men U exact te kennen",
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 114
+    },
+    {
+      "name": "Probabilistisch model (voorbeeld Ohm)",
+      "expression": "U = RI + ε",
+      "symbols": {"U": "spanning", "R": "weerstand", "I": "stroom", "ε": "meetfout of experimentele fout"},
+      "conditions": "",
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 115
+    },
+    {
+      "name": "Algemeen probabilistisch model",
+      "expression": "Respons = deterministische component + random component",
+      "symbols": {"Respons": "gemeten output"},
+      "conditions": "Bij elk meetproces worden 4 assumpties gemaakt: (1) onafhankelijke trekkingen, (2) uit een vaste distributie, (3) met vaste locatie, (4) met constante spreiding. Deze kunnen getest worden met EDA (4-plot).",
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 115
+    },
+    {
+      "name": "Funneling van de Xs door DMAIC",
+      "expression": "Define: Y = f(x1, x2, x3, x4, ... xn)  ->  Control: Y = f(x7, x22, x57)",
+      "symbols": {"Y": "output/respons", "x1...xn": "mogelijke input-variabelen (Xs)", "x7, x22, x57": "de 'essential few' kritische Xs die overblijven na Analyze"},
+      "conditions": "Define: >100 Xs; Measure: ≤20 Xs; Analyze: ≤6 Xs; Improve: ≤4 Xs; Control: ≤3 Xs",
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 73
+    }
+  ],
+  "constant_tables": [
+    {
+      "name": "68-95-99.7 Rule (normale distributie, intervallen rond het gemiddelde)",
+      "columns": ["Interval", "Percentage"],
+      "rows": [
+        ["±1σ", "68.26%"],
+        ["±2σ", "95.44%"],
+        ["±3σ", "99.73%"],
+        ["±4σ", "99.9937%"],
+        ["±5σ", "99.999943%"],
+        ["±6σ", "99.9999998%"]
+      ],
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 7
+    },
+    {
+      "name": "Sigma Level / Defects per Million / Yield tabel",
+      "columns": ["Sigma Level", "Defects per Million", "Yield"],
+      "rows": [
+        ["6", "3.4", "99.99966%"],
+        ["5", "230", "99.977%"],
+        ["4", "6,210", "99.38%"],
+        ["3", "66,800", "93.32%"],
+        ["2", "308,000", "69.15%"],
+        ["1", "690,000", "30.85%"]
+      ],
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 7
+    },
+    {
+      "name": "De vier meetschalen (nominaal/ordinaal/interval/ratio) en toegelaten bewerkingen",
+      "columns": ["Kenmerk", "Nominaal", "Ordinaal", "Interval", "Ratio"],
+      "rows": [
+        ["Definitie", "Categorieën zonder volgorde. Alleen benoemen en tellen.", "Categorieën met volgorde, maar de afstanden hebben geen betekenis of zijn niet 'gelijk'.", "Gelijke afstanden, maar geen absoluut nulpunt.", "Gelijke afstanden en een absoluut nulpunt."],
+        ["Voorbeeld", "Geslacht, provincie, burgerlijke staat", "Tevredenheid (1-5), opleidingsniveau", "Temperatuur (graden C), jaar van geboorte", "Gewicht, spanning, inkomen, lengte"],
+        ["Modus / tellen", "✓", "✓", "✓", "✓"],
+        ["Mediaan", "✗", "✓", "✓", "✓"],
+        ["Gemiddelde", "✗", "✗ *", "✓", "✓"],
+        ["Verhoudingen", "✗", "✗", "✗", "✓"]
+      ],
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 82
+    },
+    {
+      "name": "Simpson's Paradox: COVID-19 vaccineffectiviteit UK (sept. 2021)",
+      "columns": ["Groep", "Gevaccineerd – sterfgevallen", "Niet-gevaccineerd – sterfgevallen", "% sterfgevallen gevaccineerd"],
+      "rows": [
+        ["< 50 jaar", "33 op 1.536.353", "48 op 3.440.479", "41%"],
+        ["50+ jaar", "1.671 op 3.501.456", "324 op 486.670", "84%"],
+        ["Totaal (simpel)", "1.704 op 5.037.809", "372 op 3.927.149", "82%"]
+      ],
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 91
+    },
+    {
+      "name": "Village income exercise - samenvattende statistieken per dorp",
+      "columns": ["Metric", "Abora", "Bladir", "Curo"],
+      "rows": [
+        ["total village income", "1440", "1000", "1300"],
+        ["average income", "90", "100", "130"],
+        ["median income", "90", "20", "126.5"],
+        ["mode income", "90", "20", "258"],
+        ["max income", "95", "820", "258"],
+        ["min income", "85", "20", "8"],
+        ["% incomes below 50", "0", "90", "50"],
+        ["% incomes below 100", "100", "90", "50"],
+        ["average income m", "90", "180", "250"],
+        ["average income f", "90", "20", "10"]
+      ],
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 100
+    },
+    {
+      "name": "Village income exercise - ruwe data per geslacht (m/f) per dorp",
+      "columns": ["gender", "Abora", "Bladir", "Curo"],
+      "rows": [
+        ["m", "90", "820", "241"],
+        ["m", "88", "20", "250"],
+        ["m", "95", "20", "258"],
+        ["m", "87", "20", "243"],
+        ["m", "90", "20", "258"],
+        ["f", "90", "20", "9"],
+        ["f", "85", "20", "10"],
+        ["f", "92", "20", "12"],
+        ["f", "88", "20", "8"],
+        ["f", "95", "20", "11"],
+        ["f", "89", "", ""],
+        ["f", "91", "", ""],
+        ["f", "90", "", ""],
+        ["f", "90", "", ""],
+        ["f", "92", "", ""],
+        ["f", "88", "", ""]
+      ],
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 100
+    },
+    {
+      "name": "Levensverwachting in goede en slechte gezondheid, Vlaams Gewest 2002 (De Standaard, 5/11/2004)",
+      "columns": ["Reeds bereikte leeftijd", "Nog te verwachten levensjaren (totaal: gezond+ongezond)", "waarvan ongezond"],
+      "rows": [
+        ["0", "79.1", "64.1"],
+        ["10", "70.2", "54.5"],
+        ["20", "60.4", "45.1"],
+        ["30", "50.8", "36.1"],
+        ["40", "41.2", "27.6"],
+        ["50", "31.9", "19.6"],
+        ["60", "23.1", "12.8"],
+        ["65", "18.3", "9.3"],
+        ["70", "15.1", "6.8"],
+        ["75", "11.6", "4.9"],
+        ["80", "8.5", "2.9"],
+        ["85", "6.1", "2.2"]
+      ],
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 102
+    },
+    {
+      "name": "Anscombe's Quartet - Dataset 1 (ruwe data)",
+      "columns": ["X", "Y"],
+      "rows": [
+        ["10.00", "8.04"],
+        ["8.00", "6.95"],
+        ["13.00", "7.58"],
+        ["9.00", "8.81"],
+        ["11.00", "8.33"],
+        ["14.00", "9.96"],
+        ["6.00", "7.24"],
+        ["4.00", "4.26"],
+        ["12.00", "10.84"],
+        ["7.00", "4.82"],
+        ["5.00", "5.68"]
+      ],
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 134
+    },
+    {
+      "name": "Anscombe's Quartet - Datasets 2, 3, 4 (ruwe data)",
+      "columns": ["X2", "Y2", "X3", "Y3", "X4", "Y4"],
+      "rows": [
+        ["10.00", "9.14", "10.00", "7.46", "8.00", "6.58"],
+        ["8.00", "8.14", "8.00", "6.77", "8.00", "5.76"],
+        ["13.00", "8.74", "13.00", "12.74", "8.00", "7.71"],
+        ["9.00", "8.77", "9.00", "7.11", "8.00", "8.84"],
+        ["11.00", "9.26", "11.00", "7.81", "8.00", "8.47"],
+        ["14.00", "8.10", "14.00", "8.84", "8.00", "7.04"],
+        ["6.00", "6.13", "6.00", "6.08", "8.00", "5.25"],
+        ["4.00", "3.10", "4.00", "5.39", "19.00", "12.50"],
+        ["12.00", "9.13", "12.00", "8.15", "8.00", "5.56"],
+        ["7.00", "7.26", "7.00", "6.42", "8.00", "7.91"],
+        ["5.00", "4.74", "5.00", "5.73", "8.00", "6.89"]
+      ],
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 136
+    },
+    {
+      "name": "Life test / betrouwbaarheid ruwe testresultaten (in uur)",
+      "columns": ["Kolom1", "Kolom2", "Kolom3", "Kolom4"],
+      "rows": [
+        ["9.78", "35.53", "72.06", "120"],
+        ["13.37", "52.96", "97.15", "120"],
+        ["13.76", "64.22", "103.09", "120"],
+        ["18.77", "65.66", "112.6", "120"],
+        ["34.9", "67.12", "120", "120"]
+      ],
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 126
+    }
+  ],
+  "worked_examples": [
+    {
+      "id": "S01-WE01",
+      "tool": "measurement-scale-classification",
+      "given": {
+        "1": "De buitentemperatuur in graden Celsius",
+        "2": "Het aantal defecten per uur in een fabriek",
+        "3": "Voorkeur voor een product: slecht / matig / goed / uitstekend",
+        "4": "Het gewicht van een pakket in kilogram",
+        "5": "De woonprovincie van een klant",
+        "6": "Het jaar waarin een bedrijf werd opgericht"
+      },
+      "stated_answers": {
+        "1": "Interval — 0 graden C betekent niet 'geen temperatuur'; er is geen absoluut nulpunt.",
+        "2": "Ratio — 0 defecten = echt niets; absoluut nulpunt aanwezig.",
+        "3": "Ordinaal — Er is volgorde, maar de afstanden zijn niet gelijk.",
+        "4": "Ratio — Gelijke afstanden en absoluut nulpunt (0 kg = niets).",
+        "5": "Nominaal — Categorieën zonder enige volgorde.",
+        "6": "Interval — Jaar 0 is een afspraak, geen absoluut nulpunt; verhoudingen zijn zinloos."
+      },
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 84,
+      "legible": true
+    },
+    {
+      "id": "S01-WE02",
+      "tool": "acceptance-sampling",
+      "given": {
+        "lotgrootte": "10.000 eenheden",
+        "max_toegelaten_defect_percentage": "1%",
+        "steekproefgrootte": "100 eenheden",
+        "gevonden_defecten_in_steekproef": "1"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 123,
+      "legible": true
+    },
+    {
+      "id": "S01-WE03",
+      "tool": "design-of-experiments",
+      "given": {
+        "doel": "output van een scheikundige reactie optimaliseren",
+        "procesparameters": "druk, temperatuur, concentratie, keuze van katalysatoren"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 124,
+      "legible": true
+    },
+    {
+      "id": "S01-WE04",
+      "tool": "hypothesis-test-two-means",
+      "given": {
+        "beschrijving": "Opbrengst (%) van een scheikundige reactie, methode A (n=10, volgnummer 1-10) vs methode B (n=10, volgnummer 11-20); scatterplot met twee horizontale gemiddelde-lijnen getoond, geen exacte datalabels per punt op de slide",
+        "vraag": "Is methode B beter dan methode A?"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 125,
+      "legible": false
+    },
+    {
+      "id": "S01-WE05",
+      "tool": "reliability-life-test",
+      "given": {
+        "vereiste": "gemiddelde levensduur van ten minste 100 uur",
+        "n_getest": "20 componenten",
+        "test_afbreekregel": "test eindigt bij falen van component of bij max testduur van 120 uur",
+        "data_ref": "zie constant_tables 'Life test / betrouwbaarheid ruwe testresultaten (in uur)', file source/course/Les 1/20260521_van volsem.pdf p126"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 126,
+      "legible": true
+    },
+    {
+      "id": "S01-WE06",
+      "tool": "capability-cp-cpk",
+      "given": {
+        "specificatie": "lengte as tussen 71.4 mm en 72.8 mm",
+        "kaarttype": "x̄-s-kaart",
+        "steekproefgrootte": "5",
+        "x̄": "71.8 mm",
+        "s̄": "0.2 mm"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 127,
+      "legible": true
+    },
+    {
+      "id": "S01-WE07",
+      "tool": "data-literacy-average-vs-distribution",
+      "given": {
+        "vraag": "Which village should get charity funds?",
+        "data_ref": "zie constant_tables 'Village income exercise' (p100); grafieken tonen progressief total village income (1440/1000/1300) -> average income (90/100/130) -> % incomes below 50 (0/90/50) -> % incomes below 100 (100/90/50)"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 95,
+      "legible": true
+    },
+    {
+      "id": "S01-WE08",
+      "tool": "percent-change-interpretation",
+      "given": {
+        "2019_percentage": "43% van 14-tot-17-jarigen mocht op vakantie zonder ouders",
+        "2023_percentage": "39%",
+        "2019_populatie_14_17": "1 092 979",
+        "2023_populatie_14_17": "1 136 495",
+        "mogelijke_conclusies": [
+          "1. The number of kids allowed to travel without parents has dropped by 1% per year",
+          "2. The number of kids allowed to travel without parents has dropped by 4%",
+          "3. The number of kids allowed to travel without parents has dropped by 9.3%",
+          "4. The number of kids allowed to travel without parents has dropped by 27 748",
+          "5. The number of kids allowed to travel without parents has dropped by 5.7 %"
+        ]
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 100,
+      "legible": true
+    },
+    {
+      "id": "S01-WE09",
+      "tool": "simpsons-paradox",
+      "given": {
+        "data_ref": "zie constant_tables 'Simpson's Paradox: COVID-19 vaccineffectiviteit UK (sept. 2021)', file source/course/Les 1/20260521_van volsem.pdf p91"
+      },
+      "stated_answers": {
+        "conclusie": "Binnen elke leeftijdsgroep beschermt het vaccin juist (41% vs. 59% sterfgevallen in groep <50 jaar); de totaalcijfers (82% gevaccineerd) zijn misleidend omdat ouderen zowel eerst gevaccineerd werden als een hoger risico lopen om te overlijden."
+      },
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 91,
+      "legible": true
+    },
+    {
+      "id": "S01-WE10",
+      "tool": "chart-axis-manipulation",
+      "given": {
+        "misleidende_as": "y-as begint bij 31.5%, tickmarks 31.6%/31.8%/32.0%/32.2%, kandidaten A en B als staafjes zonder exacte datalabels",
+        "correcte_as": "y-as begint bij 0%, tickmarks 0/10/20/30/40%"
+      },
+      "stated_answers": {
+        "werkelijk_verschil": "0.6 procentpunt"
+      },
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 87,
+      "legible": false
+    },
+    {
+      "id": "S01-WE11",
+      "tool": "regression-summary-stats-eda",
+      "given": {
+        "bron": "Anscombe, Francis (1973), Graphs in Statistical Analysis, The American Statistician, pp. 195-199",
+        "dataset_1_ruw": "zie constant_tables 'Anscombe's Quartet - Dataset 1 (ruwe data)', p134",
+        "datasets_2_3_4_ruw": "zie constant_tables 'Anscombe's Quartet - Datasets 2, 3, 4 (ruwe data)', p136"
+      },
+      "stated_answers": {
+        "N": "11",
+        "Mean of X": "9.0",
+        "Mean of Y": "7.5",
+        "Intercept": "3",
+        "Slope": "0.5",
+        "Residual standard deviation": "1.237",
+        "Correlation": "0.816",
+        "opmerking": "Deze kwantitatieve statistieken zijn identiek voor alle 4 datasets, maar de scatterplots (p137, 'Nochtans...') tonen sterk verschillend gedrag (lineair, kwadratisch verband, outlier, verticale puntenwolk met 1 outlier)"
+      },
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 134,
+      "legible": true
+    }
+  ],
+  "conventions": [
+    {
+      "topic": "n vs n-1 in standaardafwijking",
+      "as_stated": "Standaardafwijking: s = sqrt( Σ_{i=1}^{n} (X_i - X̄)² / (n-1) ) — de slide toont expliciet de noemer (n-1) voor de steekproefstandaardafwijking.",
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 131
+    },
+    {
+      "topic": "Meetschaal is onafhankelijk van datatype",
+      "as_stated": "\"Discreet en continu zeggen iets over de waarden die een variabele kan aannemen. Interval en ratio zeggen iets over wat je met die waarden mag doen. De twee eigenschappen staan los van elkaar.\" Met expliciete voetnoot: \"Noot: De vorige slide koppelt 'Discreet' aan interval en 'Continu' aan ratio als voorbeeld — dat is illustratief, geen algemene regel.\"",
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 83
+    },
+    {
+      "topic": "DMAIC projectduur (Green Belt vs Black Belt)",
+      "as_stated": "\"Boundaries to enable project closure within: 2-5 months (Green Belt); 6-9 months (Black Belt)\". Ook vermeld: \"IMPROVEMENT vs. IMPLEMENTATION — Full DMAIC not just DIC needed\".",
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 72
+    },
+    {
+      "topic": "Funneling / aantal Xs per DMAIC-fase (heuristiek)",
+      "as_stated": "Define: >100 Xs; Measure: ≤20 Xs; Analyze: ≤6 Xs; Improve: ≤4 Xs; Control: ≤3 Xs. \"DMAIC triggers the X from trivial many to significantly few\".",
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 73
+    },
+    {
+      "topic": "1.5σ-shift / sigma-niveau tabel",
+      "as_stated": "De slide toont een Sigma Level / Defects-per-Million / Yield tabel (bv. 6σ -> 3.4 DPM, 99.99966%) zonder expliciet te vermelden of dit lange-termijn cijfers zijn met een 1.5σ-verschuiving verondersteld. Zie ambiguities.",
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 7
+    }
+  ],
+  "ambiguities": [
+    {
+      "issue": "De Sigma Level/DPMO/Yield-tabel (6σ=3.4 DPM/99.99966%, 5σ=230/99.977%, 4σ=6210/99.38%, 3σ=66800/93.32%, 2σ=308000/69.15%, 1σ=690000/30.85%) komt overeen met de klassieke 'long-term met 1.5σ-shift' cijfers, maar de slide vermeldt dit niet expliciet. Dit is een conventie-checklistpunt (1.5σ shift) dat bevestigd moet worden tegen latere lessen vooraleer te gebruiken in de rekenmodule.",
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 7
+    },
+    {
+      "issue": "In de tabel 'De vier meetschalen' staat bij Ordinaal/Gemiddelde een asterisk ('Gemiddelde *', gemarkeerd met een rood kruisje = niet toegelaten) zonder zichtbare voetnoot op deze slide die de asterisk verklaart.",
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 82
+    },
+    {
+      "issue": "Oefening 'Conclusions based on data?' (kinderen op vakantie zonder ouders, 43% in 2019 -> 39% in 2023, populaties 1 092 979 en 1 136 495) geeft 5 mogelijke conclusies als meerkeuze, maar de slide markeert niet welke conclusie correct/beoogd is.",
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 100
+    },
+    {
+      "issue": "Data-literacy oefening 'Which village should get charity funds?' (Abora/Bladir/Curo) toont progressief verfijnde grafieken (totaal inkomen -> gemiddelde -> mediaan/modus -> % onder armoedegrens) maar de deck vermeldt geen definitief 'juist' antwoord over welk dorp steun moet krijgen.",
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 95
+    },
+    {
+      "issue": "Voorbeeld misleidende y-as (Kandidaat A/B verkiezingsuitslag): de staafjes hebben geen expliciete datalabels, enkel as-tickmarks (31.5%-32.2% resp. 0%-40%) en de bijschriften 'As begint bij 31.5% -> verschil lijkt enorm!' en 'Werkelijk verschil: slechts 0.6 procentpunt'. De exacte percentages per kandidaat zijn dus niet af te lezen/transcriberen uit de slide.",
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 87
+    },
+    {
+      "issue": "Praktijkvoorbeelden op p123-p127 (acceptance sampling, DOE, methode A vs B, life test, capability/SPC) stellen telkens een beslissingsvraag ('doorlaten of niet?', 'is methode B beter?', 'voldoet dit aan de betrouwbaarheidsvereiste?', 'is dit proces geschikt?') zonder de berekende/verwachte uitkomst te tonen op de slide zelf — vermoedelijk bedoeld als vooruitblik naar latere modules (AS, DOE, hypothesetests, capability/SPC).",
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 123
+    },
+    {
+      "issue": "In de life-test tabel (p126) komt de waarde '120' (de opgegeven maximale testduur) meermaals voor, wat wijst op (rechts-)gecensureerde waarnemingen, maar de slide labelt deze waarden niet expliciet als 'gecensureerd'.",
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 126
+    },
+    {
+      "issue": "Table of Contents.html bevat enkel een LMS-linklijst naar de twee PDF-bestanden van deze les ('20260521_van volsem' en '20260522_naert_big data'); geen inhoudelijke cursusinformatie om te extraheren.",
+      "file": "source/course/Les 1/Table of Contents.html",
+      "page": 1
+    }
+  ]
+}

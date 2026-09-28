@@ -1,0 +1,4021 @@
+{
+  "slice_id": "S05",
+  "files_read": [
+    {
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "pages": "1-94"
+    },
+    {
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "pages": "1-67"
+    },
+    {
+      "file": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx",
+      "pages": "1-6"
+    },
+    {
+      "file": "source/course/Les 3/20260605_devuyst_Regression_demo.xlsx",
+      "pages": "1-3"
+    },
+    {
+      "file": "source/course/Les 3/Table of Contents.html",
+      "pages": "1"
+    }
+  ],
+  "topics": [
+    {
+      "topic": "One-way ANOVA: means model and effects model, hypotheses",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "topic": "One-way ANOVA worked example: Paper Tensile Strength (Example 4.12, Table 4.4/4.7)",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "pages": [
+        4,
+        9,
+        10
+      ]
+    },
+    {
+      "topic": "Residuals analysis / model adequacy checking (one-way ANOVA)",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "pages": [
+        11,
+        18,
+        19
+      ]
+    },
+    {
+      "topic": "Post-hoc comparison of treatment means (graphical, Fisher's LSD)",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "pages": [
+        12,
+        19
+      ]
+    },
+    {
+      "topic": "One-way ANOVA worked example: synthetic fiber / cotton weight percentage (Table 3-1)",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "pages": [
+        13,
+        14,
+        15,
+        16,
+        17
+      ]
+    },
+    {
+      "topic": "One-way ANOVA worked example: three machines (Table 10-1)",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "pages": [
+        20
+      ]
+    },
+    {
+      "topic": "Introduction to DOE: goals of modelling and experimenting, terminology (Dutch)",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "pages": [
+        21,
+        22,
+        23,
+        24
+      ]
+    },
+    {
+      "topic": "Essential characteristics of a good experimental design; factorial design intro",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "pages": [
+        25,
+        26
+      ]
+    },
+    {
+      "topic": "Advantages of full factorial experiments",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "pages": [
+        28
+      ]
+    },
+    {
+      "topic": "Nuisance ('external') factors: blocking and randomisation",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "pages": [
+        29,
+        30,
+        31,
+        32,
+        33
+      ]
+    },
+    {
+      "topic": "Illustrative example of confounding (chemical reaction: additive concentration vs reaction duration)",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "pages": [
+        34,
+        35,
+        36,
+        37,
+        38
+      ]
+    },
+    {
+      "topic": "Planning, executing and analysing an experiment (7 steps)",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "pages": [
+        39
+      ]
+    },
+    {
+      "topic": "Factorial experimental design: experimental units, runs, replications, balanced design",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "pages": [
+        40
+      ]
+    },
+    {
+      "topic": "Factorial designs with several factors (golf experiment, 2/3/4-factor)",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "pages": [
+        41,
+        42,
+        43,
+        44
+      ]
+    },
+    {
+      "topic": "Nuisance factors and confounding (definition)",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "pages": [
+        45
+      ]
+    },
+    {
+      "topic": "Coding factor levels to -1/+1; design matrix (stacked vs unstacked); effect size definition",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "pages": [
+        46,
+        47,
+        48,
+        49,
+        50
+      ]
+    },
+    {
+      "topic": "2^2 factorial design: basic definitions, main effects, interaction",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "pages": [
+        51,
+        52,
+        53,
+        54
+      ]
+    },
+    {
+      "topic": "2^2 factorial design: effect estimates and contrasts, sums of squares",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "pages": [
+        55,
+        56,
+        57,
+        58
+      ]
+    },
+    {
+      "topic": "2^2 worked example: chemical process (reactant concentration x catalyst amount)",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "pages": [
+        59,
+        60,
+        61
+      ]
+    },
+    {
+      "topic": "2^3 factorial design: geometric view, design matrix, effects/interactions",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "pages": [
+        62,
+        63
+      ]
+    },
+    {
+      "topic": "2^k factorial design (k>=3): general effect estimate formulas for main effects and interactions",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "pages": [
+        64,
+        65,
+        66
+      ]
+    },
+    {
+      "topic": "2^k factorial design: contrasts, general effect and SS formulas",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "pages": [
+        66
+      ]
+    },
+    {
+      "topic": "2^k factorial design: standard error of effect and confidence interval on effect",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "pages": [
+        67,
+        68
+      ]
+    },
+    {
+      "topic": "2^3 worked example: surface finish quality (feed rate, depth of cut, tool angle)",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "pages": [
+        69,
+        70,
+        71
+      ]
+    },
+    {
+      "topic": "Single replicate of 2^k design; sparsity-of-effects principle; pooling higher-order interactions",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "pages": [
+        72,
+        73,
+        74,
+        75,
+        76,
+        77
+      ]
+    },
+    {
+      "topic": "Fractional replication: one-half fraction of 2^k, defining relation, aliases",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "pages": [
+        78,
+        79,
+        80,
+        81,
+        82
+      ]
+    },
+    {
+      "topic": "Projection of fractional designs; design resolution (III, IV, V)",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "pages": [
+        83,
+        84,
+        85,
+        86
+      ]
+    },
+    {
+      "topic": "Smaller fractions: 2^(k-p) design, design generators, complete defining relation, resolution",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "pages": [
+        87,
+        88,
+        89,
+        90,
+        91,
+        92
+      ]
+    },
+    {
+      "topic": "Table 13.23: Selected 2^(k-p) fractional factorial designs (Montgomery reference table)",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "pages": [
+        93
+      ]
+    },
+    {
+      "topic": "DOE references",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "pages": [
+        94
+      ]
+    },
+    {
+      "topic": "Introduction to empirical models; linear vs multiple regression model definition",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "topic": "Correlation vs causation; spurious/confounding relationships (Dutch slides)",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "pages": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "topic": "Simple linear regression: assumed model, homoscedasticity",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "pages": [
+        16
+      ]
+    },
+    {
+      "topic": "Least-squares estimation and normal equations (simple linear regression)",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "pages": [
+        17,
+        18,
+        19
+      ]
+    },
+    {
+      "topic": "Simple linear regression worked example: oxygen purity vs hydrocarbon level (Example 11-1)",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "pages": [
+        20,
+        21,
+        22
+      ]
+    },
+    {
+      "topic": "Analysis of variance for regression: SST = SSR + SSE, coefficient of determination R2",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "pages": [
+        23,
+        24,
+        25,
+        26,
+        27
+      ]
+    },
+    {
+      "topic": "Inference on regression coefficients: t-tests for slope and intercept",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "pages": [
+        28,
+        29,
+        30,
+        31
+      ]
+    },
+    {
+      "topic": "Significance of the regression: F-test",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "pages": [
+        32,
+        33
+      ]
+    },
+    {
+      "topic": "Confidence intervals: slope, intercept, mean response",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "pages": [
+        34,
+        35,
+        36,
+        37
+      ]
+    },
+    {
+      "topic": "Prediction interval for a future observation",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "pages": [
+        38,
+        39
+      ]
+    },
+    {
+      "topic": "Checking model adequacy: residual plots, normal probability plot (simple regression)",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "pages": [
+        40,
+        41,
+        42,
+        43,
+        44
+      ]
+    },
+    {
+      "topic": "Effect of outliers / influential observations",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "pages": [
+        45
+      ]
+    },
+    {
+      "topic": "Multiple linear regression model (population and estimated response)",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "pages": [
+        46,
+        47,
+        48,
+        49
+      ]
+    },
+    {
+      "topic": "Simple vs multiple regression compared: confounding of coefficients",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "pages": [
+        50
+      ]
+    },
+    {
+      "topic": "Multiple regression worked example: oil consumption vs temperature & insulation (15 houses)",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "pages": [
+        51,
+        52,
+        53
+      ]
+    },
+    {
+      "topic": "Explanatory power of multiple regression models: R2 and adjusted R2",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "pages": [
+        54,
+        55,
+        56
+      ]
+    },
+    {
+      "topic": "Multiple regression: predictions and estimate of sigma",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "pages": [
+        57
+      ]
+    },
+    {
+      "topic": "Polynomial models (second-order model, acetylene data Table 6-9)",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "pages": [
+        58,
+        59,
+        60,
+        61,
+        62
+      ]
+    },
+    {
+      "topic": "Variable selection procedures: best subsets, backward elimination, forward selection, stepwise regression (shampoo data)",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "pages": [
+        63,
+        64,
+        65,
+        66
+      ]
+    },
+    {
+      "topic": "Regression references",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "pages": [
+        67
+      ]
+    },
+    {
+      "topic": "DOE demo data: one-way ANOVA (synthetic fibre tensile strength)",
+      "file": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx",
+      "pages": [
+        1
+      ]
+    },
+    {
+      "topic": "DOE demo data: two-way ANOVA unreplicated (machine x operator)",
+      "file": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx",
+      "pages": [
+        2
+      ]
+    },
+    {
+      "topic": "DOE demo data: two-way ANOVA replicated n=5 (plant growth)",
+      "file": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx",
+      "pages": [
+        3
+      ]
+    },
+    {
+      "topic": "DOE demo data: 2^5 full factorial replicated n=3",
+      "file": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx",
+      "pages": [
+        4
+      ]
+    },
+    {
+      "topic": "DOE demo data: 2^(5-1) fractional factorial replicated n=3, generator ABCDE=I",
+      "file": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx",
+      "pages": [
+        5
+      ]
+    },
+    {
+      "topic": "DOE demo data: 2^(5-2) fractional factorial replicated n=3 (exercise, generators for D/E left blank)",
+      "file": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx",
+      "pages": [
+        6
+      ]
+    },
+    {
+      "topic": "Regression demo data: simple linear regression exercises (Simple 1, Simple 2)",
+      "file": "source/course/Les 3/20260605_devuyst_Regression_demo.xlsx",
+      "pages": [
+        1,
+        2
+      ]
+    },
+    {
+      "topic": "Regression demo data: multiple linear regression exercise (Strength vs A-E)",
+      "file": "source/course/Les 3/20260605_devuyst_Regression_demo.xlsx",
+      "pages": [
+        3
+      ]
+    }
+  ],
+  "formulas": [
+    {
+      "name": "One-way ANOVA means model",
+      "expression": "Y_ij = mu_i + eps_ij, eps_ij ~ N(0, sigma^2) and independent",
+      "symbols": {
+        "Y_ij": "j-th measurement for the i-th level of factor A",
+        "mu_i": "mean of population i",
+        "eps_ij": "error term",
+        "sigma^2": "common variance"
+      },
+      "conditions": "i=1,...,a; j=1,...,n; all populations normal with different means but same variance",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 3
+    },
+    {
+      "name": "One-way ANOVA effects model",
+      "expression": "Y_ij = mu + tau_i + eps_ij, eps_ij ~ N(0, sigma^2) and independent, sum_{i=1}^{a} tau_i = 0",
+      "symbols": {
+        "mu": "overall grand mean",
+        "tau_i": "effect of level i"
+      },
+      "conditions": "i=1,...,a; j=1,...,n",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 3
+    },
+    {
+      "name": "Group means and grand mean (dummy variable model)",
+      "expression": "Ybar_i. = (1/n) sum_{j=1}^{n} Y_ij ; Ybar_.. = (1/a) sum_{i=1}^{a} Ybar_i. = (1/(a n)) sum_{i=1}^{a} sum_{j=1}^{n} Y_ij",
+      "symbols": {
+        "Ybar_i.": "group mean of level i",
+        "Ybar_..": "grand mean"
+      },
+      "conditions": "",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 5
+    },
+    {
+      "name": "SS_Total (one-way ANOVA)",
+      "expression": "SS_Total = (Y - Ybar 1)^T (Y - Ybar 1) = sum_{i=1}^{a} sum_{j=1}^{n} (Y_ij - Ybar..)^2",
+      "symbols": {},
+      "conditions": "df = #obs - 1 = an - 1",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 6
+    },
+    {
+      "name": "SS_Error (one-way ANOVA)",
+      "expression": "SS_Error = e^T e = (Y - Yhat)^T (Y - Yhat) = sum_{i=1}^{a} sum_{j=1}^{n} (Y_ij - Ybar_i.)^2",
+      "symbols": {
+        "e": "residual vector"
+      },
+      "conditions": "df = #obs - p = a(n-1) with p=a",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 6
+    },
+    {
+      "name": "SS_Treatment (one-way ANOVA)",
+      "expression": "SS_Treatment = SS_R = (Yhat - Ybar 1)^T (Yhat - Ybar 1) = n sum_{i=1}^{a} (Ybar_i. - Ybar..)^2",
+      "symbols": {},
+      "conditions": "df = p - 1 = a - 1",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 6
+    },
+    {
+      "name": "SS partition (one-way ANOVA)",
+      "expression": "SS_Total = SS_Treatment + SS_Error",
+      "symbols": {},
+      "conditions": "",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 6
+    },
+    {
+      "name": "One-way ANOVA F test statistic",
+      "expression": "F = [SS_Treatment / (sigma^2 (a-1))] / [SS_E / (sigma^2 a(n-1))] = MS_Treatment / MS_Error ~ F_{a-1, a(n-1)}",
+      "symbols": {
+        "MS_Treatment": "SS_Treatment/(a-1)",
+        "MS_Error": "SS_E/(a(n-1))"
+      },
+      "conditions": "under H0; reject H0 when F > F_{1-alpha, a-1, a(n-1)}",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 7
+    },
+    {
+      "name": "Expected mean squares (one-way ANOVA)",
+      "expression": "E[MS_Error] = sigma^2 ; E[MS_Treatment] = sigma^2 + (n/(a-1)) sum_{i=1}^{a} tau_i^2",
+      "symbols": {},
+      "conditions": "",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 8
+    },
+    {
+      "name": "ANOVA table template (single-factor experiment), Table 4.6",
+      "expression": "Source: Treatments SS=SS_Treatments df=a-1 MS=MS_Treatments F0=MS_Treatments/MS_E ; Error SS=SS_E df=a(n-1) MS=MS_E ; Total SS=SS_T df=an-1",
+      "symbols": {},
+      "conditions": "",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 8
+    },
+    {
+      "name": "Residual definition (one-way ANOVA)",
+      "expression": "e_ij = y_ij - yhat_ij = y_ij - ybar_i.",
+      "symbols": {},
+      "conditions": "i=1..a, j=1..n",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 11
+    },
+    {
+      "name": "Effect size definition (coded 2^k design)",
+      "expression": "[Q] = (gemiddelde respons bij Q=+1) - (gemiddelde respons bij Q=-1)",
+      "symbols": {
+        "[Q]": "effect of factor (or interaction) Q"
+      },
+      "conditions": "levels coded -1/+1",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 48
+    },
+    {
+      "name": "2^2 main effect A",
+      "expression": "A = ybar_{A+} - ybar_{A-} = (a+ab)/(2n) - (b+(1))/(2n) = (1/(2n)) [a + ab - b - (1)]",
+      "symbols": {
+        "a,b,ab,(1)": "totals of n observations at the 4 design points of a 2^2 design",
+        "n": "number of replicates"
+      },
+      "conditions": "",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 55
+    },
+    {
+      "name": "2^2 main effect B",
+      "expression": "B = ybar_{B+} - ybar_{B-} = (b+ab)/(2n) - (a+(1))/(2n) = (1/(2n)) [b + ab - a - (1)]",
+      "symbols": {},
+      "conditions": "",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 56
+    },
+    {
+      "name": "2^2 interaction effect AB",
+      "expression": "AB = (ab+(1))/(2n) - (a+b)/(2n) = (1/(2n)) [ab + (1) - a - b]",
+      "symbols": {},
+      "conditions": "",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 56
+    },
+    {
+      "name": "Contrasts for 2^2 design",
+      "expression": "C_A = a + ab - b - (1) ; C_B = ab + b - a - (1) ; C_AB = ab + (1) - a - b",
+      "symbols": {},
+      "conditions": "",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 57
+    },
+    {
+      "name": "Sum of squares from contrasts (2^2)",
+      "expression": "SS_A = C_A^2 / (2^k n) = C_A^2/(4n) ; SS_B = C_B^2/(4n) ; SS_AB = C_AB^2/(4n)",
+      "symbols": {},
+      "conditions": "k=2",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 57
+    },
+    {
+      "name": "2^3 effect estimate for A",
+      "expression": "A = ybar_{A+} - ybar_{A-} = (1/(4n)) [a + ab + ac + abc - b - c - bc - (1)]",
+      "symbols": {},
+      "conditions": "k=3",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 64
+    },
+    {
+      "name": "2^3 effect estimate for B",
+      "expression": "B = ybar_{B+} - ybar_{B-} = (1/(4n)) [b + ab + bc + abc - a - c - ac - (1)]",
+      "symbols": {},
+      "conditions": "k=3",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 64
+    },
+    {
+      "name": "2^3 effect estimate for C",
+      "expression": "C = ybar_{C+} - ybar_{C-} = (1/(4n)) [c + ac + bc + abc - a - b - ab - (1)]",
+      "symbols": {},
+      "conditions": "k=3",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 64
+    },
+    {
+      "name": "2^3 effect estimate for AB",
+      "expression": "AB = ybar_{AB+} - ybar_{AB-} = (1/(4n)) [ab + (1) + abc + c - b - a - bc - ac]",
+      "symbols": {},
+      "conditions": "k=3",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 65
+    },
+    {
+      "name": "2^3 effect estimate for AC",
+      "expression": "AC = ybar_{AC+} - ybar_{AC-} = (1/(4n)) [ac + (1) + abc + b - a - c - ab - bc]",
+      "symbols": {},
+      "conditions": "k=3",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 65
+    },
+    {
+      "name": "2^3 effect estimate for BC",
+      "expression": "BC = ybar_{BC+} - ybar_{BC-} = (1/(4n)) [bc + (1) + abc + a - b - c - ab - ac]",
+      "symbols": {},
+      "conditions": "k=3",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 65
+    },
+    {
+      "name": "2^3 effect estimate for ABC",
+      "expression": "ABC = ybar_{ABC+} - ybar_{ABC-} = (1/(4n)) [abc - bc - ac + c - ab + b + a - (1)]",
+      "symbols": {},
+      "conditions": "k=3",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 66
+    },
+    {
+      "name": "General effect formula for 2^k design",
+      "expression": "Effect = Contrast / (n 2^{k-1})",
+      "symbols": {
+        "n": "number of replicates",
+        "k": "number of factors"
+      },
+      "conditions": "",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 66
+    },
+    {
+      "name": "General sum of squares formula for 2^k design",
+      "expression": "SS = (Contrast)^2 / (n 2^k)",
+      "symbols": {},
+      "conditions": "for any effect",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 66
+    },
+    {
+      "name": "Standard error of an effect estimate (2^k design)",
+      "expression": "s.e.(Effect) = sqrt( sigmahat^2 / (n 2^{k-2}) )",
+      "symbols": {
+        "sigmahat^2": "estimate of error variance"
+      },
+      "conditions": "",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 67
+    },
+    {
+      "name": "Approximate confidence interval on an effect (2^k design)",
+      "expression": "Effect estimate +/- 2 [s.e.(effect)]",
+      "symbols": {},
+      "conditions": "approximate 95% CI; if zero is contained, effect essentially zero / not significant at alpha=0.05",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 68
+    },
+    {
+      "name": "2^(k-p) fraction size",
+      "expression": "for a screening of k factors (each 2 levels) using only 2^r runs, you need a 2^{-k+r} = 2^{-p} fraction of the full factorial 2^k",
+      "symbols": {
+        "k": "number of factors",
+        "r": "number of runs expressed as 2^r",
+        "p": "k-r, number of generators"
+      },
+      "conditions": "",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 87
+    },
+    {
+      "name": "Simple linear regression model",
+      "expression": "Y = beta_0 + beta_1 x + epsilon",
+      "symbols": {
+        "beta_0": "intercept",
+        "beta_1": "slope",
+        "epsilon": "error term"
+      },
+      "conditions": "",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 4
+    },
+    {
+      "name": "Multiple linear regression model",
+      "expression": "Y = beta_0 + beta_1 x_1 + beta_2 x_2 + ... + beta_{p-1} x_{p-1} + epsilon",
+      "symbols": {
+        "p-1": "number of x-variables (regressors)",
+        "beta_0..beta_{p-1}": "regression coefficients"
+      },
+      "conditions": "",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 4
+    },
+    {
+      "name": "Mean and variance of Y given x (simple linear regression)",
+      "expression": "mu_{Y|x} = E[Y|x] = beta_0 + beta_1 x ; Var[Y|x] = sigma^2",
+      "symbols": {},
+      "conditions": "homoscedasticity: variance same for all x",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 16
+    },
+    {
+      "name": "Least squares objective",
+      "expression": "L = sum_{i=1}^{n} eps_i^2 ; (beta0hat, beta1hat) = argmin_{beta0,beta1} sum_{i=1}^{n} (Y_i - beta_0 - beta_1 x_i)^2",
+      "symbols": {},
+      "conditions": "",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 17
+    },
+    {
+      "name": "Normal equations (simple linear regression)",
+      "expression": "beta0hat = Ybar - beta1hat xbar (NE1) ; beta1hat = S_xY / S_xx (NE2)",
+      "symbols": {
+        "xbar": "(1/n) sum x_i",
+        "Ybar": "(1/n) sum Y_i",
+        "S_xx": "sum_i (x_i - xbar)^2",
+        "S_xY": "sum_i (x_i - xbar)(Y_i - Ybar)"
+      },
+      "conditions": "",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 18
+    },
+    {
+      "name": "Fitted regression line",
+      "expression": "Yhat(x) = beta0hat + beta1hat x",
+      "symbols": {},
+      "conditions": "",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 19
+    },
+    {
+      "name": "SS_Total (regression)",
+      "expression": "SS_Total = sum_{i=1}^{n} (Y_i - Ybar)^2",
+      "symbols": {},
+      "conditions": "deviation of the data from their mean",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 24
+    },
+    {
+      "name": "SS_Error (regression)",
+      "expression": "SS_Error = sum_{i=1}^{n} (Y_i - Yhat_i)^2",
+      "symbols": {},
+      "conditions": "deviation of the data from the regression line; also written SS_E",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 25
+    },
+    {
+      "name": "SS_Regression",
+      "expression": "SS_Regression = sum_{i=1}^{n} (Yhat_i - Ybar)^2",
+      "symbols": {},
+      "conditions": "deviation of the regression line from the data mean",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 26
+    },
+    {
+      "name": "SS partition and R^2 (regression)",
+      "expression": "SS_T = SS_R + SS_E ; R^2 = SS_R/SS_T = 1 - SS_E/SS_T",
+      "symbols": {
+        "R^2": "coefficient of determination"
+      },
+      "conditions": "",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 27
+    },
+    {
+      "name": "Degrees of freedom and expected SS (regression)",
+      "expression": "SS_T has n-1 df, E[SS_T] = beta_1^2 S_xx + (n-1) sigma^2 ; SS_R has 1 df, E[SS_R] = beta_1^2 S_xx + sigma^2 ; SS_E has n-2 df, E[SS_E] = (n-2) sigma^2 ; SS_E/sigma^2 ~ Chi^2_{n-2}",
+      "symbols": {},
+      "conditions": "if true model is Y_i=beta0+beta1 x_i+eps_i, eps_i~N(0,sigma^2)",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 28
+    },
+    {
+      "name": "Mean squares and variance estimate (regression)",
+      "expression": "MS_R = SS_R/1 ; MS_E = SS_E/(n-2) ; sigmahat^2 = MS_E",
+      "symbols": {},
+      "conditions": "E[MS_E] = sigma^2, unbiased",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 28
+    },
+    {
+      "name": "Variance/covariance of coefficient estimators (simple regression)",
+      "expression": "Var[beta0hat] = sigma^2 (1/n + xbar^2/S_xx) ; Var[beta1hat] = sigma^2/S_xx ; Cov[beta0hat, beta1hat] = -xbar sigma^2 / S_xx",
+      "symbols": {},
+      "conditions": "beta0hat, beta1hat jointly normal, both independent of SS_E",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 29
+    },
+    {
+      "name": "t-test for slope",
+      "expression": "(beta1hat - beta_{1,0}) / sqrt(MS_E/S_xx) ~ t_{n-2}",
+      "symbols": {
+        "beta_{1,0}": "reference value under H0"
+      },
+      "conditions": "under H0: beta1=beta_{1,0}",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 30
+    },
+    {
+      "name": "t-test for intercept",
+      "expression": "(beta0hat - beta_{0,0}) / sqrt(MS_E (1/n + xbar^2/S_xx)) ~ t_{n-2}",
+      "symbols": {
+        "beta_{0,0}": "reference value under H0"
+      },
+      "conditions": "under H0: beta0=beta_{0,0}",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 31
+    },
+    {
+      "name": "F-test for significance of regression",
+      "expression": "F = (MS_R/sigma^2) / ((n-2)MS_E/(sigma^2(n-2))) = MS_R/MS_E ~ F_{1,n-2}",
+      "symbols": {},
+      "conditions": "under H0: beta1=0; Table 11-3 ANOVA layout: Regression SS_R df=1 MS_R F0=MS_R/MS_E; Error SS_E df=n-2 MS_E; Total SS_T df=n-1",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 33
+    },
+    {
+      "name": "Confidence interval for slope",
+      "expression": "beta1hat + t_{alpha/2,n-2} sqrt(MS_E/S_xx) < beta1 < beta1hat + t_{1-alpha/2,n-2} sqrt(MS_E/S_xx)",
+      "symbols": {},
+      "conditions": "(1-alpha) confidence interval",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 34
+    },
+    {
+      "name": "Confidence interval for intercept",
+      "expression": "beta0hat + t_{alpha/2,n-2} sqrt(MS_E (1/n + xbar^2/S_xx)) < beta0 < beta0hat + t_{1-alpha/2,n-2} sqrt(MS_E (1/n + xbar^2/S_xx))",
+      "symbols": {},
+      "conditions": "(1-alpha) confidence interval",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 34
+    },
+    {
+      "name": "Distribution of predicted mean response",
+      "expression": "Yhat_0 ~ N( mu_{Y|x0}, sigma^2 (1/n + (xbar-x0)^2/S_xx) )",
+      "symbols": {
+        "Yhat_0": "beta0hat + beta1hat x0"
+      },
+      "conditions": "",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 35
+    },
+    {
+      "name": "Confidence interval for mean response at x0",
+      "expression": "Yhat_0 + t_{alpha/2,n-2} se(Yhat_0) <= mu_{Y|x0} <= Yhat_0 + t_{1-alpha/2,n-2} se(Yhat_0)",
+      "symbols": {
+        "se(Yhat_0)": "sqrt(MS_E (1/n + (xbar-x0)^2/S_xx))"
+      },
+      "conditions": "",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 36
+    },
+    {
+      "name": "Prediction interval for a future observation at x0",
+      "expression": "Yhat_0 + t_{alpha/2,n-2} se(e0) <= Y0 <= Yhat_0 + t_{1-alpha/2,n-2} se(e0)",
+      "symbols": {
+        "se(e0)": "sqrt(MS_E (1 + 1/n + (xbar-x0)^2/S_xx))"
+      },
+      "conditions": "",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 38
+    },
+    {
+      "name": "Multiple linear regression model (population, k regressors)",
+      "expression": "Y_i = beta_0 + beta_1 x_{1i} + beta_2 x_{2i} + ... + beta_k x_{ki} + eps_i, i=1,...,n",
+      "symbols": {
+        "eps_i": "N(0,sigma) error",
+        "k+2": "number of free parameters to estimate"
+      },
+      "conditions": "",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 46
+    },
+    {
+      "name": "Estimated response (multiple regression, k=2)",
+      "expression": "Yhat = b0 + b1 X1 + b2 X2",
+      "symbols": {},
+      "conditions": "k=2 example",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 49
+    },
+    {
+      "name": "R^2 (multiple regression)",
+      "expression": "R^2 = SSR/SST",
+      "symbols": {
+        "SSR": "explained variability",
+        "SST": "total variability"
+      },
+      "conditions": "R^2 increases whenever a variable is added to the model",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 54
+    },
+    {
+      "name": "Adjusted R^2 (multiple regression)",
+      "expression": "R^2_adj = 1 - (1-R^2) (n-1)/(n-k-2)",
+      "symbols": {
+        "n": "number of observations",
+        "k": "number of regressors"
+      },
+      "conditions": "only increases when an added variable is sufficiently significant; used to compare different models",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 56
+    },
+    {
+      "name": "Estimate of sigma (multiple regression)",
+      "expression": "sigmahat = sqrt(MSE) = sqrt(SSE/(n-k-1))",
+      "symbols": {},
+      "conditions": "",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 57
+    },
+    {
+      "name": "Second-order polynomial model in two regressors",
+      "expression": "Y = beta_0 + beta_1 x1 + beta_2 x2 + beta_12 x1 x2 + beta_11 x1^2 + beta_22 x2^2 + epsilon",
+      "symbols": {},
+      "conditions": "",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 60
+    },
+    {
+      "name": "Reparametrised second-order model (acetylene example)",
+      "expression": "Y = beta_0 + beta_1 (T-1212.5) + beta_2 (R-12.444) + beta_12 (T-1212.5)(R-12.444) + beta_11 (T-1212.5)^2 + beta_22 (R-12.444)^2 + epsilon",
+      "symbols": {
+        "T": "Temp",
+        "R": "Ratio"
+      },
+      "conditions": "",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 60
+    },
+    {
+      "name": "F-test for a subset of regression coefficients",
+      "expression": "F0 = { [SS_E(RM) - SS_E(FM)] / (k-r) } / { SS_E(FM) / (n-p) }",
+      "symbols": {
+        "RM": "reduced model",
+        "FM": "full model",
+        "k-r": "number of coefficients tested = 0",
+        "n-p": "error df of full model"
+      },
+      "conditions": "H0: beta_{r+1}=beta_{r+2}=...=beta_k=0 ; H1: at least one beta != 0",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 61
+    }
+  ],
+  "constant_tables": [
+    {
+      "name": "Table 4.4 Tensile Strength of Paper (psi)",
+      "columns": [
+        "Hardwood Concentration (%)",
+        "Obs1",
+        "Obs2",
+        "Obs3",
+        "Obs4",
+        "Obs5",
+        "Obs6",
+        "Totals",
+        "Averages"
+      ],
+      "rows": [
+        [
+          "5",
+          "7",
+          "8",
+          "15",
+          "11",
+          "9",
+          "10",
+          "60",
+          "10.00"
+        ],
+        [
+          "10",
+          "12",
+          "17",
+          "13",
+          "18",
+          "19",
+          "15",
+          "94",
+          "15.67"
+        ],
+        [
+          "15",
+          "14",
+          "18",
+          "19",
+          "17",
+          "16",
+          "18",
+          "102",
+          "17.00"
+        ],
+        [
+          "20",
+          "19",
+          "25",
+          "22",
+          "23",
+          "18",
+          "20",
+          "127",
+          "21.17"
+        ],
+        [
+          "Grand total",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "383",
+          "15.96"
+        ]
+      ],
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 4
+    },
+    {
+      "name": "Table 4.7 Minitab ANOVA Output for Paper Tensile Strength Experiment",
+      "columns": [
+        "Source",
+        "DF",
+        "SS",
+        "MS",
+        "F",
+        "P"
+      ],
+      "rows": [
+        [
+          "Factor",
+          "3",
+          "382.79",
+          "127.60",
+          "19.61",
+          "0.000"
+        ],
+        [
+          "Error",
+          "20",
+          "130.17",
+          "6.51",
+          "",
+          ""
+        ],
+        [
+          "Total",
+          "23",
+          "512.96",
+          "",
+          "",
+          ""
+        ]
+      ],
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 10
+    },
+    {
+      "name": "Table 4.7 (continued): level summary, Individual 95% CIs for Mean based on Pooled StDev",
+      "columns": [
+        "Level",
+        "N",
+        "Mean",
+        "StDev"
+      ],
+      "rows": [
+        [
+          "5",
+          "6",
+          "10.000",
+          "2.828"
+        ],
+        [
+          "10",
+          "6",
+          "15.667",
+          "2.805"
+        ],
+        [
+          "15",
+          "6",
+          "17.000",
+          "1.789"
+        ],
+        [
+          "20",
+          "6",
+          "21.167",
+          "2.639"
+        ]
+      ],
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 10
+    },
+    {
+      "name": "Table 3-1 Data (in lb/in^2) from the Tensile Strength Experiment (cotton weight %)",
+      "columns": [
+        "Cotton Weight Percentage",
+        "Obs1",
+        "Obs2",
+        "Obs3",
+        "Obs4",
+        "Obs5",
+        "Total",
+        "Average"
+      ],
+      "rows": [
+        [
+          "15",
+          "7",
+          "7",
+          "15",
+          "11",
+          "9",
+          "49",
+          "9.8"
+        ],
+        [
+          "20",
+          "12",
+          "17",
+          "12",
+          "18",
+          "18",
+          "77",
+          "15.4"
+        ],
+        [
+          "25",
+          "14",
+          "18",
+          "18",
+          "19",
+          "19",
+          "88",
+          "17.6"
+        ],
+        [
+          "30",
+          "19",
+          "25",
+          "22",
+          "19",
+          "23",
+          "108",
+          "21.6"
+        ],
+        [
+          "35",
+          "7",
+          "10",
+          "11",
+          "15",
+          "11",
+          "54",
+          "10.8"
+        ],
+        [
+          "Grand total",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "376",
+          "15.04"
+        ]
+      ],
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 14
+    },
+    {
+      "name": "ANOVA Computer Output (Excel) for synthetic fiber / cotton weight experiment",
+      "columns": [
+        "Source of Variation",
+        "SS",
+        "df",
+        "MS",
+        "F",
+        "P-value",
+        "F crit"
+      ],
+      "rows": [
+        [
+          "Between Groups",
+          "475.76",
+          "4",
+          "118.94",
+          "14.75682",
+          "9.12794E-06",
+          "2.866081"
+        ],
+        [
+          "Within Groups",
+          "161.2",
+          "20",
+          "8.06",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Total",
+          "636.96",
+          "24",
+          "",
+          "",
+          "",
+          ""
+        ]
+      ],
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 15
+    },
+    {
+      "name": "ANOVA Computer Output (Excel), group summary for synthetic fiber experiment",
+      "columns": [
+        "Groups",
+        "Count",
+        "Sum",
+        "Average",
+        "Variance"
+      ],
+      "rows": [
+        [
+          "Row 1",
+          "5",
+          "49",
+          "9.8",
+          "11.2"
+        ],
+        [
+          "Row 2",
+          "5",
+          "77",
+          "15.4",
+          "9.8"
+        ],
+        [
+          "Row 3",
+          "5",
+          "88",
+          "17.6",
+          "4.3"
+        ],
+        [
+          "Row 4",
+          "5",
+          "108",
+          "21.6",
+          "6.8"
+        ],
+        [
+          "Row 5",
+          "5",
+          "54",
+          "10.8",
+          "8.2"
+        ]
+      ],
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 15
+    },
+    {
+      "name": "Table 10-1 Sample Outputs of Three Machines",
+      "columns": [
+        "Machine 1",
+        "Machine 2",
+        "Machine 3"
+      ],
+      "rows": [
+        [
+          "47",
+          "55",
+          "54"
+        ],
+        [
+          "53",
+          "54",
+          "50"
+        ],
+        [
+          "49",
+          "58",
+          "51"
+        ],
+        [
+          "50",
+          "61",
+          "51"
+        ],
+        [
+          "46",
+          "52",
+          "49"
+        ]
+      ],
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 20
+    },
+    {
+      "name": "Chemical Process Example: treatment combinations and replicates (2^2 design)",
+      "columns": [
+        "A",
+        "B",
+        "Treatment Combination",
+        "Rep I",
+        "Rep II",
+        "Rep III",
+        "Total"
+      ],
+      "rows": [
+        [
+          "-",
+          "-",
+          "A low, B low",
+          "28",
+          "25",
+          "27",
+          "80"
+        ],
+        [
+          "+",
+          "-",
+          "A high, B low",
+          "36",
+          "32",
+          "32",
+          "100"
+        ],
+        [
+          "-",
+          "+",
+          "A low, B high",
+          "18",
+          "19",
+          "23",
+          "60"
+        ],
+        [
+          "+",
+          "+",
+          "A high, B high",
+          "31",
+          "30",
+          "29",
+          "90"
+        ]
+      ],
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 59
+    },
+    {
+      "name": "Chemical process example: 2^2 effect estimates (A=reactant concentration, B=catalyst amount)",
+      "columns": [
+        "Effect",
+        "Estimate"
+      ],
+      "rows": [
+        [
+          "A",
+          "8.33"
+        ],
+        [
+          "B",
+          "-5.00"
+        ],
+        [
+          "AB",
+          "1.67"
+        ]
+      ],
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 60
+    },
+    {
+      "name": "ANOVA for Selected Factorial Model, router/chemical process example (Design-Expert output)",
+      "columns": [
+        "Source",
+        "Sum of Squares",
+        "DF",
+        "Mean Square",
+        "F Value",
+        "Prob > F"
+      ],
+      "rows": [
+        [
+          "Model",
+          "291.67",
+          "3",
+          "97.22",
+          "24.82",
+          "0.0002"
+        ],
+        [
+          "A",
+          "208.33",
+          "1",
+          "208.33",
+          "53.19",
+          "< 0.0001"
+        ],
+        [
+          "B",
+          "75.00",
+          "1",
+          "75.00",
+          "19.15",
+          "0.0024"
+        ],
+        [
+          "AB",
+          "8.33",
+          "1",
+          "8.33",
+          "2.13",
+          "0.1828"
+        ],
+        [
+          "Pure Error",
+          "31.33",
+          "8",
+          "3.92",
+          "",
+          ""
+        ],
+        [
+          "Cor Total",
+          "323.00",
+          "11",
+          "",
+          "",
+          ""
+        ]
+      ],
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 61
+    },
+    {
+      "name": "Router/chemical process example: model statistics",
+      "columns": [
+        "Statistic",
+        "Value"
+      ],
+      "rows": [
+        [
+          "Std. Dev.",
+          "1.98"
+        ],
+        [
+          "Mean",
+          "27.50"
+        ],
+        [
+          "C.V.",
+          "7.20"
+        ],
+        [
+          "PRESS",
+          "70.50"
+        ],
+        [
+          "R-Squared",
+          "0.9030"
+        ],
+        [
+          "Adj R-Squared",
+          "0.8666"
+        ],
+        [
+          "Pred R-Squared",
+          "0.7817"
+        ],
+        [
+          "Adeq Precision",
+          "11.669"
+        ]
+      ],
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 61
+    },
+    {
+      "name": "Surface finish quality example data (2^3 design, n=2)",
+      "columns": [
+        "Run",
+        "Label",
+        "A",
+        "B",
+        "C",
+        "Surface Finish obs1,obs2",
+        "Total"
+      ],
+      "rows": [
+        [
+          "1",
+          "(1)",
+          "-1",
+          "-1",
+          "-1",
+          "9, 7",
+          "16"
+        ],
+        [
+          "2",
+          "a",
+          "1",
+          "-1",
+          "-1",
+          "10, 12",
+          "22"
+        ],
+        [
+          "3",
+          "b",
+          "-1",
+          "1",
+          "-1",
+          "9, 11",
+          "20"
+        ],
+        [
+          "4",
+          "ab",
+          "1",
+          "1",
+          "-1",
+          "12, 15",
+          "27"
+        ],
+        [
+          "5",
+          "c",
+          "-1",
+          "-1",
+          "1",
+          "11, 10",
+          "21"
+        ],
+        [
+          "6",
+          "ac",
+          "1",
+          "-1",
+          "1",
+          "10, 13",
+          "23"
+        ],
+        [
+          "7",
+          "bc",
+          "-1",
+          "1",
+          "1",
+          "10, 8",
+          "18"
+        ],
+        [
+          "8",
+          "abc",
+          "1",
+          "1",
+          "1",
+          "16, 14",
+          "30"
+        ]
+      ],
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 70
+    },
+    {
+      "name": "ANOVA table, surface finish quality example (2^3, n=2)",
+      "columns": [
+        "Source of Variation",
+        "Sum of Squares",
+        "Degrees of Freedom",
+        "Mean Square",
+        "F0",
+        "P-value"
+      ],
+      "rows": [
+        [
+          "A",
+          "45.5625",
+          "1",
+          "45.5625",
+          "18.69",
+          "2.54 x 10^-3"
+        ],
+        [
+          "B",
+          "10.5625",
+          "1",
+          "10.5625",
+          "4.33",
+          "0.07"
+        ],
+        [
+          "C",
+          "3.0625",
+          "1",
+          "3.0625",
+          "1.26",
+          "0.29"
+        ],
+        [
+          "AB",
+          "7.5625",
+          "1",
+          "7.5625",
+          "3.10",
+          "0.12"
+        ],
+        [
+          "AC",
+          "0.0625",
+          "1",
+          "0.0625",
+          "0.03",
+          "0.88"
+        ],
+        [
+          "BC",
+          "1.5625",
+          "1",
+          "1.5625",
+          "0.64",
+          "0.45"
+        ],
+        [
+          "ABC",
+          "5.5625",
+          "1",
+          "5.5625",
+          "2.08",
+          "0.19"
+        ],
+        [
+          "Error",
+          "19.5000",
+          "8",
+          "2.4375",
+          "",
+          ""
+        ],
+        [
+          "Total",
+          "92.9375",
+          "15",
+          "",
+          "",
+          ""
+        ]
+      ],
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 71
+    },
+    {
+      "name": "Etch rate example: factor levels (2^4 design, nitride etch on plasma etcher)",
+      "columns": [
+        "Level",
+        "A Gap (cm)",
+        "B Pressure (m Torr)",
+        "C C2F6 Flow (SCCM)",
+        "D Power (W)"
+      ],
+      "rows": [
+        [
+          "Low (-)",
+          "0.80",
+          "450",
+          "125",
+          "275"
+        ],
+        [
+          "High (+)",
+          "1.20",
+          "550",
+          "200",
+          "325"
+        ]
+      ],
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 73
+    },
+    {
+      "name": "Etch rate example data (single replicate 2^4 design)",
+      "columns": [
+        "Run",
+        "A (Gap)",
+        "B (Pressure)",
+        "C (C2F6 Flow)",
+        "D (Power)",
+        "Etch Rate (Angstrom/min)"
+      ],
+      "rows": [
+        [
+          "1",
+          "-1",
+          "-1",
+          "-1",
+          "-1",
+          "550"
+        ],
+        [
+          "2",
+          "1",
+          "-1",
+          "-1",
+          "-1",
+          "669"
+        ],
+        [
+          "3",
+          "-1",
+          "1",
+          "-1",
+          "-1",
+          "604"
+        ],
+        [
+          "4",
+          "1",
+          "1",
+          "-1",
+          "-1",
+          "650"
+        ],
+        [
+          "5",
+          "-1",
+          "-1",
+          "1",
+          "-1",
+          "633"
+        ],
+        [
+          "6",
+          "1",
+          "-1",
+          "1",
+          "-1",
+          "642"
+        ],
+        [
+          "7",
+          "-1",
+          "1",
+          "1",
+          "-1",
+          "601"
+        ],
+        [
+          "8",
+          "1",
+          "1",
+          "1",
+          "-1",
+          "635"
+        ],
+        [
+          "9",
+          "-1",
+          "-1",
+          "-1",
+          "1",
+          "1037"
+        ],
+        [
+          "10",
+          "1",
+          "-1",
+          "-1",
+          "1",
+          "749"
+        ],
+        [
+          "11",
+          "-1",
+          "1",
+          "-1",
+          "1",
+          "1052"
+        ],
+        [
+          "12",
+          "1",
+          "1",
+          "-1",
+          "1",
+          "868"
+        ],
+        [
+          "13",
+          "-1",
+          "-1",
+          "1",
+          "1",
+          "1075"
+        ],
+        [
+          "14",
+          "1",
+          "-1",
+          "1",
+          "1",
+          "860"
+        ],
+        [
+          "15",
+          "-1",
+          "1",
+          "1",
+          "1",
+          "1063"
+        ],
+        [
+          "16",
+          "1",
+          "1",
+          "1",
+          "1",
+          "729"
+        ]
+      ],
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 74
+    },
+    {
+      "name": "Etch rate example: estimated effects (2^4, single replicate)",
+      "columns": [
+        "Effect",
+        "Estimate"
+      ],
+      "rows": [
+        [
+          "A",
+          "-101.625"
+        ],
+        [
+          "B",
+          "-1.625"
+        ],
+        [
+          "C",
+          "7.375"
+        ],
+        [
+          "D",
+          "306.125"
+        ],
+        [
+          "AB",
+          "-7.875"
+        ],
+        [
+          "AC",
+          "-24.875"
+        ],
+        [
+          "AD",
+          "-153.625"
+        ],
+        [
+          "BC",
+          "-43.875"
+        ],
+        [
+          "BD",
+          "-0.625"
+        ],
+        [
+          "CD",
+          "-2.125"
+        ],
+        [
+          "ABC",
+          "-15.625"
+        ],
+        [
+          "ABD",
+          "4.125"
+        ],
+        [
+          "ACD",
+          "5.625"
+        ],
+        [
+          "BCD",
+          "-25.375"
+        ],
+        [
+          "ABCD",
+          "-40.125"
+        ]
+      ],
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 75
+    },
+    {
+      "name": "Nitride etch example: R ANOVA output, pooled model (A+B+C+D)^2 (two-factor interactions retained)",
+      "columns": [
+        "Term",
+        "Df",
+        "Sum Sq",
+        "Mean Sq",
+        "F value",
+        "Pr(>F)"
+      ],
+      "rows": [
+        [
+          "A",
+          "1",
+          "41311",
+          "41311",
+          "20.2765",
+          "0.006382 **"
+        ],
+        [
+          "B",
+          "1",
+          "11",
+          "11",
+          "0.0052",
+          "0.945391"
+        ],
+        [
+          "C",
+          "1",
+          "218",
+          "218",
+          "0.1068",
+          "0.757016"
+        ],
+        [
+          "D",
+          "1",
+          "374850",
+          "374850",
+          "183.9879",
+          "3.903e-05 ***"
+        ],
+        [
+          "A:B",
+          "1",
+          "248",
+          "248",
+          "0.1218",
+          "0.741315"
+        ],
+        [
+          "A:C",
+          "1",
+          "2475",
+          "2475",
+          "1.2148",
+          "0.320582"
+        ],
+        [
+          "A:D",
+          "1",
+          "94403",
+          "94403",
+          "46.3357",
+          "0.001042 **"
+        ],
+        [
+          "B:C",
+          "1",
+          "7700",
+          "7700",
+          "3.7794",
+          "0.109498"
+        ],
+        [
+          "B:D",
+          "1",
+          "2",
+          "2",
+          "0.0008",
+          "0.978978"
+        ],
+        [
+          "C:D",
+          "1",
+          "18",
+          "18",
+          "0.0089",
+          "0.928641"
+        ],
+        [
+          "Residuals",
+          "5",
+          "10187",
+          "2037",
+          "",
+          ""
+        ]
+      ],
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 77
+    },
+    {
+      "name": "Table 13.23 Selected 2^(k-p) Fractional Factorial Designs (from Design and Analysis of Experiments, 6th ed., Montgomery, Wiley 2005)",
+      "columns": [
+        "Number of factors k",
+        "Fraction",
+        "Number of Runs",
+        "Design Generators"
+      ],
+      "rows": [
+        [
+          "3",
+          "2^3-1_III",
+          "4",
+          "C = +-AB"
+        ],
+        [
+          "4",
+          "2^4-1_IV",
+          "8",
+          "D = +-ABC"
+        ],
+        [
+          "5",
+          "2^5-1_V",
+          "16",
+          "E = +-ABCD"
+        ],
+        [
+          "5",
+          "2^5-2_III",
+          "8",
+          "D = +-AB; E = +-AC"
+        ],
+        [
+          "6",
+          "2^6-1_VI",
+          "32",
+          "F = +-ABCDE"
+        ],
+        [
+          "6",
+          "2^6-2_IV",
+          "16",
+          "E = +-ABC; F = +-BCD"
+        ],
+        [
+          "6",
+          "2^6-3_III",
+          "8",
+          "D = +-AB; E = +-AC; F = +-BC"
+        ],
+        [
+          "7",
+          "2^7-1_VIII",
+          "64",
+          "G = +-ABCDEF"
+        ],
+        [
+          "7",
+          "2^7-2_IV",
+          "32",
+          "F = +-ABCD; G = +-ABDE"
+        ],
+        [
+          "7",
+          "2^7-3_IV",
+          "16",
+          "E = +-ABC; F = +-BCD; G = +-ACD"
+        ],
+        [
+          "7",
+          "2^7-4_III",
+          "8",
+          "D = +-AB; E = +-AC; F = +-BC; G = +-ABC"
+        ],
+        [
+          "8",
+          "2^8-2_V",
+          "64",
+          "G = +-ABCD; H = +-ABEF"
+        ],
+        [
+          "8",
+          "2^8-3_IV",
+          "32",
+          "F = +-ABC; G = +-ABD; H = +-BCDE"
+        ],
+        [
+          "8",
+          "2^8-4_IV",
+          "16",
+          "E = +-BCD; F = +-ACD; G = +-ABC; H = +-ABD"
+        ],
+        [
+          "9",
+          "2^9-2_VI",
+          "128",
+          "H = +-ACDFG; J = +-BCEFG"
+        ],
+        [
+          "9",
+          "2^9-3_IV",
+          "64",
+          "G = +-ABCD; H = +-ACEF; J = +-CDEF"
+        ],
+        [
+          "9",
+          "2^9-4_IV",
+          "32",
+          "F = +-BCDE; G = +-ACDE; H = +-ABDE; J = +-ABCE"
+        ],
+        [
+          "9",
+          "2^9-5_III",
+          "16",
+          "E = +-ABC; F = +-BCD; G = +-ACD; H = +-ABD; J = +-ABCD"
+        ],
+        [
+          "10",
+          "2^10-3_V",
+          "128",
+          "H = +-ABCG; J = +-BCDE; K = +-ACDF"
+        ],
+        [
+          "10",
+          "2^10-4_IV",
+          "64",
+          "G = +-BCDF; H = +-ACDF; J = +-ABDE; K = +-ABCE"
+        ],
+        [
+          "10",
+          "2^10-5_IV",
+          "32",
+          "F = +-ABCD; G = +-ABCE; H = +-ABDE; J = +-ACDE; K = +-BCDE"
+        ],
+        [
+          "10",
+          "2^10-6_III",
+          "16",
+          "E = +-ABC; F = +-BCD; G = +-ACD; H = +-ABD"
+        ]
+      ],
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 93
+    },
+    {
+      "name": "Table 11-1 Oxygen and Hydrocarbon Levels",
+      "columns": [
+        "Observation Number",
+        "Hydrocarbon Level x (%)",
+        "Purity y (%)"
+      ],
+      "rows": [
+        [
+          "1",
+          "0.99",
+          "90.01"
+        ],
+        [
+          "2",
+          "1.02",
+          "89.05"
+        ],
+        [
+          "3",
+          "1.15",
+          "91.43"
+        ],
+        [
+          "4",
+          "1.29",
+          "93.74"
+        ],
+        [
+          "5",
+          "1.46",
+          "96.73"
+        ],
+        [
+          "6",
+          "1.36",
+          "94.45"
+        ],
+        [
+          "7",
+          "0.87",
+          "87.59"
+        ],
+        [
+          "8",
+          "1.23",
+          "91.77"
+        ],
+        [
+          "9",
+          "1.55",
+          "99.42"
+        ],
+        [
+          "10",
+          "1.40",
+          "93.65"
+        ],
+        [
+          "11",
+          "1.19",
+          "93.54"
+        ],
+        [
+          "12",
+          "1.15",
+          "92.52"
+        ],
+        [
+          "13",
+          "0.98",
+          "90.56"
+        ],
+        [
+          "14",
+          "1.01",
+          "89.54"
+        ],
+        [
+          "15",
+          "1.11",
+          "89.85"
+        ],
+        [
+          "16",
+          "1.20",
+          "90.39"
+        ],
+        [
+          "17",
+          "1.26",
+          "93.25"
+        ],
+        [
+          "18",
+          "1.32",
+          "93.41"
+        ],
+        [
+          "19",
+          "1.43",
+          "94.98"
+        ],
+        [
+          "20",
+          "0.95",
+          "87.33"
+        ]
+      ],
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 2
+    },
+    {
+      "name": "Table 11-2 Minitab Output for the Oxygen Purity Data (Example 11-1)",
+      "columns": [
+        "Predictor",
+        "Coef",
+        "SE Coef",
+        "T",
+        "P"
+      ],
+      "rows": [
+        [
+          "Constant (beta0)",
+          "74.283",
+          "1.593",
+          "46.62",
+          "0.000"
+        ],
+        [
+          "HC Level (beta1)",
+          "14.947",
+          "1.317",
+          "11.35",
+          "0.000"
+        ]
+      ],
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 22
+    },
+    {
+      "name": "Table 11-2 (continued): ANOVA and prediction",
+      "columns": [
+        "Item",
+        "Value"
+      ],
+      "rows": [
+        [
+          "S",
+          "1.087"
+        ],
+        [
+          "R-Sq",
+          "87.7%"
+        ],
+        [
+          "R-Sq(adj)",
+          "87.1%"
+        ],
+        [
+          "Regression DF",
+          "1"
+        ],
+        [
+          "Regression SS",
+          "152.13"
+        ],
+        [
+          "Regression MS",
+          "152.13"
+        ],
+        [
+          "Regression F",
+          "128.86"
+        ],
+        [
+          "Regression P",
+          "0.000"
+        ],
+        [
+          "Residual Error DF",
+          "18"
+        ],
+        [
+          "Residual Error SS (SSE)",
+          "21.25"
+        ],
+        [
+          "Residual Error MS (sigmahat^2)",
+          "1.18"
+        ],
+        [
+          "Total DF",
+          "19"
+        ],
+        [
+          "Total SS",
+          "173.38"
+        ],
+        [
+          "New Obs 1 HC Level",
+          "1.00"
+        ],
+        [
+          "New Obs 1 Fit",
+          "89.231"
+        ],
+        [
+          "New Obs 1 SE Fit",
+          "0.354"
+        ],
+        [
+          "New Obs 1 95% CI",
+          "(88.486, 89.975)"
+        ],
+        [
+          "New Obs 1 95% PI",
+          "(86.830, 91.632)"
+        ]
+      ],
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 22
+    },
+    {
+      "name": "Oil consumption example: data for 15 houses",
+      "columns": [
+        "Oil (Gal)",
+        "Temp",
+        "Insulation"
+      ],
+      "rows": [
+        [
+          "275.30",
+          "40",
+          "3"
+        ],
+        [
+          "363.80",
+          "27",
+          "3"
+        ],
+        [
+          "164.30",
+          "40",
+          "10"
+        ],
+        [
+          "40.80",
+          "73",
+          "6"
+        ],
+        [
+          "94.30",
+          "64",
+          "6"
+        ],
+        [
+          "230.90",
+          "34",
+          "6"
+        ],
+        [
+          "366.70",
+          "9",
+          "6"
+        ],
+        [
+          "300.60",
+          "8",
+          "10"
+        ],
+        [
+          "237.80",
+          "23",
+          "10"
+        ],
+        [
+          "121.40",
+          "63",
+          "3"
+        ],
+        [
+          "31.40",
+          "65",
+          "10"
+        ],
+        [
+          "203.50",
+          "41",
+          "6"
+        ],
+        [
+          "441.10",
+          "21",
+          "3"
+        ],
+        [
+          "323.00",
+          "38",
+          "3"
+        ],
+        [
+          "52.50",
+          "58",
+          "10"
+        ]
+      ],
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 51
+    },
+    {
+      "name": "Oil consumption example: Excel Regression Statistics and ANOVA",
+      "columns": [
+        "Item",
+        "Value"
+      ],
+      "rows": [
+        [
+          "Multiple R",
+          "0.98265476"
+        ],
+        [
+          "R Square",
+          "0.96561037"
+        ],
+        [
+          "Adjusted R Square",
+          "0.95987877"
+        ],
+        [
+          "Standard Error",
+          "26.0137832"
+        ],
+        [
+          "Observations",
+          "15"
+        ],
+        [
+          "Regression df",
+          "2"
+        ],
+        [
+          "Regression SS",
+          "228014.6263"
+        ],
+        [
+          "Regression MS",
+          "114007.3"
+        ],
+        [
+          "Regression F",
+          "168.47203"
+        ],
+        [
+          "Regression Significance F",
+          "1.65411E-09"
+        ],
+        [
+          "Residual df",
+          "12"
+        ],
+        [
+          "Residual SS",
+          "8120.603016"
+        ],
+        [
+          "Residual MS",
+          "676.7169"
+        ],
+        [
+          "Total df",
+          "14"
+        ],
+        [
+          "Total SS",
+          "236135.2293"
+        ]
+      ],
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 52
+    },
+    {
+      "name": "Oil consumption example: Excel coefficients table",
+      "columns": [
+        "Variable",
+        "Coefficients",
+        "Standard Error",
+        "t Stat",
+        "P-value",
+        "Lower 95%",
+        "Upper 95%"
+      ],
+      "rows": [
+        [
+          "Intercept",
+          "562.151009",
+          "21.09310433",
+          "26.65094",
+          "4.7787E-12",
+          "516.1930829",
+          "608.1089356"
+        ],
+        [
+          "Temp",
+          "-5.4365806",
+          "0.336216167",
+          "-16.1699",
+          "1.6418E-09",
+          "-6.16913269",
+          "-4.70402849"
+        ],
+        [
+          "Insulation",
+          "-20.012321",
+          "2.342505227",
+          "-8.54313",
+          "1.9073E-06",
+          "-25.1162011",
+          "-14.90844022"
+        ]
+      ],
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 52
+    },
+    {
+      "name": "Table 6-9 The Acetylene Data",
+      "columns": [
+        "Observation",
+        "Yield Y",
+        "Temp T",
+        "Ratio R"
+      ],
+      "rows": [
+        [
+          "1",
+          "49.0",
+          "1300",
+          "7.5"
+        ],
+        [
+          "2",
+          "50.2",
+          "1300",
+          "9.0"
+        ],
+        [
+          "3",
+          "50.5",
+          "1300",
+          "11.0"
+        ],
+        [
+          "4",
+          "48.5",
+          "1300",
+          "13.5"
+        ],
+        [
+          "5",
+          "47.5",
+          "1300",
+          "17.0"
+        ],
+        [
+          "6",
+          "44.5",
+          "1300",
+          "23.0"
+        ],
+        [
+          "7",
+          "28.0",
+          "1200",
+          "5.3"
+        ],
+        [
+          "8",
+          "31.5",
+          "1200",
+          "7.5"
+        ],
+        [
+          "9",
+          "34.5",
+          "1200",
+          "11.0"
+        ],
+        [
+          "10",
+          "35.0",
+          "1200",
+          "13.5"
+        ],
+        [
+          "11",
+          "38.0",
+          "1200",
+          "17.0"
+        ],
+        [
+          "12",
+          "38.5",
+          "1200",
+          "23.0"
+        ],
+        [
+          "13",
+          "15.0",
+          "1100",
+          "5.3"
+        ],
+        [
+          "14",
+          "17.0",
+          "1100",
+          "7.5"
+        ],
+        [
+          "15",
+          "20.5",
+          "1100",
+          "11.0"
+        ],
+        [
+          "16",
+          "29.5",
+          "1100",
+          "17.0"
+        ]
+      ],
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 58
+    },
+    {
+      "name": "Acetylene example: Minitab regression output, second-order polynomial model",
+      "columns": [
+        "Predictor",
+        "Coef",
+        "SE Coef",
+        "T",
+        "P",
+        "VIF"
+      ],
+      "rows": [
+        [
+          "Constant",
+          "36.4339",
+          "0.5529",
+          "65.90",
+          "0.000",
+          ""
+        ],
+        [
+          "Temp",
+          "0.130476",
+          "0.003642",
+          "35.83",
+          "0.000",
+          "1.1"
+        ],
+        [
+          "Ratio",
+          "0.48005",
+          "0.05860",
+          "8.19",
+          "0.000",
+          "1.5"
+        ],
+        [
+          "T x R",
+          "-0.0073346",
+          "0.0007993",
+          "-9.18",
+          "0.000",
+          "1.4"
+        ],
+        [
+          "T^2",
+          "0.00017820",
+          "0.00005854",
+          "3.04",
+          "0.012",
+          "1.2"
+        ],
+        [
+          "R^2 (term)",
+          "-0.02367",
+          "0.01019",
+          "-2.32",
+          "0.043",
+          "1.7"
+        ]
+      ],
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 62
+    },
+    {
+      "name": "Acetylene example: model summary and ANOVA (second-order polynomial)",
+      "columns": [
+        "Item",
+        "Value"
+      ],
+      "rows": [
+        [
+          "S",
+          "1.066"
+        ],
+        [
+          "R-Sq",
+          "99.5%"
+        ],
+        [
+          "R-Sq(adj)",
+          "99.2%"
+        ],
+        [
+          "Regression DF",
+          "5"
+        ],
+        [
+          "Regression SS",
+          "2112.34"
+        ],
+        [
+          "Regression MS",
+          "422.47"
+        ],
+        [
+          "Regression F",
+          "371.49"
+        ],
+        [
+          "Regression P",
+          "0.000"
+        ],
+        [
+          "Residual Error DF",
+          "10"
+        ],
+        [
+          "Residual Error SS",
+          "11.37"
+        ],
+        [
+          "Residual Error MS",
+          "1.14"
+        ],
+        [
+          "Total DF",
+          "15"
+        ],
+        [
+          "Total SS",
+          "2123.71"
+        ]
+      ],
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 62
+    },
+    {
+      "name": "Table 6-10 Minitab Best Subsets Regression for Shampoo Data (Response is Quality)",
+      "columns": [
+        "Vars",
+        "R-Sq",
+        "R-Sq(adj)",
+        "Mallows C-p",
+        "S",
+        "Predictors marked X (Foam, Scent, Color, Residue, Region)"
+      ],
+      "rows": [
+        [
+          "1",
+          "26.2",
+          "22.9",
+          "46.4",
+          "3.8321",
+          "Foam"
+        ],
+        [
+          "1",
+          "25.7",
+          "22.3",
+          "46.9",
+          "3.8455",
+          "Region"
+        ],
+        [
+          "1",
+          "23.9",
+          "20.5",
+          "48.5",
+          "3.8915",
+          "Residue"
+        ],
+        [
+          "1",
+          "6.3",
+          "2.1",
+          "64.3",
+          "4.3184",
+          "Scent"
+        ],
+        [
+          "1",
+          "3.8",
+          "0.0",
+          "66.7",
+          "4.3773",
+          "Color"
+        ],
+        [
+          "2",
+          "62.2",
+          "58.6",
+          "16.1",
+          "2.8088",
+          "Foam, Residue"
+        ],
+        [
+          "2",
+          "50.3",
+          "45.6",
+          "26.7",
+          "3.2185",
+          "Foam, Region"
+        ],
+        [
+          "2",
+          "42.6",
+          "37.2",
+          "33.6",
+          "3.4589",
+          "Residue, Region"
+        ],
+        [
+          "2",
+          "40.9",
+          "35.3",
+          "35.2",
+          "3.5098",
+          "Foam, Color"
+        ],
+        [
+          "2",
+          "32.6",
+          "26.2",
+          "42.7",
+          "3.7486",
+          "Foam, Scent"
+        ],
+        [
+          "3",
+          "77.6",
+          "74.2",
+          "4.2",
+          "2.2164",
+          "Foam, Residue, Region"
+        ],
+        [
+          "3",
+          "63.1",
+          "57.6",
+          "17.2",
+          "2.8411",
+          "Foam, Scent, Residue"
+        ],
+        [
+          "3",
+          "62.5",
+          "56.9",
+          "17.7",
+          "2.8641",
+          "Foam, Scent, Region"
+        ],
+        [
+          "3",
+          "52.9",
+          "45.9",
+          "26.4",
+          "3.2107",
+          "Foam, Color, Region"
+        ],
+        [
+          "3",
+          "51.8",
+          "44.6",
+          "27.4",
+          "3.2491",
+          "Foam, Scent, Color"
+        ],
+        [
+          "4",
+          "79.9",
+          "75.7",
+          "4.1",
+          "2.1532",
+          "Foam, Scent, Residue, Region"
+        ],
+        [
+          "4",
+          "78.6",
+          "74.1",
+          "5.3",
+          "2.2205",
+          "Foam, Color, Residue, Region"
+        ],
+        [
+          "4",
+          "64.8",
+          "57.4",
+          "17.7",
+          "2.8487",
+          "Foam, Scent, Color, Residue"
+        ],
+        [
+          "4",
+          "53.0",
+          "43.1",
+          "28.3",
+          "3.2907",
+          "Foam, Scent, Color, Region"
+        ],
+        [
+          "4",
+          "51.4",
+          "41.2",
+          "29.7",
+          "3.3460",
+          "Scent, Color, Residue, Region"
+        ],
+        [
+          "5",
+          "80.0",
+          "74.5",
+          "6.0",
+          "2.2056",
+          "Foam, Scent, Color, Residue, Region"
+        ]
+      ],
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 63
+    },
+    {
+      "name": "Table 6-11 Stepwise Regression Backward Elimination for Shampoo Data (Alpha-to-Remove: 0.1)",
+      "columns": [
+        "Item",
+        "Step 1",
+        "Step 2",
+        "Step 3"
+      ],
+      "rows": [
+        [
+          "Constant",
+          "86.33",
+          "86.14",
+          "89.81"
+        ],
+        [
+          "Foam",
+          "1.82",
+          "1.87",
+          "1.82"
+        ],
+        [
+          "Foam T-Value",
+          "5.07",
+          "5.86",
+          "5.58"
+        ],
+        [
+          "Foam P-Value",
+          "0.000",
+          "0.000",
+          "0.000"
+        ],
+        [
+          "Scent",
+          "1.03",
+          "1.18",
+          ""
+        ],
+        [
+          "Scent T-Value",
+          "1.12",
+          "1.48",
+          ""
+        ],
+        [
+          "Scent P-Value",
+          "0.277",
+          "0.155",
+          ""
+        ],
+        [
+          "Color",
+          "0.23",
+          "",
+          ""
+        ],
+        [
+          "Color T-Value",
+          "0.33",
+          "",
+          ""
+        ],
+        [
+          "Color P-Value",
+          "0.746",
+          "",
+          ""
+        ],
+        [
+          "Residue",
+          "-4.00",
+          "-3.93",
+          "-3.38"
+        ],
+        [
+          "Residue T-Value",
+          "-4.93",
+          "-5.15",
+          "-4.93"
+        ],
+        [
+          "Residue P-Value",
+          "0.000",
+          "0.000",
+          "0.000"
+        ],
+        [
+          "Region",
+          "-3.86",
+          "-3.71",
+          "-3.41"
+        ],
+        [
+          "Region T-Value",
+          "-3.70",
+          "-4.05",
+          "-3.70"
+        ],
+        [
+          "Region P-Value",
+          "0.002",
+          "0.001",
+          "0.001"
+        ],
+        [
+          "S",
+          "2.21",
+          "2.15",
+          "2.22"
+        ],
+        [
+          "R-Sq",
+          "80.01",
+          "79.89",
+          "77.57"
+        ],
+        [
+          "R-Sq(adj)",
+          "74.45",
+          "75.65",
+          "74.20"
+        ],
+        [
+          "Mallows C-p",
+          "6.0",
+          "4.1",
+          "4.2"
+        ]
+      ],
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 64
+    },
+    {
+      "name": "Table 6-12 Stepwise Regression Forward Selection for Shampoo Data (Alpha-to-Enter: 0.25)",
+      "columns": [
+        "Item",
+        "Step 1",
+        "Step 2",
+        "Step 3",
+        "Step 4"
+      ],
+      "rows": [
+        [
+          "Constant",
+          "76.00",
+          "89.45",
+          "89.81",
+          "86.14"
+        ],
+        [
+          "Foam",
+          "1.54",
+          "1.90",
+          "1.82",
+          "1.87"
+        ],
+        [
+          "Foam T-Value",
+          "2.80",
+          "4.61",
+          "5.58",
+          "5.86"
+        ],
+        [
+          "Foam P-Value",
+          "0.010",
+          "0.000",
+          "0.000",
+          "0.000"
+        ],
+        [
+          "Residue",
+          "",
+          "-3.82",
+          "-3.38",
+          "-3.93"
+        ],
+        [
+          "Residue T-Value",
+          "",
+          "-4.47",
+          "-4.93",
+          "-5.15"
+        ],
+        [
+          "Residue P-Value",
+          "",
+          "0.000",
+          "0.000",
+          "0.000"
+        ],
+        [
+          "Region",
+          "",
+          "",
+          "-3.41",
+          "-3.71"
+        ],
+        [
+          "Region T-Value",
+          "",
+          "",
+          "-3.70",
+          "-4.05"
+        ],
+        [
+          "Region P-Value",
+          "",
+          "",
+          "0.001",
+          "0.001"
+        ],
+        [
+          "Scent",
+          "",
+          "",
+          "",
+          "1.18"
+        ],
+        [
+          "Scent T-Value",
+          "",
+          "",
+          "",
+          "1.48"
+        ],
+        [
+          "Scent P-Value",
+          "",
+          "",
+          "",
+          "0.155"
+        ],
+        [
+          "S",
+          "3.83",
+          "2.81",
+          "2.22",
+          "2.15"
+        ],
+        [
+          "R-Sq",
+          "26.24",
+          "62.17",
+          "77.57",
+          "79.89"
+        ],
+        [
+          "R-Sq(adj)",
+          "22.89",
+          "58.57",
+          "74.20",
+          "75.65"
+        ],
+        [
+          "Mallows C-p",
+          "46.4",
+          "16.1",
+          "4.2",
+          "4.1"
+        ]
+      ],
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 65
+    },
+    {
+      "name": "Table 6-13 Stepwise Regression Combined Forward and Backward Elimination for Shampoo Data (Alpha-to-Enter: 0.15, Alpha-to-Remove: 0.15)",
+      "columns": [
+        "Item",
+        "Step 1",
+        "Step 2",
+        "Step 3"
+      ],
+      "rows": [
+        [
+          "Constant",
+          "76.00",
+          "89.45",
+          "89.81"
+        ],
+        [
+          "Foam",
+          "1.54",
+          "1.90",
+          "1.82"
+        ],
+        [
+          "Foam T-Value",
+          "2.80",
+          "4.61",
+          "5.58"
+        ],
+        [
+          "Foam P-Value",
+          "0.010",
+          "0.000",
+          "0.000"
+        ],
+        [
+          "Residue",
+          "",
+          "-3.82",
+          "-3.38"
+        ],
+        [
+          "Residue T-Value",
+          "",
+          "-4.47",
+          "-4.93"
+        ],
+        [
+          "Residue P-Value",
+          "",
+          "0.000",
+          "0.000"
+        ],
+        [
+          "Region",
+          "",
+          "",
+          "-3.41"
+        ],
+        [
+          "Region T-Value",
+          "",
+          "",
+          "-3.70"
+        ],
+        [
+          "Region P-Value",
+          "",
+          "",
+          "0.001"
+        ],
+        [
+          "S",
+          "3.83",
+          "2.81",
+          "2.22"
+        ],
+        [
+          "R-Sq",
+          "26.24",
+          "62.17",
+          "77.57"
+        ],
+        [
+          "R-Sq(adj)",
+          "22.89",
+          "58.57",
+          "74.20"
+        ],
+        [
+          "Mallows C-p",
+          "46.4",
+          "16.1",
+          "4.2"
+        ]
+      ],
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 66
+    }
+  ],
+  "worked_examples": [
+    {
+      "id": "S05-WE01",
+      "tool": "anova-one-way",
+      "given": {
+        "description": "Table 4.4 Tensile Strength of Paper (psi): a=4 hardwood concentration levels (5,10,15,20%), n=6 replicates each (see constant_tables Table 4.4)",
+        "alpha": "0.01",
+        "H0": "tau1 = tau2 = tau3 = tau4 = 0",
+        "H1": "tau_i != 0 for at least one i"
+      },
+      "stated_answers": {
+        "SS_T": "512.96",
+        "SS_Treatments": "382.79",
+        "SS_E": "130.17",
+        "MS_Treatments": "127.60",
+        "MS_E": "6.51",
+        "F0": "19.61",
+        "F_crit(0.01,3,20)": "4.94",
+        "P_value": "3.59 x 10^-6",
+        "conclusion": "reject H0; hardwood concentration significantly affects paper strength",
+        "level_means_StDev": "level5: mean 10.000 StDev 2.828; level10: mean 15.667 StDev 2.805; level15: mean 17.000 StDev 1.789; level20: mean 21.167 StDev 2.639; Pooled StDev 2.551"
+      },
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 9,
+      "legible": true
+    },
+    {
+      "id": "S05-WE02",
+      "tool": "anova-one-way",
+      "given": {
+        "description": "Table 3-1: synthetic fiber tensile strength vs cotton weight percentage, a=5 levels (15,20,25,30,35%), n=5 replicates each (see constant_tables Table 3-1); identical raw data also present in DOE demo workbook sheet '1ANOVA'",
+        "data_ref": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx::'1ANOVA'!A3:F8"
+      },
+      "stated_answers": {
+        "SS_between_groups": "475.76",
+        "df_between": "4",
+        "MS_between": "118.94",
+        "F": "14.75682",
+        "P_value": "9.12794E-06",
+        "F_crit": "2.866081",
+        "SS_within_groups": "161.2",
+        "df_within": "20",
+        "MS_within": "8.06",
+        "SS_total": "636.96",
+        "df_total": "24",
+        "group_means": "15%:9.8; 20%:15.4; 25%:17.6; 30%:21.6; 35%:10.8 (grand mean 15.04)"
+      },
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 15,
+      "legible": true
+    },
+    {
+      "id": "S05-WE03",
+      "tool": "anova-one-way",
+      "given": {
+        "description": "Table 10-1 Sample Outputs of Three Machines, 5 observations each (see constant_tables)",
+        "group_means": "Xbar_1=49, Xbar_2=56, Xbar_3=51, Xbar_grand=52",
+        "deviations": "(Xbar_i - Xbar) = -3, 4, -1 (sum = 0)",
+        "squared_deviations": "(Xbar_i-Xbar)^2 = 9, 16, 1"
+      },
+      "stated_answers": {
+        "sum_of_squared_deviations_between_means": "26",
+        "question_posed": "Are these machines truly different or not?"
+      },
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 20,
+      "legible": true
+    },
+    {
+      "id": "S05-WE04",
+      "tool": "confounding-illustration",
+      "given": {
+        "description": "Two mini 'experiments' of 4 runs each on a chemical reaction (opbrengst=yield, A=additive concentration 0-12%, B=reactielijd/duration 10-25 min)",
+        "experiment_1_points_(concentratie,duur,opbrengst)": "(0,10,17); (4,15,19); (8,20,21); (12,25,23) -- concentratie and duur perfectly correlated (confounded), correlation=1",
+        "experiment_2_points_(concentratie,duur,opbrengst)": "(0,25,24); (12,25,23); (0,10,17); (12,10,16) -- correlation between concentratie and duur = 0"
+      },
+      "stated_answers": {
+        "conclusion": "Nathalie heeft gelijk: duur van de reactie heeft een positief effect op de opbrengst; de concentratie heeft daarentegen een licht negatief effect. Experiment 1 leert ons niets (factoren volledig 'confounded', correlatie=1); experiment 2 (correlatie=0) levert wel bruikbare informatie op."
+      },
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 38,
+      "legible": true
+    },
+    {
+      "id": "S05-WE05",
+      "tool": "factorial-2k-effects",
+      "given": {
+        "description": "2-factor (A,B) design, n=3 replicates, stacked design matrix (identical to the C=D=E=-1 block of DOE demo sheet '2^5 full rep')",
+        "A=-1,B=-1": "5.94, 5.50, 6.10",
+        "A=-1,B=+1": "5.50, 5.25, 5.16",
+        "A=+1,B=-1": "4.16, 6.72, 2.72",
+        "A=+1,B=+1": "6.25, 5.90, 4.97"
+      },
+      "stated_answers": {
+        "[A]": "-0.455",
+        "[B]": "0.315",
+        "[AB]": "0.857"
+      },
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 50,
+      "legible": true
+    },
+    {
+      "id": "S05-WE06",
+      "tool": "factorial-2k-effects",
+      "given": {
+        "description": "Figure 5-1/5-3 (no interaction case): corner responses A-B-=20, A+B-=40, A-B+=30, A+B+=52",
+        "figure_5-2/5-4_(interaction case)": "corner responses A-B-=20, A+B-=50, A-B+=40, A+B+=12"
+      },
+      "stated_answers": {
+        "no_interaction_case_A": "21",
+        "no_interaction_case_B": "11",
+        "no_interaction_case_AB": "-1",
+        "interaction_case_A": "1",
+        "interaction_case_B": "-9",
+        "interaction_case_AB": "-29"
+      },
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 54,
+      "legible": true
+    },
+    {
+      "id": "S05-WE07",
+      "tool": "factorial-2k-effects",
+      "given": {
+        "description": "Chemical Process Example, 2^2 design (A=reactant concentration, B=catalyst amount), 3 replicates (see constant_tables 'Chemical Process Example')"
+      },
+      "stated_answers": {
+        "A": "8.33",
+        "B": "-5.00",
+        "AB": "1.67",
+        "ANOVA": "Model SS=291.67 df=3 MS=97.22 F=24.82 P=0.0002; A SS=208.33 df=1 F=53.19 P<0.0001; B SS=75.00 df=1 F=19.15 P=0.0024; AB SS=8.33 df=1 F=2.13 P=0.1828; Pure Error SS=31.33 df=8 MS=3.92; Cor Total SS=323.00 df=11",
+        "R-Squared": "0.9030",
+        "Adj_R-Squared": "0.8666"
+      },
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 61,
+      "legible": true
+    },
+    {
+      "id": "S05-WE08",
+      "tool": "factorial-2k-effects",
+      "given": {
+        "description": "Surface finish quality example, 2^3 design (A=feed rate, B=depth of cut, C=tool angle), n=2 replicates (see constant_tables 'Surface finish quality example data')"
+      },
+      "stated_answers": {
+        "ANOVA": "A SS=45.5625 df=1 MS=45.5625 F0=18.69 P=2.54x10^-3; B SS=10.5625 F0=4.33 P=0.07; C SS=3.0625 F0=1.26 P=0.29; AB SS=7.5625 F0=3.10 P=0.12; AC SS=0.0625 F0=0.03 P=0.88; BC SS=1.5625 F0=0.64 P=0.45; ABC SS=5.5625 F0=2.08 P=0.19; Error SS=19.5000 df=8 MS=2.4375; Total SS=92.9375 df=15",
+        "conclusion": "only main effect A is significant at common alpha levels (P=2.54x10^-3)"
+      },
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 71,
+      "legible": true
+    },
+    {
+      "id": "S05-WE09",
+      "tool": "factorial-2k-effects",
+      "given": {
+        "description": "Nitride etch rate example, single replicate 2^4 design (A=Gap, B=Pressure, C=C2F6 Flow, D=Power); see constant_tables for factor levels, data and estimated effects"
+      },
+      "stated_answers": {
+        "full_saturated_model_R_output": "all effects listed with 0 residual df, F values NaN (model uses all df, no error term left)",
+        "pooled_model_(A+B+C+D)^2_R_ANOVA": "A: F=20.2765 P=0.006382; B: F=0.0052 P=0.945391; C: F=0.1068 P=0.757016; D: F=183.9879 P=3.903e-05; A:B F=0.1218 P=0.741315; A:C F=1.2148 P=0.320582; A:D F=46.3357 P=0.001042; B:C F=3.7794 P=0.109498; B:D F=0.0008 P=0.978978; C:D F=0.0089 P=0.928641; Residuals df=5 SS=10187 MS=2037",
+        "conclusion": "A, D and A:D interaction are significant; higher-order interactions pooled into error term"
+      },
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 77,
+      "legible": true
+    },
+    {
+      "id": "S05-WE10",
+      "tool": "fractional-factorial-2k-p",
+      "given": {
+        "description": "2^(6-2) fractional factorial design: full factorial set up for k-p=4 base factors A,B,C,D (16 runs); remaining 2 columns generated by E=ABC and F=BCD"
+      },
+      "stated_answers": {
+        "generators": "E = ABC (so I = ABCE); F = BCD (so I = BCDF)",
+        "complete_defining_relation": "I = ABCE = BCDF = ADEF (product of the two generators (ABCE)(BCDF)=ADEF, since only two are multiplied together here)",
+        "resolution": "IV (length of the shortest word in the defining relation is 4)"
+      },
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 91,
+      "legible": true
+    },
+    {
+      "id": "S05-WE11",
+      "tool": "anova-one-way",
+      "given": {
+        "description": "Raw data only: 'Synthetic Fibre example: Tensile Strength Experiment', factor A (cotton weight %) with 5 levels x 5 reps, layout stacked A-column + 5 Y-columns per level (rows)",
+        "data_ref": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx::'1ANOVA'!A3:F8"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx",
+      "page": 1,
+      "sheet": "1ANOVA",
+      "cells": "A1:F8",
+      "legible": true
+    },
+    {
+      "id": "S05-WE12",
+      "tool": "anova-two-way",
+      "given": {
+        "description": "Two-way ANOVA, unreplicated: production plant with 4 machines (Milling, Turning, Painting, Cutting) x 5 operators (Peter, Paul, Mary, Donald, Hillary); one observation per cell",
+        "data_ref": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx::'2ANOVA'!C4:F9"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx",
+      "page": 2,
+      "sheet": "2ANOVA",
+      "cells": "A1:F9",
+      "legible": true
+    },
+    {
+      "id": "S05-WE13",
+      "tool": "anova-two-way-replication",
+      "given": {
+        "description": "Two-way ANOVA, replicated n=5: plant growth experiment, Watering Frequency (Daily, Weekly) x Sunlight Exposure (None, Low, Medium, High), 5 replicate measurements per cell",
+        "data_ref": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx::'2ANOVArep'!C5:F14"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx",
+      "page": 3,
+      "sheet": "2ANOVArep",
+      "cells": "A1:F14",
+      "legible": true
+    },
+    {
+      "id": "S05-WE14",
+      "tool": "factorial-2k-effects",
+      "given": {
+        "description": "Full factorial 2^5 design (factors A-E coded -1/+1), replicated n=3 (96 data rows); layout: columns A,B,C,D,E (design matrix) + F (Meting=measurement/response)",
+        "data_ref": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx::'2^5 full rep'!A3:F98"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx",
+      "page": 4,
+      "sheet": "2^5 full rep",
+      "cells": "A1:F98",
+      "legible": true
+    },
+    {
+      "id": "S05-WE15",
+      "tool": "fractional-factorial-2k-p",
+      "given": {
+        "description": "Fractional factorial 2^(5-1) design, replicated n=3 (48 data rows); generator noted on sheet as 'ABCDE=I'; annotation asks 'What is the resolution of this design?' and suggests trying model Y=A+B+C+D+E+BCDE",
+        "data_ref": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx::'2^5-1 fract rep'!A3:F50",
+        "defining_relation_as_noted_in_sheet": "ABCDE=I"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx",
+      "page": 5,
+      "sheet": "2^5-1 fract rep",
+      "cells": "A1:M50",
+      "legible": true
+    },
+    {
+      "id": "S05-WE16",
+      "tool": "fractional-factorial-2k-p",
+      "given": {
+        "description": "Fractional factorial 2^(5-2) design, replicated n=3 (24 data rows); only columns A,B,C and response F (Meting) are filled in; columns D and E are left blank as an exercise ('Use generators for D and E to achieve best resolution')",
+        "data_ref": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx::'2^5-2 fract rep'!A4:F27"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx",
+      "page": 6,
+      "sheet": "2^5-2 fract rep",
+      "cells": "A1:H51",
+      "legible": true
+    },
+    {
+      "id": "S05-WE17",
+      "tool": "simple-linear-regression",
+      "given": {
+        "description": "Example 11-1: Oxygen purity y (%) vs hydrocarbon level x (%), n=20 (see constant_tables Table 11-1)"
+      },
+      "stated_answers": {
+        "fitted_line_fig11-4": "yhat = 74.20 + 14.97x",
+        "beta0hat_minitab": "74.283",
+        "beta1hat_minitab": "14.947",
+        "SE_beta0": "1.593",
+        "SE_beta1": "1.317",
+        "T_beta0": "46.62",
+        "T_beta1": "11.35",
+        "P": "0.000",
+        "S": "1.087",
+        "R-Sq": "87.7%",
+        "R-Sq(adj)": "87.1%",
+        "ANOVA": "Regression df=1 SS=152.13 MS=152.13 F=128.86 P=0.000; Residual Error df=18 SS=21.25 MS=1.18; Total df=19 SS=173.38"
+      },
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 22,
+      "legible": true
+    },
+    {
+      "id": "S05-WE18",
+      "tool": "regression-ci-prediction",
+      "given": {
+        "description": "Prediction for a new observation at HC Level = 1.00 (oxygen purity example, Table 11-2)",
+        "x0": "1.00"
+      },
+      "stated_answers": {
+        "Fit": "89.231",
+        "SE_Fit": "0.354",
+        "95%_CI": "(88.486, 89.975)",
+        "95%_PI": "(86.830, 91.632)"
+      },
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 22,
+      "legible": true
+    },
+    {
+      "id": "S05-WE19",
+      "tool": "multiple-linear-regression",
+      "given": {
+        "description": "Oil consumption (gallons) for 15 houses vs January mean Temp (F) and Insulation (inches); see constant_tables 'Oil consumption example: data for 15 houses'"
+      },
+      "stated_answers": {
+        "Intercept": "562.151009",
+        "Temp_coef": "-5.4365806",
+        "Insulation_coef": "-20.012321",
+        "rounded_equation": "Yhat = 562.15 - 5.44 X1 - 20.01 X2",
+        "Multiple_R": "0.98265476",
+        "R_Square": "0.96561037",
+        "Adjusted_R_Square": "0.95987877",
+        "Standard_Error": "26.0137832",
+        "ANOVA": "Regression df=2 SS=228014.6263 MS=114007.3 F=168.47203 SignificanceF=1.65411E-09; Residual df=12 SS=8120.603016 MS=676.7169; Total df=14 SS=236135.2293",
+        "prediction_example": "for Temp=30F, Insulation=6 inches: Yhat = 562.15 - 5.43*30 - 20.01*6 = 278.97 gallons (slide uses coefficient 5.43, not the rounded 5.44 shown earlier)",
+        "sigmahat": "sqrt(MSE) = sqrt(8120.6/(15-2-1)) = sqrt(676.7) = 26.0"
+      },
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 57,
+      "legible": true
+    },
+    {
+      "id": "S05-WE20",
+      "tool": "polynomial-regression",
+      "given": {
+        "description": "Acetylene Yield vs Temp (T) and Ratio (R), second-order polynomial model; see constant_tables Table 6-9"
+      },
+      "stated_answers": {
+        "equation": "Yield = 36.4 + 0.130 Temp + 0.480 Ratio - 0.00733 T x R + 0.000178 T^2 - 0.0237 R^2",
+        "coefficients": "Constant 36.4339; Temp 0.130476; Ratio 0.48005; TxR -0.0073346; T^2 0.00017820; R^2 -0.02367",
+        "S": "1.066",
+        "R-Sq": "99.5%",
+        "R-Sq(adj)": "99.2%",
+        "ANOVA": "Regression df=5 SS=2112.34 MS=422.47 F=371.49 P=0.000; Residual Error df=10 SS=11.37 MS=1.14; Total df=15 SS=2123.71"
+      },
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 62,
+      "legible": true
+    },
+    {
+      "id": "S05-WE21",
+      "tool": "regression-variable-selection",
+      "given": {
+        "description": "Shampoo data: Quality vs 5 predictors (Foam, Scent, Color, Residue, Region), N=24; best subsets, backward elimination, forward selection and combined stepwise regression compared (see constant_tables Tables 6-10..6-13)"
+      },
+      "stated_answers": {
+        "best_subsets_top_pick_3_predictors": "Foam, Residue, Region: R-Sq=77.6 R-Sq(adj)=74.2 Mallows Cp=4.2 S=2.2164",
+        "backward_elimination_final_step3": "Foam, Residue, Region retained (Color and Scent removed); R-Sq=77.57 R-Sq(adj)=74.20 Mallows Cp=4.2",
+        "forward_selection_final_step4": "adds Scent last (P=0.155, not significant at alpha-to-enter 0.25 in practice already near threshold); R-Sq=79.89 R-Sq(adj)=75.65 Mallows Cp=4.1",
+        "stepwise_combined_final_step3": "Foam, Residue, Region; R-Sq=77.57 R-Sq(adj)=74.20 Mallows Cp=4.2"
+      },
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 66,
+      "legible": true
+    },
+    {
+      "id": "S05-WE22",
+      "tool": "simple-linear-regression",
+      "given": {
+        "description": "Exercise dataset 'Simple 1': 50 (x,y) pairs; tasks printed on sheet: '1. Propose and fit a suitable model to explain y from x', '2. Predict the response y for a new point at x=2,5', '3. Predict the response for a new point at x=10'",
+        "data_ref": "source/course/Les 3/20260605_devuyst_Regression_demo.xlsx::'Simple 1'!B2:C51"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 3/20260605_devuyst_Regression_demo.xlsx",
+      "page": 1,
+      "sheet": "Simple 1",
+      "cells": "A1:E51",
+      "legible": true
+    },
+    {
+      "id": "S05-WE23",
+      "tool": "simple-linear-regression",
+      "given": {
+        "description": "Exercise dataset 'Simple 2': 50 (x,y) pairs; same task prompts as 'Simple 1' sheet",
+        "data_ref": "source/course/Les 3/20260605_devuyst_Regression_demo.xlsx::'Simple 2'!B2:C51"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 3/20260605_devuyst_Regression_demo.xlsx",
+      "page": 2,
+      "sheet": "Simple 2",
+      "cells": "A1:E51",
+      "legible": true
+    },
+    {
+      "id": "S05-WE24",
+      "tool": "multiple-linear-regression",
+      "given": {
+        "description": "Exercise dataset 'Multiple 1': Strength (response) vs predictors A,B,C,D,E, 30 observations; tasks printed: '1. Propose and fit a suitable model to explain the response y (Strength) from the x-variables A, B, C, D, E', '2. Predict the response y for a new point at A=15, B=220, C=85, D=580, E=185'",
+        "data_ref": "source/course/Les 3/20260605_devuyst_Regression_demo.xlsx::'Multiple 1'!A2:F31"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 3/20260605_devuyst_Regression_demo.xlsx",
+      "page": 3,
+      "sheet": "Multiple 1",
+      "cells": "A1:F35",
+      "legible": true
+    }
+  ],
+  "conventions": [
+    {
+      "topic": "Balanced design assumption",
+      "as_stated": "If each group contains the same number of measurements, the experiment is balanced (we will always assume it is)",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 2
+    },
+    {
+      "topic": "Significance level (example-specific, no single stated course-wide default)",
+      "as_stated": "Example 4.12 (paper tensile strength ANOVA) explicitly uses alpha=0.01 ('We will use alpha = 0.01'); separately, the 2^k effect confidence-interval rule references 'not significant at the alpha = 0.05 level'. The course does not state one single default alpha across this slice.",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 9
+    },
+    {
+      "topic": "Factor level coding for 2^k designs",
+      "as_stated": "We hercoderen de levels altijd naar -1/+1 (recode factor levels to -1/+1); this is a translation and rescaling, all factors get the same 'schaal'; interaction columns also get -1/+1 levels as the product of the corresponding main-effect columns",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 46
+    },
+    {
+      "topic": "Effect size definition (2^k design)",
+      "as_stated": "[Q] = (gemiddelde respons bij Q=+1) - (gemiddelde respons bij Q=-1); no statement in this slice that effect = 2 x regression coefficient",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 48
+    },
+    {
+      "topic": "Aliasing and defining relation for fractional factorials",
+      "as_stated": "The identity element I is also plus for the runs in the chosen fraction, therefore e.g. I = ABC is the defining relation; to find the aliases of a main effect or interaction, multiply the entire defining relation by that term (note: any column multiplied by itself always results in the identity column, i.e. A.A = I)",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 81
+    },
+    {
+      "topic": "Design resolution definitions",
+      "as_stated": "Resolution III designs: no main effects aliased with one another, main effects aliased with two-factor interactions. Resolution IV designs: no main effect aliased with any other main effect or two-factor interaction; two-factor interactions aliased with each other. Resolution V designs: no main effects or two-factor interactions aliased with each other; two-factor interactions aliased with three-factor interactions.",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 85
+    },
+    {
+      "topic": "Pooling higher-order interactions as error (single-replicate 2^k designs)",
+      "as_stated": "For a large number of factors, say k>5, it is common practice to run only a single replicate of the 2^k design and pool or combine the higher-order interactions as estimate of error (illustrated for the nitride etch example by fitting model (A+B+C+D)^2, i.e. pooling 3-way and 4-way interactions into the error term)",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 72
+    },
+    {
+      "topic": "Design generators should maximize resolution",
+      "as_stated": "Design generators should not be chosen arbitrarily. Choosing the incorrect design generator can result in a design of smaller resolution than possible. Select the design generators that will result in the highest possible design resolution.",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 92
+    },
+    {
+      "topic": "OLS estimation tools (one-way ANOVA / regression)",
+      "as_stated": "the parameters mu_i and sigma^2 can be estimated using ordinary least-squares (OLS) estimation, which R/Excel/SPSS/Minitab/... can do",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 5
+    },
+    {
+      "topic": "Residual/model-adequacy checks (regression and ANOVA)",
+      "as_stated": "Check visually: do the residuals have constant variance? Are the residuals normally distributed? Make a normal probability plot, plot of residuals vs factor levels or vs treatment means. For regression: residuals vs fitted, residuals vs response, scale-location plot e_i/sqrt(sigmahat^2) (most values should be within (-2,2)), normal probability plot of residuals, residuals vs leverages.",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 11
+    },
+    {
+      "topic": "R^2 vs adjusted R^2 for model comparison",
+      "as_stated": "R^2 always increases as more variables are added to the model (even if not significant); adjusted R^2 = 1-(1-R^2)(n-1)/(n-k-2) will only increase when the added variable is sufficiently significant, and is useful to compare different models: hoe hoger, hoe beter (the higher, the better)",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 56
+    },
+    {
+      "topic": "Significant figures / rounding when reporting regression coefficients",
+      "as_stated": "Denk steeds na over het aantal beduidende cijfers dat je rapporteert. Excel trekt zich daar niets van aan, maar een ingenieur wel. (Always think about the number of significant digits you report. Excel does not care about this, but an engineer does.)",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 53
+    },
+    {
+      "topic": "Correlation vs causation",
+      "as_stated": "correlatie != causaliteit ('spurious' or 'confounding' relatie); a 'result' must also have practical meaning ('Resultaat' moet ook praktische betekenis hebben)",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 11
+    }
+  ],
+  "ambiguities": [
+    {
+      "issue": "Table 13.23 lists the k=7 principal one-half fraction as '2^7-1 subscript VIII' (resolution VIII). For I=ABCDEFG (word length 7) the standard resolution of this design should be VII, not VIII. Transcribed exactly as printed; likely a typo/rendering error in the source slide.",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 93
+    },
+    {
+      "issue": "The oxygen-purity regression intercept is stated as 74.20 in the Figure 11-4 caption ('yhat = 74.20 + 14.97x') but as 74.283 (rounds to 74.3) in the Minitab output Table 11-2 on the same page/example ('Purity = 74.3 + 14.9 HC Level', Constant Coef = 74.283). The two values are inconsistent; both transcribed as printed.",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 22
+    },
+    {
+      "issue": "Oil-consumption multiple regression: the Excel coefficients table gives Temp coefficient = -5.4365806 (rounded to -5.44 on the same slide), but the worked prediction on a later slide uses '-5.43' ('Yhat = 562.15 - 5.43*30 - 20.01*6 = 278.97'). The coefficient rounding is inconsistent between the two slides; both transcribed as printed.",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 57
+    },
+    {
+      "issue": "The DOE PDF title slide states the lesson covers '1-way and 2-way ANOVA', and the DOE demo workbook includes two-way ANOVA datasets (sheets '2ANOVA' unreplicated and '2ANOVArep' replicated n=5), but no two-way ANOVA model equations, ANOVA-table structure, or formulas appear anywhere in the 94 read pages of the DOE PDF (only one-way ANOVA formulas/examples are present). Two-way ANOVA is only represented in this slice as blank raw input data for a live in-class Excel demo; no formulas or worked numeric results for two-way ANOVA were found to transcribe.",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 1
+    },
+    {
+      "issue": "DOE demo workbook sheets '1ANOVA', '2ANOVA', '2ANOVArep', '2^5 full rep', and '2^5-1 fract rep' contain only raw input data and text prompts/annotations; no formulas or computed ANOVA/effects results are saved in the file (results were presumably computed live in class with Excel's Data Analysis tool / Design-Expert and not saved back into the workbook). Recorded as worked examples with empty stated_answers.",
+      "file": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx",
+      "page": 4
+    },
+    {
+      "issue": "Regression demo workbook sheets 'Simple 1', 'Simple 2', 'Multiple 1' contain only exercise prompts and randomly-scattered x/y (or A-E/Strength) data; no fitted model, coefficients, or predicted values are saved in the file. Recorded as worked examples with empty stated_answers.",
+      "file": "source/course/Les 3/20260605_devuyst_Regression_demo.xlsx",
+      "page": 1
+    },
+    {
+      "issue": "DOE p20 'Three Machines' example poses the question 'Are these machines truly different or not?' and shows only the sum of squared deviations between group means (=26); no ANOVA table, F-statistic, p-value, or explicit stated answer is given on this slide.",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 20
+    },
+    {
+      "issue": "DOE pp.89-91 fractional-factorial construction example (2^(6-2), generators E=ABC, F=BCD) shows only the design-matrix construction, generators, defining relation and resolution; no actual response data or numeric worked computation (effects/ANOVA) is given for this specific design in the slice.",
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 91
+    }
+  ]
+}

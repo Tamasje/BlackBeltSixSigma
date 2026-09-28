@@ -1,0 +1,258 @@
+{
+  "slice_id": "S02",
+  "files_read": [
+    {"file": "source/course/Les 1/20260522_naert_big data.pdf", "pages": "1-59"},
+    {"file": "source/course/Les 2/20260529_naert.pdf", "pages": "1-57"},
+    {"file": "source/course/Les 6/20260626_naert.pdf", "pages": "1-38"},
+    {"file": "source/course/Les 6/Table of Contents.html", "pages": "1"}
+  ],
+  "topics": [
+    {"topic": "Associatie en interventie - titel en overzicht (Deel 1 Associatie, Deel 2 Interventie)", "file": "source/course/Les 1/20260522_naert_big data.pdf", "pages": [1, 2]},
+    {"topic": "Data als grondstof voor inzicht; drie databronnen in de industrie; kansverdelingen visualiseren (pdf, cdf)", "file": "source/course/Les 1/20260522_naert_big data.pdf", "pages": [3, 4, 5]},
+    {"topic": "Normale verdeling; niet-normale verdelingen (exponentieel voor wachttijden, beta voor afkeurcijfers, Poisson voor aantal klachten)", "file": "source/course/Les 1/20260522_naert_big data.pdf", "pages": [6, 7]},
+    {"topic": "Sampling versus inference; inference als voorspelling (Poisson voorbeeld klantenstromen)", "file": "source/course/Les 1/20260522_naert_big data.pdf", "pages": [8, 9, 10]},
+    {"topic": "Meerdimensionale data; kracht van associatie; multivariate normale verdeling; gemengde continu x discreet verdeling", "file": "source/course/Les 1/20260522_naert_big data.pdf", "pages": [11, 12, 13, 14, 15, 16]},
+    {"topic": "Marginale kansverdeling", "file": "source/course/Les 1/20260522_naert_big data.pdf", "pages": [17, 18]},
+    {"topic": "Voorwaardelijke kansverdeling (visueel en formule)", "file": "source/course/Les 1/20260522_naert_big data.pdf", "pages": [20, 21]},
+    {"topic": "Onafhankelijkheid van variabelen; drie equivalente uitdrukkingen; intuitie m/v-voorbeeld", "file": "source/course/Les 1/20260522_naert_big data.pdf", "pages": [19, 22, 23]},
+    {"topic": "Oefening productiekwaliteit: marginale en voorwaardelijke kansen berekenen (twee productielijnen)", "file": "source/course/Les 1/20260522_naert_big data.pdf", "pages": [24, 25]},
+    {"topic": "Voorwaardelijke verwachtingswaarde E[Y|X] als regressielijn; link met supervised ML", "file": "source/course/Les 1/20260522_naert_big data.pdf", "pages": [26, 27]},
+    {"topic": "Van zien naar doen: ladder van causaliteit (Judea Pearl: association, intervention, counterfactuals)", "file": "source/course/Les 1/20260522_naert_big data.pdf", "pages": [28, 29]},
+    {"topic": "Voorbeeld fabriek en carcinogene stof: observatie vs verwacht effect vs werkelijkheid na interventie; ijsverkoop/reddingsacties (confounder warm weer)", "file": "source/course/Les 1/20260522_naert_big data.pdf", "pages": [30, 31, 32, 33, 34, 35]},
+    {"topic": "PINO-principe (Prediction Is Not Optimization, cum hoc ergo propter hoc); Simpson's paradox en de confounder", "file": "source/course/Les 1/20260522_naert_big data.pdf", "pages": [36, 37, 38, 39]},
+    {"topic": "Associatie vs interventie: P(Y|X=x) versus P(Y|do(X=x))", "file": "source/course/Les 1/20260522_naert_big data.pdf", "pages": [40]},
+    {"topic": "Causale diagrammen (DAG): definitie, voorbeeld epidemiologisch model, interventie = verwijderen inkomende pijlen, directe/mediator/omgekeerde/confounder-structuren, voorbeeld koper legeren in staal met do(Cu=x)", "file": "source/course/Les 1/20260522_naert_big data.pdf", "pages": [41, 42, 43, 44, 45, 46]},
+    {"topic": "Randomisatie: RCT als gouden standaard; DAG zonder/met randomisatie; A/B-testen in e-commerce; grenzen van randomisatie (ethisch, praktisch, financieel)", "file": "source/course/Les 1/20260522_naert_big data.pdf", "pages": [47, 48, 49, 50, 51]},
+    {"topic": "Methoden voor causale statistiek: do-calculus en overzicht (matching/propensity, instrumentele variabelen, difference-in-differences, regression discontinuity, SEM)", "file": "source/course/Les 1/20260522_naert_big data.pdf", "pages": [52]},
+    {"topic": "Praktijkvoorbeeld: koelt warm staal sneller af dan koud staal? Causaal model met meetfout, regression dilution / attenuation bias", "file": "source/course/Les 1/20260522_naert_big data.pdf", "pages": [53, 54, 55, 56, 57]},
+    {"topic": "Studiewijzer en verder lezen (Les 1): The Book of Why", "file": "source/course/Les 1/20260522_naert_big data.pdf", "pages": [58, 59]},
+
+    {"topic": "Terminologie: AI/ML/DL/Data Science/Big Data; drie leerparadigma's (supervised, unsupervised, reinforcement); regressie vs classificatie; voorbeelden", "file": "source/course/Les 2/20260529_naert.pdf", "pages": [3, 4, 5, 6, 7, 8]},
+    {"topic": "Loss-functies: basisvorm, MSE, MAE, Huber loss, cross-entropy; loss als modelleringskeuze", "file": "source/course/Les 2/20260529_naert.pdf", "pages": [9, 10, 11, 12, 13, 14]},
+    {"topic": "Modellen en gewichten: wat is een model, voorbeelden (lineaire regressie, neuraal netwerk, beslissingsboom), trainen = optimaliseren, parameters vs hyperparameters", "file": "source/course/Les 2/20260529_naert.pdf", "pages": [15, 16, 17, 18]},
+    {"topic": "Cross-validatie: train-test splitsing, validatieset, k-voudige cross-validatie", "file": "source/course/Les 2/20260529_naert.pdf", "pages": [19, 20, 21]},
+    {"topic": "Underfitting en overfitting: drie scenario's, U-vormige bias-variance curve", "file": "source/course/Les 2/20260529_naert.pdf", "pages": [22, 23, 24]},
+    {"topic": "Bias-variance trade-off: theoretische decompositie, visuele decompositie, analogie met SPC (doelschijf)", "file": "source/course/Les 2/20260529_naert.pdf", "pages": [25, 26, 27, 28]},
+    {"topic": "Confusion matrix: multi-klasse voorbeeld, 2x2 matrix, vier metrics (accuracy, recall, precision, F1), keuze van metric als domeinbeslissing", "file": "source/course/Les 2/20260529_naert.pdf", "pages": [29, 30, 31, 32]},
+    {"topic": "Lineaire regressie en uitbreidingen (Ridge, Lasso, Elastic Net, quantielregressie, Deming, logistisch, GLM)", "file": "source/course/Les 2/20260529_naert.pdf", "pages": [33, 34, 35]},
+    {"topic": "Neurale netwerken: enkelvoudig neuron, lagen stapelen (deep learning), hoe een netwerk leert (backpropagation), universele approximatiestelling, overfitting-risico en regularisatie, architectuurvarianten (MLP, CNN, RNN/LSTM, Transformer, Autoencoder), wanneer wel/niet geschikt", "file": "source/course/Les 2/20260529_naert.pdf", "pages": [36, 37, 38, 39, 40, 41, 42]},
+    {"topic": "Boom-gebaseerde methoden: beslissingsbomen (voor- en nadelen), ensemble-methoden (Random Forest, Gradient Boosting, AdaBoost)", "file": "source/course/Les 2/20260529_naert.pdf", "pages": [43, 44, 45, 46]},
+    {"topic": "Unsupervised methoden: clustering (K-means, hiërarchisch, DBSCAN), dimensiereductie (PCA, t-SNE/UMAP), anomaliedetectie (Isolation Forest, Autoencoder, One-class SVM)", "file": "source/course/Les 2/20260529_naert.pdf", "pages": [47, 48, 49, 50]},
+    {"topic": "Bayesiaanse methoden: frequentistische vs Bayesiaanse filosofie, regel van Bayes (prior/likelihood/posterior), Bayesiaans netwerk, MCMC in de praktijk (PyMC/Stan), wanneer Bayesiaans (beperkt aantal observaties, domeinkennis)", "file": "source/course/Les 2/20260529_naert.pdf", "pages": [51, 52, 53, 54, 55]},
+    {"topic": "Studiewijzer en verder lezen (Les 2): An Introduction to Statistical Learning, Hands-On Machine Learning, Probabilistic Machine Learning", "file": "source/course/Les 2/20260529_naert.pdf", "pages": [56, 57]},
+
+    {"topic": "Werkomgeving en AI: drie routes naar Python (JupyterLite, Google Colab, lokaal met VS Code); AI gebruiken zonder stuurloos te worden; keuze van AI-assistent (ChatGPT/Claude/Gemini, GitHub Copilot/Claude Code/Cursor)", "file": "source/course/Les 6/20260626_naert.pdf", "pages": [3, 4, 5, 6]},
+    {"topic": "Mini-project lineaire/polynomiale regressie: California Housing dataset, modelcomplexiteit, train/validatie/test-discipline, resultaat polynomiale regressie (graad 1 t.e.m. 12), startprompt", "file": "source/course/Les 6/20260626_naert.pdf", "pages": [7, 8, 9, 10, 11, 12, 13]},
+    {"topic": "Mini-project neurale netwerken: Fashion-MNIST dataset, leercurven compact vs groot model, confusion matrix en foutanalyse, denkvragen, startprompt", "file": "source/course/Les 6/20260626_naert.pdf", "pages": [14, 15, 16, 17, 18, 19, 20, 21]},
+    {"topic": "Mini-project beslissingsbomen op Titanic: dataset en concept, train/validatie/test-discipline, interpreteerbare boom, confusion matrices boom vs random forest, interpretatie, startprompt", "file": "source/course/Les 6/20260626_naert.pdf", "pages": [22, 23, 24, 25, 26, 27, 28, 29]},
+    {"topic": "Mini-project Bayesiaanse onzekerheid: restaurantfooien dataset, heteroscedastisch model, posterior predictive, MCMC-controle (R-hat, ESS, divergences, traceplots), startprompt", "file": "source/course/Les 6/20260626_naert.pdf", "pages": [30, 31, 32, 33, 34, 35, 36, 37]},
+    {"topic": "Studiewijzer Les 6 (expliciet niet te kennen voor het examen)", "file": "source/course/Les 6/20260626_naert.pdf", "pages": [38]},
+    {"topic": "LMS Table of Contents listing (geen inhoud, enkel link naar 20260626_naert.pdf)", "file": "source/course/Les 6/Table of Contents.html", "pages": [1]}
+  ],
+  "formulas": [
+    {"name": "pdf (kansdichtheid)", "expression": "f(x) = P(X = x)", "symbols": {"f(x)": "de vorm van de verdeling (pdf)", "x": "waarde van de variabele X"}, "conditions": "", "file": "source/course/Les 1/20260522_naert_big data.pdf", "page": 5},
+    {"name": "cdf (cumulatieve verdeling)", "expression": "F(x) = P(X ≤ x) = ∫_{-∞}^{x} f(t) dt", "symbols": {"F(x)": "de gecumuleerde kans (cdf)"}, "conditions": "", "file": "source/course/Les 1/20260522_naert_big data.pdf", "page": 5},
+    {"name": "Marginale kansverdeling", "expression": "P(X) = ∫_y P(X, Y=y) dy", "symbols": {"P(X)": "marginale verdeling van X", "y": "integratievariabele over Y"}, "conditions": "\"Kolom(men) Y wegfilteren uit de data.\"", "file": "source/course/Les 1/20260522_naert_big data.pdf", "page": 18},
+    {"name": "Onafhankelijkheid van variabelen", "expression": "P(X, Y) = P(X) · P(Y)", "symbols": {}, "conditions": "Kennis van X geeft geen extra informatie over Y.", "file": "source/course/Les 1/20260522_naert_big data.pdf", "page": 19},
+    {"name": "Onafhankelijkheid - drie equivalente uitdrukkingen", "expression": "P(X,Y) = P(X)·P(Y);  P(Y | X) = P(Y);  P(X | Y) = P(X)", "symbols": {}, "conditions": "", "file": "source/course/Les 1/20260522_naert_big data.pdf", "page": 22},
+    {"name": "Voorwaardelijke kansverdeling", "expression": "P(Y | X) = P(X, Y) / P(X)", "symbols": {}, "conditions": "\"Rijen filteren waar X ≈ x.\"", "file": "source/course/Les 1/20260522_naert_big data.pdf", "page": 20},
+    {"name": "Voorwaardelijke verwachtingswaarde", "expression": "E[Y | X = x] = ∫_y y · P(Y = y | X = x) dy", "symbols": {}, "conditions": "Een functie die enkel van x afhangt — de regressielijn.", "file": "source/course/Les 1/20260522_naert_big data.pdf", "page": 26},
+    {"name": "Associatie versus interventie", "expression": "P(Y | X = x) ≠ P(Y | do(X = x))", "symbols": {}, "conditions": "In het algemeen (Gegeven dat we observeren X=x ... versus Gegeven dat we forceren X=x ...).", "file": "source/course/Les 1/20260522_naert_big data.pdf", "page": 40},
+    {"name": "RCT-identiteit", "expression": "P(Y | do(T = t)) = P(Y | T = t)", "symbols": {}, "conditions": "Geldig in een RCT (randomisatie breekt alle achterdeurpaden).", "file": "source/course/Les 1/20260522_naert_big data.pdf", "page": 49},
+    {"name": "Causaal model staalpan afkoeling (meetfout)", "expression": "M1 = T1 + ε1;  M2 = T2 + ε2;  T2 = α T1 + β W + ε0", "symbols": {"M1": "gemeten temperatuur 1", "M2": "gemeten temperatuur 2", "T1": "werkelijke temperatuur 1", "T2": "werkelijke temperatuur 2", "W": "wachtduur", "ε1, ε2, ε0": "foutentermen", "α": "de afkoelcoëfficiënt die we willen schatten"}, "conditions": "", "file": "source/course/Les 1/20260522_naert_big data.pdf", "page": 56},
+    {"name": "Schatters van α: correct model vs naïeve OLS (regression dilution)", "expression": "α = Cov(M1, M2) / Var(T1);   α' = Cov(M1, M2) / Var(M1)", "symbols": {"α": "schatter met correct model", "α'": "naïeve schatter (klassieke OLS)"}, "conditions": "Var(M1) = Var(T1) + Var(ε1) > Var(T1), dus α' < α (attenuation bias).", "file": "source/course/Les 1/20260522_naert_big data.pdf", "page": 57},
+    {"name": "Drie leerparadigma's - doelverdelingen", "expression": "Supervised: modelleer P(Y | X);  Unsupervised: modelleer P(X);  Reinforcement: modelleer P(Y | do(X))", "symbols": {"X": "input-vector", "Y": "doelvariabele"}, "conditions": "", "file": "source/course/Les 2/20260529_naert.pdf", "page": 5},
+    {"name": "Loss-functie basisvorm", "expression": "L_D(f̂) = (1/N) Σ_{i=1}^{N} ℓ(y_i, f̂(x_i))", "symbols": {"L_D": "loss- of kostfunctie op dataset D", "ℓ": "verliesfunctie per observatie", "N": "aantal observaties"}, "conditions": "", "file": "source/course/Les 2/20260529_naert.pdf", "page": 10},
+    {"name": "Mean Squared Error (MSE)", "expression": "L_MSE = (1/N) Σ_{i=1}^{N} (y_i − f̂(x_i))^2", "symbols": {}, "conditions": "Grote afwijkingen kwadratisch bestraft; gevoelig voor uitschieters; impliceert Gaussische fouten (normale verdeling).", "file": "source/course/Les 2/20260529_naert.pdf", "page": 12},
+    {"name": "Mean Absolute Error (MAE)", "expression": "L_MAE = (1/N) Σ_{i=1}^{N} |y_i − f̂(x_i)|", "symbols": {}, "conditions": "Lineair bestraft; robuuster bij uitschieters; impliceert Laplaciaanse fouten.", "file": "source/course/Les 2/20260529_naert.pdf", "page": 12},
+    {"name": "Cross-entropy (classificatie)", "expression": "L_CE = − (1/N) Σ_{i=1}^{N} Σ_k y_{i,k} log p̂_{i,k}", "symbols": {}, "conditions": "Standaardkeuze voor classificatie; bestraft zelfverzekerd verkeerde voorspellingen extra hard.", "file": "source/course/Les 2/20260529_naert.pdf", "page": 13},
+    {"name": "Trainen = gewichten optimaliseren", "expression": "θ̂_D = argmin_θ L_D(f̂_θ)", "symbols": {"θ": "gewichtsvector", "θ̂_D": "geoptimaliseerde gewichten op dataset D"}, "conditions": "", "file": "source/course/Les 2/20260529_naert.pdf", "page": 17},
+    {"name": "Bias-variance decompositie", "expression": "E[(y − f̂(x))^2] = Bias^2 + Var + σ^2", "symbols": {"Bias^2": "systematisch (underfitting)", "Var": "gevoeligheid (overfitting)", "σ^2": "ruis, niet te reduceren"}, "conditions": "", "file": "source/course/Les 2/20260529_naert.pdf", "page": 26},
+    {"name": "Confusion matrix metrics", "expression": "Accuracy = (TP+TN)/(TP+TN+FP+FN);  Recall = TP/(TP+FN);  Precision = TP/(TP+FP);  F1 = 2·P·R/(P+R)", "symbols": {"TP": "True Positive", "TN": "True Negative", "FP": "False Positive", "FN": "False Negative", "P": "Precision", "R": "Recall"}, "conditions": "Accuracy misleidend bij onevenwicht; keuze van metric is een domeinbeslissing (recall bij veiligheidskritisch, precision bij alarmsysteem).", "file": "source/course/Les 2/20260529_naert.pdf", "page": 31},
+    {"name": "Lineaire regressie", "expression": "ŷ = β0 + β1 x1 + β2 x2 + ... + βp xp", "symbols": {"βi": "coëfficiënten"}, "conditions": "Lineair betekent lineair in de parameters βi, niet noodzakelijk in de data (bv. ŷ = β0 + β1 sin(x1) + β2 x2^2 + ... + βp f(xp) is ook lineair).", "file": "source/course/Les 2/20260529_naert.pdf", "page": 34},
+    {"name": "Enkelvoudig neuron", "expression": "y = f(w1 x1 + w2 x2 + ... + wn xn + b)", "symbols": {"wi": "gewichten (te trainen parameters)", "b": "bias (te trainen parameter)", "f": "niet-lineaire activatie (ReLU, sigmoid, tanh)"}, "conditions": "", "file": "source/course/Les 2/20260529_naert.pdf", "page": 37},
+    {"name": "Regel van Bayes", "expression": "P(θ | data) = P(data | θ) · P(θ) / P(data)", "symbols": {"P(θ)": "prior — wat we weten vóór de data", "P(data|θ)": "likelihood — het data-genererend model", "P(θ|data)": "posterior — bijgewerkte kennis"}, "conditions": "", "file": "source/course/Les 2/20260529_naert.pdf", "page": 53},
+    {"name": "Bayesiaans heteroscedastisch model (fooien)", "expression": "y ~ N(μ(x), σ(x));  μ(x) = α + βx;  σ(x) = σ0 + σ1 x", "symbols": {"y": "fooi (tip)", "x": "totale rekening (total_bill)", "σ1": "extra variabiliteit-parameter"}, "conditions": "Omdat σ1 ≥ 0 nemen we vooraf aan dat de spreiding gelijk blijft of stijgt (half-normale prior).", "file": "source/course/Les 6/20260626_naert.pdf", "page": 33}
+  ],
+  "constant_tables": [
+    {"name": "Oefening productiekwaliteit per lijn", "columns": ["", "Accepted", "Downgraded", "Rejected", "Totaal"], "rows": [["Lijn 1", "200", "50", "20", "270"], ["Lijn 2", "150", "40", "40", "230"], ["Totaal", "350", "90", "60", "500"]], "file": "source/course/Les 1/20260522_naert_big data.pdf", "page": 24},
+    {"name": "Andere causale methodes (naast do-calculus)", "columns": ["Methode", "Kernidee"], "rows": [["Matching / propensity scores", "Behandelden vs onbehandelden zo gelijk mogelijk maken"], ["Instrumentele variabelen", "Variabele die behandeling beïnvloedt, uitkomst niet rechtstreeks"], ["Difference-in-differences", "Vergelijk evolutie over tijd"], ["Regression discontinuity", "Exploiteer een drempelwaarde"], ["Structural Equation Modeling", "Schat het volledige causale stelsel"]], "file": "source/course/Les 1/20260522_naert_big data.pdf", "page": 52},
+    {"name": "Uitbreidingen van lineaire regressie", "columns": ["Methode", "Kernidee"], "rows": [["Ridge", "L2-bestraffing → stabiliteit"], ["Lasso", "L1-bestraffing → variabelenselectie"], ["Elastic Net", "combinatie van Ridge + Lasso"], ["Quantielregressie", "mediaan i.p.v. gemiddelde"], ["Deming", "meetfout in zowel x als y"], ["Logistisch", "Voorspellen van binaire response (1/0)"], ["GLM", "niet-Gaussische uitkomsten (Poisson, binomiaal, ...)"]], "file": "source/course/Les 2/20260529_naert.pdf", "page": 35},
+    {"name": "Ensemble-methoden", "columns": ["Methode", "Kernidee", "Sterkte"], "rows": [["Random Forest", "k bomen op willekeurige subsets, dan middelen", "Robuust, weinig tuning"], ["Gradient Boosting (XGBoost, LightGBM)", "Elke nieuwe boom corrigeert de vorige", "State-of-the-art voor tabeldata"], ["AdaBoost", "Herwaardeert moeilijke observaties", "Historisch"]], "file": "source/course/Les 2/20260529_naert.pdf", "page": 46},
+    {"name": "Anomaliedetectie methoden", "columns": ["Methode", "Idee"], "rows": [["Isolation Forest", "Anomalieën zijn makkelijker te isoleren"], ["Autoencoder", "Anomalieën worden slecht gereconstrueerd"], ["One-class SVM", "Leer de grens van \"normaal\""]], "file": "source/course/Les 2/20260529_naert.pdf", "page": 50},
+    {"name": "Architectuur-varianten (neurale netwerken)", "columns": ["Architectuur", "Toepassing"], "rows": [["MLP", "algemene regressie / classificatie op tabeldata"], ["CNN", "beelden, signalen"], ["RNN / LSTM", "tijdreeksen, sequenties"], ["Transformer", "taal (LLMs), tijdreeksen, beelden"], ["Autoencoder", "anomaliedetectie, compressie"]], "file": "source/course/Les 6/20260626_naert.pdf", "page": 41},
+    {"name": "Test-set confusion matrix Fashion-MNIST (selected large model)", "columns": ["True \\ Predicted", "T-shirt/top", "Trouser", "Pullover", "Dress", "Coat", "Sandal", "Shirt", "Sneaker", "Bag", "Ankle boot"], "rows": [
+      ["T-shirt/top", "885", "3", "23", "31", "5", "1", "31", "0", "21", "0"],
+      ["Trouser", "3", "962", "3", "19", "10", "0", "1", "0", "2", "0"],
+      ["Pullover", "30", "3", "786", "8", "141", "0", "22", "0", "9", "1"],
+      ["Dress", "78", "18", "30", "818", "39", "0", "10", "0", "6", "1"],
+      ["Coat", "2", "1", "139", "42", "779", "0", "27", "0", "10", "0"],
+      ["Sandal", "0", "0", "0", "2", "0", "800", "0", "103", "17", "78"],
+      ["Shirt", "285", "4", "190", "19", "144", "0", "330", "0", "28", "0"],
+      ["Sneaker", "0", "0", "0", "0", "0", "5", "0", "932", "1", "62"],
+      ["Bag", "4", "1", "13", "3", "4", "1", "2", "6", "964", "2"],
+      ["Ankle boot", "0", "0", "0", "0", "0", "3", "1", "34", "0", "962"]
+    ], "file": "source/course/Les 6/20260626_naert.pdf", "page": 19},
+    {"name": "Confusion matrices Titanic test set: shallow tree vs random forest", "columns": ["Model", "True \\ Predicted", "not survived", "survived"], "rows": [
+      ["shallow tree", "not survived", "128", "9"],
+      ["shallow tree", "survived", "41", "45"],
+      ["random forest", "not survived", "127", "10"],
+      ["random forest", "survived", "37", "49"]
+    ], "file": "source/course/Les 6/20260626_naert.pdf", "page": 27}
+  ],
+  "worked_examples": [
+    {
+      "id": "S02-WE01",
+      "tool": "marginal-conditional-probability",
+      "given": {
+        "table_page": "24",
+        "table": "Lijn 1: Accepted=200, Downgraded=50, Rejected=20, Totaal=270; Lijn 2: Accepted=150, Downgraded=40, Rejected=40, Totaal=230; Totaal: Accepted=350, Downgraded=90, Rejected=60, Totaal=500",
+        "vraag_1": "Bereken P(L = lijn 2, K = Accepted).",
+        "vraag_2": "Bereken de marginale verdeling P(K).",
+        "vraag_3": "Bereken de voorwaardelijke verdeling P(K | L = lijn 1).",
+        "vraag_4": "Zijn L en K onafhankelijk? Leg uit.",
+        "note": "vragen en tabel op p.24; uitgewerkte antwoorden op p.25"
+      },
+      "stated_answers": {
+        "P(L=lijn2, K=Accepted)": "150/500 = 0,30",
+        "P(Acc.)": "350/500 = 0,70",
+        "P(Down.)": "90/500 = 0,18",
+        "P(Rej.)": "60/500 = 0,12",
+        "P(Acc. | lijn1)": "200/270 ≈ 0,74",
+        "P(Down. | lijn1)": "≈ 0,19",
+        "P(Rej. | lijn1)": "≈ 0,07",
+        "onafhankelijkheid": "Niet onafhankelijk: P(K | L=lijn1) ≠ P(K). Lijn 1 levert verhoudingsgewijs méér Accepted (74% vs 70%) en minder Rejected (7% vs 12%) — er is duidelijk een verband tussen productielijn en kwaliteit."
+      },
+      "file": "source/course/Les 1/20260522_naert_big data.pdf",
+      "page": 25,
+      "legible": true
+    },
+    {
+      "id": "S02-WE02",
+      "tool": "regression-dilution-attenuation-bias",
+      "given": {
+        "model_page": "56",
+        "model": "M1 = T1 + ε1; M2 = T2 + ε2; T2 = α T1 + β W + ε0 (W = wachtduur)",
+        "assumption": "Stel dat in werkelijkheid α = 1 (warm en koud staal koelen even snel af)."
+      },
+      "stated_answers": {
+        "alpha_correct_model": "α = Cov(M1,M2)/Var(T1)",
+        "alpha_naive_OLS": "α' = Cov(M1,M2)/Var(M1)",
+        "relatie": "Var(M1) = Var(T1) + Var(ε1) > Var(T1), dus α' < α",
+        "numeriek_resultaat": "α' ≈ 0,94 (terwijl werkelijk α = 1) — alsof warm staal significant sneller afkoelt; een artefact van meetfout, geen fysisch effect (attenuation bias / regression dilution)."
+      },
+      "file": "source/course/Les 1/20260522_naert_big data.pdf",
+      "page": 57,
+      "legible": true
+    },
+    {
+      "id": "S02-WE03",
+      "tool": "confusion-matrix-metrics",
+      "given": {
+        "dataset": "Fashion-MNIST testset (10 klassen)",
+        "model": "\"selected large\" (groter) dicht neuraal netwerk uit het mini-project",
+        "data_ref": "zie constant_tables 'Test-set confusion matrix Fashion-MNIST (selected large model)' (Les 6, p.19)"
+      },
+      "stated_answers": {
+        "confusion_matrix": "zie constant_tables entry hierboven (10x10 matrix, diagonaal correcte voorspellingen, bv. T-shirt/top: 885 correct, Shirt sterk verward met T-shirt/top (285), Pullover (190) en Coat (144)"
+      },
+      "file": "source/course/Les 6/20260626_naert.pdf",
+      "page": 19,
+      "legible": true
+    },
+    {
+      "id": "S02-WE04",
+      "tool": "confusion-matrix-metrics",
+      "given": {
+        "dataset": "Titanic testset, doel: survived",
+        "models": "shallow decision tree vs random forest"
+      },
+      "stated_answers": {
+        "shallow_tree": "TN(not survived/not survived)=128, FP(not survived/survived)=9, FN(survived/not survived)=41, TP(survived/survived)=45",
+        "random_forest": "TN=127, FP=10, FN=37, TP=49",
+        "interpretatie": "Random forest heeft iets betere recall voor overleven, maar geen enkele boom vat het hele model samen (p.28)."
+      },
+      "file": "source/course/Les 6/20260626_naert.pdf",
+      "page": 27,
+      "legible": true
+    },
+    {
+      "id": "S02-WE05",
+      "tool": "polynomial-regression-cross-validation",
+      "given": {
+        "prompt_page": "13",
+        "prompt": "Use scikit-learn and the California Housing dataset to investigate model complexity in polynomial regression. Predict MedHouseVal from MedInc. Reserve 20% of the complete dataset as an untouched test set, then draw a reproducible sample of 400 observations from the remaining development data. Compare polynomial degrees 1 through 12 using five-fold cross-validation. Keep all scaling and polynomial transformations inside a Pipeline. Use training and validation MSE to select the degree; do not inspect the test set. Make the fitted curves and training-versus-validation error curve understandable. After selecting the degree, fit the final model on the 400 development observations and use the test set once to report MSE and R2. First propose a plan. Do not write code yet.",
+        "illustratieve_resultaat_p11": "grafiek met 400 training observations, gefit voor degree 1, degree 3 (selected) en degree 12; rechts trainings-MSE (constant ~1) vs validatie-MSE (log-schaal), die vanaf graad ~8 sterk oploopt (bv. >10^4 bij graad 12)"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 6/20260626_naert.pdf",
+      "page": 13,
+      "legible": true
+    },
+    {
+      "id": "S02-WE06",
+      "tool": "neural-network-capacity-comparison",
+      "given": {
+        "prompt_page": "21",
+        "prompt": "Use Keras to compare a compact dense neural network with a substantially larger one on Fashion-MNIST. The goal is to investigate how model capacity affects training and validation loss and when overfitting becomes visible. Use a limited, reproducible and stratified sample from the official development data so the exercise remains quick. Keep the official test set completely separate until all choices have been made. Choose and motivate suitable architectures, preprocessing, loss function, optimizer and number of epochs. Visualize training and validation loss per epoch for both models. Then evaluate only the selected model once on the test set. Show predictions and a confusion matrix. Do not claim overfitting unless the learning curves provide evidence.",
+        "leercurven_p17": "compact model: train- en validatieverlies dalen samen en blijven dicht bij elkaar tot epoch 14; groot model: trainingsverlies daalt sneller en verder (tot ~0,22) terwijl validatieverlies vanaf ~epoch 9-10 stijgt/schommelt (~0,47-0,59) - kruisend patroon"
+      },
+      "stated_answers": {
+        "confusion_matrix_test_set": "zie constant_tables 'Test-set confusion matrix Fashion-MNIST (selected large model)' (p.19)"
+      },
+      "file": "source/course/Les 6/20260626_naert.pdf",
+      "page": 21,
+      "legible": true
+    },
+    {
+      "id": "S02-WE07",
+      "tool": "decision-tree-random-forest-titanic",
+      "given": {
+        "prompt_page": "29",
+        "prompt": "Write Python code that trains a decision tree and a random forest on the Titanic dataset to predict passenger survival. Use pclass, sex, age, sibsp, parch and fare. Start with a stratified train/test split and keep the test set untouched until the final evaluation. On the training data only, use cross-validation to compare a shallow decision tree with a random forest and, if needed, tune hyperparameters. Impute missing numerical values using medians learned exclusively inside each training fold, and encode categorical features inside the same workflow. Prefer a scikit-learn Pipeline. Do not remove observations merely because age is missing. After choosing settings, fit both models on the full training data. Only then evaluate them once on the test set. Report accuracy, precision, recall and F1 for the survived class; show test-set confusion matrices and a readable tree.",
+        "boom_p26": "Wortel: sex_male<=0.5 (100% samples); links pclass<=2.5 dan fare<=28.856 of fare<=7.888; rechts age<=6.5 dan pclass<=1.5; bladwaarden tonen samples% en class-verdeling [not survived, survived]"
+      },
+      "stated_answers": {
+        "confusion_matrices_test_set": "zie constant_tables 'Confusion matrices Titanic test set: shallow tree vs random forest' (p.27)"
+      },
+      "file": "source/course/Les 6/20260626_naert.pdf",
+      "page": 29,
+      "legible": true
+    },
+    {
+      "id": "S02-WE08",
+      "tool": "bayesian-heteroscedastic-regression",
+      "given": {
+        "prompt_page": "37",
+        "prompt": "Use PyMC to fit a heteroscedastic Bayesian regression model to the seaborn Tips dataset. Predict tip from total_bill and rescale total_bill to [0, 1]. tip ~ Normal(mu(x), sigma(x)); mu(x) = alpha + beta * x_scaled; sigma(x) = sigma_0 + sigma_1 * x_scaled. Use sensible normal priors for alpha and beta and half-normal priors for sigma_0 and sigma_1. Use prior-predictive simulation before fitting the model. Sample the posterior using MCMC. Summarize and interpret all four parameters, and check convergence using R-hat, effective sample size, trace plots and the number of divergences. Explain what sigma_1 says about changing variability, while recognizing that the half-normal prior assumes variability cannot decrease. Use posterior-predictive draws to visualize the fitted relationship and its uncertainty. Do not construct a posterior-predictive interval merely by plugging posterior mean parameters into mu +/- sigma."
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 6/20260626_naert.pdf",
+      "page": 37,
+      "legible": true
+    }
+  ],
+  "conventions": [
+    {"topic": "Train/validatie/test-discipline en cross-validatie", "as_stated": "Train het model op de trainset. Evalueer op de testset — die heeft het model nooit gezien. Wie hyperparameters herhaaldelijk tunet op dezelfde testset overtraint ook op die testset. Gebruik een derde (validatie) dataset voor uiteindelijke evaluatie. Voorbeeldverdeling in figuur: Train Set 70%, Val Set 15%, Test Set 15%.", "file": "source/course/Les 2/20260529_naert.pdf", "page": 20},
+    {"topic": "k-voudige cross-validatie", "as_stated": "Diagram toont 3-Fold Cross-Validation with Isolated Test Set (K-Fold Training Chunks, K-Fold Validation Chunk (Rotating), Held-Out Test Block (Untouched)).", "file": "source/course/Les 2/20260529_naert.pdf", "page": 21},
+    {"topic": "Train/validatie/test-discipline in de hands-on mini-projecten", "as_stated": "Goed: testset eerst apart zetten; 5-voudige cross-validatie; preprocessing in een Pipeline; training en validatie vergelijken. Niet goed: testset gebruiken om de graad te kiezen; schaling buiten de folds leren; een perfecte U-vorm beloven; alleen de trainingsfout tonen.", "file": "source/course/Les 6/20260626_naert.pdf", "page": 10},
+    {"topic": "Testset-omvang in de mini-projecten (hands-on)", "as_stated": "Reserve 20% of the complete dataset as an untouched test set (California Housing startprompt); vergelijkbare stratified train/test split voor Titanic en Fashion-MNIST oefeningen.", "file": "source/course/Les 6/20260626_naert.pdf", "page": 13},
+    {"topic": "Overfitting-criterium: wanneer mag je overfitting claimen?", "as_stated": "Do not claim overfitting unless the learning curves provide evidence.", "file": "source/course/Les 6/20260626_naert.pdf", "page": 21},
+    {"topic": "Underfitting/overfitting en bias-variance", "as_stated": "Drie scenario's: Underfitted Model (high bias, low variance, high train loss, high test loss) — Good Fit (low bias, low variance, low train loss, low test loss) — Overfitted Model (low bias, high variance, low train loss, high test loss). Optimum bij het minimum van de totale foutcurve (Bias² + Variance).", "file": "source/course/Les 2/20260529_naert.pdf", "page": 23},
+    {"topic": "ML metric-definities (accuracy, recall, precision, F1)", "as_stated": "Accuracy=(TP+TN)/(TP+TN+FP+FN) [misleidend bij onevenwicht]; Recall=TP/(TP+FN) [hoe veel echte positieven vinden we?]; Precision=TP/(TP+FP) [hoe vaak klopt een \"positief\"?]; F1=2·P·R/(P+R) [harmonisch gemiddelde]. Keuze van metric is een domeinbeslissing: recall optimaliseren bij veiligheidskritische toepassingen (gemist defect kost meer dan onterechte afkeur), precision optimaliseren bij alarmsystemen (vals alarm kost geld en aandacht).", "file": "source/course/Les 2/20260529_naert.pdf", "page": 31},
+    {"topic": "Loss-functie als modelleringskeuze / foutverdeling", "as_stated": "MSE impliceert Gaussische fouten (normale verdeling); MAE impliceert Laplaciaanse fouten; Huber loss combineert MSE (kleine fouten) en MAE (grote fouten). De keuze van een loss bepaalt wat het model optimaliseert en wat het negeert, hoe gevoelig het is voor uitschieters, en impliceert (impliciet) een veronderstelling over de foutenverdeling.", "file": "source/course/Les 2/20260529_naert.pdf", "page": 14},
+    {"topic": "Lineaire regressie: betekenis van \"lineair\"", "as_stated": "Lineair betekent dat het model lineair is in de parameters βi, niet noodzakelijk in de data.", "file": "source/course/Les 2/20260529_naert.pdf", "page": 34},
+    {"topic": "Bayesiaanse prior voor variabiliteit (half-normaal, niet-afnemend)", "as_stated": "Omdat σ1 ≥ 0 nemen we vooraf aan dat de spreiding gelijk blijft of stijgt (half-normale prior op σ1 in het heteroscedastische fooienmodel).", "file": "source/course/Les 6/20260626_naert.pdf", "page": 33},
+    {"topic": "Python-versie voor deze cursus / TensorFlow", "as_stated": "Gebruik Python 3.12 of 3.13; Python 3.14 is voorlopig minder geschikt voor TensorFlow.", "file": "source/course/Les 6/20260626_naert.pdf", "page": 4},
+    {"topic": "Examenreikwijdte van Les 6 (hands-on Python-sessie)", "as_stated": "Studiewijzer van Les 6 is expliciet getiteld \"Niet te kennen voor het examen\", in tegenstelling tot de studiewijzers van Les 1 en Les 2 die wel als kernbegrippen voor het examen worden opgelijst.", "file": "source/course/Les 6/20260626_naert.pdf", "page": 38},
+    {"topic": "Causale aannames uit observationele data", "as_stated": "Een interventie op een variabele X heeft alleen invloed op een andere variabele Y als er een causaal pad van X naar Y is. Uit observationele data alleen kunnen we het effect van een interventie in het algemeen niet bepalen. We hebben altijd bijkomende causale aannames nodig.", "file": "source/course/Les 1/20260522_naert_big data.pdf", "page": 39},
+    {"topic": "PINO-principe (predictie ≠ optimalisatie)", "as_stated": "Prediction Is Not Optimization. \"Cum hoc ergo propter hoc\"-fallacy.", "file": "source/course/Les 1/20260522_naert_big data.pdf", "page": 36},
+    {"topic": "Randomisatie als gouden standaard, met grenzen", "as_stated": "Randomisatie is de gouden standaard om causale effecten aan te tonen. ... maar het is niet altijd praktisch: ethisch (geen willekeurige toewijzing van roken), praktisch (geen willekeurig klimaat), financieel (geen willekeurige productieregimes voor weken).", "file": "source/course/Les 1/20260522_naert_big data.pdf", "page": 51},
+    {"topic": "Wanneer Bayesiaanse methoden gebruiken", "as_stated": "Beperkt aantal observaties (honderden, niet miljoenen); rijke domeinkennis beschikbaar; structuur van het probleem is bekend; we willen onzekerheid mee terugkrijgen, niet enkel een puntschatting. Hot take: Bayesiaanse methoden zijn onderschat voor de industrie (bv. a priori vloeibaar staal tussen 1400-1800°C is aanvaardbaar).", "file": "source/course/Les 2/20260529_naert.pdf", "page": 55}
+  ],
+  "ambiguities": [
+    {"issue": "Startprompt van het lineaire-regressie mini-project (p.13) vraagt om de finale test-set MSE en R² te rapporteren na modelselectie via cross-validatie op 400 ontwikkelingsobservaties; de slides tonen enkel een illustratief resultaat (graad 3 geselecteerd, graad 12 divergeert) op de 400-punts steekproef en een training-vs-validatie MSE-curve (log-schaal) — nergens in de deck staan concrete numerieke test-MSE/R²-waarden afgedrukt.", "file": "source/course/Les 6/20260626_naert.pdf", "page": 13},
+    {"issue": "Startprompt van het Bayesiaanse mini-project (p.37) vraagt om alle vier posterior-parameters (alpha, beta, sigma_0, sigma_1) samen te vatten/interpreteren en convergentie te checken (R-hat, ESS, divergences); de slides (p.34 posterior predictive plot, p.36 traceplots/densiteitsplots) tonen enkel grafieken zonder afgedrukte numerieke posterior-samenvattingen (gemiddelden, credible intervals, R-hat-waarden, ESS, aantal divergences).", "file": "source/course/Les 6/20260626_naert.pdf", "page": 37},
+    {"issue": "Op p.31 (Les 2) toont de illustratie-afbeelding van Morpheus placeholders \"SENSITIVITY ???\" en \"SPECIFICITY ???\" als grap, maar de cursus definieert nadien enkel Accuracy, Recall, Precision en F1 (niet expliciet 'sensitivity' of 'specificity' als term), dus deze termen worden in deze slice niet formeel gedefinieerd.", "file": "source/course/Les 2/20260529_naert.pdf", "page": 29}
+  ]
+}

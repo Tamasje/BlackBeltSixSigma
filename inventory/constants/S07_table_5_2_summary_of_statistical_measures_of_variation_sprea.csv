@@ -1,0 +1,4 @@
+Measure of variation spread,Definition,Comments,source_file,source_page,table_name
+Range,R = x_MAX − x_MIN,Simple. Preferred metric for sets of data with few (2 to 5) members. Drawback: Greatly influenced by outliers.,source/course/Les 4/Six Sigma For Dummies.pdf,113,Table 5-2: Summary of Statistical Measures of Variation Spread
+Variance,σ² = Σ(xᵢ − x̄)² / (n − 1),"Theoretically useful, but lacks direct tie to reality.",source/course/Les 4/Six Sigma For Dummies.pdf,113,Table 5-2: Summary of Statistical Measures of Variation Spread
+Standard deviation,σ = √[Σ(xᵢ − x̄)² / (n − 1)],Most commonly used.,source/course/Les 4/Six Sigma For Dummies.pdf,113,Table 5-2: Summary of Statistical Measures of Variation Spread

@@ -1,0 +1,7 @@
+Confidence,n=2,n=5,n=10,n=25,Z,source_file,source_page,table_name
+68%,1.987,6.599,13.088,30.833,1,source/course/Les 4/Six Sigma For Dummies.pdf,194,Table 8-2: chi-square Values
+"(unlabeled row, chi2_UPPER)",0.040,1.416,4.919,17.169,,source/course/Les 4/Six Sigma For Dummies.pdf,194,Table 8-2: chi-square Values
+95%,5.187,11.365,19.301,39.749,2,source/course/Les 4/Six Sigma For Dummies.pdf,194,Table 8-2: chi-square Values
+"(unlabeled row, chi2_UPPER)",0.001,0.460,2.628,12.225,,source/course/Les 4/Six Sigma For Dummies.pdf,194,Table 8-2: chi-square Values
+99.7%,10.273,17.800,27.093,50.163,3,source/course/Les 4/Six Sigma For Dummies.pdf,194,Table 8-2: chi-square Values
+"(unlabeled row, chi2_UPPER)",0.000,0.106,1.241,8.382,,source/course/Les 4/Six Sigma For Dummies.pdf,194,Table 8-2: chi-square Values

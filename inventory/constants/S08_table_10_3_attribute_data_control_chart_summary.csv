@@ -1,0 +1,3 @@
+Control Chart,Subgroup Size (n),Centerline,Control Limits,source_file,source_page,table_name
+p chart (Proportion defective),Variable (usually > 50),p_i = number defective/n_i (individual); pbar = total number defective/(n1+n2+...+n_k) (overall),UCL_i = pbar + 3 sqrt(pbar(1-pbar)/n_i); LCL_i = pbar - 3 sqrt(pbar(1-pbar)/n_i),source/course/Les 4/Six Sigma For Dummies.pdf,254,Table 10-3: Attribute Data Control Chart Summary
+u chart (Number of defects per unit),Variable,u_i = number defects/n_i (individual); ubar = total number defects/(n1+n2+...+n_k) (overall),USL_i = ubar + 3 sqrt(ubar/n_i); LSL_i = ubar - 3 sqrt(ubar/n_i),source/course/Les 4/Six Sigma For Dummies.pdf,254,Table 10-3: Attribute Data Control Chart Summary

@@ -5,7 +5,11 @@ acceptance list) was pasted by the user in the first message of session 2026-09-
 holds the standing rules.
 
 ## Current phase
-Phase 1 (inventory), in progress. Next STOP: inventory review.
+Phase 2 (workbook), in progress: Tables sheet + tool 1 (capability). Next STOP: sheet 1 review.
+Phase 1 approved 2026-09-28: the user answered all open questions with "For all, do it so its just as
+clear as possible for me"; Claude's application of that rule is in inventory/conventions.md "Decisions (user)"
+and inventory/approved_tools.md (all 11 tools, proposed order; stats-auditor approved for tools 5 and 6).
+Inventory committed and tagged `oracle-approved`; the oracle is locked (merge_inventory.py no longer writes it).
 
 ## Done
 ### Phase 0 (approved 2026-09-28)
@@ -50,5 +54,35 @@ Phase 1 (inventory), in progress. Next STOP: inventory review.
 | S09 | Les 4: Dummies 259–362, Harry-Schroeder 1–12, book summary 1–8 | 124 |
 | S10 | Les 5: MSA 1–38, steel strip 1–2, meter unit 1–5, GRR theory 1–2, tabel MSA 1, GRR xlsx, Rheostat xls, linearity.txt, ToC.html | 48 |
 
-## Open questions
-- (none yet; convention questions are collected at the inventory-review STOP)
+### Phase 1 extraction and merge (2026-09-28)
+- 10 course-extractor agents ran; all `inventory/raw/S01..S10.json` parse. 48 of 48 course files read, each in
+  exactly one slice (Dummies split by disjoint page ranges); 1,154 PDF pages + 13 spreadsheets.
+- `src/bbtools/merge_inventory.py` (run: `PYTHONPATH=src python3 -m bbtools.merge_inventory`) writes formulas.md,
+  constants/*.csv (97 tables, provenance on every row), worked_examples.json (151), conventions.md (125 statements;
+  hand-written sections outside the GENERATED markers survive reruns), topic_index.json (582), review_items.md
+  (0 provenance gaps, 55 cross-source numeric conflicts, 23 rounding-only differences, 58 extractor ambiguities).
+- Double transcription by Claude of both scans: `___4.1 tabellen SPC.pdf` (520 cells) and `tabel MSA.pdf`
+  (798 values): 0 differences vs S06/S10. Remaining constant conflicts are between printed sources.
+- `inventory/exam_map.json` (7 questions, 20 points, no answer key; 2 computational, 1 mixed, 4 conceptual)
+  and `inventory/proposed_tools.md` (11 ranked tools) written by Claude.
+
+## Answered questions (inventory-review STOP; decisions in inventory/conventions.md)
+Convention questions (details and sources in inventory/conventions.md, "Conflicts and gaps"):
+1. σ for capability from data: R̄/d2; s̄ directly (deck p. 46) or s̄/c4; overall STDEV.S for Pp/Ppk; MR̄/1.128 for individuals?
+2. "6 sigma criterion" (exam Q3d): 3.4 ppm (1.5σ shift) or 0.002 ppm (Cp = 2, short term), or show both?
+3. Sigma level ↔ DPMO: apply the 1.5σ shift by default, show unshifted too?
+4. Constants source for the Tables sheet: Table 18 (Crow/ASTM, used by lecturer's workbooks) + Table A (Wheeler), or Six Sigma Demystified, or all side by side?
+5. Default α: required input with no default, or prefilled 0.05?
+6. One- vs two-sided: show lower, upper and two-sided side by side?
+7. F intervals: use F.INV/F.INV.RT directly and show both ratio orientations?
+8. Pooled variance denominator: n1+n2−2 (consistent with the slide's t df) despite the printed n1+n2−1?
+9. √19 cell in Confidence Intervals.xlsx: test against the slide's 9.98 and TH.xlsx, exclude the CI.xlsx cached value?
+10. Test tolerance: match stated answers after half-up rounding to their printed precision?
+11. Gage R&R (if approved): multiplier 6 vs 5.15; %GRR basis; thresholds; interaction-pooling α; ndc omitted?
+12. Acceptance sampling β default (if approved): 10 % or 5 %?
+13. Minimum subgroups note: 20 or 25?
+14. Les 6 (not examinable): keep in the index flagged, or drop?
+Other:
+15. Which tools to approve, in what order (proposed_tools.md)?
+16. stats-auditor for tools without a course worked example (confusion-matrix metrics; Poisson/exponential parts of distribution moments)?
+17. Exam Q2 refers to an Excel data file that is not in source/exam/: do you have it?

@@ -1,0 +1,11 @@
+True \ Predicted,T-shirt/top,Trouser,Pullover,Dress,Coat,Sandal,Shirt,Sneaker,Bag,Ankle boot,source_file,source_page,table_name
+T-shirt/top,885,3,23,31,5,1,31,0,21,0,source/course/Les 6/20260626_naert.pdf,19,Test-set confusion matrix Fashion-MNIST (selected large model)
+Trouser,3,962,3,19,10,0,1,0,2,0,source/course/Les 6/20260626_naert.pdf,19,Test-set confusion matrix Fashion-MNIST (selected large model)
+Pullover,30,3,786,8,141,0,22,0,9,1,source/course/Les 6/20260626_naert.pdf,19,Test-set confusion matrix Fashion-MNIST (selected large model)
+Dress,78,18,30,818,39,0,10,0,6,1,source/course/Les 6/20260626_naert.pdf,19,Test-set confusion matrix Fashion-MNIST (selected large model)
+Coat,2,1,139,42,779,0,27,0,10,0,source/course/Les 6/20260626_naert.pdf,19,Test-set confusion matrix Fashion-MNIST (selected large model)
+Sandal,0,0,0,2,0,800,0,103,17,78,source/course/Les 6/20260626_naert.pdf,19,Test-set confusion matrix Fashion-MNIST (selected large model)
+Shirt,285,4,190,19,144,0,330,0,28,0,source/course/Les 6/20260626_naert.pdf,19,Test-set confusion matrix Fashion-MNIST (selected large model)
+Sneaker,0,0,0,0,0,5,0,932,1,62,source/course/Les 6/20260626_naert.pdf,19,Test-set confusion matrix Fashion-MNIST (selected large model)
+Bag,4,1,13,3,4,1,2,6,964,2,source/course/Les 6/20260626_naert.pdf,19,Test-set confusion matrix Fashion-MNIST (selected large model)
+Ankle boot,0,0,0,0,0,3,1,34,0,962,source/course/Les 6/20260626_naert.pdf,19,Test-set confusion matrix Fashion-MNIST (selected large model)

@@ -1,0 +1,4 @@
+Metric Name,Calculation Formula,Description,source_file,source_page,table_name
+Traditional yield (Y),Y = out/in = (in-scrap)/in = 1 - scrap/in,Is a misleading perspective that obscures the impact of inspection and rework.,source/course/Les 4/Six Sigma For Dummies.pdf,151,Table 6-1: Summary of Yield Metrics
+First time yield (FTY),FTY = (in-scrap-rework)/in = 1 - (scrap+rework)/in,"Shows the likelihood of an item passing through a process successfully the very first time. Includes effects of inspection, rework and scrap.",source/course/Les 4/Six Sigma For Dummies.pdf,151,Table 6-1: Summary of Yield Metrics
+Rolled throughput yield (RTY),"RTY = product (pi), i=1 to n, of FTY_i",The combined overall yield of an entire process stream. Tells you the likelihood of an item passing through all process steps successfully the first time.,source/course/Les 4/Six Sigma For Dummies.pdf,151,Table 6-1: Summary of Yield Metrics

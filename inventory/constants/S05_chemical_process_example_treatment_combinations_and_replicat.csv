@@ -1,0 +1,5 @@
+A,B,Treatment Combination,Rep I,Rep II,Rep III,Total,source_file,source_page,table_name
+-,-,"A low, B low",28,25,27,80,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,59,Chemical Process Example: treatment combinations and replicates (2^2 design)
++,-,"A high, B low",36,32,32,100,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,59,Chemical Process Example: treatment combinations and replicates (2^2 design)
+-,+,"A low, B high",18,19,23,60,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,59,Chemical Process Example: treatment combinations and replicates (2^2 design)
++,+,"A high, B high",31,30,29,90,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,59,Chemical Process Example: treatment combinations and replicates (2^2 design)

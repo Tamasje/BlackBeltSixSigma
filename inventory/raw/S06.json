@@ -1,0 +1,3563 @@
+{
+  "slice_id": "S06",
+  "files_read": [
+    {
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": "1-89"
+    },
+    {
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pptx",
+      "pages": "notes only, slides 1-89"
+    },
+    {
+      "file": "source/course/Les 4/___1.1 Ztable.pdf",
+      "pages": "1-2"
+    },
+    {
+      "file": "source/course/Les 4/___1.2 statistische functionaliteit in excel.pdf",
+      "pages": "1-6"
+    },
+    {
+      "file": "source/course/Les 4/___4.1 tabellen SPC.pdf",
+      "pages": "1-2"
+    },
+    {
+      "file": "source/course/Les 4/Control charts - constants.pdf",
+      "pages": "1-2"
+    },
+    {
+      "file": "source/course/Les 4/Control charts - constants.docx",
+      "pages": "n/a (docx original of Control charts - constants.pdf, not re-read)"
+    },
+    {
+      "file": "source/course/Les 4/__Gegevens oefeningen.xlsx",
+      "pages": "sheets: Gegevens oefening 2, Gegevens oefening 3"
+    },
+    {
+      "file": "source/course/Les 4/__NormVerdeling Excel functies.xlsx",
+      "pages": "sheets: Blad1, Blad2, Blad3"
+    },
+    {
+      "file": "source/course/Les 4/__Xbar R kaart data - berekeningen oefening 2.xlsx",
+      "pages": "sheets: Berekening, Grafieken"
+    },
+    {
+      "file": "source/course/Les 4/__Xbar R kaart data - berekeningen oefening 3.xlsx",
+      "pages": "sheet: Berekening"
+    },
+    {
+      "file": "source/course/Les 4/__Xbar R kaart data - berekeningen oefening 5.xlsx",
+      "pages": "sheet: Berekening"
+    },
+    {
+      "file": "source/course/Les 4/Exercise axis - vizualisation.xlsx",
+      "pages": "sheet: Blad1"
+    },
+    {
+      "file": "source/course/Les 4/Table of Contents.html",
+      "pages": "n/a (LMS listing, no course content)"
+    }
+  ],
+  "topics": [
+    {
+      "topic": "Methodologies landscape (Kaizen, Lean, Agile, Six Sigma, TOC) & DMAIC",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        8,
+        9
+      ]
+    },
+    {
+      "topic": "Six Sigma statistical point of view / dispersion / hypothesis uncertainty",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        10
+      ]
+    },
+    {
+      "topic": "Data collection steps and sample size determination",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        11,
+        12
+      ]
+    },
+    {
+      "topic": "Control/warning/specification limits (concept)",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        13
+      ]
+    },
+    {
+      "topic": "Galton board / normal distribution intuition",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        14,
+        15
+      ]
+    },
+    {
+      "topic": "Normal distribution properties, kurtosis, inflexion points",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        16,
+        17
+      ]
+    },
+    {
+      "topic": "Standard normal distribution, Z-score, 68-95-99.7 rule",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        18,
+        19
+      ]
+    },
+    {
+      "topic": "Discrete data capability: DPO, DPMO, Yield, PPM",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        19
+      ]
+    },
+    {
+      "topic": "VOC vs VOP and sigma capability / DPMO / % yield table",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        20
+      ]
+    },
+    {
+      "topic": "Goals of Lean Six Sigma (reduce variation / center process)",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        21,
+        22
+      ]
+    },
+    {
+      "topic": "Process variation pre/post project (short vs long term)",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        24,
+        25
+      ]
+    },
+    {
+      "topic": "Process stability & capability - foundation of SPC, normal distribution formula",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        26,
+        27
+      ]
+    },
+    {
+      "topic": "Common causes vs special causes of variation",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        29,
+        30,
+        31
+      ]
+    },
+    {
+      "topic": "Process capability Cp",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        32,
+        33
+      ]
+    },
+    {
+      "topic": "Process capability Cpk",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        32,
+        34
+      ]
+    },
+    {
+      "topic": "Cp/Cpk interpretation, target vs variation (need both centering and low variation)",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        35
+      ]
+    },
+    {
+      "topic": "Technical definition of Six Sigma & 1.5 sigma shift",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        36
+      ]
+    },
+    {
+      "topic": "Process stability influences predictability/capability; stability notes",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        37,
+        38
+      ]
+    },
+    {
+      "topic": "Cp/Cpk quality-level interpretation table (not capable/just capable/acceptable/good)",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        39,
+        40
+      ]
+    },
+    {
+      "topic": "Cp/Cpk combined scenarios (tunnel/truck analogy) and decision-guide tables",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        41,
+        42,
+        43,
+        44
+      ]
+    },
+    {
+      "topic": "Process capability exercise: shaft length 71.4-72.8mm (Xbar-kaart, s-kaart)",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        45,
+        46
+      ]
+    },
+    {
+      "topic": "Minitab capability analysis example (report card, summary, process performance, diagnostic reports)",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        47,
+        48,
+        49,
+        50,
+        51
+      ]
+    },
+    {
+      "topic": "SPC introduction: definition, purpose, control vs specification limits",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        53,
+        54,
+        55,
+        56
+      ]
+    },
+    {
+      "topic": "SPC process set up steps and PDCA cycle (achieving vs maintaining control)",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        57,
+        58
+      ]
+    },
+    {
+      "topic": "Measurement system spread (R&R) vs process spread vs tolerance",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        59
+      ]
+    },
+    {
+      "topic": "Gauge R&R (MSA): repeatability, reproducibility, stability/drift",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        60
+      ]
+    },
+    {
+      "topic": "Xbar-kaart: concept, sampling distribution, central limit theorem",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        62,
+        63
+      ]
+    },
+    {
+      "topic": "Acting on control chart information (tampering vs underreacting mistakes)",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        64
+      ]
+    },
+    {
+      "topic": "Control limits vs specification limits (review)",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        65
+      ]
+    },
+    {
+      "topic": "Control chart decision rules: in control vs corrective action needed (outliers/trend/shift)",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        66
+      ]
+    },
+    {
+      "topic": "Western Electric rules / Shewhart sensitizing rules & zones A/B/C",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        67,
+        68
+      ]
+    },
+    {
+      "topic": "Caution: in-control does not equal in-specification (four possible states)",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        69
+      ]
+    },
+    {
+      "topic": "SPC exercise 1: Western Electric rules application",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        71
+      ]
+    },
+    {
+      "topic": "Xbar-R chart example (oil data, 2 charts: sample mean & sample range)",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        72
+      ]
+    },
+    {
+      "topic": "Xbar/R- and Xbar/s-kaart formulas (fixed and variable sample size)",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        73
+      ]
+    },
+    {
+      "topic": "SPC exercise 2: bleach product net weight, Xbar-R chart + Cpk (n=5, 20 samples)",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82
+      ]
+    },
+    {
+      "topic": "SPC exercise 3: bearing inner diameter, Xbar-R chart with outlier / revised limits (n=5, 24 samples)",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        83
+      ]
+    },
+    {
+      "topic": "SPC exercise 4: effect of changing subgroup size (n=3 vs n=8) on control limits",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        84
+      ]
+    },
+    {
+      "topic": "SPC exercise 5: capability & % out of spec from summed Xbar/R data (n=5, m=25)",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        85
+      ]
+    },
+    {
+      "topic": "SPC exercise 6: milled part critical dimension, Cp/Cpk, feasibility of centering",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        86
+      ]
+    },
+    {
+      "topic": "OSPC ArcelorMittal Gent example screenshots (production monitoring charts)",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "pages": [
+        87,
+        88,
+        89
+      ]
+    },
+    {
+      "topic": "Standard normal (Z) table, full",
+      "file": "source/course/Les 4/___1.1 Ztable.pdf",
+      "pages": [
+        1,
+        2
+      ]
+    },
+    {
+      "topic": "Statistical worksheet functions in Excel (Dutch function names, definitions)",
+      "file": "source/course/Les 4/___1.2 statistische functionaliteit in excel.pdf",
+      "pages": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "topic": "Excel Data Analysis toolpak (Histogram, Correlation, Covariance, Descriptive Statistics, F-test, t-tests, Z-test, ANOVA, Regression)",
+      "file": "source/course/Les 4/___1.2 statistische functionaliteit in excel.pdf",
+      "pages": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "topic": "VBA random number generation (Rnd, Randomize, WorksheetFunction)",
+      "file": "source/course/Les 4/___1.2 statistische functionaliteit in excel.pdf",
+      "pages": [
+        5,
+        6
+      ]
+    },
+    {
+      "topic": "Bias correction factors for estimating standard deviations (Table A, Wheeler)",
+      "file": "source/course/Les 4/___4.1 tabellen SPC.pdf",
+      "pages": [
+        1
+      ]
+    },
+    {
+      "topic": "Guide for constructing control charts based on variables (Table 7.2)",
+      "file": "source/course/Les 4/___4.1 tabellen SPC.pdf",
+      "pages": [
+        2
+      ]
+    },
+    {
+      "topic": "Factors for computing control-chart lines (Table 18, Crow/Davis/Maxfield)",
+      "file": "source/course/Les 4/___4.1 tabellen SPC.pdf",
+      "pages": [
+        2
+      ]
+    },
+    {
+      "topic": "Control chart constants (averages & standard deviations) - Six Sigma Demystified",
+      "file": "source/course/Les 4/Control charts - constants.pdf",
+      "pages": [
+        1
+      ]
+    },
+    {
+      "topic": "Control chart constants (ranges) & X charts E2 factor - Six Sigma Demystified",
+      "file": "source/course/Les 4/Control charts - constants.pdf",
+      "pages": [
+        2
+      ]
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Z-score (standardization)",
+      "expression": "Z = (X - mu) / sigma",
+      "symbols": {
+        "Z": "standaard normale waarde",
+        "X": "individuele waarde",
+        "mu": "gemiddelde",
+        "sigma": "standaardafwijking"
+      },
+      "conditions": "E(Z)=0, sigma(Z)=1",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 18
+    },
+    {
+      "name": "Belangrijke kengetallen normale verdeling",
+      "expression": "P[mu-sigma <= X <= mu+sigma] ~= 68 %; P[mu-2sigma <= X <= mu+2sigma] ~= 95 %; P[mu-3sigma <= X <= mu+3sigma] ~= 99.7 %",
+      "symbols": {
+        "mu": "gemiddelde (E(X))",
+        "sigma": "spreiding (sigma(X))"
+      },
+      "conditions": "X ~ N(mu,sigma)",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 18
+    },
+    {
+      "name": "DPO / DPMO / Yield (discrete data)",
+      "expression": "DPO = D / (N.O); DPMO = 1,000,000 . D / (N.O); Yield = 1 - D/(N.O)",
+      "symbols": {
+        "D": "Number of defects",
+        "N": "Number of units",
+        "O": "Opportunities per unit"
+      },
+      "conditions": "PPM = parts per million; % to PPM: factor 10.000",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 19
+    },
+    {
+      "name": "Standard Normal Distribution density",
+      "expression": "f(x) = 1/sqrt(2.pi) . e^(-1/2.((x-mu)/sigma)^2)",
+      "symbols": {
+        "f(x)": "kansdichtheid",
+        "mu": "gemiddelde",
+        "sigma": "standaardafwijking"
+      },
+      "conditions": "geldig als het proces enkel natuurlijke deterioraties ondergaat (common causes only)",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 26
+    },
+    {
+      "name": "Process Capability Cp",
+      "expression": "Cp = (UL - LL) / 6.sigma",
+      "symbols": {
+        "UL": "Upper Limit",
+        "LL": "Lower Limit",
+        "sigma": "process standard deviation"
+      },
+      "conditions": "compares process dispersion with target given by specification; Cp alone not sufficient to define capability",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 33
+    },
+    {
+      "name": "Process Capability Cpk",
+      "expression": "Cpk = MIN{ (|UL - Xbar|)/3.sigma  and  (|Xbar - LL|)/3.sigma }",
+      "symbols": {
+        "UL": "Upper Limit",
+        "LL": "Lower Limit",
+        "Xbar": "process average",
+        "sigma": "process standard deviation"
+      },
+      "conditions": "compares process dispersion with target given by specification, accounting for centering",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 34
+    },
+    {
+      "name": "Cpk via distances (alternative form)",
+      "expression": "CPK = D1 / D2",
+      "symbols": {
+        "D1": "afstand gemiddelde tot dichtstbijzijnde tolerantiegrens na 'forced evolution'",
+        "D2": "afstand gemiddelde tot tolerantiegrens (referentie, inclusief 'waste')"
+      },
+      "conditions": "grafische illustratie op de slide (average, forced evolution, waste)",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 34
+    },
+    {
+      "name": "Gauge R&R variance decomposition",
+      "expression": "sigma^2_Total = sigma^2_Part-Part + sigma^2_R&R",
+      "symbols": {
+        "sigma^2_Total": "totale variantie",
+        "sigma^2_Part-Part": "part-to-part variantie",
+        "sigma^2_R&R": "repeatability & reproducibility variantie"
+      },
+      "conditions": "Aanbeveling: resolutie <= 10% van tolerantie; Gauge R&R <= 20% van tolerantie",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 60
+    },
+    {
+      "name": "Xbar/R-chart (fixed sample size)",
+      "expression": "CL = Xbarbar; UCL = Xbarbar + A2.Rbar; LCL = Xbarbar - A2.Rbar",
+      "symbols": {
+        "Xbarbar": "gemiddelde van steekproefgemiddelden",
+        "Rbar": "gemiddelde van steekproefranges",
+        "A2": "tabelconstante afhankelijk van n"
+      },
+      "conditions": "R small sample < 10; vaste sample grootte",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 73
+    },
+    {
+      "name": "R-chart (fixed sample size)",
+      "expression": "CL = Rbar; UCL = D4.Rbar; LCL = D3.Rbar",
+      "symbols": {
+        "Rbar": "gemiddelde van steekproefranges",
+        "D3": "tabelconstante",
+        "D4": "tabelconstante"
+      },
+      "conditions": "vaste sample grootte",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 73
+    },
+    {
+      "name": "Xbar/s-chart (fixed sample size)",
+      "expression": "CL = Xbarbar; UCL = Xbarbar + A3.sbar; LCL = Xbarbar - A3.sbar",
+      "symbols": {
+        "Xbarbar": "gemiddelde van steekproefgemiddelden",
+        "sbar": "gemiddelde van steekproefstandaardafwijkingen",
+        "A3": "tabelconstante afhankelijk van n"
+      },
+      "conditions": "vaste sample grootte",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 73
+    },
+    {
+      "name": "s-chart (fixed sample size)",
+      "expression": "CL = sbar; UCL = B4.sbar; LCL = B3.sbar",
+      "symbols": {
+        "sbar": "gemiddelde van steekproefstandaardafwijkingen",
+        "B3": "tabelconstante",
+        "B4": "tabelconstante"
+      },
+      "conditions": "vaste sample grootte",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 73
+    },
+    {
+      "name": "Xbar-chart (variable sample size)",
+      "expression": "CL = Xbarbar; UCL = Xbarbar + 3.sigmahat/sqrt(ni); LCL = Xbarbar - 3.sigmahat/sqrt(ni)",
+      "symbols": {
+        "ni": "sample grootte van steekproef i",
+        "sigmahat": "(1/k).som(sigmahat_i)",
+        "sigmahat_i": "Ri/d2"
+      },
+      "conditions": "variabele sample grootte",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 73
+    },
+    {
+      "name": "Gemiddelden van steekproefstatistieken",
+      "expression": "Xbarbar = (1/k).som_{i=1}^{k}(Xbar_i) ; Rbar = (1/k).som_{i=1}^{k}(R_i) ; sbar = (1/k).som_{i=1}^{k}(s_i)",
+      "symbols": {
+        "k": "aantal steekproeven"
+      },
+      "conditions": "",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 73
+    },
+    {
+      "name": "Sigma van steekproefgemiddelden / individuele metingen (centrale limietstelling)",
+      "expression": "sigma(xbar) = sigma / sqrt(n); sigma = Rbar / d2",
+      "symbols": {
+        "sigma(xbar)": "spreiding van steekproefgemiddeldes",
+        "sigma": "spreiding van het proces (individuele metingen)",
+        "n": "steekproefgrootte",
+        "d2": "tabelconstante"
+      },
+      "conditions": "UCL = gemiddelde + 3*sigma(xbar) => 3-sigma limiet, omgekeerd evenredig met steekproefgrootte n",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pptx",
+      "page": 64
+    },
+    {
+      "name": "Unbiased estimate of SD(X) via sn or s",
+      "expression": "An Unbiased Est. of SD(X) = s_n/c2  or  sbar_n/c2   ;   = s/c4  or  sbar/c4",
+      "symbols": {
+        "s_n": "sample standard deviation (n divisor)",
+        "s": "sample standard deviation (n-1 divisor)",
+        "c2": "bias correction factor",
+        "c4": "bias correction factor"
+      },
+      "conditions": "Source: D.J. Wheeler, Understanding Industrial Experimentation, SPC Press, Knoxville, 1987",
+      "file": "source/course/Les 4/___4.1 tabellen SPC.pdf",
+      "page": 1
+    },
+    {
+      "name": "Unbiased estimate of SD(X) via range",
+      "expression": "An Unbiased Est. of SD(X) = R/d2  or  Rbar/d2",
+      "symbols": {
+        "R": "range",
+        "Rbar": "gemiddelde range",
+        "d2": "bias correction factor"
+      },
+      "conditions": "Source: D.J. Wheeler, Understanding Industrial Experimentation, SPC Press, Knoxville, 1987",
+      "file": "source/course/Les 4/___4.1 tabellen SPC.pdf",
+      "page": 1
+    },
+    {
+      "name": "Unbiased estimate of SD(R)",
+      "expression": "An Unbiased Est. of SD(R) = d3.Rbar/d2",
+      "symbols": {
+        "d3": "bias correction factor",
+        "Rbar": "gemiddelde range",
+        "d2": "bias correction factor"
+      },
+      "conditions": "Source: D.J. Wheeler, Understanding Industrial Experimentation, SPC Press, Knoxville, 1987",
+      "file": "source/course/Les 4/___4.1 tabellen SPC.pdf",
+      "page": 1
+    }
+  ],
+  "constant_tables": [
+    {
+      "name": "Standard Normal Probabilities (table entry = area to the left of z) - z negative (-3.4 to -0.0)",
+      "columns": [
+        "z",
+        ".00",
+        ".01",
+        ".02",
+        ".03",
+        ".04",
+        ".05",
+        ".06",
+        ".07",
+        ".08",
+        ".09"
+      ],
+      "rows": [
+        [
+          "-3.4",
+          ".0003",
+          ".0003",
+          ".0003",
+          ".0003",
+          ".0003",
+          ".0003",
+          ".0003",
+          ".0003",
+          ".0003",
+          ".0002"
+        ],
+        [
+          "-3.3",
+          ".0005",
+          ".0005",
+          ".0005",
+          ".0004",
+          ".0004",
+          ".0004",
+          ".0004",
+          ".0004",
+          ".0004",
+          ".0003"
+        ],
+        [
+          "-3.2",
+          ".0007",
+          ".0007",
+          ".0006",
+          ".0006",
+          ".0006",
+          ".0006",
+          ".0006",
+          ".0005",
+          ".0005",
+          ".0005"
+        ],
+        [
+          "-3.1",
+          ".0010",
+          ".0009",
+          ".0009",
+          ".0009",
+          ".0008",
+          ".0008",
+          ".0008",
+          ".0008",
+          ".0007",
+          ".0007"
+        ],
+        [
+          "-3.0",
+          ".0013",
+          ".0013",
+          ".0013",
+          ".0012",
+          ".0012",
+          ".0011",
+          ".0011",
+          ".0011",
+          ".0010",
+          ".0010"
+        ],
+        [
+          "-2.9",
+          ".0019",
+          ".0018",
+          ".0018",
+          ".0017",
+          ".0016",
+          ".0016",
+          ".0015",
+          ".0015",
+          ".0014",
+          ".0014"
+        ],
+        [
+          "-2.8",
+          ".0026",
+          ".0025",
+          ".0024",
+          ".0023",
+          ".0023",
+          ".0022",
+          ".0021",
+          ".0021",
+          ".0020",
+          ".0019"
+        ],
+        [
+          "-2.7",
+          ".0035",
+          ".0034",
+          ".0033",
+          ".0032",
+          ".0031",
+          ".0030",
+          ".0029",
+          ".0028",
+          ".0027",
+          ".0026"
+        ],
+        [
+          "-2.6",
+          ".0047",
+          ".0045",
+          ".0044",
+          ".0043",
+          ".0041",
+          ".0040",
+          ".0039",
+          ".0038",
+          ".0037",
+          ".0036"
+        ],
+        [
+          "-2.5",
+          ".0062",
+          ".0060",
+          ".0059",
+          ".0057",
+          ".0055",
+          ".0054",
+          ".0052",
+          ".0051",
+          ".0049",
+          ".0048"
+        ],
+        [
+          "-2.4",
+          ".0082",
+          ".0080",
+          ".0078",
+          ".0075",
+          ".0073",
+          ".0071",
+          ".0069",
+          ".0068",
+          ".0066",
+          ".0064"
+        ],
+        [
+          "-2.3",
+          ".0107",
+          ".0104",
+          ".0102",
+          ".0099",
+          ".0096",
+          ".0094",
+          ".0091",
+          ".0089",
+          ".0087",
+          ".0084"
+        ],
+        [
+          "-2.2",
+          ".0139",
+          ".0136",
+          ".0132",
+          ".0129",
+          ".0125",
+          ".0122",
+          ".0119",
+          ".0116",
+          ".0113",
+          ".0110"
+        ],
+        [
+          "-2.1",
+          ".0179",
+          ".0174",
+          ".0170",
+          ".0166",
+          ".0162",
+          ".0158",
+          ".0154",
+          ".0150",
+          ".0146",
+          ".0143"
+        ],
+        [
+          "-2.0",
+          ".0228",
+          ".0222",
+          ".0217",
+          ".0212",
+          ".0207",
+          ".0202",
+          ".0197",
+          ".0192",
+          ".0188",
+          ".0183"
+        ],
+        [
+          "-1.9",
+          ".0287",
+          ".0281",
+          ".0274",
+          ".0268",
+          ".0262",
+          ".0256",
+          ".0250",
+          ".0244",
+          ".0239",
+          ".0233"
+        ],
+        [
+          "-1.8",
+          ".0359",
+          ".0351",
+          ".0344",
+          ".0336",
+          ".0329",
+          ".0322",
+          ".0314",
+          ".0307",
+          ".0301",
+          ".0294"
+        ],
+        [
+          "-1.7",
+          ".0446",
+          ".0436",
+          ".0427",
+          ".0418",
+          ".0409",
+          ".0401",
+          ".0392",
+          ".0384",
+          ".0375",
+          ".0367"
+        ],
+        [
+          "-1.6",
+          ".0548",
+          ".0537",
+          ".0526",
+          ".0516",
+          ".0505",
+          ".0495",
+          ".0485",
+          ".0475",
+          ".0465",
+          ".0455"
+        ],
+        [
+          "-1.5",
+          ".0668",
+          ".0655",
+          ".0643",
+          ".0630",
+          ".0618",
+          ".0606",
+          ".0594",
+          ".0582",
+          ".0571",
+          ".0559"
+        ],
+        [
+          "-1.4",
+          ".0808",
+          ".0793",
+          ".0778",
+          ".0764",
+          ".0749",
+          ".0735",
+          ".0721",
+          ".0708",
+          ".0694",
+          ".0681"
+        ],
+        [
+          "-1.3",
+          ".0968",
+          ".0951",
+          ".0934",
+          ".0918",
+          ".0901",
+          ".0885",
+          ".0869",
+          ".0853",
+          ".0838",
+          ".0823"
+        ],
+        [
+          "-1.2",
+          ".1151",
+          ".1131",
+          ".1112",
+          ".1093",
+          ".1075",
+          ".1056",
+          ".1038",
+          ".1020",
+          ".1003",
+          ".0985"
+        ],
+        [
+          "-1.1",
+          ".1357",
+          ".1335",
+          ".1314",
+          ".1292",
+          ".1271",
+          ".1251",
+          ".1230",
+          ".1210",
+          ".1190",
+          ".1170"
+        ],
+        [
+          "-1.0",
+          ".1587",
+          ".1562",
+          ".1539",
+          ".1515",
+          ".1492",
+          ".1469",
+          ".1446",
+          ".1423",
+          ".1401",
+          ".1379"
+        ],
+        [
+          "-0.9",
+          ".1841",
+          ".1814",
+          ".1788",
+          ".1762",
+          ".1736",
+          ".1711",
+          ".1685",
+          ".1660",
+          ".1635",
+          ".1611"
+        ],
+        [
+          "-0.8",
+          ".2119",
+          ".2090",
+          ".2061",
+          ".2033",
+          ".2005",
+          ".1977",
+          ".1949",
+          ".1922",
+          ".1894",
+          ".1867"
+        ],
+        [
+          "-0.7",
+          ".2420",
+          ".2389",
+          ".2358",
+          ".2327",
+          ".2296",
+          ".2266",
+          ".2236",
+          ".2206",
+          ".2177",
+          ".2148"
+        ],
+        [
+          "-0.6",
+          ".2743",
+          ".2709",
+          ".2676",
+          ".2643",
+          ".2611",
+          ".2578",
+          ".2546",
+          ".2514",
+          ".2483",
+          ".2451"
+        ],
+        [
+          "-0.5",
+          ".3085",
+          ".3050",
+          ".3015",
+          ".2981",
+          ".2946",
+          ".2912",
+          ".2877",
+          ".2843",
+          ".2810",
+          ".2776"
+        ],
+        [
+          "-0.4",
+          ".3446",
+          ".3409",
+          ".3372",
+          ".3336",
+          ".3300",
+          ".3264",
+          ".3228",
+          ".3192",
+          ".3156",
+          ".3121"
+        ],
+        [
+          "-0.3",
+          ".3821",
+          ".3783",
+          ".3745",
+          ".3707",
+          ".3669",
+          ".3632",
+          ".3594",
+          ".3557",
+          ".3520",
+          ".3483"
+        ],
+        [
+          "-0.2",
+          ".4207",
+          ".4168",
+          ".4129",
+          ".4090",
+          ".4052",
+          ".4013",
+          ".3974",
+          ".3936",
+          ".3897",
+          ".3859"
+        ],
+        [
+          "-0.1",
+          ".4602",
+          ".4562",
+          ".4522",
+          ".4483",
+          ".4443",
+          ".4404",
+          ".4364",
+          ".4325",
+          ".4286",
+          ".4247"
+        ],
+        [
+          "-0.0",
+          ".5000",
+          ".4960",
+          ".4920",
+          ".4880",
+          ".4840",
+          ".4801",
+          ".4761",
+          ".4721",
+          ".4681",
+          ".4641"
+        ]
+      ],
+      "file": "source/course/Les 4/___1.1 Ztable.pdf",
+      "page": 1
+    },
+    {
+      "name": "Standard Normal Probabilities (table entry = area to the left of z) - z positive (0.0 to 3.4)",
+      "columns": [
+        "z",
+        ".00",
+        ".01",
+        ".02",
+        ".03",
+        ".04",
+        ".05",
+        ".06",
+        ".07",
+        ".08",
+        ".09"
+      ],
+      "rows": [
+        [
+          "0.0",
+          ".5000",
+          ".5040",
+          ".5080",
+          ".5120",
+          ".5160",
+          ".5199",
+          ".5239",
+          ".5279",
+          ".5319",
+          ".5359"
+        ],
+        [
+          "0.1",
+          ".5398",
+          ".5438",
+          ".5478",
+          ".5517",
+          ".5557",
+          ".5596",
+          ".5636",
+          ".5675",
+          ".5714",
+          ".5753"
+        ],
+        [
+          "0.2",
+          ".5793",
+          ".5832",
+          ".5871",
+          ".5910",
+          ".5948",
+          ".5987",
+          ".6026",
+          ".6064",
+          ".6103",
+          ".6141"
+        ],
+        [
+          "0.3",
+          ".6179",
+          ".6217",
+          ".6255",
+          ".6293",
+          ".6331",
+          ".6368",
+          ".6406",
+          ".6443",
+          ".6480",
+          ".6517"
+        ],
+        [
+          "0.4",
+          ".6554",
+          ".6591",
+          ".6628",
+          ".6664",
+          ".6700",
+          ".6736",
+          ".6772",
+          ".6808",
+          ".6844",
+          ".6879"
+        ],
+        [
+          "0.5",
+          ".6915",
+          ".6950",
+          ".6985",
+          ".7019",
+          ".7054",
+          ".7088",
+          ".7123",
+          ".7157",
+          ".7190",
+          ".7224"
+        ],
+        [
+          "0.6",
+          ".7257",
+          ".7291",
+          ".7324",
+          ".7357",
+          ".7389",
+          ".7422",
+          ".7454",
+          ".7486",
+          ".7517",
+          ".7549"
+        ],
+        [
+          "0.7",
+          ".7580",
+          ".7611",
+          ".7642",
+          ".7673",
+          ".7704",
+          ".7734",
+          ".7764",
+          ".7794",
+          ".7823",
+          ".7852"
+        ],
+        [
+          "0.8",
+          ".7881",
+          ".7910",
+          ".7939",
+          ".7967",
+          ".7995",
+          ".8023",
+          ".8051",
+          ".8078",
+          ".8106",
+          ".8133"
+        ],
+        [
+          "0.9",
+          ".8159",
+          ".8186",
+          ".8212",
+          ".8238",
+          ".8264",
+          ".8289",
+          ".8315",
+          ".8340",
+          ".8365",
+          ".8389"
+        ],
+        [
+          "1.0",
+          ".8413",
+          ".8438",
+          ".8461",
+          ".8485",
+          ".8508",
+          ".8531",
+          ".8554",
+          ".8577",
+          ".8599",
+          ".8621"
+        ],
+        [
+          "1.1",
+          ".8643",
+          ".8665",
+          ".8686",
+          ".8708",
+          ".8729",
+          ".8749",
+          ".8770",
+          ".8790",
+          ".8810",
+          ".8830"
+        ],
+        [
+          "1.2",
+          ".8849",
+          ".8869",
+          ".8888",
+          ".8907",
+          ".8925",
+          ".8944",
+          ".8962",
+          ".8980",
+          ".8997",
+          ".9015"
+        ],
+        [
+          "1.3",
+          ".9032",
+          ".9049",
+          ".9066",
+          ".9082",
+          ".9099",
+          ".9115",
+          ".9131",
+          ".9147",
+          ".9162",
+          ".9177"
+        ],
+        [
+          "1.4",
+          ".9192",
+          ".9207",
+          ".9222",
+          ".9236",
+          ".9251",
+          ".9265",
+          ".9279",
+          ".9292",
+          ".9306",
+          ".9319"
+        ],
+        [
+          "1.5",
+          ".9332",
+          ".9345",
+          ".9357",
+          ".9370",
+          ".9382",
+          ".9394",
+          ".9406",
+          ".9418",
+          ".9429",
+          ".9441"
+        ],
+        [
+          "1.6",
+          ".9452",
+          ".9463",
+          ".9474",
+          ".9484",
+          ".9495",
+          ".9505",
+          ".9515",
+          ".9525",
+          ".9535",
+          ".9545"
+        ],
+        [
+          "1.7",
+          ".9554",
+          ".9564",
+          ".9573",
+          ".9582",
+          ".9591",
+          ".9599",
+          ".9608",
+          ".9616",
+          ".9625",
+          ".9633"
+        ],
+        [
+          "1.8",
+          ".9641",
+          ".9649",
+          ".9656",
+          ".9664",
+          ".9671",
+          ".9678",
+          ".9686",
+          ".9693",
+          ".9699",
+          ".9706"
+        ],
+        [
+          "1.9",
+          ".9713",
+          ".9719",
+          ".9726",
+          ".9732",
+          ".9738",
+          ".9744",
+          ".9750",
+          ".9756",
+          ".9761",
+          ".9767"
+        ],
+        [
+          "2.0",
+          ".9772",
+          ".9778",
+          ".9783",
+          ".9788",
+          ".9793",
+          ".9798",
+          ".9803",
+          ".9808",
+          ".9812",
+          ".9817"
+        ],
+        [
+          "2.1",
+          ".9821",
+          ".9826",
+          ".9830",
+          ".9834",
+          ".9838",
+          ".9842",
+          ".9846",
+          ".9850",
+          ".9854",
+          ".9857"
+        ],
+        [
+          "2.2",
+          ".9861",
+          ".9864",
+          ".9868",
+          ".9871",
+          ".9875",
+          ".9878",
+          ".9881",
+          ".9884",
+          ".9887",
+          ".9890"
+        ],
+        [
+          "2.3",
+          ".9893",
+          ".9896",
+          ".9898",
+          ".9901",
+          ".9904",
+          ".9906",
+          ".9909",
+          ".9911",
+          ".9913",
+          ".9916"
+        ],
+        [
+          "2.4",
+          ".9918",
+          ".9920",
+          ".9922",
+          ".9925",
+          ".9927",
+          ".9929",
+          ".9931",
+          ".9932",
+          ".9934",
+          ".9936"
+        ],
+        [
+          "2.5",
+          ".9938",
+          ".9940",
+          ".9941",
+          ".9943",
+          ".9945",
+          ".9946",
+          ".9948",
+          ".9949",
+          ".9951",
+          ".9952"
+        ],
+        [
+          "2.6",
+          ".9953",
+          ".9955",
+          ".9956",
+          ".9957",
+          ".9959",
+          ".9960",
+          ".9961",
+          ".9962",
+          ".9963",
+          ".9964"
+        ],
+        [
+          "2.7",
+          ".9965",
+          ".9966",
+          ".9967",
+          ".9968",
+          ".9969",
+          ".9970",
+          ".9971",
+          ".9972",
+          ".9973",
+          ".9974"
+        ],
+        [
+          "2.8",
+          ".9974",
+          ".9975",
+          ".9976",
+          ".9977",
+          ".9977",
+          ".9978",
+          ".9979",
+          ".9979",
+          ".9980",
+          ".9981"
+        ],
+        [
+          "2.9",
+          ".9981",
+          ".9982",
+          ".9982",
+          ".9983",
+          ".9984",
+          ".9984",
+          ".9985",
+          ".9985",
+          ".9986",
+          ".9986"
+        ],
+        [
+          "3.0",
+          ".9987",
+          ".9987",
+          ".9987",
+          ".9988",
+          ".9988",
+          ".9989",
+          ".9989",
+          ".9989",
+          ".9990",
+          ".9990"
+        ],
+        [
+          "3.1",
+          ".9990",
+          ".9991",
+          ".9991",
+          ".9991",
+          ".9992",
+          ".9992",
+          ".9992",
+          ".9992",
+          ".9993",
+          ".9993"
+        ],
+        [
+          "3.2",
+          ".9993",
+          ".9993",
+          ".9994",
+          ".9994",
+          ".9994",
+          ".9994",
+          ".9994",
+          ".9995",
+          ".9995",
+          ".9995"
+        ],
+        [
+          "3.3",
+          ".9995",
+          ".9995",
+          ".9995",
+          ".9996",
+          ".9996",
+          ".9996",
+          ".9996",
+          ".9996",
+          ".9996",
+          ".9997"
+        ],
+        [
+          "3.4",
+          ".9997",
+          ".9997",
+          ".9997",
+          ".9997",
+          ".9997",
+          ".9997",
+          ".9997",
+          ".9997",
+          ".9997",
+          ".9998"
+        ]
+      ],
+      "file": "source/course/Les 4/___1.1 Ztable.pdf",
+      "page": 2
+    },
+    {
+      "name": "VOC vs VOP - Sigma Capability, Defects per Million Opportunities, % Yield",
+      "columns": [
+        "Sigma Capability",
+        "Defects per Million Opportunities",
+        "% Yield"
+      ],
+      "rows": [
+        [
+          "2",
+          "308,537",
+          "69.15%"
+        ],
+        [
+          "3",
+          "66,807",
+          "93.32%"
+        ],
+        [
+          "4",
+          "6,210",
+          "99.38%"
+        ],
+        [
+          "5",
+          "233",
+          "99.98%"
+        ],
+        [
+          "6",
+          "3.4",
+          "99.99966%"
+        ]
+      ],
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 20
+    },
+    {
+      "name": "Table A - Bias Correction Factors For Estimating Standard Deviations",
+      "columns": [
+        "Subgroup Size",
+        "d2",
+        "c2",
+        "c4",
+        "d3"
+      ],
+      "rows": [
+        [
+          "2",
+          "1.128",
+          "0.5642",
+          ".7979",
+          "0.8525"
+        ],
+        [
+          "3",
+          "1.693",
+          "0.7236",
+          ".8862",
+          "0.8884"
+        ],
+        [
+          "4",
+          "2.059",
+          "0.7979",
+          ".9213",
+          "0.8798"
+        ],
+        [
+          "5",
+          "2.326",
+          "0.8407",
+          ".9400",
+          "0.8641"
+        ],
+        [
+          "6",
+          "2.534",
+          "0.8686",
+          ".9515",
+          "0.8480"
+        ],
+        [
+          "7",
+          "2.704",
+          "0.8882",
+          ".9594",
+          "0.8332"
+        ],
+        [
+          "8",
+          "2.847",
+          "0.9027",
+          ".9650",
+          "0.8198"
+        ],
+        [
+          "9",
+          "2.970",
+          "0.9139",
+          ".9693",
+          "0.8078"
+        ],
+        [
+          "10",
+          "3.078",
+          "0.9227",
+          ".9727",
+          "0.7971"
+        ],
+        [
+          "11",
+          "3.173",
+          "0.9300",
+          ".9754",
+          "0.7873"
+        ],
+        [
+          "12",
+          "3.258",
+          "0.9359",
+          ".9776",
+          "0.7785"
+        ],
+        [
+          "13",
+          "3.336",
+          "0.9410",
+          ".9794",
+          "0.7704"
+        ],
+        [
+          "14",
+          "3.407",
+          "0.9453",
+          ".9810",
+          "0.7630"
+        ],
+        [
+          "15",
+          "3.472",
+          "0.9490",
+          ".9823",
+          "0.7562"
+        ],
+        [
+          "16",
+          "3.532",
+          "0.9523",
+          ".9835",
+          "0.7499"
+        ],
+        [
+          "17",
+          "3.588",
+          "0.9551",
+          ".9845",
+          "0.7441"
+        ],
+        [
+          "18",
+          "3.640",
+          "0.9576",
+          ".9854",
+          "0.7386"
+        ],
+        [
+          "19",
+          "3.689",
+          "0.9599",
+          ".9862",
+          "0.7335"
+        ],
+        [
+          "20",
+          "3.735",
+          "0.9619",
+          ".9869",
+          "0.7287"
+        ],
+        [
+          "21",
+          "3.778",
+          "0.9638",
+          ".9876",
+          "0.7272"
+        ],
+        [
+          "22",
+          "3.819",
+          "0.9655",
+          ".9882",
+          "0.7199"
+        ],
+        [
+          "23",
+          "3.858",
+          "0.9670",
+          ".9887",
+          "0.7159"
+        ],
+        [
+          "24",
+          "3.895",
+          "0.9684",
+          ".9892",
+          "0.7121"
+        ],
+        [
+          "25",
+          "3.931",
+          "0.9695",
+          ".9896",
+          "0.7084"
+        ],
+        [
+          "30",
+          "4.086",
+          "0.9748",
+          ".9915",
+          "0.6927"
+        ],
+        [
+          "35",
+          "4.213",
+          "0.9784",
+          ".9927",
+          "0.6799"
+        ],
+        [
+          "40",
+          "4.322",
+          "0.9811",
+          ".9936",
+          "0.6692"
+        ],
+        [
+          "45",
+          "4.415",
+          "0.9832",
+          ".9943",
+          "0.6601"
+        ],
+        [
+          "50",
+          "4.498",
+          "0.9849",
+          ".9949",
+          "0.6521"
+        ],
+        [
+          "60",
+          "4.639",
+          "0.9874",
+          ".9957",
+          "0.6389"
+        ],
+        [
+          "70",
+          "4.755",
+          "0.9892",
+          ".9963",
+          "0.6283"
+        ],
+        [
+          "80",
+          "4.854",
+          "0.9906",
+          ".9968",
+          "0.6194"
+        ],
+        [
+          "90",
+          "4.939",
+          "0.9916",
+          ".9972",
+          "0.6118"
+        ],
+        [
+          "100",
+          "5.015",
+          "0.9925",
+          ".9975",
+          "0.6052"
+        ]
+      ],
+      "file": "source/course/Les 4/___4.1 tabellen SPC.pdf",
+      "page": 1
+    },
+    {
+      "name": "Table 7.2 - Guide for Constructing Control Charts Based on Variables",
+      "columns": [
+        "Quantity controlled",
+        "Central line",
+        "Lower control limit (LCL)",
+        "Upper control limit (UCL)",
+        "Sample size",
+        "Remarks"
+      ],
+      "rows": [
+        [
+          "Mean xbar",
+          "xbarbar",
+          "xbarbar - A2.Rbar",
+          "xbarbar + A2.Rbar",
+          "Small, preferably 10 or fewer",
+          "Uses range R. No standard mu and sigma given."
+        ],
+        [
+          "Sum S",
+          "Sbar",
+          "Sbar - A0.Rbar",
+          "Sbar + A0.Rbar",
+          "Small, preferably 10 or fewer",
+          "No standard mu and sigma given."
+        ],
+        [
+          "Mean xbar",
+          "xbarbar",
+          "xbarbar - sbar.A1.sqrt((n-1)/n)",
+          "xbarbar + sbar.A1.sqrt((n-1)/n)",
+          "25 or fewer, constant size",
+          "No standard mu and sigma given."
+        ],
+        [
+          "Mean xbar",
+          "xbarbar",
+          "xbarbar - 3.sbar/sqrt(n)",
+          "xbarbar + 3.sbar/sqrt(n)",
+          "Sample sizes >= 25, may vary slightly",
+          "No standard mu and sigma given."
+        ],
+        [
+          "Mean xbar",
+          "mu",
+          "mu - A.sigma",
+          "mu + A.sigma",
+          "n",
+          "mu and sigma specified (standard values are to be maintained)."
+        ],
+        [
+          "Range R",
+          "Rbar",
+          "D3.Rbar",
+          "D4.Rbar",
+          "Small, preferably 10 or fewer",
+          "No standard sigma given."
+        ],
+        [
+          "Range R",
+          "d2.sigma",
+          "D1.sigma",
+          "D2.sigma",
+          "Small, preferably 10 or fewer",
+          "sigma specified (standard value to be maintained)."
+        ],
+        [
+          "Sample standard deviation s",
+          "sbar",
+          "B3.sbar",
+          "B4.sbar",
+          "25 or fewer, constant size",
+          "No standard sigma given."
+        ],
+        [
+          "Sample standard deviation s",
+          "sbar",
+          "sbar - 3.sbar/sqrt(2n)",
+          "sbar + 3.sbar/sqrt(2n)",
+          "Sample sizes >= 25, may vary slightly",
+          "No standard sigma given."
+        ],
+        [
+          "Sample standard deviation s",
+          "sigma.c2.sqrt(n/(n-1))",
+          "sigma.B1.sqrt(n/(n-1))",
+          "sigma.B2.sqrt(n/(n-1))",
+          "n",
+          "sigma specified (standard value to be maintained)."
+        ]
+      ],
+      "file": "source/course/Les 4/___4.1 tabellen SPC.pdf",
+      "page": 2
+    },
+    {
+      "name": "Table 18 - Factors for Computing Control-Chart Lines",
+      "columns": [
+        "Sample size n",
+        "A",
+        "A0",
+        "A1",
+        "A2",
+        "c2",
+        "1/c2",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "d2",
+        "1/d2",
+        "D1",
+        "D2",
+        "D3",
+        "D4"
+      ],
+      "rows": [
+        [
+          "2",
+          "2.121",
+          "3.760",
+          "3.760",
+          "1.880",
+          "0.5642",
+          "1.7725",
+          "0",
+          "1.843",
+          "0",
+          "3.267",
+          "1.128",
+          "0.8865",
+          "0",
+          "3.686",
+          "0",
+          "3.267"
+        ],
+        [
+          "3",
+          "1.732",
+          "3.070",
+          "2.394",
+          "1.023",
+          "0.7236",
+          "1.3820",
+          "0",
+          "1.858",
+          "0",
+          "2.568",
+          "1.693",
+          "0.5907",
+          "0",
+          "4.358",
+          "0",
+          "2.575"
+        ],
+        [
+          "4",
+          "1.500",
+          "2.914",
+          "1.880",
+          "0.729",
+          "0.7979",
+          "1.2533",
+          "0",
+          "1.808",
+          "0",
+          "2.266",
+          "2.059",
+          "0.4857",
+          "0",
+          "4.698",
+          "0",
+          "2.282"
+        ],
+        [
+          "5",
+          "1.342",
+          "2.884",
+          "1.596",
+          "0.577",
+          "0.8407",
+          "1.1894",
+          "0",
+          "1.756",
+          "0",
+          "2.089",
+          "2.326",
+          "0.4299",
+          "0",
+          "4.918",
+          "0",
+          "2.115"
+        ],
+        [
+          "6",
+          "1.225",
+          "2.899",
+          "1.410",
+          "0.483",
+          "0.8686",
+          "1.1512",
+          "0.026",
+          "1.711",
+          "0.030",
+          "1.970",
+          "2.534",
+          "0.3946",
+          "0",
+          "5.078",
+          "0",
+          "2.004"
+        ],
+        [
+          "7",
+          "1.134",
+          "2.935",
+          "1.277",
+          "0.419",
+          "0.8882",
+          "1.1259",
+          "0.105",
+          "1.672",
+          "0.118",
+          "1.882",
+          "2.704",
+          "0.3698",
+          "0.205",
+          "5.203",
+          "0.076",
+          "1.924"
+        ],
+        [
+          "8",
+          "1.061",
+          "2.980",
+          "1.175",
+          "0.373",
+          "0.9027",
+          "1.1078",
+          "0.167",
+          "1.638",
+          "0.185",
+          "1.815",
+          "2.847",
+          "0.3512",
+          "0.387",
+          "5.307",
+          "0.136",
+          "1.864"
+        ],
+        [
+          "9",
+          "1.000",
+          "3.030",
+          "1.094",
+          "0.337",
+          "0.9139",
+          "1.0942",
+          "0.219",
+          "1.609",
+          "0.239",
+          "1.761",
+          "2.970",
+          "0.3367",
+          "0.546",
+          "5.394",
+          "0.184",
+          "1.816"
+        ],
+        [
+          "10",
+          "0.949",
+          "3.085",
+          "1.028",
+          "0.308",
+          "0.9227",
+          "1.0837",
+          "0.262",
+          "1.584",
+          "0.284",
+          "1.716",
+          "3.078",
+          "0.3249",
+          "0.687",
+          "5.469",
+          "0.223",
+          "1.777"
+        ],
+        [
+          "11",
+          "0.905",
+          "3.136",
+          "0.973",
+          "0.285",
+          "0.9300",
+          "1.0753",
+          "0.299",
+          "1.561",
+          "0.321",
+          "1.679",
+          "3.173",
+          "0.3152",
+          "0.812",
+          "5.534",
+          "0.256",
+          "1.744"
+        ],
+        [
+          "12",
+          "0.866",
+          "3.189",
+          "0.925",
+          "0.266",
+          "0.9359",
+          "1.0684",
+          "0.331",
+          "1.541",
+          "0.354",
+          "1.646",
+          "3.258",
+          "0.3069",
+          "0.924",
+          "5.592",
+          "0.284",
+          "1.716"
+        ],
+        [
+          "13",
+          "0.832",
+          "3.242",
+          "0.884",
+          "0.249",
+          "0.9410",
+          "1.0627",
+          "0.359",
+          "1.523",
+          "0.382",
+          "1.618",
+          "3.336",
+          "0.2998",
+          "1.026",
+          "5.646",
+          "0.308",
+          "1.692"
+        ],
+        [
+          "14",
+          "0.802",
+          "3.295",
+          "0.848",
+          "0.235",
+          "0.9453",
+          "1.0579",
+          "0.384",
+          "1.507",
+          "0.406",
+          "1.594",
+          "3.407",
+          "0.2935",
+          "1.121",
+          "5.693",
+          "0.329",
+          "1.671"
+        ],
+        [
+          "15",
+          "0.775",
+          "3.347",
+          "0.816",
+          "0.223",
+          "0.9490",
+          "1.0537",
+          "0.406",
+          "1.492",
+          "0.428",
+          "1.572",
+          "3.472",
+          "0.2880",
+          "1.207",
+          "5.737",
+          "0.348",
+          "1.652"
+        ],
+        [
+          "16",
+          "0.750",
+          "3.398",
+          "0.788",
+          "0.212",
+          "0.9523",
+          "1.0501",
+          "0.427",
+          "1.478",
+          "0.448",
+          "1.552",
+          "3.532",
+          "0.2831",
+          "1.285",
+          "5.779",
+          "0.364",
+          "1.636"
+        ],
+        [
+          "17",
+          "0.728",
+          "3.448",
+          "0.762",
+          "0.203",
+          "0.9551",
+          "1.0470",
+          "0.445",
+          "1.465",
+          "0.466",
+          "1.534",
+          "3.588",
+          "0.2787",
+          "1.359",
+          "5.817",
+          "0.379",
+          "1.621"
+        ],
+        [
+          "18",
+          "0.707",
+          "3.497",
+          "0.738",
+          "0.194",
+          "0.9576",
+          "1.0442",
+          "0.461",
+          "1.454",
+          "0.482",
+          "1.518",
+          "3.640",
+          "0.2747",
+          "1.426",
+          "5.854",
+          "0.392",
+          "1.608"
+        ],
+        [
+          "19",
+          "0.688",
+          "3.545",
+          "0.717",
+          "0.187",
+          "0.9599",
+          "1.0418",
+          "0.477",
+          "1.443",
+          "0.497",
+          "1.503",
+          "3.689",
+          "0.2711",
+          "1.490",
+          "5.888",
+          "0.404",
+          "1.596"
+        ],
+        [
+          "20",
+          "0.671",
+          "3.592",
+          "0.697",
+          "0.180",
+          "0.9619",
+          "1.0396",
+          "0.491",
+          "1.433",
+          "0.510",
+          "1.490",
+          "3.735",
+          "0.2677",
+          "1.548",
+          "5.922",
+          "0.414",
+          "1.586"
+        ],
+        [
+          "21",
+          "0.655",
+          "3.639",
+          "0.679",
+          "0.173",
+          "0.9638",
+          "1.0376",
+          "0.504",
+          "1.424",
+          "0.523",
+          "1.477",
+          "3.778",
+          "0.2647",
+          "1.606",
+          "5.950",
+          "0.425",
+          "1.575"
+        ],
+        [
+          "22",
+          "0.640",
+          "3.684",
+          "0.662",
+          "0.167",
+          "0.9655",
+          "1.0358",
+          "0.516",
+          "1.415",
+          "0.534",
+          "1.466",
+          "3.819",
+          "0.2618",
+          "1.659",
+          "5.979",
+          "0.434",
+          "1.566"
+        ],
+        [
+          "23",
+          "0.626",
+          "3.729",
+          "0.647",
+          "0.162",
+          "0.9670",
+          "1.0342",
+          "0.527",
+          "1.407",
+          "0.545",
+          "1.455",
+          "3.858",
+          "0.2592",
+          "1.710",
+          "6.006",
+          "0.443",
+          "1.557"
+        ],
+        [
+          "24",
+          "0.612",
+          "3.773",
+          "0.632",
+          "0.157",
+          "0.9684",
+          "1.0327",
+          "0.538",
+          "1.399",
+          "0.555",
+          "1.445",
+          "3.895",
+          "0.2567",
+          "1.759",
+          "6.031",
+          "0.452",
+          "1.548"
+        ],
+        [
+          "25",
+          "0.600",
+          "3.816",
+          "0.619",
+          "0.153",
+          "0.9696",
+          "1.0313",
+          "0.548",
+          "1.392",
+          "0.565",
+          "1.435",
+          "3.931",
+          "0.2544",
+          "1.804",
+          "6.058",
+          "0.459",
+          "1.541"
+        ],
+        [
+          ">25",
+          "3/sqrt(n)",
+          "",
+          "3/sqrt(n)",
+          "",
+          "1.0000",
+          "1.0000",
+          "**",
+          "***",
+          "**",
+          "***",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ]
+      ],
+      "file": "source/course/Les 4/___4.1 tabellen SPC.pdf",
+      "page": 2
+    },
+    {
+      "name": "Control Chart Constants - Chart for Average & Chart for Standard Deviations (Six Sigma Demystified, 2nd ed.)",
+      "columns": [
+        "Observations in Sample n",
+        "A",
+        "A2",
+        "A3",
+        "c4",
+        "1/c4",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "rows": [
+        [
+          "2",
+          "2.121",
+          "1.880",
+          "2.659",
+          "0.7979",
+          "1.2533",
+          "0",
+          "3.267",
+          "0",
+          "3.267"
+        ],
+        [
+          "0",
+          "2.606",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "3",
+          "1.732",
+          "1.023",
+          "1.954",
+          "0.8862",
+          "1.1284",
+          "0",
+          "2.568",
+          "0",
+          "2.276"
+        ],
+        [
+          "4",
+          "1.500",
+          "0.729",
+          "1.628",
+          "0.9213",
+          "1.0854",
+          "0",
+          "2.266",
+          "0",
+          "2.088"
+        ],
+        [
+          "5",
+          "1.342",
+          "0.577",
+          "1.427",
+          "0.9400",
+          "1.0638",
+          "0",
+          "2.089",
+          "0",
+          "1.964"
+        ],
+        [
+          "6",
+          "1.225",
+          "0.483",
+          "1.287",
+          "0.9515",
+          "1.0510",
+          "0.030",
+          "1.970",
+          "0.029",
+          "1.874"
+        ],
+        [
+          "7",
+          "1.134",
+          "0.419",
+          "1.182",
+          "0.9594",
+          "1.0423",
+          "0.118",
+          "1.882",
+          "0.113",
+          "1.806"
+        ],
+        [
+          "8",
+          "1.061",
+          "0.373",
+          "1.099",
+          "0.9650",
+          "1.0363",
+          "0.185",
+          "1.815",
+          "0.179",
+          "1.751"
+        ],
+        [
+          "9",
+          "1.000",
+          "0.337",
+          "1.032",
+          "0.9693",
+          "1.0317",
+          "0.239",
+          "1.761",
+          "0.232",
+          "1.707"
+        ],
+        [
+          "10",
+          "0.949",
+          "0.308",
+          "0.975",
+          "0.9727",
+          "1.0281",
+          "0.284",
+          "1.716",
+          "0.276",
+          "1.669"
+        ],
+        [
+          "11",
+          "0.905",
+          "0.285",
+          "0.927",
+          "0.9754",
+          "1.0252",
+          "0.321",
+          "1.679",
+          "0.313",
+          "1.637"
+        ],
+        [
+          "12",
+          "0.866",
+          "0.266",
+          "0.886",
+          "0.9776",
+          "1.0229",
+          "0.354",
+          "1.646",
+          "0.346",
+          "1.610"
+        ],
+        [
+          "13",
+          "0.832",
+          "0.249",
+          "0.850",
+          "0.9794",
+          "1.0210",
+          "0.382",
+          "1.618",
+          "0.374",
+          "1.585"
+        ],
+        [
+          "14",
+          "0.802",
+          "0.235",
+          "0.817",
+          "0.9810",
+          "1.0194",
+          "0.406",
+          "1.594",
+          "0.399",
+          "1.563"
+        ],
+        [
+          "15",
+          "0.775",
+          "0.223",
+          "0.789",
+          "0.9823",
+          "1.0180",
+          "0.428",
+          "1.572",
+          "0.421",
+          "1.544"
+        ],
+        [
+          "16",
+          "0.750",
+          "0.212",
+          "0.763",
+          "0.9835",
+          "1.0168",
+          "0.448",
+          "1.552",
+          "0.440",
+          "1.526"
+        ],
+        [
+          "17",
+          "0.728",
+          "0.203",
+          "0.739",
+          "0.9845",
+          "1.0157",
+          "0.466",
+          "1.534",
+          "0.458",
+          "1.511"
+        ],
+        [
+          "18",
+          "0.707",
+          "0.194",
+          "0.718",
+          "0.9854",
+          "1.0148",
+          "0.482",
+          "1.518",
+          "0.475",
+          "1.496"
+        ],
+        [
+          "19",
+          "0.688",
+          "0.187",
+          "0.698",
+          "0.9862",
+          "1.0140",
+          "0.497",
+          "1.503",
+          "0.490",
+          "1.483"
+        ],
+        [
+          "20",
+          "0.671",
+          "0.180",
+          "0.680",
+          "0.9869",
+          "1.0133",
+          "0.510",
+          "1.490",
+          "0.504",
+          "1.470"
+        ],
+        [
+          "21",
+          "0.655",
+          "0.173",
+          "0.663",
+          "0.9876",
+          "1.0126",
+          "0.523",
+          "1.477",
+          "0.516",
+          "1.459"
+        ],
+        [
+          "22",
+          "0.640",
+          "0.167",
+          "0.647",
+          "0.9882",
+          "1.0119",
+          "0.534",
+          "1.466",
+          "0.528",
+          "1.448"
+        ],
+        [
+          "23",
+          "0.626",
+          "0.162",
+          "0.633",
+          "0.9887",
+          "1.0114",
+          "0.545",
+          "1.455",
+          "0.539",
+          "1.438"
+        ],
+        [
+          "24",
+          "0.612",
+          "0.157",
+          "0.619",
+          "0.9892",
+          "1.0109",
+          "0.555",
+          "1.445",
+          "0.549",
+          "1.429"
+        ],
+        [
+          "25",
+          "0.600",
+          "0.153",
+          "0.606",
+          "0.9896",
+          "1.0105",
+          "0.565",
+          "1.435",
+          "0.559",
+          "1.420"
+        ]
+      ],
+      "file": "source/course/Les 4/Control charts - constants.pdf",
+      "page": 1
+    },
+    {
+      "name": "Control Chart Constants - Chart for Ranges & X Charts (Six Sigma Demystified, 2nd ed.)",
+      "columns": [
+        "Observations in Sample n",
+        "d2",
+        "1/d2",
+        "d3",
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "E2"
+      ],
+      "rows": [
+        [
+          "2",
+          "1.128",
+          "0.8865",
+          "0.853",
+          "0",
+          "3.686",
+          "0",
+          "3.267",
+          "2.660"
+        ],
+        [
+          "3",
+          "1.693",
+          "0.5907",
+          "0.888",
+          "0",
+          "4.358",
+          "0",
+          "2.574",
+          "1.772"
+        ],
+        [
+          "4",
+          "2.059",
+          "0.4857",
+          "0.880",
+          "0",
+          "4.698",
+          "0",
+          "2.282",
+          "1.457"
+        ],
+        [
+          "5",
+          "2.326",
+          "0.4299",
+          "0.864",
+          "0",
+          "4.918",
+          "0",
+          "2.114",
+          "1.290"
+        ],
+        [
+          "6",
+          "2.534",
+          "0.3946",
+          "0.848",
+          "0",
+          "5.078",
+          "0",
+          "2.004",
+          "1.184"
+        ],
+        [
+          "7",
+          "2.704",
+          "0.3698",
+          "0.833",
+          "0.204",
+          "5.204",
+          "0.076",
+          "1.924",
+          "1.109"
+        ],
+        [
+          "8",
+          "2.847",
+          "0.3512",
+          "0.820",
+          "0.388",
+          "5.306",
+          "0.136",
+          "1.864",
+          "1.054"
+        ],
+        [
+          "9",
+          "2.970",
+          "0.3367",
+          "0.808",
+          "0.547",
+          "5.393",
+          "0.184",
+          "1.816",
+          "1.010"
+        ],
+        [
+          "10",
+          "3.078",
+          "0.3249",
+          "0.797",
+          "0.687",
+          "5.469",
+          "0.223",
+          "1.777",
+          "0.975"
+        ],
+        [
+          "11",
+          "3.173",
+          "0.3152",
+          "0.787",
+          "0.811",
+          "5.535",
+          "0.256",
+          "1.744",
+          "0.945"
+        ],
+        [
+          "12",
+          "3.258",
+          "0.3069",
+          "0.778",
+          "0.922",
+          "5.594",
+          "0.283",
+          "1.717",
+          "0.921"
+        ],
+        [
+          "13",
+          "3.336",
+          "0.2998",
+          "0.770",
+          "1.025",
+          "5.647",
+          "0.307",
+          "1.693",
+          "0.899"
+        ],
+        [
+          "14",
+          "3.407",
+          "0.2935",
+          "0.763",
+          "1.118",
+          "5.696",
+          "0.328",
+          "1.672",
+          "0.881"
+        ],
+        [
+          "15",
+          "3.472",
+          "0.2880",
+          "0.756",
+          "1.203",
+          "5.741",
+          "0.347",
+          "1.653",
+          "0.864"
+        ],
+        [
+          "16",
+          "3.532",
+          "0.2831",
+          "0.750",
+          "1.282",
+          "5.782",
+          "0.363",
+          "1.637",
+          "0.849"
+        ],
+        [
+          "17",
+          "3.588",
+          "0.2787",
+          "0.744",
+          "1.356",
+          "5.820",
+          "0.378",
+          "1.622",
+          "0.836"
+        ],
+        [
+          "18",
+          "3.640",
+          "0.2747",
+          "0.739",
+          "1.424",
+          "5.856",
+          "0.391",
+          "1.608",
+          "0.824"
+        ],
+        [
+          "19",
+          "3.689",
+          "0.2711",
+          "0.734",
+          "1.487",
+          "5.891",
+          "0.403",
+          "1.597",
+          "0.813"
+        ],
+        [
+          "20",
+          "3.735",
+          "0.2677",
+          "0.729",
+          "1.549",
+          "5.921",
+          "0.415",
+          "1.585",
+          "0.803"
+        ],
+        [
+          "21",
+          "3.778",
+          "0.2647",
+          "0.724",
+          "1.605",
+          "5.951",
+          "0.425",
+          "1.575",
+          "0.794"
+        ],
+        [
+          "22",
+          "3.819",
+          "0.2618",
+          "0.720",
+          "1.659",
+          "5.979",
+          "0.434",
+          "1.566",
+          "0.786"
+        ],
+        [
+          "23",
+          "3.858",
+          "0.2592",
+          "0.716",
+          "1.710",
+          "6.006",
+          "0.443",
+          "1.557",
+          "0.778"
+        ],
+        [
+          "24",
+          "3.895",
+          "0.2567",
+          "0.712",
+          "1.759",
+          "6.031",
+          "0.451",
+          "1.548",
+          "0.770"
+        ],
+        [
+          "25",
+          "3.931",
+          "0.2544",
+          "0.708",
+          "1.806",
+          "6.056",
+          "0.459",
+          "1.541",
+          "0.763"
+        ]
+      ],
+      "file": "source/course/Les 4/Control charts - constants.pdf",
+      "page": 2
+    }
+  ],
+  "worked_examples": [
+    {
+      "id": "S06-WE01",
+      "tool": "capability-cp-cpk",
+      "given": {
+        "context": "As die gebruikt wordt in automatische transmissie moet lengte hebben tussen 71,4 mm en 72,8 mm (LSL=71,4; USL=72,8)",
+        "n": "5",
+        "Xbar": "71,8 mm",
+        "sbar": "0,2 mm",
+        "method": "Xbar-kaart en s-kaart tonen dat proces beheerst verloopt (in control)"
+      },
+      "stated_answers": {
+        "Cp": "1,166 (= (72,8-71,4)/(6.0,2) = 1,4/1,2)",
+        "Cpk_offcenter": "0,67 (= min[(72,8-71,8)/(3.0,2) ; (71,8-71,4)/(3.0,2)] = min[1,67 ; 0,67])",
+        "defect_offcenter_2sided": "5 % totaal (50.000 ppm), overeenkomend met 4,02 sigma (0,67x6sigma)",
+        "defect_offcenter_1sided": "2,5 % (25.000 ppm) per zijde",
+        "excel_check": "Norm.verd(71,4 ; 71,8 ; 0,2 ; cumulatief = waar)",
+        "case_centered_mean": "72,1 mm (midden tussen LSL en USL)",
+        "Cp_centered": "1,166 (gelijk aan Cp)",
+        "Cpk_centered": "1,166 (= 0,7/0,6)",
+        "defect_centered_1sided": "0,02 % (200 ppm), overeenkomend met 3,5 sigma eenzijdig",
+        "defect_centered_2sided": "0,04 % (400 ppm), want 2-zijdig moet gerekend worden"
+      },
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pptx",
+      "page": 46,
+      "notes": true,
+      "legible": true
+    },
+    {
+      "id": "S06-WE02",
+      "tool": "capability-cp-cpk",
+      "given": {
+        "context": "Zelfde oefening als S06-WE01 (as 71,4-72,8mm), berekend/gevisualiseerd in Excel met NORMDIST-curves",
+        "LSL": "71.4",
+        "USL": "72.8",
+        "sigma": "0.2",
+        "case1_mean": "71.8 (Xbar zoals gemeten)",
+        "case2_mean": "72.1 (midden tussen LSL en USL)"
+      },
+      "stated_answers": {
+        "Cp_case1": "1.1666666666666594",
+        "Cpk_case1_upper": "1.6666666666666665",
+        "Cpk_case1_lower": "0.6666666666666523",
+        "Cpk_case1_min": "0.6666666666666523",
+        "Cp_case2": "1.1666666666666594",
+        "Cpk_case2_upper": "1.1666666666666712",
+        "Cpk_case2_lower": "1.1666666666666476",
+        "Cpk_case2_min": "1.1666666666666476"
+      },
+      "file": "source/course/Les 4/Exercise axis - vizualisation.xlsx",
+      "page": 1,
+      "legible": true
+    },
+    {
+      "id": "S06-WE03",
+      "tool": "xbar-r-chart",
+      "given": {
+        "context": "SPC: oefening 2 - nettogewicht bleekproduct, n=5, 20 samples",
+        "data_ref": "__Gegevens oefeningen.xlsx::Gegevens oefening 2!B5:F24 (rows=steekproef 1-20, columns=x1..x5)",
+        "A2": "0.577 (n=5)",
+        "D3": "0",
+        "D4": "2.115 (n=5)",
+        "d2": "2.326 (n=5)"
+      },
+      "stated_answers": {
+        "Xbarbar (X_streep_streep)": "16.266000000000002",
+        "Rbar (R_streep)": "0.47999999999999926",
+        "UCL_xbar": "16.54296",
+        "LCL_xbar": "15.989040000000003",
+        "CL_R": "0.47999999999999926",
+        "UCL_R": "1.0151999999999985",
+        "LCL_R": "0",
+        "sigma_estimate_Rbar_over_d2": "0.20636285468615617",
+        "sigma_individual_via_stdev_excel": "0.20212007632228207 (=STDEV van alle 100 metingen)",
+        "sigma_gemiddelden_stdev_excel": "0.07570023986612916 (=STDEV van kolom H, steekproefgemiddelden)"
+      },
+      "file": "source/course/Les 4/__Xbar R kaart data - berekeningen oefening 2.xlsx",
+      "page": 1,
+      "legible": true
+    },
+    {
+      "id": "S06-WE04",
+      "tool": "capability-cp-cpk",
+      "given": {
+        "context": "Vervolg SPC oefening 2: specs 16,2 +/- 0,5 (LSL=15.7, USL=16.7)",
+        "LSL": "15.7",
+        "USL": "16.7",
+        "Xbarbar": "16.266000000000002",
+        "sigma_estimate": "0.20636285468615617 (=Rbar/d2)"
+      },
+      "stated_answers": {
+        "CpkL_calc": "0.9142472222222278 (=(Xbarbar-LSL)/(3.sigma))",
+        "CpkH_calc": "0.7010305555555527 (=(USL-Xbarbar)/(3.sigma))",
+        "Cp": "0.8076388888888902 (=delta/(6.sigma)); note in sheet: 'Cp: 1,33 = acceptable, 1,66 = good' -> 'So: process not capable'",
+        "Cpk": "0.7010305555555527 (=MIN(CpkL,CpkH)); note in sheet: 'Cpk: 1,33 = good'"
+      },
+      "file": "source/course/Les 4/__Xbar R kaart data - berekeningen oefening 2.xlsx",
+      "page": 1,
+      "legible": true
+    },
+    {
+      "id": "S06-WE05",
+      "tool": "xbar-r-chart",
+      "given": {
+        "context": "SPC: oefening 3 - binnendiameter lager, Xbar en R waarden voor 24 samples van n=5 (laatste 3 decimalen genoteerd, transformatie x'=x/10000+0.5)",
+        "data_ref": "__Gegevens oefeningen.xlsx::Gegevens oefening 3!B2:E25 (Xbar, Xbar', R, R' per sample 1-24)",
+        "n": "5",
+        "A2": "0.577",
+        "D3": "0",
+        "D4": "2.115",
+        "d2": "2.326",
+        "outlier_flag": "sample #9 (Xbar=35 -> Xbar'=0,5035, R=2.2 -> R'=0.00022) gemarkeerd 'uitschieter ! eruit halen'"
+      },
+      "stated_answers": {
+        "all_24_samples__Xbarbarbar": "0.5034",
+        "all_24_samples__Rbar": "0.00017666666666666666",
+        "all_24_samples__UCL_xbar": "0.5035019366666666",
+        "all_24_samples__LCL_xbar": "0.5032980633333333",
+        "all_24_samples__UCL_R": "0.00037365",
+        "all_24_samples__LCL_R": "0",
+        "revised_excl_outlier__Xbarbarbar": "0.503395652173913",
+        "revised_excl_outlier__Rbar": "0.00017478260869565219",
+        "revised_excl_outlier__UCL_xbar": "0.5034965017391304",
+        "revised_excl_outlier__LCL_xbar": "0.5032948026086956",
+        "revised_excl_outlier__UCL_R": "0.0003696652173913044",
+        "revised_excl_outlier__LCL_R": "0",
+        "sigma_estimate_Rbar_over_d2 (all 24)": "7.514299599985046e-05"
+      },
+      "file": "source/course/Les 4/__Xbar R kaart data - berekeningen oefening 3.xlsx",
+      "page": 1,
+      "legible": true
+    },
+    {
+      "id": "S06-WE06",
+      "tool": "xbar-r-chart",
+      "given": {
+        "context": "SPC: oefening 4 - neem xbar/R kaarten van oefening 3 (Rbar=0.00017666666666666666), hermonitor met n=3 en n=8",
+        "Rbar_from_oefening3": "0.00017666666666666666"
+      },
+      "stated_answers": {
+        "n=3__A2": "1.023",
+        "n=3__D4": "2.575",
+        "n=3__D3": "0",
+        "n=3__d2": "1.693",
+        "n=3__sigma_estimate": "0.00010323839852076325",
+        "n=8__A2": "0.373",
+        "n=8__D4": "1.864",
+        "n=8__D3": "0.136",
+        "n=8__d2": "2.847",
+        "n=8__sigma_estimate": "6.139185412562423e-05"
+      },
+      "file": "source/course/Les 4/__Xbar R kaart data - berekeningen oefening 3.xlsx",
+      "page": 1,
+      "legible": true
+    },
+    {
+      "id": "S06-WE07",
+      "tool": "capability-cp-cpk",
+      "given": {
+        "context": "SPC: oefening 5 - samples n=5, elk uur, na 25 samples: som(Xbar_i)=662.50, som(R_i)=9.00, m=25 samples; specs 26,40 +/- 0,50",
+        "n": "5",
+        "m": "25 samples",
+        "sum_Xbar": "662.50",
+        "sum_R": "9.00",
+        "USL": "26.9 (=26.4+0.5)",
+        "LSL": "25.9 (=26.4-0.5)",
+        "d2": "2.326"
+      },
+      "stated_answers": {
+        "Xbarbarbar": "26.5 (=662.5/25)",
+        "Rbar": "0.36 (=9/25)",
+        "sigma_estimate": "0.15477214101461736 (=Rbar/2.326)",
+        "delta_specs": "1",
+        "geval1_mean=26.5__Cp": "1.0768518518518517 (=1/(6.sigma))",
+        "geval1_mean=26.5__CpkH": "0.8614814814814784 (=(USL-Xbarbarbar)/(3.sigma))",
+        "geval1_mean=26.5__CpkL": "1.2922222222222253 (=(Xbarbarbar-LSL)/(3.sigma))",
+        "geval1_mean=26.5__Cpk_min": "0.8614814814814784",
+        "geval1_mean=26.5__totaal_uitval": "0.004929749468790989 (~0,493%)",
+        "geval2_mean=26.4(centered)__Cpk": "1.0768518518518517 (=Cp, want gecentreerd)",
+        "geval2_mean=26.4(centered)__totaal_uitval": "0.001235498911225541 (~0,1235%)"
+      },
+      "file": "source/course/Les 4/__Xbar R kaart data - berekeningen oefening 5.xlsx",
+      "page": 1,
+      "legible": true
+    },
+    {
+      "id": "S06-WE08",
+      "tool": "capability-cp-cpk",
+      "given": {
+        "context": "SPC: oefening 6 - kritische dimensie gefreesd stuk, specs 100 +/- 10, proces onder controle met Xbarbar=104, Rbar=9,30, n=5",
+        "USL": "110",
+        "LSL": "90",
+        "Xbarbar": "104",
+        "Rbar": "9,30",
+        "n": "5",
+        "sigma_calc_as_printed": "s = Rbar / d2 = 9,3/2,326 =~ 4",
+        "question1": "Kunnen we het gemiddelde zo aanpassen (freespositie) dat alle output aan de specificaties voldoet?",
+        "question2": "Wat is de huidige capabiliteit van het proces?"
+      },
+      "stated_answers": {
+        "question1_answer_as_printed": "Neen, 3 sigma = 12: buiten specs",
+        "Cp_as_printed": "20/24 = 0,83",
+        "Cpk_as_printed": "min [ (104-90)/(3.4) ; (110-104)/(3.4) ] = min [ 1,17 ; 0,5 ] = 0,5 (waarbij '3.4' = 3 x sigma(=4), niet het decimaal getal 3,4)"
+      },
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 86,
+      "legible": true
+    },
+    {
+      "id": "S06-WE09",
+      "tool": "normal-probability",
+      "given": {
+        "context": "Excel functies NORMINV / NORMDIST voorbeeld",
+        "Gemiddelde": "20",
+        "Spreiding": "0.5",
+        "doel": "1 % afkeur (bovengrens)"
+      },
+      "stated_answers": {
+        "Norm.Inv(0.99,20,0.5)": "21.16317393702042",
+        "Norm.verd(21.1632,20,0.5,cumulatief=WAAR) check": "0.9900013891842453"
+      },
+      "file": "source/course/Les 4/__NormVerdeling Excel functies.xlsx",
+      "page": 1,
+      "legible": true
+    },
+    {
+      "id": "S06-WE10",
+      "tool": "normal-probability",
+      "given": {
+        "context": "Voorbeeld uit spreker-notities: schoenmaten mannen",
+        "gemiddelde": "42,5",
+        "spreiding": "2,5"
+      },
+      "stated_answers": {
+        "3_sigma_ondergrens_grof": "35 (42,5 - 3.2,5)",
+        "3_sigma_bovengrens_grof": "50 (42,5 + 3.2,5)",
+        "opmerking": "er zal wel steeds iemand zijn die < 35 of > 50 heeft"
+      },
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pptx",
+      "page": 19,
+      "notes": true,
+      "legible": true
+    },
+    {
+      "id": "S06-WE11",
+      "tool": "control-chart-rules",
+      "given": {
+        "context": "SPC: oefening 1 - vraag of statistische controle noodzakelijk betekent dat (bijna) alle units binnen specificatielimieten liggen; pas Western Electric-regels toe op getoonde controlekaart (grafiek, geen numerieke data gegeven)"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 71,
+      "legible": true
+    },
+    {
+      "id": "S06-WE12",
+      "tool": "capability-pp-ppk",
+      "given": {
+        "context": "Minitab capability analysis voorbeeld (los van specifieke slide-oefening, illustratief dataset C1)",
+        "USL": "0.155",
+        "target": "*",
+        "LSL": "0.145",
+        "subgroups": "13",
+        "subgroup_size": "14 (zie ook Diagnostic Report)",
+        "note": "Report Card waarschuwt: te veel punten binnen 1 sigma van centerlijn (mogelijk systematische bron van variatie), slechts 13 subgroups (aanbevolen >=25)"
+      },
+      "stated_answers": {
+        "Mean": "0,14852",
+        "StdDev(overall)": "0,0025303",
+        "Pp": "0,66",
+        "Ppk": "0,46",
+        "Z.Bench": "1,36",
+        "%_Out_of_spec": "8,74",
+        "PPM(DPMO)": "87445",
+        "Potential(within)__Cp": "0,64",
+        "Potential(within)__Cpk": "0,45",
+        "Potential(within)__Z.Bench": "1,32",
+        "Potential(within)__%_Out_of_spec_expected": "9,33",
+        "Potential(within)__PPM(DPMO)_expected": "93282",
+        "StdDev(within)": "0,0025891",
+        "Normality_Anderson_Darling": "Pass, P-value 0,553"
+      },
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 49,
+      "legible": true
+    },
+    {
+      "id": "S06-WE13",
+      "tool": "capability-pp-ppk",
+      "given": {
+        "context": "Minitab herberekening van SPC-oefening 2 (nettogewicht bleekproduct), n=5, subgroup size=5, Total N=100, 20 subgroups",
+        "USL": "16,7",
+        "target": "*",
+        "LSL": "15,7",
+        "subgroup_size": "5",
+        "total_N": "100"
+      },
+      "stated_answers": {
+        "Mean": "16,266",
+        "StdDev(overall)": "0,20212",
+        "Pp": "0,82",
+        "Ppk": "0,72",
+        "Z.Bench": "2,09",
+        "%_Out_of_spec_observed": "0,00",
+        "%_Out_of_spec_expected": "1,84",
+        "PPM(DPMO)_observed": "0",
+        "PPM(DPMO)_expected": "18440",
+        "Potential(within)__Cp": "0,79",
+        "Potential(within)__Cpk": "0,69",
+        "Potential(within)__Z.Bench": "2,00",
+        "Potential(within)__%_Out_of_spec_expected": "2,28",
+        "Potential(within)__PPM(DPMO)_expected": "22792",
+        "Normality_Anderson_Darling": "Fail, P-value < 0,005"
+      },
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 82,
+      "legible": true
+    }
+  ],
+  "conventions": [
+    {
+      "topic": "Sigma-schatting voor capability (Cp/Cpk)",
+      "as_stated": "sigma = Rbar / d2 (schatting op basis van gemiddelde range), met d2 uit tabel afhankelijk van steekproefgrootte n. Alternatief: sigma individuele metingen = sigma gemiddelden * sqrt(n). Excel-controle via STDEV op alle individuele metingen wordt in de oefeningen ook getoond ter vergelijking (bv. STDEV(B5:F24)=0,20212 vs Rbar/d2=0,20636 in oefening 2).",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pptx",
+      "page": 64
+    },
+    {
+      "topic": "Cp/Cpk vs Pp/Ppk",
+      "as_stated": "Korte termijn: Cp / Cpk (common cause - process engineer). Lange termijn (waarin de klant geïnteresseerd is): Pp / Ppk (P = Performance). Cp/Cpk met korte termijn sigma gerekend - white noise (within variation); Pp/Ppk met lange termijn sigma gerekend - black noise, over time - belangrijk voor klant, de echte parameter. In Minitab-rapporten: 'Actual (overall)' = Pp/Ppk, 'Potential (within)' = Cp/Cpk.",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 32
+    },
+    {
+      "topic": "Cpk terminologie",
+      "as_stated": "C = Capability, p = process, pk = process + Japans woord voor off-center. Cpk: Japans woord voor off-center. Ppk: P from performance.",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pptx",
+      "page": 34
+    },
+    {
+      "topic": "1.5 sigma shift",
+      "as_stated": "Motorola (waar Six Sigma ontstond) observeerde empirisch dat een procesgemiddelde over lange termijn ongeveer +/- 1,5 standaardafwijkingen kan verschuiven. Het is geen universele wet, maar (1) een empirische observatie van vroege industriële processen en (2) een conservatieve aanname om rekening te houden met reële-wereld variatie ('Even if your process looks perfect today, expect it to degrade over time.'). Technische definitie op de slide: bij Cp=Cpk=2 gecentreerd, en na 1,5 sigma shift Cp=2/Cpk=1,5, resulteert in 3,4 DPMO aan elke zijde (6 sigma to LSL / 6 sigma to USL).",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pptx",
+      "page": 37
+    },
+    {
+      "topic": "6 sigma kwaliteitsniveau / interpretatie Cp",
+      "as_stated": "Cp<1: proces niet capabel. Cp=1: net capabel (specificatie = UL-LL = 6sigma -> 99,73%, ~2700 op 10^6 buiten tolerantie). Cp>=1,33: acceptabel (specificatie=8sigma -> 99,9936%, ~60 op 10^6 buiten tolerantie, 64ppm). Cp>=1,67: goed (specificatie=10sigma -> 99,999943%, ~0,57 op 10^6 buiten tolerantie). Cp=2: 6 Sigma kwaliteitsniveau - 2 defect per miljard opportuniteiten (korte termijn).",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 39
+    },
+    {
+      "topic": "Controlelimieten breedte (3 sigma)",
+      "as_stated": "UCL = gemiddelde + 3*sigma(xbar) => 3-sigma limiet, omgekeerd evenredig met steekproefgrootte n. Controlelimieten (UCL/LCL) zijn gebaseerd op procesprestatie (+/- 3 geschatte standaardafwijkingen van het gemiddelde) en zijn niet gelijk aan specificatielimieten (USL/LSL), die gebaseerd zijn op feedback van de klant.",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 55
+    },
+    {
+      "topic": "Western Electric / Shewhart sensitizing rules",
+      "as_stated": "Table 5.1 Some Sensitizing Rules for Shewhart Control Charts: (1) One or more points outside of the control limits. (2) Two of three consecutive points outside the two-sigma warning limits but still inside the control limits. (3) Four of five consecutive points beyond the one-sigma limits. (4) A run of eight consecutive points on one side of the center line. [1-4 = Western Electric Rules]. (5) Six points in a row steadily increasing or decreasing. (6) Fifteen points in a row in zone C (both above and below the center line). (7) Fourteen points in a row alternating up and down. (8) Eight points in a row on both sides of the center line with none in zone C. (9) An unusual or nonrandom pattern in the data. (10) One or more points near a warning or control limit. Zone A: between 2 sigma from centerline and control limit (3 sigma). Zone B: between 1 sigma and 2 sigma from centerline. Zone C: within 1 sigma of centerline.",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 67
+    },
+    {
+      "topic": "Range- vs standaardafwijkingskaart (subgroepgrootte-drempel)",
+      "as_stated": "For samples larger than 10, s-charts are recommended over R-charts, because s is much more efficient for estimating the process standard deviation sigma. For small samples and for manual maintenance of control charts, R is preferred over s. Slide-titel: 'Xbar/R- en Xbar/s-kaart (R small sample < 10)'.",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pptx",
+      "page": 73
+    },
+    {
+      "topic": "Minimum aantal subgroepen voor controlekaarten / capability-analyse",
+      "as_stated": "Slide (SPC process set up): 'Effective control charts need at least 20 subgroups of data.' Minitab-gegenereerde Report Cards (in de slides, o.a. p.48 en p.78): 'For a capability analysis, it is generally recommended that you collect at least 25 subgroups over a long enough period of time to capture the different sources of process variation.' Beide drempels (20 vs 25) komen voor in het cursusmateriaal zonder expliciete verzoening.",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 57
+    },
+    {
+      "topic": "n vs n-1 (STDEV vs STDEVP)",
+      "as_stated": "STDEV(Bereik): spreiding (standaard-afwijking) van de waarden in Bereik (steekproef, dus n-1). STDEVP(Bereik): spreiding (standaard-afwijking) van de waarden in Bereik (populatie, dus n). Analoog VAR (steekproef) vs VARP (populatie).",
+      "file": "source/course/Les 4/___1.2 statistische functionaliteit in excel.pdf",
+      "page": 2
+    },
+    {
+      "topic": "Gebruikte Excel-functienotatie (NL) voor statistiek",
+      "as_stated": "Volledige lijst gedefinieerd in ___1.2 statistische functionaliteit in excel.pdf: o.a. NORM.VERD (=NORMDIST: kansdichtheid of cumulatieve verdelingsfunctie voor normaal model), NORM.INV (=NORMINV: inverse cumulatieve normale verdeling), NORMALISEREN (=z-waarde: (x-gemiddelde)/spreiding), Z.TOETS (eenzijdige Z-test voor mu, H0: mu=mu0 vs HA: mu>mu0), T.TOETS, T.INV, T.VERD, CHI.TOETS, CHI.KWADRAAT, F.TOETS, F.VERDELING, F.INVERSE, STDEV vs STDEVP, VAR vs VARP.",
+      "file": "source/course/Les 4/___1.2 statistische functionaliteit in excel.pdf",
+      "page": 1
+    },
+    {
+      "topic": "Eenzijdig vs tweezijdig denken",
+      "as_stated": "Denken in eenzijdige sigma, niet in 2 zijdig, eenzijdig maakt de zaken eenvoudiger. (Slordige figuur - eenzijdig en 2-zijdig moeten apart worden uitgelegd; Symmetrische verdeling.) In de oefeningen wordt expliciet aangegeven wanneer 1-zijdig of 2-zijdig gerekend moet worden (bv. oefening capability p.46: 'maar je moet hier 2 zijdig rekenen').",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pptx",
+      "page": 18
+    },
+    {
+      "topic": "Gauge R&R (MSA) aanbevolen drempels",
+      "as_stated": "Resolutie <= 10% van tolerantie om te meten. Gauge R&R <= 20% van tolerantie om te meten. Repeatability (Equipment variation): variatie met 1 meetdevice, herhaald door 1 operator, op hetzelfde deel. Reproducibility (Appraised variation): variatie tussen verschillende operatoren met hetzelfde toestel op hetzelfde deel. Stability or Drift: totale variatie t.o.v. een master/referentiewaarde over uitgestrekte tijd.",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 60
+    },
+    {
+      "topic": "Notatie: punt (.) als vermenigvuldigingsteken",
+      "as_stated": "In de (Vlaamse) cursusnotatie wordt de komma (,) gebruikt als decimaalteken en het punt (.) soms als vermenigvuldigingsteken tussen twee getallen (bv. 'Cp = (72,8-71,4)/6.0,2 = 1,4/1,2' betekent 6 x 0,2; 'Cpk = min[(104-90)/(3.4);...]' betekent 3 x sigma(=4), niet het decimale getal 3,4).",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pptx",
+      "page": 46
+    },
+    {
+      "topic": "Steekproefgrootte algemene vuistregel",
+      "as_stated": "General rule: sample at least 20, preferably 30 measurements. Sample size determination is a study on its own, not an objective of this course.",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 12
+    },
+    {
+      "topic": "X-waarden vs gemiddelden voor specificaties",
+      "as_stated": "X value, no average value: specs of customer are always on X values, not on means, otherwise you should recalculate the customer specs to average values of your samples. St. dev of samples = st. dev individual points / sqrt(n) with n = number of measurements in the sample.",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pptx",
+      "page": 14
+    }
+  ],
+  "ambiguities": [
+    {
+      "issue": "Control charts - constants.pdf, page 1: direct na de rij voor n=2 (2.121 1.880 2.659 0.7979 1.2533 0 3.267 0 3.267) staat een extra rij '0 | 2.606' met enkel de A0-kolom ingevuld en de rest leeg, vóór de rij voor n=3. Dit lijkt een druk-/scanfout of een verdwaalde waarde uit een andere tabel (mogelijk A0 voor n=2 elders gedefinieerd als 2.606?). Letterlijk overgenomen zoals afgedrukt.",
+      "file": "source/course/Les 4/Control charts - constants.pdf",
+      "page": 1
+    },
+    {
+      "issue": "Hoofddeck pagina 40 ('The Process Capability (CP & CPK) can be used to predict...'): de rechter afbeelding (Cpk=0,66/1/1,33 met Scrap/Risky/Good) toont op de achtergrond vaag doorschijnende, deels omgekeerde Franse/Nederlandse tekst (bv. '2. NOTATION : NF X...', 'ECOL DES...') die niet volledig leesbaar is - lijkt een onderliggend gescand document dat door de nieuwe afbeelding heen schijnt. Inhoud niet betrouwbaar te transcriberen.",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 40
+    },
+    {
+      "issue": "Twee verschillende drempels voor het minimum aantal subgroepen komen voor in het materiaal zonder expliciete verzoening: slide 57 zegt 'at least 20 subgroups', terwijl de Minitab Report Cards (bv. p.48, p.78) zeggen 'at least 25 subgroups'.",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 57
+    },
+    {
+      "issue": "Slide 86 (SPC: oefening 6) schrijft de Cpk-berekening als 'min [ (104-90)/(3.4) ; (110-104)/(3.4) ]'. Dit '3.4' is vermoedelijk '3 x sigma(=4)' (punt als vermenigvuldigingsteken, sigma=4 net hierboven berekend), niet het decimale getal 3,4 - maar zoals afgedrukt is het identiek aan de notatie van een decimaal getal en kan verward worden. Letterlijk overgenomen; zie ook conventions-item over punt-als-maal-teken.",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 86
+    },
+    {
+      "issue": "SPC: oefening 1 (p.71) geeft geen gestelde/afgedrukte antwoorden in de cursus (enkel de vraag en een controlekaart-afbeelding zonder numerieke as-waarden); geen stated_answers beschikbaar.",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 71
+    },
+    {
+      "issue": "Minitab-capability-rapport voor SPC-oefening 2 (herberekend in Minitab, p.79-82) faalt de Anderson-Darling normaliteitstoets (P<0,005), terwijl dezelfde data in het Excel-werkblad (__Xbar R kaart data - berekeningen oefening 2.xlsx) zonder voorbehoud wordt gebruikt voor een Cp/Cpk-berekening die net normaliteit veronderstelt. Beide bronnen staan naast elkaar in de cursus zonder expliciete verzoening van deze spanning.",
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 81
+    }
+  ]
+}

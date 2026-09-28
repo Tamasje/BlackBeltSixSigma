@@ -1,0 +1,7 @@
+Source,Sum of Squares,DF,Mean Square,F Value,Prob > F,source_file,source_page,table_name
+Model,291.67,3,97.22,24.82,0.0002,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,61,"ANOVA for Selected Factorial Model, router/chemical process example (Design-Expert output)"
+A,208.33,1,208.33,53.19,< 0.0001,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,61,"ANOVA for Selected Factorial Model, router/chemical process example (Design-Expert output)"
+B,75.00,1,75.00,19.15,0.0024,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,61,"ANOVA for Selected Factorial Model, router/chemical process example (Design-Expert output)"
+AB,8.33,1,8.33,2.13,0.1828,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,61,"ANOVA for Selected Factorial Model, router/chemical process example (Design-Expert output)"
+Pure Error,31.33,8,3.92,,,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,61,"ANOVA for Selected Factorial Model, router/chemical process example (Design-Expert output)"
+Cor Total,323.00,11,,,,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,61,"ANOVA for Selected Factorial Model, router/chemical process example (Design-Expert output)"

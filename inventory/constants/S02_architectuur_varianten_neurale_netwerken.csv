@@ -1,0 +1,6 @@
+Architectuur,Toepassing,source_file,source_page,table_name
+MLP,algemene regressie / classificatie op tabeldata,source/course/Les 6/20260626_naert.pdf,41,Architectuur-varianten (neurale netwerken)
+CNN,"beelden, signalen",source/course/Les 6/20260626_naert.pdf,41,Architectuur-varianten (neurale netwerken)
+RNN / LSTM,"tijdreeksen, sequenties",source/course/Les 6/20260626_naert.pdf,41,Architectuur-varianten (neurale netwerken)
+Transformer,"taal (LLMs), tijdreeksen, beelden",source/course/Les 6/20260626_naert.pdf,41,Architectuur-varianten (neurale netwerken)
+Autoencoder,"anomaliedetectie, compressie",source/course/Les 6/20260626_naert.pdf,41,Architectuur-varianten (neurale netwerken)

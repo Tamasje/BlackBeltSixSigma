@@ -1,0 +1,7 @@
+Name,Equation,Look-Up Factor,source_file,source_page,table_name
+Average with large (>30) sample size,xbar +/- Z sigma/sqrt(n),Z,source/course/Les 4/Six Sigma For Dummies.pdf,198,Table 8-4: Confidence Interval Summary
+Average with small (<30) sample size,xbar +/- t sigma/sqrt(n),t,source/course/Les 4/Six Sigma For Dummies.pdf,198,Table 8-4: Confidence Interval Summary
+Standard deviation,"[ sqrt((n-1) sigma^2/chi^2_LOWER), sqrt((n-1) sigma^2/chi^2_UPPER) ]",chi^2,source/course/Les 4/Six Sigma For Dummies.pdf,198,Table 8-4: Confidence Interval Summary
+Ratio of variances,"[ (1/F(n2,n1)) sigma1^2/sigma2^2, F(n1,n2) sigma1^2/sigma2^2 ]",F,source/course/Les 4/Six Sigma For Dummies.pdf,198,Table 8-4: Confidence Interval Summary
+Proportion,y/n +/- Z sqrt((y/n)(1-y/n)/n),Z,source/course/Les 4/Six Sigma For Dummies.pdf,198,Table 8-4: Confidence Interval Summary
+Difference of proportions,y1/n1 - y2/n2 +/- Z sqrt((y1/n1)(1-y1/n1)/n1 + (y2/n2)(1-y2/n2)/n2),Z,source/course/Les 4/Six Sigma For Dummies.pdf,198,Table 8-4: Confidence Interval Summary

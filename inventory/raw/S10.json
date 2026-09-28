@@ -1,0 +1,2066 @@
+{
+  "slice_id": "S10",
+  "files_read": [
+    {
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": "1-38"
+    },
+    {
+      "file": "source/course/Les 5/20260619_ottoy_Calculating the uncertainty in the width of a steel strip.pdf",
+      "pages": "1-2"
+    },
+    {
+      "file": "source/course/Les 5/20260619_ottoy_MSA - meter unit.pdf",
+      "pages": "1-5"
+    },
+    {
+      "file": "source/course/Les 5/20260619_ottoy_Theoretical background of a GRR study.pdf",
+      "pages": "1-2"
+    },
+    {
+      "file": "source/course/Les 5/20260619_ottoy_tabel MSA.pdf",
+      "pages": "1"
+    },
+    {
+      "file": "source/course/Les 5/20260619_ottoy_GRR - ANOVA - avegage and range - 2.xlsx",
+      "pages": "all sheets: description, measurements, 2way anova, ranges, on d2 and d2star"
+    },
+    {
+      "file": "source/course/Les 5/20260619_ottoy_Rheostat Knob Data.xls",
+      "pages": "all sheets: originele data, afgeronde data, originele data - opgelost, afgeronde data - opgelost"
+    },
+    {
+      "file": "source/course/Les 5/20260619_ottoy_linearity.txt",
+      "pages": "1"
+    },
+    {
+      "file": "source/course/Les 5/Table of Contents.html",
+      "pages": "1 (LMS listing only, no course content)"
+    }
+  ],
+  "topics": [
+    {
+      "topic": "What is a measurement (Eisenhart definition, standard/reference value, measurement system)",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        2
+      ]
+    },
+    {
+      "topic": "Importance of measuring / history of metrology (pyramids, Vasa ship, cost of measuring 2-7% of GNP)",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        3
+      ]
+    },
+    {
+      "topic": "The measurement process as a manufacturing process producing numbers; SWIPE error model (Standard, Workpiece, Instrument, Person, Environment)",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        4,
+        5
+      ]
+    },
+    {
+      "topic": "Measurement terminology: standard (reference/calibration/working standard)",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        6
+      ]
+    },
+    {
+      "topic": "The 7 SI base units and their definitions (caesium standard)",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        7
+      ]
+    },
+    {
+      "topic": "The traceability chain (BIPM, NMI, accredited labs, gauge blocks)",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        8
+      ]
+    },
+    {
+      "topic": "Measurement terminology: reference value, operational definition",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        9
+      ]
+    },
+    {
+      "topic": "Measurement terminology: discrimination, effective resolution, data categories rule of thumb",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        10
+      ]
+    },
+    {
+      "topic": "Measurement terminology: bias (Wheeler's operator/equipment bias extension), accuracy, ASTM",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        11
+      ]
+    },
+    {
+      "topic": "Measurement terminology: stability",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        12
+      ]
+    },
+    {
+      "topic": "Measurement terminology: linearity",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        13
+      ]
+    },
+    {
+      "topic": "Measurement terminology: repeatability (EV), precision",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        14
+      ]
+    },
+    {
+      "topic": "Measurement terminology: reproducibility (AV)",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        15
+      ]
+    },
+    {
+      "topic": "Measurement terminology: consistency",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        16
+      ]
+    },
+    {
+      "topic": "Measurement terminology: uniformity",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        17
+      ]
+    },
+    {
+      "topic": "Measurement terminology: Gauge R&R (GRR) definition and formula",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        18
+      ]
+    },
+    {
+      "topic": "Types of measurement system variation (classification diagram: bias / repeatability / reproducibility / stability / consistency / linearity / uniformity)",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        19
+      ]
+    },
+    {
+      "topic": "Measurement system capability and performance (sigma_cap, sigma_perf)",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        20
+      ]
+    },
+    {
+      "topic": "Effect of measurement system error on discrimination / effective resolution; Rayleigh-Ramsay argon example",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        21
+      ]
+    },
+    {
+      "topic": "Effects of measurement system error on product decisions (Type I/II error, producer's/consumer's risk, gauge performance curve areas I/II/III)",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        22,
+        23
+      ]
+    },
+    {
+      "topic": "Wheeler's PE (Probable Error) approach with tightened/widened specs; conclusions G/B/D and X/Y/Z",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        23
+      ]
+    },
+    {
+      "topic": "Effects of measurement system error on process decisions: Cp relations, %GRR (process variation basis and tolerance basis), 5.15 vs 6 sigma convention",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        24,
+        25
+      ]
+    },
+    {
+      "topic": "Effects of measurement system error on process decisions: process acceptance / buy-off example, process control / tampering example (Deming funnel)",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        26
+      ]
+    },
+    {
+      "topic": "Gauge performance curve (GPC) definition and formula, worked numeric example",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        27
+      ]
+    },
+    {
+      "topic": "Measurement uncertainty: definition, U = k*uc, coverage factor k=2 for 95% confidence",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        28
+      ]
+    },
+    {
+      "topic": "Measurement uncertainty: type A / type B evaluation, propagation formulas",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        29
+      ]
+    },
+    {
+      "topic": "Inadequate discrimination in process control: detection rule of thumb (Rheostat Knob Data illustration)",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        30
+      ]
+    },
+    {
+      "topic": "Determining stability and consistency (reference standard procedure, bias and repeatability from X-bar/R chart)",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        31
+      ]
+    },
+    {
+      "topic": "Determining bias (t-distribution statistic, Patnaik d2*/nu, confidence interval for true bias)",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        32
+      ]
+    },
+    {
+      "topic": "Determining linearity (graphical method, regression of bias vs reference value, hypothesis tests on slope/intercept)",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        33
+      ]
+    },
+    {
+      "topic": "Determining repeatability and reproducibility: Average and Range method - model and derivation of averages/ranges",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        34
+      ]
+    },
+    {
+      "topic": "Determining repeatability and reproducibility: Average and Range method - EV, AV, PV, GRR, TV, %GRR formulas and K1/K2/K3 constants; acceptance thresholds (10%/30%)",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        35
+      ]
+    },
+    {
+      "topic": "Determining repeatability and reproducibility: ANOVA method - two-way ANOVA table, EV/AV/PV from MS, residual model, proof of SST decomposition",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        36,
+        37
+      ]
+    },
+    {
+      "topic": "Exercise: GRR study on steering-mechanism part (three operators, five parts, two trials, coded gauge readings) - see GRR - ANOVA - average and range - 2.xlsx",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "pages": [
+        38
+      ]
+    },
+    {
+      "topic": "Worked example: uncertainty propagation for the width of a steel strip measured with a tape measure (type A/B components, combined and expanded uncertainty)",
+      "file": "source/course/Les 5/20260619_ottoy_Calculating the uncertainty in the width of a steel strip.pdf",
+      "pages": [
+        1,
+        2
+      ]
+    },
+    {
+      "topic": "History of the meter (SI length standard): from artifact standards to the 1983 speed-of-light definition and the 2019 caesium-based definition; gauge block calibration by laser interferometry",
+      "file": "source/course/Les 5/20260619_ottoy_MSA - meter unit.pdf",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "topic": "Theoretical background of a GRR study: sampling distribution of the mean and of the range, chi-square distribution moments, distribution of the average squared range (Patnaik d2*, nu), derivation of EV/AV/PV/TV/%GRR formulas for the average-range method",
+      "file": "source/course/Les 5/20260619_ottoy_Theoretical background of a GRR study.pdf",
+      "pages": [
+        1,
+        2
+      ]
+    },
+    {
+      "topic": "MSA constant table: 'Values associated with the Distribution of the Average Range' - degrees of freedom (nu, 1st line) and d2* (2nd line) per number of subgroups g (1-20) and subgroup size m (2-20), plus d2 and cd (constant difference) row for g -> infinity",
+      "file": "source/course/Les 5/20260619_ottoy_tabel MSA.pdf",
+      "pages": [
+        1
+      ]
+    },
+    {
+      "topic": "GRR workbook - description sheet: text description of the steering-mechanism GRR exercise (matches slide 38)",
+      "file": "source/course/Les 5/20260619_ottoy_GRR - ANOVA - avegage and range - 2.xlsx",
+      "pages": [
+        1
+      ]
+    },
+    {
+      "topic": "GRR workbook - measurements sheet: coded and actual-reading raw data for the GRR exercise (3 operators x 5 parts x 2 trials), ranges per part/operator, Rbarbar, XbarDIFF, Rbarp",
+      "file": "source/course/Les 5/20260619_ottoy_GRR - ANOVA - avegage and range - 2.xlsx",
+      "pages": [
+        2
+      ]
+    },
+    {
+      "topic": "GRR workbook - 2way anova sheet: Excel 'Anova: Two-Factor With Replication' output and derived (pooled, additive-model) ANOVA table; calculation of EV, AV, PV, TV, %GRR via ANOVA method",
+      "file": "source/course/Les 5/20260619_ottoy_GRR - ANOVA - avegage and range - 2.xlsx",
+      "pages": [
+        3
+      ]
+    },
+    {
+      "topic": "GRR workbook - ranges sheet: calculation of EV, AV, PV, TV, %GRR via the average and range method using d2 and d2* constants",
+      "file": "source/course/Les 5/20260619_ottoy_GRR - ANOVA - avegage and range - 2.xlsx",
+      "pages": [
+        4
+      ]
+    },
+    {
+      "topic": "GRR workbook - on d2 and d2star sheet: Monte-Carlo simulation (volatile RAND()/NORM.INV formulas) demonstrating empirical convergence of average-range-based d2 and d2* estimates to their theoretical/tabulated values, for adjustable number of subgroups (1-5) and subgroup size (2-10); not a fixed constant table",
+      "file": "source/course/Les 5/20260619_ottoy_GRR - ANOVA - avegage and range - 2.xlsx",
+      "pages": [
+        5
+      ]
+    },
+    {
+      "topic": "Rheostat Knob Data: illustration of inadequate discrimination in process control (measurement unit too large relative to process variation) using original data (to 1/1000 inch) vs rounded data (to 1/100 inch), with solved X-bar/R chart calculations",
+      "file": "source/course/Les 5/20260619_ottoy_Rheostat Knob Data.xls",
+      "pages": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "topic": "Linearity data set: 5 parts with reference values and 12 measurements each, for the linearity exercise of slide 33",
+      "file": "source/course/Les 5/20260619_ottoy_linearity.txt",
+      "pages": [
+        1
+      ]
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Gauge R&R (variance form)",
+      "expression": "sigma_GRR^2 = sigma_repeatability^2 + sigma_reproducibility^2",
+      "symbols": {
+        "sigma_GRR": "gauge repeatability & reproducibility std dev",
+        "sigma_repeatability": "within-system std dev",
+        "sigma_reproducibility": "between-system std dev"
+      },
+      "conditions": "GRR is estimate of combined variation of repeatability and reproducibility",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 18
+    },
+    {
+      "name": "Gauge R&R (EV/AV form)",
+      "expression": "GRR = sqrt(EV^2 + AV^2)",
+      "symbols": {
+        "GRR": "gauge repeatability & reproducibility",
+        "EV": "equipment variation (repeatability)",
+        "AV": "appraiser variation (reproducibility)"
+      },
+      "conditions": "",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 18
+    },
+    {
+      "name": "Measurement system capability",
+      "expression": "sigma_cap^2 = sigma_lin^2 + sigma_GRR^2",
+      "symbols": {
+        "sigma_cap": "measurement system capability std dev",
+        "sigma_lin": "linearity component",
+        "sigma_GRR": "GRR component"
+      },
+      "conditions": "capability considers measurement system error over a short period of time",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 20
+    },
+    {
+      "name": "Measurement system performance",
+      "expression": "sigma_perf^2 = sigma_cap^2 + sigma_stab^2 + sigma_consist^2",
+      "symbols": {
+        "sigma_perf": "measurement system performance std dev",
+        "sigma_cap": "capability std dev",
+        "sigma_stab": "stability component",
+        "sigma_consist": "consistency component"
+      },
+      "conditions": "performance is the effect of all sources of variation over time",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 20
+    },
+    {
+      "name": "Observed vs actual process variation (variance decomposition)",
+      "expression": "sigma_o^2 = sigma_a^2 + sigma_m^2  <=>  1/Cpo^2 = 1/Cpa^2 + 1/Cpm^2",
+      "symbols": {
+        "sigma_o": "observed process variation",
+        "sigma_a": "actual process variation",
+        "sigma_m": "measurement variation",
+        "Cpo": "observed Cp",
+        "Cpa": "actual Cp",
+        "Cpm": "Cp of measurement variation"
+      },
+      "conditions": "assume measurement variation due to repeatability and reproducibility",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 24
+    },
+    {
+      "name": "%GRR based on process variation",
+      "expression": "%GRR = 6*sigma_m / 6*sigma_o (x100%)  =>  Cpa = Cpo * sqrt(1 - %GRR^2)",
+      "symbols": {
+        "sigma_m": "measurement variation std dev",
+        "sigma_o": "observed process variation std dev",
+        "Cpa": "actual Cp",
+        "Cpo": "observed Cp"
+      },
+      "conditions": "footnote(*): historically a 99% spread convention used a multiplying factor of 5.15; more recently a multiplying factor of 6 is used, representing 99.73% spread. The slide's formulas as printed use 6.",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 24
+    },
+    {
+      "name": "%GRR based on tolerance range",
+      "expression": "%GRR = 6*sigma_m / TOL (x100%)  =>  Cpo = Cpa * sqrt(1 - (%GRR * Cpo)^2)",
+      "symbols": {
+        "sigma_m": "measurement variation std dev",
+        "TOL": "tolerance range",
+        "Cpo": "observed Cp",
+        "Cpa": "actual Cp"
+      },
+      "conditions": "footnote(*): same 5.15 vs 6 convention as above",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 24
+    },
+    {
+      "name": "Proof: Cpo in terms of sigma_o",
+      "expression": "Cpo = (USL - LSL) / 6*sigma_o  ->  1/Cpo = 6*sigma_o/(USL-LSL)  ->  1/Cpo^2 = 36/(USL-LSL)^2 * sigma_o^2  ->  1/Cpo^2 = 36/(USL-LSL)^2 * (sigma_a^2 + sigma_m^2)  ->  1/Cpo^2 = 1/Cpa^2 + 1/Cpm^2",
+      "symbols": {
+        "USL": "upper spec limit",
+        "LSL": "lower spec limit",
+        "sigma_o": "observed process std dev",
+        "sigma_a": "actual process std dev",
+        "sigma_m": "measurement std dev"
+      },
+      "conditions": "proof of formulas on slide 24",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 25
+    },
+    {
+      "name": "Proof: %GRR to Cpo/Cpa relation",
+      "expression": "%GRR = 6*sigma_m/6*sigma_o = Cpo/Cpm  ->  Cpo = Cpm * %GRR  ->  1/Cpo^2 = 1/Cpa^2 + %GRR^2/Cpo^2  ->  Cpo^2 = Cpa^2*(1 - %GRR^2)",
+      "symbols": {
+        "Cpo": "observed Cp",
+        "Cpm": "Cp of measurement variation",
+        "Cpa": "actual Cp",
+        "%GRR": "percent GRR"
+      },
+      "conditions": "proof of formula on slide 24",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 25
+    },
+    {
+      "name": "Gauge performance curve (GPC)",
+      "expression": "Xm ~ N(Xr + b, sigma_GRR);  beta(Xr) = Phi((USL-(Xr+b))/sigma_GRR) - Phi((LSL-(Xr+b))/sigma_GRR)",
+      "symbols": {
+        "Xm": "measured value",
+        "Xr": "reference value of measured part",
+        "b": "bias",
+        "sigma_GRR": "GRR std dev",
+        "beta(Xr)": "probability of accepting a part with reference value Xr",
+        "Phi": "standard normal cumulative distribution function",
+        "USL": "upper spec limit",
+        "LSL": "lower spec limit"
+      },
+      "conditions": "GPC: Xr -> beta(Xr); example holds for LSL=0.6, USL=1.0, b=0.05, sigma_GRR=0.05",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 27
+    },
+    {
+      "name": "Measurement uncertainty statement",
+      "expression": "Ref. value = measurement +/- U;  U = k * u_c",
+      "symbols": {
+        "U": "expanded uncertainty",
+        "k": "coverage factor (level of confidence)",
+        "u_c": "combined standard uncertainty = sigma_measurement error"
+      },
+      "conditions": "ISO Guide to the Uncertainty in Measurement specifies coverage factor should correspond to 95% confidence; in practice k=2 is used",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 28
+    },
+    {
+      "name": "Uncertainty of a mean",
+      "expression": "u_c(x_bar) = u(x) / sqrt(n)",
+      "symbols": {
+        "u_c(x_bar)": "standard uncertainty of the mean",
+        "u(x)": "standard uncertainty of x",
+        "n": "number of measurements averaged"
+      },
+      "conditions": "",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 29
+    },
+    {
+      "name": "Uncertainty of a sum",
+      "expression": "u_c(x+y) = sqrt(u^2(x) + u^2(y))",
+      "symbols": {
+        "u_c(x+y)": "combined standard uncertainty of x+y",
+        "u(x)": "standard uncertainty of x",
+        "u(y)": "standard uncertainty of y"
+      },
+      "conditions": "assumes independent errors",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 29
+    },
+    {
+      "name": "Uncertainty of a product",
+      "expression": "u_c(x*y)/(x*y) = sqrt( u^2(x)/x^2 + u^2(y)/y^2 )",
+      "symbols": {
+        "u_c(x*y)": "combined standard uncertainty of x*y",
+        "u(x)": "standard uncertainty of x",
+        "u(y)": "standard uncertainty of y"
+      },
+      "conditions": "",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 29
+    },
+    {
+      "name": "Uncertainty of a square",
+      "expression": "u_c(x^2)/x^2 = 2*u(x)/x",
+      "symbols": {
+        "u_c(x^2)": "combined standard uncertainty of x^2",
+        "u(x)": "standard uncertainty of x"
+      },
+      "conditions": "when squaring a measured value, the relative uncertainty doubles",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 29
+    },
+    {
+      "name": "Uncertainty of a square root",
+      "expression": "u_c(sqrt(x))/sqrt(x) = u(x)/(2x)",
+      "symbols": {
+        "u_c(sqrt(x))": "combined standard uncertainty of sqrt(x)",
+        "u(x)": "standard uncertainty of x"
+      },
+      "conditions": "",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 29
+    },
+    {
+      "name": "General uncertainty propagation (first-order)",
+      "expression": "u(y) ~= |f'(x)| * u(x)",
+      "symbols": {
+        "y": "f(x)",
+        "f'(x)": "derivative of f at x",
+        "u(x)": "standard uncertainty of x"
+      },
+      "conditions": "accepted without proof in the course text; example f(x)=x^2 gives u(x^2) ~= 2x*u(x)",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 29
+    },
+    {
+      "name": "Insufficient discrimination detection rule (subgroup size n=2)",
+      "expression": "If there are not more than 3 possible values for the range within the control limits, then the measurement units are too large for the purposes of the control chart.",
+      "symbols": {},
+      "conditions": "subgroup size = 2",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 30
+    },
+    {
+      "name": "Insufficient discrimination detection rule (subgroup size n>=3)",
+      "expression": "Idem, but now up to 4 different values.",
+      "symbols": {},
+      "conditions": "subgroup size >= 3",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 30
+    },
+    {
+      "name": "R-chart control limits and borderline condition",
+      "expression": "UCL = D4*d2*MU ; LCL = D3*d2*MU ; borderline case sigma = MU gives (n=2) UCL - LCL ~= 3.69*MU ; (n=3) UCL - LCL ~= 4.36*MU",
+      "symbols": {
+        "UCL": "upper control limit of R-chart",
+        "LCL": "lower control limit of R-chart",
+        "D3": "R-chart constant",
+        "D4": "R-chart constant",
+        "d2": "range-to-sigma constant",
+        "MU": "measurement unit"
+      },
+      "conditions": "E(R) ~= 1.1*sigma for subgroup size n=2; borderline condition is sigma = MU",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 30
+    },
+    {
+      "name": "Bias and repeatability from reference standard (X-bar/R chart)",
+      "expression": "bias = X_bar_bar - ref.value ; repeatability = R_bar / d2",
+      "symbols": {
+        "X_bar_bar": "grand average of subgroup means of repeated measurements of the reference standard",
+        "ref.value": "reference value of the standard",
+        "R_bar": "average subgroup range",
+        "d2": "range-to-sigma constant"
+      },
+      "conditions": "",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 31
+    },
+    {
+      "name": "Determining bias: bias and repeatability",
+      "expression": "bias = X_bar_bar - ref.value ; sigma_r = R_bar/d2",
+      "symbols": {
+        "X_bar_bar": "grand average",
+        "ref.value": "reference value",
+        "sigma_r": "repeatability std dev",
+        "R_bar": "average range",
+        "d2": "range-to-sigma constant"
+      },
+      "conditions": "based on the X-bar/R-chart data",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 32
+    },
+    {
+      "name": "Determining bias: t-statistic",
+      "expression": "t = (bias - E(bias)) / sigma_r * sqrt(g*m) * d2*/d2",
+      "symbols": {
+        "bias": "computed bias",
+        "E(bias)": "expected/hypothesized bias",
+        "sigma_r": "repeatability std dev",
+        "g": "number of subgroups",
+        "m": "subgroup size",
+        "d2*": "conversion factor related to d2 (Patnaik)",
+        "d2": "range-to-sigma constant"
+      },
+      "conditions": "follows a t-distribution with nu degrees of freedom (the course text literally states 'n degrees of freedom' here, but elsewhere and in the CI formula uses the symbol nu - see ambiguities)",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 32
+    },
+    {
+      "name": "Confidence interval for the true gauge bias",
+      "expression": "bias - sigma_r * d2/(d2* * sqrt(g*m)) * t_(1-alpha/2,nu) <= E(bias) <= bias + sigma_r * d2/(d2* * sqrt(g*m)) * t_(1-alpha/2,nu)",
+      "symbols": {
+        "bias": "computed bias",
+        "sigma_r": "repeatability std dev",
+        "d2": "range-to-sigma constant",
+        "d2*": "Patnaik conversion factor",
+        "g": "number of subgroups",
+        "m": "subgroup size",
+        "t_(1-alpha/2,nu)": "t-distribution quantile with nu degrees of freedom",
+        "alpha": "significance level (not numerically specified in the course text)"
+      },
+      "conditions": "(1-alpha)x100% confidence interval; the gauge bias is significant if zero does not belong to this interval",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 32
+    },
+    {
+      "name": "Patnaik result for the average squared range",
+      "expression": "nu * R_bar^2 / (d2*^2 * sigma^2) ~ chi^2(nu)",
+      "symbols": {
+        "nu": "degrees of freedom (can be non-integer)",
+        "R_bar": "average range",
+        "d2*": "Patnaik conversion factor",
+        "sigma": "true repeatability std dev"
+      },
+      "conditions": "P.B. Patnaik result (see A.J. Duncan, Quality control and industrial statistics); d2* and nu depend on m (subgroup size) and g (number of subgroups); tabulated in appendix (tabel MSA.pdf)",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 32
+    },
+    {
+      "name": "Estimating d2* from chi-square moments",
+      "expression": "E(chi^2(nu)) = nu  =>  d2*^2 = E(R_bar^2)/sigma^2",
+      "symbols": {
+        "nu": "degrees of freedom",
+        "d2*": "Patnaik conversion factor",
+        "R_bar": "average range",
+        "sigma": "true std dev"
+      },
+      "conditions": "",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 32
+    },
+    {
+      "name": "Average and Range method: model",
+      "expression": "X_ijl = X_.j. + X_i.. + X_..l ;  X_..l ~ N(0, sigma)",
+      "symbols": {
+        "X_ijl": "measurement l of part j by appraiser i",
+        "X_.j.": "true part value (reference)",
+        "X_i..": "operator bias",
+        "X_..l": "measurement error",
+        "sigma": "gauge repeatability"
+      },
+      "conditions": "k appraisers each measure n parts r times with the gauge; the parts are representative for the process variation",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 34
+    },
+    {
+      "name": "Average and Range method: appraiser average",
+      "expression": "X_bar_i = (1/nr)*sum_j sum_l X_ijl = X_bar_p + X_i.. + X_bar_bar_r ;  X_bar_bar_r ~ N(0, sigma/sqrt(nr))",
+      "symbols": {
+        "X_bar_i": "average measured value by appraiser i over all parts and replications",
+        "X_bar_p": "fixed number for the given parts",
+        "X_i..": "operator bias for appraiser i",
+        "X_bar_bar_r": "average measurement error over all measurements by appraiser i",
+        "sigma": "gauge repeatability",
+        "n": "number of parts",
+        "r": "number of replications"
+      },
+      "conditions": "",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 34
+    },
+    {
+      "name": "Average and Range method: part average",
+      "expression": "X_bar_j = X_.j. + X_a + X_bar_bar_r ;  X_bar_bar_r ~ N(0, sigma/sqrt(kr))",
+      "symbols": {
+        "X_bar_j": "average measured value for part j over all appraisers and replications",
+        "X_.j.": "true part value",
+        "X_a": "fixed number for the given appraisers",
+        "X_bar_bar_r": "average measurement error over all measurements of part j",
+        "sigma": "gauge repeatability",
+        "k": "number of appraisers",
+        "r": "number of replications"
+      },
+      "conditions": "",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 34
+    },
+    {
+      "name": "Average and Range method: average range",
+      "expression": "R_bar_bar = (1/nk) * sum_i sum_j R_ij",
+      "symbols": {
+        "R_bar_bar": "average range over all parts and appraisers",
+        "R_ij": "range of the r replications for part j by appraiser i",
+        "n": "number of parts",
+        "k": "number of appraisers"
+      },
+      "conditions": "X_bar_DIFF = range of the appraiser averages; R_bar_p = range of the part averages (defined but not formalized as an equation on this slide)",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 34
+    },
+    {
+      "name": "Estimation of EV (repeatability), Average and Range method",
+      "expression": "E(R_bar_bar) = d2*sigma  =>  EV = sigma ~= R_bar_bar/d2 = R_bar_bar * K1 ;  K1 = 1/d2",
+      "symbols": {
+        "EV": "equipment variation (repeatability)",
+        "R_bar_bar": "average range over all parts and appraisers",
+        "d2": "range-to-sigma constant based on subgroup size = r (number of trials)",
+        "K1": "1/d2"
+      },
+      "conditions": "",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 35
+    },
+    {
+      "name": "Estimation of AV (reproducibility), Average and Range method",
+      "expression": "E(X_bar_DIFF^2) = d2*^2 * sigma^2(X_bar_i)  =>  sigma^2(X_bar_i) ~= X_bar_DIFF^2/d2*^2 = (X_bar_DIFF*K2)^2  =>  AV = sqrt((X_bar_DIFF*K2)^2 - EV^2/(nr))",
+      "symbols": {
+        "AV": "appraiser variation (reproducibility)",
+        "X_bar_DIFF": "range of the appraiser averages",
+        "d2*": "conversion factor based on 1 subgroup of size k (number of appraisers)",
+        "K2": "1/d2*",
+        "EV": "equipment variation",
+        "n": "number of parts",
+        "r": "number of replications"
+      },
+      "conditions": "",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 35
+    },
+    {
+      "name": "Estimation of PV (part variation), Average and Range method",
+      "expression": "PV = sqrt((R_bar_p*K3)^2 - EV^2/(kr)) ~= R_bar_p * K3 ;  K3 = 1/d2*",
+      "symbols": {
+        "PV": "part variation",
+        "R_bar_p": "range of the part averages",
+        "K3": "1/d2*, based on 1 subgroup of size n (number of parts)",
+        "EV": "equipment variation",
+        "k": "number of appraisers",
+        "r": "number of replications"
+      },
+      "conditions": "if process variation is large compared to equipment variation and the selected parts properly represent process variation, PV simplifies to R_bar_p*K3",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 35
+    },
+    {
+      "name": "GRR and TV combination, Average and Range method",
+      "expression": "GRR^2 = EV^2 + AV^2 ;  TV^2 = GRR^2 + PV^2 ;  %GRR = GRR/TV x 100%",
+      "symbols": {
+        "GRR": "gauge repeatability & reproducibility",
+        "EV": "equipment variation",
+        "AV": "appraiser variation",
+        "TV": "total variation",
+        "PV": "part variation",
+        "%GRR": "percent GRR relative to total variation"
+      },
+      "conditions": "acceptance rule of thumb: %GRR<=10% acceptable; 10%<%GRR<=30% may be acceptable depending on application/cost; 30%<%GRR not acceptable",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 35
+    },
+    {
+      "name": "ANOVA method: two-way ANOVA table (without interaction)",
+      "expression": "Factor a=appraiser: SSa, df_a=(k-1), MSa=SSa/df_a, Fa=MSa/MSe. Factor p=part: SSp, df_p=(n-1), MSp=SSp/df_p, Fp=MSp/MSe. Error e: SSe, df_e=nk(r-1)+(k-1)(n-1), MSe=SSe/df_e. Total: SST, df=nkr-1",
+      "symbols": {
+        "k": "number of appraisers",
+        "n": "number of parts",
+        "r": "number of replications",
+        "SSa": "sum of squares appraiser",
+        "SSp": "sum of squares part",
+        "SSe": "sum of squares error",
+        "MSa": "mean square appraiser",
+        "MSp": "mean square part",
+        "MSe": "mean square error"
+      },
+      "conditions": "reproducibility refers to factors appraiser (traditional) and part (by extension); repeatability refers to the error term; significance of factor appraiser means there is an appraiser bias effect (reproducibility significantly > 0)",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 36
+    },
+    {
+      "name": "ANOVA method: EV, AV, PV from mean squares",
+      "expression": "EV = sqrt(MSe) ; AV = sqrt((MSa - EV^2)/(nr)) ; PV = sqrt((MSp - EV^2)/(kr))",
+      "symbols": {
+        "EV": "equipment variation",
+        "AV": "appraiser variation",
+        "PV": "part variation",
+        "MSe": "error mean square",
+        "MSa": "appraiser mean square",
+        "MSp": "part mean square",
+        "n": "number of parts",
+        "r": "number of replications",
+        "k": "number of appraisers"
+      },
+      "conditions": "",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 36
+    },
+    {
+      "name": "ANOVA method: two-way model without interaction (fitted value and residual)",
+      "expression": "X_hat_ij = X_bar_bar + (X_bar_i - X_bar_bar) + (X_bar_j - X_bar_bar) ;  X_ijl - X_hat_ij = X_ijl - X_bar_i - X_bar_j + X_bar_bar",
+      "symbols": {
+        "X_hat_ij": "model (fitted) value for appraiser i, part j",
+        "X_bar_bar": "grand mean",
+        "X_bar_i": "mean for appraiser i",
+        "X_bar_j": "mean for part j",
+        "X_ijl": "actually measured value"
+      },
+      "conditions": "expected measurement value for a given appraiser i and part j in the two-way ANOVA model without interaction",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 36
+    },
+    {
+      "name": "ANOVA method: SST decomposition into MSe and MSa",
+      "expression": "MSe = sum_i sum_j sum_l (X_ijl - X_hat_ij)^2 / [nk(r-1) + (n-1)(k-1)] = EV^2 ;  MSa = nr*sum_i(X_bar_i - X_bar_bar)^2 / (k-1) = nr*(AV^2 + EV^2/(nr))",
+      "symbols": {
+        "MSe": "error mean square",
+        "MSa": "appraiser mean square",
+        "EV": "equipment variation",
+        "AV": "appraiser variation",
+        "n": "number of parts",
+        "k": "number of appraisers",
+        "r": "number of replications"
+      },
+      "conditions": "consequence of the SST decomposition proof (see also Theoretical background of a GRR study.pdf)",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 36
+    },
+    {
+      "name": "Proof of SS_T decomposition",
+      "expression": "SS_T = sum sum sum (X_ijl - X_bar)^2 = sum sum sum (X_ijl - X_hat_ij)^2 + sum sum sum (X_bar_i - X_bar)^2 + sum sum sum (X_bar_j - X_bar)^2  [cross terms (1),(2),(3) each shown to equal 0]",
+      "symbols": {
+        "SS_T": "total sum of squares",
+        "X_hat_ij": "fitted value",
+        "X_bar_i": "appraiser mean",
+        "X_bar_j": "part mean",
+        "X_bar": "grand mean"
+      },
+      "conditions": "full algebraic proof given, showing cross-product terms (1),(2),(3) vanish",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 37
+    },
+    {
+      "name": "Combined standard uncertainty (steel strip example)",
+      "expression": "u_c = sqrt(u1^2 + u2^2 + u3^2 + u4^2)",
+      "symbols": {
+        "u_c": "combined standard uncertainty",
+        "u1": "calibration uncertainty of the tape measure",
+        "u2": "resolution uncertainty (reading to nearest division)",
+        "u3": "uncertainty from non-perpendicular tape placement",
+        "u4": "repeatability uncertainty from the 3 repeated measurements"
+      },
+      "conditions": "errors assumed independent; u1,u2,u3 are type B estimates, u4 is a type A estimate",
+      "file": "source/course/Les 5/20260619_ottoy_Calculating the uncertainty in the width of a steel strip.pdf",
+      "page": 2
+    },
+    {
+      "name": "Repeatability uncertainty from range (steel strip example)",
+      "expression": "u4 = (R / d2) ... with E(R) = d2*sigma, here u4 = 2 / 1.693",
+      "symbols": {
+        "R": "range of the repeated measurements (=2 mm)",
+        "d2": "range-to-sigma constant for subgroup size 3"
+      },
+      "conditions": "footnote 5: E(R) = d2*sigma; the repeatability, based on the range, is 2/d2 = 2/1.693",
+      "file": "source/course/Les 5/20260619_ottoy_Calculating the uncertainty in the width of a steel strip.pdf",
+      "page": 1
+    },
+    {
+      "name": "Result with expanded uncertainty (steel strip example)",
+      "expression": "1834 - 1.8 +/- 2.5 mm = 1832.2 +/- 2.5 mm = [1829.7 ; 1834.7] mm",
+      "symbols": {
+        "1834": "average of the 3 measured widths (mm)",
+        "1.8": "correction for the systematic overestimate (mm)",
+        "2.5": "expanded uncertainty U = k*u_c with k=2 (mm, rounded)"
+      },
+      "conditions": "confidence level about 95%, coverage factor k=2",
+      "file": "source/course/Les 5/20260619_ottoy_Calculating the uncertainty in the width of a steel strip.pdf",
+      "page": 2
+    },
+    {
+      "name": "Pendulum period",
+      "expression": "T = 2*pi*sqrt(l/g)  or equivalently  l = g*(T/(2*pi))^2",
+      "symbols": {
+        "T": "period of a gravitational pendulum",
+        "l": "pendulum length",
+        "g": "gravitational acceleration (~9.81 m/s^2)"
+      },
+      "conditions": "footnote 2; a seconds pendulum (T=2s) has theoretical length 994 mm",
+      "file": "source/course/Les 5/20260619_ottoy_MSA - meter unit.pdf",
+      "page": 1
+    },
+    {
+      "name": "Caesium hyperfine transition constants",
+      "expression": "Delta*nu_Cs = 9 192 631 770 Hz (s^-1) ;  Delta*t_Cs = 1/Delta*nu_Cs = s / 9 192 631 770 ;  Delta*lambda_Cs = c * Delta*t_Cs = 299 792 458 / 9 192 631 770 m",
+      "symbols": {
+        "Delta*nu_Cs": "frequency of the Cs-133 hyperfine transition radiation",
+        "Delta*t_Cs": "period",
+        "Delta*lambda_Cs": "wavelength",
+        "c": "speed of light in vacuum = 299 792 458 m/s"
+      },
+      "conditions": "",
+      "file": "source/course/Les 5/20260619_ottoy_MSA - meter unit.pdf",
+      "page": 4
+    },
+    {
+      "name": "Second and metre in terms of caesium radiation",
+      "expression": "1 s = 9 192 631 770 * Delta*t_Cs ;  1 m = (9 192 631 770 / 299 792 458) * Delta*lambda_Cs",
+      "symbols": {
+        "Delta*t_Cs": "period of caesium hyperfine transition",
+        "Delta*lambda_Cs": "wavelength of caesium hyperfine transition"
+      },
+      "conditions": "",
+      "file": "source/course/Les 5/20260619_ottoy_MSA - meter unit.pdf",
+      "page": 4
+    },
+    {
+      "name": "Gauge block length by laser interferometry",
+      "expression": "L = N * lambda / 2",
+      "symbols": {
+        "L": "distance between the parallel faces of the gauge block",
+        "N": "number of interference fringes counted",
+        "lambda": "known wavelength of the monochromatic laser light"
+      },
+      "conditions": "measurement performed in a climate-controlled room at exactly 20,00 C with sensors compensating for air pressure and humidity",
+      "file": "source/course/Les 5/20260619_ottoy_MSA - meter unit.pdf",
+      "page": 5
+    },
+    {
+      "name": "Distribution of the sample average",
+      "expression": "E(X_bar) = E(X) ;  sigma^2(X_bar) = sigma^2(X)/n",
+      "symbols": {
+        "X_bar": "average of a sample of X-values",
+        "X": "random variable with mean E(X) and variance sigma^2(X)",
+        "n": "sample size"
+      },
+      "conditions": "if n sufficiently large, X_bar follows approximately a normal distribution (Central Limit Theorem)",
+      "file": "source/course/Les 5/20260619_ottoy_Theoretical background of a GRR study.pdf",
+      "page": 1
+    },
+    {
+      "name": "Distribution of the sample range",
+      "expression": "E(R) = d2*sigma ;  sigma(R) = d3*sigma",
+      "symbols": {
+        "R": "range of a sample of X-values",
+        "sigma": "std dev of normally distributed X (mean mu)",
+        "d2": "constant depending on sample size n",
+        "d3": "constant depending on sample size n"
+      },
+      "conditions": "X normally distributed with mean mu and variance sigma^2; example values given: d2 = 2,326 and d3 = 0,864 for 'a sample of size' (the sample size value itself is missing/omitted in the printed text - see ambiguities)",
+      "file": "source/course/Les 5/20260619_ottoy_Theoretical background of a GRR study.pdf",
+      "page": 1
+    },
+    {
+      "name": "Mean and variance of a chi-square distribution",
+      "expression": "E(X) = n ;  sigma^2(X) = 2n",
+      "symbols": {
+        "X": "random variable following a chi-square distribution",
+        "n": "degrees of freedom"
+      },
+      "conditions": "",
+      "file": "source/course/Les 5/20260619_ottoy_Theoretical background of a GRR study.pdf",
+      "page": 1
+    },
+    {
+      "name": "Distribution of the average squared range",
+      "expression": "nu*R_bar^2 / (d2*^2*sigma^2) ~ chi^2(nu) ;  E(nu*R_bar^2/(d2*^2*sigma^2)) = nu  =>  E(R_bar^2) = d2*^2*sigma^2",
+      "symbols": {
+        "R_bar": "average range based on g samples (subgroups) of size m",
+        "sigma": "std dev of normally distributed X",
+        "nu": "degrees of freedom, depends on m and g",
+        "d2*": "constant depending on m and g",
+        "g": "number of subgroups",
+        "m": "subgroup size"
+      },
+      "conditions": "example: for 5 samples of size 3, d2*=1,73857 and nu=9,3; d2* -> d2 as g -> infinity",
+      "file": "source/course/Les 5/20260619_ottoy_Theoretical background of a GRR study.pdf",
+      "page": 1
+    },
+    {
+      "name": "Calculation of EV (theoretical derivation)",
+      "expression": "E(R_bar) = E(R) = d2*sigma = d2*EV  =>  EV = R_bar/d2",
+      "symbols": {
+        "EV": "repeatability (equipment variation)",
+        "R_bar": "average range over all parts and appraisers",
+        "d2": "range-to-sigma constant, subgroup size = r (replications)"
+      },
+      "conditions": "assumes EV is independent from the appraiser and part",
+      "file": "source/course/Les 5/20260619_ottoy_Theoretical background of a GRR study.pdf",
+      "page": 1
+    },
+    {
+      "name": "Calculation of AV (theoretical derivation)",
+      "expression": "E(X_bar_DIFF^2) = d2*^2*sigma^2(X_bar_i) ;  sigma^2(X_bar_i) = sigma^2(X_i..) + sigma^2(X_bar_r) = AV^2 + sigma^2/(nr) = AV^2 + EV^2/(nr) ;  AV^2 = X_bar_DIFF^2/d2*^2 - EV^2/(nr)",
+      "symbols": {
+        "X_bar_DIFF": "range of the appraiser averages X_bar_i",
+        "d2*": "conversion factor based on 1 subgroup of size k (number of appraisers)",
+        "X_i..": "operator bias",
+        "X_bar_r": "average measurement error for operator i (all parts, all replications)",
+        "AV": "reproducibility (appraiser variation)",
+        "EV": "repeatability",
+        "n": "number of parts",
+        "r": "number of replications"
+      },
+      "conditions": "for the average measurement X_bar_i of operator i (all parts n and replications r): X_bar_i = X_bar_p + X_i.. + X_bar_r",
+      "file": "source/course/Les 5/20260619_ottoy_Theoretical background of a GRR study.pdf",
+      "page": 1
+    },
+    {
+      "name": "Calculation of TV and %GRR (theoretical derivation)",
+      "expression": "TV^2 = PV^2 + GRR^2 = PV^2 + AV^2 + EV^2 ;  %GRR = GRR/TV",
+      "symbols": {
+        "TV": "total variation",
+        "PV": "part variation",
+        "GRR": "gauge repeatability and reproducibility",
+        "AV": "appraiser variation",
+        "EV": "equipment variation"
+      },
+      "conditions": "PV calculated in the same way as AV",
+      "file": "source/course/Les 5/20260619_ottoy_Theoretical background of a GRR study.pdf",
+      "page": 2
+    }
+  ],
+  "constant_tables": [
+    {
+      "name": "Values associated with the Distribution of the Average Range (degrees of freedom nu and conversion factor d2* by number of subgroups g and subgroup size m)",
+      "columns": [
+        "g (rows) \\ m (subgroup size, columns)",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20"
+      ],
+      "rows": [
+        [
+          "1",
+          "1.0/1.41421",
+          "2.0/1.91155",
+          "2.9/2.23887",
+          "3.8/2.48124",
+          "4.7/2.67253",
+          "5.5/2.82981",
+          "6.3/2.96288",
+          "7.0/3.07794",
+          "7.7/3.17905",
+          "8.3/3.26909",
+          "9.0/3.35016",
+          "9.6/3.42378",
+          "10.2/3.49116",
+          "10.8/3.55333",
+          "11.3/3.61071",
+          "11.9/3.66422",
+          "12.4/3.71424",
+          "12.9/3.76118",
+          "13.4/3.80537"
+        ],
+        [
+          "2",
+          "1.9/1.27931",
+          "3.8/1.80538",
+          "5.7/2.15069",
+          "7.5/2.40484",
+          "9.2/2.60438",
+          "10.8/2.76779",
+          "12.3/2.90562",
+          "13.8/3.02446",
+          "15.1/3.12869",
+          "16.5/3.22134",
+          "17.8/3.30463",
+          "19.0/3.38017",
+          "20.2/3.44922",
+          "21.3/3.51287",
+          "22.4/3.57156",
+          "23.5/3.62625",
+          "24.5/3.67734",
+          "25.5/3.72524",
+          "26.5/3.77032"
+        ],
+        [
+          "3",
+          "2.8/1.23105",
+          "5.7/1.76858",
+          "8.4/2.12049",
+          "11.1/2.37883",
+          "13.6/2.58127",
+          "16.0/2.74681",
+          "18.3/2.88628",
+          "20.5/3.00643",
+          "22.6/3.11173",
+          "24.6/3.20526",
+          "26.5/3.28931",
+          "28.4/3.36550",
+          "30.1/3.43512",
+          "31.9/3.49927",
+          "33.5/3.55842",
+          "35.1/3.61351",
+          "36.7/3.66495",
+          "38.2/3.71319",
+          "39.7/3.75857"
+        ],
+        [
+          "4",
+          "3.7/1.20621",
+          "7.5/1.74989",
+          "11.2/2.10522",
+          "14.7/2.36571",
+          "18.1/2.56964",
+          "21.3/2.73626",
+          "24.4/2.87656",
+          "27.3/2.99737",
+          "30.1/3.10321",
+          "32.7/3.19720",
+          "35.3/3.28163",
+          "37.7/3.35815",
+          "40.1/3.42805",
+          "42.4/3.49246",
+          "44.6/3.55183",
+          "46.7/3.60712",
+          "48.8/3.65875",
+          "50.8/3.70715",
+          "52.8/3.75268"
+        ],
+        [
+          "5",
+          "4.6/1.19105",
+          "9.3/1.73857",
+          "13.9/2.09601",
+          "18.4/2.35781",
+          "22.6/2.56263",
+          "26.6/2.72991",
+          "30.4/2.87071",
+          "34.0/2.99192",
+          "37.5/3.09808",
+          "40.8/3.19235",
+          "44.0/3.27701",
+          "47.1/3.35372",
+          "50.1/3.42381",
+          "52.9/3.48836",
+          "55.7/3.54787",
+          "58.4/3.60328",
+          "61.0/3.65502",
+          "63.5/3.70352",
+          "65.9/3.74914"
+        ],
+        [
+          "6",
+          "5.5/1.18083",
+          "11.1/1.73099",
+          "16.7/2.08985",
+          "22.0/2.35253",
+          "27.0/2.55795",
+          "31.8/2.72567",
+          "36.4/2.86680",
+          "40.8/2.98829",
+          "45.0/3.09467",
+          "49.0/3.18911",
+          "52.8/3.27392",
+          "56.5/3.35077",
+          "60.1/3.42097",
+          "63.5/3.48563",
+          "66.8/3.54522",
+          "70.0/3.60072",
+          "73.1/3.65253",
+          "76.1/3.70109",
+          "79.1/3.74678"
+        ],
+        [
+          "7",
+          "6.4/1.17348",
+          "12.9/1.72555",
+          "19.4/2.08543",
+          "25.6/2.34875",
+          "31.5/2.55460",
+          "37.1/2.72263",
+          "42.5/2.86401",
+          "47.6/2.98568",
+          "52.4/3.09222",
+          "57.1/3.18679",
+          "61.6/3.27172",
+          "65.9/3.34866",
+          "70.0/3.41894",
+          "74.0/3.48368",
+          "77.9/3.54333",
+          "81.6/3.59888",
+          "85.3/3.65075",
+          "88.8/3.69936",
+          "92.2/3.74509"
+        ],
+        [
+          "8",
+          "7.2/1.16794",
+          "14.8/1.72147",
+          "22.1/2.08212",
+          "29.2/2.34591",
+          "36.0/2.55208",
+          "42.4/2.72036",
+          "48.5/2.86192",
+          "54.3/2.98373",
+          "59.9/3.09039",
+          "65.2/3.18506",
+          "70.3/3.27006",
+          "75.2/3.34708",
+          "80.0/3.41742",
+          "84.6/3.48221",
+          "89.0/3.54192",
+          "93.3/3.59751",
+          "97.4/3.64941",
+          "101.4/3.69806",
+          "105.3/3.74382"
+        ],
+        [
+          "9",
+          "8.1/1.16361",
+          "16.6/1.71828",
+          "24.9/2.07953",
+          "32.9/2.34370",
+          "40.4/2.55013",
+          "47.7/2.71858",
+          "54.5/2.86028",
+          "61.1/2.98221",
+          "67.3/3.08896",
+          "73.3/3.18370",
+          "79.1/3.26878",
+          "84.6/3.34585",
+          "90.0/3.41624",
+          "95.1/3.48107",
+          "100.1/3.54081",
+          "104.9/3.59644",
+          "109.5/3.64838",
+          "114.1/3.69705",
+          "118.5/3.74284"
+        ],
+        [
+          "10",
+          "9.0/1.16014",
+          "18.4/1.71573",
+          "27.6/2.07746",
+          "36.5/2.34192",
+          "44.9/2.54856",
+          "52.9/2.71717",
+          "60.6/2.85898",
+          "67.8/2.98100",
+          "74.8/3.08781",
+          "81.5/3.18262",
+          "87.9/3.26775",
+          "94.0/3.34486",
+          "99.9/3.41529",
+          "105.6/3.48016",
+          "111.2/3.53993",
+          "116.5/3.59559",
+          "121.7/3.64755",
+          "126.7/3.69625",
+          "131.6/3.74205"
+        ],
+        [
+          "11",
+          "9.9/1.15729",
+          "20.2/1.71363",
+          "30.4/2.07577",
+          "40.1/2.34048",
+          "49.4/2.54728",
+          "58.2/2.71600",
+          "66.6/2.85791",
+          "74.6/2.98000",
+          "82.2/3.08688",
+          "89.6/3.18174",
+          "96.6/3.26690",
+          "103.4/3.34406",
+          "109.9/3.41452",
+          "116.2/3.47941",
+          "122.3/3.53921",
+          "128.1/3.59489",
+          "133.8/3.64687",
+          "139.4/3.69558",
+          "144.7/3.74141"
+        ],
+        [
+          "12",
+          "10.7/1.15490",
+          "22.0/1.71189",
+          "33.1/2.07436",
+          "43.7/2.33927",
+          "53.8/2.54621",
+          "63.5/2.71504",
+          "72.6/2.85702",
+          "81.3/2.97917",
+          "89.7/3.08610",
+          "97.7/3.18100",
+          "105.4/3.26620",
+          "112.7/3.34339",
+          "119.9/3.41387",
+          "126.7/3.47879",
+          "133.3/3.53861",
+          "139.8/3.59430",
+          "146.0/3.64630",
+          "152.0/3.69503",
+          "157.9/3.74087"
+        ],
+        [
+          "13",
+          "11.6/1.15289",
+          "23.8/1.71041",
+          "35.8/2.07316",
+          "47.3/2.33824",
+          "58.3/2.54530",
+          "68.7/2.71422",
+          "78.6/2.85627",
+          "88.1/2.97847",
+          "97.1/3.08544",
+          "105.8/3.18037",
+          "114.1/3.26561",
+          "122.1/3.34282",
+          "129.8/3.41333",
+          "137.3/3.47826",
+          "144.4/3.53810",
+          "151.4/3.59381",
+          "158.1/3.64582",
+          "164.7/3.69457",
+          "171.0/3.74041"
+        ],
+        [
+          "14",
+          "12.5/1.15115",
+          "25.7/1.70914",
+          "38.6/2.07213",
+          "51.0/2.33737",
+          "62.8/2.54452",
+          "74.0/2.71351",
+          "84.7/2.85562",
+          "94.9/2.97787",
+          "104.6/3.08487",
+          "113.9/3.17984",
+          "122.9/3.26510",
+          "131.5/3.34233",
+          "139.8/3.41286",
+          "147.8/3.47781",
+          "155.5/3.53766",
+          "163.0/3.59339",
+          "170.3/3.64541",
+          "177.3/3.69417",
+          "184.2/3.74002"
+        ],
+        [
+          "15",
+          "13.4/1.14965",
+          "27.5/1.70804",
+          "41.3/2.07125",
+          "54.6/2.33661",
+          "67.2/2.54385",
+          "79.3/2.71290",
+          "90.7/2.85506",
+          "101.6/2.97735",
+          "112.1/3.08438",
+          "122.1/3.17938",
+          "131.7/3.26465",
+          "140.9/3.34191",
+          "149.8/3.41245",
+          "158.3/3.47742",
+          "166.6/3.53728",
+          "174.6/3.59302",
+          "182.4/3.64505",
+          "190.0/3.69382",
+          "197.3/3.73969"
+        ],
+        [
+          "16",
+          "14.3/1.14833",
+          "29.3/1.70708",
+          "44.1/2.07047",
+          "58.2/2.33594",
+          "71.7/2.54326",
+          "84.5/2.71237",
+          "96.7/2.85457",
+          "108.4/2.97689",
+          "119.5/3.08395",
+          "130.2/3.17897",
+          "140.4/3.26427",
+          "150.2/3.34154",
+          "159.7/3.41210",
+          "168.9/3.47707",
+          "177.7/3.53695",
+          "186.3/3.59270",
+          "194.6/3.64474",
+          "202.6/3.69351",
+          "210.4/3.73939"
+        ],
+        [
+          "17",
+          "15.1/1.14717",
+          "31.1/1.70623",
+          "46.8/2.06978",
+          "61.8/2.33535",
+          "76.2/2.54274",
+          "89.8/2.71190",
+          "102.8/2.85413",
+          "115.1/2.97649",
+          "127.0/3.08358",
+          "138.3/3.17861",
+          "149.2/3.26393",
+          "159.6/3.34121",
+          "169.7/3.41178",
+          "179.4/3.47677",
+          "188.8/3.53666",
+          "197.9/3.59242",
+          "206.7/3.64447",
+          "215.2/3.69325",
+          "223.6/3.73913"
+        ],
+        [
+          "18",
+          "16.0/1.14613",
+          "32.9/1.70547",
+          "49.5/2.06917",
+          "65.5/2.33483",
+          "80.6/2.54228",
+          "95.1/2.71148",
+          "108.8/2.85375",
+          "121.9/2.97613",
+          "134.4/3.08324",
+          "146.4/3.17829",
+          "157.9/3.26362",
+          "169.0/3.34092",
+          "179.7/3.41150",
+          "190.0/3.47650",
+          "199.9/3.53640",
+          "209.5/3.59216",
+          "218.8/3.64422",
+          "227.9/3.69301",
+          "236.7/3.73890"
+        ],
+        [
+          "19",
+          "16.9/1.14520",
+          "34.7/1.70480",
+          "52.3/2.06862",
+          "69.1/2.33436",
+          "85.1/2.54187",
+          "100.3/2.71111",
+          "114.8/2.85341",
+          "128.7/2.97581",
+          "141.9/3.08294",
+          "154.5/3.17801",
+          "166.7/3.26335",
+          "178.4/3.34066",
+          "189.6/3.41125",
+          "200.5/3.47626",
+          "211.0/3.53617",
+          "221.1/3.59194",
+          "231.0/3.64400",
+          "240.5/3.69280",
+          "249.8/3.73869"
+        ],
+        [
+          "20",
+          "17.8/1.14437",
+          "36.5/1.70419",
+          "55.0/2.06813",
+          "72.7/2.33394",
+          "89.6/2.54149",
+          "105.6/2.71077",
+          "120.9/2.85310",
+          "135.4/2.97552",
+          "149.3/3.08267",
+          "162.7/3.17775",
+          "175.5/3.26311",
+          "187.8/3.34042",
+          "199.6/3.41103",
+          "211.0/3.47605",
+          "222.1/3.53596",
+          "232.8/3.59174",
+          "243.1/3.64380",
+          "253.2/3.69260",
+          "263.0/3.73850"
+        ],
+        [
+          "d2 (g->infinity) / cd",
+          "1.12838/0.876",
+          "1.69257/1.815",
+          "2.05875/2.7378",
+          "2.32593/3.623",
+          "2.53441/4.4658",
+          "2.70436/5.2673",
+          "2.8472/6.0305",
+          "2.97003/6.7582",
+          "3.07751/7.4539",
+          "3.17287/8.1207",
+          "3.25846/8.7602",
+          "3.33598/9.3751",
+          "3.40676/9.9679",
+          "3.47193/10.5396",
+          "3.53198/11.0913",
+          "3.58788/11.6259",
+          "3.64006/12.144",
+          "3.68896/12.6468",
+          "3.735/13.1362"
+        ]
+      ],
+      "file": "source/course/Les 5/20260619_ottoy_tabel MSA.pdf",
+      "page": 1,
+      "note": "Each data cell is formatted as 'nu/d2*' where nu (1st line in the printed table) is the degrees of freedom and d2* (2nd line) is the conversion factor, for g subgroups (rows, number of subgroups 1-20) of subgroup size m (columns 2-20). The last row gives d2 (=d2* as g->infinity) and cd (constant difference, used to build up additional values of nu), transcribed as 'd2/cd'. Source note printed on the table: 'Table entries: 1st line of each cell is the degrees of freedom (nu) and the 2nd line of each cell is d2*; d2 is the infinity value of d2*. Additional values of nu can be built up from the constant difference cd.' 'Note: The notation used in this table follows that of Acheson Duncan Quality Control and Industrial Statistics, 5th edition, McGraw-Hill, 1986.' Formula printed under table: nu*(R_bar/d2*)^2/sigma^2 is distributed approximately as a chi-square distribution with nu degrees of freedom where R_bar is the average range of g subgroups of size m. Source: 'Measurement Systems Analysis', Reference Manual, (c) DaimlerChrysler Corporation, Ford Motor Company, General Motors Corporation, 2002."
+    }
+  ],
+  "worked_examples": [
+    {
+      "id": "S10-WE01",
+      "tool": "measurement-uncertainty-propagation",
+      "given": {
+        "context": "Cold Rolling Mill dept of a steel plant, width of steel coils measured with a tape measure at entrance of galvanizing line",
+        "measurement_procedure": "each coil measured 3 times, aligning tape measure freshly each time, results recorded to nearest mm",
+        "average_of_3_measurements_mm": "1834",
+        "range_of_3_measurements_mm": "2",
+        "u1_calibration": "u1 = 1834 x 0.1% / 2 = 0.917 (calibration certificate: uncertainty 0.1% of reading at coverage factor 2, normal distribution)",
+        "u2_resolution": "u2 = 0.5 / sqrt(3) = 0.289 (tape divisions are millimetres; reading to nearest division gives error <= 0.5 mm, uniformly distributed)",
+        "u3_perpendicularity": "u3 = 0.917 / sqrt(3) = 0.529 (tape lies straight but not always perpendicular to the coil, overestimate ~0.1% assumed uniformly distributed; correction of -1.8 mm to be subtracted)",
+        "u4_repeatability": "u4 = 2 / d2 = 2 / 1.693 = 0.682 (repeatability based on the range of the 3 measurements; d2 for subgroup size 3 = 1.693; footnote: E(R) = d2*sigma)",
+        "type_of_estimates": "u1, u2, u3 are type B estimates; u4 is a type A estimate",
+        "coverage_factor_k": "2 (for about 95% confidence)"
+      },
+      "stated_answers": {
+        "u_c": "sqrt(0.917^2 + 0.289^2 + 0.529^2 + 0.682^2) = 1.264",
+        "result": "1834 - 1.8 +/- 2.5 mm = 1832.2 +/- 2.5 mm = [1829.7 ; 1834.7] mm"
+      },
+      "file": "source/course/Les 5/20260619_ottoy_Calculating the uncertainty in the width of a steel strip.pdf",
+      "page": 2,
+      "legible": true
+    },
+    {
+      "id": "S10-WE02",
+      "tool": "gage-rr-anova",
+      "given": {
+        "context": "Steering-mechanism part measured on a jig with several gauges; 3 operators (A, B, C, one per shift), 5 parts (P1-P5), each operator measures each part twice (2 trials); measurements blind (operators unaware of the study, cannot identify parts) to avoid Hawthorne effect.",
+        "raw_data_layout": "3 operators x 5 parts x 2 trials = 30 coded measurement values (coded so that 0 = 1.5400 inch, units of 0.0001 inch)",
+        "data_ref": "20260619_ottoy_GRR - ANOVA - avegage and range - 2.xlsx::measurements!D4:F13",
+        "two_way_summary_counts_per_part_operator": "each of the 5 parts (P1-P5) x 3 operators (A,B,C) cell has Count=2",
+        "two_way_summary_sums": {
+          "P1": {
+            "A": 35,
+            "B": 40,
+            "C": 35,
+            "Total": 110
+          },
+          "P2": {
+            "A": 45,
+            "B": 25,
+            "C": 40,
+            "Total": 110
+          },
+          "P3": {
+            "A": 50,
+            "B": 25,
+            "C": 50,
+            "Total": 125
+          },
+          "P4": {
+            "A": 100,
+            "B": 65,
+            "C": 95,
+            "Total": 260
+          },
+          "P5": {
+            "A": 85,
+            "B": 75,
+            "C": 80,
+            "Total": 240
+          },
+          "Total_by_operator": {
+            "A": 315,
+            "B": 230,
+            "C": 300
+          }
+        },
+        "anova_table_with_interaction": {
+          "Sample(part)": {
+            "SS": "3703.3333333333317",
+            "df": 4,
+            "MS": "925.8333333333329",
+            "F": "33.66666666666665",
+            "P-value": "2.491462664751556e-07",
+            "F_crit": "3.055568275906595"
+          },
+          "Columns(operator)": {
+            "SS": "411.66666666666515",
+            "df": 2,
+            "MS": "205.83333333333258",
+            "F": "7.484848484848457",
+            "P-value": "0.005566302509039628",
+            "F_crit": "3.682320343673241"
+          },
+          "Interaction": {
+            "SS": "296.66666666666833",
+            "df": 8,
+            "MS": "37.08333333333354",
+            "F": "1.3484848484848562",
+            "P-value": "0.29389593285256765",
+            "F_crit": "2.6407968829069026"
+          },
+          "Within": {
+            "SS": "412.5",
+            "df": 15,
+            "MS": "27.5"
+          },
+          "Total": {
+            "SS": "4824.166666666665",
+            "df": 29
+          }
+        },
+        "derived_anova_table_without_interaction_additive_model": {
+          "Sample(part)": {
+            "SS": "3703.3333333333317",
+            "df": 4,
+            "MS": "925.8333333333329",
+            "F(=M43/M45)": "30.027012913272415",
+            "P-value": "7.891401310189394e-09",
+            "F_crit": "2.795538737361387"
+          },
+          "Columns(operator)": {
+            "SS": "411.66666666666515",
+            "df": 2,
+            "MS": "205.83333333333258",
+            "F(=M44/M45)": "6.675672537874224",
+            "P-value": "0.005174692331288533",
+            "F_crit": "3.4221322078611767"
+          },
+          "Within(pooled = Interaction+Within)": {
+            "SS(formula)": "=412.5+296.667 = 709.1669999999999",
+            "df": 23,
+            "MS": "30.833347826086953"
+          },
+          "Total": {
+            "SS": "4824.167",
+            "df": 29
+          }
+        }
+      },
+      "stated_answers": {
+        "EV_squared": "30.833347826086953",
+        "EV": "5.55277838798623",
+        "AV_squared (formula (M44-M45)/5/2)": "17.499998550724563",
+        "AV": "4.183299959448828",
+        "PV_squared (formula (M43-M45)/3/2)": "149.16666425120766",
+        "PV": "12.213380541488407",
+        "TV_squared": "197.5000106280192",
+        "TV": "14.053469700683145",
+        "%GRR (formula sqrt((EV^2+AV^2)/TV^2))": "0.4946976766371385",
+        "conclusion": "niet geschikt (Dutch: 'not suitable')"
+      },
+      "file": "source/course/Les 5/20260619_ottoy_GRR - ANOVA - avegage and range - 2.xlsx",
+      "page": 3,
+      "legible": true
+    },
+    {
+      "id": "S10-WE03",
+      "tool": "gage-rr-average-range",
+      "given": {
+        "context": "Same steering-mechanism GRR study as S10-WE02, analysed via the average and range method",
+        "Rbarbar": "4.333333333333333 (average range over all parts/operators, measurements!H17)",
+        "XbarDIFF": "8.5 (range of the 3 operator averages A=31.5, B=23, C=30; measurements!H24)",
+        "Rbarp": "25.000000000000004 (range of the 5 part averages; measurements!H25)",
+        "d2 (for EV, subgroup size = 2 replications)": "1.12838",
+        "d2*(A) (for AV, 1 subgroup of size 3 = number of appraisers)": "1.91155",
+        "d2*(P) (for PV, 1 subgroup of size 5 = number of parts)": "2.48124",
+        "part_averages_by_part": {
+          "P1": "18.333333333333332",
+          "P2": "18.333333333333332",
+          "P3": "20.833333333333332",
+          "P4": "43.333333333333336",
+          "P5": 40
+        },
+        "operator_averages": {
+          "A": 31.5,
+          "B": 23,
+          "C": 30
+        }
+      },
+      "stated_answers": {
+        "EV_squared (formula (Rbarbar/d2)^2)": "14.748010407080953",
+        "EV": "3.84031384226354",
+        "AV_squared (formula (XbarDIFF/d2*(A))^2 - EV^2/5/2)": "18.29792399180488",
+        "AV": "4.277607274143441",
+        "PV_squared (formula (Rbarp/d2*(P))^2 - EV^2/3/2)": "99.05986189024185",
+        "PV": "9.95288208963825",
+        "TV_squared (sum of EV^2,AV^2,PV^2)": "132.10579628912768",
+        "TV": "11.493728563400463",
+        "%GRR (formula sqrt((EV^2+AV^2)/TV^2))": "0.5001474761437733"
+      },
+      "file": "source/course/Les 5/20260619_ottoy_GRR - ANOVA - avegage and range - 2.xlsx",
+      "page": 4,
+      "legible": true
+    },
+    {
+      "id": "S10-WE04a",
+      "tool": "spc-inadequate-discrimination-xbar-r",
+      "given": {
+        "context": "Illustration of inadequate discrimination in process control using Rheostat Knob Data; a stable process can still appear out-of-control on an X-bar/R chart if measurement resolution is too coarse relative to process variation",
+        "data": "27 subgroups of size 5, original data recorded in inches to 1/1000 inch",
+        "data_ref": "20260619_ottoy_Rheostat Knob Data.xls::originele data!A3:E29"
+      },
+      "stated_answers": {
+        "CL_Xbar": "0.14062962962962963",
+        "LCL_Xbar": "0.13569307407407408",
+        "UCL_Xbar": "0.1455661851851852",
+        "CL_R (=Rbar)": "0.008555555555555535",
+        "LCL_R": "0.0",
+        "UCL_R": "0.0180864444444444",
+        "note": "Subgroup ranges take many distinct values (e.g. 0.002 to 0.016), consistent with adequate discrimination for the original (1/1000 inch) data."
+      },
+      "file": "source/course/Les 5/20260619_ottoy_Rheostat Knob Data.xls",
+      "page": 3,
+      "legible": true
+    },
+    {
+      "id": "S10-WE04b",
+      "tool": "spc-inadequate-discrimination-xbar-r",
+      "given": {
+        "context": "Same 27 subgroups of size 5, but rounded to 1/100 inch, illustrating inadequate discrimination",
+        "data_ref": "20260619_ottoy_Rheostat Knob Data.xls::afgeronde data!A3:E29"
+      },
+      "stated_answers": {
+        "CL_Xbar": "0.14029629629629636",
+        "LCL_Xbar": "0.13751814814814822",
+        "UCL_Xbar": "0.1430744444444445",
+        "CL_R (=Rbar)": "0.004814814814814811",
+        "LCL_R": "0.0",
+        "UCL_R": "0.01017851851851851",
+        "note": "Subgroup ranges within control limits take only 3 distinct values (0, 0.01, 0.02), which by the course's rule of thumb (n=5 >= 3: not more than 4 different values indicates inadequate discrimination) signals that the measurement unit (0.01 inch) is too large for this control chart."
+      },
+      "file": "source/course/Les 5/20260619_ottoy_Rheostat Knob Data.xls",
+      "page": 4,
+      "legible": true
+    },
+    {
+      "id": "S10-WE05",
+      "tool": "gage-linearity",
+      "given": {
+        "context": "PPAP linearity study exercise (slide 33): 5 parts chosen throughout the operating range, reference value established by layout inspection, each part measured 12 times by the lead operator in random order",
+        "part_number": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "ref_value": [
+          "1.99",
+          "4.02",
+          "5.97",
+          "7.99",
+          "9.80"
+        ],
+        "measurements": {
+          "1": [
+            "2.70",
+            "4.10",
+            "5.80",
+            "7.70",
+            "10.10"
+          ],
+          "2": [
+            "2.50",
+            "3.90",
+            "5.70",
+            "7.80",
+            "10.30"
+          ],
+          "3": [
+            "2.40",
+            "4.20",
+            "5.90",
+            "7.90",
+            "10.50"
+          ],
+          "4": [
+            "2.50",
+            "4.00",
+            "5.90",
+            "7.80",
+            "10.30"
+          ],
+          "5": [
+            "2.70",
+            "3.80",
+            "6.00",
+            "7.90",
+            "10.40"
+          ],
+          "6": [
+            "2.30",
+            "3.90",
+            "6.10",
+            "7.90",
+            "10.50"
+          ],
+          "7": [
+            "2.50",
+            "3.90",
+            "6.00",
+            "7.90",
+            "10.50"
+          ],
+          "8": [
+            "2.50",
+            "3.90",
+            "6.10",
+            "7.80",
+            "10.50"
+          ],
+          "9": [
+            "2.40",
+            "3.90",
+            "6.20",
+            "7.90",
+            "10.60"
+          ],
+          "10": [
+            "2.40",
+            "4.00",
+            "6.00",
+            "7.60",
+            "10.20"
+          ],
+          "11": [
+            "2.60",
+            "4.10",
+            "6.00",
+            "7.70",
+            "10.30"
+          ],
+          "12": [
+            "2.40",
+            "3.80",
+            "6.10",
+            "7.80",
+            "9.40"
+          ]
+        },
+        "layout_note": "columns correspond to part 1..5 (matching ref_value order); rows are the 12 repeated measurements per part"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 5/20260619_ottoy_linearity.txt",
+      "page": 1,
+      "legible": true
+    },
+    {
+      "id": "S10-WE06",
+      "tool": "measurement-system-capability",
+      "given": {
+        "context": "Exercise text: 'Suppose a measurement system has a %GRR value of 50%. What value for the actual process Cp index would be required in order for the observed Cp index to be at least 1.33? Answer the question for both options to express %GRR.'",
+        "%GRR": "50 %",
+        "target_observed_Cp": "1.33",
+        "note": "A Cp value of at least 1.33 is a common requirement for processes. For a well centered process this implies a defective part rate of not more than 60 ppm."
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 24,
+      "legible": true
+    },
+    {
+      "id": "S10-WE07",
+      "tool": "measurement-system-capability",
+      "given": {
+        "context": "Process acceptance example: a high order measurement system used at buy-off, %GRR = 10% (based on tolerance range); actual process Cp = 2 leads to an observed Cp of 1.96. When the process is later studied in production with the production gauge, %GRR is larger.",
+        "scenario_1_%GRR": "10 %",
+        "scenario_1_actual_Cp": 2,
+        "scenario_2_%GRR": "30 %",
+        "scenario_2_actual_Cp": 2,
+        "scenario_3_worst_case_%GRR": "60 % (production gauge not qualified but nevertheless used)",
+        "scenario_3_actual_Cp": 2
+      },
+      "stated_answers": {
+        "scenario_1_observed_Cp (buy-off, %GRR=10%)": "1.96",
+        "scenario_2_observed_Cp (production, %GRR=30%)": "1.71 (still acceptable)",
+        "scenario_3_observed_Cp (worst case, %GRR=60%)": "1.20 (a value unacceptable in most cases)",
+        "conclusion": "The difference between the observed Cp at buy-off and the observed Cp during production is fully due to the measurement system and not to any form of process deterioration."
+      },
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 26,
+      "legible": true
+    },
+    {
+      "id": "S10-WE08",
+      "tool": "gage-performance-curve",
+      "given": {
+        "context": "Example GPC: Xm ~ N(Xr+b, sigma_GRR)",
+        "LSL": "0.6",
+        "USL": "1.0",
+        "b (bias)": "0.05",
+        "sigma_GRR": "0.05",
+        "question_1": "What is the probability of accepting a part with ref. value 0.5? (This is a part outside the specification limits.)",
+        "question_2": "What is the probability of accepting a part with ref. value 0.9? (This is a part within the specification limits.)"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 27,
+      "legible": true
+    }
+  ],
+  "conventions": [
+    {
+      "topic": "ANOVA vs average & range method",
+      "as_stated": "The course teaches both methods ('Determining repeatability and reproducibility: Average and range method' p34-35, and '...Anova' p36-37) and states ANOVA 'offers more accurate estimates for repeatability and reproducibility' and can be extended to different components of reproducibility and to interactions. The worked exercise (GRR - ANOVA - average and range - 2.xlsx) applies both methods to the identical steering-mechanism dataset: %GRR = 49.47% (ANOVA, sheet '2way anova') vs %GRR = 50.01% (average & range, sheet 'ranges'). No single method is declared mandatory in this slice.",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 36
+    },
+    {
+      "topic": "K1/K2/K3 (or d2*) constants used, and which trials/operators/parts counts",
+      "as_stated": "K1 = 1/d2, with d2-value based on subgroup size = r (the number of trials/replications). K2 = 1/d2*, with d2* based on 1 subgroup of size k (the number of appraisers). K3 = 1/d2*, based on 1 subgroup of size n (the number of parts). In the worked exercise ('ranges' sheet): d2 = 1.12838 for subgroup size 2 (r=2 replications), d2*(A) = 1.91155 for '1 subgroup van grootte 3' (k=3 appraisers), d2*(P) = 2.48124 for '1 subgroup van grootte 5' (n=5 parts) - these match the g=1 row of the 'tabel MSA' d2*/nu table at m=3 and m=5 respectively.",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 35
+    },
+    {
+      "topic": "5.15 sigma vs 6 sigma study variation",
+      "as_stated": "Footnote on slide 24: 'Historically, by convention, a 99 % spread has been used to represent the “full spread of the measurement error”. Following this convention, a multiplying factor of 5.15 has to be used. More recently a multiplying factor of 6 is used, representing 99.73 % spread.' The formulas actually printed on the slides (%GRR = 6*sigma_m/6*sigma_o and %GRR = 6*sigma_m/TOL) use the factor 6, not 5.15.",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 24
+    },
+    {
+      "topic": "%GRR relative to total variation vs relative to tolerance",
+      "as_stated": "Both bases are taught: '%GRR based on process variation' = 6*sigma_m/6*sigma_o (x100%) and '%GRR based on tolerance range' = 6*sigma_m/TOL (x100%) (slide 24). Separately, the average-range and ANOVA method sections define %GRR = GRR/TV x 100% i.e. relative to total variation TV (slide 35), and this is the basis actually used in both worked-example spreadsheets (2way anova sheet: %GRR = sqrt((EV^2+AV^2)/TV^2); ranges sheet: same formula).",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 24
+    },
+    {
+      "topic": "Acceptance thresholds (10%/30%)",
+      "as_stated": "Rule of thumb (slide 35): '%GRR <= 10% : gauge generally considered to be acceptable'; '10% < %GRR <= 30% : gauge may be acceptable based upon importance of application, cost of procurement, cost of repair, etc'; '30% < %GRR : gauge considered to be not acceptable – every effort should be made to improve the measurement system.' Slide 23 similarly states measurements are 'often characterized as inadequate when sigma_GRR is above some percentage of the tolerance interval (commonly 20 % or 30 %)'. In the worked exercise both methods give %GRR ~ 49-50%, i.e. > 30%, so the workbook's own conclusion cell literally reads 'niet geschikt' (not suitable).",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 35
+    },
+    {
+      "topic": "one- vs two-tailed defaults (bias/linearity significance tests)",
+      "as_stated": "The bias test uses an explicitly two-sided formulation: '(1 - alpha) x 100 % confidence interval for the true gauge bias' with 'The gauge bias is significant if zero does not belong to this interval' (slide 32), i.e. a two-sided test. The linearity test is stated as 'H0: slope = 0 vs HA: slope <> 0' (two-sided) and, if accepted, an additional two-sided test 'H0: intercept = 0 vs HA: intercept <> 0' (slide 33). No numeric alpha value is given anywhere in this slice for either test; alpha remains symbolic.",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 32
+    },
+    {
+      "topic": "Gage R&R (ANOVA) method: pooling the operator x part interaction when not significant",
+      "as_stated": "The course PDF (pages 34-38) does not state a numeric alpha threshold for pooling the interaction term in the ANOVA method. However, the lecturer's own worked-solution spreadsheet ('2way anova' sheet) computes a 'derived ANOVA table, without estimation of the interaction (additive model)' (Dutch label: 'Afgeleide ANOVA-tabel, zonder schatting van de interactie (additief model)') in which the Interaction SS (P-value = 0.29389593285256765, i.e. not significant at common alpha levels) is pooled together with the original Within/error SS into a new 'Within' term with df = 23, and EV/AV/PV are computed from this pooled table. No explicit pooling-alpha criterion (e.g. 0.25) is stated in the course text itself; this is only implicit in the workbook.",
+      "file": "source/course/Les 5/20260619_ottoy_GRR - ANOVA - avegage and range - 2.xlsx",
+      "page": 3
+    },
+    {
+      "topic": "rounding of the data ('afgeronde data' vs 'originele data')",
+      "as_stated": "The Rheostat Knob Data workbook deliberately provides the same 27 subgroups of 5 measurements both 'The original data recorded in inches to 1/1000 inch' (sheet 'originele data') and 'Rounded data to 1/100 inch' (sheet 'afgeronde data'), specifically to illustrate the effect of coarse measurement resolution (inadequate discrimination) on the appearance of an X-bar/R control chart (course text, slide 30: 'Illustration : Rheostat knob data'). This is a teaching illustration of measurement unit granularity, not a general data-rounding convention for calculations elsewhere in the course.",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 30
+    },
+    {
+      "topic": "bias/linearity test alpha",
+      "as_stated": "Neither the 'Determining bias' (slide 32) nor the 'Determining linearity' (slide 33) sections specify a numeric significance level; both are given only in symbolic form ('(1-alpha)x100%' / 'H0 ... vs HA ...'). The course is silent on which numeric alpha to use for these MSA tests.",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 33
+    },
+    {
+      "topic": "which Excel functions are used",
+      "as_stated": "The lecturer's own workbook ('2way anova' sheet) uses Excel's built-in 'Anova: Two-Factor With Replication' data-analysis output (SUMMARY table with Count/Sum/Average/Variance, and ANOVA table with SS/df/MS/F/P-value/F crit), plus explicit formulas '=_xlfn.F.DIST(N43,L43,L45,TRUE)' and '=_xlfn.F.INV(0.95,L43,L45)' for the derived (pooled) ANOVA table, and SQRT()/SUM()/MAX()/MIN() for EV/AV/PV/TV/%GRR. The 'on d2 and d2star' sheet uses volatile '=_xlfn.NORM.INV(RAND(),0,1)' and OFFSET() formulas for its Monte-Carlo demonstration.",
+      "file": "source/course/Les 5/20260619_ottoy_GRR - ANOVA - avegage and range - 2.xlsx",
+      "page": 3
+    },
+    {
+      "topic": "ndc (number of distinct categories) formula and minimum",
+      "as_stated": "Not present anywhere in this slice's source material (main MSA primer pdf, GRR workbook, Rheostat workbook, or the two short PDFs). No ndc formula or minimum-value criterion is stated in these documents; per instructions, no value is inferred.",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 38
+    }
+  ],
+  "ambiguities": [
+    {
+      "issue": "Slide text for the bias t-statistic literally states the statistic 'follows a t-distribution with n degrees of freedom', but the same slide's confidence-interval formula and surrounding text (and the Patnaik result on the same page) consistently use the symbol nu (not n) for the (possibly non-integer) degrees of freedom, and n is used elsewhere in the document for 'number of parts'. Transcribed as printed; likely an inconsistency/typo in the course text between 'n' and 'nu'.",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 32
+    },
+    {
+      "issue": "'Theoretical background of a GRR study.pdf' states: 'For instance for a sample of size d2 = 2,326 and d3 = 0,864.' The sentence appears to be missing the actual sample size value n (grammatically expected, e.g. 'for a sample of size n=5'). Based on standard d2 tables (d2=2.326 corresponds to n=5), the missing value is very likely 5, but this is not printed in the source and is not filled in per the no-inference rule.",
+      "file": "source/course/Les 5/20260619_ottoy_Theoretical background of a GRR study.pdf",
+      "page": 1
+    },
+    {
+      "issue": "The 'tabel MSA.pdf' page is an image-only scan of a large two-line-per-cell table (nu on line 1, d2* on line 2) for g=1..20 subgroups x m=2..20 subgroup size, transcribed visually at 400 dpi. Digits were legible in the rendered crops used for transcription, but because the whole table (400+ numeric cells) was read from a scanned image rather than a text layer, any single-digit misread (e.g. a smudged 1/7 or 3/8) cannot be fully ruled out; spot cross-checks against the same constants reproduced in 'GRR - ANOVA - avegage and range - 2.xlsx' (d2=1.12838 for m=2; d2*=1.91155 for g=1,m=3; d2*=2.48124 for g=1,m=5) and against 'Theoretical background of a GRR study.pdf' (d2*=1.73857, nu=9.3 for g=5,m=3) were consistent with the transcribed table.",
+      "file": "source/course/Les 5/20260619_ottoy_tabel MSA.pdf",
+      "page": 1
+    },
+    {
+      "issue": "Worked example S10-WE05 (linearity.txt) and S10-WE06 (Cp/%GRR=50% exercise, slide 24) and S10-WE08 (Gauge Performance Curve numeric example, slide 27) are exercises/questions posed to the student; the course source does not print a computed numeric answer for any of them (they are left as exercises). Recorded with empty stated_answers as instructed.",
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 24
+    },
+    {
+      "issue": "The 'on d2 and d2star' sheet of the GRR workbook (~600 rows) is a Monte-Carlo simulation using volatile formulas (RAND()/NORM.INV/OFFSET); its cell values are not fixed data and change every time the workbook recalculates. It was summarised (topic + structure) rather than transcribed as a constant table, per the task instructions for a non-constant large sheet.",
+      "file": "source/course/Les 5/20260619_ottoy_GRR - ANOVA - avegage and range - 2.xlsx",
+      "page": 5
+    }
+  ]
+}

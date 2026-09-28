@@ -1,0 +1,7 @@
+Kenmerk,Nominaal,Ordinaal,Interval,Ratio,source_file,source_page,table_name
+Definitie,Categorieën zonder volgorde. Alleen benoemen en tellen.,"Categorieën met volgorde, maar de afstanden hebben geen betekenis of zijn niet 'gelijk'.","Gelijke afstanden, maar geen absoluut nulpunt.",Gelijke afstanden en een absoluut nulpunt.,source/course/Les 1/20260521_van volsem.pdf,82,De vier meetschalen (nominaal/ordinaal/interval/ratio) en toegelaten bewerkingen
+Voorbeeld,"Geslacht, provincie, burgerlijke staat","Tevredenheid (1-5), opleidingsniveau","Temperatuur (graden C), jaar van geboorte","Gewicht, spanning, inkomen, lengte",source/course/Les 1/20260521_van volsem.pdf,82,De vier meetschalen (nominaal/ordinaal/interval/ratio) en toegelaten bewerkingen
+Modus / tellen,✓,✓,✓,✓,source/course/Les 1/20260521_van volsem.pdf,82,De vier meetschalen (nominaal/ordinaal/interval/ratio) en toegelaten bewerkingen
+Mediaan,✗,✓,✓,✓,source/course/Les 1/20260521_van volsem.pdf,82,De vier meetschalen (nominaal/ordinaal/interval/ratio) en toegelaten bewerkingen
+Gemiddelde,✗,✗ *,✓,✓,source/course/Les 1/20260521_van volsem.pdf,82,De vier meetschalen (nominaal/ordinaal/interval/ratio) en toegelaten bewerkingen
+Verhoudingen,✗,✗,✗,✓,source/course/Les 1/20260521_van volsem.pdf,82,De vier meetschalen (nominaal/ordinaal/interval/ratio) en toegelaten bewerkingen

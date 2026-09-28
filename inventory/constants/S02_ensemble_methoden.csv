@@ -1,0 +1,4 @@
+Methode,Kernidee,Sterkte,source_file,source_page,table_name
+Random Forest,"k bomen op willekeurige subsets, dan middelen","Robuust, weinig tuning",source/course/Les 2/20260529_naert.pdf,46,Ensemble-methoden
+"Gradient Boosting (XGBoost, LightGBM)",Elke nieuwe boom corrigeert de vorige,State-of-the-art voor tabeldata,source/course/Les 2/20260529_naert.pdf,46,Ensemble-methoden
+AdaBoost,Herwaardeert moeilijke observaties,Historisch,source/course/Les 2/20260529_naert.pdf,46,Ensemble-methoden

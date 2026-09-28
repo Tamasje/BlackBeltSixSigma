@@ -1,0 +1,4 @@
+Effect,Estimate,source_file,source_page,table_name
+A,8.33,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,60,"Chemical process example: 2^2 effect estimates (A=reactant concentration, B=catalyst amount)"
+B,-5.00,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,60,"Chemical process example: 2^2 effect estimates (A=reactant concentration, B=catalyst amount)"
+AB,1.67,source/course/Les 3/20260605_de vuyst_BB_DOE.pdf,60,"Chemical process example: 2^2 effect estimates (A=reactant concentration, B=catalyst amount)"

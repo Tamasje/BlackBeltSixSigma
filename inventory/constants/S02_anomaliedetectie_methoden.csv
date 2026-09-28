@@ -1,0 +1,4 @@
+Methode,Idee,source_file,source_page,table_name
+Isolation Forest,Anomalieën zijn makkelijker te isoleren,source/course/Les 2/20260529_naert.pdf,50,Anomaliedetectie methoden
+Autoencoder,Anomalieën worden slecht gereconstrueerd,source/course/Les 2/20260529_naert.pdf,50,Anomaliedetectie methoden
+One-class SVM,"Leer de grens van ""normaal""",source/course/Les 2/20260529_naert.pdf,50,Anomaliedetectie methoden

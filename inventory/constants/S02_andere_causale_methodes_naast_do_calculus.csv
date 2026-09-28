@@ -1,0 +1,6 @@
+Methode,Kernidee,source_file,source_page,table_name
+Matching / propensity scores,Behandelden vs onbehandelden zo gelijk mogelijk maken,source/course/Les 1/20260522_naert_big data.pdf,52,Andere causale methodes (naast do-calculus)
+Instrumentele variabelen,"Variabele die behandeling beïnvloedt, uitkomst niet rechtstreeks",source/course/Les 1/20260522_naert_big data.pdf,52,Andere causale methodes (naast do-calculus)
+Difference-in-differences,Vergelijk evolutie over tijd,source/course/Les 1/20260522_naert_big data.pdf,52,Andere causale methodes (naast do-calculus)
+Regression discontinuity,Exploiteer een drempelwaarde,source/course/Les 1/20260522_naert_big data.pdf,52,Andere causale methodes (naast do-calculus)
+Structural Equation Modeling,Schat het volledige causale stelsel,source/course/Les 1/20260522_naert_big data.pdf,52,Andere causale methodes (naast do-calculus)

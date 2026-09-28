@@ -1,0 +1,4 @@
+FMEA Element,Definition,source_file,source_page,table_name
+Severity of impact,Assign a normalized score to the severity of the impact in the event of a failure.,source/course/Les 4/Six Sigma For Dummies.pdf,279,Table 11-5: Primary Elements of the FMEA
+Probability of occurrence,Evaluate and assign a probability score to the likelihood that the failure will occur.,source/course/Les 4/Six Sigma For Dummies.pdf,279,Table 11-5: Primary Elements of the FMEA
+Likelihood of detection,Assign a probability score to the likelihood that the current controls will detect the causes and therefore prevent either the failure itself or its effects from having impact.,source/course/Les 4/Six Sigma For Dummies.pdf,279,Table 11-5: Primary Elements of the FMEA

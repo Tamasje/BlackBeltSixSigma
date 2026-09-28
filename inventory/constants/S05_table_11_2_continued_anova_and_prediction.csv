@@ -1,0 +1,19 @@
+Item,Value,source_file,source_page,table_name
+S,1.087,source/course/Les 3/20260605_de vuyst_BB_Regression.pdf,22,Table 11-2 (continued): ANOVA and prediction
+R-Sq,87.7%,source/course/Les 3/20260605_de vuyst_BB_Regression.pdf,22,Table 11-2 (continued): ANOVA and prediction
+R-Sq(adj),87.1%,source/course/Les 3/20260605_de vuyst_BB_Regression.pdf,22,Table 11-2 (continued): ANOVA and prediction
+Regression DF,1,source/course/Les 3/20260605_de vuyst_BB_Regression.pdf,22,Table 11-2 (continued): ANOVA and prediction
+Regression SS,152.13,source/course/Les 3/20260605_de vuyst_BB_Regression.pdf,22,Table 11-2 (continued): ANOVA and prediction
+Regression MS,152.13,source/course/Les 3/20260605_de vuyst_BB_Regression.pdf,22,Table 11-2 (continued): ANOVA and prediction
+Regression F,128.86,source/course/Les 3/20260605_de vuyst_BB_Regression.pdf,22,Table 11-2 (continued): ANOVA and prediction
+Regression P,0.000,source/course/Les 3/20260605_de vuyst_BB_Regression.pdf,22,Table 11-2 (continued): ANOVA and prediction
+Residual Error DF,18,source/course/Les 3/20260605_de vuyst_BB_Regression.pdf,22,Table 11-2 (continued): ANOVA and prediction
+Residual Error SS (SSE),21.25,source/course/Les 3/20260605_de vuyst_BB_Regression.pdf,22,Table 11-2 (continued): ANOVA and prediction
+Residual Error MS (sigmahat^2),1.18,source/course/Les 3/20260605_de vuyst_BB_Regression.pdf,22,Table 11-2 (continued): ANOVA and prediction
+Total DF,19,source/course/Les 3/20260605_de vuyst_BB_Regression.pdf,22,Table 11-2 (continued): ANOVA and prediction
+Total SS,173.38,source/course/Les 3/20260605_de vuyst_BB_Regression.pdf,22,Table 11-2 (continued): ANOVA and prediction
+New Obs 1 HC Level,1.00,source/course/Les 3/20260605_de vuyst_BB_Regression.pdf,22,Table 11-2 (continued): ANOVA and prediction
+New Obs 1 Fit,89.231,source/course/Les 3/20260605_de vuyst_BB_Regression.pdf,22,Table 11-2 (continued): ANOVA and prediction
+New Obs 1 SE Fit,0.354,source/course/Les 3/20260605_de vuyst_BB_Regression.pdf,22,Table 11-2 (continued): ANOVA and prediction
+New Obs 1 95% CI,"(88.486, 89.975)",source/course/Les 3/20260605_de vuyst_BB_Regression.pdf,22,Table 11-2 (continued): ANOVA and prediction
+New Obs 1 95% PI,"(86.830, 91.632)",source/course/Les 3/20260605_de vuyst_BB_Regression.pdf,22,Table 11-2 (continued): ANOVA and prediction

@@ -1,0 +1,3 @@
+Predictor,Coef,SE Coef,T,P,source_file,source_page,table_name
+Constant (beta0),74.283,1.593,46.62,0.000,source/course/Les 3/20260605_de vuyst_BB_Regression.pdf,22,Table 11-2 Minitab Output for the Oxygen Purity Data (Example 11-1)
+HC Level (beta1),14.947,1.317,11.35,0.000,source/course/Les 3/20260605_de vuyst_BB_Regression.pdf,22,Table 11-2 Minitab Output for the Oxygen Purity Data (Example 11-1)

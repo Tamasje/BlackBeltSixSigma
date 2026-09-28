@@ -1,0 +1,144 @@
+{
+  "exam": {
+    "file": "source/exam/20251009_voorbeeldexamen six sigma.pdf",
+    "original": "source/exam/20251009_voorbeeldexamen six sigma.docx",
+    "title_as_printed": "Examen UGAIN black belt module 3 // 9 oktober 2025 // 14u-17u",
+    "questions": 7,
+    "total_points": "20",
+    "answer_key": false,
+    "notes": [
+      "No answer key in source/exam/, so nothing from the exam was added to worked_examples.json.",
+      "Q2 refers to 'het excel bestand ...' with the M1/M2 measurements; that file is not in source/exam/.",
+      "PDF pages 6 and 8 are blank (page breaks in the LibreOffice export of the DOCX).",
+      "Title says 'module 3'; whether the real exam covers the same modules is unknown."
+    ]
+  },
+  "questions": [
+    {
+      "q": "1",
+      "points": "2,5",
+      "exam_pages": [1],
+      "summary": "Accept or reject five statements with a short motivation: (a) significant test result so invest in costly process change; (b) 95% CI for % defectives [1.4%, 2.2%] so the process cannot deliver < 1%; (c) a population mean can in theory be estimated to any chosen precision; (d) cluster sampling never shows non-response bias; (e) testing at 1% significance requires a 99% CI.",
+      "type": "conceptual",
+      "topics": ["statistical vs practical significance", "interpretation of a confidence interval for a proportion", "precision vs sample size", "cluster sampling and non-response bias", "duality of tests and confidence intervals (one- vs two-sided)"],
+      "course_pages": [
+        {"file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf", "pages": [11], "why": "pitfalls of statistical testing, incl. significance vs relevance (a)"},
+        {"file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf", "pages": [11], "why": "a result must also have practical meaning (a)"},
+        {"file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf", "pages": [2, 3, 4, 20], "why": "definition/interpretation of a CI; CI for a proportion (b)"},
+        {"file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf", "pages": [6, 7], "why": "confidence vs accuracy for a given sample size (c)"},
+        {"file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf", "pages": [20, 21, 22], "why": "cluster sampling; non-response bias and representativity (d)"},
+        {"file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf", "pages": [12, 13], "why": "CI as a test; significance of a one-sided CI-based test (e)"},
+        {"file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses - Further Reading (Dutch).pdf", "pages": [12, 13, 14, 16, 17, 18, 19, 20], "why": "one- vs two-sided tests; link between tests and CIs (e)"}
+      ],
+      "calculator": null,
+      "calculator_note": "Conceptual. A CI-for-proportion calculator could illustrate (b) but is not needed to answer."
+    },
+    {
+      "q": "2",
+      "points": "3",
+      "exam_pages": [1, 2],
+      "summary": "Machines M1 (n1 = 10) and M2 (n2 = 15), both normal and centred on 10,000; is M1 more precise than M2? Give a one-sided 95% CI for sigma2^2/sigma1^2 using the hint that (s1^2/s2^2)(sigma2^2/sigma1^2) ~ F(n1-1, n2-1) and Excel F.INV, and conclude.",
+      "type": "computational",
+      "topics": ["F distribution", "confidence interval for a ratio of variances", "one-sided confidence interval", "F-test for sigma1/sigma2"],
+      "course_pages": [
+        {"file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf", "pages": [12, 13, 14], "why": "F distribution definition and critical values; F-test recipe for sigma1/sigma2, orientation of the ratio"},
+        {"file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [195, 196], "why": "confidence interval for a ratio of variances, with worked example (S08-WE11)"},
+        {"file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.xlsx", "pages": [5], "why": "sheet 'F' (F density illustration)"},
+        {"file": "source/course/Les 4/___1.2 statistische functionaliteit in excel.pdf", "pages": [1, 2, 3], "why": "Excel statistical functions (F.INVERSE / F.VERDELING)"}
+      ],
+      "calculator": "ci-variance-ratio-f",
+      "calculator_note": "Needs s1, s2 (or the raw data) from the missing Excel file."
+    },
+    {
+      "q": "3",
+      "points": "2",
+      "exam_pages": [3],
+      "summary": "Steel strip width spec 1400-1460 mm, process mean 1440 mm, sd 10 mm: (a) process capability; (b) expected % out of spec; (c) two ways to improve capability; (d) maximum % out of spec tolerated to meet the 6-sigma criterion.",
+      "type": "computational",
+      "topics": ["Cp, Cpk", "% out of specification from the normal distribution", "improving capability (centring, reducing variation)", "sigma level, DPMO, 1.5-sigma shift"],
+      "course_pages": [
+        {"file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf", "pages": [32, 33, 34, 35], "why": "Cp, Cpk definitions and interpretation (a)"},
+        {"file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf", "pages": [45, 46], "why": "capability exercise with % defect per side, answer in speaker notes (a, b)"},
+        {"file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf", "pages": [18, 19], "why": "standard normal, Z-score (b)"},
+        {"file": "source/course/Les 4/___1.1 Ztable.pdf", "pages": [1, 2], "why": "Z table (b)"},
+        {"file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf", "pages": [21, 22, 35, 41, 42, 43, 44], "why": "reduce variation / centre the process (c)"},
+        {"file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [165, 166], "why": "prescriptive capability improvement plan (c)"},
+        {"file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf", "pages": [20, 36, 37, 39, 40], "why": "sigma/DPMO table, 1.5-sigma shift, Cp quality levels incl. '6 Sigma kwaliteitsniveau' (d)"},
+        {"file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [159, 160, 161, 162, 163, 164, 165], "why": "1.5-sigma shift, Z vs DPMO table, Cp/Cpk/Pp/Ppk (a, d)"},
+        {"file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf", "pages": [7], "why": "1.5-sigma shift, short- vs long-term (d)"}
+      ],
+      "calculator": "capability-normal",
+      "calculator_note": "(a), (b) and (d) are computable; (d) depends on the 6-sigma convention (see convention questions)."
+    },
+    {
+      "q": "4",
+      "points": "1,5",
+      "exam_pages": [4],
+      "summary": "Control charts: (a) why may we assume normality and work with means/standard deviations; (b) which kind of causes of variation can a control chart detect; (c) when is the range the best estimate for control charts?",
+      "type": "conceptual",
+      "topics": ["central limit theorem", "common vs special causes", "R chart vs s chart by subgroup size"],
+      "course_pages": [
+        {"file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf", "pages": [62, 63], "why": "X-bar chart, sampling distribution, central limit theorem (a)"},
+        {"file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [188, 189], "why": "central limit theorem (a)"},
+        {"file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf", "pages": [29, 30, 31, 66, 67, 68], "why": "common vs special causes; decision rules (b)"},
+        {"file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [245, 246, 247, 338, 344], "why": "special-cause rules; glossary common/special cause (b)"},
+        {"file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf", "pages": [73], "why": "X-bar/R vs X-bar/s chart, R for small samples (c)"},
+        {"file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [249], "why": "chart choice by subgroup size (c)"},
+        {"file": "source/course/Les 4/___4.1 tabellen SPC.pdf", "pages": [2], "why": "Table 7.2 guide: R chart 'small, preferably 10 or fewer' (c)"}
+      ],
+      "calculator": null,
+      "calculator_note": "Conceptual."
+    },
+    {
+      "q": "5",
+      "points": "4",
+      "exam_pages": [4, 5],
+      "summary": "Three decision-tree variants A, B, C with train and test confusion matrices (Goed/Slecht): (a) which is 'high variance', which 'high bias', which 'optimal', and why; (b) what to change in a tree with high bias.",
+      "type": "conceptual",
+      "topics": ["confusion matrix, accuracy", "under-/overfitting, bias-variance trade-off", "decision tree depth/complexity"],
+      "course_pages": [
+        {"file": "source/course/Les 2/20260529_naert.pdf", "pages": [29, 30, 31, 32], "why": "confusion matrix and metrics (accuracy, recall, precision, F1)"},
+        {"file": "source/course/Les 2/20260529_naert.pdf", "pages": [22, 23, 24, 25, 26, 27, 28], "why": "underfitting/overfitting; bias-variance decomposition"},
+        {"file": "source/course/Les 2/20260529_naert.pdf", "pages": [19, 20, 21], "why": "train/validation/test and cross-validation"},
+        {"file": "source/course/Les 2/20260529_naert.pdf", "pages": [43, 44, 45, 46], "why": "decision trees, pros/cons, ensembles (b)"}
+      ],
+      "calculator": "confusion-matrix-metrics",
+      "calculator_note": "Conceptual answer, but it rests on train vs test accuracy for each model; a small calculator speeds that up."
+    },
+    {
+      "q": "6",
+      "points": "4",
+      "exam_pages": [7],
+      "summary": "Electrolytic capacitors (nominal 800 uF; non-conforming if < 720 uF; lots of 100; on average 2 in 40 non-conforming; mean capacity 820 uF; 175,3 orders/week of 3,6 lots). Random variables B (orders/week), T (time between orders), C (capacity), X (conformity), D (non-conforming per lot): (a) place each variable's expected value under its distribution family (normal, Bernoulli, exponential, uniform, Poisson, binomial); (b) for which variables is the i.i.d. idea unrealistic, and why; (c) compute Var[C].",
+      "type": "mixed",
+      "topics": ["distribution families (Poisson, exponential, normal, Bernoulli, binomial)", "expected values", "independence / i.i.d. assumption", "normal quantile: sigma from a tail probability"],
+      "course_pages": [
+        {"file": "source/course/Les 1/20260522_naert_big data.pdf", "pages": [5, 6, 7, 8, 9, 10], "why": "pdf/cdf, normal and non-normal distributions (exponential for waiting times, Poisson for counts) (a)"},
+        {"file": "source/course/Les 1/20260522_naert_big data.pdf", "pages": [19, 22, 23], "why": "independence (b)"},
+        {"file": "source/course/Les 1/20260521_van volsem.pdf", "pages": [105, 107, 108, 109, 110, 111, 112, 113], "why": "random variables, distributions, probabilistic model (a)"},
+        {"file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf", "pages": [9, 10, 11, 12, 15, 16], "why": "normal process variation; binomial/hypergeometric defectives in a lot (a, c)"},
+        {"file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.xlsm", "pages": [1], "why": "sheet 'distributions' (uniform, exponential, normal)"},
+        {"file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf", "pages": [16, 17, 18, 19], "why": "normal distribution, Z-score (c)"},
+        {"file": "source/course/Les 4/__NormVerdeling Excel functies.xlsx", "pages": [1], "why": "NORM.INV / NORM.DIST worked example (c)"}
+      ],
+      "calculator": "normal-probability; distribution-moments",
+      "calculator_note": "(c) is sigma from P(C < 720) = 2/40 with mean 820 (normal quantile); (a) needs the means of Poisson/exponential/binomial/Bernoulli."
+    },
+    {
+      "q": "7",
+      "points": "3",
+      "exam_pages": [9],
+      "summary": "Scatter of annealing temperature T (degrees C) vs strength S (MPa): (a) sketch the regression line E[S | T = x]; (b) with causal diagram S -> T, intervene by fixing T at 730 degrees C and sketch ~10 observations (dots); (c) same with T -> S (crosses).",
+      "type": "conceptual",
+      "topics": ["conditional expectation as regression line", "causal diagrams (DAG)", "intervention do(X), association vs intervention"],
+      "course_pages": [
+        {"file": "source/course/Les 1/20260522_naert_big data.pdf", "pages": [26, 27], "why": "E[Y|X] as regression line (a)"},
+        {"file": "source/course/Les 1/20260522_naert_big data.pdf", "pages": [28, 29, 40], "why": "ladder of causation; P(Y|X=x) vs P(Y|do(X=x)) (b, c)"},
+        {"file": "source/course/Les 1/20260522_naert_big data.pdf", "pages": [41, 42, 43, 44, 45, 46], "why": "causal diagrams; intervention removes incoming arrows (b, c)"},
+        {"file": "source/course/Les 1/20260522_naert_big data.pdf", "pages": [53, 54, 55, 56, 57], "why": "worked steel example with causal model"}
+      ],
+      "calculator": null,
+      "calculator_note": "Conceptual (sketch)."
+    }
+  ]
+}

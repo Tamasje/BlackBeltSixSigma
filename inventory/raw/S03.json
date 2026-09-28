@@ -1,0 +1,1945 @@
+{
+  "slice_id": "S03",
+  "files_read": [
+    {
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+      "pages": "1-16"
+    },
+    {
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "pages": "1-23"
+    },
+    {
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+      "pages": "1-13"
+    },
+    {
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses - Further Reading (Dutch).pdf",
+      "pages": "1-22"
+    },
+    {
+      "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+      "pages": "1-26"
+    },
+    {
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.xlsx",
+      "pages": "all sheets: Confidence interval mean, OC-curve (n,c), Nomogram fraction defectives, example t-test, example chi²-test"
+    },
+    {
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.xlsx",
+      "pages": "all sheets: t vs Z, example t-test, chi², example chi²-test, F, sampling distribution d, OC-curve (binomial), OC-curve (hypergeometric)"
+    },
+    {
+      "file": "source/course/Les 2/Table of Contents.html",
+      "pages": "LMS listing only - no course content extracted"
+    }
+  ],
+  "topics": [
+    {
+      "topic": "Acceptance sampling case example motivating confidence intervals (lot of 10000 tiles, AQL=2%, n=100)",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+      "pages": [
+        3,
+        4
+      ]
+    },
+    {
+      "topic": "Confidence interval consistency of estimates vs point estimates (horseshoe-throwing analogy)",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+      "pages": [
+        5
+      ]
+    },
+    {
+      "topic": "Confidence vs accuracy trade-off for a given sample size; effect of increasing sample size",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+      "pages": [
+        6,
+        7
+      ]
+    },
+    {
+      "topic": "Double sided CI - general function-inversion calculation principle",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+      "pages": [
+        8
+      ]
+    },
+    {
+      "topic": "Double sided CI for the population mean - algebraic derivation via t-distribution",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+      "pages": [
+        9
+      ]
+    },
+    {
+      "topic": "Double sided approximate CI for the population fraction defectives - normal approximation",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+      "pages": [
+        10
+      ]
+    },
+    {
+      "topic": "One sided CI - calculation principle",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+      "pages": [
+        11
+      ]
+    },
+    {
+      "topic": "Confidence interval as alternative for classical hypothesis testing (test recipe using CI)",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+      "pages": [
+        12
+      ]
+    },
+    {
+      "topic": "Significance of a one-sided CI-based test",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+      "pages": [
+        13
+      ]
+    },
+    {
+      "topic": "Equivalence of CI-based testing and classical testing - confirmation via OC-curve",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+      "pages": [
+        14
+      ]
+    },
+    {
+      "topic": "Worked example: one-sided t-test for the mean via CI",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+      "pages": [
+        15
+      ]
+    },
+    {
+      "topic": "Worked example: one-sided chi²-test for the standard deviation via CI",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+      "pages": [
+        16
+      ]
+    },
+    {
+      "topic": "Betrouwbaarheidsinterval: probleem met puntschattingen, definitie en interpretatie (simulatie)",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "pages": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "topic": "Betrouwbaarheidsinterval voor mu - t-verdeling van Student (historiek, definitie, link met t-statistiek, robuustheid)",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "pages": [
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "topic": "Betrouwbaarheidsinterval voor mu1-mu2: paarsgewijze vs. niet-paarsgewijze vergelijking (theorie + cijfervoorbeeld schoenzolen)",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "pages": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ]
+    },
+    {
+      "topic": "Betrouwbaarheidsinterval voor pi (proportie) - normale benadering en verwijzing naar exacte binomiale methode",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "pages": [
+        20
+      ]
+    },
+    {
+      "topic": "Betrouwbaarheidsinterval voor sigma² (chi²-verdeling, asymmetrisch interval)",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "pages": [
+        21
+      ]
+    },
+    {
+      "topic": "Tolerantie-intervallen voor normale verdeling (dubbelzijdig/enkelzijdig, gekende en ongekende spreiding) en distributievrije tolerantie-intervallen",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "pages": [
+        22,
+        23
+      ]
+    },
+    {
+      "topic": "Single sample acceptance sampling reformulated as a statistical hypothesis test (case example)",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+      "pages": [
+        3
+      ]
+    },
+    {
+      "topic": "Statistical testing errors: type-I and type-II error risk table, producer's/consumer's risk",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+      "pages": [
+        4
+      ]
+    },
+    {
+      "topic": "Sampling distributions of the test statistic under H0 and HA",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+      "pages": [
+        5
+      ]
+    },
+    {
+      "topic": "Setting the significance alpha (type-I risk) and the critical value",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+      "pages": [
+        6
+      ]
+    },
+    {
+      "topic": "The OC-curve of the test procedure; controlling beta given alpha via sample size",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+      "pages": [
+        7,
+        8
+      ]
+    },
+    {
+      "topic": "Recapitulation - universal 7-step hypothesis testing procedure (one sided or two sided)",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+      "pages": [
+        9
+      ]
+    },
+    {
+      "topic": "The notion of p-value",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+      "pages": [
+        10
+      ]
+    },
+    {
+      "topic": "Pitfalls of statistical testing (setting alpha after the fact, accepting H0 as true, significance vs relevance, efficiency)",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+      "pages": [
+        11
+      ]
+    },
+    {
+      "topic": "Worked example: t-test for the mean",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+      "pages": [
+        12
+      ]
+    },
+    {
+      "topic": "Worked example: chi²-test for the standard deviation",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+      "pages": [
+        13
+      ]
+    },
+    {
+      "topic": "Hoe werkt de testprocedure: mechanisme, type-I/II fouten, trade-off, effect van steekproefgrootte op beta, OC-curven, kracht (power/sensitiviteit)",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses - Further Reading (Dutch).pdf",
+      "pages": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "topic": "Recept eenzijdige test (met cijfervoorbeeld beeldbuizen mu0=1200)",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses - Further Reading (Dutch).pdf",
+      "pages": [
+        10
+      ]
+    },
+    {
+      "topic": "Beslissen op basis van de p-waarde",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses - Further Reading (Dutch).pdf",
+      "pages": [
+        11
+      ]
+    },
+    {
+      "topic": "Eenzijdige test vs. dubbelzijdige test - verschillen, kracht, en recept dubbelzijdige test",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses - Further Reading (Dutch).pdf",
+      "pages": [
+        12,
+        13,
+        14
+      ]
+    },
+    {
+      "topic": "Dubbelzijdige p-waarde",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses - Further Reading (Dutch).pdf",
+      "pages": [
+        15
+      ]
+    },
+    {
+      "topic": "De link tussen hypothesetoetsen en betrouwbaarheidsintervallen (algemeen en toegepast op pi, eenzijdig en dubbelzijdig)",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses - Further Reading (Dutch).pdf",
+      "pages": [
+        16,
+        17,
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "topic": "Valkuilen bij het toetsen van hypothesen",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses - Further Reading (Dutch).pdf",
+      "pages": [
+        21
+      ]
+    },
+    {
+      "topic": "Oefening: Z-test voor pi (defectrate, n=400, d=10)",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses - Further Reading (Dutch).pdf",
+      "pages": [
+        22
+      ]
+    },
+    {
+      "topic": "Overzicht van specifieke hypothesetesten en algemene voorwaarden gekoppeld aan de testprocedure",
+      "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+      "pages": [
+        2,
+        3
+      ]
+    },
+    {
+      "topic": "Testrecept: t-test voor mu",
+      "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+      "pages": [
+        4
+      ]
+    },
+    {
+      "topic": "Testrecept: niet-paarsgewijze t-test voor mu1-mu2",
+      "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+      "pages": [
+        5,
+        6
+      ]
+    },
+    {
+      "topic": "Testrecept: paarsgewijze t-test voor mu1-mu2",
+      "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+      "pages": [
+        7,
+        8
+      ]
+    },
+    {
+      "topic": "Testrecept: Z-test voor pi",
+      "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+      "pages": [
+        9,
+        10
+      ]
+    },
+    {
+      "topic": "Testrecept: chi²-test voor sigma",
+      "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+      "pages": [
+        11
+      ]
+    },
+    {
+      "topic": "Intermezzo: de F-distributie (definitie, momenten, kritische waarden)",
+      "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+      "pages": [
+        12
+      ]
+    },
+    {
+      "topic": "Testrecept: F-test voor sigma1/sigma2",
+      "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+      "pages": [
+        13,
+        14
+      ]
+    },
+    {
+      "topic": "Testrecept: chi²-test 'goodness of fit'",
+      "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+      "pages": [
+        15,
+        16,
+        17
+      ]
+    },
+    {
+      "topic": "Testrecept: chi²-test 'contingency tables' (incl. Yates continuïteitscorrectie)",
+      "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+      "pages": [
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "topic": "Testrecept: Wilcoxon-Mann-Whitney-test",
+      "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+      "pages": [
+        21,
+        22
+      ]
+    },
+    {
+      "topic": "Testrecept: Wilcoxon signed ranks-test",
+      "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+      "pages": [
+        23,
+        24
+      ]
+    },
+    {
+      "topic": "Testrecept: runs-test (Wald-Wolfowitz-test)",
+      "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+      "pages": [
+        25,
+        26
+      ]
+    },
+    {
+      "topic": "Excel simulation tool for CI of the mean (coverage demonstration, T.INV-based)",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.xlsx",
+      "pages": [
+        1
+      ],
+      "sheet": "Confidence interval mean"
+    },
+    {
+      "topic": "Excel: OC-curve computation for a (n,c) acceptance sampling plan via BINOM.DIST, incl. 3 confirmation points",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.xlsx",
+      "pages": [
+        2
+      ],
+      "sheet": "OC-curve (n,c)"
+    },
+    {
+      "topic": "Excel: nomogram tables for CI of fraction defectives - exact binomial (BINOM.INV) and normal approximation (NORM.INV)",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.xlsx",
+      "pages": [
+        3
+      ],
+      "sheet": "Nomogram fraction defectives"
+    },
+    {
+      "topic": "Excel: worked example one-sided t-test for the mean (CI-based)",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.xlsx",
+      "pages": [
+        4
+      ],
+      "sheet": "example t-test"
+    },
+    {
+      "topic": "Excel: worked example one-sided chi²-test for the standard deviation (CI-based)",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.xlsx",
+      "pages": [
+        5
+      ],
+      "sheet": "example chi²-test"
+    },
+    {
+      "topic": "Excel: t vs Z density comparison data (chart source, T.DIST/NORM.DIST)",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.xlsx",
+      "pages": [
+        1
+      ],
+      "sheet": "t vs Z"
+    },
+    {
+      "topic": "Excel: worked example t-test for the mean (classical hypothesis test)",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.xlsx",
+      "pages": [
+        2
+      ],
+      "sheet": "example t-test"
+    },
+    {
+      "topic": "Excel: chi² density comparison data (chart source, CHISQ.DIST)",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.xlsx",
+      "pages": [
+        3
+      ],
+      "sheet": "chi²"
+    },
+    {
+      "topic": "Excel: worked example chi²-test for the standard deviation (classical hypothesis test)",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.xlsx",
+      "pages": [
+        4
+      ],
+      "sheet": "example chi²-test"
+    },
+    {
+      "topic": "Excel: F density comparison data (chart source, F.DIST)",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.xlsx",
+      "pages": [
+        5
+      ],
+      "sheet": "F"
+    },
+    {
+      "topic": "Excel: sampling distribution of d (number of defectives) under H0 (P=2%) and HA (P=8%), n=100 - BINOM.DIST",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.xlsx",
+      "pages": [
+        6
+      ],
+      "sheet": "sampling distribution d"
+    },
+    {
+      "topic": "Excel: OC-curve (binomial) for (n=100,c=4) and (n=130,c=5) sampling plans",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.xlsx",
+      "pages": [
+        7
+      ],
+      "sheet": "OC-curve (binomial)"
+    },
+    {
+      "topic": "Excel: OC-curve (hypergeometric) - illustration of the 'big data fallacy trap', hypergeometric vs binomial",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.xlsx",
+      "pages": [
+        8
+      ],
+      "sheet": "OC-curve (hypergeometric)"
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Double sided CI for population mean (t-distribution, algebraic derivation)",
+      "expression": "X_bar ~ N(mu, sigma/sqrt(n)); (X_bar-mu)/(s/sqrt(n)) ~ t(n-1); P[t_0.025,n-1 <= (X_bar-mu)/(s/sqrt(n)) <= t_0.975,n-1] = 95% => P[X_bar - t_0.975,n-1 * s/sqrt(n) <= mu <= X_bar - t_0.025,n-1 * s/sqrt(n)] = 95% => P[X_bar - t_0.975,n-1 * s/sqrt(n) <= mu <= X_bar + t_0.97 ,n-1 * s/sqrt(n)] = 95% (t(n-1) is symmetric)",
+      "symbols": {
+        "X_bar": "sample mean",
+        "mu": "population mean",
+        "sigma": "population std dev",
+        "s": "sample std dev (n-1 divisor)",
+        "n": "sample size",
+        "t_p,df": "p-th quantile of Student t with df degrees of freedom"
+      },
+      "conditions": "sample size n sufficiently large (Central Limit Theorem); course notes the t-distribution works for almost any distribution of X provided n not too small",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+      "page": 9
+    },
+    {
+      "name": "Double sided approximate CI for population fraction defectives pi (normal approximation)",
+      "expression": "P ~ N(pi, sqrt(pi(1-pi)/n)); (P-pi)/sqrt(pi(1-pi)/n) ~ Z; P[Z_0.025 <= (P-pi)/sqrt(pi(1-pi)/n) <= Z_0.975] = 95% => P[P - Z_0.975*sqrt(pi(1-pi)/n) <= pi <= P + Z_0.975*sqrt(pi(1-pi)/n)] = 95% => P[p - Z_0.975*sqrt(p(1-p)/n) <= pi <= p + Z_0.975*sqrt(p(1-p)/n)] ≅ 95% (approximately, pi replaced by sample p)",
+      "symbols": {
+        "P": "sample fraction defectives (random variable)",
+        "p": "observed sample fraction defectives",
+        "pi": "true population fraction defectives",
+        "n": "sample size",
+        "Z_0.975": "97.5th percentile of N(0,1) = 1.96"
+      },
+      "conditions": "n sufficiently large; note text: at least 5 defectives need to turn up in the sample (e.g. defective fraction 1% needs n>=500)",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+      "page": 10
+    },
+    {
+      "name": "One sided CI notation",
+      "expression": "one-sided (1-alpha)x100%-CI ]pi_L, 1] (lower-bounded) or [0, pi_U[ (upper-bounded)",
+      "symbols": {
+        "alpha": "significance",
+        "pi_L": "lower confidence bound",
+        "pi_U": "upper confidence bound"
+      },
+      "conditions": "constructed by plotting only the (1-alpha)x100%-quantile of the sample distribution (one tail) instead of both tails",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+      "page": 11
+    },
+    {
+      "name": "Rule of thumb: accuracy vs sample size (95% CI, worst case p=50%)",
+      "expression": "doubling the accuracy (halving CI width) corresponds to quadrupling the sample size: n=100 -> width=20%; n=400 -> width=10%; n=1350 -> width=5%",
+      "symbols": {
+        "n": "sample size",
+        "width": "width of the 95% confidence interval for a proportion at p=50%"
+      },
+      "conditions": "worst case p=50% (largest CI width in absolute terms)",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+      "page": 7
+    },
+    {
+      "name": "Betrouwbaarheidsinterval definitie (Z, sigma gekend)",
+      "expression": "P[|x_bar - mu| <= 1.96*sigma/sqrt(n)] = 95% <=> P[x_bar - 1.96*sigma/sqrt(n) <= mu <= x_bar + 1.96*sigma/sqrt(n)] = 95%",
+      "symbols": {
+        "x_bar": "steekproefgemiddelde",
+        "mu": "populatiegemiddelde",
+        "sigma": "populatiespreiding (gekend)",
+        "n": "steekproefgrootte"
+      },
+      "conditions": "sigma verondersteld gekend",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "page": 3
+    },
+    {
+      "name": "t-statistiek en t-verdeling van Student (definitie)",
+      "expression": "Z ~ N(0,1), X ~ chi²(n), Z en X onafhankelijk => t ≡ Z/sqrt(X/n) ~ t(n); t symmetrisch en klokvormig; E(t)=0; lim(n->oneindig) t(n) = Z",
+      "symbols": {
+        "Z": "standaardnormale variabele",
+        "X": "chi-kwadraat verdeelde variabele",
+        "n": "aantal vrijheidsgraden",
+        "t(n)": "t-verdeling met n vrijheidsgraden"
+      },
+      "conditions": "Z en X onafhankelijk",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "page": 6
+    },
+    {
+      "name": "Link tussen t-statistiek (X_bar,s) en t-verdeling",
+      "expression": "X normaal: X~N(mu,sigma) => (X_bar-mu)/(sigma/sqrt(n)) ~ Z en (n-1)s²/sigma² ~ chi²(n-1) => t=(X_bar-mu)/(s/sqrt(n)) ~ t(n-1). X niet normaal: X_bar nog steeds normaal (CLS) maar (n-1)s²/sigma² niet langer chi² verdeeld => t-statistiek niet exact t-verdeeld, voor praktijk toch meestal OK (robuustheid)",
+      "symbols": {
+        "X_bar": "steekproefgemiddelde",
+        "s": "steekproefspreiding (n-1 in noemer)",
+        "sigma": "populatiespreiding",
+        "n": "steekproefgrootte"
+      },
+      "conditions": "robuustheid geldt behalve bij combinatie van kleine steekproef en sterk niet-normale verdeling",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "page": 7
+    },
+    {
+      "name": "Betrouwbaarheidsinterval voor mu (t-gebaseerd) vs Z-gebaseerd (sigma gekend)",
+      "expression": "P[-t_0.025 <= (X_bar-mu)/(s/sqrt(n)) <= t_0.025] = 95% => x_bar - t_0.025*s/sqrt(n) <= mu <= x_bar + t_0.025*s/sqrt(n)  (95%-BI op basis van t); vergelijk met x_bar - Z_0.025*sigma/sqrt(n) <= mu <= x_bar + Z_0.025*sigma/sqrt(n)  (95%-BI op basis van Z, sigma gekend)",
+      "symbols": {
+        "x_bar": "steekproefgemiddelde",
+        "s": "steekproefspreiding",
+        "sigma": "populatiespreiding (gekend)",
+        "n": "steekproefgrootte",
+        "t_0.025": "2.5%-kwantiel van t(n-1)",
+        "Z_0.025": "2.5%-kwantiel van N(0,1)"
+      },
+      "conditions": "sigma -> s introduceert meer onzekerheid: groter BI voor zelfde betrouwbaarheid",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "page": 8
+    },
+    {
+      "name": "BI voor mu1-mu2, niet-paarsgewijs, sigma gekend en gelijk",
+      "expression": "X1_bar ~ N(mu1, sigma/sqrt(n1)), X2_bar ~ N(mu2, sigma/sqrt(n2)) => X1_bar - X2_bar ~ N(mu1-mu2, sqrt(2/n)*sigma) (n1=n2=n); BI95 = (x1_bar - x2_bar) ± Z_0.025*sqrt(2/n)*sigma",
+      "symbols": {
+        "x1_bar,x2_bar": "steekproefgemiddelden van LD1 en LD2",
+        "sigma": "gemeenschappelijke gekende spreiding",
+        "n": "steekproefgrootte (n1=n2=n)"
+      },
+      "conditions": "stel n1=n2=n en sigma1=sigma2=sigma gekend",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "page": 12
+    },
+    {
+      "name": "BI voor mu1-mu2, paarsgewijs, sigma_V gekend",
+      "expression": "V_bar = LD1_bar - LD2_bar; sigma²(LD1_bar - LD2_bar) = 2(sigma²-cov)/n => LD1_bar-LD2_bar ~ N(mu1-mu2, sqrt((2/n)(sigma²-cov))); BI95 = (x1_bar-x2_bar) ± Z_0.025*sqrt((2/n)(sigma²-cov))",
+      "symbols": {
+        "cov": "covariantie tussen LD1 en LD2 binnen een paar",
+        "sigma²": "gemeenschappelijke variantie",
+        "n": "aantal paren"
+      },
+      "conditions": "stel sigma_V gekend; LD1 en LD2 positief gecorreleerde kenmerken (zelfde jongen)",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "page": 13
+    },
+    {
+      "name": "Verhouding lengte BI paarsgewijs vs niet-paarsgewijs",
+      "expression": "sqrt((2/n)(sigma²-cov)) / sqrt((2/n)*sigma²) = sqrt(1 - cov/sigma²) = sqrt(1-rho)",
+      "symbols": {
+        "rho": "correlatiecoefficient tussen LD1 en LD2 binnen paar"
+      },
+      "conditions": "hoe groter rho, hoe kleiner de verhouding (nauwkeuriger paarsgewijze vergelijking)",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "page": 14
+    },
+    {
+      "name": "BI voor mu1-mu2, niet-paarsgewijs, sigma ongekend maar gelijk (pooled t)",
+      "expression": "X1_bar ~ N(mu1,sigma/sqrt(n1)), X2_bar ~ N(mu2,sigma/sqrt(n2)) onafh. => X1_bar-X2_bar ~ N(mu1-mu2, sigma*sqrt(1/n1+1/n2)); (n1-1)s1²/sigma² ~ chi²(n1-1), (n2-1)s2²/sigma² ~ chi²(n2-1) onafh. som => [(n1-1)s1²+(n2-1)s2²]/sigma² ~ chi²(n1+n2-2); => [(X1_bar-X2_bar)-(mu1-mu2)] / [s_p*sqrt(1/n1+1/n2)] ~ t(n1+n2-2), waarbij s_p² = [(n1-1)s1²+(n2-1)s2²] / (n1+n2-1) [zo afgedrukt op de slide]; 95%-BI: mu1-mu2 = (X1_bar-X2_bar) ± t_0.025,n1+n2-2 * s_p*sqrt(1/n1+1/n2)",
+      "symbols": {
+        "s_p²": "gepoolde (pooled) variantieschatter",
+        "n1,n2": "steekproefgrootten (mogen ongelijk zijn)"
+      },
+      "conditions": "enkel geldig als sigma1=sigma2; normaliteit van X1,X2 enkel echt nodig als n1 of n2 klein is",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "page": 15
+    },
+    {
+      "name": "BI voor mu1-mu2, paarsgewijs, sigma_V ongekend",
+      "expression": "V_bar ~ N(mu1-mu2, sigma_V/sqrt(n)); (n-1)s_V²/sigma_V² ~ chi²(n-1) => [V_bar-(mu1-mu2)]/(s_V/sqrt(n)) ~ t(n-1); 95%-BI: mu1-mu2 = v_bar ± t_0.025,n-1 * s_V/sqrt(n)",
+      "symbols": {
+        "v_bar": "gemiddelde van de verschillen v_i = x1_i - x2_i",
+        "s_V": "steekproefspreiding van de verschillen",
+        "n": "aantal paren"
+      },
+      "conditions": "spreidingen van LD1 en LD2 hoeven niet gelijk te zijn bij paarsgewijze vergelijking",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "page": 16
+    },
+    {
+      "name": "Betrouwbaarheidsinterval voor pi",
+      "expression": "P ~ N(pi, sqrt(pi(1-pi)/n)) => P[pi - Z_0.025*sqrt(pi(1-pi)/n) <= P <= pi + Z_0.025*sqrt(pi(1-pi)/n)] = 95% => benaderd 95%-BI obv P: p - Z_0.025*sqrt(p(1-p)/n) <= pi <= p + Z_0.025*sqrt(p(1-p)/n). Verschil van twee proporties (grote steekproeven): (pi1-pi2) = (p1-p2) ± Z_0.025*sqrt(p1(1-p1)/n1 + p2(1-p2)/n2)",
+      "symbols": {
+        "p": "steekproefproportie",
+        "pi": "populatieproportie",
+        "n": "steekproefgrootte"
+      },
+      "conditions": "n voldoende groot voor normale benadering; exacte methode op basis van binomiaalverdeling ook vermeld (grafische methode / nomogram)",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "page": 20
+    },
+    {
+      "name": "Betrouwbaarheidsinterval voor sigma²",
+      "expression": "(n-1)s²/sigma² ~ chi²(n-1) => P[chi²_0.975,n-1 <= (n-1)s²/sigma² <= chi²_0.025,n-1] = 95% => 95%-BI: (n-1)s²/chi²_0.025,n-1 <= sigma² <= (n-1)s²/chi²_0.975,n-1",
+      "symbols": {
+        "s²": "steekproefvariantie (n-1 divisor)",
+        "chi²_p,n-1": "p-de kwantiel van chi²(n-1)"
+      },
+      "conditions": "niet symmetrisch interval; X normaal verdeeld",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "page": 21
+    },
+    {
+      "name": "Tolerantie-interval voor normale verdeling (spreiding gekend)",
+      "expression": "LTL = Y_bar - k*sigma; UTL = Y_bar + k*sigma; k = Z_(1-alpha)/sqrt(n) + Z_(1-beta) (enkelzijdig); dubbelzijdig: [Y_bar - k*sigma, Y_bar + k*sigma] = [Y_bar - (Z_(1-alpha/2)/sqrt(n) + Z_(1-beta/2))*sigma, Y_bar + (Z_(1-alpha/2)/sqrt(n) + Z_(1-beta/2))*sigma]",
+      "symbols": {
+        "LTL": "Lower Tolerance Limit",
+        "UTL": "Upper Tolerance Limit",
+        "alpha": "1 - betrouwbaarheid van het interval",
+        "beta": "1 - gedekt percentiel-fractie",
+        "Y_bar": "steekproefgemiddelde",
+        "n": "steekproefgrootte"
+      },
+      "conditions": "X (of Y=lnX) normaal verdeeld met gekende spreiding sigma",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "page": 22
+    },
+    {
+      "name": "Tolerantie-interval voor normale verdeling (spreiding ongekend, k' benadering)",
+      "expression": "[Y_bar - k'*s, Y_bar + k'*s] waarbij k' ≈ t(alpha/2,beta/2,n); enkelzijdig: [Y_bar - k*s, +infinity[ resp. ]-infinity, Y_bar + k*s] met k ≈ t(alpha,beta,n); t(alpha,beta,n) = Z_(1-beta)/(1-Z_(1-alpha)²/2n) + Z_(1-alpha)*(1+Z_beta²/2 - Z_(1-alpha)²/2n)^0.5 / (sqrt(n)*(1-Z_(1-alpha)²/2n))",
+      "symbols": {
+        "s": "steekproefspreiding (n-1)",
+        "n": "steekproefgrootte",
+        "alpha": "1 - betrouwbaarheid",
+        "beta": "1 - gedekt percentiel-fractie"
+      },
+      "conditions": "spreiding sigma ongekend, geschat door s",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "page": 23
+    },
+    {
+      "name": "Distributie-vrij tolerantie-interval",
+      "expression": "[x_(1), x_(n)] is een (1-alpha,1-beta) tolerantie-interval wanneer n voldoende groot is om te voldoen aan (1-beta/2)^n - (1/2)(1-beta)^n <= alpha/2",
+      "symbols": {
+        "x_(1)": "kleinste waarde uit de steekproef",
+        "x_(n)": "grootste waarde uit de steekproef",
+        "n": "steekproefgrootte",
+        "alpha": "1 - betrouwbaarheid",
+        "beta": "1 - gedekt percentiel-fractie"
+      },
+      "conditions": "distributie van X ongeacht de vorm, moet wel continu zijn",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "page": 23
+    },
+    {
+      "name": "Test statistic - example t-test for the mean (case: manufacturing process)",
+      "expression": "test statistic = (X_bar - 10) / (s/sqrt(n))",
+      "symbols": {
+        "X_bar": "sample mean",
+        "s": "sample std dev",
+        "n": "sample size = 20"
+      },
+      "conditions": "reference distribution = t(19)",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+      "page": 12
+    },
+    {
+      "name": "Test statistic - example chi²-test for the standard deviation",
+      "expression": "test statistic = (n-1)*s²/sigma²",
+      "symbols": {
+        "s²": "sample variance",
+        "sigma": "nominal standard deviation = 0.01",
+        "n": "sample size = 20"
+      },
+      "conditions": "reference distribution = chi²(19); classical quantity for testing the variance of a distribution",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+      "page": 13
+    },
+    {
+      "name": "Power / OC-curve relation",
+      "expression": "psi(lambda) = 1 - OC(lambda)",
+      "symbols": {
+        "OC(lambda)": "Operating Characteristic - probability of accepting H0 (type-II risk) as a function of lambda",
+        "psi(lambda)": "kracht (power/sensitiviteit) van de test",
+        "lambda": "(mu-mu0)/sigma, gestandaardiseerde afstand tussen werkelijkheid en H0"
+      },
+      "conditions": "kracht = kans op terecht verwerpen van H0; relatieve efficiëntie van test T1 t.o.v. T2 = n/m waarbij m de steekproeflengte is waarvoor T1 dezelfde kracht heeft als T2 op steekproeflengte n",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses - Further Reading (Dutch).pdf",
+      "page": 8
+    },
+    {
+      "name": "Recept eenzijdige test - kritische waarde (voorbeeld beeldbuizen)",
+      "expression": "kritische waarde in rechter staart = mu0 + Z_(1-alpha)*sigma/sqrt(n); cijfervoorbeeld: 1200 + 2.3*30 = 1270",
+      "symbols": {
+        "mu0": "waarde onder H0 = 1200",
+        "sigma": "gekende spreiding = 300",
+        "n": "steekproefgrootte = 100",
+        "Z_(1-alpha)": "kwantiel van N(0,1) voor alpha=1% => 2.3 (afgerond)"
+      },
+      "conditions": "H0: mu=mu0=1200; HA: mu>1200; alpha=1%",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses - Further Reading (Dutch).pdf",
+      "page": 10
+    },
+    {
+      "name": "Recept dubbelzijdige test - kritische waarden (voorbeeld beeldbuizen)",
+      "expression": "linkse kritische waarde = mu0 - Z_(1-alpha/2)*sigma/sqrt(n); rechtse kritische waarde = mu0 + Z_(1-alpha/2)*sigma/sqrt(n); cijfervoorbeeld: links 1200 - 2.6*30 = 1123; rechts 1200 + 2.6*30 = 1277",
+      "symbols": {
+        "mu0": "1200",
+        "sigma": "300",
+        "n": "100",
+        "alpha": "1%"
+      },
+      "conditions": "H0: mu=mu0=1200; HA: mu != 1200",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses - Further Reading (Dutch).pdf",
+      "page": 13
+    },
+    {
+      "name": "De link naar betrouwbaarheidsintervallen (algemene definitie)",
+      "expression": "L_alpha(T) = inf{theta : T <= K_bar_alpha(theta)}; U_alpha(T) = sup{theta : T >= K_alpha(theta)}; dan is [L_alpha(T), U_alpha(T)] een (1-alpha)x100% BI voor theta",
+      "symbols": {
+        "T": "waarde van de teststatistiek",
+        "theta": "populatieparameter",
+        "K_bar_alpha(theta), K_alpha(theta)": "boven- en ondergrens van het aanvaardingsgebied [K_alpha(theta0), K_bar_alpha(theta0)] voor H0: theta=theta0"
+      },
+      "conditions": "K_bar_alpha(theta) en K_alpha(theta) zijn stijgende functies van theta",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses - Further Reading (Dutch).pdf",
+      "page": 19
+    },
+    {
+      "name": "Exacte BI voor pi op basis van de binomiaalverdeling (grafische methode)",
+      "expression": "K_alpha(pi) = (1/n) * B^-1(alpha/2; n; pi); K_bar_alpha(pi) = (1/n) * B^-1(1-alpha/2; n; pi); voorbeeld: p=0.6, n=200 => BI = [0.53, 0.67]",
+      "symbols": {
+        "B^-1(q;n;pi)": "inverse van de binomiale cumulatieve verdeling (kwantiel)",
+        "n": "steekproefgrootte",
+        "pi": "populatieproportie"
+      },
+      "conditions": "in R: binom.test(120,200) levert BI = [0.53, 0.67]",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses - Further Reading (Dutch).pdf",
+      "page": 20
+    },
+    {
+      "name": "t-test voor mu (testrecept)",
+      "expression": "H0: mu = mu0 vs. (DZ) HA: mu != mu0 of (EZ) HA: mu > (<) mu0; statistiek t = (x_bar - mu0) / (s/sqrt(n)); onder H0 (X normaal): t ~ t(n-1)",
+      "symbols": {
+        "x_bar": "steekproefgemiddelde",
+        "s": "steekproefspreiding",
+        "n": "steekproefgrootte",
+        "mu0": "getoetste waarde"
+      },
+      "conditions": "parametrische test: X normaal verdeeld; robuustheid: algemeen toepasbaar behalve kleine RS + sterk niet-normale verdeling",
+      "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+      "page": 4
+    },
+    {
+      "name": "Niet-paarsgewijze t-test voor mu1-mu2 (testrecept)",
+      "expression": "H0: mu1=mu2 vs. (DZ) HA: mu1 != mu2 of (EZ) HA: mu1 > (<) mu2; t = (x1_bar - x2_bar) / (s_p*sqrt(1/n1+1/n2)) waarbij s_p² = [(n1-1)s1² + (n2-1)s2²] / (n1+n2-2); uitbreiding H0: mu1-mu2=d => t = (x1_bar-x2_bar-d) / (s_p*sqrt(1/n1+1/n2))",
+      "symbols": {
+        "n1,n2": "steekproefgrootten",
+        "s1,s2": "steekproefspreidingen",
+        "s_p": "gepoolde standaarddeviatie"
+      },
+      "conditions": "parametrische test: X1,X2 normaal verdeeld; bijkomende voorwaarde sigma1=sigma2; dan t ~ t(n1+n2-2); indien sigma1 != sigma2 manifest, aanpassen test",
+      "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+      "page": 5
+    },
+    {
+      "name": "Paarsgewijze t-test voor mu1-mu2 (testrecept)",
+      "expression": "H0: mu1=mu2 vs. (DZ) HA: mu1 != mu2 of (EZ) HA: mu1 > (<) mu2; verschillen v_i = x1_i - x2_i; t = v_bar / (s_v/sqrt(n)); uitbreiding H0: mu1-mu2=d => t = (v_bar - d)/(s_v/sqrt(n))",
+      "symbols": {
+        "v_bar": "gemiddelde van de verschillen",
+        "s_v": "spreiding van de verschillen",
+        "n": "aantal paren"
+      },
+      "conditions": "parametrische test: X1,X2 normaal verdeeld; dan t ~ t(n-1); hier geen voorwaarde sigma1=sigma2",
+      "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+      "page": 7
+    },
+    {
+      "name": "Z-test voor pi (testrecept)",
+      "expression": "H0: pi = pi0 vs. (DZ) HA: pi != pi0 of (EZ) HA: pi > (<) pi0; z = (p - pi0) / sqrt(pi0(1-pi0)/n); met continuïteitscorrectie: z = (p ± 1/(2n) - pi0) / sqrt(pi0(1-pi0)/n)  (+ links, - rechts staart; let op bij DZ)",
+      "symbols": {
+        "p": "steekproefproportie",
+        "pi0": "getoetste waarde",
+        "n": "steekproefgrootte"
+      },
+      "conditions": "Z ~ N(0,1) slechts benaderd geldig, voorwaarde n*pi0 > 5; indien n*pi0 < 5, werk met exacte distributie van P onder H0 (bij DZ via BI)",
+      "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+      "page": 9
+    },
+    {
+      "name": "chi²-test voor sigma (testrecept)",
+      "expression": "H0: sigma = sigma0 vs. (DZ) HA: sigma != sigma0 of (EZ) HA: sigma > (<) sigma0; statistiek = (n-1)*s²/sigma0²",
+      "symbols": {
+        "s²": "steekproefvariantie",
+        "sigma0": "getoetste waarde",
+        "n": "steekproefgrootte"
+      },
+      "conditions": "parametrische test: X normaal verdeeld; dan statistiek ~ chi²(n-1); test is niet robuust (sterk gevoelig aan niet-normaliteit van X)",
+      "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+      "page": 11
+    },
+    {
+      "name": "F-distributie (definitie en kritische waarden)",
+      "expression": "X ~ chi²(n), Y ~ chi²(m), X en Y onafhankelijk => (X/n)/(Y/m) ~ F(n,m); stelling: RS1 -> n1,s1²; RS2 -> n2,s2² onafhankelijk => (s1²/sigma1²)/(s2²/sigma2²) ~ F(n1-1,n2-1); kritische waarden: F_alpha(n,m) = 1/F_(1-alpha)(m,n); E(F(n,m)) = m/(m-2) (m>2); mode(F(n,m)) = (n-2)m/(n(m+2)) (n>2)",
+      "symbols": {
+        "n,m": "vrijheidsgraden teller resp. noemer"
+      },
+      "conditions": "n.v.t.",
+      "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+      "page": 12
+    },
+    {
+      "name": "F-test voor sigma1/sigma2 (testrecept)",
+      "expression": "H0: sigma1=sigma2 vs. (DZ) HA: sigma1 != sigma2 of (EZ) HA: sigma1 > (<) sigma2; F = s1²/s2² of F = s2²/s1²",
+      "symbols": {
+        "s1,s2": "steekproefspreidingen van RS1 (n1) en RS2 (n2), beide onafhankelijk"
+      },
+      "conditions": "parametrische test: X1,X2 normaal verdeeld; dan F ~ F(n1-1,n2-1) of F(n2-1,n1-1) (keuze van F wordt gemaakt rekening houdend met beschikbare kritische waarden in de tabellen, enkel voor probabiliteiten < 0.5); test is niet robuust",
+      "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+      "page": 13
+    },
+    {
+      "name": "chi²-test 'goodness of fit' (testrecept)",
+      "expression": "H0: distributie van X heeft vooropgestelde gedaante; statistiek = som_k=1^r (e_k - n_k)² / e_k, waarbij e_k = n*pi_k, pi_k = P[X in klasse k]",
+      "symbols": {
+        "n_k": "waargenomen absolute frequentie in klasse k",
+        "e_k": "verwachte absolute frequentie in klasse k onder H0",
+        "r": "aantal klassen",
+        "g": "aantal geschatte parameters (momentenmethode)"
+      },
+      "conditions": "niet parametrisch: statistiek ~ chi²(r-g-1), slechts benaderd, voorwaarde e_k > 5; test is eenzijdig (EZ)",
+      "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+      "page": 16
+    },
+    {
+      "name": "chi²-test 'contingency tables' (testrecept)",
+      "expression": "H0: X en Y zijn onafhankelijk; statistiek = som_k=1^r som_l=1^s (n_kl - e_kl)² / e_kl, waarbij e_kl = n*pi_kl (onder H0: e_kl = n*pi_k.*pi_.l), geschat via pi_k. ≅ n_k./n en pi_.l ≅ n_.l/n zodat e_kl = n_k.*n_.l/n",
+      "symbols": {
+        "n_kl": "waargenomen frequentie in cel (k,l)",
+        "e_kl": "verwachte frequentie in cel (k,l)",
+        "r,s": "aantal klassen voor X resp. Y"
+      },
+      "conditions": "niet parametrisch: statistiek ~ chi²(rs-g-1), g=(r-1)(s-1)... vrijheidsgraden = (r-1)(s-1) [zoals afgedrukt: 'g = aantal te schatten parameters => aantal vrijheidsgraden = (r-1)(s-1)']; benaderd, voorwaarde e_kl > 5; bij 2x2-tabel: continuïteitscorrectie van Yates: n_ij < e_ij => n_ij + 1/2; n_ij > e_ij => n_ij - 1/2; test is EZ",
+      "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+      "page": 19
+    },
+    {
+      "name": "Wilcoxon-Mann-Whitney-test",
+      "expression": "H0: nu1=nu2 vs. (DZ) HA: nu1 != nu2 of (EZ) HA: nu1 > (<) nu2; statistiek W_X1 = som van rangen geassocieerd aan X1-waarden (alle N=n1+n2 waarden samen gerangschikt); W_X1 discreet en symmetrisch; E(W_X1) = n1(N+1)/2; sigma²(W_X1) = n1*n2*(N+1)/12",
+      "symbols": {
+        "n1,n2": "steekproefgrootten (n1=m, n2=n conventie m<=n)",
+        "N": "n1+n2"
+      },
+      "conditions": "niet parametrische test: vorm van X1,X2 niet vooropgesteld, wel: vorm van X1 en X2 gelijk; voor n1,n2<=10 tabel met kritische waarden; voor grotere n1,n2 benaderd normaal (Z-test, +continuïteitscorrectie); ties: gemiddelde rang toekennen",
+      "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+      "page": 21
+    },
+    {
+      "name": "Wilcoxon signed ranks-test",
+      "expression": "H0: nu1=nu2 vs. (DZ) HA: nu1 != nu2 of (EZ) HA: nu1 > (<) nu2; verschillen v_i = x1_i - x2_i, rangschikken in absolute waarde; statistiek T+ = som van rangen geassocieerd aan positieve verschillen; T+ discreet en symmetrisch; E(T+) = n(n+1)/4; sigma²(T+) = n(n+1)(2n+1)/24",
+      "symbols": {
+        "n": "aantal paren (na eliminatie van v_i=0)"
+      },
+      "conditions": "niet parametrisch: vorm X1,X2 niet vooropgesteld, wel gelijke vorm; voor n<=15 tabel met kritische waarden (notatie n=N); voor n>15 T+ benaderd normaal (Z-test +continuïteitscorrectie); twee soorten ties: v_i=0 elimineren en n aanpassen; opeenvolgende gelijke abs. waarden: gemiddelde rang",
+      "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+      "page": 23
+    },
+    {
+      "name": "Runs-test (Wald-Wolfowitz-test)",
+      "expression": "H0: het steekproefmechanisme leidt tot RS; statistiek = aantal runs R in de steekproef (run = reeks opeenvolgende waarden langs zelfde kant van de mediaan); E(R) ≈ (n+2)/2; sigma²(R) ≈ (n-1)/4",
+      "symbols": {
+        "R": "aantal runs",
+        "n": "steekproefgrootte"
+      },
+      "conditions": "niet parametrisch, geen voorwaarde op distributie van X; R heeft discrete distributie (1<=R<=n); als n voldoende groot, R benaderd normaal => Z-test toepasbaar",
+      "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+      "page": 25
+    },
+    {
+      "name": "Excel: simulated CI for the mean (formulas used in demonstration workbook)",
+      "expression": "sample value = _xlfn.NORM.INV(RAND(), mean, stddev); Xbar = AVERAGE(range); s = _xlfn.STDEV.S(range); Lower = Xbar - _xlfn.T.INV((1+confidence)/2, n-1) * s/SQRT(n); Upper-lower (width) = 2 * _xlfn.T.INV((1+confidence)/2, n-1) * s/SQRT(n); coverage indicator = IF(AND(Lower<=true_mean, true_mean<=Lower+width),1,0); achieved confidence = SUM(indicators)/number_of_samples",
+      "symbols": {
+        "mean": "10 (input)",
+        "stddev": "2 (input)",
+        "n": "10 (input sample size)",
+        "confidence": "0.95 (input)"
+      },
+      "conditions": "values are re-randomized on every recalculation (F9); cached values captured at extraction time gave an achieved confidence of 0.93 over 100 simulated samples (will differ on recalculation)",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.xlsx",
+      "page": 1
+    },
+    {
+      "name": "Excel: OC-curve for (n,c) acceptance sampling plan",
+      "expression": "P[d<=c] = _xlfn.BINOM.DIST(c, n, pi, TRUE)",
+      "symbols": {
+        "c": "critical value (acceptance number)",
+        "n": "sample size",
+        "pi": "true lot fraction defectives"
+      },
+      "conditions": "reproduces the 3 confirmation points of the (100,4) OC-curve: pi=1.30% -> 99%, pi=2.45% -> 90%, pi=7.85% -> 10% (matches CI PDF p14)",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.xlsx",
+      "page": 2
+    },
+    {
+      "name": "Excel: nomogram CI for fraction defectives - exact binomial",
+      "expression": "lower quantile = _xlfn.BINOM.INV(n, pi, (1-confidence)/2) / n; upper quantile = _xlfn.BINOM.INV(n, pi, confidence+(1-confidence)/2) / n",
+      "symbols": {
+        "n": "sample size (100)",
+        "pi": "population fraction defectives (input grid 0 to 1)",
+        "confidence": "0.95"
+      },
+      "conditions": "large generated table (1121 rows), not transcribed - see topic entry",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.xlsx",
+      "page": 3
+    },
+    {
+      "name": "Excel: nomogram CI for fraction defectives - normal approximation",
+      "expression": "lower bound = MAX(pi + _xlfn.NORM.INV((1-confidence)/2, 0, 1) * SQRT(pi*(1-pi)/n), 0)",
+      "symbols": {
+        "n": "sample size",
+        "pi": "population fraction defectives",
+        "confidence": "confidence level"
+      },
+      "conditions": "clipped at 0 via MAX()",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.xlsx",
+      "page": 3
+    }
+  ],
+  "constant_tables": [
+    {
+      "name": "95% CI for lot percentage defectives for different observed defectives (n=100 SRS from lot with true 2% defectives)",
+      "columns": [
+        "defectives in sample",
+        "95% CI lower",
+        "95% CI upper"
+      ],
+      "rows": [
+        [
+          "0",
+          "0.0%",
+          "3.6%"
+        ],
+        [
+          "2",
+          "0.3%",
+          "7.0%"
+        ],
+        [
+          "4",
+          "1.1%",
+          "9.9%"
+        ]
+      ],
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+      "page": 5
+    },
+    {
+      "name": "CI for the sample (n=100, 4 defectives) at different confidence levels",
+      "columns": [
+        "confidence",
+        "CI lower",
+        "CI upper"
+      ],
+      "rows": [
+        [
+          "0,0%",
+          "4,0%",
+          "4,0%"
+        ],
+        [
+          "70,0%",
+          "2,1%",
+          "7,1%"
+        ],
+        [
+          "95,0%",
+          "1,1%",
+          "9,9%"
+        ],
+        [
+          "99,0%",
+          "0,7%",
+          "12,0%"
+        ],
+        [
+          "99,9%",
+          "0,4%",
+          "14,8%"
+        ],
+        [
+          "100,0%",
+          "0,0%",
+          "100,0%"
+        ]
+      ],
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+      "page": 6
+    },
+    {
+      "name": "Sample size vs width of 95% CI for a proportion (worst case p=50%)",
+      "columns": [
+        "sample size",
+        "CI width"
+      ],
+      "rows": [
+        [
+          "100",
+          "20%"
+        ],
+        [
+          "400",
+          "10%"
+        ],
+        [
+          "1350",
+          "5%"
+        ]
+      ],
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+      "page": 7
+    },
+    {
+      "name": "One-sided 90%-CI based on sample size 100 (for various observed P), and matching AQL confirmation points",
+      "columns": [
+        "P (observed)",
+        "one-sided 90%-CI"
+      ],
+      "rows": [
+        [
+          "0%",
+          "[0%, 100%]"
+        ],
+        [
+          "1%",
+          "[0.30%, 100%]"
+        ],
+        [
+          "2%",
+          "[0.85%, 100%]"
+        ],
+        [
+          "3%",
+          "[1.45%, 100%]"
+        ],
+        [
+          "4%",
+          "[2.10%, 100%]"
+        ],
+        [
+          "5%",
+          "[2.85%, 100%]"
+        ],
+        [
+          "6%",
+          "[3.60%, 100%]"
+        ]
+      ],
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+      "page": 14
+    },
+    {
+      "name": "Niet-paarsgewijze schoenzool-experiment: ruwe data (RS1 en RS2, n=10 elk)",
+      "columns": [
+        "individu-index",
+        "RS1 individu",
+        "LD1",
+        "RS2 individu",
+        "LD2"
+      ],
+      "rows": [
+        [
+          "1",
+          "83",
+          "29",
+          "29",
+          "42"
+        ],
+        [
+          "2",
+          "32",
+          "30",
+          "48",
+          "29"
+        ],
+        [
+          "3",
+          "95",
+          "34",
+          "53",
+          "36"
+        ],
+        [
+          "4",
+          "64",
+          "32",
+          "35",
+          "52"
+        ],
+        [
+          "5",
+          "47",
+          "32",
+          "82",
+          "28"
+        ],
+        [
+          "6",
+          "71",
+          "25",
+          "2",
+          "32"
+        ],
+        [
+          "7",
+          "38",
+          "25",
+          "71",
+          "30"
+        ],
+        [
+          "8",
+          "90",
+          "27",
+          "34",
+          "33"
+        ],
+        [
+          "9",
+          "96",
+          "36",
+          "83",
+          "28"
+        ],
+        [
+          "10",
+          "56",
+          "17",
+          "57",
+          "33"
+        ]
+      ],
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "page": 17
+    },
+    {
+      "name": "Paarsgewijze schoenzool-experiment: ruwe data (10 jongens, LD1, LD2 en verschil v)",
+      "columns": [
+        "individu",
+        "LD1",
+        "LD2",
+        "v=LD1-LD2"
+      ],
+      "rows": [
+        [
+          "83",
+          "29",
+          "28",
+          "1"
+        ],
+        [
+          "32",
+          "30",
+          "30",
+          "0"
+        ],
+        [
+          "95",
+          "34",
+          "38",
+          "-4"
+        ],
+        [
+          "64",
+          "32",
+          "35",
+          "-3"
+        ],
+        [
+          "47",
+          "32",
+          "34",
+          "-2"
+        ],
+        [
+          "71",
+          "25",
+          "30",
+          "-5"
+        ],
+        [
+          "38",
+          "25",
+          "30",
+          "-5"
+        ],
+        [
+          "90",
+          "27",
+          "30",
+          "-3"
+        ],
+        [
+          "96",
+          "36",
+          "42",
+          "-6"
+        ],
+        [
+          "56",
+          "17",
+          "23",
+          "-6"
+        ]
+      ],
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "page": 18
+    }
+  ],
+  "worked_examples": [
+    {
+      "id": "S03-WE01",
+      "tool": "acceptance-sampling-as-ci",
+      "given": {
+        "lot size N": "10000 ceramic tiles",
+        "AQL": "2% (D<=200)",
+        "sampling plan": "single stage, n=100",
+        "significance alpha": "5%",
+        "critical value c": "4",
+        "observed defectives d": "4",
+        "point estimate p": "4% (=d/n)"
+      },
+      "stated_answers": {
+        "95% CI for lot fraction defectives": "[1.1%, 9.9%]",
+        "decision": "lot accepted at 5% significance level"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+      "page": 4,
+      "legible": true
+    },
+    {
+      "id": "S03-WE02",
+      "tool": "ci-mean-t",
+      "given": {
+        "case": "manufacturing process, critical dimension normally distributed around 10; after replacement of broken machine component, suspicion the mean has shifted down",
+        "data (n=20)": [
+          10.06,
+          9.89,
+          9.896,
+          9.989,
+          9.872,
+          9.884,
+          9.927,
+          9.984,
+          10.117,
+          9.863,
+          9.889,
+          9.813,
+          9.954,
+          9.917,
+          10.073,
+          9.979,
+          10.024,
+          9.619,
+          9.963,
+          9.861
+        ],
+        "H0": "mu = 10",
+        "HA": "mu < 10",
+        "alpha": "2%",
+        "confidence": "98%",
+        "test statistic formula": "(X_bar-10)/(s/sqrt(n))"
+      },
+      "stated_answers": {
+        "X_bar (Excel cached)": "9.928700000000001",
+        "s (Excel cached, STDEV.S)": "0.10793228871551107",
+        "reference distribution": "t(19)",
+        "one-sided 98%-CI (as printed on slide)": "]-infinity, 9.98[",
+        "conclusion": "H0 cannot be accepted at 2% significance, process needs adjustment"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+      "page": 15,
+      "legible": true
+    },
+    {
+      "id": "S03-WE03",
+      "tool": "chi2-test-variance-as-ci",
+      "given": {
+        "case": "manufacturing process, critical dimension normally distributed around a nominal standard deviation of 0.01; suspicion process has become more erratic due to machine wear",
+        "data (n=20)": [
+          9.997,
+          10.004,
+          10.01,
+          9.991,
+          10.008,
+          9.981,
+          9.984,
+          9.993,
+          9.99,
+          9.997,
+          9.996,
+          9.977,
+          9.999,
+          9.981,
+          10.0,
+          10.01,
+          10.005,
+          10.011,
+          9.997,
+          10.022
+        ],
+        "H0": "sigma = 0.01",
+        "HA": "sigma > 0.01",
+        "alpha": "2%",
+        "confidence": "98%",
+        "test statistic formula": "(n-1)*s²/sigma²"
+      },
+      "stated_answers": {
+        "variance (Excel cached, VAR.S)": "0.00013581842105262962",
+        "reference distribution": "chi²(19)",
+        "one-sided 98%-CI (as printed on slide)": "]0.0088, +infinity[",
+        "conclusion": "H0 cannot be rejected at 2% significance, process needs no adjustment"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+      "page": 16,
+      "legible": true
+    },
+    {
+      "id": "S03-WE04",
+      "tool": "t-test-one-sample",
+      "given": {
+        "case": "same manufacturing process as S03-WE02, presented as classical hypothesis test",
+        "data (n=20)": "same 20 values as S03-WE02 (see CI PDF p15 / Testing of Hypotheses.xlsx sheet 'example t-test')",
+        "H0": "process still well centered (mu=10)",
+        "HA": "process has shifted down (mu<10)",
+        "alpha": "2%"
+      },
+      "stated_answers": {
+        "test statistic (as printed on slide, rounded)": "-2.95",
+        "test statistic (Excel cached, exact)": "-2.954290114535869",
+        "reference distribution": "t(19)",
+        "critical value (as printed on slide)": "-2.20",
+        "critical value (Excel cached, exact)": "-2.204701350741608",
+        "p-value (as printed on slide)": "0.4%",
+        "p-value (Excel cached, exact, via T.DIST)": "0.004072213810342539",
+        "p-value cross-check (Excel T.TEST(range1,range2,1,1))": "0.004072213810342539",
+        "conclusion": "H0 cannot be accepted at 2% significance, process needs adjustment"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+      "page": 12,
+      "legible": true
+    },
+    {
+      "id": "S03-WE05",
+      "tool": "chi2-test-variance",
+      "given": {
+        "case": "same manufacturing process as S03-WE03, presented as classical hypothesis test",
+        "data (n=20)": "same 20 values as S03-WE03 (see CI PDF p16 / Testing of Hypotheses.xlsx sheet 'example chi²-test')",
+        "H0": "process variability has not changed (sigma=0.01)",
+        "HA": "process has become more erratic (sigma>0.01)",
+        "alpha": "2%"
+      },
+      "stated_answers": {
+        "test statistic (Excel cached, exact, =19*var/(0.01^2))": "25.805499999999626",
+        "reference distribution": "chi²(19)",
+        "critical value (as printed on slide)": "33.69",
+        "critical value (Excel cached, exact)": "33.687425071285354",
+        "p-value (as printed on slide)": "13.6%",
+        "p-value (Excel cached, exact, via 1-CHISQ.DIST)": "0.13570042116791403",
+        "conclusion": "H0 cannot be rejected at 2% significance, process variability judged stable"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+      "page": 13,
+      "legible": true
+    },
+    {
+      "id": "S03-WE06",
+      "tool": "oc-curve-binomial",
+      "given": {
+        "sampling plan (n,c)": "(100,4)",
+        "reference distribution under H0": "binomial(n=100, pi=2%=AQL)"
+      },
+      "stated_answers": {
+        "P[d<=4] under H0 (pi=2%)": "≅ 95%",
+        "alpha (for limit case pi=AQL=2%)": "5%",
+        "P[d<=4] under HA (pi=8%)": "≅ 10%",
+        "beta (for pi=8%)": "9%",
+        "critical value if alpha reduced": "c=5 => alpha=1.5%"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+      "page": 5,
+      "legible": true
+    },
+    {
+      "id": "S03-WE07",
+      "tool": "oc-curve-binomial",
+      "given": {
+        "original plan": "(n=100,c=4)",
+        "enlarged plan": "(n=130,c=5)",
+        "bad lot fraction defectives": "8%"
+      },
+      "stated_answers": {
+        "alpha maintained": "5%",
+        "beta at n=100 (before)": "9%",
+        "beta at n=130 (after)": "reduced to 5%"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+      "page": 8,
+      "legible": true
+    },
+    {
+      "id": "S03-WE08",
+      "tool": "oc-curve-efficiency-comparison",
+      "given": {
+        "lot size": "10000",
+        "AQL": "2%",
+        "compared plans": "(5000,111) vs (100,4)"
+      },
+      "stated_answers": {
+        "note": "small-sample plan (100,4) and large-sample plan (5000,111) OC-curves compared graphically to illustrate the 'big data fallacy' pitfall; no single numeric answer stated"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+      "page": 11,
+      "legible": true
+    },
+    {
+      "id": "S03-WE09",
+      "tool": "efficiency-equivalent-plans",
+      "given": {
+        "plan A": "(175,8)",
+        "plan B (sequential)": "(90,2,7)+(90,8)"
+      },
+      "stated_answers": {
+        "claim": "these two acceptance sampling procedures are statistically equivalent (same OC-curve) but plan B is more efficient (lower average workload)"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+      "page": 11,
+      "legible": true
+    },
+    {
+      "id": "S03-WE10",
+      "tool": "z-test-one-sample-mean",
+      "given": {
+        "case": "beeldbuizen (picture tubes) productieprocedé",
+        "H0": "mu=1200",
+        "HA (eenzijdig)": "mu>1200",
+        "sigma (gekend)": "300",
+        "n": "100",
+        "alpha": "1%"
+      },
+      "stated_answers": {
+        "kritische waarde (eenzijdig)": "1200 + 2.3*30 = 1270",
+        "berekende waarde statistiek": "1265",
+        "besluit (eenzijdig)": "1265 < 1270 => aanvaard H0",
+        "kritische waarden (dubbelzijdig, alpha=1%)": "links 1123, rechts 1277",
+        "besluit (dubbelzijdig)": "1123 < 1265 < 1277 => aanvaard H0",
+        "p-waarde (eenzijdig) van 1265": "1.5%",
+        "p-waarde (dubbelzijdig)": "3.0% (1.5%+1.5%, gespiegeld)"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses - Further Reading (Dutch).pdf",
+      "page": 10,
+      "legible": true
+    },
+    {
+      "id": "S03-WE11",
+      "tool": "oc-curve-sample-size-effect",
+      "given": {
+        "H0": "mu=1200",
+        "true mean": "1270",
+        "alpha": "1%",
+        "compared sample sizes": "n=100 vs n=195"
+      },
+      "stated_answers": {
+        "beta at n=100": "16%",
+        "beta at n=195": "1%"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses - Further Reading (Dutch).pdf",
+      "page": 9,
+      "legible": true
+    },
+    {
+      "id": "S03-WE12",
+      "tool": "z-test-proportion-exercise",
+      "given": {
+        "H0": "pi=0.02",
+        "HA": "pi>0.02",
+        "n": "400",
+        "observed defectives": "10"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses - Further Reading (Dutch).pdf",
+      "page": 22,
+      "legible": true
+    },
+    {
+      "id": "S03-WE13",
+      "tool": "t-test-two-sample",
+      "given": {
+        "case": "niet-paarsgewijs schoenzool-slijtage experiment (materiaal 1 vs materiaal 2), RS van 10 jongens uit populatie van 100 per groep",
+        "RS1 individuen": [
+          83,
+          32,
+          95,
+          64,
+          47,
+          71,
+          38,
+          90,
+          96,
+          56
+        ],
+        "LD1": [
+          29,
+          30,
+          34,
+          32,
+          32,
+          25,
+          25,
+          27,
+          36,
+          17
+        ],
+        "RS2 individuen": [
+          29,
+          48,
+          53,
+          35,
+          82,
+          2,
+          71,
+          34,
+          83,
+          57
+        ],
+        "LD2": [
+          42,
+          29,
+          36,
+          52,
+          28,
+          32,
+          30,
+          33,
+          28,
+          33
+        ]
+      },
+      "stated_answers": {
+        "x1_bar": "28.7",
+        "s1": "5.50",
+        "x2_bar": "34.3",
+        "s2": "7.53",
+        "s_p": "6.59",
+        "t_18,0.025": "2.10",
+        "BI95 voor mu1-mu2": "-5.6 ± 6.19",
+        "conclusie": "0 in BI95 => geen (significant) verschil"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "page": 17,
+      "legible": true
+    },
+    {
+      "id": "S03-WE14",
+      "tool": "t-test-paired",
+      "given": {
+        "case": "paarsgewijs schoenzool-slijtage experiment, RS van 10 jongens uit populatie van 100, elke jongen draagt 'gemengd' paar schoenen",
+        "RS individuen": [
+          83,
+          32,
+          95,
+          64,
+          47,
+          71,
+          38,
+          90,
+          96,
+          56
+        ],
+        "LD1": [
+          29,
+          30,
+          34,
+          32,
+          32,
+          25,
+          25,
+          27,
+          36,
+          17
+        ],
+        "LD2": [
+          28,
+          30,
+          38,
+          35,
+          34,
+          30,
+          30,
+          30,
+          42,
+          23
+        ],
+        "v=LD1-LD2": [
+          1,
+          0,
+          -4,
+          -3,
+          -2,
+          -5,
+          -5,
+          -3,
+          -6,
+          -6
+        ]
+      },
+      "stated_answers": {
+        "v_bar": "-3.3",
+        "s_v": "2.41",
+        "t_9,0.025": "2.26",
+        "BI95 voor mu1-mu2": "-3.3 ± 1.72",
+        "conclusie": "0 niet in BI95 => wel verschil (materiaal 2 is sleetvaster)",
+        "verhouding lengte BI (paarsgewijs/niet-paarsgewijs)": "1.72/6.19 = 0.28, komt overeen met sqrt(1-rho) met rho=0.93"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "page": 18,
+      "legible": true
+    },
+    {
+      "id": "S03-WE15",
+      "tool": "ci-proportion-exact-binomial",
+      "given": {
+        "sample proportion p": "0.6",
+        "n": "200"
+      },
+      "stated_answers": {
+        "95% BI voor pi": "[0.53, 0.67]",
+        "R cross-check": "binom.test(120,200) levert BI op: [0.53, 0.67]"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "page": 20,
+      "legible": true
+    },
+    {
+      "id": "S03-WE16",
+      "tool": "tolerance-interval-normal",
+      "given": {
+        "case": "betonblokken (concrete blocks) productieproces, kwaliteitseis: min. 90% van blokken weerstand X tegen belasting >= 240 kg/cm2",
+        "situatie 1 (distributie gekend)": "Y=lnX ~ N(5.75,0.2)",
+        "situatie 2 (spreiding gekend, gemiddelde ongekend)": "steekproef n=20, gemiddelde=5.732"
+      },
+      "stated_answers": {
+        "situatie 1: 10%-percentiel van Y": "5.75 + Z_0.1*0.2 = 5.49 > ln(240)=5.48 => aan kwaliteitseis voldaan",
+        "situatie 2: LTL": "5.40",
+        "situatie 2: UTL": "5.55",
+        "situatie 2 conclusie": "grenswaarde 5.48 ligt in tolerantie-interval [5.40,+infinity[, dus kan niet aanvaard worden dat aan de kwaliteitseis voldaan is"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "page": 22,
+      "legible": true
+    },
+    {
+      "id": "S03-WE17",
+      "tool": "tolerance-interval-distribution-free-exercise",
+      "given": {
+        "case": "betonblokken, steekproef van 10 blokken",
+        "gemiddelde": "5.8",
+        "spreiding": "0.15"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "page": 23,
+      "legible": true
+    },
+    {
+      "id": "S03-WE18",
+      "tool": "ci-mean-simulation-tool",
+      "given": {
+        "data_ref": "source/course/Les 2/20260529_ottoy_Confidence Intervals.xlsx::'Confidence interval mean'!D7:O16",
+        "layout": "12 simulated samples (columns D..O) of size 10 (rows 7-16), each value = NORM.INV(RAND(),10,2); rows 18-19 give Xbar and s per sample; rows 22-25 give the t-based CI (Lower, Upper-lower width, True mean=10, coverage indicator) per sample",
+        "input mean": "10",
+        "input std dev": "2",
+        "input sample size n": "10",
+        "input confidence": "0.95"
+      },
+      "stated_answers": {
+        "achieved confidence (cached at extraction time, SUM of 100 indicators/100)": "0.93"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.xlsx",
+      "page": 1,
+      "legible": true
+    },
+    {
+      "id": "S03-WE19",
+      "tool": "sampling-distribution-d-binomial",
+      "given": {
+        "data_ref": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.xlsx::'sampling distribution d'!B6:D36",
+        "layout": "d=0..30 (column B), P[d] for lot with P=2% defectives (column C, =BINOM.DIST(d,100,0.02,FALSE)) and P=8% defectives (column D, =BINOM.DIST(d,100,0.08,FALSE)); row 38 sums each column to ~1",
+        "n": "100"
+      },
+      "stated_answers": {
+        "P[d<=4] for P=2% (sum C6:C10, cross-checked)": "0.9491695546304998 (≅ 95%, matches TH PDF p5)",
+        "P[d<=4] for P=8%": "≅ 10% (matches TH PDF p5, exact partial sum not separately re-verified beyond C10/D10 rows)"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.xlsx",
+      "page": 6,
+      "legible": true
+    },
+    {
+      "id": "S03-WE20",
+      "tool": "oc-curve-binomial",
+      "given": {
+        "data_ref": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.xlsx::'OC-curve (binomial)'!B6:E47",
+        "layout": "pi grid 0 to 0.2 step 0.005 (column B); P[d<=c] for plan (n=100,c=4) in column D (=BINOM.DIST(4,100,pi,TRUE)); P[d<=c] for plan (n=130,c=5) in column E (=BINOM.DIST(5,130,pi,TRUE)); row at pi=0.02 marked 'AQL'",
+        "plans compared": "(100,4) and (130,5)"
+      },
+      "stated_answers": {
+        "P[d<=4] at pi=0.02 (n=100,c=4)": "0.9491695546304997",
+        "P[d<=5] at pi=0.02 (n=130,c=5)": "0.9527421220627065"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.xlsx",
+      "page": 7,
+      "legible": true
+    },
+    {
+      "id": "S03-WE21",
+      "tool": "oc-curve-hypergeometric",
+      "given": {
+        "data_ref": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.xlsx::'OC-curve (hypergeometric)'!B7:F47",
+        "layout": "'Illustration of the big data fallacy trap'; pi grid 0 to 0.2 step 0.005 (column B); P[d<=c] via HYPGEOM.DIST for plan (N=10000,n=5000,c=111) in column D, for plan (N=10000,n=100,c=4) in column E, and via BINOM.DIST approximation for (n=100,c=4) in column F; row at pi=0.02 marked 'AQL'",
+        "plans compared": "(N=10000,n=5000,c=111) vs (N=10000,n=100,c=4), hypergeometric exact vs binomial approximation"
+      },
+      "stated_answers": {
+        "P[d<=111] at pi=0.02 (N=10000,n=5000,c=111)": "0.9499093816663069",
+        "P[d<=4] at pi=0.02 (N=10000,n=100,c=4) hypergeometric": "0.9500662267805816",
+        "P[d<=4] at pi=0.02 (n=100,c=4) binomial approx": "0.9491695546304997"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.xlsx",
+      "page": 8,
+      "legible": true
+    }
+  ],
+  "conventions": [
+    {
+      "topic": "one- vs two-sided default",
+      "as_stated": "No single default is stated; the course presents both a one-sided ('eenzijdige') and a two-sided ('dubbelzijdige') recipe as parallel, equally valid procedures, chosen according to the hypothesis: 'eenzijdige test geschikt om verschil in één richting te ontdekken; verschillen in beide richtingen ontdekken: dubbelzijdige test' and 'een eenzijdige test presteert wel beter in de gekozen richting: groter onderscheidingsvermogen of kracht' (Testing of Hypotheses - Further Reading (Dutch), p12/p14). Test recipes document formulates every specific test with both a (DZ) two-sided and (EZ) one-sided HA option.",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses - Further Reading (Dutch).pdf",
+      "page": 12
+    },
+    {
+      "topic": "default alpha / confidence level",
+      "as_stated": "No universal fixed default alpha is stated. alpha is described as a design parameter that 'moet a priori bepaald worden' and on which involved parties should agree up-front ('Involved parties should agree on the risks of the procedure up-front', Testing of Hypotheses.pdf p4). Worked examples in the course use different values of alpha depending on context: 5% (acceptance-sampling case example, CI PDF p3-4 and p13; OC-curve examples TH PDF p6-9), 1% (beeldbuizen example, TH Dutch FR p10/p13), 2% (t-test/chi²-test examples, TH PDF p12-13 and matching xlsx sheets), 98% confidence (=1-2% alpha, CI PDF p15-16).",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+      "page": 4
+    },
+    {
+      "topic": "n vs n-1 in standard deviation",
+      "as_stated": "Sample standard deviation/variance is consistently computed with the n-1 (Bessel-corrected) divisor, denoted s (or s²), e.g. '(n-1)s²/sigma² ~ chi²(n-1)' (CI Dutch FR p21; TR Dutch p11). In both xlsx workbooks the Excel functions used are _xlfn.STDEV.S and _xlfn.VAR.S (n-1 divisor), never STDEV.P/VAR.P.",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.xlsx",
+      "page": 1
+    },
+    {
+      "topic": "z vs t choice rule",
+      "as_stated": "'gebruik Z = (X_bar-mu)/(sigma/sqrt(n)) voor BI mu onrealistisch: sigma ??; praktijk: gebruik zg. t-statistiek' (CI Dutch FR p5). The course states the Z-test for mu is 'niet courant voor mu, komt wel te pas in andere situaties' (i.e. Z is mainly a teaching/illustrative device or used when sigma is genuinely known, e.g. tolerance intervals with known sigma, or the proportion pi tests where the reference distribution is naturally normal/binomial) - t is used whenever sigma must be estimated from the sample.",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "page": 5
+    },
+    {
+      "topic": "Excel functions used and how",
+      "as_stated": "NORM.INV(RAND(),mean,sd) for simulating normal samples; T.INV((1+confidence)/2,df) for a two-sided critical t-value; T.INV(1-significance,df) for a one-sided critical t-value; T.DIST(x,df,cumulative) for density/p-value; T.TEST(array1,array2,tails,type) used as an independent cross-check of the p-value; CHISQ.INV(probability,df) is used directly with 'probability'=confidence (e.g. CHISQ.INV(0.98,19)) or with probability=1-significance (equivalent when confidence=1-alpha) to obtain the upper one-sided critical chi² value - CHISQ.INV.RT is never used in this course's workbooks; CHISQ.DIST(x,df,cumulative) with 1-CHISQ.DIST(...) used for a right-tail p-value; BINOM.DIST(x,n,p,cumulative) for OC-curves and lot acceptance probability; BINOM.INV(trials,prob,alpha) for the exact binomial CI nomogram; HYPGEOM.DIST(sample_s,number_sample,population_s,number_pop,cumulative) for the finite-population OC-curve; F.DIST(x,df1,df2,cumulative) used only to draw F density curves (no worked F-test example provided in the spreadsheets).",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.xlsx",
+      "page": 2
+    },
+    {
+      "topic": "p-value vs critical value approach",
+      "as_stated": "Both approaches are presented as fully equivalent: 'Consequently, a decision can be made by directly comparing the p-value with the significance alpha, no need for a determining the critical value anymore' (Testing of Hypotheses.pdf p10); 'beter: rechtstreekse vergelijking p-waarde met significantie' (Testing of Hypotheses - Further Reading (Dutch) p11).",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+      "page": 10
+    },
+    {
+      "topic": "normal approximation to binomial conditions",
+      "as_stated": "Z-test voor pi requires n*pi0 > 5 ('slechts benaderd normaal, voorwaarde n*pi0 > 5'; if n*pi0<5 work with the exact distribution of P under H0) (Test Recipes - Further Reading (Dutch) p9-10). chi² 'goodness of fit' test requires e_k > 5 ('slechts benaderd chi², voorwaarde e_k > 5') (Test Recipes p16). chi² 'contingency tables' test requires e_kl > 5, with Yates continuity correction recommended for 2x2 tables (Test Recipes p19-20). The approximate CI for the fraction defectives similarly requires 'n sufficiently large means that at least 5 defectives need to turn up in the sample' (Confidence Intervals.pdf p10).",
+      "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+      "page": 9
+    },
+    {
+      "topic": "F-ratio orientation convention",
+      "as_stated": "'voor eenvoud van de testprocedure wordt de keuze van F best gemaakt rekening houdend met de beschikbare kritische waarden in de tabellen (enkel voor probabiliteiten < 0.5)' - i.e. F = s1²/s2² or F = s2²/s1² is chosen so the resulting F-value corresponds to an available (tail probability < 0.5) table entry (Test Recipes - Further Reading (Dutch) p14). Kritische waarden algemeen: F_alpha(n,m) = 1/F_(1-alpha)(m,n) (Test Recipes p12).",
+      "file": "source/course/Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf",
+      "page": 14
+    },
+    {
+      "topic": "pitfall: setting alpha after seeing the test statistic",
+      "as_stated": "'Set alpha after knowing the test statistic ... destroys the entire meaning of the test... The value of alpha should be said prior to starting the procedure and should be agreed upon between the stakeholders' (Testing of Hypotheses.pdf p11); 'alpha hangt af van economische context en wordt a priori bepaald' (Testing of Hypotheses - Further Reading (Dutch) p6).",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+      "page": 11
+    },
+    {
+      "topic": "generic 7-step test recipe (universal, applies to any single-sample test)",
+      "as_stated": "Step 1: describe the problem as H0 and HA. Step 2: choose significance alpha. Step 3: determine an appropriate test statistic and its sampling distribution. Step 4: find the best sample size, taking into account error risks and practical constraints. Step 5: determine the reference distribution and the critical value (by measuring the significance on the reference distribution). Step 6: draw the sample from the population and determine the value of the test statistic. Step 7: compare the test statistic to the critical value and draw the conclusion. Test recipes differ from each other only in the choice of test statistic and its sampling distribution.",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+      "page": 9
+    },
+    {
+      "topic": "significance test = (1-confidence) of the equivalent CI",
+      "as_stated": "'When testing with a (1-alpha)x100%-CI, then the significance of the test is alpha' (Confidence Intervals.pdf p13); 'significantie test + betrouwbaarheid interval = 100%' (Testing of Hypotheses - Further Reading (Dutch) p17).",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+      "page": 13
+    }
+  ],
+  "ambiguities": [
+    {
+      "issue": "Confidence Intervals.pdf p9, last derivation line reads 'X_bar + t_{0.97 ,n-1} * s/sqrt(n)' where every other line in the same derivation uses 't_{0.975,n-1}'. This looks like a printed typo (missing the digit '5'). Transcribed exactly as printed; treated as 't_0.975,n-1' would be expected/consistent.",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+      "page": 9
+    },
+    {
+      "issue": "Confidence Intervals - Further Reading (Dutch).pdf p15: the pooled-variance formula s_p² is printed with denominator 'n1+n2-1', i.e. 's_p² = [(n1-1)s1²+(n2-1)s2²] / (n1+n2-1)'. This is inconsistent with the standard pooled-variance formula (denominator n1+n2-2) and with the very next line on the same slide, which uses t(n1+n2-2) and the critical value t_{0.025,n1+n2-2} for the resulting 95% CI. Transcribed exactly as printed (verified by re-reading the page image at full resolution); likely a printed typo (n1+n2-1 instead of n1+n2-2).",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "page": 15
+    },
+    {
+      "issue": "Confidence Intervals.xlsx sheet 'example t-test', cell F13 (upper CI bound) uses the formula '=F2-F8*F3/SQRT(19)', i.e. dividing by sqrt(19) instead of sqrt(n)=sqrt(20), even though the same workbook's data has n=20 (rows 3-22) and the reference distribution is t(19) (df=19, not n). The corresponding sheet in Testing of Hypotheses.xlsx ('example t-test') computes the test statistic correctly with '=(F2-10)/F3*SQRT(20)'. Both give a value that rounds to the same printed slide value (9.98), so the qualitative conclusion is unaffected, but the exact cached numbers differ: 9.983291415355556 (Confidence Intervals.xlsx, using sqrt(19)) vs. 9.981909129846265 (recomputed with sqrt(20)). Recorded both formula texts as printed; flagging the sqrt(19) denominator as a likely spreadsheet error.",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.xlsx",
+      "page": 4
+    },
+    {
+      "issue": "Worked example S03-WE12 (Testing of Hypotheses - Further Reading (Dutch) p22, 'Oefening') is an open exercise for the student; the source provides only the problem setup (H0: pi=0.02 vs HA: pi>0.02, n=400, 10 defectives found) and asks three questions without printing any numeric solution. stated_answers left empty.",
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses - Further Reading (Dutch).pdf",
+      "page": 22
+    },
+    {
+      "issue": "Worked example S03-WE17 (Confidence Intervals - Further Reading (Dutch) p23, distribution-free tolerance interval exercise on concrete blocks, n=10, mean=5.8, spreiding=0.15) is presented as an open exercise ('Welke besluit kunnen we dan trekken...?') with no numeric answer printed in the source. stated_answers left empty.",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "page": 23
+    },
+    {
+      "issue": "Confidence Intervals.xlsx sheet 'OC-curve (n,c)', auxiliary columns E:H (rows 7-14) contain unlabeled numeric pairs (e.g. E7=0,F7=0.9,G7=0.0245,H7=0 and E8=0.2,F8=0.9,G8=0.0245,H8=1) that are not accompanied by column headers. Interpreted as chart-annotation coordinates marking the three OC-curve confirmation points (pi=1.30%/99%, 2.45%/90%, 7.85%/10%) that appear on Confidence Intervals.pdf p14, but the sheet itself does not label them, so this interpretation is inferred rather than stated.",
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.xlsx",
+      "page": 2
+    }
+  ]
+}

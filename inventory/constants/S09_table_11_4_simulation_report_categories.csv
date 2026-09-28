@@ -1,0 +1,5 @@
+Category,Purpose,source_file,source_page,table_name
+Time,"Show overall transaction times, and times per department, process, or activity.",source/course/Les 4/Six Sigma For Dummies.pdf,275,Table 11-4: Simulation Report Categories
+Cost,"Report statistics on costs for all resources, transactions, and activities.",source/course/Les 4/Six Sigma For Dummies.pdf,275,Table 11-4: Simulation Report Categories
+Resources,"Report statistics on resource utilization, time, activities, and costs.",source/course/Les 4/Six Sigma For Dummies.pdf,275,Table 11-4: Simulation Report Categories
+Queues,"Report on bottlenecked processes or transactions waiting in queues due to resource, inputs, or other constraints.",source/course/Les 4/Six Sigma For Dummies.pdf,275,Table 11-4: Simulation Report Categories

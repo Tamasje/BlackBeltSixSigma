@@ -1,0 +1,4 @@
+sample size,CI width,source_file,source_page,table_name
+100,20%,source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf,7,Sample size vs width of 95% CI for a proportion (worst case p=50%)
+400,10%,source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf,7,Sample size vs width of 95% CI for a proportion (worst case p=50%)
+1350,5%,source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf,7,Sample size vs width of 95% CI for a proportion (worst case p=50%)

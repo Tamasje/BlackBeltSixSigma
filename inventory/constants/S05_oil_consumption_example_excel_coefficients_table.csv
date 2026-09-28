@@ -1,0 +1,4 @@
+Variable,Coefficients,Standard Error,t Stat,P-value,Lower 95%,Upper 95%,source_file,source_page,table_name
+Intercept,562.151009,21.09310433,26.65094,4.7787E-12,516.1930829,608.1089356,source/course/Les 3/20260605_de vuyst_BB_Regression.pdf,52,Oil consumption example: Excel coefficients table
+Temp,-5.4365806,0.336216167,-16.1699,1.6418E-09,-6.16913269,-4.70402849,source/course/Les 3/20260605_de vuyst_BB_Regression.pdf,52,Oil consumption example: Excel coefficients table
+Insulation,-20.012321,2.342505227,-8.54313,1.9073E-06,-25.1162011,-14.90844022,source/course/Les 3/20260605_de vuyst_BB_Regression.pdf,52,Oil consumption example: Excel coefficients table

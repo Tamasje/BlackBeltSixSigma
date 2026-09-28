@@ -1,0 +1,7 @@
+Predictor,Coef,SE Coef,T,P,VIF,source_file,source_page,table_name
+Constant,36.4339,0.5529,65.90,0.000,,source/course/Les 3/20260605_de vuyst_BB_Regression.pdf,62,"Acetylene example: Minitab regression output, second-order polynomial model"
+Temp,0.130476,0.003642,35.83,0.000,1.1,source/course/Les 3/20260605_de vuyst_BB_Regression.pdf,62,"Acetylene example: Minitab regression output, second-order polynomial model"
+Ratio,0.48005,0.05860,8.19,0.000,1.5,source/course/Les 3/20260605_de vuyst_BB_Regression.pdf,62,"Acetylene example: Minitab regression output, second-order polynomial model"
+T x R,-0.0073346,0.0007993,-9.18,0.000,1.4,source/course/Les 3/20260605_de vuyst_BB_Regression.pdf,62,"Acetylene example: Minitab regression output, second-order polynomial model"
+T^2,0.00017820,0.00005854,3.04,0.012,1.2,source/course/Les 3/20260605_de vuyst_BB_Regression.pdf,62,"Acetylene example: Minitab regression output, second-order polynomial model"
+R^2 (term),-0.02367,0.01019,-2.32,0.043,1.7,source/course/Les 3/20260605_de vuyst_BB_Regression.pdf,62,"Acetylene example: Minitab regression output, second-order polynomial model"

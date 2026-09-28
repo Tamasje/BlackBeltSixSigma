@@ -1,0 +1,4 @@
+Measure of Variation Location,Definition,Comment,source_file,source_page,table_name
+Mode,Peak of distribution,"Problematic, seldom used",source/course/Les 4/Six Sigma For Dummies.pdf,109,Table 5-1: Summary of Statistical Measures of Variation Location
+Mean (average),x̄ = Σxᵢ / n,Most common and familiar,source/course/Les 4/Six Sigma For Dummies.pdf,109,Table 5-1: Summary of Statistical Measures of Variation Location
+Median,Point where half of data are below and half are above,Used when data contains outliers,source/course/Les 4/Six Sigma For Dummies.pdf,109,Table 5-1: Summary of Statistical Measures of Variation Location

@@ -1,0 +1,3813 @@
+{
+  "description": "Test oracle. Values are transcribed strings exactly as printed. Locked by git tag 'oracle-approved'; only the user extends it.",
+  "examples": [
+    {
+      "id": "S01-WE01",
+      "tool": "measurement-scale-classification",
+      "given": {
+        "1": "De buitentemperatuur in graden Celsius",
+        "2": "Het aantal defecten per uur in een fabriek",
+        "3": "Voorkeur voor een product: slecht / matig / goed / uitstekend",
+        "4": "Het gewicht van een pakket in kilogram",
+        "5": "De woonprovincie van een klant",
+        "6": "Het jaar waarin een bedrijf werd opgericht"
+      },
+      "stated_answers": {
+        "1": "Interval — 0 graden C betekent niet 'geen temperatuur'; er is geen absoluut nulpunt.",
+        "2": "Ratio — 0 defecten = echt niets; absoluut nulpunt aanwezig.",
+        "3": "Ordinaal — Er is volgorde, maar de afstanden zijn niet gelijk.",
+        "4": "Ratio — Gelijke afstanden en absoluut nulpunt (0 kg = niets).",
+        "5": "Nominaal — Categorieën zonder enige volgorde.",
+        "6": "Interval — Jaar 0 is een afspraak, geen absoluut nulpunt; verhoudingen zijn zinloos."
+      },
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 84,
+      "legible": true,
+      "slice": "S01",
+      "source_kind": "course"
+    },
+    {
+      "id": "S01-WE10",
+      "tool": "chart-axis-manipulation",
+      "given": {
+        "misleidende_as": "y-as begint bij 31.5%, tickmarks 31.6%/31.8%/32.0%/32.2%, kandidaten A en B als staafjes zonder exacte datalabels",
+        "correcte_as": "y-as begint bij 0%, tickmarks 0/10/20/30/40%"
+      },
+      "stated_answers": {
+        "werkelijk_verschil": "0.6 procentpunt"
+      },
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 87,
+      "legible": false,
+      "slice": "S01",
+      "source_kind": "course"
+    },
+    {
+      "id": "S01-WE09",
+      "tool": "simpsons-paradox",
+      "given": {
+        "data_ref": "zie constant_tables 'Simpson's Paradox: COVID-19 vaccineffectiviteit UK (sept. 2021)', file source/course/Les 1/20260521_van volsem.pdf p91"
+      },
+      "stated_answers": {
+        "conclusie": "Binnen elke leeftijdsgroep beschermt het vaccin juist (41% vs. 59% sterfgevallen in groep <50 jaar); de totaalcijfers (82% gevaccineerd) zijn misleidend omdat ouderen zowel eerst gevaccineerd werden als een hoger risico lopen om te overlijden."
+      },
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 91,
+      "legible": true,
+      "slice": "S01",
+      "source_kind": "course"
+    },
+    {
+      "id": "S01-WE07",
+      "tool": "data-literacy-average-vs-distribution",
+      "given": {
+        "vraag": "Which village should get charity funds?",
+        "data_ref": "zie constant_tables 'Village income exercise' (p100); grafieken tonen progressief total village income (1440/1000/1300) -> average income (90/100/130) -> % incomes below 50 (0/90/50) -> % incomes below 100 (100/90/50)"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 95,
+      "legible": true,
+      "slice": "S01",
+      "source_kind": "course"
+    },
+    {
+      "id": "S01-WE08",
+      "tool": "percent-change-interpretation",
+      "given": {
+        "2019_percentage": "43% van 14-tot-17-jarigen mocht op vakantie zonder ouders",
+        "2023_percentage": "39%",
+        "2019_populatie_14_17": "1 092 979",
+        "2023_populatie_14_17": "1 136 495",
+        "mogelijke_conclusies": [
+          "1. The number of kids allowed to travel without parents has dropped by 1% per year",
+          "2. The number of kids allowed to travel without parents has dropped by 4%",
+          "3. The number of kids allowed to travel without parents has dropped by 9.3%",
+          "4. The number of kids allowed to travel without parents has dropped by 27 748",
+          "5. The number of kids allowed to travel without parents has dropped by 5.7 %"
+        ]
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 100,
+      "legible": true,
+      "slice": "S01",
+      "source_kind": "course"
+    },
+    {
+      "id": "S01-WE02",
+      "tool": "acceptance-sampling",
+      "given": {
+        "lotgrootte": "10.000 eenheden",
+        "max_toegelaten_defect_percentage": "1%",
+        "steekproefgrootte": "100 eenheden",
+        "gevonden_defecten_in_steekproef": "1"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 123,
+      "legible": true,
+      "slice": "S01",
+      "source_kind": "course"
+    },
+    {
+      "id": "S01-WE03",
+      "tool": "design-of-experiments",
+      "given": {
+        "doel": "output van een scheikundige reactie optimaliseren",
+        "procesparameters": "druk, temperatuur, concentratie, keuze van katalysatoren"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 124,
+      "legible": true,
+      "slice": "S01",
+      "source_kind": "course"
+    },
+    {
+      "id": "S01-WE04",
+      "tool": "hypothesis-test-two-means",
+      "given": {
+        "beschrijving": "Opbrengst (%) van een scheikundige reactie, methode A (n=10, volgnummer 1-10) vs methode B (n=10, volgnummer 11-20); scatterplot met twee horizontale gemiddelde-lijnen getoond, geen exacte datalabels per punt op de slide",
+        "vraag": "Is methode B beter dan methode A?"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 125,
+      "legible": false,
+      "slice": "S01",
+      "source_kind": "course"
+    },
+    {
+      "id": "S01-WE05",
+      "tool": "reliability-life-test",
+      "given": {
+        "vereiste": "gemiddelde levensduur van ten minste 100 uur",
+        "n_getest": "20 componenten",
+        "test_afbreekregel": "test eindigt bij falen van component of bij max testduur van 120 uur",
+        "data_ref": "zie constant_tables 'Life test / betrouwbaarheid ruwe testresultaten (in uur)', file source/course/Les 1/20260521_van volsem.pdf p126"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 126,
+      "legible": true,
+      "slice": "S01",
+      "source_kind": "course"
+    },
+    {
+      "id": "S01-WE06",
+      "tool": "capability-cp-cpk",
+      "given": {
+        "specificatie": "lengte as tussen 71.4 mm en 72.8 mm",
+        "kaarttype": "x̄-s-kaart",
+        "steekproefgrootte": "5",
+        "x̄": "71.8 mm",
+        "s̄": "0.2 mm"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 127,
+      "legible": true,
+      "slice": "S01",
+      "source_kind": "course"
+    },
+    {
+      "id": "S01-WE11",
+      "tool": "regression-summary-stats-eda",
+      "given": {
+        "bron": "Anscombe, Francis (1973), Graphs in Statistical Analysis, The American Statistician, pp. 195-199",
+        "dataset_1_ruw": "zie constant_tables 'Anscombe's Quartet - Dataset 1 (ruwe data)', p134",
+        "datasets_2_3_4_ruw": "zie constant_tables 'Anscombe's Quartet - Datasets 2, 3, 4 (ruwe data)', p136"
+      },
+      "stated_answers": {
+        "N": "11",
+        "Mean of X": "9.0",
+        "Mean of Y": "7.5",
+        "Intercept": "3",
+        "Slope": "0.5",
+        "Residual standard deviation": "1.237",
+        "Correlation": "0.816",
+        "opmerking": "Deze kwantitatieve statistieken zijn identiek voor alle 4 datasets, maar de scatterplots (p137, 'Nochtans...') tonen sterk verschillend gedrag (lineair, kwadratisch verband, outlier, verticale puntenwolk met 1 outlier)"
+      },
+      "file": "source/course/Les 1/20260521_van volsem.pdf",
+      "page": 134,
+      "legible": true,
+      "slice": "S01",
+      "source_kind": "course"
+    },
+    {
+      "id": "S02-WE01",
+      "tool": "marginal-conditional-probability",
+      "given": {
+        "table_page": "24",
+        "table": "Lijn 1: Accepted=200, Downgraded=50, Rejected=20, Totaal=270; Lijn 2: Accepted=150, Downgraded=40, Rejected=40, Totaal=230; Totaal: Accepted=350, Downgraded=90, Rejected=60, Totaal=500",
+        "vraag_1": "Bereken P(L = lijn 2, K = Accepted).",
+        "vraag_2": "Bereken de marginale verdeling P(K).",
+        "vraag_3": "Bereken de voorwaardelijke verdeling P(K | L = lijn 1).",
+        "vraag_4": "Zijn L en K onafhankelijk? Leg uit.",
+        "note": "vragen en tabel op p.24; uitgewerkte antwoorden op p.25"
+      },
+      "stated_answers": {
+        "P(L=lijn2, K=Accepted)": "150/500 = 0,30",
+        "P(Acc.)": "350/500 = 0,70",
+        "P(Down.)": "90/500 = 0,18",
+        "P(Rej.)": "60/500 = 0,12",
+        "P(Acc. | lijn1)": "200/270 ≈ 0,74",
+        "P(Down. | lijn1)": "≈ 0,19",
+        "P(Rej. | lijn1)": "≈ 0,07",
+        "onafhankelijkheid": "Niet onafhankelijk: P(K | L=lijn1) ≠ P(K). Lijn 1 levert verhoudingsgewijs méér Accepted (74% vs 70%) en minder Rejected (7% vs 12%) — er is duidelijk een verband tussen productielijn en kwaliteit."
+      },
+      "file": "source/course/Les 1/20260522_naert_big data.pdf",
+      "page": 25,
+      "legible": true,
+      "slice": "S02",
+      "source_kind": "course"
+    },
+    {
+      "id": "S02-WE02",
+      "tool": "regression-dilution-attenuation-bias",
+      "given": {
+        "model_page": "56",
+        "model": "M1 = T1 + ε1; M2 = T2 + ε2; T2 = α T1 + β W + ε0 (W = wachtduur)",
+        "assumption": "Stel dat in werkelijkheid α = 1 (warm en koud staal koelen even snel af)."
+      },
+      "stated_answers": {
+        "alpha_correct_model": "α = Cov(M1,M2)/Var(T1)",
+        "alpha_naive_OLS": "α' = Cov(M1,M2)/Var(M1)",
+        "relatie": "Var(M1) = Var(T1) + Var(ε1) > Var(T1), dus α' < α",
+        "numeriek_resultaat": "α' ≈ 0,94 (terwijl werkelijk α = 1) — alsof warm staal significant sneller afkoelt; een artefact van meetfout, geen fysisch effect (attenuation bias / regression dilution)."
+      },
+      "file": "source/course/Les 1/20260522_naert_big data.pdf",
+      "page": 57,
+      "legible": true,
+      "slice": "S02",
+      "source_kind": "course"
+    },
+    {
+      "id": "S04-WE12",
+      "tool": "single-sampling-plan-n-c",
+      "given": {
+        "p1": "0.5%",
+        "1-alpha (target OC at p1)": "95%",
+        "p2": "3.5%",
+        "beta (target OC at p2)": "5%",
+        "method": "method of Peach: R0=p2/p1, look up R0 (or next larger tabled value) in the plan tables"
+      },
+      "stated_answers": {
+        "R0 (=p2/p1)": "7",
+        "tabled value used": "7.7",
+        "c": "2",
+        "n": "164",
+        "approx. confirming chart plan": "(160,2)"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 4,
+      "legible": true,
+      "slice": "S04",
+      "source_kind": "course"
+    },
+    {
+      "id": "S04-WE13",
+      "tool": "double-sampling-plan-n1c1c2n2c3",
+      "given": {
+        "target OC points": "(0.5%, 95%) and (3.5%, 5%)",
+        "method": "method of Peach with n1=n2",
+        "comparison single plan": "(164,2)"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 5,
+      "legible": true,
+      "slice": "S04",
+      "source_kind": "course"
+    },
+    {
+      "id": "S04-WE14",
+      "tool": "sequential-sampling-sprt",
+      "given": {
+        "p0": "0.01",
+        "pt": "0.05",
+        "alpha": "0.05",
+        "beta": "0.05"
+      },
+      "stated_answers": {
+        "h1": "1.78",
+        "h2": "1.78",
+        "s": "0.025"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 7,
+      "legible": true,
+      "slice": "S04",
+      "source_kind": "course"
+    },
+    {
+      "id": "S04-WE15",
+      "tool": "sequential-sampling-sprt",
+      "given": {
+        "p0": "0.005",
+        "pt": "3.5%",
+        "alpha": "0.05",
+        "beta": "0.05",
+        "comparable single-plan sample size (method of Peach)": "164"
+      },
+      "stated_answers": {
+        "comparable single-plan n": "164",
+        "ASN(p) chart shape": "the ASN(p) curve for this SPRT rises from about 100 near p=0, peaks at roughly 150 around p in the 0.01-0.02 range, then decreases toward about 40 near p=0.05 (read off the printed chart, not printed as exact numbers)"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 8,
+      "legible": true,
+      "slice": "S04",
+      "source_kind": "course"
+    },
+    {
+      "id": "S04-WE16",
+      "tool": "variable-sampling-plan",
+      "given": {
+        "p0 (AQL)": "0.5%",
+        "1-alpha": "95%",
+        "pt (LQL)": "3.5%",
+        "beta": "5%"
+      },
+      "stated_answers": {
+        "k": "2.1939",
+        "n": "64"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 9,
+      "legible": true,
+      "slice": "S04",
+      "source_kind": "course"
+    },
+    {
+      "id": "S04-WE18",
+      "tool": "aoq-aoql",
+      "given": {
+        "plan": "(250,5)",
+        "N": "1000"
+      },
+      "stated_answers": {
+        "AOQL": "approximately 1.3%",
+        "original % defectives at which AOQL occurs": "approximately 1.8%"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 10,
+      "legible": true,
+      "slice": "S04",
+      "source_kind": "course"
+    },
+    {
+      "id": "S04-WE19",
+      "tool": "skip-lot-sampling",
+      "given": {
+        "plan": "(80,2)",
+        "N": "1000",
+        "AQL": "1%",
+        "condition": "assuming the last 10 lots were accepted"
+      },
+      "stated_answers": {
+        "table 9.16 condition (K&Z table)": "cumulative number of defectives over the 10 samples (800 items) should be smaller than 4",
+        "table 9.17 condition (K&Z table)": "the last two lots should be free of defectives",
+        "combined condition": "the first 8 samples should have no more than 3 defectives, and the last two should be free of defectives",
+        "P_q at p=AQL=1%": "2.4%",
+        "P_q at p=AQL/10=0.1%": "85%"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 11,
+      "legible": true,
+      "slice": "S04",
+      "source_kind": "course"
+    },
+    {
+      "id": "S04-WE20",
+      "tool": "iso2859-lookup",
+      "given": {
+        "lot size": "1000",
+        "inspection level": "II",
+        "severity": "normal",
+        "AQL": "1%",
+        "procedure": "single sampling"
+      },
+      "stated_answers": {
+        "SSCL (Sample Size Code Letter)": "J",
+        "plan (n,c)": "(80,2)"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 12,
+      "legible": true,
+      "slice": "S04",
+      "source_kind": "course"
+    },
+    {
+      "id": "S04-WE21",
+      "tool": "single-sampling-plan-n-c",
+      "given": {
+        "target": "lots with 2% defectives should have acceptance probability 95%; lots with 4% defectives should have acceptance probability 5%",
+        "instructions": "construct a single-stage plan, then a double plan giving the same protection, compare OC-curves, find P(accept) and P(reject) after the first sample of the double plan at p=3%, and compare inspection cost"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 17,
+      "legible": true,
+      "slice": "S04",
+      "source_kind": "course"
+    },
+    {
+      "id": "S04-WE22",
+      "tool": "single-sampling-plan-n-c",
+      "given": {
+        "plan A": "(56,0)",
+        "plan B": "(95,1)",
+        "note printed": "both plans have the same LQL(*) value (percentage defectives with acceptance probability of 10%)",
+        "described (non-standard) practice": "lots are normally inspected with plan (56,0); if exactly 1 defective is found, 39 extra items are tested; if all 39 are conforming, the lot is accepted after all (95 items tested, 1 defective total)"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
+      "page": 17,
+      "legible": true,
+      "slice": "S04",
+      "source_kind": "course"
+    },
+    {
+      "id": "S04-WE01",
+      "tool": "binomial-defectives-in-lot",
+      "given": {
+        "N": "10000",
+        "Cpk_case1": "1",
+        "Cpk_case2": "1.33"
+      },
+      "stated_answers": {
+        "pi_case1 (fraction defective)": "0.27%",
+        "E[i]_case1": "27 (range observed approx 12 to 44)",
+        "pi_case2": "0.0063%",
+        "E[i]_case2": "0.6",
+        "P[i] formula": "P[i]=C_N^i*pi^i*(1-pi)^(N-i)",
+        "note": "at Cpk=1.33 there will in practice never be more than 3 non-conform items in lots of size 10000"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 12,
+      "legible": true,
+      "slice": "S04",
+      "source_kind": "course"
+    },
+    {
+      "id": "S04-WE03",
+      "tool": "stratified-vs-srs-sampling-variance",
+      "given": {
+        "N": "10000 ceramic tiles, packed in boxes of 10, stacked on 10 palettes of 100 boxes",
+        "batches": "A: N_A=6000, W_A=0.6, pi_A=3%; B: N_B=4000, W_B=0.4, pi_B=0.5%",
+        "population pi": "W_A*pi_A + W_B*pi_B = 2%",
+        "sample size n": "100"
+      },
+      "stated_answers": {
+        "sigma^2 (per-item, population)": "0.0196",
+        "sigma_A^2": "0.0291",
+        "sigma_B^2": "0.004975",
+        "sigma^2[P_s] (pre-stratified estimator)": "0.000195",
+        "sigma^2[P] (SRS estimator)": "0.000196",
+        "optimal-stratification share of sample to stratum A": "78% (instead of the proportional 60%; stratum B correspondingly 22% instead of 40%)"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 18,
+      "legible": true,
+      "slice": "S04",
+      "source_kind": "course"
+    },
+    {
+      "id": "S04-WE04",
+      "tool": "stratified-vs-srs-mean-variance-normal",
+      "given": {
+        "mu_A": "10",
+        "mu_B": "15",
+        "sigma_S^2 (common within-stratum variance)": "4",
+        "n": "100",
+        "W_A": "1/2",
+        "W_B": "1/2",
+        "xlsm_data_ref": "20260529_ottoy_Acceptance Sampling.xlsm::normal distribution!AT2:AV19 (chart data; AU column uses NORM.DIST(x,12.5,SQRT(0.1025),FALSE), AV column uses NORM.DIST(x,12.5,SQRT(0.04),FALSE))"
+      },
+      "stated_answers": {
+        "population mean (=W_A*mu_A+W_B*mu_B)": "12.5",
+        "variance parameter used for SRS Xbar in the xlsm chart (=sigma^2[Xbar])": "0.1025",
+        "variance parameter used for stratified Xbar_S in the xlsm chart (=sigma^2[Xbar_S]=sigma_S^2/n)": "0.04"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 19,
+      "legible": true,
+      "slice": "S04",
+      "source_kind": "course"
+    },
+    {
+      "id": "S04-WE07",
+      "tool": "cluster-sampling-oc",
+      "given": {
+        "lot": "N=10000 tiles, 10 palettes of 100 boxes of 10 tiles; extreme case: all 200 defectives concentrated in 20 boxes of a single palette",
+        "cluster plan": "2 palettes drawn at random, 5 boxes drawn at random from each (n=100)"
+      },
+      "stated_answers": {
+        "P[d=0] for a SRS of size 100 (from the sampling distribution on page 18/xlsm 'sampling distribution')": "13%",
+        "P[d_C=0] for the cluster sample": "86%",
+        "max defectives observable in the cluster sample": "50",
+        "max defectives observable in a SRS of size 100": "100"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 20,
+      "legible": true,
+      "slice": "S04",
+      "source_kind": "course"
+    },
+    {
+      "id": "S04-WE08",
+      "tool": "cluster-vs-srs-binomial",
+      "given": {
+        "illustration": "lot of 20 boxes of 10 tiles each, stable process with fraction defective pi; SRS of size 20 vs cluster sample of 2 boxes (10 tiles each) fully inspected"
+      },
+      "stated_answers": {
+        "SRS P[3 defectives]": "C_20^3*pi^3*(1-pi)^17 = 1140*pi^3*(1-pi)^17",
+        "cluster P[3 defectives]": "2*C_10^0*pi^0*(1-pi)^10*C_10^3*pi^3*(1-pi)^7 + 2*C_10^1*pi^1*(1-pi)^9*C_10^2*pi^2*(1-pi)^8 = 2*(C_10^3+10*C_10^2)*pi^3*(1-pi)^17 = 1140*pi^3*(1-pi)^17 (identical to the SRS probability)"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 20,
+      "legible": true,
+      "slice": "S04",
+      "source_kind": "course"
+    },
+    {
+      "id": "S04-WE09",
+      "tool": "non-response-bias-example",
+      "given": {
+        "SRS size": "100",
+        "frame fraction defectives": "1%",
+        "entire population fraction defectives": "4%"
+      },
+      "stated_answers": {
+        "average bias of the SRS drawn from the frame": "under-estimates the population fraction defectives by about 3% on average"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 22,
+      "legible": true,
+      "slice": "S04",
+      "source_kind": "course"
+    },
+    {
+      "id": "S04-WE10",
+      "tool": "sequential-sampling-sprt",
+      "given": {
+        "plan": "sequential scheme (Ac*,Re*) shown in the SPRT-style chart on page 24 (limits calculated to obtain a desired OC)"
+      },
+      "stated_answers": {
+        "shortest path to reject": "3 steps",
+        "shortest path to accept": "about 45 steps"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 24,
+      "legible": true,
+      "slice": "S04",
+      "source_kind": "course"
+    },
+    {
+      "id": "S04-WE11",
+      "tool": "sampling-plan-equivalence-workload",
+      "given": {
+        "single plan": "(175,8)",
+        "double plan": "(90,2,7)+(90,8)",
+        "sequential plan": "the (Ac*,Re*) scheme shown on page 24"
+      },
+      "stated_answers": {
+        "equivalence": "all three plans are stated to be equivalent (same risks / same OC-curve), and interchangeable for both producer and consumer",
+        "workload note": "for an equivalent double plan the workload is either n1 (typically smaller than n) or n1+n2 (typically larger); a sequential plan is stated to be efficiency-optimal"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf",
+      "page": 25,
+      "legible": true,
+      "slice": "S04",
+      "source_kind": "course"
+    },
+    {
+      "id": "S04-WE02",
+      "tool": "binomial-defectives-in-lot",
+      "given": {
+        "data_ref": "20260529_ottoy_Acceptance Sampling.xlsm::defective probabilities!A3:K103 (N in F2=10000; rows 3-4 give the 3-sigma/4-sigma conform fraction, ppm, and the full P[i] table for i=0..100)"
+      },
+      "stated_answers": {
+        "B3 (3sigma, P[-3<=Z<=3])": "0.9973002039367398",
+        "C3 (3sigma, 1-B3, fraction defective)": "0.002699796063260207",
+        "D3 (3sigma, ppm)": "2699.796063260207",
+        "B4 (4sigma, P[-4<=Z<=4])": "0.9999366575163338",
+        "C4 (4sigma, fraction defective)": "6.334248366623996e-05",
+        "D4 (4sigma, ppm)": "63.34248366623996",
+        "J1 (=SUM(F*G), E[i] for 3sigma)": "26.997960632599728",
+        "K1 (=SUM(F*H), E[i] for 4sigma)": "0.6334248366621309",
+        "G1 (sum of 3sigma P[i], i=0..100, check)": "0.9999999999999128",
+        "H1 (sum of 4sigma P[i], i=0..100, check)": "0.999999999999576"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.xlsm",
+      "page": 3,
+      "legible": true,
+      "slice": "S04",
+      "source_kind": "course"
+    },
+    {
+      "id": "S04-WE05",
+      "tool": "lot-population-summary",
+      "given": {
+        "data_ref": "20260529_ottoy_Acceptance Sampling.xlsm::lot fraction defectives!A2:H12 and A5:E10004 (10000-row fixed synthetic lot with columns Nr, Box, Palette, Batch, Defective)"
+      },
+      "stated_answers": {
+        "B3 (=COUNT(A5:A10004), lot size N)": "10000",
+        "H5 (=SUMIF batch A defectives)": "180",
+        "H6 (=SUMIF batch B defectives)": "20",
+        "H7 (=H5+H6, total defectives in lot)": "200",
+        "H10 (=COUNTIF(batch=A)/B3, W_A)": "0.6",
+        "H11 (W_B)": "0.4",
+        "H12 (=H10+H11)": "1"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.xlsm",
+      "page": 4,
+      "legible": true,
+      "slice": "S04",
+      "source_kind": "course"
+    },
+    {
+      "id": "S04-WE06",
+      "tool": "stratified-vs-srs-sampling-variance",
+      "given": {
+        "E1 (N)": "10000",
+        "E2 (N_A)": "6000",
+        "E3 (N_B)": "4000",
+        "E4 (pi_A)": "0.03",
+        "E5 (pi_B)": "0.005",
+        "E6 (n)": "100",
+        "data_ref": "20260529_ottoy_Acceptance Sampling.xlsm::sampling distribution!A12:W250 (exact hypergeometric/binomial d-distribution tables for SRS and pre-stratified sampling) and AG16:AU10016 (10000-run Monte Carlo simulation of a cluster sample: 2 palettes x 5 boxes, AJ11=2, AJ12=5, AJ13=100, AJ15=10000 runs)"
+      },
+      "stated_answers": {
+        "E7 (population pi, =(E2*E4+E3*E5)/E1)": "0.02",
+        "E8 (#defectives in lot, =E7*E1)": "200",
+        "E11 (# possible SRS samples, =COMBIN(E1,E6))": "6.520846924547251e+241",
+        "D15 (hypergeometric fraction for d=2, i.e. same fraction defective as the lot)": "0.27479016334973905",
+        "C15 (# hypergeometric samples with d=2)": "1.7918645915749876e+241",
+        "G44 (mean of P, SRS, =SUMPRODUCT(B13:B113,E13:E113))": "0.019999999999999945",
+        "G45 (variance of P, SRS, array formula =SUMPRODUCT(E13:E113,(B13:B113-$G$44)^2))": "0.00019599999999999942",
+        "Y47 (mean of P_s, pre-stratified, =SUMPRODUCT(V13:V33,W13:W33))": "0.019999999999999893",
+        "Y48 (variance of P_s, pre-stratified, array formula =SUMPRODUCT(W13:W33,(V13:V33-$Y$47)^2))": "0.00019449999999998388",
+        "AL33 (mean of cluster-sample MC estimate, =AVERAGE(AG17:AG10016)/100)": "0.019767",
+        "AL34 (variance of cluster-sample MC estimate, =VAR.P(AG17:AG10016)/10000)": "0.000267155711"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.xlsm",
+      "page": 5,
+      "legible": true,
+      "slice": "S04",
+      "source_kind": "course"
+    },
+    {
+      "id": "S04-WE17",
+      "tool": "variable-sampling-plan",
+      "given": {
+        "C3 (mu, lot distribution)": "10",
+        "C4 (sigma, lot distribution)": "2",
+        "F3 (n, sample size)": "10",
+        "I3 (alpha)": "0.05",
+        "C13 (p0, AQL)": "0.02",
+        "I7 (k, manually set)": "2"
+      },
+      "stated_answers": {
+        "C14 (Xp0 = xi = NORM.INV(p0,mu,sigma))": "5.892502178736355",
+        "C10 (p = NORM.DIST(xi,mu,sigma,TRUE), should equal p0)": "0.020000000000000014",
+        "I6 (t(1-alpha,p0,n) computed from the formula)": "1.337756376972078",
+        "F4 (Xbar of one random draw of n=10 items, NORM.INV(RAND(),mu,sigma))": "10.372944440560392",
+        "F5 (s, sample st.dev. of that draw)": "2.336766783402397",
+        "F6 (Q = (Xbar-xi)/s)": "1.9173681745426",
+        "I9 (Accept: Q>=k ?)": "NO",
+        "C17 (lot acceptance probability, based on a stored 100-run Monte Carlo)": "0.61"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Acceptance Sampling.xlsm",
+      "page": 6,
+      "legible": true,
+      "slice": "S04",
+      "source_kind": "course"
+    },
+    {
+      "id": "S03-WE13",
+      "tool": "t-test-two-sample",
+      "given": {
+        "case": "niet-paarsgewijs schoenzool-slijtage experiment (materiaal 1 vs materiaal 2), RS van 10 jongens uit populatie van 100 per groep",
+        "RS1 individuen": [
+          83,
+          32,
+          95,
+          64,
+          47,
+          71,
+          38,
+          90,
+          96,
+          56
+        ],
+        "LD1": [
+          29,
+          30,
+          34,
+          32,
+          32,
+          25,
+          25,
+          27,
+          36,
+          17
+        ],
+        "RS2 individuen": [
+          29,
+          48,
+          53,
+          35,
+          82,
+          2,
+          71,
+          34,
+          83,
+          57
+        ],
+        "LD2": [
+          42,
+          29,
+          36,
+          52,
+          28,
+          32,
+          30,
+          33,
+          28,
+          33
+        ]
+      },
+      "stated_answers": {
+        "x1_bar": "28.7",
+        "s1": "5.50",
+        "x2_bar": "34.3",
+        "s2": "7.53",
+        "s_p": "6.59",
+        "t_18,0.025": "2.10",
+        "BI95 voor mu1-mu2": "-5.6 ± 6.19",
+        "conclusie": "0 in BI95 => geen (significant) verschil"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "page": 17,
+      "legible": true,
+      "slice": "S03",
+      "source_kind": "course"
+    },
+    {
+      "id": "S03-WE14",
+      "tool": "t-test-paired",
+      "given": {
+        "case": "paarsgewijs schoenzool-slijtage experiment, RS van 10 jongens uit populatie van 100, elke jongen draagt 'gemengd' paar schoenen",
+        "RS individuen": [
+          83,
+          32,
+          95,
+          64,
+          47,
+          71,
+          38,
+          90,
+          96,
+          56
+        ],
+        "LD1": [
+          29,
+          30,
+          34,
+          32,
+          32,
+          25,
+          25,
+          27,
+          36,
+          17
+        ],
+        "LD2": [
+          28,
+          30,
+          38,
+          35,
+          34,
+          30,
+          30,
+          30,
+          42,
+          23
+        ],
+        "v=LD1-LD2": [
+          1,
+          0,
+          -4,
+          -3,
+          -2,
+          -5,
+          -5,
+          -3,
+          -6,
+          -6
+        ]
+      },
+      "stated_answers": {
+        "v_bar": "-3.3",
+        "s_v": "2.41",
+        "t_9,0.025": "2.26",
+        "BI95 voor mu1-mu2": "-3.3 ± 1.72",
+        "conclusie": "0 niet in BI95 => wel verschil (materiaal 2 is sleetvaster)",
+        "verhouding lengte BI (paarsgewijs/niet-paarsgewijs)": "1.72/6.19 = 0.28, komt overeen met sqrt(1-rho) met rho=0.93"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "page": 18,
+      "legible": true,
+      "slice": "S03",
+      "source_kind": "course"
+    },
+    {
+      "id": "S03-WE15",
+      "tool": "ci-proportion-exact-binomial",
+      "given": {
+        "sample proportion p": "0.6",
+        "n": "200"
+      },
+      "stated_answers": {
+        "95% BI voor pi": "[0.53, 0.67]",
+        "R cross-check": "binom.test(120,200) levert BI op: [0.53, 0.67]"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "page": 20,
+      "legible": true,
+      "slice": "S03",
+      "source_kind": "course"
+    },
+    {
+      "id": "S03-WE16",
+      "tool": "tolerance-interval-normal",
+      "given": {
+        "case": "betonblokken (concrete blocks) productieproces, kwaliteitseis: min. 90% van blokken weerstand X tegen belasting >= 240 kg/cm2",
+        "situatie 1 (distributie gekend)": "Y=lnX ~ N(5.75,0.2)",
+        "situatie 2 (spreiding gekend, gemiddelde ongekend)": "steekproef n=20, gemiddelde=5.732"
+      },
+      "stated_answers": {
+        "situatie 1: 10%-percentiel van Y": "5.75 + Z_0.1*0.2 = 5.49 > ln(240)=5.48 => aan kwaliteitseis voldaan",
+        "situatie 2: LTL": "5.40",
+        "situatie 2: UTL": "5.55",
+        "situatie 2 conclusie": "grenswaarde 5.48 ligt in tolerantie-interval [5.40,+infinity[, dus kan niet aanvaard worden dat aan de kwaliteitseis voldaan is"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "page": 22,
+      "legible": true,
+      "slice": "S03",
+      "source_kind": "course"
+    },
+    {
+      "id": "S03-WE17",
+      "tool": "tolerance-interval-distribution-free-exercise",
+      "given": {
+        "case": "betonblokken, steekproef van 10 blokken",
+        "gemiddelde": "5.8",
+        "spreiding": "0.15"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf",
+      "page": 23,
+      "legible": true,
+      "slice": "S03",
+      "source_kind": "course"
+    },
+    {
+      "id": "S03-WE01",
+      "tool": "acceptance-sampling-as-ci",
+      "given": {
+        "lot size N": "10000 ceramic tiles",
+        "AQL": "2% (D<=200)",
+        "sampling plan": "single stage, n=100",
+        "significance alpha": "5%",
+        "critical value c": "4",
+        "observed defectives d": "4",
+        "point estimate p": "4% (=d/n)"
+      },
+      "stated_answers": {
+        "95% CI for lot fraction defectives": "[1.1%, 9.9%]",
+        "decision": "lot accepted at 5% significance level"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+      "page": 4,
+      "legible": true,
+      "slice": "S03",
+      "source_kind": "course"
+    },
+    {
+      "id": "S03-WE02",
+      "tool": "ci-mean-t",
+      "given": {
+        "case": "manufacturing process, critical dimension normally distributed around 10; after replacement of broken machine component, suspicion the mean has shifted down",
+        "data (n=20)": [
+          10.06,
+          9.89,
+          9.896,
+          9.989,
+          9.872,
+          9.884,
+          9.927,
+          9.984,
+          10.117,
+          9.863,
+          9.889,
+          9.813,
+          9.954,
+          9.917,
+          10.073,
+          9.979,
+          10.024,
+          9.619,
+          9.963,
+          9.861
+        ],
+        "H0": "mu = 10",
+        "HA": "mu < 10",
+        "alpha": "2%",
+        "confidence": "98%",
+        "test statistic formula": "(X_bar-10)/(s/sqrt(n))"
+      },
+      "stated_answers": {
+        "X_bar (Excel cached)": "9.928700000000001",
+        "s (Excel cached, STDEV.S)": "0.10793228871551107",
+        "reference distribution": "t(19)",
+        "one-sided 98%-CI (as printed on slide)": "]-infinity, 9.98[",
+        "conclusion": "H0 cannot be accepted at 2% significance, process needs adjustment"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+      "page": 15,
+      "legible": true,
+      "slice": "S03",
+      "source_kind": "course"
+    },
+    {
+      "id": "S03-WE03",
+      "tool": "chi2-test-variance-as-ci",
+      "given": {
+        "case": "manufacturing process, critical dimension normally distributed around a nominal standard deviation of 0.01; suspicion process has become more erratic due to machine wear",
+        "data (n=20)": [
+          9.997,
+          10.004,
+          10.01,
+          9.991,
+          10.008,
+          9.981,
+          9.984,
+          9.993,
+          9.99,
+          9.997,
+          9.996,
+          9.977,
+          9.999,
+          9.981,
+          10.0,
+          10.01,
+          10.005,
+          10.011,
+          9.997,
+          10.022
+        ],
+        "H0": "sigma = 0.01",
+        "HA": "sigma > 0.01",
+        "alpha": "2%",
+        "confidence": "98%",
+        "test statistic formula": "(n-1)*s²/sigma²"
+      },
+      "stated_answers": {
+        "variance (Excel cached, VAR.S)": "0.00013581842105262962",
+        "reference distribution": "chi²(19)",
+        "one-sided 98%-CI (as printed on slide)": "]0.0088, +infinity[",
+        "conclusion": "H0 cannot be rejected at 2% significance, process needs no adjustment"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf",
+      "page": 16,
+      "legible": true,
+      "slice": "S03",
+      "source_kind": "course"
+    },
+    {
+      "id": "S03-WE18",
+      "tool": "ci-mean-simulation-tool",
+      "given": {
+        "data_ref": "source/course/Les 2/20260529_ottoy_Confidence Intervals.xlsx::'Confidence interval mean'!D7:O16",
+        "layout": "12 simulated samples (columns D..O) of size 10 (rows 7-16), each value = NORM.INV(RAND(),10,2); rows 18-19 give Xbar and s per sample; rows 22-25 give the t-based CI (Lower, Upper-lower width, True mean=10, coverage indicator) per sample",
+        "input mean": "10",
+        "input std dev": "2",
+        "input sample size n": "10",
+        "input confidence": "0.95"
+      },
+      "stated_answers": {
+        "achieved confidence (cached at extraction time, SUM of 100 indicators/100)": "0.93"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Confidence Intervals.xlsx",
+      "page": 1,
+      "legible": true,
+      "slice": "S03",
+      "source_kind": "course"
+    },
+    {
+      "id": "S03-WE11",
+      "tool": "oc-curve-sample-size-effect",
+      "given": {
+        "H0": "mu=1200",
+        "true mean": "1270",
+        "alpha": "1%",
+        "compared sample sizes": "n=100 vs n=195"
+      },
+      "stated_answers": {
+        "beta at n=100": "16%",
+        "beta at n=195": "1%"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses - Further Reading (Dutch).pdf",
+      "page": 9,
+      "legible": true,
+      "slice": "S03",
+      "source_kind": "course"
+    },
+    {
+      "id": "S03-WE10",
+      "tool": "z-test-one-sample-mean",
+      "given": {
+        "case": "beeldbuizen (picture tubes) productieprocedé",
+        "H0": "mu=1200",
+        "HA (eenzijdig)": "mu>1200",
+        "sigma (gekend)": "300",
+        "n": "100",
+        "alpha": "1%"
+      },
+      "stated_answers": {
+        "kritische waarde (eenzijdig)": "1200 + 2.3*30 = 1270",
+        "berekende waarde statistiek": "1265",
+        "besluit (eenzijdig)": "1265 < 1270 => aanvaard H0",
+        "kritische waarden (dubbelzijdig, alpha=1%)": "links 1123, rechts 1277",
+        "besluit (dubbelzijdig)": "1123 < 1265 < 1277 => aanvaard H0",
+        "p-waarde (eenzijdig) van 1265": "1.5%",
+        "p-waarde (dubbelzijdig)": "3.0% (1.5%+1.5%, gespiegeld)"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses - Further Reading (Dutch).pdf",
+      "page": 10,
+      "legible": true,
+      "slice": "S03",
+      "source_kind": "course"
+    },
+    {
+      "id": "S03-WE12",
+      "tool": "z-test-proportion-exercise",
+      "given": {
+        "H0": "pi=0.02",
+        "HA": "pi>0.02",
+        "n": "400",
+        "observed defectives": "10"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses - Further Reading (Dutch).pdf",
+      "page": 22,
+      "legible": true,
+      "slice": "S03",
+      "source_kind": "course"
+    },
+    {
+      "id": "S03-WE06",
+      "tool": "oc-curve-binomial",
+      "given": {
+        "sampling plan (n,c)": "(100,4)",
+        "reference distribution under H0": "binomial(n=100, pi=2%=AQL)"
+      },
+      "stated_answers": {
+        "P[d<=4] under H0 (pi=2%)": "≅ 95%",
+        "alpha (for limit case pi=AQL=2%)": "5%",
+        "P[d<=4] under HA (pi=8%)": "≅ 10%",
+        "beta (for pi=8%)": "9%",
+        "critical value if alpha reduced": "c=5 => alpha=1.5%"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+      "page": 5,
+      "legible": true,
+      "slice": "S03",
+      "source_kind": "course"
+    },
+    {
+      "id": "S03-WE07",
+      "tool": "oc-curve-binomial",
+      "given": {
+        "original plan": "(n=100,c=4)",
+        "enlarged plan": "(n=130,c=5)",
+        "bad lot fraction defectives": "8%"
+      },
+      "stated_answers": {
+        "alpha maintained": "5%",
+        "beta at n=100 (before)": "9%",
+        "beta at n=130 (after)": "reduced to 5%"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+      "page": 8,
+      "legible": true,
+      "slice": "S03",
+      "source_kind": "course"
+    },
+    {
+      "id": "S03-WE08",
+      "tool": "oc-curve-efficiency-comparison",
+      "given": {
+        "lot size": "10000",
+        "AQL": "2%",
+        "compared plans": "(5000,111) vs (100,4)"
+      },
+      "stated_answers": {
+        "note": "small-sample plan (100,4) and large-sample plan (5000,111) OC-curves compared graphically to illustrate the 'big data fallacy' pitfall; no single numeric answer stated"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+      "page": 11,
+      "legible": true,
+      "slice": "S03",
+      "source_kind": "course"
+    },
+    {
+      "id": "S03-WE09",
+      "tool": "efficiency-equivalent-plans",
+      "given": {
+        "plan A": "(175,8)",
+        "plan B (sequential)": "(90,2,7)+(90,8)"
+      },
+      "stated_answers": {
+        "claim": "these two acceptance sampling procedures are statistically equivalent (same OC-curve) but plan B is more efficient (lower average workload)"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+      "page": 11,
+      "legible": true,
+      "slice": "S03",
+      "source_kind": "course"
+    },
+    {
+      "id": "S03-WE04",
+      "tool": "t-test-one-sample",
+      "given": {
+        "case": "same manufacturing process as S03-WE02, presented as classical hypothesis test",
+        "data (n=20)": "same 20 values as S03-WE02 (see CI PDF p15 / Testing of Hypotheses.xlsx sheet 'example t-test')",
+        "H0": "process still well centered (mu=10)",
+        "HA": "process has shifted down (mu<10)",
+        "alpha": "2%"
+      },
+      "stated_answers": {
+        "test statistic (as printed on slide, rounded)": "-2.95",
+        "test statistic (Excel cached, exact)": "-2.954290114535869",
+        "reference distribution": "t(19)",
+        "critical value (as printed on slide)": "-2.20",
+        "critical value (Excel cached, exact)": "-2.204701350741608",
+        "p-value (as printed on slide)": "0.4%",
+        "p-value (Excel cached, exact, via T.DIST)": "0.004072213810342539",
+        "p-value cross-check (Excel T.TEST(range1,range2,1,1))": "0.004072213810342539",
+        "conclusion": "H0 cannot be accepted at 2% significance, process needs adjustment"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+      "page": 12,
+      "legible": true,
+      "slice": "S03",
+      "source_kind": "course"
+    },
+    {
+      "id": "S03-WE05",
+      "tool": "chi2-test-variance",
+      "given": {
+        "case": "same manufacturing process as S03-WE03, presented as classical hypothesis test",
+        "data (n=20)": "same 20 values as S03-WE03 (see CI PDF p16 / Testing of Hypotheses.xlsx sheet 'example chi²-test')",
+        "H0": "process variability has not changed (sigma=0.01)",
+        "HA": "process has become more erratic (sigma>0.01)",
+        "alpha": "2%"
+      },
+      "stated_answers": {
+        "test statistic (Excel cached, exact, =19*var/(0.01^2))": "25.805499999999626",
+        "reference distribution": "chi²(19)",
+        "critical value (as printed on slide)": "33.69",
+        "critical value (Excel cached, exact)": "33.687425071285354",
+        "p-value (as printed on slide)": "13.6%",
+        "p-value (Excel cached, exact, via 1-CHISQ.DIST)": "0.13570042116791403",
+        "conclusion": "H0 cannot be rejected at 2% significance, process variability judged stable"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
+      "page": 13,
+      "legible": true,
+      "slice": "S03",
+      "source_kind": "course"
+    },
+    {
+      "id": "S03-WE19",
+      "tool": "sampling-distribution-d-binomial",
+      "given": {
+        "data_ref": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.xlsx::'sampling distribution d'!B6:D36",
+        "layout": "d=0..30 (column B), P[d] for lot with P=2% defectives (column C, =BINOM.DIST(d,100,0.02,FALSE)) and P=8% defectives (column D, =BINOM.DIST(d,100,0.08,FALSE)); row 38 sums each column to ~1",
+        "n": "100"
+      },
+      "stated_answers": {
+        "P[d<=4] for P=2% (sum C6:C10, cross-checked)": "0.9491695546304998 (≅ 95%, matches TH PDF p5)",
+        "P[d<=4] for P=8%": "≅ 10% (matches TH PDF p5, exact partial sum not separately re-verified beyond C10/D10 rows)"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.xlsx",
+      "page": 6,
+      "legible": true,
+      "slice": "S03",
+      "source_kind": "course"
+    },
+    {
+      "id": "S03-WE20",
+      "tool": "oc-curve-binomial",
+      "given": {
+        "data_ref": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.xlsx::'OC-curve (binomial)'!B6:E47",
+        "layout": "pi grid 0 to 0.2 step 0.005 (column B); P[d<=c] for plan (n=100,c=4) in column D (=BINOM.DIST(4,100,pi,TRUE)); P[d<=c] for plan (n=130,c=5) in column E (=BINOM.DIST(5,130,pi,TRUE)); row at pi=0.02 marked 'AQL'",
+        "plans compared": "(100,4) and (130,5)"
+      },
+      "stated_answers": {
+        "P[d<=4] at pi=0.02 (n=100,c=4)": "0.9491695546304997",
+        "P[d<=5] at pi=0.02 (n=130,c=5)": "0.9527421220627065"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.xlsx",
+      "page": 7,
+      "legible": true,
+      "slice": "S03",
+      "source_kind": "course"
+    },
+    {
+      "id": "S03-WE21",
+      "tool": "oc-curve-hypergeometric",
+      "given": {
+        "data_ref": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.xlsx::'OC-curve (hypergeometric)'!B7:F47",
+        "layout": "'Illustration of the big data fallacy trap'; pi grid 0 to 0.2 step 0.005 (column B); P[d<=c] via HYPGEOM.DIST for plan (N=10000,n=5000,c=111) in column D, for plan (N=10000,n=100,c=4) in column E, and via BINOM.DIST approximation for (n=100,c=4) in column F; row at pi=0.02 marked 'AQL'",
+        "plans compared": "(N=10000,n=5000,c=111) vs (N=10000,n=100,c=4), hypergeometric exact vs binomial approximation"
+      },
+      "stated_answers": {
+        "P[d<=111] at pi=0.02 (N=10000,n=5000,c=111)": "0.9499093816663069",
+        "P[d<=4] at pi=0.02 (N=10000,n=100,c=4) hypergeometric": "0.9500662267805816",
+        "P[d<=4] at pi=0.02 (n=100,c=4) binomial approx": "0.9491695546304997"
+      },
+      "file": "source/course/Les 2/20260529_ottoy_Testing of Hypotheses.xlsx",
+      "page": 8,
+      "legible": true,
+      "slice": "S03",
+      "source_kind": "course"
+    },
+    {
+      "id": "S05-WE01",
+      "tool": "anova-one-way",
+      "given": {
+        "description": "Table 4.4 Tensile Strength of Paper (psi): a=4 hardwood concentration levels (5,10,15,20%), n=6 replicates each (see constant_tables Table 4.4)",
+        "alpha": "0.01",
+        "H0": "tau1 = tau2 = tau3 = tau4 = 0",
+        "H1": "tau_i != 0 for at least one i"
+      },
+      "stated_answers": {
+        "SS_T": "512.96",
+        "SS_Treatments": "382.79",
+        "SS_E": "130.17",
+        "MS_Treatments": "127.60",
+        "MS_E": "6.51",
+        "F0": "19.61",
+        "F_crit(0.01,3,20)": "4.94",
+        "P_value": "3.59 x 10^-6",
+        "conclusion": "reject H0; hardwood concentration significantly affects paper strength",
+        "level_means_StDev": "level5: mean 10.000 StDev 2.828; level10: mean 15.667 StDev 2.805; level15: mean 17.000 StDev 1.789; level20: mean 21.167 StDev 2.639; Pooled StDev 2.551"
+      },
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 9,
+      "legible": true,
+      "slice": "S05",
+      "source_kind": "course"
+    },
+    {
+      "id": "S05-WE02",
+      "tool": "anova-one-way",
+      "given": {
+        "description": "Table 3-1: synthetic fiber tensile strength vs cotton weight percentage, a=5 levels (15,20,25,30,35%), n=5 replicates each (see constant_tables Table 3-1); identical raw data also present in DOE demo workbook sheet '1ANOVA'",
+        "data_ref": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx::'1ANOVA'!A3:F8"
+      },
+      "stated_answers": {
+        "SS_between_groups": "475.76",
+        "df_between": "4",
+        "MS_between": "118.94",
+        "F": "14.75682",
+        "P_value": "9.12794E-06",
+        "F_crit": "2.866081",
+        "SS_within_groups": "161.2",
+        "df_within": "20",
+        "MS_within": "8.06",
+        "SS_total": "636.96",
+        "df_total": "24",
+        "group_means": "15%:9.8; 20%:15.4; 25%:17.6; 30%:21.6; 35%:10.8 (grand mean 15.04)"
+      },
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 15,
+      "legible": true,
+      "slice": "S05",
+      "source_kind": "course"
+    },
+    {
+      "id": "S05-WE03",
+      "tool": "anova-one-way",
+      "given": {
+        "description": "Table 10-1 Sample Outputs of Three Machines, 5 observations each (see constant_tables)",
+        "group_means": "Xbar_1=49, Xbar_2=56, Xbar_3=51, Xbar_grand=52",
+        "deviations": "(Xbar_i - Xbar) = -3, 4, -1 (sum = 0)",
+        "squared_deviations": "(Xbar_i-Xbar)^2 = 9, 16, 1"
+      },
+      "stated_answers": {
+        "sum_of_squared_deviations_between_means": "26",
+        "question_posed": "Are these machines truly different or not?"
+      },
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 20,
+      "legible": true,
+      "slice": "S05",
+      "source_kind": "course"
+    },
+    {
+      "id": "S05-WE04",
+      "tool": "confounding-illustration",
+      "given": {
+        "description": "Two mini 'experiments' of 4 runs each on a chemical reaction (opbrengst=yield, A=additive concentration 0-12%, B=reactielijd/duration 10-25 min)",
+        "experiment_1_points_(concentratie,duur,opbrengst)": "(0,10,17); (4,15,19); (8,20,21); (12,25,23) -- concentratie and duur perfectly correlated (confounded), correlation=1",
+        "experiment_2_points_(concentratie,duur,opbrengst)": "(0,25,24); (12,25,23); (0,10,17); (12,10,16) -- correlation between concentratie and duur = 0"
+      },
+      "stated_answers": {
+        "conclusion": "Nathalie heeft gelijk: duur van de reactie heeft een positief effect op de opbrengst; de concentratie heeft daarentegen een licht negatief effect. Experiment 1 leert ons niets (factoren volledig 'confounded', correlatie=1); experiment 2 (correlatie=0) levert wel bruikbare informatie op."
+      },
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 38,
+      "legible": true,
+      "slice": "S05",
+      "source_kind": "course"
+    },
+    {
+      "id": "S05-WE05",
+      "tool": "factorial-2k-effects",
+      "given": {
+        "description": "2-factor (A,B) design, n=3 replicates, stacked design matrix (identical to the C=D=E=-1 block of DOE demo sheet '2^5 full rep')",
+        "A=-1,B=-1": "5.94, 5.50, 6.10",
+        "A=-1,B=+1": "5.50, 5.25, 5.16",
+        "A=+1,B=-1": "4.16, 6.72, 2.72",
+        "A=+1,B=+1": "6.25, 5.90, 4.97"
+      },
+      "stated_answers": {
+        "[A]": "-0.455",
+        "[B]": "0.315",
+        "[AB]": "0.857"
+      },
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 50,
+      "legible": true,
+      "slice": "S05",
+      "source_kind": "course"
+    },
+    {
+      "id": "S05-WE06",
+      "tool": "factorial-2k-effects",
+      "given": {
+        "description": "Figure 5-1/5-3 (no interaction case): corner responses A-B-=20, A+B-=40, A-B+=30, A+B+=52",
+        "figure_5-2/5-4_(interaction case)": "corner responses A-B-=20, A+B-=50, A-B+=40, A+B+=12"
+      },
+      "stated_answers": {
+        "no_interaction_case_A": "21",
+        "no_interaction_case_B": "11",
+        "no_interaction_case_AB": "-1",
+        "interaction_case_A": "1",
+        "interaction_case_B": "-9",
+        "interaction_case_AB": "-29"
+      },
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 54,
+      "legible": true,
+      "slice": "S05",
+      "source_kind": "course"
+    },
+    {
+      "id": "S05-WE07",
+      "tool": "factorial-2k-effects",
+      "given": {
+        "description": "Chemical Process Example, 2^2 design (A=reactant concentration, B=catalyst amount), 3 replicates (see constant_tables 'Chemical Process Example')"
+      },
+      "stated_answers": {
+        "A": "8.33",
+        "B": "-5.00",
+        "AB": "1.67",
+        "ANOVA": "Model SS=291.67 df=3 MS=97.22 F=24.82 P=0.0002; A SS=208.33 df=1 F=53.19 P<0.0001; B SS=75.00 df=1 F=19.15 P=0.0024; AB SS=8.33 df=1 F=2.13 P=0.1828; Pure Error SS=31.33 df=8 MS=3.92; Cor Total SS=323.00 df=11",
+        "R-Squared": "0.9030",
+        "Adj_R-Squared": "0.8666"
+      },
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 61,
+      "legible": true,
+      "slice": "S05",
+      "source_kind": "course"
+    },
+    {
+      "id": "S05-WE08",
+      "tool": "factorial-2k-effects",
+      "given": {
+        "description": "Surface finish quality example, 2^3 design (A=feed rate, B=depth of cut, C=tool angle), n=2 replicates (see constant_tables 'Surface finish quality example data')"
+      },
+      "stated_answers": {
+        "ANOVA": "A SS=45.5625 df=1 MS=45.5625 F0=18.69 P=2.54x10^-3; B SS=10.5625 F0=4.33 P=0.07; C SS=3.0625 F0=1.26 P=0.29; AB SS=7.5625 F0=3.10 P=0.12; AC SS=0.0625 F0=0.03 P=0.88; BC SS=1.5625 F0=0.64 P=0.45; ABC SS=5.5625 F0=2.08 P=0.19; Error SS=19.5000 df=8 MS=2.4375; Total SS=92.9375 df=15",
+        "conclusion": "only main effect A is significant at common alpha levels (P=2.54x10^-3)"
+      },
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 71,
+      "legible": true,
+      "slice": "S05",
+      "source_kind": "course"
+    },
+    {
+      "id": "S05-WE09",
+      "tool": "factorial-2k-effects",
+      "given": {
+        "description": "Nitride etch rate example, single replicate 2^4 design (A=Gap, B=Pressure, C=C2F6 Flow, D=Power); see constant_tables for factor levels, data and estimated effects"
+      },
+      "stated_answers": {
+        "full_saturated_model_R_output": "all effects listed with 0 residual df, F values NaN (model uses all df, no error term left)",
+        "pooled_model_(A+B+C+D)^2_R_ANOVA": "A: F=20.2765 P=0.006382; B: F=0.0052 P=0.945391; C: F=0.1068 P=0.757016; D: F=183.9879 P=3.903e-05; A:B F=0.1218 P=0.741315; A:C F=1.2148 P=0.320582; A:D F=46.3357 P=0.001042; B:C F=3.7794 P=0.109498; B:D F=0.0008 P=0.978978; C:D F=0.0089 P=0.928641; Residuals df=5 SS=10187 MS=2037",
+        "conclusion": "A, D and A:D interaction are significant; higher-order interactions pooled into error term"
+      },
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 77,
+      "legible": true,
+      "slice": "S05",
+      "source_kind": "course"
+    },
+    {
+      "id": "S05-WE10",
+      "tool": "fractional-factorial-2k-p",
+      "given": {
+        "description": "2^(6-2) fractional factorial design: full factorial set up for k-p=4 base factors A,B,C,D (16 runs); remaining 2 columns generated by E=ABC and F=BCD"
+      },
+      "stated_answers": {
+        "generators": "E = ABC (so I = ABCE); F = BCD (so I = BCDF)",
+        "complete_defining_relation": "I = ABCE = BCDF = ADEF (product of the two generators (ABCE)(BCDF)=ADEF, since only two are multiplied together here)",
+        "resolution": "IV (length of the shortest word in the defining relation is 4)"
+      },
+      "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
+      "page": 91,
+      "legible": true,
+      "slice": "S05",
+      "source_kind": "course"
+    },
+    {
+      "id": "S05-WE17",
+      "tool": "simple-linear-regression",
+      "given": {
+        "description": "Example 11-1: Oxygen purity y (%) vs hydrocarbon level x (%), n=20 (see constant_tables Table 11-1)"
+      },
+      "stated_answers": {
+        "fitted_line_fig11-4": "yhat = 74.20 + 14.97x",
+        "beta0hat_minitab": "74.283",
+        "beta1hat_minitab": "14.947",
+        "SE_beta0": "1.593",
+        "SE_beta1": "1.317",
+        "T_beta0": "46.62",
+        "T_beta1": "11.35",
+        "P": "0.000",
+        "S": "1.087",
+        "R-Sq": "87.7%",
+        "R-Sq(adj)": "87.1%",
+        "ANOVA": "Regression df=1 SS=152.13 MS=152.13 F=128.86 P=0.000; Residual Error df=18 SS=21.25 MS=1.18; Total df=19 SS=173.38"
+      },
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 22,
+      "legible": true,
+      "slice": "S05",
+      "source_kind": "course"
+    },
+    {
+      "id": "S05-WE18",
+      "tool": "regression-ci-prediction",
+      "given": {
+        "description": "Prediction for a new observation at HC Level = 1.00 (oxygen purity example, Table 11-2)",
+        "x0": "1.00"
+      },
+      "stated_answers": {
+        "Fit": "89.231",
+        "SE_Fit": "0.354",
+        "95%_CI": "(88.486, 89.975)",
+        "95%_PI": "(86.830, 91.632)"
+      },
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 22,
+      "legible": true,
+      "slice": "S05",
+      "source_kind": "course"
+    },
+    {
+      "id": "S05-WE19",
+      "tool": "multiple-linear-regression",
+      "given": {
+        "description": "Oil consumption (gallons) for 15 houses vs January mean Temp (F) and Insulation (inches); see constant_tables 'Oil consumption example: data for 15 houses'"
+      },
+      "stated_answers": {
+        "Intercept": "562.151009",
+        "Temp_coef": "-5.4365806",
+        "Insulation_coef": "-20.012321",
+        "rounded_equation": "Yhat = 562.15 - 5.44 X1 - 20.01 X2",
+        "Multiple_R": "0.98265476",
+        "R_Square": "0.96561037",
+        "Adjusted_R_Square": "0.95987877",
+        "Standard_Error": "26.0137832",
+        "ANOVA": "Regression df=2 SS=228014.6263 MS=114007.3 F=168.47203 SignificanceF=1.65411E-09; Residual df=12 SS=8120.603016 MS=676.7169; Total df=14 SS=236135.2293",
+        "prediction_example": "for Temp=30F, Insulation=6 inches: Yhat = 562.15 - 5.43*30 - 20.01*6 = 278.97 gallons (slide uses coefficient 5.43, not the rounded 5.44 shown earlier)",
+        "sigmahat": "sqrt(MSE) = sqrt(8120.6/(15-2-1)) = sqrt(676.7) = 26.0"
+      },
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 57,
+      "legible": true,
+      "slice": "S05",
+      "source_kind": "course"
+    },
+    {
+      "id": "S05-WE20",
+      "tool": "polynomial-regression",
+      "given": {
+        "description": "Acetylene Yield vs Temp (T) and Ratio (R), second-order polynomial model; see constant_tables Table 6-9"
+      },
+      "stated_answers": {
+        "equation": "Yield = 36.4 + 0.130 Temp + 0.480 Ratio - 0.00733 T x R + 0.000178 T^2 - 0.0237 R^2",
+        "coefficients": "Constant 36.4339; Temp 0.130476; Ratio 0.48005; TxR -0.0073346; T^2 0.00017820; R^2 -0.02367",
+        "S": "1.066",
+        "R-Sq": "99.5%",
+        "R-Sq(adj)": "99.2%",
+        "ANOVA": "Regression df=5 SS=2112.34 MS=422.47 F=371.49 P=0.000; Residual Error df=10 SS=11.37 MS=1.14; Total df=15 SS=2123.71"
+      },
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 62,
+      "legible": true,
+      "slice": "S05",
+      "source_kind": "course"
+    },
+    {
+      "id": "S05-WE21",
+      "tool": "regression-variable-selection",
+      "given": {
+        "description": "Shampoo data: Quality vs 5 predictors (Foam, Scent, Color, Residue, Region), N=24; best subsets, backward elimination, forward selection and combined stepwise regression compared (see constant_tables Tables 6-10..6-13)"
+      },
+      "stated_answers": {
+        "best_subsets_top_pick_3_predictors": "Foam, Residue, Region: R-Sq=77.6 R-Sq(adj)=74.2 Mallows Cp=4.2 S=2.2164",
+        "backward_elimination_final_step3": "Foam, Residue, Region retained (Color and Scent removed); R-Sq=77.57 R-Sq(adj)=74.20 Mallows Cp=4.2",
+        "forward_selection_final_step4": "adds Scent last (P=0.155, not significant at alpha-to-enter 0.25 in practice already near threshold); R-Sq=79.89 R-Sq(adj)=75.65 Mallows Cp=4.1",
+        "stepwise_combined_final_step3": "Foam, Residue, Region; R-Sq=77.57 R-Sq(adj)=74.20 Mallows Cp=4.2"
+      },
+      "file": "source/course/Les 3/20260605_de vuyst_BB_Regression.pdf",
+      "page": 66,
+      "legible": true,
+      "slice": "S05",
+      "source_kind": "course"
+    },
+    {
+      "id": "S05-WE11",
+      "tool": "anova-one-way",
+      "given": {
+        "description": "Raw data only: 'Synthetic Fibre example: Tensile Strength Experiment', factor A (cotton weight %) with 5 levels x 5 reps, layout stacked A-column + 5 Y-columns per level (rows)",
+        "data_ref": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx::'1ANOVA'!A3:F8"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx",
+      "page": 1,
+      "sheet": "1ANOVA",
+      "cells": "A1:F8",
+      "legible": true,
+      "slice": "S05",
+      "source_kind": "course"
+    },
+    {
+      "id": "S05-WE12",
+      "tool": "anova-two-way",
+      "given": {
+        "description": "Two-way ANOVA, unreplicated: production plant with 4 machines (Milling, Turning, Painting, Cutting) x 5 operators (Peter, Paul, Mary, Donald, Hillary); one observation per cell",
+        "data_ref": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx::'2ANOVA'!C4:F9"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx",
+      "page": 2,
+      "sheet": "2ANOVA",
+      "cells": "A1:F9",
+      "legible": true,
+      "slice": "S05",
+      "source_kind": "course"
+    },
+    {
+      "id": "S05-WE13",
+      "tool": "anova-two-way-replication",
+      "given": {
+        "description": "Two-way ANOVA, replicated n=5: plant growth experiment, Watering Frequency (Daily, Weekly) x Sunlight Exposure (None, Low, Medium, High), 5 replicate measurements per cell",
+        "data_ref": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx::'2ANOVArep'!C5:F14"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx",
+      "page": 3,
+      "sheet": "2ANOVArep",
+      "cells": "A1:F14",
+      "legible": true,
+      "slice": "S05",
+      "source_kind": "course"
+    },
+    {
+      "id": "S05-WE14",
+      "tool": "factorial-2k-effects",
+      "given": {
+        "description": "Full factorial 2^5 design (factors A-E coded -1/+1), replicated n=3 (96 data rows); layout: columns A,B,C,D,E (design matrix) + F (Meting=measurement/response)",
+        "data_ref": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx::'2^5 full rep'!A3:F98"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx",
+      "page": 4,
+      "sheet": "2^5 full rep",
+      "cells": "A1:F98",
+      "legible": true,
+      "slice": "S05",
+      "source_kind": "course"
+    },
+    {
+      "id": "S05-WE15",
+      "tool": "fractional-factorial-2k-p",
+      "given": {
+        "description": "Fractional factorial 2^(5-1) design, replicated n=3 (48 data rows); generator noted on sheet as 'ABCDE=I'; annotation asks 'What is the resolution of this design?' and suggests trying model Y=A+B+C+D+E+BCDE",
+        "data_ref": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx::'2^5-1 fract rep'!A3:F50",
+        "defining_relation_as_noted_in_sheet": "ABCDE=I"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx",
+      "page": 5,
+      "sheet": "2^5-1 fract rep",
+      "cells": "A1:M50",
+      "legible": true,
+      "slice": "S05",
+      "source_kind": "course"
+    },
+    {
+      "id": "S05-WE16",
+      "tool": "fractional-factorial-2k-p",
+      "given": {
+        "description": "Fractional factorial 2^(5-2) design, replicated n=3 (24 data rows); only columns A,B,C and response F (Meting) are filled in; columns D and E are left blank as an exercise ('Use generators for D and E to achieve best resolution')",
+        "data_ref": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx::'2^5-2 fract rep'!A4:F27"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 3/20260605_devuyst_DOE_demo.xlsx",
+      "page": 6,
+      "sheet": "2^5-2 fract rep",
+      "cells": "A1:H51",
+      "legible": true,
+      "slice": "S05",
+      "source_kind": "course"
+    },
+    {
+      "id": "S05-WE22",
+      "tool": "simple-linear-regression",
+      "given": {
+        "description": "Exercise dataset 'Simple 1': 50 (x,y) pairs; tasks printed on sheet: '1. Propose and fit a suitable model to explain y from x', '2. Predict the response y for a new point at x=2,5', '3. Predict the response for a new point at x=10'",
+        "data_ref": "source/course/Les 3/20260605_devuyst_Regression_demo.xlsx::'Simple 1'!B2:C51"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 3/20260605_devuyst_Regression_demo.xlsx",
+      "page": 1,
+      "sheet": "Simple 1",
+      "cells": "A1:E51",
+      "legible": true,
+      "slice": "S05",
+      "source_kind": "course"
+    },
+    {
+      "id": "S05-WE23",
+      "tool": "simple-linear-regression",
+      "given": {
+        "description": "Exercise dataset 'Simple 2': 50 (x,y) pairs; same task prompts as 'Simple 1' sheet",
+        "data_ref": "source/course/Les 3/20260605_devuyst_Regression_demo.xlsx::'Simple 2'!B2:C51"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 3/20260605_devuyst_Regression_demo.xlsx",
+      "page": 2,
+      "sheet": "Simple 2",
+      "cells": "A1:E51",
+      "legible": true,
+      "slice": "S05",
+      "source_kind": "course"
+    },
+    {
+      "id": "S05-WE24",
+      "tool": "multiple-linear-regression",
+      "given": {
+        "description": "Exercise dataset 'Multiple 1': Strength (response) vs predictors A,B,C,D,E, 30 observations; tasks printed: '1. Propose and fit a suitable model to explain the response y (Strength) from the x-variables A, B, C, D, E', '2. Predict the response y for a new point at A=15, B=220, C=85, D=580, E=185'",
+        "data_ref": "source/course/Les 3/20260605_devuyst_Regression_demo.xlsx::'Multiple 1'!A2:F31"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 3/20260605_devuyst_Regression_demo.xlsx",
+      "page": 3,
+      "sheet": "Multiple 1",
+      "cells": "A1:F35",
+      "legible": true,
+      "slice": "S05",
+      "source_kind": "course"
+    },
+    {
+      "id": "S06-WE12",
+      "tool": "capability-pp-ppk",
+      "given": {
+        "context": "Minitab capability analysis voorbeeld (los van specifieke slide-oefening, illustratief dataset C1)",
+        "USL": "0.155",
+        "target": "*",
+        "LSL": "0.145",
+        "subgroups": "13",
+        "subgroup_size": "14 (zie ook Diagnostic Report)",
+        "note": "Report Card waarschuwt: te veel punten binnen 1 sigma van centerlijn (mogelijk systematische bron van variatie), slechts 13 subgroups (aanbevolen >=25)"
+      },
+      "stated_answers": {
+        "Mean": "0,14852",
+        "StdDev(overall)": "0,0025303",
+        "Pp": "0,66",
+        "Ppk": "0,46",
+        "Z.Bench": "1,36",
+        "%_Out_of_spec": "8,74",
+        "PPM(DPMO)": "87445",
+        "Potential(within)__Cp": "0,64",
+        "Potential(within)__Cpk": "0,45",
+        "Potential(within)__Z.Bench": "1,32",
+        "Potential(within)__%_Out_of_spec_expected": "9,33",
+        "Potential(within)__PPM(DPMO)_expected": "93282",
+        "StdDev(within)": "0,0025891",
+        "Normality_Anderson_Darling": "Pass, P-value 0,553"
+      },
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 49,
+      "legible": true,
+      "slice": "S06",
+      "source_kind": "course"
+    },
+    {
+      "id": "S06-WE11",
+      "tool": "control-chart-rules",
+      "given": {
+        "context": "SPC: oefening 1 - vraag of statistische controle noodzakelijk betekent dat (bijna) alle units binnen specificatielimieten liggen; pas Western Electric-regels toe op getoonde controlekaart (grafiek, geen numerieke data gegeven)"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 71,
+      "legible": true,
+      "slice": "S06",
+      "source_kind": "course"
+    },
+    {
+      "id": "S06-WE13",
+      "tool": "capability-pp-ppk",
+      "given": {
+        "context": "Minitab herberekening van SPC-oefening 2 (nettogewicht bleekproduct), n=5, subgroup size=5, Total N=100, 20 subgroups",
+        "USL": "16,7",
+        "target": "*",
+        "LSL": "15,7",
+        "subgroup_size": "5",
+        "total_N": "100"
+      },
+      "stated_answers": {
+        "Mean": "16,266",
+        "StdDev(overall)": "0,20212",
+        "Pp": "0,82",
+        "Ppk": "0,72",
+        "Z.Bench": "2,09",
+        "%_Out_of_spec_observed": "0,00",
+        "%_Out_of_spec_expected": "1,84",
+        "PPM(DPMO)_observed": "0",
+        "PPM(DPMO)_expected": "18440",
+        "Potential(within)__Cp": "0,79",
+        "Potential(within)__Cpk": "0,69",
+        "Potential(within)__Z.Bench": "2,00",
+        "Potential(within)__%_Out_of_spec_expected": "2,28",
+        "Potential(within)__PPM(DPMO)_expected": "22792",
+        "Normality_Anderson_Darling": "Fail, P-value < 0,005"
+      },
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 82,
+      "legible": true,
+      "slice": "S06",
+      "source_kind": "course"
+    },
+    {
+      "id": "S06-WE08",
+      "tool": "capability-cp-cpk",
+      "given": {
+        "context": "SPC: oefening 6 - kritische dimensie gefreesd stuk, specs 100 +/- 10, proces onder controle met Xbarbar=104, Rbar=9,30, n=5",
+        "USL": "110",
+        "LSL": "90",
+        "Xbarbar": "104",
+        "Rbar": "9,30",
+        "n": "5",
+        "sigma_calc_as_printed": "s = Rbar / d2 = 9,3/2,326 =~ 4",
+        "question1": "Kunnen we het gemiddelde zo aanpassen (freespositie) dat alle output aan de specificaties voldoet?",
+        "question2": "Wat is de huidige capabiliteit van het proces?"
+      },
+      "stated_answers": {
+        "question1_answer_as_printed": "Neen, 3 sigma = 12: buiten specs",
+        "Cp_as_printed": "20/24 = 0,83",
+        "Cpk_as_printed": "min [ (104-90)/(3.4) ; (110-104)/(3.4) ] = min [ 1,17 ; 0,5 ] = 0,5 (waarbij '3.4' = 3 x sigma(=4), niet het decimaal getal 3,4)"
+      },
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
+      "page": 86,
+      "legible": true,
+      "slice": "S06",
+      "source_kind": "course"
+    },
+    {
+      "id": "S06-WE10",
+      "tool": "normal-probability",
+      "given": {
+        "context": "Voorbeeld uit spreker-notities: schoenmaten mannen",
+        "gemiddelde": "42,5",
+        "spreiding": "2,5"
+      },
+      "stated_answers": {
+        "3_sigma_ondergrens_grof": "35 (42,5 - 3.2,5)",
+        "3_sigma_bovengrens_grof": "50 (42,5 + 3.2,5)",
+        "opmerking": "er zal wel steeds iemand zijn die < 35 of > 50 heeft"
+      },
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pptx",
+      "page": 19,
+      "notes": true,
+      "legible": true,
+      "slice": "S06",
+      "source_kind": "course"
+    },
+    {
+      "id": "S06-WE01",
+      "tool": "capability-cp-cpk",
+      "given": {
+        "context": "As die gebruikt wordt in automatische transmissie moet lengte hebben tussen 71,4 mm en 72,8 mm (LSL=71,4; USL=72,8)",
+        "n": "5",
+        "Xbar": "71,8 mm",
+        "sbar": "0,2 mm",
+        "method": "Xbar-kaart en s-kaart tonen dat proces beheerst verloopt (in control)"
+      },
+      "stated_answers": {
+        "Cp": "1,166 (= (72,8-71,4)/(6.0,2) = 1,4/1,2)",
+        "Cpk_offcenter": "0,67 (= min[(72,8-71,8)/(3.0,2) ; (71,8-71,4)/(3.0,2)] = min[1,67 ; 0,67])",
+        "defect_offcenter_2sided": "5 % totaal (50.000 ppm), overeenkomend met 4,02 sigma (0,67x6sigma)",
+        "defect_offcenter_1sided": "2,5 % (25.000 ppm) per zijde",
+        "excel_check": "Norm.verd(71,4 ; 71,8 ; 0,2 ; cumulatief = waar)",
+        "case_centered_mean": "72,1 mm (midden tussen LSL en USL)",
+        "Cp_centered": "1,166 (gelijk aan Cp)",
+        "Cpk_centered": "1,166 (= 0,7/0,6)",
+        "defect_centered_1sided": "0,02 % (200 ppm), overeenkomend met 3,5 sigma eenzijdig",
+        "defect_centered_2sided": "0,04 % (400 ppm), want 2-zijdig moet gerekend worden"
+      },
+      "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pptx",
+      "page": 46,
+      "notes": true,
+      "legible": true,
+      "slice": "S06",
+      "source_kind": "course"
+    },
+    {
+      "id": "S06-WE02",
+      "tool": "capability-cp-cpk",
+      "given": {
+        "context": "Zelfde oefening als S06-WE01 (as 71,4-72,8mm), berekend/gevisualiseerd in Excel met NORMDIST-curves",
+        "LSL": "71.4",
+        "USL": "72.8",
+        "sigma": "0.2",
+        "case1_mean": "71.8 (Xbar zoals gemeten)",
+        "case2_mean": "72.1 (midden tussen LSL en USL)"
+      },
+      "stated_answers": {
+        "Cp_case1": "1.1666666666666594",
+        "Cpk_case1_upper": "1.6666666666666665",
+        "Cpk_case1_lower": "0.6666666666666523",
+        "Cpk_case1_min": "0.6666666666666523",
+        "Cp_case2": "1.1666666666666594",
+        "Cpk_case2_upper": "1.1666666666666712",
+        "Cpk_case2_lower": "1.1666666666666476",
+        "Cpk_case2_min": "1.1666666666666476"
+      },
+      "file": "source/course/Les 4/Exercise axis - vizualisation.xlsx",
+      "page": 1,
+      "legible": true,
+      "slice": "S06",
+      "source_kind": "course"
+    },
+    {
+      "id": "S07-WE01",
+      "tool": "rolled-throughput-yield-concept",
+      "given": {
+        "single_die_defect_probability": "1/6 (17%)",
+        "single_die_success_probability": "5/6 (83%)",
+        "dice_rolled": "1, 2, 3, 20, 50, 100 dice rolled together"
+      },
+      "stated_answers": {
+        "two_dice_defect_free_probability": "69%",
+        "three_dice_defect_free_probability": "58%",
+        "hundred_dice_defect_free_probability": "less than one in 82 million"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 39,
+      "legible": true,
+      "slice": "S07",
+      "source_kind": "course"
+    },
+    {
+      "id": "S07-WE05",
+      "tool": "business-case-writing",
+      "given": {
+        "example_1": "As a company, our accounts receivable performance for the finance invoicing area is not meeting the goal of 47 days sales outstanding. Overall this is causing cash flow and budget problems.",
+        "example_2": "As a company our final process yield performance for the paint and polish area is not meeting the targeted 97 percent yield. Overall this is causing floor space, shipment, and resource problems.",
+        "example_3": "As a company our on-time delivery performance for our healthcare products area is not meeting the scheduling and delivery cost requirements. Overall this is causing delivery issues and customer dissatisfaction problems."
+      },
+      "stated_answers": {
+        "example_1_cost": "costing us as much as $4 million per year",
+        "example_2_cost": "costing us as much as $900,000 per year",
+        "example_3_cost": "costing us as much as $3 million in lost revenues and $1.5 million in expenses per year"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 87,
+      "legible": true,
+      "slice": "S07",
+      "source_kind": "course"
+    },
+    {
+      "id": "S07-WE06",
+      "tool": "problem-statement",
+      "given": {
+        "poor_statement": "Inventory levels are too high and must be reduced."
+      },
+      "stated_answers": {
+        "improved_statement": "Inventory levels at the West Metro inventory storage process in Scottsdale are consuming space, taking up asset management time, and creating cash flow issues. Inventory levels are averaging 31.2 days, with a high of 45 days. These levels have exceeded the target of 25 days 95 percent of the time since January 2004. We could save $250,000 per year if we were at the targeted level."
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 95,
+      "legible": true,
+      "slice": "S07",
+      "source_kind": "course"
+    },
+    {
+      "id": "S07-WE07",
+      "tool": "problem-statement",
+      "given": {
+        "poor_statement": "Human Resources is taking too long to fill personnel requests."
+      },
+      "stated_answers": {
+        "improved_statement": "Recruiting time for Software Engineers for the flight systems design department in San Jose is missing the goal of 70 days 91 percent of the time. The average time to fill a request is 155 days in the human resources employee recruitment process over the past 15 months. This is adding costs of $145,000 per month in overtime, contractor labor, and rework costs."
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 95,
+      "legible": true,
+      "slice": "S07",
+      "source_kind": "course"
+    },
+    {
+      "id": "S07-WE08",
+      "tool": "problem-statement",
+      "given": {
+        "poor_statement": "Our hospital has a problem with the amount of insurance claim forms submitted with errors to the insurance company."
+      },
+      "stated_answers": {
+        "improved_statement": "Insurance claim forms originating at the Fremont North Memorial emergency department are causing a loss of revenue, excessive rework costs, and delayed payment to the hospital. Forty-five percent of the claim forms have errors, with an average of 2.3 defects per form. This problem has existed since claims processing was moved to Kansas City in June 2004. Billings could increase by $3.5 million per month, rework cost could be reduced by 50 percent, and an additional 1.3 percent of revenue could be recovered if errors were occurring less than 5 percent of the time. Achieving this level of performance would increase profits by $395,000 per year."
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 96,
+      "legible": true,
+      "slice": "S07",
+      "source_kind": "course"
+    },
+    {
+      "id": "S07-WE09",
+      "tool": "objective-statement",
+      "given": {
+        "poor_statement": "Reduce inventory levels as soon as possible."
+      },
+      "stated_answers": {
+        "improved_statement": "Reduce raw material inventory levels from 31.2 days average to 23 days average with a maximum of 27 days by August 1, 2004. This project will save $235,000 per year for interest, space, and personnel in support of our corporate goal to improve asset management and ROI."
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 100,
+      "legible": true,
+      "slice": "S07",
+      "source_kind": "course"
+    },
+    {
+      "id": "S07-WE10",
+      "tool": "objective-statement",
+      "given": {
+        "poor_statement": "Improve how long it takes for human resources to fill personnel requests."
+      },
+      "stated_answers": {
+        "improved_statement": "Reduce the software engineer recruiting time from an average of 155 days to 51 days, with an upper limit of 65 days. This will meet the current maximum goal of 70 days greater than 99 percent of the time. The new goal will be achieved by June 1, 2004. It will support our Employer of Choice goal and achieve an annualized savings of $145,000 per month."
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 100,
+      "legible": true,
+      "slice": "S07",
+      "source_kind": "course"
+    },
+    {
+      "id": "S07-WE11",
+      "tool": "objective-statement",
+      "given": {
+        "poor_statement": "Re-train employees to eliminate inaccurate claims forms."
+      },
+      "stated_answers": {
+        "improved_statement": "Reduce the defects per form from 2.3 DPU to less than 0.1 DPU by September 15, 2004. This will increase revenue collection by $3.2 million per month resulting in an additional $25,000 profit per month at an 8 percent profit margin. This project supports the corporate goal to increase revenue by 15 percent per year."
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 101,
+      "legible": true,
+      "slice": "S07",
+      "source_kind": "course"
+    },
+    {
+      "id": "S07-WE02",
+      "tool": "mean-calculation",
+      "given": {
+        "n": "100",
+        "data_ref": "Six Sigma For Dummies.pdf::p105 (Figure 5-2, dot plot of 100 elapsed-time measurements, values roughly 40-60 seconds)",
+        "first_three_measurements_seconds": "41, 50, 47"
+      },
+      "stated_answers": {
+        "mean_seconds": "49.9"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 108,
+      "legible": true,
+      "slice": "S07",
+      "source_kind": "course"
+    },
+    {
+      "id": "S07-WE04",
+      "tool": "mean-vs-median-outlier",
+      "given": {
+        "home_prices": "$158,000; $200,000; $178,000; $125,000; $535,000"
+      },
+      "stated_answers": {
+        "mean": "$239,200",
+        "median": "$178,000"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 108,
+      "legible": true,
+      "slice": "S07",
+      "source_kind": "course"
+    },
+    {
+      "id": "S07-WE03",
+      "tool": "range-calculation",
+      "given": {
+        "x_max_seconds": "60",
+        "x_min_seconds": "41"
+      },
+      "stated_answers": {
+        "range_seconds": "19"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 110,
+      "legible": true,
+      "slice": "S07",
+      "source_kind": "course"
+    },
+    {
+      "id": "S08-WE01",
+      "tool": "traditional-yield",
+      "given": {
+        "in": "352 cars",
+        "out": "347 cars with pressure within specification"
+      },
+      "stated_answers": {
+        "Y": "347/352 = 0.986 or 98.6%"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 147,
+      "legible": true,
+      "slice": "S08",
+      "source_kind": "course"
+    },
+    {
+      "id": "S08-WE02",
+      "tool": "first-time-yield",
+      "given": {
+        "items_in": 352,
+        "items_out": 347,
+        "inspected_and_failed": 103,
+        "reworked_ok": 98,
+        "scrapped": 5,
+        "note": "correctly-first-time = in - scrap - rework = 352-5-98=249"
+      },
+      "stated_answers": {
+        "FTY": "249/352 = 0.707 or 70.7%",
+        "hidden_factory": "98.6% - 70.7% = 27.9% of production"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 148,
+      "legible": true,
+      "slice": "S08",
+      "source_kind": "course"
+    },
+    {
+      "id": "S08-WE03",
+      "tool": "rolled-throughput-yield",
+      "given": {
+        "process": "5-step purchase order process",
+        "FTY1": 0.75,
+        "FTY2": 0.95,
+        "FTY3": 0.85,
+        "FTY4": 0.95,
+        "FTY5": 0.9
+      },
+      "stated_answers": {
+        "RTY": "0.75 x 0.95 x 0.85 x 0.95 x 0.90 = 0.518"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 149,
+      "legible": true,
+      "slice": "S08",
+      "source_kind": "course"
+    },
+    {
+      "id": "S08-WE04",
+      "tool": "dpu",
+      "given": {
+        "defects_observed": 11,
+        "units_inspected": "23 loan applications during a month"
+      },
+      "stated_answers": {
+        "DPU": "11/23 = 0.478"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 152,
+      "legible": true,
+      "slice": "S08",
+      "source_kind": "course"
+    },
+    {
+      "id": "S08-WE05",
+      "tool": "dpo",
+      "given": {
+        "context": "automobile",
+        "out_of_spec_characteristics": 158,
+        "opportunities": 14550
+      },
+      "stated_answers": {
+        "DPO": "158/14,550 = 0.011"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 153,
+      "legible": true,
+      "slice": "S08",
+      "source_kind": "course"
+    },
+    {
+      "id": "S08-WE06",
+      "tool": "dpo",
+      "given": {
+        "context": "bicycle",
+        "non_compliant_characteristics": 2,
+        "critical_characteristics": 173
+      },
+      "stated_answers": {
+        "DPO": "2/173 = 0.012"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 154,
+      "legible": true,
+      "slice": "S08",
+      "source_kind": "course"
+    },
+    {
+      "id": "S08-WE07",
+      "tool": "dpo-dpmo",
+      "given": {
+        "context": "two commercial airline crashes out of 6 million flights in a year",
+        "defects": 2,
+        "opportunities": 6000000
+      },
+      "stated_answers": {
+        "DPO": "2/6,000,000 = 0.000000333"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 154,
+      "legible": true,
+      "slice": "S08",
+      "source_kind": "course"
+    },
+    {
+      "id": "S08-WE08",
+      "tool": "sigma-score-lookup",
+      "given": {
+        "DPMO": 20000,
+        "note": "value falls between table rows for Z=3.5 (DPMO=22,750) and Z=4.0"
+      },
+      "stated_answers": {
+        "approximate_Z": "about 3.6"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 161,
+      "legible": true,
+      "slice": "S08",
+      "source_kind": "course"
+    },
+    {
+      "id": "S08-WE09",
+      "tool": "attribute-audit-study",
+      "given": {
+        "exercise": "Read a printed paragraph (the 'Farm Hands' paragraph) quickly, circling each occurrence of the sixth letter of the alphabet (f, upper or lower case), without going back or rereading.",
+        "text_theme": "training Farm Hands for first class farms in the fatherly handling of farm livestock"
+      },
+      "stated_answers": {
+        "correct_count_of_fs": 36,
+        "interpretation": "percentage of the 36 f's actually found is an audit of the reader's (measurement system's) effectiveness"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 174,
+      "legible": true,
+      "slice": "S08",
+      "source_kind": "course"
+    },
+    {
+      "id": "S08-WE10",
+      "tool": "confidence-interval-std-dev",
+      "given": {
+        "n": 5,
+        "sample_std_dev": 3.7,
+        "confidence": "95%",
+        "chi2_LOWER": 11.365,
+        "chi2_UPPER": 0.46
+      },
+      "stated_answers": {
+        "CI": "[ sqrt((5-1)(3.7)^2/11.365), sqrt((5-1)(3.7)^2/0.460) ] = [2.195, 10.907]"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 195,
+      "legible": true,
+      "slice": "S08",
+      "source_kind": "course"
+    },
+    {
+      "id": "S08-WE11",
+      "tool": "confidence-interval-ratio-of-variances",
+      "given": {
+        "distribution_A": {
+          "n": 10,
+          "variance": 4
+        },
+        "distribution_B": {
+          "n": 5,
+          "variance": 7.5
+        },
+        "confidence": "95%",
+        "F(5,10)": 3.633,
+        "F(10,5)": 5.999
+      },
+      "stated_answers": {
+        "CI_for_varA_over_varB": "[ (1/3.633)(4.0/7.5), 5.999(4.0/7.5) ] = [0.147, 3.199]",
+        "interpretation": "interval contains 1, so no evidence the distributions have different variances"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 196,
+      "legible": true,
+      "slice": "S08",
+      "source_kind": "course"
+    },
+    {
+      "id": "S08-WE12",
+      "tool": "confidence-interval-proportion",
+      "given": {
+        "proportion": "4 out of 5 dentists",
+        "y": 4,
+        "n": 5,
+        "confidence": "90%",
+        "Z": 1.645
+      },
+      "stated_answers": {
+        "CI": "4/5 +/- 1.645 sqrt((4/5)(1-4/5)/5) = 4/5 +/- 0.294"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 197,
+      "legible": true,
+      "slice": "S08",
+      "source_kind": "course"
+    },
+    {
+      "id": "S08-WE13",
+      "tool": "confidence-interval-difference-of-proportions",
+      "given": {
+        "Toledo_plant": {
+          "y1": 213,
+          "n1": 300
+        },
+        "Buffalo_plant": {
+          "y2": 189,
+          "n2": 300
+        },
+        "confidence": "95%",
+        "Z": 2
+      },
+      "stated_answers": {
+        "CI": "213/300 - 189/300 +/- 2 sqrt( (213/300)(1-213/300)/300 + (189/300)(1-189/300)/300 ) = 0.08 +/- 0.076, or equivalently [0.004, 0.156]",
+        "interpretation": "interval does not include zero; with 95% confidence Toledo produces on average a higher proportion of good items than Buffalo"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 197,
+      "legible": true,
+      "slice": "S08",
+      "source_kind": "course"
+    },
+    {
+      "id": "S08-WE14",
+      "tool": "correlation-coefficient",
+      "given": {
+        "data_table": "Table 8-5: Automobile Curb Weight versus Fuel Economy",
+        "columns": [
+          "Make/Model",
+          "Curb Weight (lbs.)",
+          "Fuel Economy (mpg)"
+        ],
+        "rows": [
+          [
+            "Toyota Camry",
+            3140,
+            29
+          ],
+          [
+            "Toyota Sequoia",
+            4875,
+            17
+          ],
+          [
+            "Honda Civic",
+            2449,
+            35
+          ],
+          [
+            "Land Rover Discovery",
+            4742,
+            16
+          ],
+          [
+            "Mercedes-Benz S500",
+            4170,
+            20
+          ],
+          [
+            "VW Jetta Wagon",
+            3078,
+            27
+          ],
+          [
+            "Chrysler 300",
+            3715,
+            22
+          ],
+          [
+            "Chevrolet Venture",
+            3838,
+            23
+          ],
+          [
+            "Hyundai Tiburon",
+            2940,
+            27
+          ],
+          [
+            "Dodge Ram 2500 Quad",
+            6039,
+            11
+          ]
+        ],
+        "n": 10,
+        "formula_substitution": "r = 1/(10-1) sum_{i=1 to 10} [ (xi-3899)/1087 ] [ (yi-23)/7 ]"
+      },
+      "stated_answers": {
+        "r": "1/9 (-8.738) = -0.971",
+        "interpretation": "relationship is linear and very strong (negative)"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 199,
+      "legible": true,
+      "slice": "S08",
+      "source_kind": "course"
+    },
+    {
+      "id": "S08-WE15",
+      "tool": "simple-linear-regression",
+      "given": {
+        "data_ref": "source/course/Les 4/Six Sigma For Dummies.pdf::p199 (Table 8-5, same 10-row dataset as S08-WE14)",
+        "X": "curb weight (lbs)",
+        "Y": "fuel economy (mpg)"
+      },
+      "stated_answers": {
+        "beta_1": "-0.00624 (as printed; note the fitted-line equation given immediately after uses -0.00632, and Excel's fitted line on page 210 gives -0.0063 -- see ambiguities)",
+        "beta_0": "46.9 (as printed; note the fitted-line equation given immediately after uses 47.3, and Excel's fitted line on page 210 gives 47.333 -- see ambiguities)",
+        "fitted_equation": "Yhat = 47.3 - 0.00632 X",
+        "prediction_example": "for X=5,000 lbs, Yhat = 47.3 - 0.00632(5,000) = 15.7 mpg",
+        "residual_example_Toyota_Camry": "e1 = Y1 - Yhat1 = 29 - 27.49 = 1.51 mpg (Yhat computed as 47.3-0.00632(3,140)=27.49)",
+        "R_squared": "424.2/450.1 = 0.94",
+        "sigmahat_epsilon": "sqrt(25.9/(10-2)) = 1.80 mpg",
+        "F_test": "424.2/25.9 = 16.4 >= 11.259 = F(2,9); conclude with 99% confidence the derived model is valid",
+        "excel_fit_(Figure_8-10)": "y = -0.0063x + 47.333; R^2 = 0.9425"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 203,
+      "legible": true,
+      "slice": "S08",
+      "source_kind": "course"
+    },
+    {
+      "id": "S08-WE16",
+      "tool": "doe-2k-factorial-effects",
+      "given": {
+        "context": "Ice cream carton filler experiment; k=3 factors, 2^3=8 runs, output Y = filled carton weight in grams (target range 1,225-1,280 g)",
+        "Table_9-1_variable_values": {
+          "columns": [
+            "Variable",
+            "Symbol",
+            "Low Setting",
+            "High Setting"
+          ],
+          "rows": [
+            [
+              "Ice cream flavor",
+              "X1",
+              "Vanilla",
+              "Strawberry"
+            ],
+            [
+              "Fill time (seconds)",
+              "X2",
+              "0.5",
+              "1.1"
+            ],
+            [
+              "Pressure (psi)",
+              "X3",
+              "120",
+              "140"
+            ]
+          ]
+        },
+        "Table_9-3_plan_and_results": {
+          "columns": [
+            "Run",
+            "Order",
+            "X1:Flavor",
+            "X2:Time",
+            "X3:Pressure",
+            "Y"
+          ],
+          "rows": [
+            [
+              1,
+              7,
+              -1,
+              -1,
+              -1,
+              1238
+            ],
+            [
+              2,
+              2,
+              1,
+              -1,
+              -1,
+              1252
+            ],
+            [
+              3,
+              5,
+              -1,
+              1,
+              -1,
+              1228
+            ],
+            [
+              4,
+              8,
+              1,
+              1,
+              -1,
+              1237
+            ],
+            [
+              5,
+              3,
+              -1,
+              -1,
+              1,
+              1223
+            ],
+            [
+              6,
+              6,
+              1,
+              -1,
+              1,
+              1234
+            ],
+            [
+              7,
+              1,
+              -1,
+              1,
+              1,
+              1238
+            ],
+            [
+              8,
+              4,
+              1,
+              1,
+              1,
+              1250
+            ]
+          ]
+        },
+        "Table_9-4_interaction_coded_variables": {
+          "columns": [
+            "Run",
+            "c1",
+            "c2",
+            "c3",
+            "c12",
+            "c13",
+            "c23",
+            "c123",
+            "Y"
+          ],
+          "rows": [
+            [
+              1,
+              -1,
+              -1,
+              -1,
+              1,
+              1,
+              1,
+              -1,
+              1238
+            ],
+            [
+              2,
+              1,
+              -1,
+              -1,
+              -1,
+              -1,
+              1,
+              1,
+              1252
+            ],
+            [
+              3,
+              -1,
+              1,
+              -1,
+              -1,
+              1,
+              -1,
+              1,
+              1228
+            ],
+            [
+              4,
+              1,
+              1,
+              -1,
+              1,
+              -1,
+              -1,
+              -1,
+              1237
+            ],
+            [
+              5,
+              -1,
+              -1,
+              1,
+              1,
+              -1,
+              -1,
+              1,
+              1223
+            ],
+            [
+              6,
+              1,
+              -1,
+              1,
+              -1,
+              1,
+              -1,
+              -1,
+              1234
+            ],
+            [
+              7,
+              -1,
+              1,
+              1,
+              -1,
+              -1,
+              1,
+              -1,
+              1238
+            ],
+            [
+              8,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1250
+            ]
+          ]
+        }
+      },
+      "stated_answers": {
+        "E1": "1,243.25 - 1,231.75 = 11.5 grams",
+        "E2": "1.5 grams",
+        "E3": "-2.5 grams",
+        "E12": "-1.0 grams",
+        "E13": "0.0 grams",
+        "E23": "14.0 grams",
+        "E123": "1.5 grams",
+        "Table_9-5_normal_scores": {
+          "columns": [
+            "Effect",
+            "Value",
+            "Rank (i)",
+            "P",
+            "Z"
+          ],
+          "rows": [
+            [
+              "E3",
+              -2.5,
+              1,
+              0.071,
+              -1.465
+            ],
+            [
+              "E12",
+              -1.0,
+              2,
+              0.214,
+              -0.792
+            ],
+            [
+              "E13",
+              0.0,
+              3,
+              0.357,
+              -0.366
+            ],
+            [
+              "E2",
+              1.5,
+              4.5,
+              0.571,
+              0.18
+            ],
+            [
+              "E123",
+              1.5,
+              4.5,
+              0.571,
+              0.18
+            ],
+            [
+              "E1",
+              11.5,
+              6,
+              0.786,
+              0.792
+            ],
+            [
+              "E23",
+              14.0,
+              7,
+              0.929,
+              1.465
+            ]
+          ]
+        },
+        "significant_effects": "E1 and E23 (ice cream flavor, and the fill-time x pressure interaction) are significant; all others fit the normal line and are not significant",
+        "beta_0": "1,237.5 (average of all 8 experiment run outputs)",
+        "beta_1": "E1/2 = 11.5/2 = 5.75",
+        "beta_23": "E23/2 = 14.0/2 = 7.0",
+        "final_equation": "Y = 1,237.5 + 5.75 X1 + 7.0 X2 X3"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 225,
+      "legible": true,
+      "slice": "S08",
+      "source_kind": "course"
+    },
+    {
+      "id": "S08-WE17",
+      "tool": "histogram-probability-and-control-limits",
+      "given": {
+        "description": "Population of 100 data points plotted in a histogram (Figure 10-5), then charted as an I-chart (Figure 10-6)",
+        "histogram_data": {
+          "columns": [
+            "Value",
+            "Frequency"
+          ],
+          "rows": [
+            [
+              46,
+              2
+            ],
+            [
+              47,
+              4
+            ],
+            [
+              48,
+              5
+            ],
+            [
+              49,
+              19
+            ],
+            [
+              50,
+              25
+            ],
+            [
+              51,
+              26
+            ],
+            [
+              52,
+              13
+            ],
+            [
+              53,
+              2
+            ],
+            [
+              54,
+              3
+            ],
+            [
+              55,
+              1
+            ]
+          ]
+        }
+      },
+      "stated_answers": {
+        "probability_of_value_50": "25/100 = 25 percent",
+        "probability_of_value_52": "approximately 13 percent",
+        "Xbar": 50,
+        "UCL": 58.7,
+        "LCL": 41.3
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 242,
+      "legible": true,
+      "slice": "S08",
+      "source_kind": "course"
+    },
+    {
+      "id": "S08-WE19",
+      "tool": "individuals-moving-range-chart",
+      "given": {
+        "description": "Individuals and moving range chart example (Figure 10-8); no source data table provided, only chart readout"
+      },
+      "stated_answers": {
+        "Xbar": 100.1,
+        "UCL_X": 104.5,
+        "LCL_X": 95.71,
+        "MRbar": 1.658,
+        "UCL_MR": 5.418,
+        "LCL_MR": 0.0
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 251,
+      "legible": true,
+      "slice": "S08",
+      "source_kind": "course"
+    },
+    {
+      "id": "S08-WE18",
+      "tool": "xbar-r-chart",
+      "given": {
+        "description": "Averages and ranges chart example (Figure 10-9); no source subgroup data table provided, only chart readout"
+      },
+      "stated_answers": {
+        "Xbar": 84.5,
+        "UCL_Xbar": 87.82,
+        "LCL_Xbar": 81.18,
+        "Rbar": 5.75,
+        "UCL_R": 12.16,
+        "LCL_R": 0.0
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 252,
+      "legible": true,
+      "slice": "S08",
+      "source_kind": "course"
+    },
+    {
+      "id": "S08-WE20",
+      "tool": "p-chart",
+      "given": {
+        "description": "p chart for proportion defective (Figure 10-10); no source subgroup data table provided, only chart readout"
+      },
+      "stated_answers": {
+        "pbar": 0.2232,
+        "UCL": 0.2777,
+        "LCL": 0.1687
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 255,
+      "legible": true,
+      "slice": "S08",
+      "source_kind": "course"
+    },
+    {
+      "id": "S08-WE21",
+      "tool": "u-chart",
+      "given": {
+        "description": "u chart for defects per unit on insurance claim forms (Figure 10-11)",
+        "data_table": {
+          "columns": [
+            "Subgroup",
+            "Subgroup size",
+            "Defects"
+          ],
+          "rows": [
+            [
+              1,
+              53,
+              101
+            ],
+            [
+              2,
+              64,
+              80
+            ],
+            [
+              3,
+              59,
+              115
+            ],
+            [
+              4,
+              52,
+              127
+            ],
+            [
+              5,
+              65,
+              99
+            ],
+            [
+              6,
+              60,
+              57
+            ],
+            [
+              7,
+              56,
+              99
+            ],
+            [
+              8,
+              49,
+              109
+            ],
+            [
+              9,
+              53,
+              100
+            ],
+            [
+              10,
+              59,
+              121
+            ],
+            [
+              11,
+              66,
+              113
+            ],
+            [
+              12,
+              65,
+              156
+            ],
+            [
+              13,
+              58,
+              142
+            ],
+            [
+              14,
+              55,
+              114
+            ],
+            [
+              15,
+              57,
+              147
+            ],
+            [
+              16,
+              55,
+              113
+            ],
+            [
+              17,
+              61,
+              109
+            ],
+            [
+              18,
+              60,
+              115
+            ],
+            [
+              19,
+              68,
+              98
+            ],
+            [
+              20,
+              65,
+              92
+            ]
+          ]
+        }
+      },
+      "stated_answers": {
+        "ubar": 1.87,
+        "UCL_3.0SL": "2379 (as printed; no decimal point shown -- see ambiguities; likely intended as 2.379)",
+        "LCL_neg3.0SL": 1.361
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 256,
+      "legible": true,
+      "slice": "S08",
+      "source_kind": "course"
+    },
+    {
+      "id": "S09-WE11",
+      "tool": "fmea-rpn-pareto",
+      "given": {
+        "description": "Figure 11-7: Pareto chart of an FMEA risk priority number (RPN), showing counts and cumulative percentage for process outputs such as 'Order Completed on time', 'Billing Accuracy', 'No Production Defects', 'Minimization Cost', 'No Wrong Order Defects'.",
+        "figure": "Figure 11-7"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 280,
+      "legible": false,
+      "slice": "S09",
+      "source_kind": "course"
+    },
+    {
+      "id": "S09-WE07",
+      "tool": "cost-of-poor-quality",
+      "given": {
+        "description": "A company whose annual revenues are $100 million, and whose operating income is $10 million.",
+        "cost of quality": "approximately 25 percent of revenue"
+      },
+      "stated_answers": {
+        "cost of quality in dollars": "$25 million",
+        "if reduced by 20 percent": "operating income increases by $5 million -- 50 percent of current operating income"
+      },
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder book summary.pdf",
+      "page": 2,
+      "legible": true,
+      "slice": "S09",
+      "source_kind": "course"
+    },
+    {
+      "id": "S09-WE08",
+      "tool": "business-case-ge-six-sigma",
+      "given": {
+        "description": "GE operations in 1996 running at 3-4 sigma (~35,000 defects per million), costing $7B-$10B/year in scrap/rework/inefficiency. Welch committed $450 million in 1996-1997 to train 5,000 executives/managers and 80,000 engineers/employees, targeting Six Sigma (3.4 dpm) by 2000."
+      },
+      "stated_answers": {
+        "1998 revenue": "rose 11 percent, to $100 billion",
+        "1998 earnings": "increased 13 percent, to $9.3 billion",
+        "working capital turns": "rose from 7.4 percent in 1997 to 9.2 percent",
+        "GE Capital Services": "62 percent reduction in turnaround time for repairs",
+        "GE Aircraft Engines (Canadian division)": "reduced border delays by 50 percent"
+      },
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder book summary.pdf",
+      "page": 7,
+      "legible": true,
+      "slice": "S09",
+      "source_kind": "course"
+    },
+    {
+      "id": "S09-WE01",
+      "tool": "dpmo-sigma-level",
+      "given": {
+        "description": "Two dissimilar products made using the same process, compared on a level field regardless of complexity.",
+        "Product A final yield": "85%",
+        "Product A opportunities for defects": "600 (high complexity)",
+        "Product B final yield": "96.8%",
+        "Product B opportunities for defects": "48 (low complexity)"
+      },
+      "stated_answers": {
+        "Product A avg yield per defect opportunity": "(0.85)**(1/600) = 99.97% (or about 3.5 sigma)",
+        "Product A meaning 1": "15% of the units produced contain one or more defects",
+        "Product A meaning 2": "a product with 600 defect opportunities, at 3.5 sigma, produces one defect for every 1.2 units produced",
+        "Product B avg yield per defect opportunity": "(0.968)**(1/48) = 99.97% (or about 3.5 sigma)"
+      },
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+      "page": 3,
+      "legible": true,
+      "slice": "S09",
+      "source_kind": "course"
+    },
+    {
+      "id": "S09-WE02",
+      "tool": "hidden-factory-first-time-yield",
+      "given": {
+        "description": "A process produces ten coffee cups. The operator sees that 5 are defective, so recycles that material and sends the 5 good ones to the inspection point."
+      },
+      "stated_answers": {
+        "Yield at inspection point": "100%",
+        "note": "The rework is not captured in any cost structure. This is a 'hidden factory'."
+      },
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+      "page": 4,
+      "legible": true,
+      "slice": "S09",
+      "source_kind": "course"
+    },
+    {
+      "id": "S09-WE03",
+      "tool": "throughput-yield-vs-first-time-yield",
+      "given": {
+        "description": "5-step process; 100 units have just passed through step #3. Each unit has 20 opportunities for defect (CTQs). At step #3, 5 defects were observed in the 100 units."
+      },
+      "stated_answers": {
+        "Defects/unit": "5/100 = 5%",
+        "meaning": "5 of every 100 units created at step #3 will contain one or more defects",
+        "Throughput yield": "95% (95 of 100 will pass step #3 with zero defects)",
+        "FTY (if all five defects were in one unit)": "99%",
+        "Defects/opportunity": "(Defects/unit)/(opportunities/unit) = 0.05/20 = 0.0025",
+        "Defects-per-million-opportunities": "2,500, or about 4.3 sigma capability"
+      },
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+      "page": 5,
+      "legible": true,
+      "slice": "S09",
+      "source_kind": "course"
+    },
+    {
+      "id": "S09-WE04",
+      "tool": "rolled-throughput-yield",
+      "given": {
+        "description": "Same 5-step process. TYs for each step = 98%, 93%, 95%, 98% and 94%."
+      },
+      "stated_answers": {
+        "RTY": "(.98)x(.93)x(.95)x(.98)x(.94) = 0.7976 = probability of passing a unit through all five steps defect-free"
+      },
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+      "page": 5,
+      "legible": true,
+      "slice": "S09",
+      "source_kind": "course"
+    },
+    {
+      "id": "S09-WE05",
+      "tool": "normalized-yield",
+      "given": {
+        "description": "10-step process, and RTY is 36.8%."
+      },
+      "stated_answers": {
+        "NY": "kth root of TRY, where k is the # steps in the process = (0.368)**(-10) = 0.9051"
+      },
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+      "page": 5,
+      "legible": true,
+      "slice": "S09",
+      "source_kind": "course"
+    },
+    {
+      "id": "S09-WE06",
+      "tool": "units-for-one-defect-free-output",
+      "given": {
+        "description": "A certain process has an RTY = 70%. How many units must be input to produce one defect-free output?"
+      },
+      "stated_answers": {
+        "Assuming defects are repairable": "1 + (1 - RTY) = 1 + (1 - .7) = 1.3",
+        "Assuming defectives are scrapped": "1/(RTY) = 1.43"
+      },
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+      "page": 5,
+      "legible": true,
+      "slice": "S09",
+      "source_kind": "course"
+    },
+    {
+      "id": "S09-WE09",
+      "tool": "dfss-cost-quality-tradeoff",
+      "given": {
+        "description": "GE 1995 decision to design a new CAT-scanner using 6Sigma methodology. Old X-Ray tubes cost $59K and lasted 3 months."
+      },
+      "stated_answers": {
+        "new tube cost": "$85K",
+        "warranty": "one-year warranty",
+        "full-body scan time": "went from 3 minutes to 20 seconds",
+        "cooling time": "less time to cool from end of one scan to start of another"
+      },
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+      "page": 7,
+      "legible": true,
+      "slice": "S09",
+      "source_kind": "course"
+    },
+    {
+      "id": "S09-WE10",
+      "tool": "cost-of-poor-quality",
+      "given": {
+        "description": "Foxboro delinquent accounts-receivable, costing the company over $7M/yr, operating at about a 2-sigma level. Root causes: purchase orders not verified against sales receipts; none/late hard-copy confirmation of verbal orders; inadequate monitoring of company billing; payment terms not established during quotation process."
+      },
+      "stated_answers": {
+        "delinquency costs reduced to": "$2.45M",
+        "team": "1 Black Belt and 9 team members took 3 months to begin returning financial results to the bottom line"
+      },
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+      "page": 10,
+      "legible": true,
+      "slice": "S09",
+      "source_kind": "course"
+    },
+    {
+      "id": "S06-WE09",
+      "tool": "normal-probability",
+      "given": {
+        "context": "Excel functies NORMINV / NORMDIST voorbeeld",
+        "Gemiddelde": "20",
+        "Spreiding": "0.5",
+        "doel": "1 % afkeur (bovengrens)"
+      },
+      "stated_answers": {
+        "Norm.Inv(0.99,20,0.5)": "21.16317393702042",
+        "Norm.verd(21.1632,20,0.5,cumulatief=WAAR) check": "0.9900013891842453"
+      },
+      "file": "source/course/Les 4/__NormVerdeling Excel functies.xlsx",
+      "page": 1,
+      "legible": true,
+      "slice": "S06",
+      "source_kind": "course"
+    },
+    {
+      "id": "S06-WE03",
+      "tool": "xbar-r-chart",
+      "given": {
+        "context": "SPC: oefening 2 - nettogewicht bleekproduct, n=5, 20 samples",
+        "data_ref": "__Gegevens oefeningen.xlsx::Gegevens oefening 2!B5:F24 (rows=steekproef 1-20, columns=x1..x5)",
+        "A2": "0.577 (n=5)",
+        "D3": "0",
+        "D4": "2.115 (n=5)",
+        "d2": "2.326 (n=5)"
+      },
+      "stated_answers": {
+        "Xbarbar (X_streep_streep)": "16.266000000000002",
+        "Rbar (R_streep)": "0.47999999999999926",
+        "UCL_xbar": "16.54296",
+        "LCL_xbar": "15.989040000000003",
+        "CL_R": "0.47999999999999926",
+        "UCL_R": "1.0151999999999985",
+        "LCL_R": "0",
+        "sigma_estimate_Rbar_over_d2": "0.20636285468615617",
+        "sigma_individual_via_stdev_excel": "0.20212007632228207 (=STDEV van alle 100 metingen)",
+        "sigma_gemiddelden_stdev_excel": "0.07570023986612916 (=STDEV van kolom H, steekproefgemiddelden)"
+      },
+      "file": "source/course/Les 4/__Xbar R kaart data - berekeningen oefening 2.xlsx",
+      "page": 1,
+      "legible": true,
+      "slice": "S06",
+      "source_kind": "course"
+    },
+    {
+      "id": "S06-WE04",
+      "tool": "capability-cp-cpk",
+      "given": {
+        "context": "Vervolg SPC oefening 2: specs 16,2 +/- 0,5 (LSL=15.7, USL=16.7)",
+        "LSL": "15.7",
+        "USL": "16.7",
+        "Xbarbar": "16.266000000000002",
+        "sigma_estimate": "0.20636285468615617 (=Rbar/d2)"
+      },
+      "stated_answers": {
+        "CpkL_calc": "0.9142472222222278 (=(Xbarbar-LSL)/(3.sigma))",
+        "CpkH_calc": "0.7010305555555527 (=(USL-Xbarbar)/(3.sigma))",
+        "Cp": "0.8076388888888902 (=delta/(6.sigma)); note in sheet: 'Cp: 1,33 = acceptable, 1,66 = good' -> 'So: process not capable'",
+        "Cpk": "0.7010305555555527 (=MIN(CpkL,CpkH)); note in sheet: 'Cpk: 1,33 = good'"
+      },
+      "file": "source/course/Les 4/__Xbar R kaart data - berekeningen oefening 2.xlsx",
+      "page": 1,
+      "legible": true,
+      "slice": "S06",
+      "source_kind": "course"
+    },
+    {
+      "id": "S06-WE05",
+      "tool": "xbar-r-chart",
+      "given": {
+        "context": "SPC: oefening 3 - binnendiameter lager, Xbar en R waarden voor 24 samples van n=5 (laatste 3 decimalen genoteerd, transformatie x'=x/10000+0.5)",
+        "data_ref": "__Gegevens oefeningen.xlsx::Gegevens oefening 3!B2:E25 (Xbar, Xbar', R, R' per sample 1-24)",
+        "n": "5",
+        "A2": "0.577",
+        "D3": "0",
+        "D4": "2.115",
+        "d2": "2.326",
+        "outlier_flag": "sample #9 (Xbar=35 -> Xbar'=0,5035, R=2.2 -> R'=0.00022) gemarkeerd 'uitschieter ! eruit halen'"
+      },
+      "stated_answers": {
+        "all_24_samples__Xbarbarbar": "0.5034",
+        "all_24_samples__Rbar": "0.00017666666666666666",
+        "all_24_samples__UCL_xbar": "0.5035019366666666",
+        "all_24_samples__LCL_xbar": "0.5032980633333333",
+        "all_24_samples__UCL_R": "0.00037365",
+        "all_24_samples__LCL_R": "0",
+        "revised_excl_outlier__Xbarbarbar": "0.503395652173913",
+        "revised_excl_outlier__Rbar": "0.00017478260869565219",
+        "revised_excl_outlier__UCL_xbar": "0.5034965017391304",
+        "revised_excl_outlier__LCL_xbar": "0.5032948026086956",
+        "revised_excl_outlier__UCL_R": "0.0003696652173913044",
+        "revised_excl_outlier__LCL_R": "0",
+        "sigma_estimate_Rbar_over_d2 (all 24)": "7.514299599985046e-05"
+      },
+      "file": "source/course/Les 4/__Xbar R kaart data - berekeningen oefening 3.xlsx",
+      "page": 1,
+      "legible": true,
+      "slice": "S06",
+      "source_kind": "course"
+    },
+    {
+      "id": "S06-WE06",
+      "tool": "xbar-r-chart",
+      "given": {
+        "context": "SPC: oefening 4 - neem xbar/R kaarten van oefening 3 (Rbar=0.00017666666666666666), hermonitor met n=3 en n=8",
+        "Rbar_from_oefening3": "0.00017666666666666666"
+      },
+      "stated_answers": {
+        "n=3__A2": "1.023",
+        "n=3__D4": "2.575",
+        "n=3__D3": "0",
+        "n=3__d2": "1.693",
+        "n=3__sigma_estimate": "0.00010323839852076325",
+        "n=8__A2": "0.373",
+        "n=8__D4": "1.864",
+        "n=8__D3": "0.136",
+        "n=8__d2": "2.847",
+        "n=8__sigma_estimate": "6.139185412562423e-05"
+      },
+      "file": "source/course/Les 4/__Xbar R kaart data - berekeningen oefening 3.xlsx",
+      "page": 1,
+      "legible": true,
+      "slice": "S06",
+      "source_kind": "course"
+    },
+    {
+      "id": "S06-WE07",
+      "tool": "capability-cp-cpk",
+      "given": {
+        "context": "SPC: oefening 5 - samples n=5, elk uur, na 25 samples: som(Xbar_i)=662.50, som(R_i)=9.00, m=25 samples; specs 26,40 +/- 0,50",
+        "n": "5",
+        "m": "25 samples",
+        "sum_Xbar": "662.50",
+        "sum_R": "9.00",
+        "USL": "26.9 (=26.4+0.5)",
+        "LSL": "25.9 (=26.4-0.5)",
+        "d2": "2.326"
+      },
+      "stated_answers": {
+        "Xbarbarbar": "26.5 (=662.5/25)",
+        "Rbar": "0.36 (=9/25)",
+        "sigma_estimate": "0.15477214101461736 (=Rbar/2.326)",
+        "delta_specs": "1",
+        "geval1_mean=26.5__Cp": "1.0768518518518517 (=1/(6.sigma))",
+        "geval1_mean=26.5__CpkH": "0.8614814814814784 (=(USL-Xbarbarbar)/(3.sigma))",
+        "geval1_mean=26.5__CpkL": "1.2922222222222253 (=(Xbarbarbar-LSL)/(3.sigma))",
+        "geval1_mean=26.5__Cpk_min": "0.8614814814814784",
+        "geval1_mean=26.5__totaal_uitval": "0.004929749468790989 (~0,493%)",
+        "geval2_mean=26.4(centered)__Cpk": "1.0768518518518517 (=Cp, want gecentreerd)",
+        "geval2_mean=26.4(centered)__totaal_uitval": "0.001235498911225541 (~0,1235%)"
+      },
+      "file": "source/course/Les 4/__Xbar R kaart data - berekeningen oefening 5.xlsx",
+      "page": 1,
+      "legible": true,
+      "slice": "S06",
+      "source_kind": "course"
+    },
+    {
+      "id": "S10-WE06",
+      "tool": "measurement-system-capability",
+      "given": {
+        "context": "Exercise text: 'Suppose a measurement system has a %GRR value of 50%. What value for the actual process Cp index would be required in order for the observed Cp index to be at least 1.33? Answer the question for both options to express %GRR.'",
+        "%GRR": "50 %",
+        "target_observed_Cp": "1.33",
+        "note": "A Cp value of at least 1.33 is a common requirement for processes. For a well centered process this implies a defective part rate of not more than 60 ppm."
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 24,
+      "legible": true,
+      "slice": "S10",
+      "source_kind": "course"
+    },
+    {
+      "id": "S10-WE07",
+      "tool": "measurement-system-capability",
+      "given": {
+        "context": "Process acceptance example: a high order measurement system used at buy-off, %GRR = 10% (based on tolerance range); actual process Cp = 2 leads to an observed Cp of 1.96. When the process is later studied in production with the production gauge, %GRR is larger.",
+        "scenario_1_%GRR": "10 %",
+        "scenario_1_actual_Cp": 2,
+        "scenario_2_%GRR": "30 %",
+        "scenario_2_actual_Cp": 2,
+        "scenario_3_worst_case_%GRR": "60 % (production gauge not qualified but nevertheless used)",
+        "scenario_3_actual_Cp": 2
+      },
+      "stated_answers": {
+        "scenario_1_observed_Cp (buy-off, %GRR=10%)": "1.96",
+        "scenario_2_observed_Cp (production, %GRR=30%)": "1.71 (still acceptable)",
+        "scenario_3_observed_Cp (worst case, %GRR=60%)": "1.20 (a value unacceptable in most cases)",
+        "conclusion": "The difference between the observed Cp at buy-off and the observed Cp during production is fully due to the measurement system and not to any form of process deterioration."
+      },
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 26,
+      "legible": true,
+      "slice": "S10",
+      "source_kind": "course"
+    },
+    {
+      "id": "S10-WE08",
+      "tool": "gage-performance-curve",
+      "given": {
+        "context": "Example GPC: Xm ~ N(Xr+b, sigma_GRR)",
+        "LSL": "0.6",
+        "USL": "1.0",
+        "b (bias)": "0.05",
+        "sigma_GRR": "0.05",
+        "question_1": "What is the probability of accepting a part with ref. value 0.5? (This is a part outside the specification limits.)",
+        "question_2": "What is the probability of accepting a part with ref. value 0.9? (This is a part within the specification limits.)"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
+      "page": 27,
+      "legible": true,
+      "slice": "S10",
+      "source_kind": "course"
+    },
+    {
+      "id": "S10-WE01",
+      "tool": "measurement-uncertainty-propagation",
+      "given": {
+        "context": "Cold Rolling Mill dept of a steel plant, width of steel coils measured with a tape measure at entrance of galvanizing line",
+        "measurement_procedure": "each coil measured 3 times, aligning tape measure freshly each time, results recorded to nearest mm",
+        "average_of_3_measurements_mm": "1834",
+        "range_of_3_measurements_mm": "2",
+        "u1_calibration": "u1 = 1834 x 0.1% / 2 = 0.917 (calibration certificate: uncertainty 0.1% of reading at coverage factor 2, normal distribution)",
+        "u2_resolution": "u2 = 0.5 / sqrt(3) = 0.289 (tape divisions are millimetres; reading to nearest division gives error <= 0.5 mm, uniformly distributed)",
+        "u3_perpendicularity": "u3 = 0.917 / sqrt(3) = 0.529 (tape lies straight but not always perpendicular to the coil, overestimate ~0.1% assumed uniformly distributed; correction of -1.8 mm to be subtracted)",
+        "u4_repeatability": "u4 = 2 / d2 = 2 / 1.693 = 0.682 (repeatability based on the range of the 3 measurements; d2 for subgroup size 3 = 1.693; footnote: E(R) = d2*sigma)",
+        "type_of_estimates": "u1, u2, u3 are type B estimates; u4 is a type A estimate",
+        "coverage_factor_k": "2 (for about 95% confidence)"
+      },
+      "stated_answers": {
+        "u_c": "sqrt(0.917^2 + 0.289^2 + 0.529^2 + 0.682^2) = 1.264",
+        "result": "1834 - 1.8 +/- 2.5 mm = 1832.2 +/- 2.5 mm = [1829.7 ; 1834.7] mm"
+      },
+      "file": "source/course/Les 5/20260619_ottoy_Calculating the uncertainty in the width of a steel strip.pdf",
+      "page": 2,
+      "legible": true,
+      "slice": "S10",
+      "source_kind": "course"
+    },
+    {
+      "id": "S10-WE02",
+      "tool": "gage-rr-anova",
+      "given": {
+        "context": "Steering-mechanism part measured on a jig with several gauges; 3 operators (A, B, C, one per shift), 5 parts (P1-P5), each operator measures each part twice (2 trials); measurements blind (operators unaware of the study, cannot identify parts) to avoid Hawthorne effect.",
+        "raw_data_layout": "3 operators x 5 parts x 2 trials = 30 coded measurement values (coded so that 0 = 1.5400 inch, units of 0.0001 inch)",
+        "data_ref": "20260619_ottoy_GRR - ANOVA - avegage and range - 2.xlsx::measurements!D4:F13",
+        "two_way_summary_counts_per_part_operator": "each of the 5 parts (P1-P5) x 3 operators (A,B,C) cell has Count=2",
+        "two_way_summary_sums": {
+          "P1": {
+            "A": 35,
+            "B": 40,
+            "C": 35,
+            "Total": 110
+          },
+          "P2": {
+            "A": 45,
+            "B": 25,
+            "C": 40,
+            "Total": 110
+          },
+          "P3": {
+            "A": 50,
+            "B": 25,
+            "C": 50,
+            "Total": 125
+          },
+          "P4": {
+            "A": 100,
+            "B": 65,
+            "C": 95,
+            "Total": 260
+          },
+          "P5": {
+            "A": 85,
+            "B": 75,
+            "C": 80,
+            "Total": 240
+          },
+          "Total_by_operator": {
+            "A": 315,
+            "B": 230,
+            "C": 300
+          }
+        },
+        "anova_table_with_interaction": {
+          "Sample(part)": {
+            "SS": "3703.3333333333317",
+            "df": 4,
+            "MS": "925.8333333333329",
+            "F": "33.66666666666665",
+            "P-value": "2.491462664751556e-07",
+            "F_crit": "3.055568275906595"
+          },
+          "Columns(operator)": {
+            "SS": "411.66666666666515",
+            "df": 2,
+            "MS": "205.83333333333258",
+            "F": "7.484848484848457",
+            "P-value": "0.005566302509039628",
+            "F_crit": "3.682320343673241"
+          },
+          "Interaction": {
+            "SS": "296.66666666666833",
+            "df": 8,
+            "MS": "37.08333333333354",
+            "F": "1.3484848484848562",
+            "P-value": "0.29389593285256765",
+            "F_crit": "2.6407968829069026"
+          },
+          "Within": {
+            "SS": "412.5",
+            "df": 15,
+            "MS": "27.5"
+          },
+          "Total": {
+            "SS": "4824.166666666665",
+            "df": 29
+          }
+        },
+        "derived_anova_table_without_interaction_additive_model": {
+          "Sample(part)": {
+            "SS": "3703.3333333333317",
+            "df": 4,
+            "MS": "925.8333333333329",
+            "F(=M43/M45)": "30.027012913272415",
+            "P-value": "7.891401310189394e-09",
+            "F_crit": "2.795538737361387"
+          },
+          "Columns(operator)": {
+            "SS": "411.66666666666515",
+            "df": 2,
+            "MS": "205.83333333333258",
+            "F(=M44/M45)": "6.675672537874224",
+            "P-value": "0.005174692331288533",
+            "F_crit": "3.4221322078611767"
+          },
+          "Within(pooled = Interaction+Within)": {
+            "SS(formula)": "=412.5+296.667 = 709.1669999999999",
+            "df": 23,
+            "MS": "30.833347826086953"
+          },
+          "Total": {
+            "SS": "4824.167",
+            "df": 29
+          }
+        }
+      },
+      "stated_answers": {
+        "EV_squared": "30.833347826086953",
+        "EV": "5.55277838798623",
+        "AV_squared (formula (M44-M45)/5/2)": "17.499998550724563",
+        "AV": "4.183299959448828",
+        "PV_squared (formula (M43-M45)/3/2)": "149.16666425120766",
+        "PV": "12.213380541488407",
+        "TV_squared": "197.5000106280192",
+        "TV": "14.053469700683145",
+        "%GRR (formula sqrt((EV^2+AV^2)/TV^2))": "0.4946976766371385",
+        "conclusion": "niet geschikt (Dutch: 'not suitable')"
+      },
+      "file": "source/course/Les 5/20260619_ottoy_GRR - ANOVA - avegage and range - 2.xlsx",
+      "page": 3,
+      "legible": true,
+      "slice": "S10",
+      "source_kind": "course"
+    },
+    {
+      "id": "S10-WE03",
+      "tool": "gage-rr-average-range",
+      "given": {
+        "context": "Same steering-mechanism GRR study as S10-WE02, analysed via the average and range method",
+        "Rbarbar": "4.333333333333333 (average range over all parts/operators, measurements!H17)",
+        "XbarDIFF": "8.5 (range of the 3 operator averages A=31.5, B=23, C=30; measurements!H24)",
+        "Rbarp": "25.000000000000004 (range of the 5 part averages; measurements!H25)",
+        "d2 (for EV, subgroup size = 2 replications)": "1.12838",
+        "d2*(A) (for AV, 1 subgroup of size 3 = number of appraisers)": "1.91155",
+        "d2*(P) (for PV, 1 subgroup of size 5 = number of parts)": "2.48124",
+        "part_averages_by_part": {
+          "P1": "18.333333333333332",
+          "P2": "18.333333333333332",
+          "P3": "20.833333333333332",
+          "P4": "43.333333333333336",
+          "P5": 40
+        },
+        "operator_averages": {
+          "A": 31.5,
+          "B": 23,
+          "C": 30
+        }
+      },
+      "stated_answers": {
+        "EV_squared (formula (Rbarbar/d2)^2)": "14.748010407080953",
+        "EV": "3.84031384226354",
+        "AV_squared (formula (XbarDIFF/d2*(A))^2 - EV^2/5/2)": "18.29792399180488",
+        "AV": "4.277607274143441",
+        "PV_squared (formula (Rbarp/d2*(P))^2 - EV^2/3/2)": "99.05986189024185",
+        "PV": "9.95288208963825",
+        "TV_squared (sum of EV^2,AV^2,PV^2)": "132.10579628912768",
+        "TV": "11.493728563400463",
+        "%GRR (formula sqrt((EV^2+AV^2)/TV^2))": "0.5001474761437733"
+      },
+      "file": "source/course/Les 5/20260619_ottoy_GRR - ANOVA - avegage and range - 2.xlsx",
+      "page": 4,
+      "legible": true,
+      "slice": "S10",
+      "source_kind": "course"
+    },
+    {
+      "id": "S10-WE04a",
+      "tool": "spc-inadequate-discrimination-xbar-r",
+      "given": {
+        "context": "Illustration of inadequate discrimination in process control using Rheostat Knob Data; a stable process can still appear out-of-control on an X-bar/R chart if measurement resolution is too coarse relative to process variation",
+        "data": "27 subgroups of size 5, original data recorded in inches to 1/1000 inch",
+        "data_ref": "20260619_ottoy_Rheostat Knob Data.xls::originele data!A3:E29"
+      },
+      "stated_answers": {
+        "CL_Xbar": "0.14062962962962963",
+        "LCL_Xbar": "0.13569307407407408",
+        "UCL_Xbar": "0.1455661851851852",
+        "CL_R (=Rbar)": "0.008555555555555535",
+        "LCL_R": "0.0",
+        "UCL_R": "0.0180864444444444",
+        "note": "Subgroup ranges take many distinct values (e.g. 0.002 to 0.016), consistent with adequate discrimination for the original (1/1000 inch) data."
+      },
+      "file": "source/course/Les 5/20260619_ottoy_Rheostat Knob Data.xls",
+      "page": 3,
+      "legible": true,
+      "slice": "S10",
+      "source_kind": "course"
+    },
+    {
+      "id": "S10-WE04b",
+      "tool": "spc-inadequate-discrimination-xbar-r",
+      "given": {
+        "context": "Same 27 subgroups of size 5, but rounded to 1/100 inch, illustrating inadequate discrimination",
+        "data_ref": "20260619_ottoy_Rheostat Knob Data.xls::afgeronde data!A3:E29"
+      },
+      "stated_answers": {
+        "CL_Xbar": "0.14029629629629636",
+        "LCL_Xbar": "0.13751814814814822",
+        "UCL_Xbar": "0.1430744444444445",
+        "CL_R (=Rbar)": "0.004814814814814811",
+        "LCL_R": "0.0",
+        "UCL_R": "0.01017851851851851",
+        "note": "Subgroup ranges within control limits take only 3 distinct values (0, 0.01, 0.02), which by the course's rule of thumb (n=5 >= 3: not more than 4 different values indicates inadequate discrimination) signals that the measurement unit (0.01 inch) is too large for this control chart."
+      },
+      "file": "source/course/Les 5/20260619_ottoy_Rheostat Knob Data.xls",
+      "page": 4,
+      "legible": true,
+      "slice": "S10",
+      "source_kind": "course"
+    },
+    {
+      "id": "S10-WE05",
+      "tool": "gage-linearity",
+      "given": {
+        "context": "PPAP linearity study exercise (slide 33): 5 parts chosen throughout the operating range, reference value established by layout inspection, each part measured 12 times by the lead operator in random order",
+        "part_number": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "ref_value": [
+          "1.99",
+          "4.02",
+          "5.97",
+          "7.99",
+          "9.80"
+        ],
+        "measurements": {
+          "1": [
+            "2.70",
+            "4.10",
+            "5.80",
+            "7.70",
+            "10.10"
+          ],
+          "2": [
+            "2.50",
+            "3.90",
+            "5.70",
+            "7.80",
+            "10.30"
+          ],
+          "3": [
+            "2.40",
+            "4.20",
+            "5.90",
+            "7.90",
+            "10.50"
+          ],
+          "4": [
+            "2.50",
+            "4.00",
+            "5.90",
+            "7.80",
+            "10.30"
+          ],
+          "5": [
+            "2.70",
+            "3.80",
+            "6.00",
+            "7.90",
+            "10.40"
+          ],
+          "6": [
+            "2.30",
+            "3.90",
+            "6.10",
+            "7.90",
+            "10.50"
+          ],
+          "7": [
+            "2.50",
+            "3.90",
+            "6.00",
+            "7.90",
+            "10.50"
+          ],
+          "8": [
+            "2.50",
+            "3.90",
+            "6.10",
+            "7.80",
+            "10.50"
+          ],
+          "9": [
+            "2.40",
+            "3.90",
+            "6.20",
+            "7.90",
+            "10.60"
+          ],
+          "10": [
+            "2.40",
+            "4.00",
+            "6.00",
+            "7.60",
+            "10.20"
+          ],
+          "11": [
+            "2.60",
+            "4.10",
+            "6.00",
+            "7.70",
+            "10.30"
+          ],
+          "12": [
+            "2.40",
+            "3.80",
+            "6.10",
+            "7.80",
+            "9.40"
+          ]
+        },
+        "layout_note": "columns correspond to part 1..5 (matching ref_value order); rows are the 12 repeated measurements per part"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 5/20260619_ottoy_linearity.txt",
+      "page": 1,
+      "legible": true,
+      "slice": "S10",
+      "source_kind": "course"
+    },
+    {
+      "id": "S02-WE05",
+      "tool": "polynomial-regression-cross-validation",
+      "given": {
+        "prompt_page": "13",
+        "prompt": "Use scikit-learn and the California Housing dataset to investigate model complexity in polynomial regression. Predict MedHouseVal from MedInc. Reserve 20% of the complete dataset as an untouched test set, then draw a reproducible sample of 400 observations from the remaining development data. Compare polynomial degrees 1 through 12 using five-fold cross-validation. Keep all scaling and polynomial transformations inside a Pipeline. Use training and validation MSE to select the degree; do not inspect the test set. Make the fitted curves and training-versus-validation error curve understandable. After selecting the degree, fit the final model on the 400 development observations and use the test set once to report MSE and R2. First propose a plan. Do not write code yet.",
+        "illustratieve_resultaat_p11": "grafiek met 400 training observations, gefit voor degree 1, degree 3 (selected) en degree 12; rechts trainings-MSE (constant ~1) vs validatie-MSE (log-schaal), die vanaf graad ~8 sterk oploopt (bv. >10^4 bij graad 12)"
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 6/20260626_naert.pdf",
+      "page": 13,
+      "legible": true,
+      "slice": "S02",
+      "source_kind": "course"
+    },
+    {
+      "id": "S02-WE03",
+      "tool": "confusion-matrix-metrics",
+      "given": {
+        "dataset": "Fashion-MNIST testset (10 klassen)",
+        "model": "\"selected large\" (groter) dicht neuraal netwerk uit het mini-project",
+        "data_ref": "zie constant_tables 'Test-set confusion matrix Fashion-MNIST (selected large model)' (Les 6, p.19)"
+      },
+      "stated_answers": {
+        "confusion_matrix": "zie constant_tables entry hierboven (10x10 matrix, diagonaal correcte voorspellingen, bv. T-shirt/top: 885 correct, Shirt sterk verward met T-shirt/top (285), Pullover (190) en Coat (144)"
+      },
+      "file": "source/course/Les 6/20260626_naert.pdf",
+      "page": 19,
+      "legible": true,
+      "slice": "S02",
+      "source_kind": "course"
+    },
+    {
+      "id": "S02-WE06",
+      "tool": "neural-network-capacity-comparison",
+      "given": {
+        "prompt_page": "21",
+        "prompt": "Use Keras to compare a compact dense neural network with a substantially larger one on Fashion-MNIST. The goal is to investigate how model capacity affects training and validation loss and when overfitting becomes visible. Use a limited, reproducible and stratified sample from the official development data so the exercise remains quick. Keep the official test set completely separate until all choices have been made. Choose and motivate suitable architectures, preprocessing, loss function, optimizer and number of epochs. Visualize training and validation loss per epoch for both models. Then evaluate only the selected model once on the test set. Show predictions and a confusion matrix. Do not claim overfitting unless the learning curves provide evidence.",
+        "leercurven_p17": "compact model: train- en validatieverlies dalen samen en blijven dicht bij elkaar tot epoch 14; groot model: trainingsverlies daalt sneller en verder (tot ~0,22) terwijl validatieverlies vanaf ~epoch 9-10 stijgt/schommelt (~0,47-0,59) - kruisend patroon"
+      },
+      "stated_answers": {
+        "confusion_matrix_test_set": "zie constant_tables 'Test-set confusion matrix Fashion-MNIST (selected large model)' (p.19)"
+      },
+      "file": "source/course/Les 6/20260626_naert.pdf",
+      "page": 21,
+      "legible": true,
+      "slice": "S02",
+      "source_kind": "course"
+    },
+    {
+      "id": "S02-WE04",
+      "tool": "confusion-matrix-metrics",
+      "given": {
+        "dataset": "Titanic testset, doel: survived",
+        "models": "shallow decision tree vs random forest"
+      },
+      "stated_answers": {
+        "shallow_tree": "TN(not survived/not survived)=128, FP(not survived/survived)=9, FN(survived/not survived)=41, TP(survived/survived)=45",
+        "random_forest": "TN=127, FP=10, FN=37, TP=49",
+        "interpretatie": "Random forest heeft iets betere recall voor overleven, maar geen enkele boom vat het hele model samen (p.28)."
+      },
+      "file": "source/course/Les 6/20260626_naert.pdf",
+      "page": 27,
+      "legible": true,
+      "slice": "S02",
+      "source_kind": "course"
+    },
+    {
+      "id": "S02-WE07",
+      "tool": "decision-tree-random-forest-titanic",
+      "given": {
+        "prompt_page": "29",
+        "prompt": "Write Python code that trains a decision tree and a random forest on the Titanic dataset to predict passenger survival. Use pclass, sex, age, sibsp, parch and fare. Start with a stratified train/test split and keep the test set untouched until the final evaluation. On the training data only, use cross-validation to compare a shallow decision tree with a random forest and, if needed, tune hyperparameters. Impute missing numerical values using medians learned exclusively inside each training fold, and encode categorical features inside the same workflow. Prefer a scikit-learn Pipeline. Do not remove observations merely because age is missing. After choosing settings, fit both models on the full training data. Only then evaluate them once on the test set. Report accuracy, precision, recall and F1 for the survived class; show test-set confusion matrices and a readable tree.",
+        "boom_p26": "Wortel: sex_male<=0.5 (100% samples); links pclass<=2.5 dan fare<=28.856 of fare<=7.888; rechts age<=6.5 dan pclass<=1.5; bladwaarden tonen samples% en class-verdeling [not survived, survived]"
+      },
+      "stated_answers": {
+        "confusion_matrices_test_set": "zie constant_tables 'Confusion matrices Titanic test set: shallow tree vs random forest' (p.27)"
+      },
+      "file": "source/course/Les 6/20260626_naert.pdf",
+      "page": 29,
+      "legible": true,
+      "slice": "S02",
+      "source_kind": "course"
+    },
+    {
+      "id": "S02-WE08",
+      "tool": "bayesian-heteroscedastic-regression",
+      "given": {
+        "prompt_page": "37",
+        "prompt": "Use PyMC to fit a heteroscedastic Bayesian regression model to the seaborn Tips dataset. Predict tip from total_bill and rescale total_bill to [0, 1]. tip ~ Normal(mu(x), sigma(x)); mu(x) = alpha + beta * x_scaled; sigma(x) = sigma_0 + sigma_1 * x_scaled. Use sensible normal priors for alpha and beta and half-normal priors for sigma_0 and sigma_1. Use prior-predictive simulation before fitting the model. Sample the posterior using MCMC. Summarize and interpret all four parameters, and check convergence using R-hat, effective sample size, trace plots and the number of divergences. Explain what sigma_1 says about changing variability, while recognizing that the half-normal prior assumes variability cannot decrease. Use posterior-predictive draws to visualize the fitted relationship and its uncertainty. Do not construct a posterior-predictive interval merely by plugging posterior mean parameters into mu +/- sigma."
+      },
+      "stated_answers": {},
+      "file": "source/course/Les 6/20260626_naert.pdf",
+      "page": 37,
+      "legible": true,
+      "slice": "S02",
+      "source_kind": "course"
+    }
+  ]
+}

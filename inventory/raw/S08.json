@@ -1,0 +1,2496 @@
+{
+  "slice_id": "S08",
+  "files_read": [
+    {
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": "141-258"
+    }
+  ],
+  "topics": [
+    {
+      "topic": "Specifications (SL, USL, LSL, target) and the RUMBA criteria",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        142,
+        143,
+        144
+      ]
+    },
+    {
+      "topic": "Traditional vs Six Sigma view of quality; Taguchi loss function",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        145,
+        146
+      ]
+    },
+    {
+      "topic": "Yield metrics: traditional yield (Y), first time yield (FTY), hidden factory, rolled throughput yield (RTY)",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        146,
+        147,
+        148,
+        149,
+        150,
+        151
+      ]
+    },
+    {
+      "topic": "Defect rate metrics: DPU, DPO, DPMO, DPPM",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        151,
+        152,
+        153,
+        154,
+        155
+      ]
+    },
+    {
+      "topic": "Linking yield and defect rate: RTY = e^-DPU",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        156
+      ]
+    },
+    {
+      "topic": "Sigma (Z) score; short-term vs long-term sigma score",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        156,
+        157,
+        158,
+        159,
+        160
+      ]
+    },
+    {
+      "topic": "1.5-sigma shift (Z_LT = Z_ST - 1.5)",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        159,
+        160,
+        161
+      ]
+    },
+    {
+      "topic": "Sigma score look-up table: Z vs DPMO (Table 6-3)",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        160,
+        161
+      ]
+    },
+    {
+      "topic": "Short-term capability indices Cp and Cpk",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        162,
+        163,
+        164
+      ]
+    },
+    {
+      "topic": "Long-term capability indices Pp and Ppk",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        164,
+        165
+      ]
+    },
+    {
+      "topic": "Prescriptive capability improvement plan (Table 6-5)",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        165,
+        166
+      ]
+    },
+    {
+      "topic": "Data types: attribute/category, ordinal, continuous/variable (Table 7-1)",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        168,
+        169,
+        170
+      ]
+    },
+    {
+      "topic": "Measurement system variation: resolution, accuracy, linearity, stability, precision (repeatability & reproducibility)",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        171,
+        172,
+        173,
+        174
+      ]
+    },
+    {
+      "topic": "Attribute measurement system studies (audits, pass/fail agreement studies, Pareto)",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        174,
+        175,
+        176,
+        177
+      ]
+    },
+    {
+      "topic": "Gauge/continuous MSA: variance-ratio interpretation (Table 7-2)",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        178,
+        179
+      ]
+    },
+    {
+      "topic": "Observational studies, data mining funnel, box-and-whisker/main-effects/interaction studies",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        180,
+        181,
+        182,
+        183,
+        184,
+        185
+      ]
+    },
+    {
+      "topic": "Central limit theorem",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        188,
+        189
+      ]
+    },
+    {
+      "topic": "Confidence intervals for means (Z for n>30, t for n<30)",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        189,
+        190,
+        191,
+        192,
+        193
+      ]
+    },
+    {
+      "topic": "Confidence intervals for standard deviations (chi-square)",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        194,
+        195
+      ]
+    },
+    {
+      "topic": "Confidence intervals for ratio of variances (F)",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        195,
+        196
+      ]
+    },
+    {
+      "topic": "Confidence intervals for proportions and difference of two proportions",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        196,
+        197,
+        198
+      ]
+    },
+    {
+      "topic": "Correlation coefficient (r)",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        198,
+        199,
+        200,
+        201
+      ]
+    },
+    {
+      "topic": "Simple linear regression, residual analysis, R-squared, F test of model validity",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        209,
+        210
+      ]
+    },
+    {
+      "topic": "Multiple linear regression",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        210,
+        211,
+        212
+      ]
+    },
+    {
+      "topic": "Design of experiments overview: observational study vs experiment, terminology, one-factor-at-a-time vs Six Sigma approach, screening/characterizing/optimizing",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        213,
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220
+      ]
+    },
+    {
+      "topic": "2^k full factorial experiment design and analysis (ice cream carton filler worked example)",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        220,
+        221,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        228,
+        229,
+        230,
+        231,
+        232,
+        233
+      ]
+    },
+    {
+      "topic": "Additional DOE topics: curvature, replications, ANOVA, robustness, response surface methods, fractional factorials",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        234
+      ]
+    },
+    {
+      "topic": "Control planning: process management summary and process control plan",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        236,
+        237,
+        238
+      ]
+    },
+    {
+      "topic": "Statistical process control and control chart basics; control limits vs specification limits",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        239,
+        240,
+        241,
+        242,
+        243,
+        244
+      ]
+    },
+    {
+      "topic": "Control chart rules for special causes: zones, runs, trends, cycles, hugging (Table 10-1)",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        245,
+        246,
+        247
+      ]
+    },
+    {
+      "topic": "Rational subgroups",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        248
+      ]
+    },
+    {
+      "topic": "Continuous data control charts: I-MR, X-bar-R, X-bar-S (Table 10-2 and constants)",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        248,
+        249,
+        250,
+        251,
+        252,
+        253
+      ]
+    },
+    {
+      "topic": "Attribute data control charts: p chart and u chart (Table 10-3)",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        253,
+        254,
+        255,
+        256
+      ]
+    },
+    {
+      "topic": "Poka-Yoke (mistake-proofing): prevention vs detection, Type-1 vs Type-2 corrective action",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "pages": [
+        257,
+        258
+      ]
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Traditional yield",
+      "expression": "Y = out/in = 1 - scrap/in",
+      "symbols": {
+        "Y": "traditional yield",
+        "out": "items out",
+        "in": "items in",
+        "scrap": "scrapped items"
+      },
+      "conditions": "misleading perspective; obscures impact of inspection and rework",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 151
+    },
+    {
+      "name": "First time yield",
+      "expression": "FTY = (in - scrap - rework)/in = 1 - (scrap + rework)/in",
+      "symbols": {
+        "FTY": "first time yield",
+        "in": "items in",
+        "scrap": "scrapped items",
+        "rework": "reworked items"
+      },
+      "conditions": "likelihood of an item passing through a process successfully the very first time, including effects of inspection, rework and scrap",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 151
+    },
+    {
+      "name": "Rolled throughput yield (generalized)",
+      "expression": "RTY = the product (pi, i=1 to n) of FTYi",
+      "symbols": {
+        "RTY": "rolled throughput yield",
+        "FTYi": "first time yield of process step i",
+        "n": "number of process steps"
+      },
+      "conditions": "combined overall yield of an entire process stream; can never be greater than the lowest FTY in the system",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 150
+    },
+    {
+      "name": "Defects per unit (DPU)",
+      "expression": "DPU = number of defects observed / number of units inspected",
+      "symbols": {
+        "DPU": "defects per unit"
+      },
+      "conditions": "",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 152
+    },
+    {
+      "name": "Defects per opportunity (DPO)",
+      "expression": "DPO = number of defects observed on a unit / number of opportunities on a unit",
+      "symbols": {
+        "DPO": "defects per opportunity"
+      },
+      "conditions": "allows fair comparison of defect rates between items of different complexity",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 153
+    },
+    {
+      "name": "Defects per million opportunities (DPMO)",
+      "expression": "DPMO = DPO x 1,000,000",
+      "symbols": {
+        "DPMO": "defects per million opportunities",
+        "DPO": "defects per opportunity"
+      },
+      "conditions": "",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 155
+    },
+    {
+      "name": "DPO from DPMO",
+      "expression": "DPO = DPMO / 1,000,000",
+      "symbols": {
+        "DPO": "defects per opportunity",
+        "DPMO": "defects per million opportunities"
+      },
+      "conditions": "",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 155
+    },
+    {
+      "name": "Defective parts per million (DPPM)",
+      "expression": "DPPM = DPO x 1,000,000",
+      "symbols": {
+        "DPPM": "defective parts per million, synonymous with DPMO",
+        "DPO": "defects per opportunity"
+      },
+      "conditions": "used when the 'part' is the opportunity, e.g. continuous material or ongoing shipments",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 155
+    },
+    {
+      "name": "Rolled throughput yield from DPU",
+      "expression": "RTY = e^(-DPU)",
+      "symbols": {
+        "RTY": "rolled throughput yield",
+        "e": "mathematical constant, approx 2.71828182845905...",
+        "DPU": "defects per unit"
+      },
+      "conditions": "valid when overall process DPU is relatively low, e.g. less than 0.10 (10 percent)",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 156
+    },
+    {
+      "name": "DPU from rolled throughput yield",
+      "expression": "DPU = -ln(RTY)",
+      "symbols": {
+        "DPU": "defects per unit",
+        "RTY": "rolled throughput yield",
+        "ln": "natural logarithm"
+      },
+      "conditions": "algebraic inverse of RTY = e^-DPU",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 156
+    },
+    {
+      "name": "Sigma (Z) score",
+      "expression": "Z = |SL - xbar| / sigma",
+      "symbols": {
+        "Z": "sigma score",
+        "SL": "specification limit",
+        "xbar": "mean of the characteristic/process",
+        "sigma": "standard deviation"
+      },
+      "conditions": "use only on a characteristic that is approximately normal",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 157
+    },
+    {
+      "name": "Short-term sigma score",
+      "expression": "Z_ST = |SL - xbar| / sigma_ST",
+      "symbols": {
+        "Z_ST": "short-term sigma score",
+        "SL": "specification limit",
+        "xbar": "mean",
+        "sigma_ST": "short-term standard deviation"
+      },
+      "conditions": "",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 158
+    },
+    {
+      "name": "Long-term sigma score",
+      "expression": "Z_LT = |SL - xbar| / sigma_LT",
+      "symbols": {
+        "Z_LT": "long-term sigma score",
+        "SL": "specification limit",
+        "xbar": "mean",
+        "sigma_LT": "long-term standard deviation"
+      },
+      "conditions": "",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 158
+    },
+    {
+      "name": "1.5-sigma shift (shifted Z)",
+      "expression": "Z_shifted = Z_ST - 1.5",
+      "symbols": {
+        "Z_shifted": "sigma score of the mathematically shifted short-term distribution",
+        "Z_ST": "short-term sigma score"
+      },
+      "conditions": "early Six Sigma practitioners proposed shifting the short-term distribution 1.5 standard deviations closer to the specification limit to approximate long-term defect performance",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 160
+    },
+    {
+      "name": "1.5-sigma shift (long-term from short-term)",
+      "expression": "Z_LT = Z_ST - 1.5",
+      "symbols": {
+        "Z_LT": "long-term sigma score",
+        "Z_ST": "short-term sigma score"
+      },
+      "conditions": "the shifted distribution is treated as defect-wise equivalent to the long-term distribution",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 160
+    },
+    {
+      "name": "Short-term capability index Cp",
+      "expression": "Cp = (USL - LSL) / (6 x sigma_ST)",
+      "symbols": {
+        "Cp": "short-term capability index",
+        "USL": "upper specification limit",
+        "LSL": "lower specification limit",
+        "sigma_ST": "short-term standard deviation"
+      },
+      "conditions": "use only the short-term standard deviation; a long-term standard deviation gives incorrect results",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 162
+    },
+    {
+      "name": "Adjusted short-term capability indices Cpu and Cpl",
+      "expression": "Cpu = (USL - xbar) / (3 x sigma_ST); Cpl = (xbar - LSL) / (3 x sigma_ST)",
+      "symbols": {
+        "Cpu": "upper adjusted capability index",
+        "Cpl": "lower adjusted capability index",
+        "USL": "upper specification limit",
+        "LSL": "lower specification limit",
+        "xbar": "distribution center",
+        "sigma_ST": "short-term standard deviation"
+      },
+      "conditions": "compares distance from distribution center to each specification limit against half-width of short-term variation",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 163
+    },
+    {
+      "name": "Adjusted short-term capability index Cpk",
+      "expression": "Cpk = min(Cpu, Cpl) = min( (USL - xbar)/(3 x sigma), (xbar - LSL)/(3 x sigma_ST) )",
+      "symbols": {
+        "Cpk": "adjusted short-term capability index",
+        "min": "choose the smallest of the values in parentheses",
+        "sigma": "as printed (no ST subscript) in first term",
+        "sigma_ST": "short-term standard deviation, as printed in second term"
+      },
+      "conditions": "as printed, the first denominator is shown as '3 sigma' without the ST subscript while the second is '3 sigma_ST'; see ambiguities",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 164
+    },
+    {
+      "name": "Long-term capability index Pp",
+      "expression": "Pp = (USL - LSL) / (6 x sigma_LT)",
+      "symbols": {
+        "Pp": "long-term capability index",
+        "USL": "upper specification limit",
+        "LSL": "lower specification limit",
+        "sigma_LT": "long-term standard deviation"
+      },
+      "conditions": "same formula as Cp but using sigma_LT in place of sigma_ST",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 165
+    },
+    {
+      "name": "Adjusted long-term capability index Ppk",
+      "expression": "Ppk = min( (USL - xbar)/(3 x sigma_LT), (xbar - LSL)/(3 x sigma_LT) )",
+      "symbols": {
+        "Ppk": "adjusted long-term capability index",
+        "sigma_LT": "long-term standard deviation"
+      },
+      "conditions": "same formula as Cpk but using sigma_LT in place of sigma_ST",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 165
+    },
+    {
+      "name": "Measurement system variance decomposition",
+      "expression": "sigma^2_OBSERVED = sigma^2_MEASURE + sigma^2_ACTUAL",
+      "symbols": {
+        "sigma^2_OBSERVED": "variance of everything you observe",
+        "sigma^2_MEASURE": "variance contributed by the measurement system",
+        "sigma^2_ACTUAL": "actual variance of the process/characteristic"
+      },
+      "conditions": "",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 178
+    },
+    {
+      "name": "Confidence interval for a mean, large sample",
+      "expression": "xbar +/- Z (sigma / sqrt(n))",
+      "symbols": {
+        "xbar": "sample average",
+        "Z": "sigma value corresponding to desired confidence",
+        "sigma": "calculated standard deviation from the sample",
+        "n": "number of data points in the sample"
+      },
+      "conditions": "works any time you have more than 30 measurements in your sample",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 190
+    },
+    {
+      "name": "Confidence interval for a mean, small sample",
+      "expression": "xbar +/- t (sigma / sqrt(n))",
+      "symbols": {
+        "t": "look-up factor depending on desired confidence level and number of data points (replaces Z)",
+        "xbar": "sample average",
+        "sigma": "calculated standard deviation",
+        "n": "number of data points"
+      },
+      "conditions": "used when sample has anywhere from two to 30 data points",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 192
+    },
+    {
+      "name": "Confidence interval for a standard deviation",
+      "expression": "[ sqrt( (n-1) sigma^2 / chi^2_LOWER ), sqrt( (n-1) sigma^2 / chi^2_UPPER ) ]",
+      "symbols": {
+        "n": "number of data points",
+        "sigma": "measured standard deviation",
+        "chi^2_LOWER": "lower chi-square look-up value (Table 8-2)",
+        "chi^2_UPPER": "upper chi-square look-up value (Table 8-2)"
+      },
+      "conditions": "confidence intervals for standard deviations are usually very wide unless sample size is large",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 195
+    },
+    {
+      "name": "Confidence interval for ratio of variances",
+      "expression": "[ (1 / F(n2,n1)) x (sigma1^2/sigma2^2), F(n1,n2) x (sigma1^2/sigma2^2) ]",
+      "symbols": {
+        "F(n2,n1), F(n1,n2)": "look-up F values (Table 8-3)",
+        "sigma1^2": "variance of numerator distribution (n1 data points)",
+        "sigma2^2": "variance of denominator distribution (n2 data points)"
+      },
+      "conditions": "if the interval contains the value 1, there is no evidence the two distributions have different variances",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 196
+    },
+    {
+      "name": "Confidence interval for a proportion",
+      "expression": "y/n +/- Z sqrt( (y/n)(1 - y/n) / n )",
+      "symbols": {
+        "y": "number of successes",
+        "n": "total number of attempts or trials",
+        "Z": "sigma value for desired confidence"
+      },
+      "conditions": "proportions can never be less than zero or greater than one; adjust interval to natural limits if exceeded",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 197
+    },
+    {
+      "name": "Confidence interval for the difference of two proportions",
+      "expression": "y1/n1 - y2/n2 +/- Z sqrt( (y1/n1)(1 - y1/n1)/n1 + (y2/n2)(1 - y2/n2)/n2 )",
+      "symbols": {
+        "y1, n1": "successes and trials for group 1",
+        "y2, n2": "successes and trials for group 2",
+        "Z": "sigma value for desired confidence"
+      },
+      "conditions": "if interval does not include zero, conclude with the stated confidence that the two proportions differ",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 197
+    },
+    {
+      "name": "Correlation coefficient (r)",
+      "expression": "r = (1/(n-1)) x sum_{i=1 to n} [ ((xi - xbar)/sigma_x) x ((yi - ybar)/sigma_y) ]",
+      "symbols": {
+        "r": "correlation coefficient",
+        "n": "number of data pairs",
+        "xi, yi": "individual x and y measurements",
+        "xbar, ybar": "averages of X and Y measurements",
+        "sigma_x, sigma_y": "standard deviations of X and Y measurements"
+      },
+      "conditions": "r is always between -1 and 1; tells only how linear a relationship is, not causation",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 200
+    },
+    {
+      "name": "Simple linear regression model",
+      "expression": "Y = beta_0 + beta_1 X + epsilon",
+      "symbols": {
+        "Y": "observed output",
+        "beta_0": "intercept",
+        "beta_1": "slope",
+        "X": "input",
+        "epsilon": "normal random distribution centered at zero"
+      },
+      "conditions": "used for a system with a single output Y and single input X",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 202
+    },
+    {
+      "name": "Slope estimate for simple linear regression",
+      "expression": "beta_1 = sum( (xi - xbar) yi ) / sum( (xi - xbar)^2 )",
+      "symbols": {
+        "xi, yi": "paired data points",
+        "xbar": "average of all X points"
+      },
+      "conditions": "",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 203
+    },
+    {
+      "name": "Residual",
+      "expression": "e_i = Y_i - Yhat_i",
+      "symbols": {
+        "e_i": "residual for data point i",
+        "Y_i": "observed value",
+        "Yhat_i": "predicted value from regression equation"
+      },
+      "conditions": "",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 204
+    },
+    {
+      "name": "Total sum of squared error (SSTO)",
+      "expression": "SSTO = sum_{i=1 to n} (Y_i - Ybar)^2",
+      "symbols": {
+        "Y_i": "observed output values",
+        "Ybar": "average of observed Y"
+      },
+      "conditions": "",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 207
+    },
+    {
+      "name": "Regression sum of squares (SSR)",
+      "expression": "SSR = sum_{i=1 to n} (Yhat_i - Ybar)^2",
+      "symbols": {
+        "Yhat_i": "predicted estimates for the n data points",
+        "Ybar": "average of observed Y"
+      },
+      "conditions": "",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 207
+    },
+    {
+      "name": "Error sum of squares (SSE)",
+      "expression": "SSE = sum e_i^2 = sum_{i=1 to n} (Y_i - Yhat_i)^2",
+      "symbols": {
+        "e_i": "residual"
+      },
+      "conditions": "",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 208
+    },
+    {
+      "name": "Sum of squares identity",
+      "expression": "SSTO = SSR + SSE",
+      "symbols": {},
+      "conditions": "",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 208
+    },
+    {
+      "name": "Coefficient of determination",
+      "expression": "R^2 = SSR / SSTO",
+      "symbols": {
+        "R^2": "coefficient of determination"
+      },
+      "conditions": "want this number to be 80 percent or higher",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 208
+    },
+    {
+      "name": "Estimated standard deviation of unexplained (epsilon) variation",
+      "expression": "sigmahat_epsilon = sqrt( SSE / (n - 2) )",
+      "symbols": {
+        "sigmahat_epsilon": "estimated standard deviation of epsilon",
+        "SSE": "error sum of squares",
+        "n": "number of data points"
+      },
+      "conditions": "",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 208
+    },
+    {
+      "name": "F test for regression model validity",
+      "expression": "sigmahat^2_REG / sigmahat^2_epsilon >= F(2, n-1); where sigmahat^2_REG = SSR and sigmahat^2_epsilon = SSE/(n-2)",
+      "symbols": {
+        "sigmahat^2_REG": "estimate of variance explained by regression model",
+        "sigmahat^2_epsilon": "estimate of unexplained variance",
+        "F(2,n-1)": "critical F value"
+      },
+      "conditions": "if ratio exceeds the critical F value, conclude with the chosen confidence (e.g. 99 percent) that the derived model is valid",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 209
+    },
+    {
+      "name": "General multiple linear regression model (two inputs)",
+      "expression": "Y_i = beta_0 + beta_1 X_1 + beta_11 X_1^2 + beta_2 X_2 + beta_22 X_2^2 + beta_12 X_1 X_2 + epsilon",
+      "symbols": {
+        "beta_0": "overall/offset effect",
+        "beta_1 X_1, beta_2 X_2": "main effects",
+        "beta_11 X_1^2, beta_22 X_2^2": "second-order (squared) effects",
+        "beta_12 X_1 X_2": "interaction effect",
+        "epsilon": "random unexplained variation, normal, centered at zero"
+      },
+      "conditions": "extension of simple linear regression to more than one X",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 211
+    },
+    {
+      "name": "Number of runs in a 2^k factorial experiment",
+      "expression": "number of unique runs = 2^k",
+      "symbols": {
+        "k": "number of experimental factors"
+      },
+      "conditions": "e.g. k=3 gives 2^3=8 runs; k=2 gives 2^2=4 runs",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 222
+    },
+    {
+      "name": "General main/interaction effect formula for a 2^k factorial experiment",
+      "expression": "E_i = (1 / 2^(k-1)) x sum_{j=1 to 2^k} c_(i,j) Y_j",
+      "symbols": {
+        "E_i": "effect i (main or interaction)",
+        "k": "number of experiment factors",
+        "c_(i,j)": "coded setting value (+1 or -1, or product of coded values for interactions) for run j",
+        "Y_j": "response value for run j"
+      },
+      "conditions": "",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 227
+    },
+    {
+      "name": "Expected probability for normal-score ranking of effects",
+      "expression": "P_i = (i - 0.5) / (2^k - 1)",
+      "symbols": {
+        "P_i": "expected probability for rank i",
+        "i": "rank of the effect (smallest to largest, ties given average rank)",
+        "k": "number of experiment factors"
+      },
+      "conditions": "used as an intermediate step before looking up the corresponding Z value to build a normal probability plot of effects",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 230
+    },
+    {
+      "name": "General Y=f(X) equation for a three-factor 2^k experiment",
+      "expression": "Y = beta_0 + beta_1 X_1 + beta_2 X_2 + beta_3 X_3 + beta_12 X_1 X_2 + beta_13 X_1 X_3 + beta_23 X_2 X_3 + beta_123 X_1 X_2 X_3",
+      "symbols": {
+        "beta_0": "overall offset/constant term (computed average of all 2^k experiment runs)",
+        "beta_i, beta_ij, beta_ijk": "coefficients for main, two-way interaction, and three-way interaction effects"
+      },
+      "conditions": "only terms found significant are retained in the simplified equation",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 232
+    },
+    {
+      "name": "Coefficient from effect (2^k experiment)",
+      "expression": "beta_i = E_i / 2 (for any significant effect); beta_0 = average of all 2^k experiment run outputs",
+      "symbols": {
+        "beta_i": "regression coefficient for effect i",
+        "E_i": "calculated effect value"
+      },
+      "conditions": "coefficient is half the effect value because the effect spans a coded distance of two (+1 to -1)",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 233
+    },
+    {
+      "name": "Continuous control chart formulas: Individuals and Moving Range (I-MR)",
+      "expression": "Xbar = (X1+X2+...+Xk)/k; MR_i = |X_(i+1) - X_i|; MRbar = (MR1+MR2+...+MR_(k-1))/(k-1); UCL_X = Xbar + E2 x MRbar; LCL_X = Xbar - E2 x MRbar; UCL_MR = D4 x MRbar; LCL_MR = D3 x MRbar",
+      "symbols": {
+        "k": "number of subgroups",
+        "E2, D3, D4": "look-up constants depending on subgroup size (Table 10-2 constants)"
+      },
+      "conditions": "subgroup size n = 1",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 249
+    },
+    {
+      "name": "Continuous control chart formulas: Averages and Ranges (Xbar-R)",
+      "expression": "Xbar = (Xbar1+Xbar2+...+Xbar_k)/k; Rbar = (R1+R2+...+R_k)/k; UCL_Xbar = Xbarbar + A2 x Rbar; LCL_Xbar = Xbarbar - A2 x Rbar; UCL_R = D4 x Rbar; LCL_R = D3 x Rbar",
+      "symbols": {
+        "k": "number of subgroups",
+        "A2, D3, D4": "look-up constants depending on subgroup size (Table 10-2 constants)"
+      },
+      "conditions": "subgroup size n = 2 to 10",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 249
+    },
+    {
+      "name": "Continuous control chart formulas: Averages and Standard Deviations (Xbar-S)",
+      "expression": "Xbar = (Xbar1+Xbar2+...+Xbar_k)/k; Sbar = (S1+S2+...+S_k)/k; UCL_Xbar = Xbarbar + A3 x Sbar; LCL_Xbar = Xbarbar - A3 x Sbar; UCL_S = B4 x Sbar; LCL_S = B3 x Sbar",
+      "symbols": {
+        "k": "number of subgroups",
+        "A3, B3, B4": "look-up constants depending on subgroup size (Table 10-2 constants)"
+      },
+      "conditions": "subgroup size n > 10",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 249
+    },
+    {
+      "name": "p chart (proportion defective)",
+      "expression": "p_i = number defective / n_i (per subgroup); pbar = total number defective / (n1+n2+...+n_k); UCL_i = pbar + 3 sqrt( pbar(1-pbar)/n_i ); LCL_i = pbar - 3 sqrt( pbar(1-pbar)/n_i )",
+      "symbols": {
+        "n_i": "subgroup size (variable, usually > 50)",
+        "pbar": "overall proportion defective"
+      },
+      "conditions": "based on the binomial distribution; used for defectives (pass/fail) data",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 254
+    },
+    {
+      "name": "u chart (defects per unit)",
+      "expression": "u_i = number defects / n_i (per subgroup); ubar = total number defects / (n1+n2+...+n_k); USL_i = ubar + 3 sqrt( ubar/n_i ); LSL_i = ubar - 3 sqrt( ubar/n_i )",
+      "symbols": {
+        "n_i": "subgroup size (variable)",
+        "ubar": "overall defects per unit"
+      },
+      "conditions": "based on the Poisson distribution; used for defect (count) data. Note: book labels the control limits USL_i/LSL_i in Table 10-3 rather than UCL_i/LCL_i",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 254
+    }
+  ],
+  "constant_tables": [
+    {
+      "name": "Table 6-1: Summary of Yield Metrics",
+      "columns": [
+        "Metric Name",
+        "Calculation Formula",
+        "Description"
+      ],
+      "rows": [
+        [
+          "Traditional yield (Y)",
+          "Y = out/in = (in-scrap)/in = 1 - scrap/in",
+          "Is a misleading perspective that obscures the impact of inspection and rework."
+        ],
+        [
+          "First time yield (FTY)",
+          "FTY = (in-scrap-rework)/in = 1 - (scrap+rework)/in",
+          "Shows the likelihood of an item passing through a process successfully the very first time. Includes effects of inspection, rework and scrap."
+        ],
+        [
+          "Rolled throughput yield (RTY)",
+          "RTY = product (pi), i=1 to n, of FTY_i",
+          "The combined overall yield of an entire process stream. Tells you the likelihood of an item passing through all process steps successfully the first time."
+        ]
+      ],
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 151
+    },
+    {
+      "name": "Table 6-2: Summary of Defect Rate Metrics",
+      "columns": [
+        "Metric Name",
+        "Calculation Formula",
+        "Description"
+      ],
+      "rows": [
+        [
+          "Defects per unit (DPU)",
+          "DPU = number of defects observed / number of units inspected",
+          "DPU provides a measurement of the average number of defects on a single unit."
+        ],
+        [
+          "Defects per opportunity (DPO)",
+          "DPO = number of defects observed on a unit / number of opportunities on a unit",
+          "DPO measures the number of defects that occur per opportunity for success or failure. DPO allows you to fairly compare the defect rates of things with very different levels of complexity."
+        ],
+        [
+          "Defects per million opportunities (DPMO)",
+          "DPMO = DPO x 1,000,000",
+          "DPMO is the average number of defects found over a million opportunities. Best used when the process/characteristic is repeated many times."
+        ],
+        [
+          "Defective parts per million (DPPM)",
+          "DPPM = DPO x 1,000,000",
+          "DPPM is synonymous with DPMO."
+        ]
+      ],
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 155
+    },
+    {
+      "name": "Table 6-3: Sigma Score Table: Z <-> DPMO",
+      "columns": [
+        "Z",
+        "DPMO"
+      ],
+      "rows": [
+        [
+          "0.0",
+          "933,193"
+        ],
+        [
+          "0.5",
+          "841,345"
+        ],
+        [
+          "1.0",
+          "691,462"
+        ],
+        [
+          "1.5",
+          "500,000"
+        ],
+        [
+          "2.0",
+          "308,538"
+        ],
+        [
+          "2.5",
+          "158,655"
+        ],
+        [
+          "3.0",
+          "66,807"
+        ],
+        [
+          "3.5",
+          "22,750"
+        ],
+        [
+          "4.0",
+          "6,210"
+        ],
+        [
+          "4.5",
+          "1,350"
+        ],
+        [
+          "5.0",
+          "233"
+        ],
+        [
+          "5.5",
+          "32"
+        ],
+        [
+          "6.0",
+          "3.4"
+        ]
+      ],
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 160,
+      "note_as_printed": "Note: Paired table values are long-term for DPMO and short-term for Z (example, a long-term DPMO of 6,210 is the result of a process with a short-term sigma score of 4.0). Add 1.5 to corresponding Z values to obtain short-term equivalents (example, a short-term DPMO of 32 is the result of a process with a short-term sigma score of 4.0)."
+    },
+    {
+      "name": "Table 6-4: Summary of Short- and Long-Term Capability Indices",
+      "columns": [
+        "Index Name",
+        "Formula",
+        "Description"
+      ],
+      "rows": [
+        [
+          "Short-term capability index (Cp)",
+          "Cp = (USL-LSL)/(6 sigma_ST)",
+          "Compares the width of the specification to the short-term width of the process"
+        ],
+        [
+          "Adjusted short-term capability index (Cpk)",
+          "Cpk = min( (USL-xbar)/(3 sigma), (xbar-LSL)/(3 sigma_ST) )",
+          "Compares the width of the specification to the short-term width of the process and accounts for off-centering of the process from the specification"
+        ],
+        [
+          "Long-term capability index (Pp)",
+          "Pp = (USL-LSL)/(6 sigma_LT)",
+          "Compares the width of the specification to the long-term width of the process"
+        ],
+        [
+          "Adjusted long-term capability index (Ppk)",
+          "Ppk = min( (USL-xbar)/(3 sigma_LT), (xbar-LSL)/(3 sigma_LT) )",
+          "Compares the width of the specification to the long-term width of the process and accounts for off-centering of the process from the specification"
+        ]
+      ],
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 164
+    },
+    {
+      "name": "Table 6-5: Prescriptive Capability Improvement Plan",
+      "columns": [
+        "Symptom",
+        "Diagnosis",
+        "Prescription"
+      ],
+      "rows": [
+        [
+          "Cp = Cpk and Pp = Ppk",
+          "Overall, your process or characteristic is centered within its specifications.",
+          "As needed, focus on reducing the long-term variation in your process or characteristic while maintaining on-center performance."
+        ],
+        [
+          "Cp = Pp and Cpk = Ppk",
+          "Your process or characteristic suffers from a consistent offset in its center location.",
+          "Focus on correcting the set point of your process or characteristic until it is centered."
+        ],
+        [
+          "Cp = Ppk",
+          "Your process is operating at its entitlement level of variation.",
+          "Continue to monitor the capability of your process. Redesign your process to improve its entitlement level of performance."
+        ]
+      ],
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 165
+    },
+    {
+      "name": "Table 7-1: Summary of Data Types",
+      "columns": [
+        "Data Type",
+        "Description",
+        "Examples"
+      ],
+      "rows": [
+        [
+          "Attribute or category",
+          "Data observations fall into discrete, named value categories. No mathematical operations can be performed on the raw data. You can count the number of occurrences you see of each category.",
+          "Eye color: brown, blue, green; Location: Factory 1, Factory 2, Factory 3; Inspection result: pass, fail; Size: large, medium, small; Fit check: go, no-go; Questionnaire response: yes, no; Attendance: present, absent; Employee: Fred, Suzanne, Holly; Processing: Treatment A, Treatment B"
+        ],
+        [
+          "Continuous",
+          "Data observations can take on numerical value and are not confined to nominal categories. Data values can be meaningfully added and subtracted.",
+          "Bank account balance: dollars; Length: meters; Time: seconds; Electrical current: amps; Survey response: 1=disagree, 2=neutral, 3=agree"
+        ]
+      ],
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 170
+    },
+    {
+      "name": "Table 7-2: Measurement-to-Observed Variation Ratio Values and Interpretation",
+      "columns": [
+        "Calculated Variance Ratio",
+        "Diagnosis",
+        "Prescription"
+      ],
+      "rows": [
+        [
+          "sigma^2_MEASURE / sigma^2_OBSERVED <= 0.1",
+          "Good measurement system. Contribution of the measurement system to the overall observed variation is small enough to enable good decisions from the measurements.",
+          "Use measurement system as it is. Look for opportunities to simplify or make the measurement system less expensive or more efficient."
+        ],
+        [
+          "0.1 <= sigma^2_MEASURE / sigma^2_OBSERVED <= 0.3",
+          "Marginal measurement system. Contribution of the measurement system to the overall observed variation is beginning to cloud results. There is a significant risk of making a wrong decision from the measurements.",
+          "Use with caution only if no better measurement alternative exists. Begin to improve the measurement system by training operators, standardizing measurement procedures, and investigating new measurement equipment."
+        ],
+        [
+          "sigma^2_MEASURE / sigma^2_OBSERVED >= 0.3",
+          "Unacceptable measurement system. Guessing is probably just as precise. Do not base important decisions off of information from a measurement system in this condition.",
+          "Measurement system needs to be corrected before any valid information can be derived from the system. Investigate causes of gross inconsistency."
+        ]
+      ],
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 178
+    },
+    {
+      "name": "Table 8-1: t Values",
+      "columns": [
+        "Confidence",
+        "n=2",
+        "n=5",
+        "n=10",
+        "n=25",
+        "Z"
+      ],
+      "rows": [
+        [
+          "68%",
+          "1.837",
+          "1.142",
+          "1.059",
+          "1.021",
+          "1"
+        ],
+        [
+          "95%",
+          "13.968",
+          "2.869",
+          "2.320",
+          "2.110",
+          "2"
+        ],
+        [
+          "99.7%",
+          "235.811",
+          "6.620",
+          "4.094",
+          "3.345",
+          "3"
+        ]
+      ],
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 192
+    },
+    {
+      "name": "Table 8-2: chi-square Values",
+      "columns": [
+        "Confidence",
+        "n=2",
+        "n=5",
+        "n=10",
+        "n=25",
+        "Z"
+      ],
+      "rows": [
+        [
+          "68%",
+          "1.987",
+          "6.599",
+          "13.088",
+          "30.833",
+          "1"
+        ],
+        [
+          "(unlabeled row, chi2_UPPER)",
+          "0.040",
+          "1.416",
+          "4.919",
+          "17.169",
+          ""
+        ],
+        [
+          "95%",
+          "5.187",
+          "11.365",
+          "19.301",
+          "39.749",
+          "2"
+        ],
+        [
+          "(unlabeled row, chi2_UPPER)",
+          "0.001",
+          "0.460",
+          "2.628",
+          "12.225",
+          ""
+        ],
+        [
+          "99.7%",
+          "10.273",
+          "17.800",
+          "27.093",
+          "50.163",
+          "3"
+        ],
+        [
+          "(unlabeled row, chi2_UPPER)",
+          "0.000",
+          "0.106",
+          "1.241",
+          "8.382",
+          ""
+        ]
+      ],
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 194,
+      "note_as_printed": "Note: First value listed in each table cell is chi^2_LOWER. Second value listed in cell is chi^2_UPPER. (As printed, each 'cell' is shown split across two rows in the table layout.)"
+    },
+    {
+      "name": "Table 8-3: F Values for 95% Confidence",
+      "columns": [
+        "",
+        "n1=2",
+        "n1=5",
+        "n1=10",
+        "n1=25"
+      ],
+      "rows": [
+        [
+          "n2=2",
+          "161.446",
+          "224.583",
+          "240.543",
+          "249.052"
+        ],
+        [
+          "n2=5",
+          "7.709",
+          "6.388",
+          "5.999",
+          "5.774"
+        ],
+        [
+          "n2=10",
+          "5.117",
+          "3.633",
+          "3.179",
+          "2.900"
+        ],
+        [
+          "n2=25",
+          "4.260",
+          "2.776",
+          "2.300",
+          "1.984"
+        ]
+      ],
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 196
+    },
+    {
+      "name": "Table 8-4: Confidence Interval Summary",
+      "columns": [
+        "Name",
+        "Equation",
+        "Look-Up Factor"
+      ],
+      "rows": [
+        [
+          "Average with large (>30) sample size",
+          "xbar +/- Z sigma/sqrt(n)",
+          "Z"
+        ],
+        [
+          "Average with small (<30) sample size",
+          "xbar +/- t sigma/sqrt(n)",
+          "t"
+        ],
+        [
+          "Standard deviation",
+          "[ sqrt((n-1) sigma^2/chi^2_LOWER), sqrt((n-1) sigma^2/chi^2_UPPER) ]",
+          "chi^2"
+        ],
+        [
+          "Ratio of variances",
+          "[ (1/F(n2,n1)) sigma1^2/sigma2^2, F(n1,n2) sigma1^2/sigma2^2 ]",
+          "F"
+        ],
+        [
+          "Proportion",
+          "y/n +/- Z sqrt((y/n)(1-y/n)/n)",
+          "Z"
+        ],
+        [
+          "Difference of proportions",
+          "y1/n1 - y2/n2 +/- Z sqrt((y1/n1)(1-y1/n1)/n1 + (y2/n2)(1-y2/n2)/n2)",
+          "Z"
+        ]
+      ],
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 198
+    },
+    {
+      "name": "Table 10-2: Continuous Data Control Chart constants (A2, A3, B3, B4, D3, D4, E2)",
+      "columns": [
+        "Sample Size (n)",
+        "A2",
+        "A3",
+        "B3",
+        "B4",
+        "D3",
+        "D4",
+        "E2"
+      ],
+      "rows": [
+        [
+          "2",
+          "1.880",
+          "2.659",
+          "0",
+          "3.267",
+          "0",
+          "3.267",
+          "2.659"
+        ],
+        [
+          "3",
+          "1.023",
+          "1.954",
+          "0",
+          "2.568",
+          "0",
+          "2.574",
+          "1.772"
+        ],
+        [
+          "4",
+          "0.729",
+          "1.628",
+          "0",
+          "2.266",
+          "0",
+          "2.282",
+          "1.457"
+        ],
+        [
+          "5",
+          "0.577",
+          "1.427",
+          "0",
+          "2.089",
+          "0",
+          "2.114",
+          "1.290"
+        ],
+        [
+          "6",
+          "0.483",
+          "1.287",
+          "0.030",
+          "1.970",
+          "0",
+          "2.004",
+          "1.184"
+        ],
+        [
+          "7",
+          "0.419",
+          "1.182",
+          "0.118",
+          "1.882",
+          "0.076",
+          "1.924",
+          "1.109"
+        ],
+        [
+          "8",
+          "0.373",
+          "1.099",
+          "0.185",
+          "1.815",
+          "0.136",
+          "1.864",
+          "1.054"
+        ],
+        [
+          "9",
+          "0.337",
+          "1.032",
+          "0.239",
+          "1.761",
+          "0.184",
+          "1.816",
+          "1.010"
+        ],
+        [
+          "10",
+          "0.308",
+          "0.975",
+          "0.284",
+          "1.716",
+          "0.223",
+          "1.777",
+          "0.975"
+        ]
+      ],
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 250
+    },
+    {
+      "name": "Table 10-3: Attribute Data Control Chart Summary",
+      "columns": [
+        "Control Chart",
+        "Subgroup Size (n)",
+        "Centerline",
+        "Control Limits"
+      ],
+      "rows": [
+        [
+          "p chart (Proportion defective)",
+          "Variable (usually > 50)",
+          "p_i = number defective/n_i (individual); pbar = total number defective/(n1+n2+...+n_k) (overall)",
+          "UCL_i = pbar + 3 sqrt(pbar(1-pbar)/n_i); LCL_i = pbar - 3 sqrt(pbar(1-pbar)/n_i)"
+        ],
+        [
+          "u chart (Number of defects per unit)",
+          "Variable",
+          "u_i = number defects/n_i (individual); ubar = total number defects/(n1+n2+...+n_k) (overall)",
+          "USL_i = ubar + 3 sqrt(ubar/n_i); LSL_i = ubar - 3 sqrt(ubar/n_i)"
+        ]
+      ],
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 254,
+      "note_as_printed": "As printed, the u-chart control-limit column headers in Table 10-3 read 'USL_i' and 'LSL_i' rather than 'UCL_i'/'LCL_i'."
+    }
+  ],
+  "worked_examples": [
+    {
+      "id": "S08-WE01",
+      "tool": "traditional-yield",
+      "given": {
+        "in": "352 cars",
+        "out": "347 cars with pressure within specification"
+      },
+      "stated_answers": {
+        "Y": "347/352 = 0.986 or 98.6%"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 147,
+      "legible": true
+    },
+    {
+      "id": "S08-WE02",
+      "tool": "first-time-yield",
+      "given": {
+        "items_in": 352,
+        "items_out": 347,
+        "inspected_and_failed": 103,
+        "reworked_ok": 98,
+        "scrapped": 5,
+        "note": "correctly-first-time = in - scrap - rework = 352-5-98=249"
+      },
+      "stated_answers": {
+        "FTY": "249/352 = 0.707 or 70.7%",
+        "hidden_factory": "98.6% - 70.7% = 27.9% of production"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 148,
+      "legible": true
+    },
+    {
+      "id": "S08-WE03",
+      "tool": "rolled-throughput-yield",
+      "given": {
+        "process": "5-step purchase order process",
+        "FTY1": 0.75,
+        "FTY2": 0.95,
+        "FTY3": 0.85,
+        "FTY4": 0.95,
+        "FTY5": 0.9
+      },
+      "stated_answers": {
+        "RTY": "0.75 x 0.95 x 0.85 x 0.95 x 0.90 = 0.518"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 149,
+      "legible": true
+    },
+    {
+      "id": "S08-WE04",
+      "tool": "dpu",
+      "given": {
+        "defects_observed": 11,
+        "units_inspected": "23 loan applications during a month"
+      },
+      "stated_answers": {
+        "DPU": "11/23 = 0.478"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 152,
+      "legible": true
+    },
+    {
+      "id": "S08-WE05",
+      "tool": "dpo",
+      "given": {
+        "context": "automobile",
+        "out_of_spec_characteristics": 158,
+        "opportunities": 14550
+      },
+      "stated_answers": {
+        "DPO": "158/14,550 = 0.011"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 153,
+      "legible": true
+    },
+    {
+      "id": "S08-WE06",
+      "tool": "dpo",
+      "given": {
+        "context": "bicycle",
+        "non_compliant_characteristics": 2,
+        "critical_characteristics": 173
+      },
+      "stated_answers": {
+        "DPO": "2/173 = 0.012"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 154,
+      "legible": true
+    },
+    {
+      "id": "S08-WE07",
+      "tool": "dpo-dpmo",
+      "given": {
+        "context": "two commercial airline crashes out of 6 million flights in a year",
+        "defects": 2,
+        "opportunities": 6000000
+      },
+      "stated_answers": {
+        "DPO": "2/6,000,000 = 0.000000333"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 154,
+      "legible": true
+    },
+    {
+      "id": "S08-WE08",
+      "tool": "sigma-score-lookup",
+      "given": {
+        "DPMO": 20000,
+        "note": "value falls between table rows for Z=3.5 (DPMO=22,750) and Z=4.0"
+      },
+      "stated_answers": {
+        "approximate_Z": "about 3.6"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 161,
+      "legible": true
+    },
+    {
+      "id": "S08-WE09",
+      "tool": "attribute-audit-study",
+      "given": {
+        "exercise": "Read a printed paragraph (the 'Farm Hands' paragraph) quickly, circling each occurrence of the sixth letter of the alphabet (f, upper or lower case), without going back or rereading.",
+        "text_theme": "training Farm Hands for first class farms in the fatherly handling of farm livestock"
+      },
+      "stated_answers": {
+        "correct_count_of_fs": 36,
+        "interpretation": "percentage of the 36 f's actually found is an audit of the reader's (measurement system's) effectiveness"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 174,
+      "legible": true
+    },
+    {
+      "id": "S08-WE10",
+      "tool": "confidence-interval-std-dev",
+      "given": {
+        "n": 5,
+        "sample_std_dev": 3.7,
+        "confidence": "95%",
+        "chi2_LOWER": 11.365,
+        "chi2_UPPER": 0.46
+      },
+      "stated_answers": {
+        "CI": "[ sqrt((5-1)(3.7)^2/11.365), sqrt((5-1)(3.7)^2/0.460) ] = [2.195, 10.907]"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 195,
+      "legible": true
+    },
+    {
+      "id": "S08-WE11",
+      "tool": "confidence-interval-ratio-of-variances",
+      "given": {
+        "distribution_A": {
+          "n": 10,
+          "variance": 4
+        },
+        "distribution_B": {
+          "n": 5,
+          "variance": 7.5
+        },
+        "confidence": "95%",
+        "F(5,10)": 3.633,
+        "F(10,5)": 5.999
+      },
+      "stated_answers": {
+        "CI_for_varA_over_varB": "[ (1/3.633)(4.0/7.5), 5.999(4.0/7.5) ] = [0.147, 3.199]",
+        "interpretation": "interval contains 1, so no evidence the distributions have different variances"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 196,
+      "legible": true
+    },
+    {
+      "id": "S08-WE12",
+      "tool": "confidence-interval-proportion",
+      "given": {
+        "proportion": "4 out of 5 dentists",
+        "y": 4,
+        "n": 5,
+        "confidence": "90%",
+        "Z": 1.645
+      },
+      "stated_answers": {
+        "CI": "4/5 +/- 1.645 sqrt((4/5)(1-4/5)/5) = 4/5 +/- 0.294"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 197,
+      "legible": true
+    },
+    {
+      "id": "S08-WE13",
+      "tool": "confidence-interval-difference-of-proportions",
+      "given": {
+        "Toledo_plant": {
+          "y1": 213,
+          "n1": 300
+        },
+        "Buffalo_plant": {
+          "y2": 189,
+          "n2": 300
+        },
+        "confidence": "95%",
+        "Z": 2
+      },
+      "stated_answers": {
+        "CI": "213/300 - 189/300 +/- 2 sqrt( (213/300)(1-213/300)/300 + (189/300)(1-189/300)/300 ) = 0.08 +/- 0.076, or equivalently [0.004, 0.156]",
+        "interpretation": "interval does not include zero; with 95% confidence Toledo produces on average a higher proportion of good items than Buffalo"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 197,
+      "legible": true
+    },
+    {
+      "id": "S08-WE14",
+      "tool": "correlation-coefficient",
+      "given": {
+        "data_table": "Table 8-5: Automobile Curb Weight versus Fuel Economy",
+        "columns": [
+          "Make/Model",
+          "Curb Weight (lbs.)",
+          "Fuel Economy (mpg)"
+        ],
+        "rows": [
+          [
+            "Toyota Camry",
+            3140,
+            29
+          ],
+          [
+            "Toyota Sequoia",
+            4875,
+            17
+          ],
+          [
+            "Honda Civic",
+            2449,
+            35
+          ],
+          [
+            "Land Rover Discovery",
+            4742,
+            16
+          ],
+          [
+            "Mercedes-Benz S500",
+            4170,
+            20
+          ],
+          [
+            "VW Jetta Wagon",
+            3078,
+            27
+          ],
+          [
+            "Chrysler 300",
+            3715,
+            22
+          ],
+          [
+            "Chevrolet Venture",
+            3838,
+            23
+          ],
+          [
+            "Hyundai Tiburon",
+            2940,
+            27
+          ],
+          [
+            "Dodge Ram 2500 Quad",
+            6039,
+            11
+          ]
+        ],
+        "n": 10,
+        "formula_substitution": "r = 1/(10-1) sum_{i=1 to 10} [ (xi-3899)/1087 ] [ (yi-23)/7 ]"
+      },
+      "stated_answers": {
+        "r": "1/9 (-8.738) = -0.971",
+        "interpretation": "relationship is linear and very strong (negative)"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 199,
+      "legible": true
+    },
+    {
+      "id": "S08-WE15",
+      "tool": "simple-linear-regression",
+      "given": {
+        "data_ref": "source/course/Les 4/Six Sigma For Dummies.pdf::p199 (Table 8-5, same 10-row dataset as S08-WE14)",
+        "X": "curb weight (lbs)",
+        "Y": "fuel economy (mpg)"
+      },
+      "stated_answers": {
+        "beta_1": "-0.00624 (as printed; note the fitted-line equation given immediately after uses -0.00632, and Excel's fitted line on page 210 gives -0.0063 -- see ambiguities)",
+        "beta_0": "46.9 (as printed; note the fitted-line equation given immediately after uses 47.3, and Excel's fitted line on page 210 gives 47.333 -- see ambiguities)",
+        "fitted_equation": "Yhat = 47.3 - 0.00632 X",
+        "prediction_example": "for X=5,000 lbs, Yhat = 47.3 - 0.00632(5,000) = 15.7 mpg",
+        "residual_example_Toyota_Camry": "e1 = Y1 - Yhat1 = 29 - 27.49 = 1.51 mpg (Yhat computed as 47.3-0.00632(3,140)=27.49)",
+        "R_squared": "424.2/450.1 = 0.94",
+        "sigmahat_epsilon": "sqrt(25.9/(10-2)) = 1.80 mpg",
+        "F_test": "424.2/25.9 = 16.4 >= 11.259 = F(2,9); conclude with 99% confidence the derived model is valid",
+        "excel_fit_(Figure_8-10)": "y = -0.0063x + 47.333; R^2 = 0.9425"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 203,
+      "legible": true
+    },
+    {
+      "id": "S08-WE16",
+      "tool": "doe-2k-factorial-effects",
+      "given": {
+        "context": "Ice cream carton filler experiment; k=3 factors, 2^3=8 runs, output Y = filled carton weight in grams (target range 1,225-1,280 g)",
+        "Table_9-1_variable_values": {
+          "columns": [
+            "Variable",
+            "Symbol",
+            "Low Setting",
+            "High Setting"
+          ],
+          "rows": [
+            [
+              "Ice cream flavor",
+              "X1",
+              "Vanilla",
+              "Strawberry"
+            ],
+            [
+              "Fill time (seconds)",
+              "X2",
+              "0.5",
+              "1.1"
+            ],
+            [
+              "Pressure (psi)",
+              "X3",
+              "120",
+              "140"
+            ]
+          ]
+        },
+        "Table_9-3_plan_and_results": {
+          "columns": [
+            "Run",
+            "Order",
+            "X1:Flavor",
+            "X2:Time",
+            "X3:Pressure",
+            "Y"
+          ],
+          "rows": [
+            [
+              1,
+              7,
+              -1,
+              -1,
+              -1,
+              1238
+            ],
+            [
+              2,
+              2,
+              1,
+              -1,
+              -1,
+              1252
+            ],
+            [
+              3,
+              5,
+              -1,
+              1,
+              -1,
+              1228
+            ],
+            [
+              4,
+              8,
+              1,
+              1,
+              -1,
+              1237
+            ],
+            [
+              5,
+              3,
+              -1,
+              -1,
+              1,
+              1223
+            ],
+            [
+              6,
+              6,
+              1,
+              -1,
+              1,
+              1234
+            ],
+            [
+              7,
+              1,
+              -1,
+              1,
+              1,
+              1238
+            ],
+            [
+              8,
+              4,
+              1,
+              1,
+              1,
+              1250
+            ]
+          ]
+        },
+        "Table_9-4_interaction_coded_variables": {
+          "columns": [
+            "Run",
+            "c1",
+            "c2",
+            "c3",
+            "c12",
+            "c13",
+            "c23",
+            "c123",
+            "Y"
+          ],
+          "rows": [
+            [
+              1,
+              -1,
+              -1,
+              -1,
+              1,
+              1,
+              1,
+              -1,
+              1238
+            ],
+            [
+              2,
+              1,
+              -1,
+              -1,
+              -1,
+              -1,
+              1,
+              1,
+              1252
+            ],
+            [
+              3,
+              -1,
+              1,
+              -1,
+              -1,
+              1,
+              -1,
+              1,
+              1228
+            ],
+            [
+              4,
+              1,
+              1,
+              -1,
+              1,
+              -1,
+              -1,
+              -1,
+              1237
+            ],
+            [
+              5,
+              -1,
+              -1,
+              1,
+              1,
+              -1,
+              -1,
+              1,
+              1223
+            ],
+            [
+              6,
+              1,
+              -1,
+              1,
+              -1,
+              1,
+              -1,
+              -1,
+              1234
+            ],
+            [
+              7,
+              -1,
+              1,
+              1,
+              -1,
+              -1,
+              1,
+              -1,
+              1238
+            ],
+            [
+              8,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1250
+            ]
+          ]
+        }
+      },
+      "stated_answers": {
+        "E1": "1,243.25 - 1,231.75 = 11.5 grams",
+        "E2": "1.5 grams",
+        "E3": "-2.5 grams",
+        "E12": "-1.0 grams",
+        "E13": "0.0 grams",
+        "E23": "14.0 grams",
+        "E123": "1.5 grams",
+        "Table_9-5_normal_scores": {
+          "columns": [
+            "Effect",
+            "Value",
+            "Rank (i)",
+            "P",
+            "Z"
+          ],
+          "rows": [
+            [
+              "E3",
+              -2.5,
+              1,
+              0.071,
+              -1.465
+            ],
+            [
+              "E12",
+              -1.0,
+              2,
+              0.214,
+              -0.792
+            ],
+            [
+              "E13",
+              0.0,
+              3,
+              0.357,
+              -0.366
+            ],
+            [
+              "E2",
+              1.5,
+              4.5,
+              0.571,
+              0.18
+            ],
+            [
+              "E123",
+              1.5,
+              4.5,
+              0.571,
+              0.18
+            ],
+            [
+              "E1",
+              11.5,
+              6,
+              0.786,
+              0.792
+            ],
+            [
+              "E23",
+              14.0,
+              7,
+              0.929,
+              1.465
+            ]
+          ]
+        },
+        "significant_effects": "E1 and E23 (ice cream flavor, and the fill-time x pressure interaction) are significant; all others fit the normal line and are not significant",
+        "beta_0": "1,237.5 (average of all 8 experiment run outputs)",
+        "beta_1": "E1/2 = 11.5/2 = 5.75",
+        "beta_23": "E23/2 = 14.0/2 = 7.0",
+        "final_equation": "Y = 1,237.5 + 5.75 X1 + 7.0 X2 X3"
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 225,
+      "legible": true
+    },
+    {
+      "id": "S08-WE17",
+      "tool": "histogram-probability-and-control-limits",
+      "given": {
+        "description": "Population of 100 data points plotted in a histogram (Figure 10-5), then charted as an I-chart (Figure 10-6)",
+        "histogram_data": {
+          "columns": [
+            "Value",
+            "Frequency"
+          ],
+          "rows": [
+            [
+              46,
+              2
+            ],
+            [
+              47,
+              4
+            ],
+            [
+              48,
+              5
+            ],
+            [
+              49,
+              19
+            ],
+            [
+              50,
+              25
+            ],
+            [
+              51,
+              26
+            ],
+            [
+              52,
+              13
+            ],
+            [
+              53,
+              2
+            ],
+            [
+              54,
+              3
+            ],
+            [
+              55,
+              1
+            ]
+          ]
+        }
+      },
+      "stated_answers": {
+        "probability_of_value_50": "25/100 = 25 percent",
+        "probability_of_value_52": "approximately 13 percent",
+        "Xbar": 50,
+        "UCL": 58.7,
+        "LCL": 41.3
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 242,
+      "legible": true
+    },
+    {
+      "id": "S08-WE18",
+      "tool": "xbar-r-chart",
+      "given": {
+        "description": "Averages and ranges chart example (Figure 10-9); no source subgroup data table provided, only chart readout"
+      },
+      "stated_answers": {
+        "Xbar": 84.5,
+        "UCL_Xbar": 87.82,
+        "LCL_Xbar": 81.18,
+        "Rbar": 5.75,
+        "UCL_R": 12.16,
+        "LCL_R": 0.0
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 252,
+      "legible": true
+    },
+    {
+      "id": "S08-WE19",
+      "tool": "individuals-moving-range-chart",
+      "given": {
+        "description": "Individuals and moving range chart example (Figure 10-8); no source data table provided, only chart readout"
+      },
+      "stated_answers": {
+        "Xbar": 100.1,
+        "UCL_X": 104.5,
+        "LCL_X": 95.71,
+        "MRbar": 1.658,
+        "UCL_MR": 5.418,
+        "LCL_MR": 0.0
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 251,
+      "legible": true
+    },
+    {
+      "id": "S08-WE20",
+      "tool": "p-chart",
+      "given": {
+        "description": "p chart for proportion defective (Figure 10-10); no source subgroup data table provided, only chart readout"
+      },
+      "stated_answers": {
+        "pbar": 0.2232,
+        "UCL": 0.2777,
+        "LCL": 0.1687
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 255,
+      "legible": true
+    },
+    {
+      "id": "S08-WE21",
+      "tool": "u-chart",
+      "given": {
+        "description": "u chart for defects per unit on insurance claim forms (Figure 10-11)",
+        "data_table": {
+          "columns": [
+            "Subgroup",
+            "Subgroup size",
+            "Defects"
+          ],
+          "rows": [
+            [
+              1,
+              53,
+              101
+            ],
+            [
+              2,
+              64,
+              80
+            ],
+            [
+              3,
+              59,
+              115
+            ],
+            [
+              4,
+              52,
+              127
+            ],
+            [
+              5,
+              65,
+              99
+            ],
+            [
+              6,
+              60,
+              57
+            ],
+            [
+              7,
+              56,
+              99
+            ],
+            [
+              8,
+              49,
+              109
+            ],
+            [
+              9,
+              53,
+              100
+            ],
+            [
+              10,
+              59,
+              121
+            ],
+            [
+              11,
+              66,
+              113
+            ],
+            [
+              12,
+              65,
+              156
+            ],
+            [
+              13,
+              58,
+              142
+            ],
+            [
+              14,
+              55,
+              114
+            ],
+            [
+              15,
+              57,
+              147
+            ],
+            [
+              16,
+              55,
+              113
+            ],
+            [
+              17,
+              61,
+              109
+            ],
+            [
+              18,
+              60,
+              115
+            ],
+            [
+              19,
+              68,
+              98
+            ],
+            [
+              20,
+              65,
+              92
+            ]
+          ]
+        }
+      },
+      "stated_answers": {
+        "ubar": 1.87,
+        "UCL_3.0SL": "2379 (as printed; no decimal point shown -- see ambiguities; likely intended as 2.379)",
+        "LCL_neg3.0SL": 1.361
+      },
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 256,
+      "legible": true
+    }
+  ],
+  "conventions": [
+    {
+      "topic": "sigma estimate for capability (Cp/Cpk vs Pp/Ppk)",
+      "as_stated": "Cp is a measure of short-term process or characteristic capability. Use only the short-term standard deviation to calculate its value. Using a long-term standard deviation in its calculation gives you incorrect results. ... The same capability indices that you calculate for short-term variation, Cp and Cpk, can also be calculated for long-term variation. To differentiate them from their short-term counterparts, these long-term capability indices are called Pp and Ppk. The only difference in their formulas is that you use sigma_LT in place of sigma_ST.",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 163
+    },
+    {
+      "topic": "short-term vs long-term sigma / Zst vs Zlt",
+      "as_stated": "If you are using a short-term standard deviation, the sigma (Z) score you calculate is a short-term sigma score Zst... If, however, you have a long-term standard deviation, you can calculate the long-term sigma score Zlt... Short-term variation performance, as quantified by the short-term sigma score Zst, represents the best variation performance that you can expect out of your currently configured process. It is an idealistic measure of capability.",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 158
+    },
+    {
+      "topic": "1.5-sigma shift",
+      "as_stated": "Early practitioners of Six Sigma proposed that mathematically shifting a characteristic's or process's short-term distribution closer to its specification limit by a distance of 1.5 times its short-term standard deviation (sigma_ST) would approximate the amount of defects occurring in the long term. ... Zlt = Zst - 1.5.",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 159
+    },
+    {
+      "topic": "Z-bench / sigma level <-> DPMO table",
+      "as_stated": "See Table 6-3 (transcribed in constant_tables) and its printed note: paired table values are long-term for DPMO and short-term for Z; add 1.5 to corresponding Z values to obtain short-term equivalents.",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 160
+    },
+    {
+      "topic": "Cpk rule of thumb",
+      "as_stated": "Generally, a CPK greater than 1.33 indicates that a process or characteristic is capable in the short-term. Values less than this tell you that the variation is either too wide compared to the specification or that the location of the variation is offset from the center of the specification. Or it may be a combination of both width and location.",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 164
+    },
+    {
+      "topic": "n vs n-1 (variance/std-dev confidence interval)",
+      "as_stated": "Confidence interval for a standard deviation uses (n-1) sigma^2 in the numerator together with chi-square lower/upper look-up values (Table 8-2), i.e. based on n-1 degrees of freedom.",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 195
+    },
+    {
+      "topic": "default confidence levels presented",
+      "as_stated": "The book ties confidence directly to standard-deviation multiples: 68% corresponds to Z=1 (or t/chi2/F look-ups for one standard deviation), 95% to Z=2, and 99.7% to Z=3. Tables 8-1, 8-2, and 8-3 are built around these three levels (F table given only for 95%). No single universal alpha/confidence default is stated beyond these three illustrative levels.",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 192
+    },
+    {
+      "topic": "alpha risk definition",
+      "as_stated": "The risk of incorrectly concluding that the population average is within your calculated confidence interval when, in reality, it is not, is called alpha (a) risk.",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 191
+    },
+    {
+      "topic": "Gage R&R / MSA sampling guidance",
+      "as_stated": "Valid estimates of the variance of the measurement system usually involve two to three inspectors and five to ten process outputs or characteristics to measure. Each inspector also measures each process output or characteristic two to three times.",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 179
+    },
+    {
+      "topic": "attribute MSA acceptance / repeatability-reproducibility procedure",
+      "as_stated": "Set aside 15 to 30 samples (about half pass, half fail); create a 'master' standard via a panel of experts; pick two or three inspectors; have each inspector repeat measurements after randomizing order; calculate percentage agreement of first vs second measurements per inspector (repeatability), and agreement across inspectors and with the master standard (reproducibility). Example given: a calculated 63 percent agreement between all inspectors for all samples with the 'master' standard means there is a 63 percent likelihood the measurement system will correctly measure items and a 37 percent chance of error.",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 177
+    },
+    {
+      "topic": "measurement-system variance ratio acceptance thresholds",
+      "as_stated": "sigma^2_measure/sigma^2_observed <= 0.1: good measurement system, use as is. 0.1 to 0.3: marginal, use with caution only if no better alternative exists. >= 0.3: unacceptable measurement system, must be corrected before use.",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 178
+    },
+    {
+      "topic": "DOE coding convention",
+      "as_stated": "Using -1s as a code for the 'low' variable settings and +1s as a code for the 'high' settings, start with the left-most variable column, and fill in the column cells with alternating -1s and +1s. With the left-most column filled in, move on to the next column to the right and repeat the process -- but this time with alternating pairs of -1s and +1s. Fill in the next column to the right with alternating quadruplets of -1s and +1s, and so on. This table of patterned +1s and -1s is called coded design matrix.",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 223
+    },
+    {
+      "topic": "DOE effect-to-coefficient convention",
+      "as_stated": "The beta value for all... significant factors is found by dividing the corresponding effect value in half... It's because the effect value is calculated over a span of +1 to -1 for the variable. That's an effective distance of two, not one. Therefore, to get back to the right equation coefficient, you have to divide the calculated effect value by two.",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 233
+    },
+    {
+      "topic": "DOE randomize and block",
+      "as_stated": "Always randomize the order of your experiment runs. This reduces the risk of extraneous variables skewing the results of your analysis. ... A catchy phrase may help you remember the roles of randomizing and blocking in your experiments: Block what you can and randomize against what you can't block.",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 224
+    },
+    {
+      "topic": "control-limit width",
+      "as_stated": "There is an upper control limit (UCL): It's typically three process standard deviations above the average. There is a lower control limit (LCL): It's typically three process standard deviations below the average. ... Plus or minus three standard deviations from the mean includes 99.7 percent of all the data in a normally distributed population.",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 241
+    },
+    {
+      "topic": "control chart run rules (special-cause zone tests)",
+      "as_stated": "Any one point beyond either control limit. Two out of any three consecutive points in Zone A, and all three on the same side of the process average. Four out of any five consecutive points in Zone B or A, and all five on the same side of the process average. Fifteen points in a row in Zone C, on either side of the process average.",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 246
+    },
+    {
+      "topic": "control chart pattern tests (Table 10-1)",
+      "as_stated": "Stable and predictable: chart points do not form a particular pattern and lie within upper/lower control limits -> only common-cause variation. Beyond control limits: one or more points lie beyond UCL/LCL -> investigate special cause. Run: chart points on one side of centerline -> process has undergone a permanent change, may require recomputing control limits. Trend: continued rise or fall in a series of points (seven or more consecutive points in the same direction) -> gradual, cumulative special cause. Cycle: same pattern changes over equal periods of time -> cyclical, repetitive special cause. Hugging: points close to centerline or to a control limit line -> possible error in data subgrouping or selection.",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 246
+    },
+    {
+      "topic": "control limits are not specification limits",
+      "as_stated": "Never confuse control chart limits with specification limits! Specification limits -- like the USL and LSL introduced in Chapter 6 -- represent the voice of the customer. Control charts, however, represent only the voice of the process... control charts only determine whether the process is stable and predictable. They do not tell you whether the process is capable of meeting customer requirements.",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 244
+    },
+    {
+      "topic": "rational subgroup size guidance",
+      "as_stated": "Rational subgroups are usually small in size, typically consisting of three to five measurements. ... After you have collected a minimum of 25 subgroups of data (with 2 to 5 measurements in each subgroup), you can calculate the statistics and control limits.",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 248
+    },
+    {
+      "topic": "continuous control chart pairing / choice by subgroup size",
+      "as_stated": "Individuals and moving range (I-MR): subgroup size (n) = 1. Averages and ranges (Xbar-R): subgroup size 2-10. Averages and standard deviations (Xbar-S): subgroup size > 10. Use the Xbar-S chart when the size of your subgroups is ten measurements or greater, and the Xbar-R when they are less than ten.",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 249
+    },
+    {
+      "topic": "attribute control chart selection (p vs u)",
+      "as_stated": "If you're charting defectives attribute data (pass/fail, go/no-go, acceptable/unacceptable), you use a p chart. ... If you're counting and keeping track of the number of defects on an item, you're using defect attribute data, and you use a u chart to perform statistical process control. p charts for defectives data are based on a binomial distribution. u charts for defects data are based on the Poisson distribution.",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 254
+    },
+    {
+      "topic": "Poka-Yoke corrective-action levels",
+      "as_stated": "The most effective form of process control is sometimes called a Type-1 corrective action. This is a control applied to the process that eliminates the error condition from ever occurring. This is the primary intent of the Poka-Yoke method. The second most effective control is called a Type-2 corrective action. This is a control that detects when an error occurs and stops the process or shuts down the equipment so that the defect cannot move forward. This is the detection application of the Poka-Yoke method.",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 258
+    }
+  ],
+  "ambiguities": [
+    {
+      "issue": "Table 6-3 footnote wording is internally confusing as printed: 'Note: Paired table values are long-term for DPMO and short-term for Z (example, a long-term DPMO of 6,210 is the result of a process with a short-term sigma score of 4.0). Add 1.5 to corresponding Z values to obtain short-term equivalents (example, a short-term DPMO of 32 is the result of a process with a short-term sigma score of 4.0).' Both examples cite 'a short-term sigma score of 4.0' even though the second example's DPMO (32) corresponds to the table row Z=5.5 (=4.0+1.5), which is inconsistent-looking; transcribed exactly as printed.",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 160
+    },
+    {
+      "issue": "Cpk formula (page 164) is printed as Cpk = min(Cpu, Cpl) = min( (USL-xbar)/3sigma, (xbar-LSL)/3sigma_ST ) -- the first denominator lacks the 'ST' subscript that the second denominator has, an apparent inconsistency in the book's typesetting given the surrounding text says Cp/Cpk must use only sigma_ST.",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 164
+    },
+    {
+      "issue": "Simple linear regression worked example (auto weight vs fuel economy) states beta_1 = -0.00624 and beta_0 = 46.9, but the fitted-line equation given on the very next line is Yhat = 47.3 - 0.00632X, and the Excel-fitted trendline shown later (Figure 8-10, page 210) gives y = -0.0063x + 47.333, R^2=0.9425. The stated beta_0/beta_1 values do not match either the book's own subsequent equation or the Excel result. Recorded both sets of numbers as printed.",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 203
+    },
+    {
+      "issue": "u-chart example (Figure 10-11, insurance claim forms) prints the upper control limit as '3.0SL = 2379' with no decimal point, while the lower control limit is printed as '-3.0SL = 1.361' (with a decimal point) and the centerline is 'ubar = 1.870'. Given the symmetry (1.870-1.361=0.509 and 2.379-1.870=0.509), the upper limit was very likely intended to read '2.379'. Recorded as printed ('2379').",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 256
+    },
+    {
+      "issue": "Table 10-3 (Attribute Data Control Chart Summary) labels the u-chart control limits 'USL_i' and 'LSL_i' in the Control Limits column, rather than 'UCL_i'/'LCL_i' as used everywhere else in the chapter for control chart limits. Transcribed exactly as printed; likely a typesetting inconsistency (specification-limit abbreviations used where control-limit abbreviations would be expected).",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 254
+    },
+    {
+      "issue": "Table 8-2 (chi-square values) prints two numeric rows per confidence level (e.g. '68%' row and an immediately following unlabeled row) without a clear per-row chi2_LOWER/chi2_UPPER column label; the accompanying footnote says 'First value listed in each table cell is chi2_LOWER. Second value listed in cell is chi2_UPPER,' implying the two printed rows together form one logical table row per confidence level. Transcribed both rows as printed with a note.",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 194
+    }
+  ]
+}

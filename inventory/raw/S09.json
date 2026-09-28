@@ -1,0 +1,647 @@
+{
+  "slice_id": "S09",
+  "files_read": [
+    {"file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": "259-362"},
+    {"file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf", "pages": "1-12"},
+    {"file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder book summary.pdf", "pages": "1-8"}
+  ],
+  "topics": [
+    {"topic": "SIPOC (Suppliers-Inputs-Process-Outputs-Customers)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [263, 264, 265, 266, 273]},
+    {"topic": "CT (critical to) tree", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [263, 267, 268]},
+    {"topic": "Voice of the customer / process / business (VOC/VOP/VOB)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [266]},
+    {"topic": "Process modeling (process maps, swim lanes, BPMN, mapping icons)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [263, 269, 270, 271, 272, 273]},
+    {"topic": "Simulating a process (simulation tools and reports)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [263, 274, 275]},
+    {"topic": "Cause-and-effect (C&E) matrix", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [263, 276]},
+    {"topic": "Fishbone (Ishikawa) diagram", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [263, 277]},
+    {"topic": "FMEA (Failure Mode Effects Analysis) and RPN (risk priority number)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [263, 278, 279, 280]},
+    {"topic": "Poka-Yoke (mistake-proofing)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [279]},
+    {"topic": "Capability-complexity analysis (CCA), KISS, 3-Cs Explorer", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [263, 281, 282]},
+    {"topic": "Funnel reports (critical few vs trivial many)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [282]},
+    {"topic": "Plans: data collection plan, control plan, audit plan", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [263, 283, 284]},
+    {"topic": "Six Sigma statistical analysis tools overview (Table 11-6)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [285, 286]},
+    {"topic": "Plots and charts (Table 11-7)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [287, 288]},
+    {"topic": "Time-series analysis (trending, forecasting, decomposition, moving average, exponential smoothing, autocorrelation, cross-correlation)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [288, 289]},
+    {"topic": "ANOVA (analysis of variance) tool overview", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [289]},
+    {"topic": "Tolerance analysis / Design for Manufacturability (DFM)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [289, 290]},
+    {"topic": "Design of Experiments (DOE): steps, factorial/response surface/Taguchi designs", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [290, 291]},
+    {"topic": "Process capability analysis tools (Table 11-8) and capability six-pack", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [291, 292]},
+    {"topic": "Regression analysis (fitted line, least squares, partial least squares, logistic, stepwise, best fit)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [293]},
+    {"topic": "Multivariate analysis (principal components, factor analysis, clustering, K-means, discriminant analysis, correspondence analysis)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [293, 294]},
+    {"topic": "Exploratory data analysis tools (Table 11-9)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [294]},
+    {"topic": "Measurement systems analysis (MSA): accuracy (linearity, bias, stability), precision (repeatability, reproducibility), Gauge R&R", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [294, 295, 296]},
+    {"topic": "Reliability and survivability analysis", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [296]},
+    {"topic": "Six Sigma software platforms and vendors (Minitab, JMP, Excel, iGrafx, SigmaFlow, Visio, Varyx, 3-Cs Explorer, Traxion; PC-Windows, Mac/Linux, enterprise architectures)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [296, 297, 298, 299, 300]},
+    {"topic": "Six Sigma manager tools overview and constituencies", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [302, 303]},
+    {"topic": "Types of management tools (communication, project management, reporting, knowledge management, learning)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [304]},
+    {"topic": "Leadership communication tools (Table 12-1)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [305, 306]},
+    {"topic": "Project management: ideation, definition, selection, tracking, reporting (Table 12-2)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [306, 307, 308, 309, 310, 311, 312, 313]},
+    {"topic": "Project definition elements (Table 12-3): purpose, objectives, benefits, team, schedule, risk/controls", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [310]},
+    {"topic": "Reporting tools and balanced scorecard", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [313, 314, 315]},
+    {"topic": "Knowledge Management (KM) tools", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [316]},
+    {"topic": "E-learning for Six Sigma (CBT, synchronous mentored learning, asynchronous learning network)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [317, 318]},
+    {"topic": "Ten Best Practices of Six Sigma (stretch goals, tangible results, determinism, think-before-act/DMAIC discipline, data-driven decisions, minimize variation, align projects, celebrate success, involve the owner, unleash potential)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [321, 322, 323, 324, 325]},
+    {"topic": "Ten Pitfalls to Avoid (not enough time, no leader, scope too big, isolated pockets, overtraining, blind trust in measurement system, CL vs SL confusion, exaggerated opportunity counts, not leveraging technology)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [327, 328, 329, 330]},
+    {"topic": "Ten Places to Go for Help (colleagues, corporations, associations/societies, conferences, publications, web portals, technology vendors, consultants, trainers)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [331, 332, 333, 334, 335, 336]},
+    {"topic": "Appendix Glossary (overview)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [337, 338, 339, 340, 341, 342, 343, 344, 345]},
+    {"topic": "Glossary: affinity diagram", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [337]},
+    {"topic": "Glossary: ANOVA (analysis of variance)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [337]},
+    {"topic": "Glossary: attribute data", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [337]},
+    {"topic": "Glossary: average (mean)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [337]},
+    {"topic": "Glossary: bar chart", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [337]},
+    {"topic": "Glossary: Black Belt", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [337]},
+    {"topic": "Glossary: breakthrough improvement", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [337]},
+    {"topic": "Glossary: capability", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [337]},
+    {"topic": "Glossary: cause-and-effect diagram", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [337]},
+    {"topic": "Glossary: central tendency", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [337]},
+    {"topic": "Glossary: Champion", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [337]},
+    {"topic": "Glossary: characteristic", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [338]},
+    {"topic": "Glossary: common causes of variation", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [338]},
+    {"topic": "Glossary: complexity", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [338]},
+    {"topic": "Glossary: control chart", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [338]},
+    {"topic": "Glossary: control limits", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [338]},
+    {"topic": "Glossary: correlation coefficient", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [338]},
+    {"topic": "Glossary: cost of poor quality (COPQ)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [338]},
+    {"topic": "Glossary: Cp", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [338]},
+    {"topic": "Glossary: Cpk", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [338]},
+    {"topic": "Glossary: critical-to-quality (CTQ)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [338]},
+    {"topic": "Glossary: critical X", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [338]},
+    {"topic": "Glossary: customer", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [338]},
+    {"topic": "Glossary: cycle time", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [338]},
+    {"topic": "Glossary: defect", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [338]},
+    {"topic": "Glossary: defective", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [339]},
+    {"topic": "Glossary: deployment", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [339]},
+    {"topic": "Glossary: Design for Six Sigma (DFSS)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [339]},
+    {"topic": "Glossary: Design of Experiments (DOE)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [339]},
+    {"topic": "Glossary: DMAIC", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [339]},
+    {"topic": "Glossary: DPMO (defects per million opportunities)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [339]},
+    {"topic": "Glossary: DPU (defects per unit)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [339]},
+    {"topic": "Glossary: entitlement", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [339]},
+    {"topic": "Glossary: epsilon", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [339]},
+    {"topic": "Glossary: experimental design", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [339]},
+    {"topic": "Glossary: Failure mode effects analysis (FMEA)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [339]},
+    {"topic": "Glossary: finance representative", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [339]},
+    {"topic": "Glossary: fishbone diagram", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [339]},
+    {"topic": "Glossary: flowchart", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [339]},
+    {"topic": "Glossary: gauge R&R", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [340]},
+    {"topic": "Glossary: Green Belt", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [340]},
+    {"topic": "Glossary: hidden factory or operation", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [340]},
+    {"topic": "Glossary: histogram", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [340]},
+    {"topic": "Glossary: implementation team", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [340]},
+    {"topic": "Glossary: input", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [340]},
+    {"topic": "Glossary: Ishikawa diagram", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [340]},
+    {"topic": "Glossary: least squares", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [340]},
+    {"topic": "Glossary: long-term variation", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [340]},
+    {"topic": "Glossary: lower control limit (LCL)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [340]},
+    {"topic": "Glossary: lower specification limit (LSL)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [340]},
+    {"topic": "Glossary: Master Black Belt (MBB)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [340]},
+    {"topic": "Glossary: mean", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [341]},
+    {"topic": "Glossary: measurement", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [341]},
+    {"topic": "Glossary: measurement accuracy", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [341]},
+    {"topic": "Glossary: measurement precision", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [341]},
+    {"topic": "Glossary: Measurement Systems Analysis (MSA)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [341]},
+    {"topic": "Glossary: median", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [341]},
+    {"topic": "Glossary: metric", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [341]},
+    {"topic": "Glossary: natural tolerances of a process", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [341]},
+    {"topic": "Glossary: nominal group technique", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [341]},
+    {"topic": "Glossary: non-value-added (NVA)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [341]},
+    {"topic": "Glossary: normal distribution", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [341]},
+    {"topic": "Glossary: objective statement", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [341]},
+    {"topic": "Glossary: opportunities", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [341]},
+    {"topic": "Glossary: out of control", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [341]},
+    {"topic": "Glossary: output", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [341]},
+    {"topic": "Glossary: Pareto chart", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [341]},
+    {"topic": "Glossary: Pareto Principle", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [342]},
+    {"topic": "Glossary: Poka-Yoke", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [342]},
+    {"topic": "Glossary: probability", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [342]},
+    {"topic": "Glossary: problem statement", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [342]},
+    {"topic": "Glossary: process", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [342]},
+    {"topic": "Glossary: process certification", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [342]},
+    {"topic": "Glossary: process characterization", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [342]},
+    {"topic": "Glossary: process flow diagram", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [342]},
+    {"topic": "Glossary: process member", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [342]},
+    {"topic": "Glossary: process owner", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [342]},
+    {"topic": "Glossary: quality function deployment (QFD)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [342]},
+    {"topic": "Glossary: range", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [342]},
+    {"topic": "Glossary: regression analysis", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [342]},
+    {"topic": "Glossary: repeatability", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [342]},
+    {"topic": "Glossary: reproducibility", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [343]},
+    {"topic": "Glossary: rework", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [343]},
+    {"topic": "Glossary: risk priority number (RPN)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [343]},
+    {"topic": "Glossary: rolled throughput yield (RTY)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [343]},
+    {"topic": "Glossary: RUMBA", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [343]},
+    {"topic": "Glossary: run chart", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [343]},
+    {"topic": "Glossary: scatter plot", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [343]},
+    {"topic": "Glossary: screening experiment", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [343]},
+    {"topic": "Glossary: short-term variation", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [343]},
+    {"topic": "Glossary: sigma score", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [343]},
+    {"topic": "Glossary: significant Y", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [343]},
+    {"topic": "Glossary: SIPOC", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [343]},
+    {"topic": "Glossary: Six Sigma (definition)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [343]},
+    {"topic": "Glossary: Six Sigma leader", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [344]},
+    {"topic": "Glossary: Six Sigma project", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [344]},
+    {"topic": "Glossary: special cause variation", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [344]},
+    {"topic": "Glossary: specification limits", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [344]},
+    {"topic": "Glossary: stability", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [344]},
+    {"topic": "Glossary: standard deviation", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [344]},
+    {"topic": "Glossary: statistical problem", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [344]},
+    {"topic": "Glossary: statistical process control (SPC)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [344]},
+    {"topic": "Glossary: statistical solution", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [344]},
+    {"topic": "Glossary: supplier", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [344]},
+    {"topic": "Glossary: trend", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [344]},
+    {"topic": "Glossary: TSSW (thinking the Six Sigma way)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [344]},
+    {"topic": "Glossary: two-level design", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [344]},
+    {"topic": "Glossary: upper control limit (UCL)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [344]},
+    {"topic": "Glossary: upper specification limit (USL)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [345]},
+    {"topic": "Glossary: variability", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [345]},
+    {"topic": "Glossary: variable data", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [345]},
+    {"topic": "Glossary: variables", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [345]},
+    {"topic": "Glossary: variance", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [345]},
+    {"topic": "Glossary: variation", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [345]},
+    {"topic": "Glossary: VOB (voice of the business)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [345]},
+    {"topic": "Glossary: VOC (voice of the customer)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [345]},
+    {"topic": "Glossary: VOP (voice of the process)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [345]},
+    {"topic": "Glossary: waste", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [345]},
+    {"topic": "Glossary: X (input characteristic)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [345]},
+    {"topic": "Glossary: Y (output characteristic)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [345]},
+    {"topic": "Glossary: Yellow Belt", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [345]},
+    {"topic": "Glossary: Z score", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [345]},
+    {"topic": "Afterword", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [347]},
+    {"topic": "Book index (not itemised)", "file": "source/course/Les 4/Six Sigma For Dummies.pdf", "pages": [349, 350, 351, 352, 353, 354, 355, 356, 357, 358, 359, 360, 361, 362]},
+    {"topic": "Six Sigma cost-of-quality vs sigma level table", "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf", "pages": [1]},
+    {"topic": "Breakthrough Strategy four core phases (Measure, Analyze, Improve, Control) and statistics as separator of common sense from extraordinary reasoning", "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf", "pages": [2]},
+    {"topic": "Cost-of-quality categories (5): failure in field, internal failure, appraisal/inspection, improving poor quality, opportunity costs", "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf", "pages": [2]},
+    {"topic": "GE Six Sigma history under Jack Welch", "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf", "pages": [3, 7]},
+    {"topic": "Benchmarking types (internal, competitive, functional, quantitative)", "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf", "pages": [3]},
+    {"topic": "Changing what companies measure; CTQs; X vs Y focus", "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf", "pages": [4]},
+    {"topic": "Hidden factory concept and first-time yield flaw", "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf", "pages": [4]},
+    {"topic": "Throughput yield (TY), first-time yield (FTY), rolled throughput yield (RTY), normalized yield (NY) definitions and formulas", "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf", "pages": [4, 5]},
+    {"topic": "Breakthrough Strategy organizational levels table (Business/Operations/Process x Recognize/Define/Measure/Analyze/Improve/Control/Standardize/Integrate)", "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf", "pages": [6]},
+    {"topic": "1.5 sigma shift (process-centering error) and short- vs long-term sigma capability", "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf", "pages": [7]},
+    {"topic": "Sources of variation (design margins, unstable parts/materials, insufficient process capability); Design for Six Sigma (DFSS)", "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf", "pages": [7]},
+    {"topic": "Implementation and deployment roles (Executive Mgmt, Senior/Deployment/Project Champion, Deployment Master Black Belt, Master Black Belt, Black Belt, Green Belt); compensation; supplier training", "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf", "pages": [8]},
+    {"topic": "Six Sigma players comparison table (Champions, Master Black Belts, Black Belts, Green Belts): qualifications, training, ratio trained", "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf", "pages": [9]},
+    {"topic": "Six Sigma Black Belts: role, selection, expected results", "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf", "pages": [9]},
+    {"topic": "AlliedSignal lessons learned (Six Sigma deployment)", "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf", "pages": [10]},
+    {"topic": "Six Sigma in the service industry (transactions vs parts); Foxboro accounts-receivable example", "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf", "pages": [10]},
+    {"topic": "Project selection guidelines (ownership, top-down vs bottom-up, selection criteria, prioritization)", "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf", "pages": [11]},
+    {"topic": "Psychology of Six Sigma (Black Belt motivation: compensation, promotion, recognition, permission to fail); Tom Watson/IBM anecdote", "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf", "pages": [11]},
+    {"topic": "Preparing an organization for Six Sigma (superstitious dance, results change cultures, history vs future)", "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf", "pages": [12]},
+    {"topic": "Why Six Sigma / cost of quality table (book summary)", "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder book summary.pdf", "pages": [2]},
+    {"topic": "The players in Six Sigma: Champions, Master Black Belts, Black Belts, Green Belts (inverted pyramid)", "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder book summary.pdf", "pages": [3]},
+    {"topic": "Six Sigma Breakthrough Strategy: 8 phases (Recognize, Define, Measure, Analyze, Improve, Control, Standardize, Integrate) in 4 categories (Identification, Characterization, Optimization, Institutionalization)", "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder book summary.pdf", "pages": [4]},
+    {"topic": "Three levels of Breakthrough: Business, Operations, Process", "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder book summary.pdf", "pages": [4, 5, 6]},
+    {"topic": "Business \"states\" and supporting systems", "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder book summary.pdf", "pages": [4]},
+    {"topic": "Importance of benchmarking (internal, competitive, functional)", "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder book summary.pdf", "pages": [5]},
+    {"topic": "What Black Belts need: psychology/motivation (compensation, promotion, recognition, permission to fail)", "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder book summary.pdf", "pages": [6]},
+    {"topic": "Implementation and deployment of the strategy (dependencies, focus, structural elements)", "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder book summary.pdf", "pages": [6, 7, 8]},
+    {"topic": "GE: a Six Sigma success story", "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder book summary.pdf", "pages": [7]},
+    {"topic": "Project selection metrics: DPMO, net cost savings, cost of poor quality, capacity, cycle time", "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder book summary.pdf", "pages": [8]},
+    {"topic": "Polaroid's project selection criteria (low yield rate, cost of poor quality, capacity)", "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder book summary.pdf", "pages": [8]},
+    {"topic": "Preparing an organization for Six Sigma (culture change)", "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder book summary.pdf", "pages": [8]}
+  ],
+  "formulas": [
+    {
+      "name": "Risk priority number (RPN)",
+      "expression": "RPN = severity rating x probability rating x detection rating",
+      "symbols": {"severity rating": "normalized score for severity of impact of a failure", "probability rating": "probability score for likelihood the failure will occur", "detection rating": "probability score for likelihood current controls detect the cause/effect"},
+      "conditions": "Used within FMEA (Failure Mode Effects Analysis) to rank failure modes; plotted in a Pareto chart to prioritize attention.",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 279
+    },
+    {
+      "name": "Average yield per defect opportunity (benchmarking)",
+      "expression": "Avg yield per defect opportunity = (Yield)**(1/#opportunities)",
+      "symbols": {"Yield": "final yield of the product (fraction)", "#opportunities": "number of opportunities for defects per unit"},
+      "conditions": "Used to compare dissimilar products made using the same process on a level field regardless of complexity (quantitative benchmarking).",
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+      "page": 3
+    },
+    {
+      "name": "Defects per unit",
+      "expression": "Defects/unit = (# defects observed) / (# units)",
+      "symbols": {"# defects observed": "count of defects found at a process step", "# units": "count of units passed through that step"},
+      "conditions": "Step-level metric, example: 5/100 = 5%.",
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+      "page": 5
+    },
+    {
+      "name": "Throughput yield (TY)",
+      "expression": "Throughput yield = 1 - Defects/unit (fraction of units passing with zero defects at that step)",
+      "symbols": {"Defects/unit": "defects observed divided by units at the step"},
+      "conditions": "TY is defect-sensitive and measures how well a process is performing at a given point; example: defects/unit = 5% -> throughput yield = 95%.",
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+      "page": 5
+    },
+    {
+      "name": "Defects per opportunity and DPMO",
+      "expression": "Defects/opportunity = (Defects/unit) / (opportunities/unit); Defects-per-million-opportunities = Defects/opportunity x 1,000,000",
+      "symbols": {"opportunities/unit": "number of CTQ opportunities for defect per unit"},
+      "conditions": "Example: Defects/unit=0.05, opportunities/unit=20 -> Defects/opportunity=0.0025 -> DPMO=2,500 (about 4.3 sigma capability).",
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+      "page": 5
+    },
+    {
+      "name": "Rolled throughput yield (RTY)",
+      "expression": "RTY = TY1 x TY2 x TY3 x ... x TYn",
+      "symbols": {"TYi": "throughput yield of step i", "n": "number of steps in the process"},
+      "conditions": "= probability of passing a unit through all steps defect-free. Example (5-step process): TYs = 98%, 93%, 95%, 98%, 94% -> RTY = (.98)x(.93)x(.95)x(.98)x(.94) = 0.7976.",
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+      "page": 5
+    },
+    {
+      "name": "Normalized yield (NY)",
+      "expression": "NY = kth root of RTY, where k is the # steps in the process",
+      "symbols": {"k": "number of steps in the process", "RTY": "rolled throughput yield"},
+      "conditions": "Average throughput yield at any given step. Example as printed: 10-step process, RTY = 36.8% (0.368); NY = (0.368)**(-10) = 0.9051 (see ambiguities: exponent notation as printed does not algebraically reproduce 0.9051 unless the intended exponent is 1/10, i.e. the 10th root).",
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+      "page": 5
+    },
+    {
+      "name": "Units to produce one defect-free output, given RTY",
+      "expression": "Repairable defects: 1 + (1 - RTY); Scrapped defectives: 1 / RTY",
+      "symbols": {"RTY": "rolled throughput yield"},
+      "conditions": "Example: RTY = 70% (0.7) -> repairable: 1+(1-.7)=1.3; scrapped: 1/(.7)=1.43.",
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+      "page": 5
+    }
+  ],
+  "constant_tables": [
+    {
+      "name": "Table 11-1: Process Optimization Tools",
+      "columns": ["Process Tool", "Role"],
+      "rows": [
+        ["The SIPOC", "Suppliers-Inputs-Process-Outputs-Customers. Create a high-level process map with a few key details about each of the key contributing elements."],
+        ["CT (critical to) tree", "Critical to . . . tree. Identify, organize, and display parts of the process according to areas of critical importance."],
+        ["Modeling", "Define and design processes, including the flow of work or material, the timing of activities, resources consumed, and points of decision, inspection, and delivery."],
+        ["Simulation", "Simulate the flow of work and material through a process based on the model, and analyze the results of the simulation for overall effectiveness and efficiency. Find defects, errors, bottlenecks, variation, and non value-added elements."],
+        ["C&E (cause-and-effect) matrix", "For the outcomes of any process, define all the contributors, weight their effects, and determine the significant contributors to the outputs."],
+        ["Fishbone diagram", "Create a high-level C&E in the form of a tree structure, with categories for each major type of contributor. A method for capturing potential causes and inputs to a process."],
+        ["FMEA (failure mode effects analysis)", "For any activity or item, define the potential failure modes, including the likelihood of occurrence, and the ability to detect and characterize the effects of those failures."],
+        ["Capability and complexity analysis", "Analyze the tradeoffs between product complexity and process capability, and define the proper configuration of each to achieve desired outcomes."],
+        ["Plans", "Use the outputs of simulation and analysis to define how data will be collected and how the processes will be controlled and audited."]
+      ],
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 263
+    },
+    {
+      "name": "Table 11-2: The SIPOC",
+      "columns": ["Element", "Definition"],
+      "rows": [
+        ["S: Suppliers", "Suppliers are systems, people, organizations, or other sources of the materials, information, or other resources that are consumed or transformed in the process."],
+        ["I: Inputs", "Inputs are materials, information, and other resources provided by the suppliers that are consumed or transformed in the process."],
+        ["P: Process", "The process is the set of actions and activities that transform the inputs into the outputs."],
+        ["O: Outputs", "Outputs are the products or services produced by the process and used by the customer."],
+        ["C: Customer", "Customers are persons, groups of people, companies, systems, and downstream processes that receive the output of the process."]
+      ],
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 265
+    },
+    {
+      "name": "Table 11-3: Applications of the CT Tree",
+      "columns": ["Critical To...", "Title", "Definition"],
+      "rows": [
+        ["Satisfaction", "CTS", "What contributes to customer success?"],
+        ["Quality", "CTQ", "What contributes to process or product quality?"],
+        ["Cost", "CTC", "What contributes to the cost or final price?"],
+        ["Delivery", "CTD", "What contributes to the cycle time to deliver?"]
+      ],
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 267
+    },
+    {
+      "name": "Table 11-4: Simulation Report Categories",
+      "columns": ["Category", "Purpose"],
+      "rows": [
+        ["Time", "Show overall transaction times, and times per department, process, or activity."],
+        ["Cost", "Report statistics on costs for all resources, transactions, and activities."],
+        ["Resources", "Report statistics on resource utilization, time, activities, and costs."],
+        ["Queues", "Report on bottlenecked processes or transactions waiting in queues due to resource, inputs, or other constraints."]
+      ],
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 275
+    },
+    {
+      "name": "Table 11-5: Primary Elements of the FMEA",
+      "columns": ["FMEA Element", "Definition"],
+      "rows": [
+        ["Severity of impact", "Assign a normalized score to the severity of the impact in the event of a failure."],
+        ["Probability of occurrence", "Evaluate and assign a probability score to the likelihood that the failure will occur."],
+        ["Likelihood of detection", "Assign a probability score to the likelihood that the current controls will detect the causes and therefore prevent either the failure itself or its effects from having impact."]
+      ],
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 279
+    },
+    {
+      "name": "Table 11-6: Six Sigma Statistical Analysis Tools",
+      "columns": ["Stats Tool", "Role"],
+      "rows": [
+        ["Basic stats", "The basic and descriptive statistics, such as averages, ranges, variance, and so on, used routinely in Six Sigma analysis"],
+        ["Plots and charts", "Histograms, Pareto charts, control charts"],
+        ["Time series", "Specific tools for analyzing results of data collected over time -- trends, decompositions, moving averages"],
+        ["ANOVA (analysis of variance)", "Analyze variances, test for equality of variances, and determine whether there is a valid relationship between variables."],
+        ["Tolerance analysis", "The analysis of margins and tolerances to determine optimal design specifications"],
+        ["DOE (Design of Experiments)", "Systematically investigate the process or product variables that affect product quality"],
+        ["Process capability analysis", "Determination of the capability of a process to perform to expectations. The output is a numerically defined index of capability."],
+        ["Regression", "Determining the strength of the relationship between a response variable (Y) and one or more predictors (Xs)."],
+        ["Multivariate analysis", "The analysis of data from multiple measurements on various items or subjects. The output is a graphical picture of the various relationships."],
+        ["Exploratory analysis", "Methods used to explore data before applying more traditional statistical analysis tools"],
+        ["Measurement Systems Analysis", "The analysis of the measurement system to determine the accuracy and precision of the data obtained from the measurement."],
+        ["Reliability and survivability", "Accelerated life testing, lifetime characteristics analysis, growth curves"]
+      ],
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 285
+    },
+    {
+      "name": "Table 11-7: Plots and Charts",
+      "columns": ["Plot or Chart", "Description"],
+      "rows": [
+        ["Histogram", "A bar chart that plots the spread of data into bins according to frequency of occurrence, immediately suggesting the distribution function."],
+        ["Dot plot", "A type of histogram where data are displayed in a single-point format; used to assess a distribution or compare distributions."],
+        ["Pareto chart", "A bar chart in which the bars are ordered from highest to lowest, showing the critical contributors."],
+        ["Scatter plot", "Shows the relationship between two variables, immediately conveying the nature of correlation."],
+        ["Matrix plot", "A matrix of scatter-plots, showing the relationships between many pairs of variables at the same time."],
+        ["3D scatter plot", "A three-dimensional scatter plot, useful for evaluating the relationships between three different variables at the same time."],
+        ["Interval plot", "A two-dimensional plot of data values with added confidence intervals or error bars; useful for showing both the central tendency and the variability."],
+        ["Box plot", "A side-by-side comparison of sample distributions. By convention, the central line is the mean, the boxes are +/-25%, and the lines are the limits."],
+        ["CDF (cumulative distribution function) plot", "A stepped cumulative histogram (without bars), overlaid with a best-fit normal cumulative distribution function. Used to fit a distribution to your data."],
+        ["Probability plot", "A scatter plot, overlaid with a CDF cumulative probability line. Used to determine how closely a particular distribution fits your data."],
+        ["Time series plot", "A plot of data spread over time. Used to evaluate patterns in activity across time. By convention, time is plotted on the x-axis."],
+        ["Marginal plot", "A scatter plot with an added histogram (or sometimes a box plot), used to assess the relationship between two variables and their distributions."]
+      ],
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 287
+    },
+    {
+      "name": "Table 11-8: Process Capability Analysis Tools",
+      "columns": ["Tool", "Application"],
+      "rows": [
+        ["Normal analysis", "Analyze process capability when the data are from a normal distribution."],
+        ["Non-normal analysis", "Analyze process capability when the data are from a non-normal distribution."],
+        ["Between/within analysis", "Analyze process capability for between-subgroup and within-subgroup variation."],
+        ["Multi-variable analysis", "Analyze the capability of an in-control process when each of multiple continuous variables follow a normal distribution."],
+        ["Binomial analysis", "Analyze the process when the data are from a binomial distribution -- when examining the number of defective items out of the total number of items sampled."],
+        ["Poisson analysis", "Analyze the number of defects observed, where the item occupies a specified time or space."],
+        ["Capability six-pack", "An set of six charts, which collectively contain key process capability metrics."]
+      ],
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 292
+    },
+    {
+      "name": "Table 12-1: The Tools of Leadership Communications",
+      "columns": ["Communication Tool", "Role"],
+      "rows": [
+        ["Face-to-face communication", "The most powerful leadership tool is your personal communication. Direct interaction is the best way to listen and influence."],
+        ["Formal presentations", "Using a presentation tool like PowerPoint, a formal presentation is a common, effective, and repeatable leadership and communication tool."],
+        ["Impromptu presentations", "White boards and flip charts make ideal platforms for conveying important ideas and information, conducting brainstorming sessions, developing early designs, and troubleshooting."],
+        ["E-mail", "Messages, directives, requests, and reports can all be communicated via e-mail, which communicates directly and by passing along different audiences. Using attached files, e-mail is a powerful communication conduit. It's poor and inappropriate for resolving issues, however."],
+        ["Shared repositories", "Systems like intranets, file servers, groupware, and enterprise application systems help communicate broadly and consistently."],
+        ["Phone calls", "Particularly when there's an issue or problem, there's nothing quite as effective as just picking up the phone and calling them."],
+        ["Memos and letters", "Formal memoranda and letters are most useful for communicating in an official manner, such as a policy directive or formal announcement."],
+        ["Bullhorn", "Hey, whatever it takes! Just make sure you get the message out."]
+      ],
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 305
+    },
+    {
+      "name": "Table 12-2: Six Sigma Project Management Tools",
+      "columns": ["Project Tool", "Role"],
+      "rows": [
+        ["Ideation", "Capture ideas for potential Six Sigma projects."],
+        ["Definition", "Establish the project scope, write a problem and objective statement, set a schedule, and assign initial team members."],
+        ["Selection", "Establish priorities for projects, manage the queue of projects, and launch projects."],
+        ["Tracking", "Track and manage project progress. Identify and manage variance to plan. Ensure deliverables to the established objectives and schedule."],
+        ["Reporting", "Communicate the status and results of the project -- to the project team members, business owners, Six Sigma Champions, executives, and other constituents."]
+      ],
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 307
+    },
+    {
+      "name": "Table 12-3: Basic Elements of Project Definition",
+      "columns": ["Element", "Definition"],
+      "rows": [
+        ["Purpose", "The reason and motivation for doing the project. This includes a precise statement of the problem, and its impacts."],
+        ["Objectives", "The core set of objectives that must be met if the project is to be judged a success. Be quantitative in identifying the anticipated levels of improvement."],
+        ["Benefits", "How everyone will gain from successfully meeting the project objectives. For Six Sigma projects, this specifically includes the bottom-line benefits."],
+        ["Team members", "Identify the team of individuals and skills needed to complete project. The team should be small to remain agile, yet have the sufficient expertise and representation. Typically, a core team of six or fewer are required, with additional help on a part-time basis."],
+        ["Schedule", "The schedule includes the total duration of the project as well as the individual duration of each project phase"],
+        ["Risk and controls", "Scope, schedule, and objectives hang in a delicate balance. A change in any one affects at least one of the other two. Estimate the risk and impact of possible and probable changes, and identify the controls you apply to prevent them from occurring and to respond if they do."]
+      ],
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 310
+    },
+    {
+      "name": "The Cost of Quality (sigma level vs DPMO vs cost of quality)",
+      "columns": ["Sigma Level", "Defects Per Million Opportunities", "Cost of Quality"],
+      "rows": [
+        ["2", "308,537 (Noncompetitive companies)", "Not applicable"],
+        ["3", "66,807", "25 - 40% of sales"],
+        ["4", "6,210 (Industry average)", "15 -25% of sales"],
+        ["5", "233", "5 -15% of sales"],
+        ["6", "3.4 (World class)", "<1 of sales"]
+      ],
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder book summary.pdf",
+      "page": 2
+    },
+    {
+      "name": "Cost of quality (sigma-level vs defects/million vs cost of quality) -- outline notes version",
+      "columns": ["sigma-level", "defects/million", "cost of quality"],
+      "rows": [
+        ["2", "308,537 (non-competitive)", "not applicable"],
+        ["3", "66,807", "25-40% of sales"],
+        ["4", "6,210", "15-25% of sales"],
+        ["5", "233", "5-15% of sales"]
+      ],
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+      "page": 1
+    },
+    {
+      "name": "Comparison of Roles (Champions, Master Black Belts, Black Belts, Green Belts)",
+      "columns": ["Role", "Qualifications", "Training", "# Employees trained"],
+      "rows": [
+        ["CHAMPIONS", "Senior Execs, VPs with familiarity with statistics", "1 week", "1 per business group or manufacturing site"],
+        ["MASTER BLACK BELTS", "Managers with technical degrees, familiar with Statistics", "Two 1-week sessions", "1 per 30 Black Belts"],
+        ["BLACK BELTS", "Technicians with 5 or more years experience, basic statistics", "Four 1-week sessions with assigned project", "1 per 100 employees"],
+        ["GREEN BERETS", "Support backgrounds, familiarity with selected problem, basic statistics", "Two 3-day sessions with assigned project", "1 per 20 employees"]
+      ],
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+      "page": 9
+    }
+  ],
+  "worked_examples": [
+    {
+      "id": "S09-WE01",
+      "tool": "dpmo-sigma-level",
+      "given": {"description": "Two dissimilar products made using the same process, compared on a level field regardless of complexity.", "Product A final yield": "85%", "Product A opportunities for defects": "600 (high complexity)", "Product B final yield": "96.8%", "Product B opportunities for defects": "48 (low complexity)"},
+      "stated_answers": {"Product A avg yield per defect opportunity": "(0.85)**(1/600) = 99.97% (or about 3.5 sigma)", "Product A meaning 1": "15% of the units produced contain one or more defects", "Product A meaning 2": "a product with 600 defect opportunities, at 3.5 sigma, produces one defect for every 1.2 units produced", "Product B avg yield per defect opportunity": "(0.968)**(1/48) = 99.97% (or about 3.5 sigma)"},
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+      "page": 3,
+      "legible": true
+    },
+    {
+      "id": "S09-WE02",
+      "tool": "hidden-factory-first-time-yield",
+      "given": {"description": "A process produces ten coffee cups. The operator sees that 5 are defective, so recycles that material and sends the 5 good ones to the inspection point."},
+      "stated_answers": {"Yield at inspection point": "100%", "note": "The rework is not captured in any cost structure. This is a 'hidden factory'."},
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+      "page": 4,
+      "legible": true
+    },
+    {
+      "id": "S09-WE03",
+      "tool": "throughput-yield-vs-first-time-yield",
+      "given": {"description": "5-step process; 100 units have just passed through step #3. Each unit has 20 opportunities for defect (CTQs). At step #3, 5 defects were observed in the 100 units."},
+      "stated_answers": {"Defects/unit": "5/100 = 5%", "meaning": "5 of every 100 units created at step #3 will contain one or more defects", "Throughput yield": "95% (95 of 100 will pass step #3 with zero defects)", "FTY (if all five defects were in one unit)": "99%", "Defects/opportunity": "(Defects/unit)/(opportunities/unit) = 0.05/20 = 0.0025", "Defects-per-million-opportunities": "2,500, or about 4.3 sigma capability"},
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+      "page": 5,
+      "legible": true
+    },
+    {
+      "id": "S09-WE04",
+      "tool": "rolled-throughput-yield",
+      "given": {"description": "Same 5-step process. TYs for each step = 98%, 93%, 95%, 98% and 94%."},
+      "stated_answers": {"RTY": "(.98)x(.93)x(.95)x(.98)x(.94) = 0.7976 = probability of passing a unit through all five steps defect-free"},
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+      "page": 5,
+      "legible": true
+    },
+    {
+      "id": "S09-WE05",
+      "tool": "normalized-yield",
+      "given": {"description": "10-step process, and RTY is 36.8%."},
+      "stated_answers": {"NY": "kth root of TRY, where k is the # steps in the process = (0.368)**(-10) = 0.9051"},
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+      "page": 5,
+      "legible": true
+    },
+    {
+      "id": "S09-WE06",
+      "tool": "units-for-one-defect-free-output",
+      "given": {"description": "A certain process has an RTY = 70%. How many units must be input to produce one defect-free output?"},
+      "stated_answers": {"Assuming defects are repairable": "1 + (1 - RTY) = 1 + (1 - .7) = 1.3", "Assuming defectives are scrapped": "1/(RTY) = 1.43"},
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+      "page": 5,
+      "legible": true
+    },
+    {
+      "id": "S09-WE07",
+      "tool": "cost-of-poor-quality",
+      "given": {"description": "A company whose annual revenues are $100 million, and whose operating income is $10 million.", "cost of quality": "approximately 25 percent of revenue"},
+      "stated_answers": {"cost of quality in dollars": "$25 million", "if reduced by 20 percent": "operating income increases by $5 million -- 50 percent of current operating income"},
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder book summary.pdf",
+      "page": 2,
+      "legible": true
+    },
+    {
+      "id": "S09-WE08",
+      "tool": "business-case-ge-six-sigma",
+      "given": {"description": "GE operations in 1996 running at 3-4 sigma (~35,000 defects per million), costing $7B-$10B/year in scrap/rework/inefficiency. Welch committed $450 million in 1996-1997 to train 5,000 executives/managers and 80,000 engineers/employees, targeting Six Sigma (3.4 dpm) by 2000."},
+      "stated_answers": {"1998 revenue": "rose 11 percent, to $100 billion", "1998 earnings": "increased 13 percent, to $9.3 billion", "working capital turns": "rose from 7.4 percent in 1997 to 9.2 percent", "GE Capital Services": "62 percent reduction in turnaround time for repairs", "GE Aircraft Engines (Canadian division)": "reduced border delays by 50 percent"},
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder book summary.pdf",
+      "page": 7,
+      "legible": true
+    },
+    {
+      "id": "S09-WE09",
+      "tool": "dfss-cost-quality-tradeoff",
+      "given": {"description": "GE 1995 decision to design a new CAT-scanner using 6Sigma methodology. Old X-Ray tubes cost $59K and lasted 3 months."},
+      "stated_answers": {"new tube cost": "$85K", "warranty": "one-year warranty", "full-body scan time": "went from 3 minutes to 20 seconds", "cooling time": "less time to cool from end of one scan to start of another"},
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+      "page": 7,
+      "legible": true
+    },
+    {
+      "id": "S09-WE10",
+      "tool": "cost-of-poor-quality",
+      "given": {"description": "Foxboro delinquent accounts-receivable, costing the company over $7M/yr, operating at about a 2-sigma level. Root causes: purchase orders not verified against sales receipts; none/late hard-copy confirmation of verbal orders; inadequate monitoring of company billing; payment terms not established during quotation process."},
+      "stated_answers": {"delinquency costs reduced to": "$2.45M", "team": "1 Black Belt and 9 team members took 3 months to begin returning financial results to the bottom line"},
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+      "page": 10,
+      "legible": true
+    },
+    {
+      "id": "S09-WE11",
+      "tool": "fmea-rpn-pareto",
+      "given": {"description": "Figure 11-7: Pareto chart of an FMEA risk priority number (RPN), showing counts and cumulative percentage for process outputs such as 'Order Completed on time', 'Billing Accuracy', 'No Production Defects', 'Minimization Cost', 'No Wrong Order Defects'.", "figure": "Figure 11-7"},
+      "stated_answers": {},
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 280,
+      "legible": false
+    }
+  ],
+  "conventions": [
+    {
+      "topic": "1.5 sigma shift",
+      "as_stated": "All processes vary around their target mean. Over time, the variance increases due to 'process-centering error'. Research has shown that 4-sigma processes drift about 1.5-sigma over time. So when a company claims 6-sigma processes, they really mean: (a) the short-term sigma capability of their processes is 6-sigma (b) the long-term performance is 4.5-sigma due to process-centering errors.",
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+      "page": 7
+    },
+    {
+      "topic": "Sigma level <-> DPMO / cost of quality table",
+      "as_stated": "The Cost of Quality: Sigma Level 2 = 308,537 dpm (noncompetitive companies), cost not applicable; 3 = 66,807 dpm, 25-40% of sales; 4 = 6,210 dpm (industry average), 15-25% of sales; 5 = 233 dpm, 5-15% of sales; 6 = 3.4 dpm (world class), <1% of sales. Each sigma shift provides a 10 percent net income improvement, a 20 percent margin improvement, and a 10 to 30 percent capital reduction.",
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder book summary.pdf",
+      "page": 2
+    },
+    {
+      "topic": "Defect / opportunity / DPMO definitions",
+      "as_stated": "Glossary: 'DPMO (defects per million opportunities): The total number of defects observed divided by the total number of opportunities, expressed in events per million. Sometimes called Defects per Million (DPM)'; 'DPU (defects per unit): The total number of defects detected in some number of units divided by the total number of those units.'; 'opportunities: The number of characteristics, parameters, or features of a product or service that can be classified as acceptable or unacceptable.'; 'defect: An output of a process that fails to meet a defined specification or requirement...'; 'defective: A unit of product or service that contains at least one defect.' Also: Defects Per Million Opportunities defined as the total number of defects per unit divided by the total number of opportunities for defects per unit, multiplied by 1,000,000 (project-selection metric).",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 339
+    },
+    {
+      "topic": "Cp / Cpk definitions",
+      "as_stated": "Glossary: 'Cp: A capability measure defined as the ratio of the specification width to short-term process performance width.' 'Cpk: An adjusted short-term capability index that reduces the capability score in proportion to the offset of the process center from the specification target.'",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 338
+    },
+    {
+      "topic": "Short- vs long-term variation",
+      "as_stated": "Glossary: 'long-term variation: The observed variation of an input or output characteristic that has had the opportunity to experience the majority of the variation effects that influence it.' 'short-term variation: The amount of variation observed in a characteristic that has not had the opportunity to experience all the sources of variation from the inputs acting on it.'",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 340
+    },
+    {
+      "topic": "Belts / roles definitions",
+      "as_stated": "Glossary: 'Black Belt: An individual who receives approximately four weeks of training in the Six Sigma DMAIC methodology, analytical problem solving, and change management methods. A Black Belt is a full time Six Sigma team leader solving problems under the direction of a Six Sigma Champion.' 'Green Belt: ...approximately two weeks of training... a part time Six Sigma practitioner...' 'Master Black Belt (MBB): An individual who has received additional training beyond Black Belt. The MBB is a technical, go-to expert for technical and project issues in Six Sigma...' 'Yellow Belt: An individual who receives approximately one week of training in Six Sigma problem solving and process optimization methods...' 'Champion: A Six Sigma leader, who recognizes, defines, assigns, and supports the successful completion of Six Sigma projects...' Comparison table (Harry & Schroeder outline): Champions=1 week training, 1 per business group/site; Master Black Belts=two 1-week sessions, 1 per 30 Black Belts; Black Belts=four 1-week sessions with assigned project, 1 per 100 employees; 'Green Berets' [as printed, likely Green Belts]=two 3-day sessions with assigned project, 1 per 20 employees.",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 337
+    },
+    {
+      "topic": "DMAIC vs other roadmaps (Harry's Breakthrough Strategy phases)",
+      "as_stated": "Glossary: 'DMAIC: The acronym for the five core phases of the Six Sigma methodology: Define, Measure, Analyze, Improve, and Control; used to solve process and business problems through data and analytical methods.' Harry & Schroeder outline: 'Four core phases in applying Breakthrough Strategy to achieve 6Sigma results: (1) Measure: data collection and reporting (2) Analyze: statistical methods and tools to \"explain\" defects (3) Improve: \"Design for Six Sigma\" process (4) Control: continuous monitoring, no problem reoccurrences.' Book summary: 'There are eight phases involved in applying the Breakthrough Strategy...: Recognize, Define, Measure, Analyze, Improve, Control, Standardize and Integrate', grouped into four categories: Identification (Recognize, Define), Characterization (Measure, Analyze), Optimization (Improve, Control), Institutionalization (Standardize, Integrate).",
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+      "page": 2
+    }
+  ],
+  "ambiguities": [
+    {
+      "issue": "Normalized Yield (NY) example: printed formula 'NY = kth root of TRY... = (0.368)**(-10) = 0.9051' -- the exponent as printed (-10) does not algebraically reproduce 0.9051; 0.368 raised to the 1/10 power (the 10th root) equals approximately 0.9051, suggesting the intended notation was a 1/10 (10th-root) exponent rather than -10. Transcribed exactly as printed per instructions.",
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+      "page": 5
+    },
+    {
+      "issue": "Figure 11-7 (Pareto chart of FMEA risk priority number) shows numeric count and percentage labels on bars/curve that are too small/low-resolution to transcribe reliably; not transcribed as data to avoid inventing numbers.",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 280
+    },
+    {
+      "issue": "Figure 11-5 (C&E matrix example) shows a filled-in worksheet with numeric ratings, totals and percentages that are too small/low-resolution to transcribe reliably; not transcribed as data.",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 276
+    },
+    {
+      "issue": "Figure 12-4 (Balanced Scorecard example) contains a metric row labeled 'TROCE' (appears in the book's own index as 'TROCE, 234'); likely intended as 'ROCE' (return on capital employed) with a stray leading T, or a genuine acronym used by the source. Recorded as printed; numeric values in the figure are too small to transcribe reliably.",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 314
+    },
+    {
+      "issue": "'Comparison of Roles' table row for the fourth belt level is labeled 'GREEN BERETS' in the source notes (Six-Sigma Mikel Harry - Richard Schroeder.pdf, page 9); this is almost certainly meant to be 'Green Belts' (matching usage everywhere else in the same document), but is transcribed exactly as printed.",
+      "file": "source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf",
+      "page": 9
+    },
+    {
+      "issue": "Glossary term for the fishbone/cause-and-effect diagram is printed as 'lshikawa diagram' (lowercase L in place of capital I) due to the book's decorative/garbled font rendering; recorded under the topic name 'Ishikawa diagram' for indexing but the literal glyph in the source page differs.",
+      "file": "source/course/Les 4/Six Sigma For Dummies.pdf",
+      "page": 340
+    }
+  ]
+}

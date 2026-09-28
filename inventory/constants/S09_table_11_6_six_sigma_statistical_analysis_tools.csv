@@ -1,0 +1,13 @@
+Stats Tool,Role,source_file,source_page,table_name
+Basic stats,"The basic and descriptive statistics, such as averages, ranges, variance, and so on, used routinely in Six Sigma analysis",source/course/Les 4/Six Sigma For Dummies.pdf,285,Table 11-6: Six Sigma Statistical Analysis Tools
+Plots and charts,"Histograms, Pareto charts, control charts",source/course/Les 4/Six Sigma For Dummies.pdf,285,Table 11-6: Six Sigma Statistical Analysis Tools
+Time series,"Specific tools for analyzing results of data collected over time -- trends, decompositions, moving averages",source/course/Les 4/Six Sigma For Dummies.pdf,285,Table 11-6: Six Sigma Statistical Analysis Tools
+ANOVA (analysis of variance),"Analyze variances, test for equality of variances, and determine whether there is a valid relationship between variables.",source/course/Les 4/Six Sigma For Dummies.pdf,285,Table 11-6: Six Sigma Statistical Analysis Tools
+Tolerance analysis,The analysis of margins and tolerances to determine optimal design specifications,source/course/Les 4/Six Sigma For Dummies.pdf,285,Table 11-6: Six Sigma Statistical Analysis Tools
+DOE (Design of Experiments),Systematically investigate the process or product variables that affect product quality,source/course/Les 4/Six Sigma For Dummies.pdf,285,Table 11-6: Six Sigma Statistical Analysis Tools
+Process capability analysis,Determination of the capability of a process to perform to expectations. The output is a numerically defined index of capability.,source/course/Les 4/Six Sigma For Dummies.pdf,285,Table 11-6: Six Sigma Statistical Analysis Tools
+Regression,Determining the strength of the relationship between a response variable (Y) and one or more predictors (Xs).,source/course/Les 4/Six Sigma For Dummies.pdf,285,Table 11-6: Six Sigma Statistical Analysis Tools
+Multivariate analysis,The analysis of data from multiple measurements on various items or subjects. The output is a graphical picture of the various relationships.,source/course/Les 4/Six Sigma For Dummies.pdf,285,Table 11-6: Six Sigma Statistical Analysis Tools
+Exploratory analysis,Methods used to explore data before applying more traditional statistical analysis tools,source/course/Les 4/Six Sigma For Dummies.pdf,285,Table 11-6: Six Sigma Statistical Analysis Tools
+Measurement Systems Analysis,The analysis of the measurement system to determine the accuracy and precision of the data obtained from the measurement.,source/course/Les 4/Six Sigma For Dummies.pdf,285,Table 11-6: Six Sigma Statistical Analysis Tools
+Reliability and survivability,"Accelerated life testing, lifetime characteristics analysis, growth curves",source/course/Les 4/Six Sigma For Dummies.pdf,285,Table 11-6: Six Sigma Statistical Analysis Tools

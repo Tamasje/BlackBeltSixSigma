@@ -1,0 +1,8 @@
+Tool,Application,source_file,source_page,table_name
+Normal analysis,Analyze process capability when the data are from a normal distribution.,source/course/Les 4/Six Sigma For Dummies.pdf,292,Table 11-8: Process Capability Analysis Tools
+Non-normal analysis,Analyze process capability when the data are from a non-normal distribution.,source/course/Les 4/Six Sigma For Dummies.pdf,292,Table 11-8: Process Capability Analysis Tools
+Between/within analysis,Analyze process capability for between-subgroup and within-subgroup variation.,source/course/Les 4/Six Sigma For Dummies.pdf,292,Table 11-8: Process Capability Analysis Tools
+Multi-variable analysis,Analyze the capability of an in-control process when each of multiple continuous variables follow a normal distribution.,source/course/Les 4/Six Sigma For Dummies.pdf,292,Table 11-8: Process Capability Analysis Tools
+Binomial analysis,Analyze the process when the data are from a binomial distribution -- when examining the number of defective items out of the total number of items sampled.,source/course/Les 4/Six Sigma For Dummies.pdf,292,Table 11-8: Process Capability Analysis Tools
+Poisson analysis,"Analyze the number of defects observed, where the item occupies a specified time or space.",source/course/Les 4/Six Sigma For Dummies.pdf,292,Table 11-8: Process Capability Analysis Tools
+Capability six-pack,"An set of six charts, which collectively contain key process capability metrics.",source/course/Les 4/Six Sigma For Dummies.pdf,292,Table 11-8: Process Capability Analysis Tools
