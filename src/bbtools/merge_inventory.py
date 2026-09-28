@@ -20,8 +20,10 @@ import re
 import subprocess
 import unicodedata
 from collections import defaultdict
-from decimal import ROUND_HALF_UP, Decimal
 from pathlib import Path
+
+from bbtools.constants import CONSTANT_SYMBOLS, normalise_symbol
+from bbtools.printed import rounding_consistent
 
 ROOT = Path(__file__).resolve().parents[2]
 INVENTORY = ROOT / "inventory"
@@ -30,12 +32,6 @@ ARRAYS = ("topics", "formulas", "constant_tables", "worked_examples", "conventio
 
 GENERATED_BEGIN = "<!-- BEGIN GENERATED (merge_inventory.py) -->"
 GENERATED_END = "<!-- END GENERATED -->"
-
-# Symbols of control-chart / MSA constants. Case matters: d3 (range spread) is not D3 (limit factor).
-CONSTANT_SYMBOLS = {
-    "A", "A0", "A1", "A2", "A3", "c2", "1/c2", "c4", "1/c4", "B1", "B2", "B3", "B4", "B5", "B6",
-    "d2", "1/d2", "d3", "D1", "D2", "D3", "D4", "E2", "d2*",
-}
 
 # Convention themes, checked in order; the first matching theme wins.
 CONVENTION_THEMES: list[tuple[str, str]] = [
@@ -189,18 +185,12 @@ def write_constant_tables(slices: list[dict], out_dir: Path) -> tuple[list[Path]
             ragged.append(f"{path.name}: {len(table['columns'])} columns, row lengths {sorted({len(r) for r in table['rows']})} ({source_ref(table)})")
         header = list(table["columns"]) + [f"extra_{i}" for i in range(len(table["columns"]), width)]
         with path.open("w", newline="", encoding="utf-8") as fh:
-            writer = csv.writer(fh)
+            writer = csv.writer(fh, lineterminator="\n")  # LF, like every other file in the repo
             writer.writerow(header + ["source_file", "source_page", "table_name"])
             for row in table["rows"]:
                 writer.writerow(list(row) + [""] * (width - len(row)) + [table["file"], table["page"], table["name"]])
         paths.append(path)
     return paths, ragged
-
-
-def normalise_symbol(label: str) -> str:
-    """Map a column label such as 'd₂', 'D_4' or 'A 2' onto a CONSTANT_SYMBOLS spelling."""
-    text = unicodedata.normalize("NFKC", label)  # turns subscript digits into plain digits
-    return re.sub(r"[\s_{}$]", "", text)
 
 
 def key_column(columns: list[str], pattern: str) -> int | None:
@@ -260,42 +250,6 @@ def collect_family_values(slices: list[dict]) -> dict[tuple[str, str, str], list
     return values
 
 
-def as_decimal(text: str) -> Decimal:
-    """Exact decimal of a printed number ('2,326', '691,462', '0.7971'); floats would blur the last digit."""
-    cleaned = text.strip().replace(" ", "")
-    if re.fullmatch(r"\d{1,3}(,\d{3})+(\.\d+)?", cleaned):
-        cleaned = cleaned.replace(",", "")
-    return Decimal(cleaned.replace(",", "."))
-
-
-def resolution_exponent(text: str) -> int:
-    """Power of ten of the last printed digit: -3 for '0.797', 4 for '690,000', 0 for '0'."""
-    value = as_decimal(text)
-    if value == 0:
-        return 0
-    exponent = value.as_tuple().exponent
-    if exponent < 0:
-        return exponent
-    digits = str(abs(int(value)))
-    return len(digits) - len(digits.rstrip("0"))
-
-
-def rounding_consistent(printed: list[str]) -> bool:
-    """True if every pair agrees once rounded half-up to the coarser printed resolution.
-
-    '0.7971' and '0.797' agree; '0.8525' and '0.853' agree; '0.7272' and '0.724' do not;
-    '690,000' and '691,462' agree (the former is printed to 2 significant figures).
-    """
-    for i in range(len(printed)):
-        for j in range(i + 1, len(printed)):
-            quantum = Decimal(1).scaleb(max(resolution_exponent(printed[i]), resolution_exponent(printed[j])))
-            a = as_decimal(printed[i]).quantize(quantum, rounding=ROUND_HALF_UP)
-            b = as_decimal(printed[j]).quantize(quantum, rounding=ROUND_HALF_UP)
-            if a != b:
-                return False
-    return True
-
-
 def numeric_conflicts(slices: list[dict]) -> tuple[list[str], list[str]]:
     """Compare every (symbol, key) across sources; return (real conflicts, rounding-only differences).
 
@@ -309,7 +263,7 @@ def numeric_conflicts(slices: list[dict]) -> tuple[list[str], list[str]]:
             continue
         versions = "; ".join(f"'{v}' in {name} ({t['file']} p. {t['page']})" for v, name, t, _ in numeric)
         line = f"{symbol} at {'n' if family == 'constant' else 'sigma'}={key}: {versions}"
-        if rounding_consistent([v for v, *_ in numeric]):
+        if rounding_consistent([v for v, *_ in numeric], thousands=(family == "dpmo")):
             rounding_only.append(line)
         else:
             conflicts.append(line)

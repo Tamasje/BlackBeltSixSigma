@@ -5,11 +5,9 @@ acceptance list) was pasted by the user in the first message of session 2026-09-
 holds the standing rules.
 
 ## Current phase
-Phase 2 (workbook), in progress: Tables sheet + tool 1 (capability). Next STOP: sheet 1 review.
-Phase 1 approved 2026-09-28: the user answered all open questions with "For all, do it so its just as
-clear as possible for me"; Claude's application of that rule is in inventory/conventions.md "Decisions (user)"
-and inventory/approved_tools.md (all 11 tools, proposed order; stats-auditor approved for tools 5 and 6).
-Inventory committed and tagged `oracle-approved`; the oracle is locked (merge_inventory.py no longer writes it).
+Phase 2 (workbook): sheet 1 (Tables + Capability) APPROVED and committed 2026-09-28; building tools 2-11 in approved order.
+Phase 1 approved 2026-09-28 ("For all, do it so its just as clear as possible for me"); decisions in
+inventory/conventions.md "Decisions (user)"; tools in inventory/approved_tools.md; oracle tagged `oracle-approved`.
 
 ## Done
 ### Phase 0 (approved 2026-09-28)
@@ -65,6 +63,21 @@ Inventory committed and tagged `oracle-approved`; the oracle is locked (merge_in
   (798 values): 0 differences vs S06/S10. Remaining constant conflicts are between printed sources.
 - `inventory/exam_map.json` (7 questions, 20 points, no answer key; 2 computational, 1 mixed, 4 conceptual)
   and `inventory/proposed_tools.md` (11 ranked tools) written by Claude.
+
+### Phase 2, sheet 1 (2026-09-28, awaiting review)
+- Code in src/bbtools/: printed.py (printed-number parsing, decision 10), constants.py (tables + decision 4
+  USED_TABLE), constant_definitions.py (d2/d3 by integration, c4/c2 by gamma; used only for checks),
+  recalc.py (LibreOffice headless, throwaway profile, xlsx-skill approach), xlsx_style.py (header block,
+  input yellow / output green), sheet_tables.py, sheet_capability.py, readme.py, build_workbook.py.
+  Build: `PYTHONPATH=src python3 -m bbtools.build_workbook` -> build/bb_toolkit.xlsx (openpyxl file,
+  fullCalcOnLoad; LibreOffice recalculates a copy: 88 formulas, 0 errors) + build/README.md.
+- pytest (pyproject.toml; importlib mode, strict markers, xfail_strict): 84 passed, 8 strict xfails (printed
+  course values on deck p. 46 and p. 49 that disagree with the computation; listed in build/README.md).
+- Constant check: 94 of 991 printed constants differ from their definition at printed precision; 60 by <= 1
+  unit of the last digit, 34 more (pinned in tests/test_constant_definitions.py, listed in build/README.md):
+  Table 18 D1-D4 for n >= 11 (up to 4 units), Table A d3(21) = 0.7272 (def. 0.7242), Six Sigma Demystified
+  B6(2) = 3.267 (def. 2.606, printed on a stray row). Transcriptions never changed.
+- ruff/mypy not installed; not run.
 
 ## Answered questions (inventory-review STOP; decisions in inventory/conventions.md)
 Convention questions (details and sources in inventory/conventions.md, "Conflicts and gaps"):
