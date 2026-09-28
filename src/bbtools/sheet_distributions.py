@@ -35,7 +35,11 @@ DOC = SheetDoc(
     purpose="Mean, variance and point / cumulative probabilities of the distribution families of the course and of "
             "exam Q6 (Bernoulli, binomial, hypergeometric, Poisson, exponential, uniform).",
     inputs="per block: p; n, p, k; N, D, n, k; λ, k; rate, t; a, b, x.",
-    audit="Bernoulli, Poisson, exponential and uniform blocks: see the stats-auditor result",
+    audit="stats-auditor PASS (2026-09-28) for the Bernoulli, Poisson, exponential and uniform blocks: all 14 values "
+          "for one input agree with an independent computation. But the cited pages print no general formula for "
+          "these four families (Naert Les 1 p. 7-9 only names Poisson for counts and exponential for waiting "
+          "times; Acceptance Sampling.xlsm 'distributions' evaluates EXPON.DIST with a rate and a uniform density "
+          "on [1, 2]); the sheet uses the standard definitions. Open question for the user.",
     disagreements=(),
 )
 

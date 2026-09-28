@@ -50,7 +50,10 @@ DOC = SheetDoc(
             "σ1 = σ2 (e.g. 'is machine M1 more precise than M2?'). Every result two-sided, lower-only and upper-only.",
     inputs="α; n and s per sample, or the raw values pasted in columns H (sample 1) and I (sample 2); σ0 for the "
            "χ²-test.",
-    audit="F part: see the stats-auditor result (its only course interval example disagrees)",
+    audit="stats-auditor PASS (2026-09-28) for the F part: all 28 values (CIs in both orientations, F-tests ≠, >, <) "
+          "for one input agree with an independent computation from Test Recipes p. 12-14, CI Further Reading "
+          "p. 21 and exam Q2's hint. Note: the course prints no explicit two-sample ratio CI; it follows from the "
+          "F pivot of p. 12 inverted as on p. 21.",
     disagreements=(
         "Dummies p. 196 (S08-WE11): CI for σA²/σB² printed [(1/3.633)(4/7.5), 5.999(4/7.5)] = [0.147, 3.199]. "
         "With (sA²/σA²)/(sB²/σB²) ~ F(nA−1, nB−1) (Test Recipes p. 12, exam Q2 hint) the same 5 % tail values give "

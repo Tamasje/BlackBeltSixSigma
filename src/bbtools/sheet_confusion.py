@@ -43,7 +43,9 @@ DOC = SheetDoc(
             "side, to judge under- and overfitting as in exam Q5.",
     inputs="optional class names; per model the four counts of the training matrix and of the test matrix "
            "(rows = actual class, columns = predicted class).",
-    audit="pending",
+    audit="stats-auditor PASS (2026-09-28): all 26 values for one input (model A, training and test) agree with "
+          "an independent computation from 20260529_naert.pdf p. 29-32. Note: 'error rate' is not printed on "
+          "those pages; the sheet shows it as 1 − accuracy.",
     disagreements=(),
 )
 
