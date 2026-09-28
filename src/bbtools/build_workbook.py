@@ -17,6 +17,7 @@ from openpyxl.workbook.properties import CalcProperties
 
 from bbtools import (
     sheet_capability,
+    sheet_charts,
     sheet_confusion,
     sheet_distributions,
     sheet_means,
@@ -35,6 +36,7 @@ OUTPUT = ROOT / "build" / "bb_toolkit.xlsx"
 # build_sheet(ws). The Tables sheet comes last: calculators look constants up there, users rarely need it.
 TOOL_SHEETS = (
     sheet_capability, sheet_normal, sheet_sigma, sheet_variance, sheet_confusion, sheet_distributions, sheet_means,
+    sheet_charts,
 )
 
 

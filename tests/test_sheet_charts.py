@@ -1,0 +1,224 @@
+"""Tests for bbtools.sheet_charts, evaluated by LibreOffice headless.
+
+Expected values: course worked examples from the lecturers' exercise workbooks (S06-WE03, S06-WE05, S06-WE06,
+S10-WE04a/b; Excel cached floats at rel=1e-9) with their input data read from the course files named by the
+oracle's data_ref (read-only), and Dummies examples S08-WE18 / S08-WE21 at printed precision. An independent
+Python computation for random subgroups. Printed values that disagree are strict xfails naming the source.
+"""
+from __future__ import annotations
+
+import random
+import statistics
+from collections.abc import Callable
+from typing import Any
+
+import openpyxl
+import pytest
+import xlrd
+
+from bbtools.constants import ROOT
+from bbtools.printed import agrees_at_printed_precision
+from bbtools.sheet_charts import (
+    FIRST_INDIVIDUAL,
+    FIRST_P,
+    FIRST_U,
+    IMR,
+    INPUTS,
+    LIMITS,
+    SHEET,
+    SUMMARY,
+    U_CHART,
+    X_COLUMNS,
+    subgroup_row,
+)
+
+pytestmark = pytest.mark.libreoffice
+
+Evaluate = Callable[[str, dict[str, float]], Any]
+Printed = Callable[[str, str, str, str], str]
+COURSE = ROOT / "source" / "course"
+
+
+def raw_subgroups(rows: list[list[float]]) -> dict[str, float]:
+    """Cells for subgroups given as raw values (up to 10 per subgroup)."""
+    return {f"{X_COLUMNS[j]}{subgroup_row(i)}": x for i, row in enumerate(rows) for j, x in enumerate(row)}
+
+
+def typed_subgroups(means: list[float], ranges: list[float], n: int) -> dict[str, float]:
+    """Cells for subgroups given as typed x-bar and R, with the subgroup size n."""
+    cells: dict[str, float] = {INPUTS["n_typed"]: n}
+    for i, (m, r) in enumerate(zip(means, ranges, strict=True)):
+        cells[f"L{subgroup_row(i)}"], cells[f"M{subgroup_row(i)}"] = m, r
+    return cells
+
+
+def limit(ws: Any, chart: str, which: str) -> Any:
+    """LCL, CL or UCL of one chart ('xbar_r', 'r', 'xbar_s', 's')."""
+    return ws[f"{ {'lcl': 'B', 'cl': 'C', 'ucl': 'D'}[which] }{LIMITS[chart]}"].value
+
+
+def oefening_2_data() -> list[list[float]]:
+    """__Gegevens oefeningen.xlsx 'Gegevens oefening 2'!B5:F24: 20 subgroups of 5 net weights (S06-WE03 data_ref)."""
+    ws = openpyxl.load_workbook(COURSE / "Les 4" / "__Gegevens oefeningen.xlsx", data_only=True)["Gegevens oefening 2"]
+    return [[ws.cell(r, c).value for c in range(2, 7)] for r in range(5, 25)]
+
+
+def oefening_3_data() -> tuple[list[float], list[float]]:
+    """'Gegevens oefening 3'!C2:C25 (Xbar') and E2:E25 (R') for 24 samples (S06-WE05 data_ref)."""
+    ws = openpyxl.load_workbook(COURSE / "Les 4" / "__Gegevens oefeningen.xlsx", data_only=True)["Gegevens oefening 3"]
+    return [ws.cell(r, 3).value for r in range(2, 26)], [ws.cell(r, 5).value for r in range(2, 26)]
+
+
+def rheostat_data(sheet: str) -> list[list[float]]:
+    """Rheostat Knob Data.xls sheet A3:E29: 27 subgroups of 5 (S10-WE04a/b data_ref)."""
+    book = xlrd.open_workbook(str(COURSE / "Les 5" / "20260619_ottoy_Rheostat Knob Data.xls"))
+    s = book.sheet_by_name(sheet)
+    return [s.row_values(r)[:5] for r in range(2, 29)]
+
+
+def test_oefening_2_xbar_r_chart_from_raw_data_s06_we03(oracle: dict[str, Any], evaluate: Evaluate) -> None:
+    # arrange -- bleach net weight, 20 subgroups of n = 5
+    answers = oracle["S06-WE03"]["stated_answers"]
+    ws = evaluate(SHEET, raw_subgroups(oefening_2_data()))
+    # act / assert -- Excel cached floats, rel=1e-9 (same arithmetic, same constants A2 0.577, D4 2.115)
+    assert ws[SUMMARY["xbarbar"]].value == pytest.approx(float(answers["Xbarbar (X_streep_streep)"]), rel=1e-9)
+    assert ws[SUMMARY["rbar"]].value == pytest.approx(float(answers["Rbar (R_streep)"]), rel=1e-9)
+    assert limit(ws, "xbar_r", "ucl") == pytest.approx(float(answers["UCL_xbar"]), rel=1e-9)
+    assert limit(ws, "xbar_r", "lcl") == pytest.approx(float(answers["LCL_xbar"]), rel=1e-9)
+    assert limit(ws, "r", "ucl") == pytest.approx(float(answers["UCL_R"]), rel=1e-9)
+    assert limit(ws, "r", "lcl") == float(answers["LCL_R"])
+    assert ws[SUMMARY["sigma_r"]].value == pytest.approx(float(answers["sigma_estimate_Rbar_over_d2"]), rel=1e-9)
+
+
+@pytest.mark.parametrize(("drop", "prefix"), [(None, "all_24_samples__"), (8, "revised_excl_outlier__")])
+def test_oefening_3_from_typed_means_and_ranges_s06_we05(drop: int | None, prefix: str, oracle: dict[str, Any],
+                                                         evaluate: Evaluate) -> None:
+    # arrange -- 24 samples of n = 5 given as x-bar' and R'; the revision drops sample 9 ('uitschieter ! eruit halen')
+    answers = oracle["S06-WE05"]["stated_answers"]
+    means, ranges = oefening_3_data()
+    if drop is not None:
+        del means[drop], ranges[drop]
+    ws = evaluate(SHEET, typed_subgroups(means, ranges, 5))
+    # act / assert -- Excel cached floats, rel=1e-9
+    for name, key in (("xbarbar", "Xbarbarbar"), ("rbar", "Rbar")):
+        assert ws[SUMMARY[name]].value == pytest.approx(float(answers[prefix + key]), rel=1e-9)
+    for chart, which, key in (("xbar_r", "ucl", "UCL_xbar"), ("xbar_r", "lcl", "LCL_xbar"), ("r", "ucl", "UCL_R")):
+        assert limit(ws, chart, which) == pytest.approx(float(answers[prefix + key]), rel=1e-9)
+
+
+@pytest.mark.parametrize("n", [3, 8])
+def test_constants_for_another_subgroup_size_s06_we06(n: int, oracle: dict[str, Any], evaluate: Evaluate) -> None:
+    # arrange -- oefening 4 re-monitors with n = 3 and n = 8 using the constants of Table 18
+    answers = oracle["S06-WE06"]["stated_answers"]
+    ws = evaluate(SHEET, typed_subgroups([1.0], [1.0], n))
+    # act / assert -- the constants the sheet looks up equal the ones the workbook uses
+    assert ws[f"F{LIMITS['xbar_r']}"].value == float(answers[f"n={n}__A2"])
+    assert ws[f"F{LIMITS['r']}"].value == float(answers[f"n={n}__D3"])
+    assert ws[f"G{LIMITS['r']}"].value == float(answers[f"n={n}__D4"])
+    assert ws[SUMMARY["d2"]].value == float(answers[f"n={n}__d2"])
+
+
+@pytest.mark.parametrize(("example_id", "sheet"), [("S10-WE04a", "originele data"), ("S10-WE04b", "afgeronde data")])
+def test_rheostat_xbar_limits_s10_we04(example_id: str, sheet: str, oracle: dict[str, Any], evaluate: Evaluate) -> None:
+    # arrange -- Les 5: 27 subgroups of 5, original (1/1000 inch) and rounded (1/100 inch) data
+    answers = oracle[example_id]["stated_answers"]
+    ws = evaluate(SHEET, raw_subgroups(rheostat_data(sheet)))
+    # act / assert -- Excel cached floats, rel=1e-9
+    assert limit(ws, "xbar_r", "cl") == pytest.approx(float(answers["CL_Xbar"]), rel=1e-9)
+    assert limit(ws, "xbar_r", "lcl") == pytest.approx(float(answers["LCL_Xbar"]), rel=1e-9)
+    assert limit(ws, "xbar_r", "ucl") == pytest.approx(float(answers["UCL_Xbar"]), rel=1e-9)
+    assert limit(ws, "r", "cl") == pytest.approx(float(answers["CL_R (=Rbar)"]), rel=1e-9)
+
+
+@pytest.mark.xfail(reason="Rheostat Knob Data.xls (Les 5) uses D4 = 2.114 (Six Sigma Demystified); the sheet uses "
+                          "Table 18's 2.115 like the Les 4 workbooks (decision 4)")
+@pytest.mark.parametrize(("example_id", "sheet"), [("S10-WE04a", "originele data"), ("S10-WE04b", "afgeronde data")])
+def test_rheostat_r_chart_upper_limit_s10_we04(example_id: str, sheet: str, oracle: dict[str, Any], evaluate: Evaluate) -> None:
+    # arrange
+    ws = evaluate(SHEET, raw_subgroups(rheostat_data(sheet)))
+    # act / assert
+    assert limit(ws, "r", "ucl") == pytest.approx(float(oracle[example_id]["stated_answers"]["UCL_R"]), rel=1e-9)
+
+
+def test_dummies_xbar_r_chart_s08_we18(oracle: dict[str, Any], evaluate: Evaluate) -> None:
+    # arrange -- Dummies p. 252 (Figure 10-9): X-bar 84.5, R-bar 5.75. The subgroup size is not printed;
+    #            n = 5 (A2 0.577) is the only size whose A2 reproduces the printed limits.
+    answers = oracle["S08-WE18"]["stated_answers"]
+    ws = evaluate(SHEET, typed_subgroups([answers["Xbar"]], [answers["Rbar"]], 5))
+    # act / assert -- printed precision
+    assert agrees_at_printed_precision(limit(ws, "xbar_r", "ucl"), str(answers["UCL_Xbar"]))
+    assert agrees_at_printed_precision(limit(ws, "xbar_r", "lcl"), str(answers["LCL_Xbar"]))
+    assert agrees_at_printed_precision(limit(ws, "r", "ucl"), str(answers["UCL_R"]))
+
+
+def u_chart_cells(oracle: dict[str, Any]) -> dict[str, float]:
+    """Dummies p. 256 data table: subgroup sizes and defects of 20 subgroups."""
+    rows = oracle["S08-WE21"]["given"]["data_table"]["rows"]
+    return {**{f"B{FIRST_U + i}": size for i, (_, size, _) in enumerate(rows)},
+            **{f"C{FIRST_U + i}": defects for i, (_, _, defects) in enumerate(rows)}}
+
+
+def test_dummies_u_chart_s08_we21(oracle: dict[str, Any], evaluate: Evaluate) -> None:
+    # arrange -- insurance claim forms, 20 subgroups; the chart shows the limits of the last subgroup (n = 65)
+    answers = oracle["S08-WE21"]["stated_answers"]
+    ws = evaluate(SHEET, u_chart_cells(oracle))
+    last = FIRST_U + 19
+    # act / assert -- printed 'ubar = 1.870' and '-3.0SL = 1.361'
+    assert agrees_at_printed_precision(ws[U_CHART["ubar"]].value, str(answers["ubar"]))
+    assert agrees_at_printed_precision(ws[f"E{last}"].value, str(answers["LCL_neg3.0SL"]))
+
+
+@pytest.mark.xfail(reason="Dummies p. 256 prints the upper limit as '2379' (no decimal point); computed 2.379")
+def test_dummies_u_chart_upper_limit_s08_we21(oracle: dict[str, Any], evaluate: Evaluate) -> None:
+    # arrange
+    ws = evaluate(SHEET, u_chart_cells(oracle))
+    # act / assert
+    assert agrees_at_printed_precision(ws[f"F{FIRST_U + 19}"].value, "2379")
+
+
+@pytest.mark.parametrize("seed", [1, 2])
+def test_all_charts_match_an_independent_computation(seed: int, evaluate: Evaluate) -> None:
+    # arrange -- constants as printed in Table 18 / Table A / Six Sigma Demystified for the chosen n
+    rng = random.Random(seed)
+    n = rng.choice([2, 3, 4, 5, 6, 8, 10])
+    subgroups = [[rng.gauss(50, 3) for _ in range(n)] for _ in range(rng.randint(5, 30))]
+    individuals = [rng.gauss(10, 1) for _ in range(rng.randint(5, 60))]
+    p_rows = [(rng.randint(50, 200), rng.randint(0, 20)) for _ in range(rng.randint(5, 30))]
+    u_rows = [(rng.randint(20, 80), rng.randint(20, 150)) for _ in range(rng.randint(5, 30))]
+    cells = raw_subgroups(subgroups)
+    cells |= {f"B{FIRST_INDIVIDUAL + i}": x for i, x in enumerate(individuals)}
+    cells |= {f"B{FIRST_P + i}": size for i, (size, _) in enumerate(p_rows)}
+    cells |= {f"C{FIRST_P + i}": d for i, (_, d) in enumerate(p_rows)}
+    cells |= {f"B{FIRST_U + i}": size for i, (size, _) in enumerate(u_rows)}
+    cells |= {f"C{FIRST_U + i}": c for i, (_, c) in enumerate(u_rows)}
+    ws = evaluate(SHEET, cells)
+    a2, d3, d4 = (ws[f"F{LIMITS['xbar_r']}"].value, ws[f"F{LIMITS['r']}"].value, ws[f"G{LIMITS['r']}"].value)
+    xbb = statistics.mean(statistics.mean(g) for g in subgroups)
+    rbar = statistics.mean(max(g) - min(g) for g in subgroups)
+    sbar = statistics.mean(statistics.stdev(g) for g in subgroups)
+    a3, b3, b4 = ws[f"F{LIMITS['xbar_s']}"].value, ws[f"F{LIMITS['s']}"].value, ws[f"G{LIMITS['s']}"].value
+    mrs = [abs(b - a) for a, b in zip(individuals, individuals[1:])]
+    xbar_i, mrbar = statistics.mean(individuals), statistics.mean(mrs)
+    e2 = ws[f"F{IMR['x_row']}"].value
+    pbar = sum(d for _, d in p_rows) / sum(size for size, _ in p_rows)
+    ubar = sum(c for _, c in u_rows) / sum(size for size, _ in u_rows)
+    # act / assert -- same arithmetic in Python; rel=1e-9 covers summation order
+    expected = {
+        (None, "xbar_r", "ucl"): xbb + a2 * rbar, (None, "xbar_r", "lcl"): xbb - a2 * rbar,
+        (None, "r", "ucl"): d4 * rbar, (None, "r", "lcl"): d3 * rbar,
+        (None, "xbar_s", "ucl"): xbb + a3 * sbar, (None, "s", "ucl"): b4 * sbar, (None, "s", "lcl"): b3 * sbar,
+    }
+    for (_, chart, which), target in expected.items():
+        assert limit(ws, chart, which) == pytest.approx(target, rel=1e-9, abs=1e-12), (chart, which)
+    assert ws[f"D{IMR['x_row']}"].value == pytest.approx(xbar_i + e2 * mrbar, rel=1e-9)
+    assert ws[f"D{IMR['mr_row']}"].value == pytest.approx(ws[f"G{IMR['mr_row']}"].value * mrbar, rel=1e-9)
+    for i, (size, d) in enumerate(p_rows):
+        half = 3 * (pbar * (1 - pbar) / size) ** 0.5
+        assert ws[f"F{FIRST_P + i}"].value == pytest.approx(pbar + half, rel=1e-9)
+        assert ws[f"E{FIRST_P + i}"].value == pytest.approx(max(0.0, pbar - half), rel=1e-9, abs=1e-12)
+    for i, (size, c) in enumerate(u_rows):
+        assert ws[f"F{FIRST_U + i}"].value == pytest.approx(ubar + 3 * (ubar / size) ** 0.5, rel=1e-9)
+    for i, g in enumerate(subgroups):  # every flag says what the limits say
+        m, flag = statistics.mean(g), ws[f"S{subgroup_row(i)}"].value
+        high, low = limit(ws, "xbar_r", "ucl"), limit(ws, "xbar_r", "lcl")
+        assert (flag or "") == ("above UCL" if m > high else "below LCL" if m < low else "")
