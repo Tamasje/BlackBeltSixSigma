@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from openpyxl import Workbook
 
-from bbtools.constants import TABLE_SOURCES, load_all
+from bbtools.constants import TABLE_SOURCES, load_all, load_average_range_table
 from bbtools.printed import decimals_printed, parse_printed
 from bbtools.sheet_tables import SHEET, build_tables_sheet, disagreeing_cells, excel_name, lookup_formula
 from bbtools.xlsx_style import FLAG_FILL
@@ -89,3 +89,27 @@ def _is_number(text: str) -> bool:
     except ValueError:
         return False
     return True
+
+
+def test_msa_table_grids_hold_every_printed_value() -> None:
+    # arrange -- tabel MSA.pdf: each printed cell 'nu / d2*' is split into two grids
+    wb = build()
+    ws = wb[SHEET]
+    table = load_average_range_table()
+
+    def origin(name: str) -> tuple[int, int]:
+        """(row, column) of the top-left cell of a workbook name."""
+        ref = wb.defined_names[name].attr_text.split("!")[1].split(":")[0].replace("$", "")
+        column = "".join(ch for ch in ref if ch.isalpha())
+        return int(ref[len(column):]), ws[f"{column}1"].column
+
+    # act / assert -- every value numeric, equal to the printed string, with the printed decimals
+    for name, grid in (("MSA_d2star", table.d2_star), ("MSA_nu", table.nu)):
+        row0, col0 = origin(name)
+        for i, printed_row in enumerate(grid):
+            for j, text in enumerate(printed_row):
+                cell = ws.cell(row=row0 + i, column=col0 + j)
+                assert cell.value == float(parse_printed(text)), (name, table.g[i], table.m[j])
+    row0, col0 = origin("MSA_d2")
+    assert [ws.cell(row=row0, column=col0 + j).value for j in range(len(table.m))] == [float(v) for v in table.d2]
+    assert table.m == tuple(range(2, 21)) and table.g == tuple(range(1, 21))

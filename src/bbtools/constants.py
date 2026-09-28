@@ -124,3 +124,51 @@ def load_table(source: TableSource, constants_dir: Path = CONSTANTS_DIR) -> Cons
 def load_all(constants_dir: Path = CONSTANTS_DIR) -> tuple[ConstantTable, ...]:
     """Every table listed in TABLE_SOURCES, in display order."""
     return tuple(load_table(source, constants_dir) for source in TABLE_SOURCES)
+
+
+AVERAGE_RANGE_STEM = "S10_values_associated_with_the_distribution_of_the_average_range"
+
+
+@dataclass(frozen=True)
+class AverageRangeTable:
+    """'Values associated with the Distribution of the Average Range' (tabel MSA.pdf p. 1, from the AIAG MSA manual).
+
+    Each printed cell holds two numbers, 'ν/d2*', for g subgroups (rows) of size m (columns); the last printed row
+    holds d2 (g → ∞) and the constant difference cd. All values stay the printed strings.
+    """
+
+    title: str
+    source_file: str
+    source_page: int
+    m: tuple[int, ...]                       # subgroup sizes (columns), 2 .. 20
+    g: tuple[int, ...]                       # numbers of subgroups (rows), 1 .. 20
+    nu: tuple[tuple[str, ...], ...]          # [g][m] degrees of freedom
+    d2_star: tuple[tuple[str, ...], ...]     # [g][m] d2*
+    d2: tuple[str, ...]                      # [m] d2 for g → ∞
+    cd: tuple[str, ...]                      # [m] constant difference of ν
+
+
+def load_average_range_table(constants_dir: Path = CONSTANTS_DIR) -> AverageRangeTable:
+    """Read the MSA d2* table CSV and split every 'ν/d2*' cell into its two printed numbers."""
+    path = constants_dir / f"{AVERAGE_RANGE_STEM}.csv"
+    with path.open(encoding="utf-8", newline="") as fh:
+        rows = list(csv.reader(fh))
+    header, body = rows[0], [row for row in rows[1:] if row]
+    width = len(header) - len(PROVENANCE_COLUMNS)
+    m = tuple(int(label) for label in header[1:width])
+    grid = [row for row in body if row[0].strip().isdigit()]
+    last = next(row for row in body if row[0].startswith("d2"))
+
+    def split(cell: str) -> tuple[str, str]:
+        first, second = cell.split("/")
+        return first.strip(), second.strip()
+
+    pairs = [[split(cell) for cell in row[1:width]] for row in grid]
+    d2_cd = [split(cell) for cell in last[1:width]]
+    return AverageRangeTable(
+        title=body[0][width + 2], source_file=body[0][width], source_page=int(body[0][width + 1]),
+        m=m, g=tuple(int(row[0]) for row in grid),
+        nu=tuple(tuple(p[0] for p in row) for row in pairs),
+        d2_star=tuple(tuple(p[1] for p in row) for row in pairs),
+        d2=tuple(p[0] for p in d2_cd), cd=tuple(p[1] for p in d2_cd),
+    )

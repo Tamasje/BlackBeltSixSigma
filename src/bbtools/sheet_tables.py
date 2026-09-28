@@ -13,7 +13,7 @@ from openpyxl.workbook.defined_name import DefinedName
 from openpyxl.workbook.workbook import Workbook
 from openpyxl.worksheet.worksheet import Worksheet
 
-from bbtools.constants import USED_TABLE, ConstantTable
+from bbtools.constants import USED_TABLE, AverageRangeTable, ConstantTable, load_average_range_table
 from bbtools.printed import decimals_printed, parse_printed, rounding_consistent
 from bbtools.readme import SheetDoc
 from bbtools.xlsx_style import BOX, FLAG_FILL, HeaderBlock, Status, column_titles, font, label, write_header
@@ -21,9 +21,9 @@ from bbtools.xlsx_style import BOX, FLAG_FILL, HeaderBlock, Status, column_title
 SHEET = "Tables"
 
 HEADER = HeaderBlock(
-    tool="Tables: control-chart and capability constants",
+    tool="Tables: control-chart, capability and MSA constants",
     source="source/course/Les 4/___4.1 tabellen SPC.pdf p. 1-2; Control charts - constants.pdf p. 1-2; "
-           "Six Sigma For Dummies.pdf p. 250",
+           "Six Sigma For Dummies.pdf p. 250; Les 5/20260619_ottoy_tabel MSA.pdf p. 1",
     convention="Decision 4: calculators use Table 18; c4 and d3 from Table A; A3, E2, B5, B6 from Six Sigma "
                "Demystified. Every source is shown in full, as printed.",
     status=Status.VERIFIED,
@@ -51,6 +51,16 @@ def lookup_formula(symbol: str, n_ref: str) -> str:
     """Excel expression (no leading '=') returning `symbol` for subgroup size `n_ref`, from the used table."""
     key = USED_TABLE[symbol]
     return f"INDEX({excel_name(key, symbol)},MATCH({n_ref},{key}_n,0))"
+
+
+def d2_star_formula(g_ref: str, m_ref: str) -> str:
+    """Excel expression for d2* of g subgroups of size m (tabel MSA.pdf)."""
+    return f"INDEX(MSA_d2star,MATCH({g_ref},MSA_g,0),MATCH({m_ref},MSA_m,0))"
+
+
+def msa_d2_formula(m_ref: str) -> str:
+    """Excel expression for d2 (g → ∞) of subgroup size m, from the last row of tabel MSA.pdf."""
+    return f"INDEX(MSA_d2,1,MATCH({m_ref},MSA_m,0))"
 
 
 def disagreeing_cells(tables: tuple[ConstantTable, ...]) -> dict[tuple[str, str, str], list[str]]:
@@ -129,6 +139,44 @@ def _define(wb: Workbook, name: str, column: int, first: int, last: int) -> None
     wb.defined_names[name] = DefinedName(name, attr_text=f"{SHEET}!${letter}${first}:${letter}${last}")
 
 
+def _define_area(wb: Workbook, name: str, top_left: tuple[int, int], bottom_right: tuple[int, int]) -> None:
+    """Workbook-level name for a rectangular range (row, column) on the Tables sheet."""
+    (r1, c1), (r2, c2) = top_left, bottom_right
+    area = f"${get_column_letter(c1)}${r1}:${get_column_letter(c2)}${r2}"
+    wb.defined_names[name] = DefinedName(name, attr_text=f"{SHEET}!{area}")
+
+
+def _write_average_range(ws: Worksheet, wb: Workbook, top: int, table: AverageRangeTable) -> int:
+    """The MSA d2* table as two grids (d2* and ν, rows g, columns m) plus the d2 and cd rows; returns the next row."""
+    label(ws, top, 1, table.title, bold=True)
+    label(ws, top + 1, 1, f"Source: {table.source_file} p. {table.source_page}. Printed there as from: Measurement "
+                          f"Systems Analysis Reference Manual (DaimlerChrysler, Ford, GM), 2002.", italic=True)
+    label(ws, top + 2, 1, "USED by the Gage R&R sheet (K1 = 1/d2 with g → ∞; K2, K3 = 1/d2* with g = 1). Each printed "
+                          "cell 'ν / d2*' is split into the two grids below.", bold=True)
+    row = top + 3
+    for grid_name, values, fmt_source in (("d2*", table.d2_star, "d2_star"), ("ν (degrees of freedom)", table.nu, "nu")):
+        column_titles(ws, row, [f"{grid_name}: g \\ m"] + [str(m) for m in table.m])
+        for column, m in enumerate(table.m, start=2):
+            ws.cell(row=row, column=column).value = m  # numeric, so MATCH finds it
+        for offset, (g, printed) in enumerate(zip(table.g, values, strict=True), start=1):
+            ws.cell(row=row + offset, column=1, value=g).border = BOX
+            for column, text in enumerate(printed, start=2):
+                _write_cell(ws, row + offset, column, text)
+        name = "MSA_d2star" if fmt_source == "d2_star" else "MSA_nu"
+        _define_area(wb, name, (row + 1, 2), (row + len(table.g), 1 + len(table.m)))
+        if fmt_source == "d2_star":
+            _define_area(wb, "MSA_m", (row, 2), (row, 1 + len(table.m)))
+            _define(wb, "MSA_g", 1, row + 1, row + len(table.g))
+        row += len(table.g) + 2
+    for text, values, name in (("d2 (g → ∞)", table.d2, "MSA_d2"), ("cd", table.cd, "MSA_cd")):
+        label(ws, row, 1, text, bold=True)
+        for column, printed in enumerate(values, start=2):
+            _write_cell(ws, row, column, printed)
+        _define_area(wb, name, (row, 2), (row, 1 + len(table.m)))
+        row += 1
+    return row + 1
+
+
 def build_tables_sheet(wb: Workbook, tables: tuple[ConstantTable, ...]) -> Worksheet:
     """Add the Tables sheet to `wb` and define the lookup names the calculators use."""
     ws = wb.create_sheet(SHEET)
@@ -141,6 +189,7 @@ def build_tables_sheet(wb: Workbook, tables: tuple[ConstantTable, ...]) -> Works
     row = 10
     for table in tables:
         row = _write_table(ws, wb, row, table, flagged)
+    _write_average_range(ws, wb, row, load_average_range_table())
     ws.column_dimensions["A"].width = 16
     for column in range(2, 20):
         ws.column_dimensions[get_column_letter(column)].width = 9
