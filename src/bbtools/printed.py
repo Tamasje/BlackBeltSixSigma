@@ -63,9 +63,15 @@ def resolution_exponent(text: str, thousands: bool = False) -> int:
 def round_half_up(value: float | int | Decimal, exponent: int) -> Decimal:
     """Round to 10**exponent the way a person rounds (half away from zero), not banker's rounding.
 
-    Spreadsheet engines return exact results such as 35 as int, so ints are accepted like floats.
+    Spreadsheet engines return exact results such as 35 as int, and scipy returns numpy floats whose repr
+    ('np.float64(3.4)') Decimal cannot read, so every non-Decimal goes through int or float explicitly.
     """
-    exact = value if isinstance(value, Decimal) else Decimal(repr(value))
+    if isinstance(value, Decimal):
+        exact = value
+    elif isinstance(value, int):
+        exact = Decimal(value)
+    else:
+        exact = Decimal(repr(float(value)))
     return exact.quantize(Decimal(1).scaleb(exponent), rounding=ROUND_HALF_UP)
 
 

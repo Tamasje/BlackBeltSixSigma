@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from decimal import Decimal
 
+import numpy as np
 import pytest
 
 from bbtools.printed import (
@@ -60,6 +61,7 @@ def test_precision_of_printed_numbers(text: str, thousands: bool, decimals: int,
     (233.0, "200", True),         # printed to one significant figure
     (0.8525, "0.853", True),      # half-up, not banker's rounding
     (35, "35", True),             # LibreOffice returns exact results as int
+    (np.float64(3.3977), "3.4", True),  # scipy returns numpy floats
 ])
 def test_agrees_at_printed_precision(computed: float | int, text: str, expected: bool) -> None:
     # act / assert
