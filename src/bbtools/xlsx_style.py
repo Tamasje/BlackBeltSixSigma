@@ -96,6 +96,35 @@ def output_cell(ws: Worksheet, coordinate: str, formula: str, number_format: str
     cell.number_format = number_format
 
 
+def input_row(ws: Worksheet, row: int, text: str, note: str = "", number_format: str = "General") -> str:
+    """Label in A, yellow input in B, italic note in C; returns the input's coordinate."""
+    label(ws, row, 1, text)
+    input_cell(ws, f"B{row}", number_format)
+    if note:
+        label(ws, row, 3, note, italic=True)
+    return f"B{row}"
+
+
+def result_row(ws: Worksheet, row: int, text: str, formula: str, number_format: str = "General",
+               source: str = "") -> str:
+    """Label in A, green result in B, italic course source in C; returns the result's coordinate."""
+    label(ws, row, 1, text)
+    output_cell(ws, f"B{row}", formula, number_format)
+    if source:
+        label(ws, row, 3, source, italic=True)
+    return f"B{row}"
+
+
+def constant_row(ws: Worksheet, row: int, text: str, value: float, source: str) -> str:
+    """A course constant in its own boxed cell (not an input, not a result), with its source."""
+    label(ws, row, 1, text)
+    cell = ws.cell(row=row, column=2, value=value)
+    cell.font = font(bold=True)
+    cell.border = BOX
+    label(ws, row, 3, source, italic=True)
+    return f"B{row}"
+
+
 def column_titles(ws: Worksheet, row: int, titles: list[str], first_column: int = 1) -> None:
     """Bold, shaded, wrapped column titles for a result table."""
     for offset, title in enumerate(titles):

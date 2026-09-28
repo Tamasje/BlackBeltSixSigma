@@ -244,7 +244,7 @@ def _constant(ws: Worksheet, row: int, text: str, value: float, source: str) -> 
     label(ws, row, 3, source, italic=True)
 
 
-def build_capability_sheet(ws: Worksheet) -> None:
+def build_sheet(ws: Worksheet) -> None:
     """Fill an empty worksheet with the capability calculator."""
     write_header(ws, HEADER)
     _inputs(ws)

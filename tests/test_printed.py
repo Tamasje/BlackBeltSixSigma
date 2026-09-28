@@ -59,8 +59,9 @@ def test_precision_of_printed_numbers(text: str, thousands: bool, decimals: int,
     (1.1666667, "1,166", False),  # the slide truncates; 1.16667 rounds to 1,167
     (233.0, "200", True),         # printed to one significant figure
     (0.8525, "0.853", True),      # half-up, not banker's rounding
+    (35, "35", True),             # LibreOffice returns exact results as int
 ])
-def test_agrees_at_printed_precision(computed: float, text: str, expected: bool) -> None:
+def test_agrees_at_printed_precision(computed: float | int, text: str, expected: bool) -> None:
     # act / assert
     assert agrees_at_printed_precision(computed, text) is expected
 

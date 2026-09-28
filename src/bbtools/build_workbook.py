@@ -1,4 +1,4 @@
-"""Build build/bb_toolkit.xlsx: the Tables sheet plus one sheet per approved tool.
+"""Build build/bb_toolkit.xlsx: one sheet per approved tool, then the Tables sheet.
 
 The delivered file is exactly what openpyxl writes (formulas, no cached values), flagged so Excel
 recalculates everything when it opens. LibreOffice recalculates a *copy* to prove every formula
@@ -15,22 +15,26 @@ from pathlib import Path
 from openpyxl import Workbook
 from openpyxl.workbook.properties import CalcProperties
 
-from bbtools import sheet_capability as capability
-from bbtools import sheet_tables as tables
+from bbtools import sheet_capability, sheet_normal, sheet_tables
 from bbtools.constants import ROOT, load_all
 from bbtools.readme import write_readme
 from bbtools.recalc import RecalcReport, recalc
 
 OUTPUT = ROOT / "build" / "bb_toolkit.xlsx"
 
+# Calculator sheets in approved order (inventory/approved_tools.md). Each module exposes SHEET, HEADER, DOC and
+# build_sheet(ws). The Tables sheet comes last: calculators look constants up there, users rarely need it.
+TOOL_SHEETS = (sheet_capability, sheet_normal)
+
 
 def build_workbook() -> Workbook:
-    """Assemble the workbook in memory: calculators first, Tables last (they are looked up, not read)."""
+    """Assemble the workbook in memory: calculators in approved order, then Tables."""
     wb = Workbook()
-    first = wb.active
-    first.title = capability.SHEET
-    tables.build_tables_sheet(wb, load_all())
-    capability.build_capability_sheet(first)
+    wb.remove(wb.active)
+    sheets = [(module, wb.create_sheet(module.SHEET)) for module in TOOL_SHEETS]
+    sheet_tables.build_tables_sheet(wb, load_all())  # defines the lookup names the calculators use
+    for module, ws in sheets:
+        module.build_sheet(ws)
     wb.calculation = CalcProperties(fullCalcOnLoad=True)  # Excel computes every formula on open
     return wb
 
@@ -57,7 +61,7 @@ def main() -> None:
     print(f"{path}: {report.total_formulas} formulas, {report.total_errors} errors {report.errors or ''}")
     if report.total_errors:
         raise SystemExit(1)
-    readme = write_readme([(capability.HEADER, capability.DOC), (tables.HEADER, tables.DOC)])
+    readme = write_readme([(m.HEADER, m.DOC) for m in (*TOOL_SHEETS, sheet_tables)])
     print(f"{readme}: written")
 
 

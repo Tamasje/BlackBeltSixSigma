@@ -60,13 +60,16 @@ def resolution_exponent(text: str, thousands: bool = False) -> int:
     return len(digits) - len(digits.rstrip("0"))
 
 
-def round_half_up(value: float | Decimal, exponent: int) -> Decimal:
-    """Round to 10**exponent the way a person rounds (half away from zero), not banker's rounding."""
-    exact = Decimal(repr(value)) if isinstance(value, float) else value
+def round_half_up(value: float | int | Decimal, exponent: int) -> Decimal:
+    """Round to 10**exponent the way a person rounds (half away from zero), not banker's rounding.
+
+    Spreadsheet engines return exact results such as 35 as int, so ints are accepted like floats.
+    """
+    exact = value if isinstance(value, Decimal) else Decimal(repr(value))
     return exact.quantize(Decimal(1).scaleb(exponent), rounding=ROUND_HALF_UP)
 
 
-def agrees_at_printed_precision(computed: float, printed: str, thousands: bool = False) -> bool:
+def agrees_at_printed_precision(computed: float | int, printed: str, thousands: bool = False) -> bool:
     """True if `computed`, rounded half-up to the printed number's last digit, equals the printed number.
 
     This is convention decision 10 (inventory/conventions.md): '0,67' accepts 0.6667, '1,166' rejects 1.16667.

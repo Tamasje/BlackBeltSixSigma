@@ -6,13 +6,15 @@ their definition by more than one unit of their last printed digit, so any chang
 """
 from __future__ import annotations
 
+import csv
 import math
 
 import pytest
 from scipy import integrate, special
 
 from bbtools.constant_definitions import c2, c4, d2, d3, definition, differences
-from bbtools.constants import load_all
+from bbtools.constants import CONSTANTS_DIR, load_all
+from bbtools.printed import agrees_at_printed_precision
 
 # Printed values more than one unit of their last digit away from the definition: (table, symbol, n, printed).
 # Found 2026-09-28; reported to the user at the sheet-1 STOP. Likely causes, not verdicts:
@@ -72,6 +74,26 @@ def test_a0_relation_printed_under_table_18_holds_for_the_definition() -> None:
     # arrange -- footnote of Table 18 (___4.1 tabellen SPC.pdf p. 2): 'The relation A0 = 3 sqrt(n) / d2 holds'
     # act / assert
     assert definition("A0", 4) == pytest.approx(3 * 2 / d2(4))
+
+
+def test_course_z_table_matches_the_standard_normal_cdf() -> None:
+    # arrange -- ___1.1 Ztable.pdf p. 1-2, 70 rows x 10 columns, 4 printed decimals ('.0003')
+    mismatches, compared = [], 0
+    for stem in ("S06_standard_normal_probabilities_table_entry_area_to_the_left_o",
+                 "S06_standard_normal_probabilities_table_entry_area_to_the_left_o_2"):
+        with (CONSTANTS_DIR / f"{stem}.csv").open(encoding="utf-8", newline="") as fh:
+            for record in csv.DictReader(fh):
+                row = float(record["z"])
+                negative = record["z"].startswith("-")
+                for column in [f".0{d}" for d in range(10)]:
+                    z = row - float(column) if negative else row + float(column)
+                    # act
+                    compared += 1
+                    if not agrees_at_printed_precision(float(special.ndtr(z)), record[column]):
+                        mismatches.append((z, record[column]))
+    # assert
+    assert compared == 700
+    assert mismatches == []
 
 
 def test_printed_constants_match_their_definitions_except_known_differences() -> None:
