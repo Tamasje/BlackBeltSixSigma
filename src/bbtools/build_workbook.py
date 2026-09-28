@@ -19,6 +19,7 @@ from bbtools import (
     sheet_capability,
     sheet_confusion,
     sheet_distributions,
+    sheet_means,
     sheet_normal,
     sheet_sigma,
     sheet_tables,
@@ -32,7 +33,9 @@ OUTPUT = ROOT / "build" / "bb_toolkit.xlsx"
 
 # Calculator sheets in approved order (inventory/approved_tools.md). Each module exposes SHEET, HEADER, DOC and
 # build_sheet(ws). The Tables sheet comes last: calculators look constants up there, users rarely need it.
-TOOL_SHEETS = (sheet_capability, sheet_normal, sheet_sigma, sheet_variance, sheet_confusion, sheet_distributions)
+TOOL_SHEETS = (
+    sheet_capability, sheet_normal, sheet_sigma, sheet_variance, sheet_confusion, sheet_distributions, sheet_means,
+)
 
 
 def build_workbook() -> Workbook:
