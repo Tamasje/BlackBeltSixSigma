@@ -2,8 +2,8 @@
 
 Expected values: course worked examples S04-WE02 (Acceptance Sampling.xlsm 'defective probabilities'),
 S03-WE19 ('sampling distribution d') and S03-WE21 ('OC-curve (hypergeometric)'), Excel cached floats compared
-with rel=1e-9; scipy.stats for every block with random inputs (the only check for Bernoulli, Poisson,
-exponential and uniform, which have no course worked example).
+with rel=1e-9; S02-WE09 (Naert Les 1 p. 10, Poisson); scipy.stats for every block with random inputs (the only
+check for Bernoulli, exponential and uniform, which have no course worked example).
 """
 from __future__ import annotations
 
@@ -19,6 +19,7 @@ from bbtools.sheet_distributions import INPUTS, RESULTS, SHEET
 pytestmark = pytest.mark.libreoffice
 
 Evaluate = Callable[[str, dict[str, float]], Any]
+Printed = Callable[[str, str, str, str], str]
 
 
 def cells(values: dict[str, float]) -> dict[str, float]:
@@ -61,6 +62,17 @@ def test_hypergeometric_oc_values_s03_we21(n: int, k: int, key: str, oracle: dic
     ws = evaluate(SHEET, cells({"hyp_N": 10000, "hyp_D": 200, "hyp_n": n, "hyp_k": k}))
     # act / assert -- Excel cached float, rel=1e-9
     assert value(ws, "hyp_le") == pytest.approx(float(oracle["S03-WE21"]["stated_answers"][key]), rel=1e-9)
+
+
+def test_poisson_customers_per_minute_s02_we09(oracle: dict[str, Any], printed: Printed, evaluate: Evaluate) -> None:
+    # arrange -- Naert Les 1 p. 9-10: arrivals ~ Poisson(2.959); 'minder dan 2% kans dat er meer dan 7 klanten
+    # per minuut arriveren'. More than 7 = at least 8.
+    given = oracle["S02-WE09"]["given"]
+    bound = printed("S02-WE09", "stated_answers", "P(meer dan 7 klanten per minuut)", "2%")
+    ws = evaluate(SHEET, cells({"poi_lambda": float(given["lambda"]), "poi_k": 8}))
+    # act / assert -- the stated answer is an upper bound
+    assert value(ws, "poi_ge") < float(bound.rstrip("%")) / 100
+    assert value(ws, "poi_ge") == pytest.approx(stats.poisson.sf(7, 2.959), rel=1e-9)
 
 
 @pytest.mark.parametrize("seed", [1, 2, 3])

@@ -335,9 +335,6 @@ def test_etch_rate_effects_s05_we09(evaluate: Evaluate) -> None:
         assert agrees_at_printed_precision(effect(ws, row["Effect"], "D"), row["Estimate"]), row["Effect"]
 
 
-ETCH_P_TRANSCRIBED = {"C", "A:B"}  # oracle 0.757016 and 0.741315; the slide prints 0.757069 and 0.741351
-
-
 def test_etch_rate_pooled_anova_s05_we09(oracle: dict[str, Any], evaluate: Evaluate) -> None:
     # arrange -- DOE p. 77: model (A+B+C+D)^2, the 3- and 4-factor interactions pooled into the error (df 5)
     terms = anova_terms(oracle["S05-WE09"]["stated_answers"]["pooled_model_(A+B+C+D)^2_R_ANOVA"])
@@ -351,23 +348,12 @@ def test_etch_rate_pooled_anova_s05_we09(oracle: dict[str, Any], evaluate: Evalu
         assert agrees_at_printed_precision(effect(ws, name, "H"), printed["F"]), term
         if term == "D":
             assert agrees_scientific(effect(ws, name, "I"), printed["P"])
-        elif term not in ETCH_P_TRANSCRIBED:
+        else:
             assert agrees_at_printed_precision(effect(ws, name, "I"), printed["P"]), term
     assert value(ws, "df_pool") == int(terms["Residuals"]["df"]) and value(ws, "df_pe") == 0
     assert agrees_at_printed_precision(value(ws, "ss_pool"), terms["Residuals"]["SS"])
     assert agrees_at_printed_precision(value(ws, "mse"), terms["Residuals"]["MS"])
     assert effect(ws, "ABCD", "G") == "pooled into error" and effect(ws, "ABCD", "H") is None
-
-
-@pytest.mark.parametrize("term", sorted(ETCH_P_TRANSCRIBED))
-@pytest.mark.xfail(reason="inventory transcription of DOE p. 77: the oracle (and the constants CSV) give P 0.757016 "
-                          "(C) and 0.741315 (A:B); the slide prints 0.757069 and 0.741351, which the sheet gives")
-def test_etch_rate_transcribed_p_values_s05_we09(term: str, oracle: dict[str, Any], evaluate: Evaluate) -> None:
-    # arrange
-    terms = anova_terms(oracle["S05-WE09"]["stated_answers"]["pooled_model_(A+B+C+D)^2_R_ANOVA"])
-    ws = evaluate(SHEET, factorial_cells(4, etch_rate(), pool=3))
-    # act / assert
-    assert agrees_at_printed_precision(effect(ws, term.replace(":", ""), "I"), terms[term]["P"])
 
 
 def test_ice_cream_effects_and_coefficients_s08_we16(oracle: dict[str, Any], printed: Printed,

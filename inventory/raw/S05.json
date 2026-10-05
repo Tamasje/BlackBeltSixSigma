@@ -2066,7 +2066,7 @@
           "218",
           "218",
           "0.1068",
-          "0.757016"
+          "0.757069"
         ],
         [
           "D",
@@ -2082,7 +2082,7 @@
           "248",
           "248",
           "0.1218",
-          "0.741315"
+          "0.741351"
         ],
         [
           "A:C",
@@ -3648,7 +3648,7 @@
       },
       "stated_answers": {
         "full_saturated_model_R_output": "all effects listed with 0 residual df, F values NaN (model uses all df, no error term left)",
-        "pooled_model_(A+B+C+D)^2_R_ANOVA": "A: F=20.2765 P=0.006382; B: F=0.0052 P=0.945391; C: F=0.1068 P=0.757016; D: F=183.9879 P=3.903e-05; A:B F=0.1218 P=0.741315; A:C F=1.2148 P=0.320582; A:D F=46.3357 P=0.001042; B:C F=3.7794 P=0.109498; B:D F=0.0008 P=0.978978; C:D F=0.0089 P=0.928641; Residuals df=5 SS=10187 MS=2037",
+        "pooled_model_(A+B+C+D)^2_R_ANOVA": "A: F=20.2765 P=0.006382; B: F=0.0052 P=0.945391; C: F=0.1068 P=0.757069; D: F=183.9879 P=3.903e-05; A:B F=0.1218 P=0.741351; A:C F=1.2148 P=0.320582; A:D F=46.3357 P=0.001042; B:C F=3.7794 P=0.109498; B:D F=0.0008 P=0.978978; C:D F=0.0089 P=0.928641; Residuals df=5 SS=10187 MS=2037",
         "conclusion": "A, D and A:D interaction are significant; higher-order interactions pooled into error term"
       },
       "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",

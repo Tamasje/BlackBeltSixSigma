@@ -6,7 +6,9 @@ p. 12); hypergeometric sampling distribution of defectives in a sample (p. 16; T
 'OC-curve (hypergeometric)'); Poisson for counts, exponential for waiting times (Naert Les 1 p. 7-9);
 uniform and exponential densities (Acceptance Sampling.xlsm 'distributions'). Excel functions as the course's
 workbooks use them: BINOM.DIST, HYPGEOM.DIST, POISSON.DIST, EXPON.DIST.
-Only the binomial and hypergeometric blocks have course worked examples; the others are marked as such.
+The course prints no general formula for the Bernoulli, Poisson, exponential and uniform blocks (it only names
+these distributions); they use the standard definitions, labelled as such (decision 20). Worked examples: binomial,
+hypergeometric and Poisson (Naert Les 1 p. 10).
 """
 from __future__ import annotations
 
@@ -17,7 +19,10 @@ from bbtools.readme import SheetDoc
 from bbtools.xlsx_style import HeaderBlock, Status, font, input_row, result_row, section_title, write_header
 
 SHEET = "Distributions"
-NO_EXAMPLE = "no course worked example for this block (checked by the stats-auditor, build/README.md)"
+STANDARD = ("standard definition, not printed in the course (decision 20); no course worked example "
+            "(checked by the stats-auditor, build/README.md)")
+STANDARD_POISSON = ("standard definition, not printed in the course (decision 20); course example "
+                    "Naert Les 1 p. 9-10 (λ = 2.959) tested")
 
 HEADER = HeaderBlock(
     tool="Distributions: E[X], Var[X] and probabilities (Bernoulli, binomial, hypergeometric, Poisson, exponential, uniform)",
@@ -27,7 +32,8 @@ HEADER = HeaderBlock(
                "P(X ≥ k) = 1 − P(X ≤ k − 1).",
     status=Status.VERIFIED,
     status_detail="binomial and hypergeometric blocks tested against course worked examples S04-WE02, S03-WE19, "
-                  "S03-WE21; Bernoulli, Poisson, exponential and uniform blocks have no course example (audited)",
+                  "S03-WE21, the Poisson block against S02-WE09; Bernoulli, Poisson, exponential and uniform use "
+                  "standard definitions not printed in the course (decision 20; audited)",
 )
 
 DOC = SheetDoc(
@@ -39,7 +45,7 @@ DOC = SheetDoc(
           "for one input agree with an independent computation. But the cited pages print no general formula for "
           "these four families (Naert Les 1 p. 7-9 only names Poisson for counts and exponential for waiting "
           "times; Acceptance Sampling.xlsm 'distributions' evaluates EXPON.DIST with a rate and a uniform density "
-          "on [1, 2]); the sheet uses the standard definitions. Open question for the user.",
+          "on [1, 2]); the sheet uses the standard definitions, labelled as such (decision 20).",
     disagreements=(),
 )
 
@@ -63,9 +69,9 @@ NUMBER = "0.000000"
 PROBABILITY = "0.000000%"
 
 
-def _note(ws: Worksheet, row: int) -> None:
-    """Red note next to a section title: this block has no course worked example."""
-    ws.cell(row=row, column=4, value=NO_EXAMPLE).font = font(italic=True, color="C00000")
+def _note(ws: Worksheet, row: int, text: str = STANDARD) -> None:
+    """Red note next to a section title: this block's formulas are standard definitions, not course formulas."""
+    ws.cell(row=row, column=4, value=text).font = font(italic=True, color="C00000")
 
 
 def _bernoulli_binomial(ws: Worksheet) -> None:
@@ -116,12 +122,12 @@ def _hypergeometric(ws: Worksheet) -> None:
 def _poisson_exponential_uniform(ws: Worksheet) -> None:
     """Sections 4-7."""
     section_title(ws, 35, "4. Poisson: number of events in a fixed interval (e.g. orders per week)")
-    _note(ws, 35)
-    input_row(ws, 36, "λ = mean number of events per interval", "Naert Les 1 p. 9: λ = 2.959 customers / minute")
+    _note(ws, 35, STANDARD_POISSON)
+    input_row(ws, 36, "λ = mean number of events per interval", "Naert Les 1 p. 9-10: λ = 2.959 customers / minute")
     input_row(ws, 37, "k (for the probabilities)")
     ok = "AND(ISNUMBER(B36),B36>0)"
     okk = f"AND({ok},ISNUMBER(B37))"
-    result_row(ws, 38, "E[X] = λ", f'=IF({ok},B36,"")', NUMBER, "Naert Les 1 p. 7-9 (Poisson for counts)")
+    result_row(ws, 38, "E[X] = λ", f'=IF({ok},B36,"")', NUMBER, "Naert Les 1 p. 7-9 names Poisson for counts")
     result_row(ws, 39, "Var[X] = λ", f'=IF({ok},B36,"")', NUMBER)
     result_row(ws, 40, "P(X = k)", f'=IF({okk},_xlfn.POISSON.DIST(B37,B36,FALSE),"")', PROBABILITY,
                "Excel POISSON.DIST(k; λ; ONWAAR)")
@@ -134,10 +140,10 @@ def _poisson_exponential_uniform(ws: Worksheet) -> None:
     input_row(ws, 46, "t (for the probabilities)")
     ok = "AND(ISNUMBER(B45),B45>0)"
     okt = f"AND({ok},ISNUMBER(B46))"
-    result_row(ws, 47, "E[T] = 1 / λ", f'=IF({ok},1/B45,"")', NUMBER, "Naert Les 1 p. 7 (exponential for waiting times)")
+    result_row(ws, 47, "E[T] = 1 / λ", f'=IF({ok},1/B45,"")', NUMBER, "Naert Les 1 p. 7 names exponential for waiting times")
     result_row(ws, 48, "Var[T] = 1 / λ²", f'=IF({ok},1/B45^2,"")', "0.0000000000")
     result_row(ws, 49, "P(T ≤ t) = 1 − e^(−λt)", f'=IF({okt},_xlfn.EXPON.DIST(B46,B45,TRUE),"")', PROBABILITY,
-               "Excel EXPON.DIST(t; λ; WAAR) (Acceptance Sampling.xlsm 'distributions')")
+               "Excel EXPON.DIST(t; λ; WAAR); the course workbook uses EXPON.DIST with a rate (Acceptance Sampling.xlsm)")
     result_row(ws, 50, "P(T > t) = e^(−λt)", f'=IF({okt},EXP(-B45*B46),"")', PROBABILITY)
 
     section_title(ws, 52, "6. Uniform on [a, b]")
@@ -146,7 +152,7 @@ def _poisson_exponential_uniform(ws: Worksheet) -> None:
     input_row(ws, 54, "b (upper end)")
     input_row(ws, 55, "x (for the probability)")
     ok = "AND(ISNUMBER(B53),ISNUMBER(B54),B54>B53)"
-    result_row(ws, 56, "E[X] = (a + b) / 2", f'=IF({ok},(B53+B54)/2,"")', NUMBER, "Acceptance Sampling.xlsm 'distributions'")
+    result_row(ws, 56, "E[X] = (a + b) / 2", f'=IF({ok},(B53+B54)/2,"")', NUMBER, "Acceptance Sampling.xlsm 'distributions' (uniform density on [1, 2])")
     result_row(ws, 57, "Var[X] = (b − a)² / 12", f'=IF({ok},(B54-B53)^2/12,"")', NUMBER)
     result_row(ws, 58, "P(X ≤ x)", f'=IF(AND({ok},ISNUMBER(B55)),MIN(1,MAX(0,(B55-B53)/(B54-B53))),"")', PROBABILITY)
 

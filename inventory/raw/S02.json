@@ -230,6 +230,23 @@
       "file": "source/course/Les 6/20260626_naert.pdf",
       "page": 37,
       "legible": true
+    },
+    {
+      "id": "S02-WE09",
+      "tool": "distribution-moments",
+      "given": {
+        "description": "Praktijkvoorbeeld klantenstromen: het aantal klanten per minuut aan de kassa volgt een Poisson-verdeling P(2.959) (p. 9)",
+        "lambda": "2.959",
+        "unit": "klanten / minuut",
+        "event": "meer dan 7 klanten per minuut"
+      },
+      "stated_answers": {
+        "P(meer dan 7 klanten per minuut)": "minder dan 2%"
+      },
+      "file": "source/course/Les 1/20260522_naert_big data.pdf",
+      "page": 10,
+      "legible": true,
+      "note": "added 2026-10-05 by the user's decision 19 (missed by the Phase 1 extraction)"
     }
   ],
   "conventions": [

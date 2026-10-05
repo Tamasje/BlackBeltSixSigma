@@ -70,9 +70,6 @@ DOC = SheetDoc(
         "Regression p. 56 prints R²_adj = 1 − (1 − R²)(n − 1)/(n − k − 2); the course's own outputs use n − k − 1 "
         "(Regression p. 22 Minitab R-Sq(adj) 87.1 %; DOE p. 61 Adj R-Squared 0.8666; σ̂ on Regression p. 57). The "
         "sheet shows both, labelled.",
-        "Inventory transcription, not the course: worked_examples.json S05-WE09 and the constants CSV give P 0.757016 "
-        "(C) and 0.741315 (A:B); DOE p. 77 prints 0.757069 and 0.741351, which the sheet gives. The locked oracle "
-        "was not edited.",
         "Regression p. 21 (S05-WE17): the fitted line 'ŷ = 74.20 + 14.97x' of Figure 11-4 differs from the least "
         "squares values 74.283 and 14.947 of the Minitab output on p. 22, which the sheet reproduces.",
     ),

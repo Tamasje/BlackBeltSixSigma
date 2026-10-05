@@ -43,6 +43,18 @@ exercises use. Numbers refer to "Conflicts and gaps" below.
     Poisson/exponential parts of distribution moments).
 17. Exam Q2 data file: not available; not blocking (the calculator takes s1, s2 or raw data as input).
 
+Given 2026-10-05 at the Phase 3 STOP:
+
+18. ugain.naert.net (Naert's lecture site): save the lecture 1 and lecture 2 notes and the 59-slide lecture 2
+    deck offline as PDFs (printed with the local Chrome) next to the matching lectures in source/course/, and
+    extract them as slice S11. Lecture 3 (= Les 6) is not saved: its study guide says "niet te kennen voor het
+    examen".
+19. Oracle unlocked once for two changes, then re-tagged `oracle-approved`: add the Poisson example of
+    Naert Les 1 p. 10 (λ = 2.959, "minder dan 2% kans" on more than 7 customers per minute) as S02-WE09, and
+    correct the S05-WE09 transcription of DOE p. 77 (P 0.757069 for C and 0.741351 for A:B, as printed).
+20. Distributions sheet: keep the Bernoulli, Poisson, exponential and uniform blocks, each labelled
+    "standard definition, not printed in the course" (the course only names these distributions).
+
 ## Conflicts and gaps (flagged by Claude, not resolved)
 
 Each item lists every version with its source. Numbers match the convention questions in PROGRESS.md.
