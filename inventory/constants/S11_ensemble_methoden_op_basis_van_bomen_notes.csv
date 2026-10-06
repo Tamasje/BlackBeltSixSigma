@@ -1,0 +1,4 @@
+Methode,Kernidee,Sterkte,source_file,source_page,table_name
+Random Forest,Traint k bomen op willekeurige steekproeven van data en kenmerken; middeelt de voorspellingen,"Stabiel, robuust tegen overfitting, weinig hyperparameters",source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,19,Ensemble-methoden op basis van bomen (notes)
+"Gradient Boosting (XGBoost, LightGBM)",Traint opeenvolgende bomen waarbij elke boom de fout van de vorige corrigeert,Zeer hoge prestatie op tabeldata; winnaar van veel Kaggle-competities,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,19,Ensemble-methoden op basis van bomen (notes)
+AdaBoost,Herwaardeert moeilijke observaties bij elke iteratie,Historisch; minder populair dan gradient boosting,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,19,Ensemble-methoden op basis van bomen (notes)

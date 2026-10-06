@@ -1,0 +1,5 @@
+Predicted \ Expected,1,2,3,4,source_file,source_page,table_name
+1,52,3,7,2,source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,30,"Confusion matrix example 4 x 4 (figure: rows = Predicted, columns = Expected); counts as printed"
+2,2,28,2,0,source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,30,"Confusion matrix example 4 x 4 (figure: rows = Predicted, columns = Expected); counts as printed"
+3,5,2,25,12,source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,30,"Confusion matrix example 4 x 4 (figure: rows = Predicted, columns = Expected); counts as printed"
+4,1,1,9,40,source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,30,"Confusion matrix example 4 x 4 (figure: rows = Predicted, columns = Expected); counts as printed"

@@ -1,0 +1,6 @@
+Architectuur,Toepassing,source_file,source_page,table_name
+Feedforward netwerk (MLP),Algemene regressie en classificatie op tabeldata,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,18,Neurale netwerk varianten (notes)
+Convolutioneel netwerk (CNN),"Beeldherkenning, signaalverwerking",source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,18,Neurale netwerk varianten (notes)
+Recurrent netwerk (RNN/LSTM),"Tijdreeksen, sequentiële data",source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,18,Neurale netwerk varianten (notes)
+Transformer,"Taal (LLMs), tijdreeksen, steeds vaker ook beelden",source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,18,Neurale netwerk varianten (notes)
+Autoencoder,"Anomaliedetectie, dimensiereductie, compressie",source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,18,Neurale netwerk varianten (notes)

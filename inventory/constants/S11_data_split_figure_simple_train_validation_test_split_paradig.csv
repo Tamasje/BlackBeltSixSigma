@@ -1,0 +1,5 @@
+part,share as printed,source_file,source_page,table_name
+Full Dataset,100%,source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,20,Data split figure (Simple Train-Validation-Test Split Paradigm)
+Train Set (Model Fitting),70%,source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,20,Data split figure (Simple Train-Validation-Test Split Paradigm)
+Val Set (Hyperparameter Tuning),15%,source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,20,Data split figure (Simple Train-Validation-Test Split Paradigm)
+Test Set (Final Evaluation Only),15%,source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,20,Data split figure (Simple Train-Validation-Test Split Paradigm)

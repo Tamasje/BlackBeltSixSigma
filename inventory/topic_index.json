@@ -651,6 +651,253 @@
     "slice": "S02"
   },
   {
+    "topic": "Data als grondstof, typische databronnen (MTBF), kanstheorie als leidend paradigma (niet het enige; fuzzy mathematics)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf",
+    "pages": [
+      1
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Kansverdelingen: pdf en cdf, kansdichtheid voor continue variabelen, interval-kans",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf",
+    "pages": [
+      2
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Normale verdeling (mu, sigma), niet alles is normaal (exponentieel, beta, Poisson)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf",
+    "pages": [
+      2,
+      3
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Beta-verdeling op [0, 1] (figuur Beta(2, 8))",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf",
+    "pages": [
+      4
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Sampling en inference; inference als voorspelling; Poisson-voorbeeld klantenstromen (lambda)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf",
+    "pages": [
+      4,
+      5
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Data in meer dimensies: gezamenlijke kansverdeling, multivariate normale verdeling, gewichten van mannen en vrouwen",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf",
+    "pages": [
+      6,
+      7,
+      8
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Meer voorbeelden van gezamenlijke verdelingen: productiekwaliteit P(L, B, S) en beeldherkenning P(L, P1, ..., Pn)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf",
+    "pages": [
+      8
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Associatie (Hubble 1929); marginale kansverdeling",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf",
+    "pages": [
+      8,
+      9
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Onafhankelijkheid; voorwaardelijke kansverdeling; onafhankelijkheid revisited",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf",
+    "pages": [
+      10,
+      11
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Oefening productiekwaliteit en productielijnen (500 producten, 2 lijnen): gezamenlijke, marginale, voorwaardelijke kans, onafhankelijkheid, met antwoorden",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf",
+    "pages": [
+      12
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Voorwaardelijke verwachtingswaarde = regressielijn",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf",
+    "pages": [
+      12,
+      13
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Interventie en ladder van causaliteit (Judea Pearl)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf",
+    "pages": [
+      13,
+      14
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Inleidend voorbeeld: een fabriek en een carcinogeen (Verbinding X, Carcinogene stof Y)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf",
+    "pages": [
+      14,
+      15,
+      16,
+      17
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Illustratie: ijsverkoop en reddingsacties aan zee (derde factor: warm weer)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf",
+    "pages": [
+      17
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Correlatie is geen causaliteit (xkcd-strip); een neuraal netwerk kan geen onderscheid maken tussen oorzaak en gevolg",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf",
+    "pages": [
+      18
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Simpson's paradox en confounder",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf",
+    "pages": [
+      18,
+      19,
+      20
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "PINO-principe (Prediction Is Not Optimization), cum hoc ergo propter hoc, P(Y|X=x) versus P(Y|do(X=x)), bedrijfsperspectief lijn 1 en lijn 2",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf",
+    "pages": [
+      21
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Causale diagrammen (DAG)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf",
+    "pages": [
+      21,
+      22
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Oefening schroot / Cu / Ni / Cr / sterkte met antwoord (achterdeur)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf",
+    "pages": [
+      22,
+      23
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Interventie formaliseren (verwijder inkomende pijlen); voorbeeld koper legeren",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf",
+    "pages": [
+      23,
+      24
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Belang van randomisatie, RCT, A/B testen; voorbeeld e-commerce",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf",
+    "pages": [
+      24,
+      25
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Causaal diagram van een klinische studie, achterdeurpad, randomisatie",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf",
+    "pages": [
+      25,
+      26
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Do-calculus en alternatieve technieken voor causale inferentie (tabel)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf",
+    "pages": [
+      26,
+      27
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Praktijkvoorbeeld: koelt warm staal sneller af dan koud staal? (meetfout, regression dilution)",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf",
+    "pages": [
+      27,
+      28,
+      29
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Studiewijzer en literatuur lecture 1",
+    "module": "Les 1",
+    "file": "source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf",
+    "pages": [
+      29,
+      30
+    ],
+    "slice": "S11"
+  },
+  {
     "topic": "Table of Contents (LMS listing only, geen inhoudelijke content)",
     "module": "Les 1",
     "file": "source/course/Les 1/Table of Contents.html",
@@ -1683,6 +1930,334 @@
     "slice": "S03"
   },
   {
+    "topic": "Terminologie AI, ML, deep learning, data science; praktische richtlijn",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf",
+    "pages": [
+      1
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Drie leerparadigma's: supervised, unsupervised, reinforcement (link met P(Y|X), P(X), P(Y|do(X)))",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf",
+    "pages": [
+      1,
+      2,
+      3
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Supervised learning: regressie versus classificatie",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf",
+    "pages": [
+      3,
+      4
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Loss-functies: concept, MSE, MAE, Huber, cross-entropie, verband met likelihood, asymmetrische kosten",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf",
+    "pages": [
+      4,
+      5,
+      6
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Trainen van modellen: gewichten, parameters versus hyperparameters",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf",
+    "pages": [
+      6,
+      7,
+      8
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Cross-validatie: train-test splitsing, validatieset, k-voudige cross-validatie",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf",
+    "pages": [
+      8,
+      9
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Underfitting en overfitting, U-vormige loss-curve, voorbeeld polynomiale regressie",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf",
+    "pages": [
+      9,
+      10
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Bias-variance decompositie en trade-off; analogie met nauwkeurigheid en precisie in SPC",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf",
+    "pages": [
+      10,
+      11,
+      12,
+      13
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Confusion matrix, accuracy, precision, recall, F1, keuze metriek, meerklassen",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf",
+    "pages": [
+      13,
+      14,
+      15
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Lineaire regressie en uitbreidingen (Ridge, Lasso, Elastic Net, quantiel, Deming, GLM)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf",
+    "pages": [
+      15,
+      16
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Neurale netwerken: neuron, architectuur, gradient descent, varianten, AlexNet, wanneer wel of niet",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf",
+    "pages": [
+      16,
+      17,
+      18,
+      19
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Boom-gebaseerde methoden: beslissingsbomen, Random Forest, Gradient Boosting, AdaBoost",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf",
+    "pages": [
+      19,
+      20
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Unsupervised learning: clustering (K-means, hierarchisch, DBSCAN), dimensiereductie (PCA, t-SNE, UMAP), anomaliedetectie",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf",
+    "pages": [
+      20,
+      21
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Bayesiaanse methoden: regel van Bayes, prior, likelihood, posterior, Bayesiaanse netwerken, MCMC",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf",
+    "pages": [
+      22,
+      23,
+      24
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Studiewijzer en literatuur lecture 2",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf",
+    "pages": [
+      24,
+      25
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Slides: agenda (theorie: loss, cross-validatie, bias-variance, confusion matrix; methoden)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf",
+    "pages": [
+      2
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Slides: terminologie AI/ML/DL/data science, drie leerparadigma's, voorbeelden",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf",
+    "pages": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Slides: loss-functies (basisvorm, MSE, MAE, Huber, cross-entropie, keuze van loss)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf",
+    "pages": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Slides: modellen, gewichten, trainen, parameters versus hyperparameters",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf",
+    "pages": [
+      15,
+      16,
+      17,
+      18
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Slides: cross-validatie (train-test, validatieset, k-voudig)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf",
+    "pages": [
+      19,
+      20,
+      21
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Slides: underfitting, overfitting, U-vormige curve",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf",
+    "pages": [
+      22,
+      23,
+      24
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Slides: bias-variance decompositie, visueel, analogie met SPC",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf",
+    "pages": [
+      25,
+      26,
+      27,
+      28
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Slides: confusion matrix (4x4 voorbeeld, 2x2 structuur, vier metrics, keuze metric)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf",
+    "pages": [
+      29,
+      30,
+      31,
+      32
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Slides: supervised methoden, lineaire regressie en uitbreidingen (incl. logistisch)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf",
+    "pages": [
+      33,
+      34,
+      35
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Slides: neurale netwerken (neuron, lagen stapelen, leren, universele approximatie, overfitting, architecturen, wanneer wel of niet)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf",
+    "pages": [
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Slides: boom-gebaseerde methoden (beslissingsbomen, trainingskeuzes, ensemble-methoden)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf",
+    "pages": [
+      43,
+      44,
+      45,
+      46,
+      47
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Slides: unsupervised (clustering, dimensiereductie, anomaliedetectie)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf",
+    "pages": [
+      48,
+      49,
+      50,
+      51
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Slides: Bayesiaanse methoden (andere filosofie, regel van Bayes, inferentie voorbeeld muntstuk, netwerk, wanneer Bayesiaans)",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf",
+    "pages": [
+      52,
+      53,
+      54,
+      55,
+      56,
+      57
+    ],
+    "slice": "S11"
+  },
+  {
+    "topic": "Slides: Studiewijzer en verder lezen",
+    "module": "Les 2",
+    "file": "source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf",
+    "pages": [
+      58,
+      59
+    ],
+    "slice": "S11"
+  },
+  {
     "topic": "One-way ANOVA: means model and effects model, hypotheses",
     "module": "Les 3",
     "file": "source/course/Les 3/20260605_de vuyst_BB_DOE.pdf",
@@ -2321,8 +2896,8 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      8,
-      9
+      9,
+      10
     ],
     "slice": "S06"
   },
@@ -2331,7 +2906,7 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      10
+      11
     ],
     "slice": "S06"
   },
@@ -2340,8 +2915,8 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      11,
-      12
+      12,
+      13
     ],
     "slice": "S06"
   },
@@ -2350,7 +2925,7 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      13
+      14
     ],
     "slice": "S06"
   },
@@ -2359,8 +2934,8 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      14,
-      15
+      15,
+      16
     ],
     "slice": "S06"
   },
@@ -2369,8 +2944,8 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      16,
-      17
+      17,
+      18
     ],
     "slice": "S06"
   },
@@ -2379,8 +2954,8 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      18,
-      19
+      19,
+      20
     ],
     "slice": "S06"
   },
@@ -2389,7 +2964,7 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      19
+      20
     ],
     "slice": "S06"
   },
@@ -2398,7 +2973,7 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      20
+      21
     ],
     "slice": "S06"
   },
@@ -2407,8 +2982,8 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      21,
-      22
+      22,
+      23
     ],
     "slice": "S06"
   },
@@ -2417,8 +2992,8 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      24,
-      25
+      25,
+      26
     ],
     "slice": "S06"
   },
@@ -2427,8 +3002,8 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      26,
-      27
+      27,
+      28
     ],
     "slice": "S06"
   },
@@ -2437,9 +3012,9 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      29,
       30,
-      31
+      31,
+      32
     ],
     "slice": "S06"
   },
@@ -2448,8 +3023,8 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      32,
-      33
+      33,
+      34
     ],
     "slice": "S06"
   },
@@ -2458,8 +3033,8 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      32,
-      34
+      33,
+      35
     ],
     "slice": "S06"
   },
@@ -2468,7 +3043,7 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      35
+      36
     ],
     "slice": "S06"
   },
@@ -2477,7 +3052,7 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      36
+      37
     ],
     "slice": "S06"
   },
@@ -2486,8 +3061,8 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      37,
-      38
+      38,
+      39
     ],
     "slice": "S06"
   },
@@ -2496,8 +3071,8 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      39,
-      40
+      40,
+      41
     ],
     "slice": "S06"
   },
@@ -2506,10 +3081,10 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      41,
       42,
       43,
-      44
+      44,
+      45
     ],
     "slice": "S06"
   },
@@ -2518,8 +3093,8 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      45,
-      46
+      46,
+      47
     ],
     "slice": "S06"
   },
@@ -2528,11 +3103,11 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      47,
       48,
       49,
       50,
-      51
+      51,
+      52
     ],
     "slice": "S06"
   },
@@ -2541,10 +3116,10 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      53,
       54,
       55,
-      56
+      56,
+      57
     ],
     "slice": "S06"
   },
@@ -2553,8 +3128,8 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      57,
-      58
+      58,
+      59
     ],
     "slice": "S06"
   },
@@ -2563,7 +3138,7 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      59
+      60
     ],
     "slice": "S06"
   },
@@ -2572,7 +3147,7 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      60
+      61
     ],
     "slice": "S06"
   },
@@ -2581,8 +3156,8 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      62,
-      63
+      63,
+      64
     ],
     "slice": "S06"
   },
@@ -2591,7 +3166,7 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      64
+      65
     ],
     "slice": "S06"
   },
@@ -2600,7 +3175,7 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      65
+      66
     ],
     "slice": "S06"
   },
@@ -2609,7 +3184,7 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      66
+      67
     ],
     "slice": "S06"
   },
@@ -2618,8 +3193,8 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      67,
-      68
+      68,
+      69
     ],
     "slice": "S06"
   },
@@ -2628,7 +3203,7 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      69
+      70
     ],
     "slice": "S06"
   },
@@ -2637,7 +3212,7 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      71
+      72
     ],
     "slice": "S06"
   },
@@ -2646,7 +3221,7 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      72
+      73
     ],
     "slice": "S06"
   },
@@ -2655,7 +3230,7 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      73
+      74
     ],
     "slice": "S06"
   },
@@ -2664,7 +3239,6 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      74,
       75,
       76,
       77,
@@ -2672,7 +3246,8 @@
       79,
       80,
       81,
-      82
+      82,
+      83
     ],
     "slice": "S06"
   },
@@ -2681,7 +3256,7 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      83
+      84
     ],
     "slice": "S06"
   },
@@ -2690,7 +3265,7 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      84
+      85
     ],
     "slice": "S06"
   },
@@ -2699,7 +3274,7 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      85
+      86
     ],
     "slice": "S06"
   },
@@ -2708,7 +3283,7 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      86
+      87
     ],
     "slice": "S06"
   },
@@ -2717,7 +3292,6 @@
     "module": "Les 4",
     "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
     "pages": [
-      87,
       88,
       89
     ],

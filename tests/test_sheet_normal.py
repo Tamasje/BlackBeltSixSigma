@@ -1,7 +1,7 @@
 """Tests for bbtools.sheet_normal, evaluated by LibreOffice headless.
 
 Expected values: course worked examples S06-WE09 (__NormVerdeling Excel functies.xlsx, Excel cached floats,
-rel=1e-9) and S06-WE10 (deck p. 19 notes, printed precision); the 68-95-99.7 rule (deck p. 18, printed
+rel=1e-9) and S06-WE10 (deck p. 19 notes, printed precision); the 68-95-99.7 rule (deck p. 19, printed
 precision); the course Z table (___1.1 Ztable.pdf, printed precision); scipy.stats for random inputs.
 """
 from __future__ import annotations
@@ -57,7 +57,7 @@ def test_three_sigma_shoe_sizes_s06_we10(printed: Printed, oracle: dict[str, Any
 
 
 def test_68_95_99_7_rule_of_deck_page_18(evaluate: Evaluate) -> None:
-    # arrange -- deck p. 18: P[mu-sigma <= X <= mu+sigma] ~= 68 %, 2 sigma ~= 95 %, 3 sigma ~= 99.7 %
+    # arrange -- deck p. 19: P[mu-sigma <= X <= mu+sigma] ~= 68 %, 2 sigma ~= 95 %, 3 sigma ~= 99.7 %
     ws = evaluate(SHEET, {})
     # act / assert -- printed precision
     assert agrees_at_printed_precision(value(ws, "rule_1") * 100, "68")

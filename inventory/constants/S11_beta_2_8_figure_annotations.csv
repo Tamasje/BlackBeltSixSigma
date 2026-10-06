@@ -1,0 +1,6 @@
+item,value,source_file,source_page,table_name
+distribution,"Beta(2, 8)",source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf,4,"Beta(2, 8) figure annotations"
+Mode,0.125,source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf,4,"Beta(2, 8) figure annotations"
+Mean,0.200,source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf,4,"Beta(2, 8) figure annotations"
+Median,0.180,source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf,4,"Beta(2, 8) figure annotations"
+marker in pdf panel,P(X ≤ 0.180) = 0.5,source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf,4,"Beta(2, 8) figure annotations"

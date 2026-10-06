@@ -1,7 +1,7 @@
 """Sigma & DPMO sheet: DPU, DPO, DPMO, sigma level (with and without the 1.5σ shift), yields and RTY.
 
 Convention decision 3 (inventory/conventions.md): sigma level ↔ DPMO is shown in both readings. The course
-tables (deck p. 20; Dummies Table 1-2 p. 42 and Table 6-3 p. 160; Van Volsem p. 7; Harry & Schroeder) pair a
+tables (deck p. 21; Dummies Table 1-2 p. 42 and Table 6-3 p. 160; Van Volsem p. 7; Harry & Schroeder) pair a
 short-term sigma level Z with the long-term DPMO of one tail beyond Z − 1.5. Harry & Schroeder p. 3 quote a
 sigma level without the shift ("99.97 % ... about 3.5 sigma"), p. 5 with it ("2,500 DPMO ... about 4.3 sigma").
 All yields and fractions are stored as fractions and shown as %.
@@ -26,7 +26,7 @@ SHEET = "Sigma & DPMO"
 
 HEADER = HeaderBlock(
     tool="Sigma level, DPMO and yield: DPU, DPO, DPMO, Z with and without 1.5σ shift, Y, FTY, RTY",
-    source="source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 19-20, 36-39; "
+    source="source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 20-21, 37-40; "
            "Six Sigma For Dummies.pdf p. 42, 147-161; Six-Sigma Mikel Harry - Richard Schroeder.pdf p. 3-5; "
            "20260521_van volsem.pdf p. 7",
     convention="Decision 3: sigma level ↔ DPMO shown both with the 1.5σ shift (as in every course table) and without.",
@@ -50,7 +50,7 @@ DOC = SheetDoc(
         "and 'about 3.5 sigma' (no shift) gives 3.20.",
         "Harry & Schroeder p. 5 (S09-WE05): normalized yield printed '(0.368)**(-10) = 0.9051'; the kth root the "
         "text defines gives 0.368^(1/10) = 0.9049.",
-        "deck p. 20 and Harry & Schroeder (summary p. 2, outline p. 1): 2σ = '308,537' DPMO; 308,537.5 rounds to "
+        "deck p. 21 and Harry & Schroeder (summary p. 2, outline p. 1): 2σ = '308,537' DPMO; 308,537.5 rounds to "
         "308,538 (as Dummies prints). Van Volsem p. 7: '308,000' (308,538 to thousands is 309,000).",
     ),
 )
@@ -89,10 +89,10 @@ def _defects(ws: Worksheet) -> None:
     have = "AND(ISNUMBER(B9),ISNUMBER(B10),B10>0)"
     have_o = f"AND({have},ISNUMBER(B11),B11>0)"
     result_row(ws, 12, "DPU = D / N", f'=IF({have},B9/B10,"")', "0.0000", "Dummies p. 152; Harry & Schroeder p. 5")
-    result_row(ws, 13, "DPO = D / (N · O)", f'=IF({have_o},B9/(B10*B11),"")', "0.000000000", "deck p. 19; Dummies p. 153")
+    result_row(ws, 13, "DPO = D / (N · O)", f'=IF({have_o},B9/(B10*B11),"")', "0.000000000", "deck p. 20; Dummies p. 153")
     result_row(ws, 14, "DPMO = DPO · 1 000 000", f'=IF(ISNUMBER(B13),B13*{MILLION},"")', "#,##0.0",
-               "deck p. 19; Dummies p. 155")
-    result_row(ws, 15, "Yield per opportunity = 1 − DPO", '=IF(ISNUMBER(B13),1-B13,"")', PERCENT, "deck p. 19")
+               "deck p. 20; Dummies p. 155")
+    result_row(ws, 15, "Yield per opportunity = 1 − DPO", '=IF(ISNUMBER(B13),1-B13,"")', PERCENT, "deck p. 20")
     result_row(ws, 16, "Throughput yield TY = 1 − DPU", '=IF(ISNUMBER(B12),1-B12,"")', PERCENT,
                "Harry & Schroeder p. 5 (defects/unit 5 % -> TY 95 %)")
     result_row(ws, 17, "RTY ≈ e^(−DPU)", '=IF(ISNUMBER(B12),EXP(-B12),"")', PERCENT,
@@ -109,21 +109,21 @@ def _sigma(ws: Worksheet) -> None:
     result_row(ws, 23, "Z without shift (one tail beyond Z)", f'=IF({ok},_xlfn.NORM.S.INV(1-B21/{MILLION}),"")', "0.000",
                "Dummies p. 158 (Z_LT); Harry & Schroeder p. 3 reads sigma this way")
     result_row(ws, 24, "Sigma level with the 1.5σ shift = Z + 1.5  (course tables)", f'=IF(ISNUMBER(B23),B23+{SHIFT},"")',
-               "0.000", "deck p. 20; Dummies Table 6-3 p. 160 ('long-term DPMO, short-term Z'); Harry & Schroeder p. 5")
+               "0.000", "deck p. 21; Dummies Table 6-3 p. 160 ('long-term DPMO, short-term Z'); Harry & Schroeder p. 5")
 
     section_title(ws, 26, "3. From sigma level to DPMO (both course readings)")
     input_row(ws, 27, "Sigma level Z", "e.g. 6")
     have = "ISNUMBER(B27)"
     result_row(ws, 28, "DPMO with the 1.5σ shift (one tail beyond Z − 1.5)  (course tables)",
                f'=IF({have},{MILLION}*_xlfn.NORM.S.DIST(-(B27-{SHIFT}),TRUE),"")', "#,##0.000",
-               "deck p. 20; Dummies p. 42, 160; Van Volsem p. 7: 6 -> 3.4")
+               "deck p. 21; Dummies p. 42, 160; Van Volsem p. 7: 6 -> 3.4")
     result_row(ws, 29, "DPMO without shift, one tail beyond Z", f'=IF({have},{MILLION}*_xlfn.NORM.S.DIST(-B27,TRUE),"")',
                "#,##0.000")
     result_row(ws, 30, "DPMO without shift, both tails beyond ±Z (centred, Cp = Z / 3)",
                f'=IF({have},2*{MILLION}*_xlfn.NORM.S.DIST(-B27,TRUE),"")', "#,##0.000",
-               "deck p. 39: Cp = 2 (Z = 6) -> 2 per billion")
+               "deck p. 40: CP = 2 (Z = 6) -> 2 defect per billion")
     result_row(ws, 31, "Yield with the 1.5σ shift", f'=IF({have},1-B28/{MILLION},"")', "0.00000%",
-               "deck p. 20; Van Volsem p. 7")
+               "deck p. 21; Van Volsem p. 7")
 
 
 def _yields(ws: Worksheet) -> None:
@@ -189,7 +189,7 @@ def _per_opportunity(ws: Worksheet) -> None:
     result_row(ws, 80, "Z without shift", '=IF(AND(ISNUMBER(B78),B78<1),_xlfn.NORM.S.INV(B78),"")', "0.000",
                "Harry & Schroeder p. 3 quotes this reading ('about 3.5 sigma')")
     result_row(ws, 81, "Sigma level with the 1.5σ shift", f'=IF(ISNUMBER(B80),B80+{SHIFT},"")', "0.000")
-    constant_row(ws, 83, "Shift assumed by the course (σ)", 1.5, "deck p. 36; Dummies p. 159-160 ('Zlt = Zst - 1.5')")
+    constant_row(ws, 83, "Shift assumed by the course (σ)", 1.5, "deck p. 37; Dummies p. 159-160 ('Zlt = Zst - 1.5')")
 
 
 def build_sheet(ws: Worksheet) -> None:

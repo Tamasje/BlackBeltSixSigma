@@ -171,6 +171,153 @@ M1 = T1 + ε1;  M2 = T2 + ε2;  T2 = α T1 + β W + ε0
 - `α'`: naïeve schatter (klassieke OLS)
 - Conditions: Var(M1) = Var(T1) + Var(ε1) > Var(T1), dus α' < α (attenuation bias).
 
+### 20261005_naert_web_lecture 1 notes.pdf
+
+#### Probability density function (pdf), as printed (source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf p. 2, S11)
+
+```
+f(x) = P(X = x)
+```
+- `f(x)`: pdf (kansdichtheid)
+- `x`: een bepaalde waarde
+- Conditions: Course note on the same page: for continuous variables f(x) = P(X = x) has no physical meaning because the probability of an exact value is always zero; f is then called kansdichtheid and only certain integrals are physically meaningful.
+
+#### Cumulative distribution function (cdf) (source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf p. 2, S11)
+
+```
+F(x) = P(X ≤ x)
+```
+- `F(x)`: cdf: kans dat een willekeurig getal uit de verdeling kleiner of gelijk is aan x
+- `x`: drempel
+
+#### cdf as integral of the pdf (source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf p. 2, S11)
+
+```
+F(x) = ∫_{−∞}^{x} f(t) dt
+```
+- `F`: cdf
+- `f`: pdf
+- `t`: integratievariabele
+- Conditions: Course: the cdf is the integral of the pdf, and the pdf is the derivative of the cdf.
+
+#### Probability of an interval (continuous variable) (source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf p. 2, S11)
+
+```
+P(x1 ≤ X ≤ x2) = ∫_{x1}^{x2} f(x) dx = F(x2) − F(x1)
+```
+- `f`: kansdichtheid
+- `F`: cdf
+- `x1, x2`: grenzen van het interval
+
+#### Gezamenlijke kansverdeling (source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf p. 6, S11)
+
+```
+P(X1, X2, …, Xn)
+```
+- `X_i`: variabelen (features); sommige mogen discreet zijn en andere continu
+- Conditions: 'we spreken dan van een gezamenlijke kansverdeling'.
+
+#### Joint distribution examples (Meer voorbeelden box) (source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf p. 8, S11)
+
+```
+Productiekwaliteit: P(L, B, S); Beeldherkenning: P(L, P1, P2, …, Pn)
+```
+- `L (productiekwaliteit)`: de productielijn
+- `B`: de gerealiseerde breedte van het eindproduct
+- `S`: de lijnsnelheid
+- `L (beeldherkenning)`: het label (bv. “kat” of “hond”)
+- `P_i`: de pixelwaarde op positie i
+
+#### Marginale kansverdeling (source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf p. 9, S11)
+
+```
+P(X) = ∫_y P(X, Y = y) dy
+```
+- `P(X)`: marginale kansverdeling: dataset waarbij de kolom (kolommen) van Y geschrapt zijn
+- `P(X, Y)`: gezamenlijke kansverdeling
+
+#### Onafhankelijkheid van X en Y (source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf p. 10, S11)
+
+```
+P(X, Y) = P(X) ⋅ P(Y)
+```
+- `X, Y`: variabelen
+- Conditions: X and Y are independent if this holds; 'de kennis van X geeft geen extra informatie over Y'.
+
+#### Voorwaardelijke kansverdeling (source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf p. 10, S11)
+
+```
+P(Y ∣ X) = P(X, Y) / P(X)
+```
+- `P(Y ∣ X)`: verdeling van Y gegeven dat X een bepaalde waarde aanneemt
+- Conditions: In terms of data: equivalent to filtering the dataset on rows where X ≈ x.
+
+#### Productregel (altijd, per definitie) (source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf p. 11, S11)
+
+```
+P(X, Y) = P(X) ⋅ P(Y ∣ X)
+```
+- Conditions: Always the case (by definition).
+
+#### Onafhankelijkheid via voorwaardelijke verdeling (source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf p. 11, S11)
+
+```
+P(Y ∣ X) = P(Y)
+```
+- Conditions: Equivalent to independence of X and Y. Course intuition example: if gender and weight were independent, P(M ∣ G = man) = P(M) = P(M ∣ G = vrouw).
+
+#### Voorwaardelijke verwachtingswaarde (regressielijn) (source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf p. 12, S11)
+
+```
+E[Y ∣ X = x] = ∫_y y ⋅ P(Y = y ∣ X = x) dy
+```
+- `E[Y ∣ X = x]`: gemiddelde van de voorwaardelijke verdeling P(Y ∣ X = x); functie die enkel van x afhangt, de regressielijn
+
+#### Association versus intervention (general inequality) (source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf p. 21, S11)
+
+```
+P(Y ∣ X = x) ≠ P(Y ∣ do(X = x))
+```
+- `P(Y ∣ X = x)`: verdeling van Y gegeven dat we observeren dat X = x (associatie)
+- `P(Y ∣ do(X = x))`: verdeling van Y gegeven dat we interveniëren en X forceren op x
+- Conditions: 'In het algemeen geldt'.
+
+#### RCT: intervention equals observation (source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf p. 24, S11)
+
+```
+P(Y ∣ do(X = x)) = P(Y ∣ X = x)
+```
+- Conditions: 'In een RCT geldt' (random assignment). Page 26 gives the same with T: P(Y ∣ do(T = t)) = P(Y ∣ T = t).
+
+#### Steel cooling causal model (source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf p. 28, S11)
+
+```
+M1 = T1 + ε1; M2 = T2 + ε2; T2 = α T1 + β W + ε0
+```
+- `M1, M2`: gemeten temperatuur vóór en na de afkoelperiode
+- `T1, T2`: werkelijke temperatuur
+- `W`: wachttijd
+- `α`: afkoelcoëfficiënt die we willen schatten
+- `ε1, ε2, ε0`: foutentermen (meetfout, ε0 in de T2-vergelijking)
+- `β`: coëfficiënt van W
+
+#### Cooling coefficient under the correct causal model (source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf p. 28, S11)
+
+```
+α = Cov(M1, M2) / Var(T1)
+```
+- `Cov(M1, M2)`: covariantie van de gemeten temperaturen
+- `Var(T1)`: variantie van de werkelijke temperatuur T1
+- Conditions: 'Met het correcte causale model geldt'.
+
+#### Naive regression coefficient (attenuation bias) (source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf p. 28, S11)
+
+```
+α′ = Cov(M1, M2) / Var(M1) = Cov(M1, M2) / (Var(T1) + Var(ε1)) < α
+```
+- `α′`: coëfficiënt van klassieke lineaire regressie van M2 op M1
+- Conditions: Regression dilution / attenuation bias: measurement errors in the independent variable lead systematically to an underestimate of the true relation.
+
 ## Les 2
 
 ### 20260529_naert.pdf
@@ -990,6 +1137,221 @@ test statistic = (n-1)*s²/sigma²
 - `n`: sample size = 20
 - Conditions: reference distribution = chi²(19); classical quantity for testing the variance of a distribution
 
+### 20261005_naert_web_lecture 2 notes.pdf
+
+#### Supervised learning goal (source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf p. 2, S11)
+
+```
+y ≈ f̂(x)
+```
+- `f̂`: geleerde functie
+- `x`: nieuwe, ongeziene data
+- `(x_i, y_i)`: gelabelde data: x_i zijn de observaties, y_i de gekende uitkomst
+- Conditions: For new, unseen data. Link with lecture 1: determining E[Y|X].
+
+#### Regression function and labelled dataset (source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf p. 3, S11)
+
+```
+f(x) = E[Y ∣ X = x]; D = {(x_i, y_i)}_{i=1}^{N}
+```
+- `f̂`: model dat f zo goed mogelijk benadert
+- `D`: gelabelde dataset waarop het model getraind wordt
+
+#### Generic loss function over a dataset (source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf p. 4, S11)
+
+```
+L_D(f̂) = (1/N) ∑_{i=1}^{N} ℓ(y_i, f̂(x_i))
+```
+- `L_D(f̂)`: loss-functie (kostfunctie, objectief) van model f̂ op dataset D
+- `ℓ`: afwijking voor één observatie
+- `N`: aantal observaties
+- `(x_i, y_i)`: data voor i = 1, …, N
+- Conditions: Training a model amounts to minimising the loss over the available training data.
+
+#### Mean Squared Error (MSE) (source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf p. 5, S11)
+
+```
+L_MSE = (1/N) ∑_{i=1}^{N} (y_i − f̂(x_i))²
+```
+- `N`: aantal observaties
+- `y_i`: waargenomen waarde
+- `f̂(x_i)`: voorspelling
+- Conditions: Large deviations are penalised more than small ones; sensitive to outliers; implies Gaussian errors.
+
+#### Mean Absolute Error (MAE) (source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf p. 5, S11)
+
+```
+L_MAE = (1/N) ∑_{i=1}^{N} |y_i − f̂(x_i)|
+```
+- `N`: aantal observaties
+- `y_i`: waargenomen waarde
+- `f̂(x_i)`: voorspelling
+- Conditions: More robust to outliers (errors penalised linearly); implies Laplacian errors.
+
+#### Cross-entropy (log-loss) for classification (source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf p. 6, S11)
+
+```
+L_CE = −(1/N) ∑_{i=1}^{N} ∑_k y_{i,k} log p̂_{i,k}
+```
+- `p̂_{i,k}`: de voorspelde kans dat observatie i tot klasse k behoort
+- `y_{i,k}`: as printed, not separately defined
+- Conditions: Standard choice for classification problems.
+
+#### Trained weights (argmin of the loss) (source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf p. 7, S11)
+
+```
+θ̂ = arg min_θ L(f̂_θ); θ̂_D = arg min_θ L_D(f̂_θ)
+```
+- `θ`: vector van gewichten (parameters, coëfficiënten)
+- `f̂_θ`: model volledig bepaald door θ
+- `D`: dataset waarop getraind wordt
+- Conditions: Course: the found θ̂ depends on the training data D.
+
+#### Weights of linear regression (source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf p. 7, S11)
+
+```
+θ = (β0, β1, …, βp)
+```
+- `β`: coëfficiënten
+
+#### Bias-variance decomposition (source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf p. 10, S11)
+
+```
+E[(y − f̂(x))²] = Bias[f̂(x)]² + Var[f̂(x)] + σ²
+```
+- `Bias[f̂(x)]²`: systematische fout
+- `Var[f̂(x)]`: gevoeligheid
+- `σ²`: irreducibele ruis
+- `E`: verwachtingswaarde over alle mogelijke datasets D en alle mogelijke y bij de gegeven x
+
+#### Bias-variance building blocks (source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf p. 10, S11)
+
+```
+f(x) = E[Y ∣ X = x]; f̃(x) = E_D[f̂(x, D)]; bias: f(x) − f̃(x); variance: E[(f̃(x) − f̂(x; D))²]; irreducibele fout: E[(y − f(x))²]
+```
+- `f̂(x; D)`: waarde die het model, getraind op dataset D, voorspelt voor punt x
+- `f̃(x)`: gemiddelde voorspelling over oneindig veel datasets (theoretisch concept)
+
+#### Error chain (source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf p. 11, S11)
+
+```
+y —σ²→ f(x) —bias→ f̃(x) —variance→ f̂(x; D)
+```
+- Conditions: Decomposition of the total error into three terms (bias squared, variance, irreducible error).
+
+#### Accuracy (source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf p. 14, S11)
+
+```
+(TP + TN) / (TP + TN + FP + FN)
+```
+- `TP`: True Positive
+- `TN`: True Negative
+- `FP`: False Positive
+- `FN`: False Negative
+- Conditions: Course: misleading with strongly imbalanced classes.
+
+#### Precision (source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf p. 14, S11)
+
+```
+TP / (TP + FP)
+```
+- Conditions: Of all positive predictions, how many are truly positive; relevant when false positives are costly.
+
+#### Recall (sensitivity, TPR) (source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf p. 14, S11)
+
+```
+TP / (TP + FN)
+```
+- Conditions: Of all truly positive cases, how many were detected; relevant when false negatives are costly.
+
+#### F1-score (source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf p. 15, S11)
+
+```
+2 ⋅ precisie ⋅ recall / (precisie + recall)
+```
+- Conditions: Harmonic mean of precision and recall; useful as a balance measure. Slide 31 prints it as 2⋅P⋅R / (P+R) with P = Precision, R = Recall.
+
+#### Linear regression model (source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf p. 16, S11)
+
+```
+ŷ = β0 + β1 x1 + β2 x2 + ⋯ + βp xp
+```
+- `β`: coëfficiënten
+- Conditions: 'Lineair' means linear in the coefficients β_i, not necessarily in the inputs. Polynomial regression y = β0 + β1 x + β2 x² is also linear in this sense. Minimises the MSE; analytic solution = Ordinary Least Squares (OLS).
+
+#### Single neuron (source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf p. 16, S11)
+
+```
+y = f(w1 x1 + w2 x2 + ⋯ + wn xn + b)
+```
+- `w_i`: gewichten
+- `b`: bias-term
+- `f`: niet-lineaire activatiefunctie
+- Conditions: Common activation functions: ReLU, sigmoid, tanh.
+
+#### ReLU activation (source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf p. 16, S11)
+
+```
+f(x) = max(0, x)
+```
+
+#### Network with two hidden layers (figure formula) (source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf p. 17, S11)
+
+```
+Y = f(W3 * f(W2 * f(W1 * X + B1) + B2) + B3)
+```
+- `W1`: (4x3)
+- `W2`: (4x4)
+- `W3`: (1x4)
+- `X`: input layer
+- `Y`: output layer
+- `B1, B2, B3`: as printed in the figure, not defined in text
+- Conditions: Figure: input layer (X), Hidden Layer 1, Hidden Layer 2, Output Layer (Y). Same figure on slide 38.
+
+#### Regel van Bayes (source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf p. 22, S11)
+
+```
+P(θ ∣ data) = P(data ∣ θ) ⋅ P(θ) / P(data)
+```
+- `P(θ)`: prior: kennis of aannames over de parameters vóór het zien van de data
+- `P(data ∣ θ)`: likelihood (het data-genererend model)
+- `P(θ ∣ data)`: posterior: bijgewerkte kennis na het zien van de data
+- Conditions: In the Bayesian view parameters are themselves stochastic quantities.
+
+### 20261005_naert_web_lecture 2 slides.pdf
+
+#### Three learning paradigms and the distribution each models (source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf p. 5, S11)
+
+```
+Supervised: P(Y ∣ X⃗); Unsupervised: P(X⃗); Reinforcement: P(Y ∣ do(X⃗))
+```
+
+#### F1 on the slide (source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf p. 31, S11)
+
+```
+F1 = 2⋅P⋅R / (P+R)
+```
+- `P`: Precision
+- `R`: Recall
+- Conditions: Harmonisch gemiddelde.
+
+#### Linear model with transformed inputs (source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf p. 34, S11)
+
+```
+ŷ = β0 + β1 sin(x1) + β2 x2² + ⋯ + βp f(xp)
+```
+- Conditions: Slide: 'is een lineair model!' because it is linear in the parameters β_i.
+
+#### Beta-binomial posterior (slide 55) (source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf p. 55, S11)
+
+```
+Beta(α+k, β+n−k)
+```
+- `α, β`: prior parameters (Beta(α=1, β=1) in the example)
+- `k`: Heads
+- `n−k`: Tails
+- Conditions: Slide: likelihood p³ · (1−p)²; MLE k/n; posterior Beta(4, 3) with mean = 4/7 ≈ 0.57 for 3 Heads and 2 Tails.
+
 ## Les 3
 
 ### 20260605_de vuyst_BB_DOE.pdf
@@ -1429,7 +1791,7 @@ F0 = { [SS_E(RM) - SS_E(FM)] / (k-r) } / { SS_E(FM) / (n-p) }
 
 ### 2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf
 
-#### Z-score (standardization) (source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 18, S06)
+#### Z-score (standardization) (source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 19, S06)
 
 ```
 Z = (X - mu) / sigma
@@ -1440,7 +1802,7 @@ Z = (X - mu) / sigma
 - `sigma`: standaardafwijking
 - Conditions: E(Z)=0, sigma(Z)=1
 
-#### Belangrijke kengetallen normale verdeling (source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 18, S06)
+#### Belangrijke kengetallen normale verdeling (source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 19, S06)
 
 ```
 P[mu-sigma <= X <= mu+sigma] ~= 68 %; P[mu-2sigma <= X <= mu+2sigma] ~= 95 %; P[mu-3sigma <= X <= mu+3sigma] ~= 99.7 %
@@ -1449,7 +1811,7 @@ P[mu-sigma <= X <= mu+sigma] ~= 68 %; P[mu-2sigma <= X <= mu+2sigma] ~= 95 %; P[
 - `sigma`: spreiding (sigma(X))
 - Conditions: X ~ N(mu,sigma)
 
-#### DPO / DPMO / Yield (discrete data) (source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 19, S06)
+#### DPO / DPMO / Yield (discrete data) (source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 20, S06)
 
 ```
 DPO = D / (N.O); DPMO = 1,000,000 . D / (N.O); Yield = 1 - D/(N.O)
@@ -1459,7 +1821,7 @@ DPO = D / (N.O); DPMO = 1,000,000 . D / (N.O); Yield = 1 - D/(N.O)
 - `O`: Opportunities per unit
 - Conditions: PPM = parts per million; % to PPM: factor 10.000
 
-#### Standard Normal Distribution density (source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 26, S06)
+#### Standard Normal Distribution density (source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 27, S06)
 
 ```
 f(x) = 1/sqrt(2.pi) . e^(-1/2.((x-mu)/sigma)^2)
@@ -1469,7 +1831,7 @@ f(x) = 1/sqrt(2.pi) . e^(-1/2.((x-mu)/sigma)^2)
 - `sigma`: standaardafwijking
 - Conditions: geldig als het proces enkel natuurlijke deterioraties ondergaat (common causes only)
 
-#### Process Capability Cp (source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 33, S06)
+#### Process Capability Cp (source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 34, S06)
 
 ```
 Cp = (UL - LL) / 6.sigma
@@ -1479,7 +1841,7 @@ Cp = (UL - LL) / 6.sigma
 - `sigma`: process standard deviation
 - Conditions: compares process dispersion with target given by specification; Cp alone not sufficient to define capability
 
-#### Process Capability Cpk (source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 34, S06)
+#### Process Capability Cpk (source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 35, S06)
 
 ```
 Cpk = MIN{ (|UL - Xbar|)/3.sigma  and  (|Xbar - LL|)/3.sigma }
@@ -1490,7 +1852,7 @@ Cpk = MIN{ (|UL - Xbar|)/3.sigma  and  (|Xbar - LL|)/3.sigma }
 - `sigma`: process standard deviation
 - Conditions: compares process dispersion with target given by specification, accounting for centering
 
-#### Cpk via distances (alternative form) (source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 34, S06)
+#### Cpk via distances (alternative form) (source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 35, S06)
 
 ```
 CPK = D1 / D2
@@ -1499,7 +1861,7 @@ CPK = D1 / D2
 - `D2`: afstand gemiddelde tot tolerantiegrens (referentie, inclusief 'waste')
 - Conditions: grafische illustratie op de slide (average, forced evolution, waste)
 
-#### Gauge R&R variance decomposition (source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 60, S06)
+#### Gauge R&R variance decomposition (source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 61, S06)
 
 ```
 sigma^2_Total = sigma^2_Part-Part + sigma^2_R&R
@@ -1509,7 +1871,7 @@ sigma^2_Total = sigma^2_Part-Part + sigma^2_R&R
 - `sigma^2_R&R`: repeatability & reproducibility variantie
 - Conditions: Aanbeveling: resolutie <= 10% van tolerantie; Gauge R&R <= 20% van tolerantie
 
-#### Xbar/R-chart (fixed sample size) (source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 73, S06)
+#### Xbar/R-chart (fixed sample size) (source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 74, S06)
 
 ```
 CL = Xbarbar; UCL = Xbarbar + A2.Rbar; LCL = Xbarbar - A2.Rbar
@@ -1519,7 +1881,7 @@ CL = Xbarbar; UCL = Xbarbar + A2.Rbar; LCL = Xbarbar - A2.Rbar
 - `A2`: tabelconstante afhankelijk van n
 - Conditions: R small sample < 10; vaste sample grootte
 
-#### R-chart (fixed sample size) (source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 73, S06)
+#### R-chart (fixed sample size) (source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 74, S06)
 
 ```
 CL = Rbar; UCL = D4.Rbar; LCL = D3.Rbar
@@ -1529,7 +1891,7 @@ CL = Rbar; UCL = D4.Rbar; LCL = D3.Rbar
 - `D4`: tabelconstante
 - Conditions: vaste sample grootte
 
-#### Xbar/s-chart (fixed sample size) (source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 73, S06)
+#### Xbar/s-chart (fixed sample size) (source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 74, S06)
 
 ```
 CL = Xbarbar; UCL = Xbarbar + A3.sbar; LCL = Xbarbar - A3.sbar
@@ -1539,7 +1901,7 @@ CL = Xbarbar; UCL = Xbarbar + A3.sbar; LCL = Xbarbar - A3.sbar
 - `A3`: tabelconstante afhankelijk van n
 - Conditions: vaste sample grootte
 
-#### s-chart (fixed sample size) (source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 73, S06)
+#### s-chart (fixed sample size) (source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 74, S06)
 
 ```
 CL = sbar; UCL = B4.sbar; LCL = B3.sbar
@@ -1549,7 +1911,7 @@ CL = sbar; UCL = B4.sbar; LCL = B3.sbar
 - `B4`: tabelconstante
 - Conditions: vaste sample grootte
 
-#### Xbar-chart (variable sample size) (source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 73, S06)
+#### Xbar-chart (variable sample size) (source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 74, S06)
 
 ```
 CL = Xbarbar; UCL = Xbarbar + 3.sigmahat/sqrt(ni); LCL = Xbarbar - 3.sigmahat/sqrt(ni)
@@ -1559,7 +1921,7 @@ CL = Xbarbar; UCL = Xbarbar + 3.sigmahat/sqrt(ni); LCL = Xbarbar - 3.sigmahat/sq
 - `sigmahat_i`: Ri/d2
 - Conditions: variabele sample grootte
 
-#### Gemiddelden van steekproefstatistieken (source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 73, S06)
+#### Gemiddelden van steekproefstatistieken (source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 74, S06)
 
 ```
 Xbarbar = (1/k).som_{i=1}^{k}(Xbar_i) ; Rbar = (1/k).som_{i=1}^{k}(R_i) ; sbar = (1/k).som_{i=1}^{k}(s_i)

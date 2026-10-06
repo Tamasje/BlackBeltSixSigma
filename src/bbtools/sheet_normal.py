@@ -1,6 +1,6 @@
 """Normal sheet: probabilities, values for a probability, μ ± kσ, and σ or μ from a tail fraction.
 
-Course: Z = (X − μ)/σ and the 68-95-99.7 rule (deck p. 18); the Excel functions NORM.VERD (NORM.DIST),
+Course: Z = (X − μ)/σ and the 68-95-99.7 rule (deck p. 19); the Excel functions NORM.VERD (NORM.DIST),
 NORM.INV and NORMALISEREN (___1.2 statistische functionaliteit in excel.pdf p. 1-3; __NormVerdeling Excel
 functies.xlsx); Z table (___1.1 Ztable.pdf). Probabilities are fractions (0.05 = 5 %), displayed as %.
 Upper tails use NORM.S.DIST(−z) rather than 1 − NORM.S.DIST(z): same value, no lost digits far out.
@@ -27,13 +27,13 @@ SHEET = "Normal"
 
 HEADER = HeaderBlock(
     tool="Normal distribution: probabilities, values, μ ± kσ, σ or mean from a tail fraction",
-    source="source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 16-19, 26; ___1.1 Ztable.pdf; "
+    source="source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 16-19, 27; ___1.1 Ztable.pdf; "
            "___1.2 statistische functionaliteit in excel.pdf p. 1-3; __NormVerdeling Excel functies.xlsx",
     convention="Excel's normal functions as the course uses them (NORM.DIST = NORM.VERD, NORM.INV); "
                "probabilities are fractions shown as %.",
     status=Status.VERIFIED,
     status_detail="tested against course worked examples S06-WE09 (NORM.INV / NORM.VERD workbook) and S06-WE10 "
-                  "(deck p. 19 notes), the 68-95-99.7 rule (deck p. 18) and the course Z table",
+                  "(deck p. 19 notes), the 68-95-99.7 rule (deck p. 19) and the course Z table",
 )
 
 DOC = SheetDoc(
@@ -70,7 +70,7 @@ def _probabilities(ws: Worksheet) -> None:
     section_title(ws, 12, "2. Probability below and above a value x")
     input_row(ws, 13, "Value x")
     result_row(ws, 14, "z = (x − μ) / σ", f'=IF(AND({HAVE_DIST},ISNUMBER(B13)),(B13-{MU})/{SIGMA},"")', NUMBER,
-               "deck p. 18; Excel NORMALISEREN (STANDARDIZE)")
+               "deck p. 19; Excel NORMALISEREN (STANDARDIZE)")
     result_row(ws, 15, "P(X < x)", '=IF(ISNUMBER(B14),_xlfn.NORM.S.DIST(B14,TRUE),"")', PERCENT,
                "Excel NORM.VERD(x; μ; σ; WAAR) = NORM.DIST(..., TRUE); Z table ___1.1 Ztable.pdf")
     result_row(ws, 16, "P(X > x)", '=IF(ISNUMBER(B14),_xlfn.NORM.S.DIST(-B14,TRUE),"")', PERCENT, "1 − P(X < x)")
@@ -117,11 +117,11 @@ def _k_sigma(ws: Worksheet) -> None:
     result_row(ws, 35, "Fraction inside μ ± kσ", '=IF(ISNUMBER(B32),1-2*_xlfn.NORM.S.DIST(-ABS(B32),TRUE),"")', PERCENT)
     result_row(ws, 36, "Fraction outside μ ± kσ", '=IF(ISNUMBER(B32),2*_xlfn.NORM.S.DIST(-ABS(B32),TRUE),"")', PERCENT)
 
-    section_title(ws, 38, "6. The 68 - 95 - 99.7 rule (deck p. 18)")
+    section_title(ws, 38, "6. The 68 - 95 - 99.7 rule (deck p. 19)")
     for row, k, course in ((39, 1, "≈ 68 %"), (40, 2, "≈ 95 %"), (41, 3, "≈ 99.7 %")):
         constant_row(ws, row, f"within μ ± {k}σ", k, "")
         output_cell(ws, f"C{row}", f"=1-2*_xlfn.NORM.S.DIST(-B{row},TRUE)", PERCENT)
-        label(ws, row, 4, f"deck p. 18: {course}", italic=True)
+        label(ws, row, 4, f"deck p. 19: {course}", italic=True)
 
 
 def _from_tail(ws: Worksheet) -> None:

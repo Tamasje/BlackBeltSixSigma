@@ -70,6 +70,8 @@ def write_readme(sheets: list[tuple[HeaderBlock, SheetDoc]], path: Path = README
         "**Use:** type into the yellow cells only; green cells are results. A result row stays empty until the inputs "
         "it needs are filled. Every sheet starts with its course source, convention and verification status. "
         "Excel recalculates the whole file when it opens.", "",
+        "**Course index:** `index.html` next to this file links every topic, formula and example-exam question to its "
+        "course page (`PYTHONPATH=src python3 -m bbtools.build_index`). Keep `source/` next to `build/`.", "",
     ]
     for header, doc in sheets:
         lines += _sheet_section(header, doc)

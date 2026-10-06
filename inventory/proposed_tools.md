@@ -29,16 +29,16 @@ sheet can become VERIFIED. IDs refer to `inventory/worked_examples.json`.
 
 - Inputs: LSL, USL, mean, σ (given), or σ estimated from R̄/d2 or s̄ (convention 1).
 - Outputs: Cp, Cpu, Cpl, Cpk; Z(LSL), Z(USL); % and ppm below LSL, above USL, total; Pp/Ppk when σ is overall.
-- Formulas: Les 4 deck `2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf` p. 32–35 (Cp, Cpk), p. 39–40 (quality levels);
+- Formulas: Les 4 deck `2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf` p. 33–36 (Cp, Cpk), p. 40–45 (quality levels);
   Dummies p. 162–165 (Cp/Cpk/Pp/Ppk); `Acceptance Sampling.pdf` p. 10 (Cpk, within-subgroup σ).
 - Worked examples: S06-WE01 (deck p. 46 + speaker notes: Cp 1,166, Cpk 0,67, 5 % total / 2,5 % per side);
-  S06-WE04, S06-WE07, S06-WE08 (exercise workbooks); S06-WE12, S06-WE13 (Minitab Pp/Ppk, deck p. 49, 82).
+  S06-WE04, S06-WE07, S06-WE08 (exercise workbooks); S06-WE12, S06-WE13 (Minitab Pp/Ppk, deck p. 50, 83).
 - Verifiable: yes.
 
 ## 2. Normal probabilities and quantiles
 
 - Outputs: P(X < x), P(X > x), P(a < X < b), x for a given tail probability, σ from a tail probability with a known mean (exam Q6c).
-- Formulas: deck p. 18–19, 26 (standard normal, Z); `___1.1 Ztable.pdf` p. 1–2; `___1.2 statistische functionaliteit in excel.pdf` p. 1–3 (NORM.VERD, NORM.INV, NORMALISEREN).
+- Formulas: deck p. 18–19, 27 (standard normal, Z); `___1.1 Ztable.pdf` p. 1–2; `___1.2 statistische functionaliteit in excel.pdf` p. 1–3 (NORM.VERD, NORM.INV, NORMALISEREN).
 - Worked examples: S06-WE09 (`__NormVerdeling Excel functies.xlsx`: NORM.INV(0.99; 20; 0.5) = 21.16317…);
   S06-WE10 (deck p. 19); S06-WE01 (Excel check NORM.VERD(71,4; 71,8; 0,2)).
 - Verifiable: yes.
@@ -46,7 +46,7 @@ sheet can become VERIFIED. IDs refer to `inventory/worked_examples.json`.
 ## 3. Sigma level, DPMO, yield
 
 - Outputs: DPU, DPO, DPMO, first-time yield, RTY, normalized yield; Z ↔ DPMO with and without the 1.5σ shift (convention 3).
-- Formulas: deck p. 19–20, 36; Dummies p. 150–160 (yield, DPU/DPO/DPMO, Z score, Table 6-3); Harry & Schroeder p. 3, 5.
+- Formulas: deck p. 20–21, 37; Dummies p. 150–160 (yield, DPU/DPO/DPMO, Z score, Table 6-3); Harry & Schroeder p. 3, 5.
 - Worked examples: S08-WE01…S08-WE08; S09-WE01…S09-WE06; S07-WE01.
 - Verifiable: yes. Note S09-WE05 prints an exponent that does not reproduce its own result (review_items.md).
 
@@ -83,7 +83,7 @@ sheet can become VERIFIED. IDs refer to `inventory/worked_examples.json`.
 ## 8. Control charts (X̄-R, X̄-s, I-MR, p, u)
 
 - Outputs: centre lines and control limits; σ = R̄/d2; limits from the Tables sheet.
-- Formulas: deck p. 55, 62–63, 73 and speaker notes p. 64; `___4.1 tabellen SPC.pdf` p. 1–2; Dummies p. 116, 249, 254.
+- Formulas: deck p. 55, 62–63, 74 and speaker notes p. 64; `___4.1 tabellen SPC.pdf` p. 1–2; Dummies p. 116, 249, 254.
 - Worked examples: S06-WE03, S06-WE05, S06-WE06 (exercise workbooks 2, 3, 5); S08-WE18…S08-WE21; S10-WE04a/b (Rheostat).
 - Verifiable: yes.
 

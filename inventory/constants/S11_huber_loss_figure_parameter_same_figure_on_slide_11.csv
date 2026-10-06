@@ -1,0 +1,5 @@
+item,value,source_file,source_page,table_name
+legend,Huber Loss (δ = 1.0),source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,5,Huber loss figure parameter (same figure on slide 11)
+legend,Huber Quadratic Zone (|e| ≤ δ),source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,5,Huber loss figure parameter (same figure on slide 11)
+x-axis range,−3 to 3,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,5,Huber loss figure parameter (same figure on slide 11)
+y-axis range,0 to 5,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,5,Huber loss figure parameter (same figure on slide 11)

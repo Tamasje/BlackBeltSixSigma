@@ -1,0 +1,16 @@
+"node (level, position left to right)",split condition,gini,samples,value,class,source_file,source_page,table_name
+root,Sex <= 0.5,0.476,534,"[325, 209]",Did not survive,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,19,Decision tree example figure (same figure on slide 44); node contents as printed
+"level 2, left (True branch)",Pclass <= 1.5,0.307,343,"[278, 65]",Did not survive,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,19,Decision tree example figure (same figure on slide 44); node contents as printed
+"level 2, right (False branch)",Pclass <= 2.5,0.371,191,"[47, 144]",Survived,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,19,Decision tree example figure (same figure on slide 44); node contents as printed
+"level 3, 1st",Age <= 53.0,0.489,75,"[43, 32]",Did not survive,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,19,Decision tree example figure (same figure on slide 44); node contents as printed
+"level 3, 2nd",Age <= 3.5,0.216,268,"[235, 33]",Did not survive,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,19,Decision tree example figure (same figure on slide 44); node contents as printed
+"level 3, 3rd",Age <= 56.5,0.085,113,"[5, 108]",Survived,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,19,Decision tree example figure (same figure on slide 44); node contents as printed
+"level 3, 4th",Fare <= 20.8,0.497,78,"[42, 36]",Did not survive,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,19,Decision tree example figure (same figure on slide 44); node contents as printed
+leaf 1,,0.499,56,"[27.0, 29.0]",Survived,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,19,Decision tree example figure (same figure on slide 44); node contents as printed
+leaf 2,,0.266,19,"[16, 3]",Did not survive,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,19,Decision tree example figure (same figure on slide 44); node contents as printed
+leaf 3,,0.397,11,"[3, 8]",Survived,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,19,Decision tree example figure (same figure on slide 44); node contents as printed
+leaf 4,,0.176,257,"[232, 25]",Did not survive,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,19,Decision tree example figure (same figure on slide 44); node contents as printed
+leaf 5,,0.069,112,"[4, 108]",Survived,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,19,Decision tree example figure (same figure on slide 44); node contents as printed
+leaf 6,,0.0,1,"[1, 0]",Did not survive,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,19,Decision tree example figure (same figure on slide 44); node contents as printed
+leaf 7,,0.495,60,"[27, 33]",Survived,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,19,Decision tree example figure (same figure on slide 44); node contents as printed
+leaf 8,,0.278,18,"[15, 3]",Did not survive,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,19,Decision tree example figure (same figure on slide 44); node contents as printed

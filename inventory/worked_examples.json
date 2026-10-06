@@ -1752,7 +1752,7 @@
         "Normality_Anderson_Darling": "Pass, P-value 0,553"
       },
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 49,
+      "page": 50,
       "legible": true,
       "slice": "S06",
       "source_kind": "course"
@@ -1765,7 +1765,7 @@
       },
       "stated_answers": {},
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 71,
+      "page": 72,
       "legible": true,
       "slice": "S06",
       "source_kind": "course"
@@ -1799,7 +1799,7 @@
         "Normality_Anderson_Darling": "Fail, P-value < 0,005"
       },
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 82,
+      "page": 83,
       "legible": true,
       "slice": "S06",
       "source_kind": "course"
@@ -1824,7 +1824,7 @@
         "Cpk_as_printed": "min [ (104-90)/(3.4) ; (110-104)/(3.4) ] = min [ 1,17 ; 0,5 ] = 0,5 (waarbij '3.4' = 3 x sigma(=4), niet het decimaal getal 3,4)"
       },
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 86,
+      "page": 87,
       "legible": true,
       "slice": "S06",
       "source_kind": "course"

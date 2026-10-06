@@ -1,0 +1,4 @@
+iteration,Fold 1,Fold 2,Fold 3,Held-Out Test Set,source_file,source_page,table_name
+Fold 1 Iteration,Validation,Train,Train,Held-Out Test Set,source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,21,3-Fold Cross-Validation with Isolated Test Set (figure)
+Fold 2 Iteration,Train,Validation,Train,Held-Out Test Set,source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,21,3-Fold Cross-Validation with Isolated Test Set (figure)
+Fold 3 Iteration,Train,Train,Validation,Held-Out Test Set,source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,21,3-Fold Cross-Validation with Isolated Test Set (figure)

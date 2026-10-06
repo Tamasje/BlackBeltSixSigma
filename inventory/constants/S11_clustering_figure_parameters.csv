@@ -1,0 +1,4 @@
+panel,label printed,source_file,source_page,table_name
+K-Means,(k = 3),source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,49,Clustering figure parameters
+Hierarchical / Ward,(k = 3),source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,49,Clustering figure parameters
+DBSCAN,Noise (−1) in legend,source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,49,Clustering figure parameters

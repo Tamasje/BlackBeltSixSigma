@@ -1,0 +1,9 @@
+node,distribution label,source_file,source_page,table_name
+kappa_log,Exponential,source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,56,Bayesian network example figure node labels
+kappa,Deterministic,source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,56,Bayesian network example figure node labels
+phi,Uniform,source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,56,Bayesian network example figure node labels
+theta_new,Beta,source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,56,Bayesian network example figure node labels
+theta,Beta,source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,56,Bayesian network example figure node labels
+y_new,Binomial,source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,56,Bayesian network example figure node labels
+y,Binomial,source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,56,Bayesian network example figure node labels
+plate,player_names (18),source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,56,Bayesian network example figure node labels

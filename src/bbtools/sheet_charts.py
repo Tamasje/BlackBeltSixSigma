@@ -1,8 +1,8 @@
 """Control charts sheet: X̄-R and X̄-s from subgroups, individuals and moving range (I-MR), p chart and u chart.
 
-Course: X̄/R and X̄/s limits CL = X̿, X̿ ± A2·R̄, D3·R̄ … D4·R̄, X̿ ± A3·s̄, B3·s̄ … B4·s̄ (deck p. 73); σ = R̄/d2 and
+Course: X̄/R and X̄/s limits CL = X̿, X̿ ± A2·R̄, D3·R̄ … D4·R̄, X̿ ± A3·s̄, B3·s̄ … B4·s̄ (deck p. 74); σ = R̄/d2 and
 σ(x̄) = σ/√n (deck p. 64 notes); I-MR X̄ ± E2·MR̄, D4·MR̄ (Dummies p. 249); p chart p̄ ± 3√(p̄(1 − p̄)/n_i) and u chart
-ū ± 3√(ū/n_i) (Dummies p. 254); Western Electric rules (deck p. 67-68). Constants from the Tables sheet
+ū ± 3√(ū/n_i) (Dummies p. 254); Western Electric rules (deck p. 68-69). Constants from the Tables sheet
 (decision 4: Table 18; c4 from Table A; A3 and E2 from Six Sigma Demystified). A negative lower limit is set to 0.
 
 Row plan: X̄-R / X̄-s summary 8-27, subgroup table 30-79 (50 subgroups); I-MR 82-192 (100 values);
@@ -32,7 +32,7 @@ SHEET = "Control charts"
 
 HEADER = HeaderBlock(
     tool="Control charts: X̄-R and X̄-s (subgroups), I-MR (individuals), p chart and u chart, with out-of-limit flags",
-    source="source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 55, 62-73; ___4.1 tabellen SPC.pdf "
+    source="source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 54-58, 62-74; ___4.1 tabellen SPC.pdf "
            "p. 1-2; Six Sigma For Dummies.pdf p. 239-256; Les 5/20260619_ottoy_Rheostat Knob Data.xls",
     convention="Decision 4: constants from Table 18 (A2, D3, D4, B3, B4, d2), Table A (c4), Six Sigma Demystified "
                "(A3, E2); 3σ limits; a negative lower limit is shown as 0.",
@@ -99,7 +99,7 @@ def _subgroups(ws: Worksheet) -> None:
     result_row(ws, 12, "k = number of subgroups", f'=IF(COUNT({col["x"]})>0,COUNT({col["x"]}),"")', "0")
     result_row(ws, 13, "n used (largest subgroup size)", f'=IF(COUNT({col["n"]})>0,MAX({col["n"]}),"")', "0")
     result_row(ws, 14, "Equal subgroup sizes?", f'=IF(COUNT({col["n"]})>0,IF(MIN({col["n"]})=MAX({col["n"]}),"yes",'
-               f'"NO: limits use the largest n (deck p. 73: variable sample size)"),"")')
+               f'"NO: limits use the largest n (deck p. 74: variable sample size)"),"")')
     result_row(ws, 15, "X̿ = mean of the subgroup means", f'=IF(COUNT({col["x"]})>0,AVERAGE({col["x"]}),"")', NUMBER)
     result_row(ws, 16, "R̄ = mean range", f'=IF(COUNT({col["r"]})>0,AVERAGE({col["r"]}),"")', NUMBER)
     result_row(ws, 17, "s̄ = mean standard deviation", f'=IF(COUNT({col["s"]})>0,AVERAGE({col["s"]}),"")', NUMBER)
@@ -116,10 +116,10 @@ def _subgroups(ws: Worksheet) -> None:
 
     column_titles(ws, 22, ["Chart", "LCL", "CL", "UCL", "Constants", "value", "value", "Course source"])
     specs = {
-        "xbar_r": ("X̄ chart with R̄: X̿ ± A2·R̄", "A2", None, "B15", "B16", "deck p. 73; Dummies p. 249"),
-        "r": ("R chart: D3·R̄ … D4·R̄", "D3", "D4", "B16", "B16", "deck p. 73"),
-        "xbar_s": ("X̄ chart with s̄: X̿ ± A3·s̄", "A3", None, "B15", "B17", "deck p. 73 (preferred for n > 10)"),
-        "s": ("s chart: B3·s̄ … B4·s̄", "B3", "B4", "B17", "B17", "deck p. 73"),
+        "xbar_r": ("X̄ chart with R̄: X̿ ± A2·R̄", "A2", None, "B15", "B16", "deck p. 74; Dummies p. 249"),
+        "r": ("R chart: D3·R̄ … D4·R̄", "D3", "D4", "B16", "B16", "deck p. 74"),
+        "xbar_s": ("X̄ chart with s̄: X̿ ± A3·s̄", "A3", None, "B15", "B17", "deck p. 74; notes p. 73: s preferred for n > 10"),
+        "s": ("s chart: B3·s̄ … B4·s̄", "B3", "B4", "B17", "B17", "deck p. 74"),
     }
     for key, (text, c1, c2, centre, spread, source) in specs.items():
         r = LIMITS[key]
@@ -233,13 +233,13 @@ def _attribute_chart(ws: Worksheet, top: int, first: int, kind: str) -> None:
 
 def _rules(ws: Worksheet) -> None:
     """Section 5: how the course reads a control chart."""
-    section_title(ws, 311, "5. Reading the chart: Western Electric rules (deck p. 67-68)")
+    section_title(ws, 311, "5. Reading the chart: Western Electric rules (deck p. 68-69)")
     rules = (
         "1. One or more points outside the control limits (flagged in the tables above).",
         "2. Two of three consecutive points outside the two-sigma warning limits but still inside the control limits.",
         "3. Four of five consecutive points beyond the one-sigma limits.",
         "4. A run of eight consecutive points on one side of the centre line.",
-        "More sensitizing rules, zones A/B/C and tampering vs. under-reacting: deck p. 64-69; Dummies p. 245-247.",
+        "More sensitizing rules, zones A/B/C and tampering vs. under-reacting: deck p. 65-70; Dummies p. 245-247.",
     )
     for offset, text in enumerate(rules):
         label(ws, 312 + offset, 1, text, italic=offset == 4)

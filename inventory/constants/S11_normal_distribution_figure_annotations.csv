@@ -1,0 +1,5 @@
+item,value,source_file,source_page,table_name
+figure title,Normal Distribution Visualization,source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf,3,Normal distribution figure annotations
+pdf panel title,"Probability Density Function (μ=100, σ=20)",source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf,3,Normal distribution figure annotations
+cdf panel title,"Cumulative Distribution Function (μ=100, σ=20)",source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf,3,Normal distribution figure annotations
+mean/median marker text,Median = Mean (μ=100),source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf,3,Normal distribution figure annotations

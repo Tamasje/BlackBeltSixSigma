@@ -1,0 +1,5 @@
+model,number as printed,source_file,source_page,table_name
+"GPT-3.5 (originele ChatGPT, 2022)",175B model (175 miljard (billion) parameters),source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,7,Parameter counts quoted for large models and AlexNet
+GPT-4 and Claude 3 (naar schatting),1T-2T modellen (1 biljoen (trillion) parameters),source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,7,Parameter counts quoted for large models and AlexNet
+DeepSeek-V3/R1 (open weights),671B-model,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,7,Parameter counts quoted for large models and AlexNet
+AlexNet,ong. 62 miljoen parameters (page 18; also slide 41),source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,7,Parameter counts quoted for large models and AlexNet

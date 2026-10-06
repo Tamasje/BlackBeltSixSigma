@@ -1,0 +1,4 @@
+panel,degree label as printed,Bias,Variance,Train loss,Test loss,source_file,source_page,table_name
+Underfitted Model,degree = 1,High,Low,High,High,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,9,Underfitting / good fit / overfitting figure: polynomial degree labels (same figure on slide 23)
+Good Fit,degree = 4,Low,Low,Low,Low,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,9,Underfitting / good fit / overfitting figure: polynomial degree labels (same figure on slide 23)
+Overfitted Model,degree = 18,Low,High,Low,High,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,9,Underfitting / good fit / overfitting figure: polynomial degree labels (same figure on slide 23)

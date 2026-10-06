@@ -1,0 +1,7 @@
+Methode,Kernidee,source_file,source_page,table_name
+Ridge-regressie,Voegt een L2-bestraffing toe op de grootte van coëfficiënten. Nuttig bij multicollineariteit en hoog-dimensionale data.,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,16,Uitbreidingen van lineaire regressie (notes)
+Lasso-regressie,Voegt een L1-bestraffing toe. Forceert sommige coëfficiënten naar nul → ingebouwde variabelenselectie.,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,16,Uitbreidingen van lineaire regressie (notes)
+Elastic Net,Combinatie van Ridge en Lasso.,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,16,Uitbreidingen van lineaire regressie (notes)
+Quantielregressie,Modelleert mediaan of andere kwantielen in plaats van het gemiddelde. Robuuster bij uitschieters.,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,16,Uitbreidingen van lineaire regressie (notes)
+Total Least Squares / Deming-regressie,Houdt rekening met meetfout in zowel x als y (zie ook het staalkoeling-voorbeeld uit lecture 1).,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,16,Uitbreidingen van lineaire regressie (notes)
+Gegeneraliseerde lineaire modellen (GLM),"Breidt lineaire regressie uit naar niet-Gaussische uitkomsten (lognormaal, Poisson, binomiaal, …).",source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,16,Uitbreidingen van lineaire regressie (notes)

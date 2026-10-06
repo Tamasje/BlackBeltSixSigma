@@ -1,0 +1,8 @@
+Methode,Kernidee,source_file,source_page,table_name
+Ridge,L2-bestraffing → stabiliteit,source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,35,"Uitbreidingen van lineaire regressie (slides, includes Logistisch)"
+Lasso,L1-bestraffing → variabelenselectie,source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,35,"Uitbreidingen van lineaire regressie (slides, includes Logistisch)"
+Elastic Net,combinatie van Ridge + Lasso,source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,35,"Uitbreidingen van lineaire regressie (slides, includes Logistisch)"
+Quantielregressie,mediaan i.p.v. gemiddelde,source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,35,"Uitbreidingen van lineaire regressie (slides, includes Logistisch)"
+Deming,meetfout in zowel x als y,source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,35,"Uitbreidingen van lineaire regressie (slides, includes Logistisch)"
+Logistisch,Voorspellen van binaire response (1/0),source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,35,"Uitbreidingen van lineaire regressie (slides, includes Logistisch)"
+GLM,"niet-Gaussische uitkomsten (Poisson, binomiaal, …)",source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,35,"Uitbreidingen van lineaire regressie (slides, includes Logistisch)"

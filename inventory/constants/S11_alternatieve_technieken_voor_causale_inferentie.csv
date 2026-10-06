@@ -1,0 +1,6 @@
+Methode,Kernidee,source_file,source_page,table_name
+Matching & propensity scores,Vergelijk behandelde en onbehandelde eenheden die zo gelijkaardig mogelijk zijn op alle gemeten confounders.,source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf,27,Alternatieve technieken voor causale inferentie
+Instrumentele variabelen,Gebruik een variabele die de behandeling beïnvloedt maar de uitkomst niet (behalve via de behandeling).,source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf,27,Alternatieve technieken voor causale inferentie
+Difference-in-differences,Vergelijk de evolutie over tijd tussen behandelde en niet-behandelde groepen.,source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf,27,Alternatieve technieken voor causale inferentie
+Regressie-discontinuïteit,Exploiteer een willekeurige drempelwaarde waarbij de behandeling abrupt verandert.,source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf,27,Alternatieve technieken voor causale inferentie
+Structurele vergelijkingsmodellen,Schat het volledige causale systeem via een set van simultane vergelijkingen.,source/course/Les 1/20261005_naert_web_lecture 1 notes.pdf,27,Alternatieve technieken voor causale inferentie

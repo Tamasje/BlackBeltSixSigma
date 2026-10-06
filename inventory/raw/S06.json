@@ -63,280 +63,279 @@
       "topic": "Methodologies landscape (Kaizen, Lean, Agile, Six Sigma, TOC) & DMAIC",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        8,
-        9
+        9,
+        10
       ]
     },
     {
       "topic": "Six Sigma statistical point of view / dispersion / hypothesis uncertainty",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        10
+        11
       ]
     },
     {
       "topic": "Data collection steps and sample size determination",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        11,
-        12
+        12,
+        13
       ]
     },
     {
       "topic": "Control/warning/specification limits (concept)",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        13
+        14
       ]
     },
     {
       "topic": "Galton board / normal distribution intuition",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        14,
-        15
+        15,
+        16
       ]
     },
     {
       "topic": "Normal distribution properties, kurtosis, inflexion points",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        16,
-        17
+        17,
+        18
       ]
     },
     {
       "topic": "Standard normal distribution, Z-score, 68-95-99.7 rule",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        18,
-        19
+        19,
+        20
       ]
     },
     {
       "topic": "Discrete data capability: DPO, DPMO, Yield, PPM",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        19
+        20
       ]
     },
     {
       "topic": "VOC vs VOP and sigma capability / DPMO / % yield table",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        20
+        21
       ]
     },
     {
       "topic": "Goals of Lean Six Sigma (reduce variation / center process)",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        21,
-        22
+        22,
+        23
       ]
     },
     {
       "topic": "Process variation pre/post project (short vs long term)",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        24,
-        25
+        25,
+        26
       ]
     },
     {
       "topic": "Process stability & capability - foundation of SPC, normal distribution formula",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        26,
-        27
+        27,
+        28
       ]
     },
     {
       "topic": "Common causes vs special causes of variation",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        29,
         30,
-        31
+        31,
+        32
       ]
     },
     {
       "topic": "Process capability Cp",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        32,
-        33
+        33,
+        34
       ]
     },
     {
       "topic": "Process capability Cpk",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        32,
-        34
+        33,
+        35
       ]
     },
     {
       "topic": "Cp/Cpk interpretation, target vs variation (need both centering and low variation)",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        35
+        36
       ]
     },
     {
       "topic": "Technical definition of Six Sigma & 1.5 sigma shift",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        36
+        37
       ]
     },
     {
       "topic": "Process stability influences predictability/capability; stability notes",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        37,
-        38
+        38,
+        39
       ]
     },
     {
       "topic": "Cp/Cpk quality-level interpretation table (not capable/just capable/acceptable/good)",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        39,
-        40
+        40,
+        41
       ]
     },
     {
       "topic": "Cp/Cpk combined scenarios (tunnel/truck analogy) and decision-guide tables",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        41,
         42,
         43,
-        44
+        44,
+        45
       ]
     },
     {
       "topic": "Process capability exercise: shaft length 71.4-72.8mm (Xbar-kaart, s-kaart)",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        45,
-        46
+        46,
+        47
       ]
     },
     {
       "topic": "Minitab capability analysis example (report card, summary, process performance, diagnostic reports)",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        47,
         48,
         49,
         50,
-        51
+        51,
+        52
       ]
     },
     {
       "topic": "SPC introduction: definition, purpose, control vs specification limits",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        53,
         54,
         55,
-        56
+        56,
+        57
       ]
     },
     {
       "topic": "SPC process set up steps and PDCA cycle (achieving vs maintaining control)",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        57,
-        58
+        58,
+        59
       ]
     },
     {
       "topic": "Measurement system spread (R&R) vs process spread vs tolerance",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        59
+        60
       ]
     },
     {
       "topic": "Gauge R&R (MSA): repeatability, reproducibility, stability/drift",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        60
+        61
       ]
     },
     {
       "topic": "Xbar-kaart: concept, sampling distribution, central limit theorem",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        62,
-        63
+        63,
+        64
       ]
     },
     {
       "topic": "Acting on control chart information (tampering vs underreacting mistakes)",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        64
+        65
       ]
     },
     {
       "topic": "Control limits vs specification limits (review)",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        65
+        66
       ]
     },
     {
       "topic": "Control chart decision rules: in control vs corrective action needed (outliers/trend/shift)",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        66
+        67
       ]
     },
     {
       "topic": "Western Electric rules / Shewhart sensitizing rules & zones A/B/C",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        67,
-        68
+        68,
+        69
       ]
     },
     {
       "topic": "Caution: in-control does not equal in-specification (four possible states)",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        69
+        70
       ]
     },
     {
       "topic": "SPC exercise 1: Western Electric rules application",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        71
+        72
       ]
     },
     {
       "topic": "Xbar-R chart example (oil data, 2 charts: sample mean & sample range)",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        72
+        73
       ]
     },
     {
       "topic": "Xbar/R- and Xbar/s-kaart formulas (fixed and variable sample size)",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        73
+        74
       ]
     },
     {
       "topic": "SPC exercise 2: bleach product net weight, Xbar-R chart + Cpk (n=5, 20 samples)",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        74,
         75,
         76,
         77,
@@ -344,42 +343,42 @@
         79,
         80,
         81,
-        82
+        82,
+        83
       ]
     },
     {
       "topic": "SPC exercise 3: bearing inner diameter, Xbar-R chart with outlier / revised limits (n=5, 24 samples)",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        83
+        84
       ]
     },
     {
       "topic": "SPC exercise 4: effect of changing subgroup size (n=3 vs n=8) on control limits",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        84
+        85
       ]
     },
     {
       "topic": "SPC exercise 5: capability & % out of spec from summed Xbar/R data (n=5, m=25)",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        85
+        86
       ]
     },
     {
       "topic": "SPC exercise 6: milled part critical dimension, Cp/Cpk, feasibility of centering",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        86
+        87
       ]
     },
     {
       "topic": "OSPC ArcelorMittal Gent example screenshots (production monitoring charts)",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
       "pages": [
-        87,
         88,
         89
       ]
@@ -467,7 +466,7 @@
       },
       "conditions": "E(Z)=0, sigma(Z)=1",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 18
+      "page": 19
     },
     {
       "name": "Belangrijke kengetallen normale verdeling",
@@ -478,7 +477,7 @@
       },
       "conditions": "X ~ N(mu,sigma)",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 18
+      "page": 19
     },
     {
       "name": "DPO / DPMO / Yield (discrete data)",
@@ -490,7 +489,7 @@
       },
       "conditions": "PPM = parts per million; % to PPM: factor 10.000",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 19
+      "page": 20
     },
     {
       "name": "Standard Normal Distribution density",
@@ -502,7 +501,7 @@
       },
       "conditions": "geldig als het proces enkel natuurlijke deterioraties ondergaat (common causes only)",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 26
+      "page": 27
     },
     {
       "name": "Process Capability Cp",
@@ -514,7 +513,7 @@
       },
       "conditions": "compares process dispersion with target given by specification; Cp alone not sufficient to define capability",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 33
+      "page": 34
     },
     {
       "name": "Process Capability Cpk",
@@ -527,7 +526,7 @@
       },
       "conditions": "compares process dispersion with target given by specification, accounting for centering",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 34
+      "page": 35
     },
     {
       "name": "Cpk via distances (alternative form)",
@@ -538,7 +537,7 @@
       },
       "conditions": "grafische illustratie op de slide (average, forced evolution, waste)",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 34
+      "page": 35
     },
     {
       "name": "Gauge R&R variance decomposition",
@@ -550,7 +549,7 @@
       },
       "conditions": "Aanbeveling: resolutie <= 10% van tolerantie; Gauge R&R <= 20% van tolerantie",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 60
+      "page": 61
     },
     {
       "name": "Xbar/R-chart (fixed sample size)",
@@ -562,7 +561,7 @@
       },
       "conditions": "R small sample < 10; vaste sample grootte",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 73
+      "page": 74
     },
     {
       "name": "R-chart (fixed sample size)",
@@ -574,7 +573,7 @@
       },
       "conditions": "vaste sample grootte",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 73
+      "page": 74
     },
     {
       "name": "Xbar/s-chart (fixed sample size)",
@@ -586,7 +585,7 @@
       },
       "conditions": "vaste sample grootte",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 73
+      "page": 74
     },
     {
       "name": "s-chart (fixed sample size)",
@@ -598,7 +597,7 @@
       },
       "conditions": "vaste sample grootte",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 73
+      "page": 74
     },
     {
       "name": "Xbar-chart (variable sample size)",
@@ -610,7 +609,7 @@
       },
       "conditions": "variabele sample grootte",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 73
+      "page": 74
     },
     {
       "name": "Gemiddelden van steekproefstatistieken",
@@ -620,7 +619,7 @@
       },
       "conditions": "",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 73
+      "page": 74
     },
     {
       "name": "Sigma van steekproefgemiddelden / individuele metingen (centrale limietstelling)",
@@ -1659,7 +1658,7 @@
         ]
       ],
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 20
+      "page": 21
     },
     {
       "name": "Table A - Bias Correction Factors For Estimating Standard Deviations",
@@ -3316,7 +3315,7 @@
         "Cpk_as_printed": "min [ (104-90)/(3.4) ; (110-104)/(3.4) ] = min [ 1,17 ; 0,5 ] = 0,5 (waarbij '3.4' = 3 x sigma(=4), niet het decimaal getal 3,4)"
       },
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 86,
+      "page": 87,
       "legible": true
     },
     {
@@ -3362,7 +3361,7 @@
       },
       "stated_answers": {},
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 71,
+      "page": 72,
       "legible": true
     },
     {
@@ -3394,7 +3393,7 @@
         "Normality_Anderson_Darling": "Pass, P-value 0,553"
       },
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 49,
+      "page": 50,
       "legible": true
     },
     {
@@ -3426,7 +3425,7 @@
         "Normality_Anderson_Darling": "Fail, P-value < 0,005"
       },
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 82,
+      "page": 83,
       "legible": true
     }
   ],
@@ -3441,7 +3440,7 @@
       "topic": "Cp/Cpk vs Pp/Ppk",
       "as_stated": "Korte termijn: Cp / Cpk (common cause - process engineer). Lange termijn (waarin de klant geïnteresseerd is): Pp / Ppk (P = Performance). Cp/Cpk met korte termijn sigma gerekend - white noise (within variation); Pp/Ppk met lange termijn sigma gerekend - black noise, over time - belangrijk voor klant, de echte parameter. In Minitab-rapporten: 'Actual (overall)' = Pp/Ppk, 'Potential (within)' = Cp/Cpk.",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 32
+      "page": 33
     },
     {
       "topic": "Cpk terminologie",
@@ -3459,19 +3458,19 @@
       "topic": "6 sigma kwaliteitsniveau / interpretatie Cp",
       "as_stated": "Cp<1: proces niet capabel. Cp=1: net capabel (specificatie = UL-LL = 6sigma -> 99,73%, ~2700 op 10^6 buiten tolerantie). Cp>=1,33: acceptabel (specificatie=8sigma -> 99,9936%, ~60 op 10^6 buiten tolerantie, 64ppm). Cp>=1,67: goed (specificatie=10sigma -> 99,999943%, ~0,57 op 10^6 buiten tolerantie). Cp=2: 6 Sigma kwaliteitsniveau - 2 defect per miljard opportuniteiten (korte termijn).",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 39
+      "page": 40
     },
     {
       "topic": "Controlelimieten breedte (3 sigma)",
       "as_stated": "UCL = gemiddelde + 3*sigma(xbar) => 3-sigma limiet, omgekeerd evenredig met steekproefgrootte n. Controlelimieten (UCL/LCL) zijn gebaseerd op procesprestatie (+/- 3 geschatte standaardafwijkingen van het gemiddelde) en zijn niet gelijk aan specificatielimieten (USL/LSL), die gebaseerd zijn op feedback van de klant.",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 55
+      "page": 56
     },
     {
       "topic": "Western Electric / Shewhart sensitizing rules",
       "as_stated": "Table 5.1 Some Sensitizing Rules for Shewhart Control Charts: (1) One or more points outside of the control limits. (2) Two of three consecutive points outside the two-sigma warning limits but still inside the control limits. (3) Four of five consecutive points beyond the one-sigma limits. (4) A run of eight consecutive points on one side of the center line. [1-4 = Western Electric Rules]. (5) Six points in a row steadily increasing or decreasing. (6) Fifteen points in a row in zone C (both above and below the center line). (7) Fourteen points in a row alternating up and down. (8) Eight points in a row on both sides of the center line with none in zone C. (9) An unusual or nonrandom pattern in the data. (10) One or more points near a warning or control limit. Zone A: between 2 sigma from centerline and control limit (3 sigma). Zone B: between 1 sigma and 2 sigma from centerline. Zone C: within 1 sigma of centerline.",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 67
+      "page": 68
     },
     {
       "topic": "Range- vs standaardafwijkingskaart (subgroepgrootte-drempel)",
@@ -3481,9 +3480,9 @@
     },
     {
       "topic": "Minimum aantal subgroepen voor controlekaarten / capability-analyse",
-      "as_stated": "Slide (SPC process set up): 'Effective control charts need at least 20 subgroups of data.' Minitab-gegenereerde Report Cards (in de slides, o.a. p.48 en p.78): 'For a capability analysis, it is generally recommended that you collect at least 25 subgroups over a long enough period of time to capture the different sources of process variation.' Beide drempels (20 vs 25) komen voor in het cursusmateriaal zonder expliciete verzoening.",
+      "as_stated": "Slide (SPC process set up): 'Effective control charts need at least 20 subgroups of data.' Minitab-gegenereerde Report Cards (in de slides, o.a. p.49 en p.80): 'For a capability analysis, it is generally recommended that you collect at least 25 subgroups over a long enough period of time to capture the different sources of process variation.' Beide drempels (20 vs 25) komen voor in het cursusmateriaal zonder expliciete verzoening.",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 57
+      "page": 58
     },
     {
       "topic": "n vs n-1 (STDEV vs STDEVP)",
@@ -3507,7 +3506,7 @@
       "topic": "Gauge R&R (MSA) aanbevolen drempels",
       "as_stated": "Resolutie <= 10% van tolerantie om te meten. Gauge R&R <= 20% van tolerantie om te meten. Repeatability (Equipment variation): variatie met 1 meetdevice, herhaald door 1 operator, op hetzelfde deel. Reproducibility (Appraised variation): variatie tussen verschillende operatoren met hetzelfde toestel op hetzelfde deel. Stability or Drift: totale variatie t.o.v. een master/referentiewaarde over uitgestrekte tijd.",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 60
+      "page": 61
     },
     {
       "topic": "Notatie: punt (.) als vermenigvuldigingsteken",
@@ -3519,7 +3518,7 @@
       "topic": "Steekproefgrootte algemene vuistregel",
       "as_stated": "General rule: sample at least 20, preferably 30 measurements. Sample size determination is a study on its own, not an objective of this course.",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 12
+      "page": 13
     },
     {
       "topic": "X-waarden vs gemiddelden voor specificaties",
@@ -3535,29 +3534,29 @@
       "page": 1
     },
     {
-      "issue": "Hoofddeck pagina 40 ('The Process Capability (CP & CPK) can be used to predict...'): de rechter afbeelding (Cpk=0,66/1/1,33 met Scrap/Risky/Good) toont op de achtergrond vaag doorschijnende, deels omgekeerde Franse/Nederlandse tekst (bv. '2. NOTATION : NF X...', 'ECOL DES...') die niet volledig leesbaar is - lijkt een onderliggend gescand document dat door de nieuwe afbeelding heen schijnt. Inhoud niet betrouwbaar te transcriberen.",
+      "issue": "Hoofddeck pagina 41 ('The Process Capability (CP & CPK) can be used to predict...'): de rechter afbeelding (Cpk=0,66/1/1,33 met Scrap/Risky/Good) toont op de achtergrond vaag doorschijnende, deels omgekeerde Franse/Nederlandse tekst (bv. '2. NOTATION : NF X...', 'ECOL DES...') die niet volledig leesbaar is - lijkt een onderliggend gescand document dat door de nieuwe afbeelding heen schijnt. Inhoud niet betrouwbaar te transcriberen.",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 40
+      "page": 41
     },
     {
-      "issue": "Twee verschillende drempels voor het minimum aantal subgroepen komen voor in het materiaal zonder expliciete verzoening: slide 57 zegt 'at least 20 subgroups', terwijl de Minitab Report Cards (bv. p.48, p.78) zeggen 'at least 25 subgroups'.",
+      "issue": "Twee verschillende drempels voor het minimum aantal subgroepen komen voor in het materiaal zonder expliciete verzoening: slide 58 zegt 'at least 20 subgroups', terwijl de Minitab Report Cards (bv. p.49, p.80) zeggen 'at least 25 subgroups'.",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 57
+      "page": 58
     },
     {
-      "issue": "Slide 86 (SPC: oefening 6) schrijft de Cpk-berekening als 'min [ (104-90)/(3.4) ; (110-104)/(3.4) ]'. Dit '3.4' is vermoedelijk '3 x sigma(=4)' (punt als vermenigvuldigingsteken, sigma=4 net hierboven berekend), niet het decimale getal 3,4 - maar zoals afgedrukt is het identiek aan de notatie van een decimaal getal en kan verward worden. Letterlijk overgenomen; zie ook conventions-item over punt-als-maal-teken.",
+      "issue": "Slide 87 (SPC: oefening 6) schrijft de Cpk-berekening als 'min [ (104-90)/(3.4) ; (110-104)/(3.4) ]'. Dit '3.4' is vermoedelijk '3 x sigma(=4)' (punt als vermenigvuldigingsteken, sigma=4 net hierboven berekend), niet het decimale getal 3,4 - maar zoals afgedrukt is het identiek aan de notatie van een decimaal getal en kan verward worden. Letterlijk overgenomen; zie ook conventions-item over punt-als-maal-teken.",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 86
+      "page": 87
     },
     {
-      "issue": "SPC: oefening 1 (p.71) geeft geen gestelde/afgedrukte antwoorden in de cursus (enkel de vraag en een controlekaart-afbeelding zonder numerieke as-waarden); geen stated_answers beschikbaar.",
+      "issue": "SPC: oefening 1 (p.72) geeft geen gestelde/afgedrukte antwoorden in de cursus (enkel de vraag en een controlekaart-afbeelding zonder numerieke as-waarden); geen stated_answers beschikbaar.",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 71
+      "page": 72
     },
     {
-      "issue": "Minitab-capability-rapport voor SPC-oefening 2 (herberekend in Minitab, p.79-82) faalt de Anderson-Darling normaliteitstoets (P<0,005), terwijl dezelfde data in het Excel-werkblad (__Xbar R kaart data - berekeningen oefening 2.xlsx) zonder voorbehoud wordt gebruikt voor een Cp/Cpk-berekening die net normaliteit veronderstelt. Beide bronnen staan naast elkaar in de cursus zonder expliciete verzoening van deze spanning.",
+      "issue": "Minitab-capability-rapport voor SPC-oefening 2 (herberekend in Minitab, p.80-83) faalt de Anderson-Darling normaliteitstoets (P<0,005), terwijl dezelfde data in het Excel-werkblad (__Xbar R kaart data - berekeningen oefening 2.xlsx) zonder voorbehoud wordt gebruikt voor een Cp/Cpk-berekening die net normaliteit veronderstelt. Beide bronnen staan naast elkaar in de cursus zonder expliciete verzoening van deze spanning.",
       "file": "source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf",
-      "page": 81
+      "page": 82
     }
   ]
 }

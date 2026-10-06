@@ -1,7 +1,7 @@
 """Tests for bbtools.sheet_sigma, evaluated by LibreOffice headless.
 
 Expected values: course worked examples (inventory/worked_examples.json, locked) at printed precision
-(decision 10) via the `printed` fixture; the course sigma tables (deck p. 20, Dummies Tables 1-2 and 6-3,
+(decision 10) via the `printed` fixture; the course sigma tables (deck p. 21, Dummies Tables 1-2 and 6-3,
 Van Volsem p. 7, Harry & Schroeder) against the 1.5σ-shift definition; scipy for random inputs. Printed values
 that disagree with the computation are strict xfails naming the page.
 """
@@ -53,7 +53,7 @@ SIGMA_TABLES = [
     ("S08_table_6_3_sigma_score_table_z_dpmo", "Z", "DPMO", ()),                                  # Dummies p. 160
     ("S07_table_1_2_the_sigma_scale", "Sigma", "Defects per Million", ()),                         # Dummies p. 42
     ("S06_voc_vs_vop_sigma_capability_defects_per_million_opportunitie", "Sigma Capability",
-     "Defects per Million Opportunities", ("2",)),                                                 # deck p. 20
+     "Defects per Million Opportunities", ("2",)),                                                 # deck p. 21
     ("S01_sigma_level_defects_per_million_yield_tabel", "Sigma Level", "Defects per Million", ("2",)),  # Van Volsem p. 7
     ("S09_the_cost_of_quality_sigma_level_vs_dpmo_vs_cost_of_quality", "Sigma Level",
      "Defects Per Million Opportunities", ("2",)),                                                 # Harry summary p. 2

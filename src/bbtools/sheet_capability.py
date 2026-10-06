@@ -4,7 +4,7 @@ Convention decision 1 (inventory/conventions.md): the course estimates σ in sev
 not choose. Each σ the user fills in gets its own result row, labelled with the course page that uses it.
 Decision 2: the "6 sigma criterion" is shown in both readings the course uses.
 
-Formulas (course): Cp = (UL − LL)/6σ (deck p. 33); Cpk = min{(UL − x̄)/3σ, (x̄ − LL)/3σ} (deck p. 34);
+Formulas (course): Cp = (UL − LL)/6σ (deck p. 34); Cpk = min{(UL − x̄)/3σ, (x̄ − LL)/3σ} (deck p. 35);
 % out of spec from the normal distribution (deck p. 18-19, 46; Excel check NORM.VERD on deck p. 46).
 All quantities are in the user's measurement unit; percentages are stored as fractions.
 """
@@ -34,20 +34,20 @@ SHEET = "Capability"
 
 HEADER = HeaderBlock(
     tool="Process capability: Cp, Cpk (Pp, Ppk) and % out of specification",
-    source="source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 18-20, 32-46, 64; "
+    source="source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 18-21, 32-47, 50, 64, 83; "
            "Six Sigma For Dummies.pdf p. 114-116, 159-165; ___4.1 tabellen SPC.pdf p. 1-2",
     convention="Decisions 1-2: one result row per σ estimate the course uses (none chosen for you); "
                "'6 sigma criterion' shown in both course readings.",
     status=Status.VERIFIED,
     status_detail="tested against course worked examples S06-WE01, S06-WE02, S06-WE04, S06-WE07, S06-WE08, "
-                  "S06-WE12, S06-WE13; a few printed values on deck p. 46 and 49 disagree with the computation "
+                  "S06-WE12, S06-WE13; a few printed values on deck p. 46 and 50 disagree with the computation "
                   "(listed in build/README.md)",
 )
 
 DOC = SheetDoc(
     sheet=SHEET,
     purpose="Cp, Cpk (or Pp, Ppk), Z distances and % / ppm out of specification from LSL, USL, mean and a spread; "
-            "the two course readings of the '6 sigma' criterion; the Cp levels of deck p. 39.",
+            "the two course readings of the '6 sigma' criterion; the Cp levels of deck p. 40.",
     inputs="LSL and/or USL, mean; then any of: σ given, R̄ (+ n), s̄ (+ n), MR̄, overall s. Each spread gets "
            "its own result row, labelled with the course page that uses it.",
     audit="not needed (course worked examples exist)",
@@ -57,7 +57,7 @@ DOC = SheetDoc(
         "the normal distribution gives 2.275 % below LSL and 0.00003 % above USL (2.275 % total).",
         "deck p. 46 notes (S06-WE01, centred): '0,04 % / 400 ppm' two-sided doubles the rounded 0,02 % / 200 ppm; "
         "computed 0.0465 % / 465 ppm.",
-        "deck p. 49 (S06-WE12, Minitab): '% out of spec' 8,74 and 9,33 vs 8.731 and 9.315 computed from the "
+        "deck p. 50 (S06-WE12, Minitab): '% out of spec' 8,74 and 9,33 vs 8.731 and 9.315 computed from the "
         "printed mean 0,14852; Minitab used unrounded data. Pp, Ppk, Cp and Cpk agree.",
     ),
 )
@@ -100,7 +100,7 @@ SIGMA_ROWS: tuple[SigmaRow, ...] = (
              "d2 for n = 2 (= 1.128), Table 18",
              "Six Sigma For Dummies.pdf p. 114-116 (σ_ST = R̄/1.128)"),
     SigmaRow("overall", 28, "overall s  (long term: these are Pp, Ppk)", "=IF(ISNUMBER(B19),B19,\"\")", "", "",
-             "deck p. 32; Six Sigma For Dummies.pdf p. 164-165"),
+             "deck p. 33; Six Sigma For Dummies.pdf p. 164-165"),
 )
 RESULT_ROWS: dict[str, int] = {r.key: r.row for r in SIGMA_ROWS}
 
@@ -111,7 +111,7 @@ RESULT_COLUMNS: dict[str, str] = {
 }
 
 # Constants of the course, in their own labelled cells so no formula hides a number.
-CP_LEVELS = {"net": "B40", "acceptabel": "B41", "goed": "B42", "six": "B43", "cpk_capable": "B45"}
+CP_LEVELS = {"just": "B40", "acceptable": "B41", "good": "B42", "six": "B43", "cpk_capable": "B45"}
 SIX_SIGMA = {"shift": "B35", "z": "B36"}
 CRITERION_ROWS = {"long_term_shift": 32, "short_term_centred": 33}
 
@@ -168,8 +168,8 @@ def _result_row(ws: Worksheet, spec: SigmaRow) -> None:
     guarded = f'=IF(AND(ISNUMBER($B$9),ISNUMBER($B$10),$B$10<=$B$9),"",{spec.sigma[1:]})'
     output_cell(ws, f"B{r}", guarded, number)
     output_cell(ws, f"C{r}", f"=IF(AND(ISNUMBER(B{r}),ISNUMBER($B$9),ISNUMBER($B$10)),($B$10-$B$9)/(6*B{r}),\"\")", "0.000")
-    output_cell(ws, f"D{r}", f"=IF(ISNUMBER(C{r}),IF(C{r}>=$B$43,\"6 Sigma kwaliteitsniveau\",IF(C{r}>=$B$42,\"goed\","
-                             f"IF(C{r}>=$B$41,\"acceptabel\",IF(C{r}>=$B$40,\"net capabel\",\"niet capabel\")))),\"\")")
+    output_cell(ws, f"D{r}", f"=IF(ISNUMBER(C{r}),IF(C{r}>=$B$43,\"6 Sigma quality level\",IF(C{r}>=$B$42,\"good\","
+                             f"IF(C{r}>=$B$41,\"acceptable\",IF(C{r}>=$B$40,\"just capable\",\"not capable\")))),\"\")")
     output_cell(ws, f"E{r}", f"=IF(AND(ISNUMBER(B{r}),ISNUMBER($B$10),ISNUMBER($B$11)),($B$10-$B$11)/(3*B{r}),\"\")", "0.000")
     output_cell(ws, f"F{r}", f"=IF(AND(ISNUMBER(B{r}),ISNUMBER($B$9),ISNUMBER($B$11)),($B$11-$B$9)/(3*B{r}),\"\")", "0.000")
     output_cell(ws, f"G{r}", f"=IF(AND(ISNUMBER(E{r}),ISNUMBER(F{r})),MIN(E{r},F{r}),IF(ISNUMBER(E{r}),E{r},"
@@ -192,7 +192,7 @@ def _results(ws: Worksheet) -> None:
     """Section 3: the results table."""
     section_title(ws, 21, "3. Results: one row per spread estimate (a row stays empty until its input is filled)")
     column_titles(ws, 22, [
-        "Spread estimate", "σ used", "Cp  (last row: Pp)", "Cp level (deck p. 39)", "Cpu = (USL − mean) / 3σ",
+        "Spread estimate", "σ used", "Cp  (last row: Pp)", "Cp level (deck p. 40)", "Cpu = (USL − mean) / 3σ",
         "Cpl = (mean − LSL) / 3σ", "Cpk = min(Cpu, Cpl)  (last row: Ppk)", "Cpk > 1.33? (Dummies p. 164)",
         "Z: LSL lies … σ below the mean", "Z: USL lies … σ above the mean", "% below LSL", "% above USL",
         "% out of spec, total", "ppm out of spec, total", "", "", "Constant used", "Which constant", "Course source",
@@ -209,30 +209,30 @@ def _criterion(ws: Worksheet) -> None:
     output_cell(ws, "B32", f"={SIX_SIGMA['z']}-{SIX_SIGMA['shift']}", "0.0")
     output_cell(ws, "C32", "=_xlfn.NORM.S.DIST(-B32,TRUE)", "0.00000%")
     output_cell(ws, "D32", "=C32*1000000", "0.0")
-    label(ws, 32, 5, "deck p. 20 (table: 6 -> 3.4 DPMO), 36-37 (notes); Dummies p. 27, 159-160; Harry & Schroeder summary p. 2 (3.4 dpm)",
+    label(ws, 32, 5, "deck p. 21 (table: 6 -> 3.4 DPMO), 37 (+ notes); Dummies p. 27, 159-160; Harry & Schroeder summary p. 2 (3.4 dpm)",
           italic=True)
     label(ws, 33, 1, "Short term, centred process with Cp = 2: both tails beyond ±6σ")
     output_cell(ws, "B33", f"={SIX_SIGMA['z']}", "0.0")
     output_cell(ws, "C33", "=2*_xlfn.NORM.S.DIST(-B33,TRUE)", "0.0000000%")
     output_cell(ws, "D33", "=C33*1000000", "0.000")
-    label(ws, 33, 5, "deck p. 39: 'Cp = 2: 6 Sigma kwaliteitsniveau - 2 defect per miljard' (short term)", italic=True)
-    _constant(ws, 35, "Shift assumed by the course (σ)", 1.5, "deck p. 36; Dummies p. 159 ('Zlt = Zst - 1.5')")
-    _constant(ws, 36, "Six sigma: distance from mean to spec (σ)", 6, "deck p. 39 (Cp = 2: 6 Sigma kwaliteitsniveau)")
+    label(ws, 33, 5, "deck p. 40: 'CP = 2  6 Sigma quality level – 2 defect per billion of opportunities (short term)'", italic=True)
+    _constant(ws, 35, "Shift assumed by the course (σ)", 1.5, "deck p. 37; Dummies p. 159 ('Zlt = Zst - 1.5')")
+    _constant(ws, 36, "Six sigma: distance from mean to spec (σ)", 6, "deck p. 40 (CP = 2: 6 Sigma quality level)")
 
 
 def _levels(ws: Worksheet) -> None:
     """Section 5: the course's interpretation thresholds, referenced by columns D and H."""
     section_title(ws, 38, "5. Interpretation thresholds used in columns D and H")
-    label(ws, 39, 1, "Cp < 1: niet capabel", italic=True)
-    _constant(ws, 40, "Cp ≥ this: net capabel", 1, "deck p. 39 ('Cp=1: net capabel')")
-    _constant(ws, 41, "Cp ≥ this: acceptabel", 1.33, "deck p. 39 ('Cp>=1,33: acceptabel')")
-    _constant(ws, 42, "Cp ≥ this: goed", 1.67, "deck p. 39 ('Cp>=1,67: goed')")
-    _constant(ws, 43, "Cp ≥ this: 6 Sigma kwaliteitsniveau", 2, "deck p. 39 ('Cp=2: 6 Sigma kwaliteitsniveau')")
+    label(ws, 39, 1, "CP < 1: the process is not capable", italic=True)
+    _constant(ws, 40, "Cp ≥ this: just capable", 1, "deck p. 40 ('CP = 1 The process is just capable')")
+    _constant(ws, 41, "Cp ≥ this: acceptable", 1.33, "deck p. 40 ('CP >= 1.33 The capability of the process is acceptable')")
+    _constant(ws, 42, "Cp ≥ this: good", 1.67, "deck p. 40 ('CP >= 1.67 The capability of the process is good')")
+    _constant(ws, 43, "Cp ≥ this: 6 Sigma quality level", 2, "deck p. 40 ('CP = 2 6 Sigma quality level')")
     _constant(ws, 45, "Cpk greater than this: capable in the short term", 1.33,
               "Dummies p. 164 ('a CPK greater than 1.33 indicates ... capable in the short-term')")
     section_title(ws, 47, "6. How to improve capability (course)")
-    label(ws, 48, 1, "Centre the process (mean to the middle of LSL and USL): Cpk rises to Cp. Deck p. 35, 41-44, 46.")
-    label(ws, 49, 1, "Reduce the variation (σ): Cp and Cpk both rise. Deck p. 21-22, 35; Dummies p. 165-166.")
+    label(ws, 48, 1, "Centre the process (mean to the middle of LSL and USL): Cpk rises to Cp. Deck p. 36, 42-45, 46.")
+    label(ws, 49, 1, "Reduce the variation (σ): Cp and Cpk both rise. Deck p. 22, 36; Dummies p. 165-166.")
 
 
 def _constant(ws: Worksheet, row: int, text: str, value: float, source: str) -> None:

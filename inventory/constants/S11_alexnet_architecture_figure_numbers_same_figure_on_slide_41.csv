@@ -1,0 +1,9 @@
+element,numbers as printed in the figure,source_file,source_page,table_name
+C1,"96 (feature maps), 55 x 55, kernel 5 x 5",source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,18,AlexNet architecture figure numbers (same figure on slide 41)
+C2,"256, 27 x 27, kernel 3 x 3",source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,18,AlexNet architecture figure numbers (same figure on slide 41)
+C3,"384, 13 x 13, kernel 3 x 3",source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,18,AlexNet architecture figure numbers (same figure on slide 41)
+C4,"384, 13 x 13, kernel 3 x 3",source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,18,AlexNet architecture figure numbers (same figure on slide 41)
+C5,"256, 13 x 13",source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,18,AlexNet architecture figure numbers (same figure on slide 41)
+FC6,4096,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,18,AlexNet architecture figure numbers (same figure on slide 41)
+FC7,4096,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,18,AlexNet architecture figure numbers (same figure on slide 41)
+FC8,1000,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,18,AlexNet architecture figure numbers (same figure on slide 41)

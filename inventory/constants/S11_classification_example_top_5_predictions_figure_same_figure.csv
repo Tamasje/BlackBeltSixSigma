@@ -1,0 +1,6 @@
+class,confidence / probability as printed,source_file,source_page,table_name
+Cat,82%,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,4,Classification example: top 5 predictions (figure; same figure on slide 7 of the slides)
+Dog,12%,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,4,Classification example: top 5 predictions (figure; same figure on slide 7 of the slides)
+Tiger,4%,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,4,Classification example: top 5 predictions (figure; same figure on slide 7 of the slides)
+Fox,1%,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,4,Classification example: top 5 predictions (figure; same figure on slide 7 of the slides)
+Car,1%,source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,4,Classification example: top 5 predictions (figure; same figure on slide 7 of the slides)

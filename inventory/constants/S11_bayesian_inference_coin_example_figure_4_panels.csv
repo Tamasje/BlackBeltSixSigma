@@ -1,0 +1,5 @@
+panel,printed content,source_file,source_page,table_name
+Prior,"Beta(1, 1); Formula: Beta(α=1, β=1); Meaning: Every p is equally likely",source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,55,Bayesian inference coin example figure (4 panels)
+Data,Observed sequence: H H T H T; Heads (k): 3; Tails (n−k): 2; header: 3 Heads 2 Tails (n = 5); 𝓛(p) ∝ p³ (1−p)²,source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,55,Bayesian inference coin example figure (4 panels)
+Likelihood,Formula: p³ · (1−p)²; MLE: k/n = 3/5 = 0.60; marker MLE = 0.6,source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,55,Bayesian inference coin example figure (4 panels)
+Posterior,"Beta(4, 3); Formula: Beta(α+k, β+n−k) = Beta(4, 3) → mean = 4/7 ≈ 0.57; marker mean = 0.57",source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,55,Bayesian inference coin example figure (4 panels)

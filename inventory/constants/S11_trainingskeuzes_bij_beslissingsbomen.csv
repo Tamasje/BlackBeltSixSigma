@@ -1,0 +1,5 @@
+Wanneer splitsen? (criterium),Wanneer stoppen?,source_file,source_page,table_name
+Gini impurity,Maximale diepte (max_depth),source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,46,Trainingskeuzes bij beslissingsbomen
+Entropie / information gain,Minimum aantal observaties per blad,source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,46,Trainingskeuzes bij beslissingsbomen
+MSE (voor regressie),Minimum winst door een split,source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,46,Trainingskeuzes bij beslissingsbomen
+,Geen verdere verbetering mogelijk,source/course/Les 2/20261005_naert_web_lecture 2 slides.pdf,46,Trainingskeuzes bij beslissingsbomen

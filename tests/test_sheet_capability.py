@@ -99,7 +99,7 @@ def test_oefening_5_workbook_s06_we07(mean_key: str | None, cpk_key: str, out_ke
 # ---------------------------------------------------------------- slides (printed precision, decision 10)
 
 def test_oefening_6_slide_s06_we08(printed: Printed, oracle: dict[str, Any], evaluate: Evaluate) -> None:
-    # arrange -- deck p. 86: specs 100 +/- 10, Xbarbar 104, Rbar 9,30, n 5
+    # arrange -- deck p. 87 (SPC oefening 6): specs 100 +/- 10, Xbarbar 104, Rbar 9,30, n 5
     given = oracle["S06-WE08"]["given"]
     inputs = {"lsl": num(given["LSL"]), "usl": num(given["USL"]), "mean": num(given["Xbarbar"]),
               "rbar": num(given["Rbar"]), "n": num(given["n"])}
@@ -171,13 +171,13 @@ MINITAB_ROUNDED_INPUTS = ("Minitab computed from unrounded data; the slide print
     ("given", "cp", "Potential(within)__Cp", "0,64", 1),
     ("given", "cpk", "Potential(within)__Cpk", "0,45", 1),
     pytest.param("overall", "out_total", "%_Out_of_spec", "8,74", 100,
-                 marks=pytest.mark.xfail(reason=f"deck p. 49: {MINITAB_ROUNDED_INPUTS}")),
+                 marks=pytest.mark.xfail(reason=f"deck p. 50: {MINITAB_ROUNDED_INPUTS}")),
     pytest.param("given", "out_total", "Potential(within)__%_Out_of_spec_expected", "9,33", 100,
-                 marks=pytest.mark.xfail(reason=f"deck p. 49: {MINITAB_ROUNDED_INPUTS}")),
+                 marks=pytest.mark.xfail(reason=f"deck p. 50: {MINITAB_ROUNDED_INPUTS}")),
 ])
 def test_minitab_report_slide_s06_we12(row: str, column: str, key: str, value: str, scale: int, printed: Printed,
                                        oracle: dict[str, Any], evaluate: Evaluate) -> None:
-    # arrange -- deck p. 49: Minitab capability report; overall s -> Pp/Ppk, within s (typed as sigma given) -> Cp/Cpk
+    # arrange -- deck p. 50: Minitab capability report; overall s -> Pp/Ppk, within s (typed as sigma given) -> Cp/Cpk
     answers = oracle["S06-WE12"]["stated_answers"]
     inputs = {"lsl": num(oracle["S06-WE12"]["given"]["LSL"]), "usl": num(oracle["S06-WE12"]["given"]["USL"]),
               "mean": num(answers["Mean"]), "s_overall": num(answers["StdDev(overall)"]),
@@ -189,7 +189,7 @@ def test_minitab_report_slide_s06_we12(row: str, column: str, key: str, value: s
 
 
 def test_minitab_report_slide_s06_we13(printed: Printed, oracle: dict[str, Any], evaluate: Evaluate) -> None:
-    # arrange -- deck p. 82: Minitab re-run of oefening 2 with the overall standard deviation
+    # arrange -- deck p. 83: Minitab re-run of oefening 2 with the overall standard deviation
     answers = oracle["S06-WE13"]["stated_answers"]
     inputs = {"lsl": num(oracle["S06-WE13"]["given"]["LSL"]), "usl": num(oracle["S06-WE13"]["given"]["USL"]),
               "mean": num(answers["Mean"]), "s_overall": num(answers["StdDev(overall)"])}
@@ -208,7 +208,7 @@ def test_minitab_report_slide_s06_we13(printed: Printed, oracle: dict[str, Any],
 # ---------------------------------------------------------------- 6 sigma criterion (decision 2)
 
 def test_six_sigma_criterion_long_term_matches_the_course_sigma_table(evaluate: Evaluate) -> None:
-    # arrange -- deck p. 20 table: sigma capability 6 -> 3.4 defects per million opportunities
+    # arrange -- deck p. 21 table: sigma capability 6 -> 3.4 defects per million opportunities
     table = CONSTANTS_DIR / "S06_voc_vs_vop_sigma_capability_defects_per_million_opportunitie.csv"
     with table.open(encoding="utf-8", newline="") as fh:
         dpmo = {row["Sigma Capability"]: row["Defects per Million Opportunities"] for row in csv.DictReader(fh)}
@@ -219,7 +219,7 @@ def test_six_sigma_criterion_long_term_matches_the_course_sigma_table(evaluate: 
 
 
 def test_six_sigma_criterion_short_term_is_two_per_billion(evaluate: Evaluate) -> None:
-    # arrange -- deck p. 39: 'Cp=2: 6 Sigma kwaliteitsniveau - 2 defect per miljard opportuniteiten (korte termijn)'
+    # arrange -- deck p. 40: 'CP = 2  6 Sigma quality level – 2 defect per billion of opportunities (short term)'
     # act
     ws = evaluate(SHEET, {})
     ppm = ws[f"D{CRITERION_ROWS['short_term_centred']}"].value
@@ -298,7 +298,7 @@ def test_subgroup_size_outside_table_18_is_reported_not_computed(evaluate: Evalu
 
 
 @pytest.mark.parametrize(("cp_sigma", "level"), [
-    (1.2, "niet capabel"), (1.0, "net capabel"), (0.75, "acceptabel"), (0.59, "goed"), (0.5, "6 Sigma kwaliteitsniveau"),
+    (1.2, "not capable"), (1.0, "just capable"), (0.75, "acceptable"), (0.59, "good"), (0.5, "6 Sigma quality level"),
 ])
 def test_cp_level_follows_deck_page_39(cp_sigma: float, level: str, evaluate: Evaluate) -> None:
     # arrange -- spec width 6, so Cp = 1/sigma: 0.83, 1.0, 1.33, 1.69, 2.0

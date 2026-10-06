@@ -1,0 +1,3 @@
+,Voorspeld: Positief,Voorspeld: Negatief,source_file,source_page,table_name
+Werkelijk: Positief,True Positive (TP),False Negative (FN),source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,14,Binary confusion matrix structure (notes) and slide 31 (same layout)
+Werkelijk: Negatief,False Positive (FP),True Negative (TN),source/course/Les 2/20261005_naert_web_lecture 2 notes.pdf,14,Binary confusion matrix structure (notes) and slide 31 (same layout)
