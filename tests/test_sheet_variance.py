@@ -133,7 +133,7 @@ def test_f_critical_value_matches_dummies_table_8_3(n1: int, n2: int, column: st
 
 @libreoffice
 @pytest.mark.xfail(reason="Dummies p. 196 prints [0.147, 3.199] with the two F values swapped; "
-                          "F(nA-1, nB-1) as in Test Recipes p. 12 gives [0.0889, 1.937]")
+                          "F(nA-1, nB-1) as in Test Recipes p. 12 gives [0.0889, 1.938]")
 def test_ci_for_ratio_of_variances_dummies_s08_we11(oracle: dict[str, Any], printed: Printed, evaluate: Evaluate) -> None:
     # arrange -- A: n 10, variance 4; B: n 5, variance 7.5; the book's F values are 5 % upper tails -> alpha 0.10
     given = oracle["S08-WE11"]["given"]

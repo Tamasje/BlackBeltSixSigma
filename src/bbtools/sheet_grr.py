@@ -237,7 +237,7 @@ def _thresholds(ws: Worksheet) -> None:
     constant_row(ws, 85, "%GRR ≤ this: may be acceptable; above: not acceptable", 0.30,
                  "MSA p. 35 (10 % - 30 %: depends on the application; > 30 %: not acceptable)")
     ws["B84"].number_format = ws["B85"].number_format = "0%"
-    label(ws, 86, 1, "Other course thresholds: 'Gauge R&R ≤ 20 % of tolerance' (deck Les 4 p. 60); σ²_measure / σ²_observed "
+    label(ws, 86, 1, "Other course thresholds: 'Gauge R&R ≤ 20 % of tolerance' (deck Les 4 p. 61); σ²_measure / σ²_observed "
                      "≤ 0.1 good, 0.1-0.3 marginal, ≥ 0.3 unacceptable (Dummies p. 178).", italic=True)
     label(ws, 87, 1, "Multiplier 6 (99.73 %) as in the MSA formulas; historically 5.15 (99 %), MSA p. 24. "
                      "ndc (number of distinct categories) is not in the course.", italic=True)

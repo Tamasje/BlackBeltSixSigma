@@ -57,7 +57,7 @@ DOC = SheetDoc(
     disagreements=(
         "Dummies p. 196 (S08-WE11): CI for σA²/σB² printed [(1/3.633)(4/7.5), 5.999(4/7.5)] = [0.147, 3.199]. "
         "With (sA²/σA²)/(sB²/σB²) ~ F(nA−1, nB−1) (Test Recipes p. 12, exam Q2 hint) the same 5 % tail values give "
-        "[0.0889, 1.937]: the book swaps the two F values. Its table values themselves (Table 8-3) are correct.",
+        "[0.0889, 1.938]: the book swaps the two F values. Its table values themselves (Table 8-3) are correct.",
         "Dummies p. 192-196 call '95 %' what is ±2σ (95.45 %, 2.275 % per tail) for χ², and a 5 % upper tail for F. "
         "Use α = 0.0455 to reproduce its χ² example (S08-WE10).",
         "Dummies Table 8-3 p. 196: F for n1 = n2 = 2 printed 161.446 (definition 161.448). Table 8-2 p. 194: "

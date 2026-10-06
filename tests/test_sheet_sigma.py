@@ -51,7 +51,7 @@ def table_rows(stem: str, z_column: str, dpmo_column: str) -> list[tuple[str, st
 TRUNCATED = "prints 308,537 for 308,537.5, which rounds to 308,538 (Dummies prints 308,538)"
 SIGMA_TABLES = [
     ("S08_table_6_3_sigma_score_table_z_dpmo", "Z", "DPMO", ()),                                  # Dummies p. 160
-    ("S07_table_1_2_the_sigma_scale", "Sigma", "Defects per Million", ()),                         # Dummies p. 42
+    ("S07_table_1_2_the_sigma_scale", "Sigma", "Defects per Million", ()),                         # Dummies p. 41
     ("S06_voc_vs_vop_sigma_capability_defects_per_million_opportunitie", "Sigma Capability",
      "Defects per Million Opportunities", ("2",)),                                                 # deck p. 21
     ("S01_sigma_level_defects_per_million_yield_tabel", "Sigma Level", "Defects per Million", ("2",)),  # Van Volsem p. 7

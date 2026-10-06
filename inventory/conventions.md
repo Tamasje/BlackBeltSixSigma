@@ -36,7 +36,7 @@ exercises use. Numbers refer to "Conflicts and gaps" below.
     no pooling α chosen; ndc omitted (not in the course).
 12. Acceptance sampling: α and β are input cells prefilled with the stated defaults (α 5 %, β 10 %,
     Further Reading p. 4), with a note that its worked examples use β = 5 %.
-13. Minimum subgroups: the note gives both (20 in the deck; 25 in Minitab report cards and Dummies p. 248).
+13. Minimum subgroups: the note gives both (20 in the deck; 25 in Minitab report cards and Dummies p. 244).
 14. Les 6: kept in the index, flagged "Niet te kennen voor het examen".
 15. Tools: all 11 proposed tools, in the proposed order (see approved_tools.md).
 16. stats-auditor: approved, for the tools without a course worked example (confusion-matrix metrics;
@@ -71,7 +71,7 @@ Each item lists every version with its source. Numbers match the convention ques
    Pp/Ppk use overall σ (deck p. 33; Dummies p. 164–165). Individuals: σ_ST = MR̄/1.128 (Dummies p. 114–116).
 2. "6 sigma criterion". Deck p. 40: "CP = 2  6 Sigma quality level – 2 defect per billion of opportunities (short term)".
    Deck p. 21, 37 and notes p. 37; Dummies p. 27, 159–160; Harry & Schroeder p. 7: 3.4 DPMO with the 1.5σ shift.
-3. Sigma level ↔ DPMO. All course tables (Van Volsem p. 7, deck p. 21, Dummies Table 1-2 p. 42 and Table 6-3 p. 160,
+3. Sigma level ↔ DPMO. All course tables (Van Volsem p. 7, deck p. 21, Dummies Table 1-2 p. 41 and Table 6-3 p. 160,
    Harry & Schroeder summary p. 2) are long-term DPMO against short-term Z (1.5σ shift). Van Volsem p. 7 does not say so.
    Values differ by rounding: 690,000 / 691,462 (1σ); 308,000 / 308,537 / 308,538 (2σ).
 4. Control-chart constants: three printed sources disagree in the third decimal (see review_items.md, 55 items):
@@ -92,7 +92,7 @@ Each item lists every version with its source. Numbers match the convention ques
     thresholds 10 %/30 % (MSA p. 35) vs "GRR ≤ 20 % of tolerance" (Les 4 deck p. 61) vs variance ratio 0.1/0.3 (Dummies p. 178);
     interaction pooling α not stated (workbook pools at p = 0.2938); ndc not in the course; bias/linearity α not stated (MSA p. 32–33).
 12. Acceptance sampling β: Further Reading p. 4 says β = 10 %; its worked examples and the p. 17 exercise use 5 %.
-13. Minimum number of subgroups: 20 (deck, SPC set-up) vs 25 (Minitab report cards deck p. 49, 80; Dummies p. 248).
+13. Minimum number of subgroups: 20 (deck, SPC set-up) vs 25 (Minitab report cards deck p. 49, 80; Dummies p. 244).
 14. Les 6 (Naert lecture 3) study guide is titled "Niet te kennen voor het examen" (`20260626_naert.pdf` p. 38).
 
 <!-- BEGIN GENERATED (merge_inventory.py) -->

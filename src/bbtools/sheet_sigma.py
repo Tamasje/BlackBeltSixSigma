@@ -1,7 +1,7 @@
 """Sigma & DPMO sheet: DPU, DPO, DPMO, sigma level (with and without the 1.5σ shift), yields and RTY.
 
 Convention decision 3 (inventory/conventions.md): sigma level ↔ DPMO is shown in both readings. The course
-tables (deck p. 21; Dummies Table 1-2 p. 42 and Table 6-3 p. 160; Van Volsem p. 7; Harry & Schroeder) pair a
+tables (deck p. 21; Dummies Table 1-2 p. 41 and Table 6-3 p. 160; Van Volsem p. 7; Harry & Schroeder) pair a
 short-term sigma level Z with the long-term DPMO of one tail beyond Z − 1.5. Harry & Schroeder p. 3 quote a
 sigma level without the shift ("99.97 % ... about 3.5 sigma"), p. 5 with it ("2,500 DPMO ... about 4.3 sigma").
 All yields and fractions are stored as fractions and shown as %.
@@ -27,7 +27,7 @@ SHEET = "Sigma & DPMO"
 HEADER = HeaderBlock(
     tool="Sigma level, DPMO and yield: DPU, DPO, DPMO, Z with and without 1.5σ shift, Y, FTY, RTY",
     source="source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 20-21, 37-40; "
-           "Six Sigma For Dummies.pdf p. 42, 147-161; Six-Sigma Mikel Harry - Richard Schroeder.pdf p. 3-5; "
+           "Six Sigma For Dummies.pdf p. 41, 147-161; Six-Sigma Mikel Harry - Richard Schroeder.pdf p. 3-5; "
            "20260521_van volsem.pdf p. 7",
     convention="Decision 3: sigma level ↔ DPMO shown both with the 1.5σ shift (as in every course table) and without.",
     status=Status.VERIFIED,
@@ -116,7 +116,7 @@ def _sigma(ws: Worksheet) -> None:
     have = "ISNUMBER(B27)"
     result_row(ws, 28, "DPMO with the 1.5σ shift (one tail beyond Z − 1.5)  (course tables)",
                f'=IF({have},{MILLION}*_xlfn.NORM.S.DIST(-(B27-{SHIFT}),TRUE),"")', "#,##0.000",
-               "deck p. 21; Dummies p. 42, 160; Van Volsem p. 7: 6 -> 3.4")
+               "deck p. 21; Dummies p. 41, 160; Van Volsem p. 7: 6 -> 3.4")
     result_row(ws, 29, "DPMO without shift, one tail beyond Z", f'=IF({have},{MILLION}*_xlfn.NORM.S.DIST(-B27,TRUE),"")',
                "#,##0.000")
     result_row(ws, 30, "DPMO without shift, both tails beyond ±Z (centred, Cp = Z / 3)",
