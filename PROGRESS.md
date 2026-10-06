@@ -26,8 +26,10 @@ Decisions 18-20 (2026-10-05) in inventory/conventions.md; oracle updated once wi
    1270' (TH FR p. 9 figure and the stated β 16 % / 1 % imply 1300); S03-WE15 cites CI FR p. 20 for [0.53, 0.67],
    which is on TH FR p. 20; S03-WE16 lists UTL 5.55, which does not follow from the printed Ȳ + kσ (6.06);
    S06-WE05/WE06 R̄ label (0.0001767 printed vs the workbook's named range 0.0001748).
-6. Guide-only calculators beyond approved_tools.md: Z-table lookup, quantile/p-value calculator, contingency table
-   (joint/marginal/conditional, Naert Les 1 p. 22-23) and fractional-factorial aliases (DOE p. 80-92). Keep or drop?
+6. Calculator conventions chosen where the course is silent (labelled in the tools; change on request): covariance
+   shown with n − 1 and n; no t-test on r; run rules 2-3 count points on one side (Dummies p. 246 is stricter);
+   confusion matrix rows = actual by default; Beta mode/median as in the course figure; bias test d2 from tabel MSA;
+   two-sided β from the course procedure (graph only in the course); no t-test β; σ-unknown sample size omitted.
 
 ## Done
 ### Phase 0 (approved 2026-09-28)
@@ -161,6 +163,24 @@ Decisions 18-20 (2026-10-05) in inventory/conventions.md; oracle updated once wi
   notation); Deel 04/05 Dummies labels now PDF pages (were printed pages); Dummies F-interval upper bound 1.938
   (was 1.937; 0.5333 × 3.633 = 1.93765) in Deel 04, sheet_variance DOC/README and a test reason; AS p. 26
   'non-defectives' added to 06_errata.tsv.
+
+### Study guide: all calculators the exercises need (2026-10-06, user: "include all calculators i would need")
+- Audit of all 202 exercises against the calculators; course formulas, conventions and test values specified per
+  calculator from the course pages (scratch specs), then implemented in study/assets/calc.js + tools.js:
+  sample size (full width, CI p. 7/10), tolerance intervals (σ known/unknown, distribution-free; CI FR p. 22-23),
+  β/power/n of Z-tests for µ and π (TH FR p. 7-14), χ² goodness of fit and contingency with Yates (TR p. 15-20),
+  Mann-Whitney, signed ranks, runs (TR p. 21-26, no tie correction; z with and without continuity correction),
+  stratified vs SRS variances (AS p. 16-19), inverse OC (AQL/LQL of a plan), (n, c) plan search (binomial, as the
+  guide; Peach table not in the course files), double plan OC/ASN (AS FR p. 5), SPRT (AS FR p. 6-8), variables plan
+  for a given n (AS p. 26-27), skip-lot and Deming (AS FR p. 11-15); descriptives and correlation (covariance with n-1
+  and n, labelled), regression from sums/SS/summary values, partial F (REG p. 61), multiple regression with
+  second-order/polynomial terms and centring (REG p. 46-62), two-way ANOVA with/without replication (GRR workbook
+  layout, + pooled table), limits from standard values (Table 7.2), Western Electric rules 1-8 (SPC p. 68; rules 2-3
+  per side as the linked WE rules), observed vs actual Cp (MSA p. 24-26), gauge performance curve (p. 27),
+  uncertainty budget and propagation (p. 28-29, steel strip), bias test (p. 31-32, tabel MSA ν/d2*), discrimination
+  rule (p. 30), Bayes and Beta posterior (ML p. 53, web slides p. 55), k-class confusion matrix (orientation switch).
+  The four guide-only calculators of the earlier question are kept (user: include all calculators needed).
+- tests/test_study_tools.py: 62 tests (course printed values, course workbook cells, scipy/statsmodels).
 
 ## Answered questions (inventory-review STOP; decisions in inventory/conventions.md)
 Convention questions (details and sources in inventory/conventions.md, "Conflicts and gaps"):

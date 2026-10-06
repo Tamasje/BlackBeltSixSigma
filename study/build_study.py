@@ -52,7 +52,8 @@ def constants_data() -> dict[str, object]:
     msa = load_average_range_table()
     return {"chart": chart,
             "msa": {"m": list(msa.m), "g": list(msa.g), "d2": [float(v) for v in msa.d2],
-                    "d2star": [[float(v) for v in row] for row in msa.d2_star]}}
+                    "d2star": [[float(v) for v in row] for row in msa.d2_star],
+                    "nu": [[float(v) for v in row] for row in msa.nu]}}
 
 
 # ---------- "Hulpmiddelen" panels: calculators (assets/tools.js) and course tables, per part ----------
@@ -73,6 +74,8 @@ DOCS = {  # short name -> PDF under source/course/
     "AS FR": "Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
     "Naert L1": "Les 1/20260522_naert_big data.pdf",
     "Naert L2": "Les 2/20260529_naert.pdf",
+    "CI": "Les 2/20260529_ottoy_Confidence Intervals.pdf",
+    "VV": "Les 1/20260521_van volsem.pdf",
     "REG": "Les 3/20260605_de vuyst_BB_Regression.pdf",
     "DOE": "Les 3/20260605_de vuyst_BB_DOE.pdf",
     "MSA": "Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
@@ -138,11 +141,11 @@ TOOLS: dict[str, Tool] = {
                        "kruistabel; contingency table; gezamenlijke kans; joint probability; marginale kans; marginal "
                        "probability; voorwaardelijke kans; conditional probability; onafhankelijk; independent",
                        (("Naert L1", 22, "Naert Les 1 p. 22–23"),)),
-    "steekproefplan": Tool("Rekenmachine aanvaardingssteekproef: OC, α, β, AOQ, AOQL, ATI, plan voor variabelen",
+    "steekproefplan": Tool("Rekenmachine aanvaardingssteekproef: OC, α, β, AOQ, AOQL, ATI, AQL/LQL van een plan, plan voor variabelen",
                            "aanvaardingssteekproef; acceptance sampling; OC-curve; operating characteristic; AQL; LQL; LTPD; "
                            "producentenrisico; producer's risk; consumentenrisico; consumer's risk; AOQ; AOQL; ATI",
                            (("AS FR", 2, "AS Further Reading p. 2–10"), ("TH", 5, "TH p. 5–11")), "Acceptance sampling"),
-    "regressie": Tool("Rekenmachine enkelvoudige lineaire regressie",
+    "regressie": Tool("Rekenmachine enkelvoudige regressie (ook uit sommen of kwadratensommen) en partiële F-toets",
                       "regressie; regression; kleinste kwadraten; least squares; R²; helling; slope; intercept; "
                       "predictie-interval; prediction interval; betrouwbaarheidsinterval; confidence interval",
                       (("REG", 16, "REG p. 16–38"),), "ANOVA DOE regression"),
@@ -160,7 +163,7 @@ TOOLS: dict[str, Tool] = {
     "capabiliteit": Tool("Rekenmachine procescapabiliteit: Cp, Cpk, Pp, Ppk, % buiten specificatie",
                          "capabiliteit; capability; Cp; Cpk; Pp; Ppk; specificatie; specification; LSL; USL; ppm; uitval",
                          (("SPC", 33, "SPC p. 33–47"), ("tabellen SPC", 1, "tabellen SPC p. 1–2")), "Capability"),
-    "regelkaart": Tool("Rekenmachine regelkaarten: X̄-R, X̄-s, I-MR, p, u",
+    "regelkaart": Tool("Rekenmachine regelkaarten: X̄-R, X̄-s, I-MR, p, u, standaardwaarden en Western Electric-regels",
                        "regelkaart; control chart; controlegrenzen; control limits; UCL; LCL; X-bar; R-kaart; s-kaart; "
                        "I-MR; individuals; p-kaart; p chart; u-kaart; u chart",
                        (("SPC", 62, "SPC p. 62–74"), ("Dummies", 249, "Dummies p. 249–254")), "Control charts"),
@@ -174,7 +177,70 @@ TOOLS: dict[str, Tool] = {
     "msatabel": Tool("Tabel d2* (distribution of the average range) zoals gedrukt",
                      "d2*; d2 ster; d2 star; tabel MSA; average range; spreidingsbreedte",
                      (("tabel MSA", 1, "tabel MSA.pdf p. 1"),), "Tables"),
-    "confusion": Tool("Rekenmachine confusion matrix: accuracy, recall, precision, F1",
+    "steekproefgrootte": Tool("Rekenmachine steekproefgrootte voor een betrouwbaarheidsinterval",
+                              "steekproefgrootte; sample size; nauwkeurigheid; accuracy; breedte; width; hoeveel metingen; "
+                              "how many; foutmarge; margin of error",
+                              (("CI", 7, "CI p. 7, 10"), ("CI FR", 3, "CI FR p. 3"))),
+    "tolerantie": Tool("Rekenmachine tolerantie-intervallen (σ gekend, σ onbekend, verdelingsvrij)",
+                       "tolerantie-interval; tolerance interval; LTL; UTL; percentiel; percentile; verdelingsvrij; "
+                       "distribution-free; k-factor",
+                       (("CI FR", 22, "CI FR p. 22–23"),)),
+    "onderscheidingsvermogen": Tool("Rekenmachine β, onderscheidingsvermogen (power) en n van een toets",
+                                    "beta; type-II-fout; type II error; onderscheidingsvermogen; power; OC-curve; kracht; "
+                                    "steekproefgrootte toets; sample size test",
+                                    (("TH FR", 7, "TH FR p. 7–14"), ("TR", 9, "Test Recipes p. 9–10"))),
+    "chikwadraat": Tool("Rekenmachine χ²-frequentietoetsen: aanpassing (goodness of fit) en kruistabel",
+                        "chi-kwadraattoets; chi-square test; goodness of fit; aanpassingstoets; kruistabel; contingency "
+                        "table; onafhankelijkheid; independence; verwachte frequentie; expected count; Yates",
+                        (("TR", 15, "Test Recipes p. 15–20"),)),
+    "nietparametrisch": Tool("Rekenmachine niet-parametrische toetsen: Mann-Whitney, signed ranks, runs",
+                             "niet-parametrisch; non-parametric; Wilcoxon; Mann-Whitney; rangsom; rank sum; signed rank; "
+                             "tekenrang; runs; aselect; randomness; mediaan; median",
+                             (("TR", 21, "Test Recipes p. 21–26"),)),
+    "steekproefmethoden": Tool("Rekenmachine steekproefmethoden: SRS tegenover gestratificeerd",
+                               "gestratificeerd; stratified; strata; SRS; enkelvoudige aselecte steekproef; simple random "
+                               "sample; variantie van het gemiddelde; optimale verdeling; optimal allocation",
+                               (("AS", 16, "AS p. 16–19"),)),
+    "planontwerp": Tool("Rekenmachine steekproefplan (n, c) ontwerpen voor AQL en LQL",
+                        "plan ontwerpen; design a plan; Peach; AQL; LQL; producentenrisico; consumentenrisico; "
+                        "sampling plan; n en c",
+                        (("AS FR", 4, "AS FR p. 4, 17"),), "Acceptance sampling"),
+    "dubbelplan": Tool("Rekenmachine dubbel steekproefplan: OC en ASN",
+                       "dubbel steekproefplan; double sampling plan; ASN; average sample number; tweede steekproef; "
+                       "second sample",
+                       (("AS FR", 5, "AS FR p. 5"), ("AS", 24, "AS p. 24–25"))),
+    "sprt": Tool("Rekenmachine sequentiële toets (SPRT) voor attributen",
+                 "SPRT; sequentieel; sequential; Wald; ASN; aanvaardingslijn; verwerpingslijn; acceptance line",
+                 (("AS FR", 6, "AS FR p. 6–8"),)),
+    "variabelenplan": Tool("Rekenmachine plan voor variabelen met gegeven n (ξ, k, Q)",
+                           "plan voor variabelen; variables sampling plan; k-factor; ondergrens; lower limit; Q-statistiek",
+                           (("AS", 26, "AS p. 26–27"), ("AS FR", 9, "AS FR p. 9")), "Acceptance sampling"),
+    "skiplot": Tool("Rekenmachine skip-lot en het criterium van Deming",
+                    "skip-lot; kwalificatie; qualification; Deming; break-even; geen inspectie; volledige inspectie; "
+                    "100 % inspection",
+                    (("AS FR", 11, "AS FR p. 11, 13–15"),)),
+    "beschrijvend": Tool("Rekenmachine beschrijvende statistiek en correlatie",
+                         "beschrijvende statistiek; descriptive statistics; gemiddelde; mean; mediaan; median; modus; "
+                         "mode; standaardafwijking; standard deviation; bereik; range; correlatie; correlation; "
+                         "covariantie; covariance",
+                         (("VV", 131, "VV p. 131"), ("REG", 43, "REG p. 43"))),
+    "meervoudig": Tool("Rekenmachine meervoudige lineaire regressie (ook polynomen)",
+                       "meervoudige regressie; multiple regression; polynoom; polynomial; tweede orde; second order; "
+                       "coëfficiënten; coefficients; R² adj; centreren; centring",
+                       (("REG", 46, "REG p. 46–62"),)),
+    "anova2": Tool("Rekenmachine tweewegs-ANOVA (met en zonder herhalingen)",
+                   "tweewegs-ANOVA; two-way ANOVA; interactie; interaction; herhalingen; replication; Two-Factor",
+                   (("MSA", 36, "MSA p. 36"),)),
+    "bayes": Tool("Rekenmachine regel van Bayes en Beta-posterior",
+                  "Bayes; voorwaardelijke kans; conditional probability; prior; posterior; likelihood; Beta-verdeling; "
+                  "Beta distribution; odds",
+                  (("Naert L1", 18, "Naert Les 1 p. 18–20"), ("Naert L2", 53, "ML p. 53"))),
+    "meetsysteem": Tool("Rekenmachines meetsysteem: waargenomen Cp, GPC, onzekerheid, bias, meeteenheid",
+                        "waargenomen Cp; observed Cp; gauge performance curve; GPC; meetonzekerheid; measurement "
+                        "uncertainty; uc; dekkingsfactor; coverage factor; bias-toets; bias test; meeteenheid; "
+                        "discrimination; resolutie",
+                        (("MSA", 24, "MSA p. 24–32"),)),
+    "confusion": Tool("Rekenmachine confusion matrix (2 × 2 en k klassen): accuracy, recall, precision, F1",
                       "confusion matrix; verwarringsmatrix; accuracy; nauwkeurigheid; recall; precision; F1; overfitting; "
                       "underfitting; train; test",
                       (("Naert L2", 19, "Naert Les 2 p. 19–32"),), "Confusion matrix"),
@@ -182,18 +248,22 @@ TOOLS: dict[str, Tool] = {
 
 PART_TOOLS: dict[str, tuple[str, ...]] = {
     "01": ("sigmatabellen",),
-    "02": ("verdelingen", "kruistabel", "normaal", "ztabel"),
+    "02": ("beschrijvend", "verdelingen", "kruistabel", "bayes", "normaal", "ztabel"),
     "03": ("normaal", "ztabel", "sigma", "sigmatabellen"),
-    "04": ("gemiddelde", "tweegemiddelden", "proportie", "variantie", "kwantielen", "dummiestabellen"),
-    "05": ("gemiddelde", "tweegemiddelden", "proportie", "variantie", "kwantielen", "dummiestabellen"),
-    "06": ("steekproefplan", "verdelingen", "normaal"),
-    "07": ("regressie", "kwantielen"),
-    "08": ("anova", "factorieel", "aliassen", "kwantielen"),
+    "04": ("gemiddelde", "tweegemiddelden", "proportie", "variantie", "steekproefgrootte", "tolerantie", "kwantielen",
+           "dummiestabellen"),
+    "05": ("gemiddelde", "tweegemiddelden", "proportie", "variantie", "onderscheidingsvermogen", "chikwadraat",
+           "nietparametrisch", "kwantielen", "dummiestabellen"),
+    "06": ("steekproefplan", "planontwerp", "dubbelplan", "sprt", "variabelenplan", "skiplot", "steekproefmethoden",
+           "verdelingen", "normaal"),
+    "07": ("regressie", "meervoudig", "beschrijvend", "kwantielen"),
+    "08": ("anova", "anova2", "factorieel", "aliassen", "kwantielen"),
     "09": ("capabiliteit", "normaal", "ztabel", "sigma", "constanten"),
     "10": ("regelkaart", "constanten", "normaal"),
-    "11": ("grr", "msatabel", "capabiliteit"),
-    "12": ("confusion",),
-    "13": ("variantie", "kwantielen", "capabiliteit", "normaal", "confusion", "verdelingen", "sigma"),
+    "11": ("grr", "meetsysteem", "msatabel", "regressie", "capabiliteit", "bayes"),
+    "12": ("confusion", "bayes"),
+    "13": ("variantie", "kwantielen", "capabiliteit", "normaal", "confusion", "verdelingen", "sigma", "regelkaart",
+           "kruistabel"),
 }
 
 

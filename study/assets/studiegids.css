@@ -125,3 +125,4 @@ var[data-s]:hover, var[data-s]:focus, var[data-s].on { background: #efe6fa; outl
        white-space: nowrap; }
 #valkuilen h4 { margin-top: 14px; }
 @media print { #sympop { display: none; } var[data-s] { border-bottom: 0; } }
+.fld.row { flex-direction: row; flex-wrap: wrap; gap: 6px 14px; align-items: flex-end; }
