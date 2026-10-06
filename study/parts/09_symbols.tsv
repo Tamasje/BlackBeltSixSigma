@@ -1,0 +1,32 @@
+key	symbool	betekenis	hoe	anchor
+cp	Cp	Procescapabiliteitsindex (process capability index): toegelaten breedte gedeeld door procesbreedte 6σ.	(USL − LSL)/(6σ) met de korte-termijn-σ. Negeert de ligging van het gemiddelde: daarvoor Cpk.	d09-cp
+ul	UL (USL)	Bovenste specificatiegrens (upper specification limit, USL): de stem van de klant.	Gegeven in de opgave (klant, tekening, norm). Niet de UCL van een regelkaart.	d09-cp
+ll	LL (LSL)	Onderste specificatiegrens (lower specification limit, LSL): de stem van de klant.	Gegeven in de opgave. Ontbreekt ze (eenzijdige specificatie), dan bestaat Cp niet, alleen Cpk.	d09-cp
+sigma	σ	Standaardafwijking van het proces (process standard deviation).	Gegeven, of geschat: R̄/d<sub>2</sub>, s̄/c<sub>4</sub> of s̄ rechtstreeks zoals SPC p. 46 (korte termijn, voor Cp en Cpk), totale s (lange termijn, voor Pp en Ppk).	d09-ppk
+mu	µ	Procesgemiddelde (process mean).	Geschat door x̄ of X̿ (gemiddelde van de subgroepgemiddelden), of gegeven in de opgave.	d09-cpk
+cpk	Cpk	Capabiliteitsindex met ligging (k = off-center): afstand van het gemiddelde tot de dichtste grens.	min(CPU; CPL) = min{USL − x̄; x̄ − LSL}/(3σ), met de korte-termijn-σ. Altijd ≤ Cp; gelijk aan Cp als het proces gecentreerd is.	d09-cpk
+cpu	CPU	Capabiliteitsindex aan de bovenkant (upper capability index).	(USL − x̄)/(3σ<sub>ST</sub>). 3·CPU is de z-waarde van de bovengrens.	d09-cpk
+cpl	CPL	Capabiliteitsindex aan de onderkant (lower capability index).	(x̄ − LSL)/(3σ<sub>ST</sub>). 3·CPL is de z-waarde van de ondergrens. Alleen een minimumspecificatie: Cpk = CPL.	d09-cpk
+pp	Pp	Procesprestatie-index (process performance index): tolerantie tegenover de lange-termijnspreiding.	(USL − LSL)/(6σ<sub>LT</sub>), met de s van alle waarden (STDEV, n − 1). Minitab: Actual (overall). Normaal ≤ Cp.	d09-ppk
+ppk	Ppk	Procesprestatie-index met ligging (process performance index, k): wat de klant ervaart.	min{USL − x̄; x̄ − LSL}/(3σ<sub>LT</sub>): de formule van Cpk, met de totale s in plaats van de korte-termijn-σ.	d09-ppk
+xbar	x̄	Gemiddelde van de metingen (mean), schatting van het procesgemiddelde µ; ook als X̄ geschreven.	AVERAGE van alle waarden, of X̿ (gemiddelde van de subgroepgemiddelden) uit de X̄-kaart. Meestal gegeven (as-oefening: 71,8 mm).	d09-cpk
+sigma_st	σ<sub>ST</sub>	Korte-termijnstandaardafwijking (short-term, within): alleen de spreiding binnen de subgroepen.	R̄/d<sub>2</sub>, s̄ of s̄/c<sub>4</sub>, of MR̄/1,128 bij individuele waarden; in Minitab σ(within). Hoort bij Cp en Cpk.	d09-ppk
+sigma_lt	σ<sub>LT</sub>	Lange-termijnstandaardafwijking (long-term, overall): spreiding van alle data samen, verschuivingen inbegrepen.	s van alle waarden met STDEV (n − 1); in Minitab σ(overall). Hoort bij Pp en Ppk. Normaal ≥ σ<sub>ST</sub>.	d09-ppk
+d1_dist	D<sub>1</sub>	Afstand van het gemiddelde tot de dichtste specificatiegrens (figuur SPC p. 35).	min(USL − x̄; x̄ − LSL). Niet de regelkaartconstante D<sub>1</sub> uit Table 18.	d09-cpk
+d2_dist	D<sub>2</sub>	Halve procesbreedte: afstand van het gemiddelde tot het einde van de curve (SPC p. 35).	3σ. Niet de constante d<sub>2</sub> van R̄/d<sub>2</sub>, en niet de regelkaartconstante D<sub>2</sub> uit Table 18.	d09-cpk
+rbar	R̄	Gemiddelde spreidingsbreedte (average range) van de subgroepen.	Gemiddelde van max − min per subgroep, uit de X̄-R-kaart. Voor σ deel je door d<sub>2</sub>: σ = R̄/d<sub>2</sub>, niet R̄ zelf.	d09-ppk
+d2	d<sub>2</sub>	Constante die R̄ omzet in een schatting van σ; hangt af van de subgroepgrootte n.	Table 18 of Table A (Tabellen SPC p. 1–2), rij n = subgroepgrootte (niet het aantal subgroepen): n = 5 geeft 2,326.	d09-ppk
+sbar	s̄	Gemiddelde van de standaardafwijkingen van de subgroepen (average standard deviation).	Uit de s-kaart of gegeven. De as-oefening gebruikt s̄ = 0,2 rechtstreeks als σ; zuiverder is s̄/c<sub>4</sub>.	d09-ppk
+c4	c<sub>4</sub>	Correctiefactor die s̄ zuiver maakt (bias correction factor); hangt af van n.	Table A (Tabellen SPC p. 1), rij n = subgroepgrootte: n = 5 geeft 0,9400. σ = s̄/c<sub>4</sub>.	d09-ppk
+mrbar	MR̄	Gemiddelde moving range: gemiddeld verschil tussen opeenvolgende individuele waarden.	Gemiddelde van |x<sub>i</sub> − x<sub>i+1</sub>| over de n − 1 opeenvolgende paren, in de volgorde van meten (Dummies p. 116). σ<sub>ST</sub> = MR̄/1,128.	d09-ppk
+d2_n2	1,128	De constante d<sub>2</sub> voor subgroepgrootte n = 2 (twee opeenvolgende waarden).	Table 18 of Table A, rij n = 2; Dummies p. 116. Gebruik: σ<sub>ST</sub> = MR̄/1,128.	d09-ppk
+n_sub	n	Subgroepgrootte (subgroup size): aantal metingen per subgroep.	Gegeven (as-oefening: steekproeven van 5). Bepaalt d<sub>2</sub> en c<sub>4</sub>; niet verwarren met het aantal subgroepen.	d09-ppk
+n_total	n	Totaal aantal waarnemingen (all data), over alle subgroepen samen.	Tel alle metingen (20 subgroepen van 5 = 100). Deler n − 1 in σ<sub>LT</sub> (STDEV).	d09-ppk
+xi	x<sub>i</sub>	De i-de individuele meting (individual value).	Uit de data; voor σ<sub>LT</sub> neem je alle waarden samen.	d09-ppk
+z	z	z-waarde: afstand van het gemiddelde tot een grens, in standaardafwijkingen.	(grens − x̄)/σ, of 3·CPL en 3·CPU. Kans voorbij de grens: Z-tabel (1 − tabelwaarde) of NORM.VERD.	d09-uitval
+zl	z<sub>L</sub>	z-waarde van de ondergrens LSL.	(x̄ − LSL)/σ = 3·CPL. Fractie onder LSL = P(Z &lt; −z<sub>L</sub>).	d09-uitval
+zu	z<sub>U</sub>	z-waarde van de bovengrens USL.	(USL − x̄)/σ = 3·CPU. Fractie boven USL = P(Z &gt; z<sub>U</sub>).	d09-uitval
+z_rv	Z	Standaardnormale toevalsveranderlijke, N(0, 1) (standard normal variable).	P(Z &lt; z) uit de Z-tabel (oppervlakte links) of NORM.VERD(z;0;1;WAAR); P(Z &gt; z) = 1 − tabelwaarde.	d03-ztabel
+x	x	Eén waarde van de gemeten grootheid, hier een lengte (x-as van de grafiek).	Gegeven. NORM.VERD(x;µ;σ;WAAR) = kans onder x; met ONWAAR krijg je de hoogte van de curve.	d03-excel
+z_bench	Z.Bench	Minitab-getal: de z waarvoor één staart even groot is als de totale fractie buiten specificatie.	Narekenen: NORM.INV(1 − totale fractie buiten specificatie;0;1), beide staarten samen; 8,74 % geeft 1,36 (SPC p. 51). Dus niet 3 × Ppk.	d09-minitab
+p_value	p	p-waarde (p-value) van een toets, hier de Anderson-Darling-normaliteitstoets.	Uit de software (SPC p. 52: 0,553). Groot: geen bewijs tegen normaliteit, maar ook geen bewijs ervoor.	d05-pwaarde

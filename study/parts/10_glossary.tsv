@@ -1,0 +1,56 @@
+nl	en	anchor
+statistische procesbeheersing (SPC)	statistical process control (SPC)	d10-wat
+regelkaart, controlekaart	control chart	d10-wat
+stabiel proces	stable process	d10-wat
+statistische fase	statistical phase	d10-wat
+gewone oorzaak (van variatie)	common cause	d10-wat
+speciale (aanwijsbare) oorzaak	special (assignable) cause	d10-wat
+centrale lijn	center line (CL)	d10-wat
+bovenste regelgrens	upper control limit (UCL)	d10-wat
+onderste regelgrens	lower control limit (LCL)	d10-wat
+regelgrenzen	control limits	d10-grenzen
+tolerantiegrenzen, specificatiegrenzen	specification limits (USL, LSL)	d10-grenzen
+stem van het proces	voice of the process	d10-grenzen
+stem van de klant	voice of the customer	d10-grenzen
+onder statistische controle	in (statistical) control	d10-grenzen
+buiten controle	out of control	d10-grenzen
+leerdata	learning data	d10-opzet
+subgroep, steekproef	subgroup, sample	d10-opzet
+rationele subgroep	rational subgroup	d10-opzet
+PDCA-cirkel	PDCA cycle	d10-opzet
+controle bereiken / behouden	achieving / maintaining control	d10-opzet
+actieplan bij buiten-controle (OCAP)	out of control action plan (OCAP)	d10-opzet
+diagnosefase	diagnostic phase	d10-opzet
+engineeringfase	engineering phase	d10-opzet
+herhaalbaarheid	repeatability (equipment variation)	d10-opzet
+reproduceerbaarheid	reproducibility (appraiser variation)	d10-opzet
+stabiliteit, drift (meetsysteem)	stability, drift	d10-opzet
+X̄-kaart, gemiddeldenkaart	X-bar chart	d10-xbar
+standaardafwijking van het gemiddelde σx̄	standard deviation of the sample mean	d10-xbar
+centrale limietstelling	central limit theorem	d10-xbar
+range, spreidingsbreedte	range (R)	d10-formules
+gemiddelde range R̄	average range (R-bar)	d10-formules
+R-kaart, spreidingskaart	range chart (R chart)	d10-formules
+s-kaart	standard deviation chart (s chart)	d10-formules
+X̄-R-kaart	X-bar and R chart	d10-formules
+X̄-s-kaart	X-bar and s chart	d10-formules
+regelkaartconstanten (A2, D3, D4, d2, c4)	control chart constants	d10-formules
+variabele steekproefgrootte	variable sample size	d10-formules
+zone A, B, C	zone A, B, C	d10-regels
+Western Electric-regels	Western Electric rules	d10-regels
+aanvullende regels	sensitizing rules	d10-regels
+waarschuwingsgrenzen (2σ)	warning limits	d10-regels
+reeks aan één kant	run	d10-regels
+trend	trend	d10-regels
+verschuiving	shift	d10-regels
+overreageren	tampering	d10-regels
+onderreageren	underreacting	d10-regels
+herziene regelgrenzen	revised (trial) control limits	d10-oefeningen
+gecodeerde data	coded data	d10-oefeningen
+I-MR-kaart	individuals and moving range chart (I-MR)	d10-imr
+bewegend bereik	moving range (MR)	d10-imr
+attribuutdata	attribute data	d10-attribuut
+defectief (afgekeurd stuk)	defective	d10-attribuut
+defect (fout op een stuk)	defect	d10-attribuut
+p-kaart (fractie defectief)	p chart (proportion defective)	d10-attribuut
+u-kaart (defecten per eenheid)	u chart (defects per unit)	d10-attribuut

@@ -1,0 +1,68 @@
+key	symbool	betekenis	hoe	anchor
+x_rv	X	De invoer (input, features) als toevalsvariabele (random variable).	Staat in P(Y | X) en E[Y | X = x]: X is de stochastische invoer, x een concrete waarde ervan.	d12-paradigmas
+y_rv	Y	De uitkomst (output, label) als toevalsvariabele (random variable).	Supervised learning modelleert P(Y | X), typisch E[Y | X]; reinforcement learning het effect van ingrijpen, P(Y | do(X)).	d12-paradigmas
+x	x, x<sub>i</sub>	Invoer (input, features) van observatie i, of een willekeurig invoerpunt x.	Gegeven in de data: de kenmerken (procesparameters, sensorwaarden) van de observatie. Bij unsupervised learning heb je alleen x<sub>i</sub>, geen y<sub>i</sub>.	d12-paradigmas
+y	y, y<sub>i</sub>	Uitkomst of label (output, label) van observatie i: de gemeten waarde of klasse.	Gegeven in de gelabelde data. Continu → regressie; discreet (een klasse) → classificatie.	d12-paradigmas
+d_data	D	De dataset (training data) waarop het model getraind wordt: de paren (x<sub>i</sub>, y<sub>i</sub>).	De traindata. Het model, de loss en de gewichten hangen af van deze D: andere data, ander model.	d12-paradigmas
+n_data	N	Aantal observaties (number of observations) in de dataset D.	Tel de rijen van de dataset. De loss deelt door N: het is een gemiddelde per observatie.	d12-loss
+fhat	f̂	Het getrainde model (fitted model): de geschatte functie, met voorspelling f̂(x).	Gevonden door de loss op de traindata te minimaliseren; f̂(x; D) benadrukt dat het van de dataset D afhangt.	d12-loss
+fhat_theta	f̂<sub>θ</sub>	Het model uit de modelklasse met gewichten θ (model with weights θ).	De modelklasse kies je zelf (hyperparameters); de keuze van θ legt de functie volledig vast.	d12-modellen
+f_true	f	De echte regressielijn (true function): f(x) = E[Y | X = x].	Theoretisch, nooit gekend: het gemiddelde van Y bij elke x. Elk model probeert f te benaderen.	d12-bias-variance
+ftilde	f̃	Gemiddelde voorspelling (average prediction) over oneindig veel denkbeeldige traindatasets.	Theoretisch: f̃(x) = E<sub>D</sub>[f̂(x; D)]. Bias = f(x) − f̃(x); variance = spreiding van f̂(x; D) rond f̃(x).	d12-bias-variance
+l_d	L<sub>D</sub>	Loss op dataset D (loss, cost function): het gemiddelde verlies over alle observaties.	L<sub>D</sub> = (1/N) Σ ℓ(y<sub>i</sub>, f̂(x<sub>i</sub>)). Trainen = het model zoeken met de kleinste L<sub>D</sub> op de traindata.	d12-loss
+ell	ℓ	Verlies (loss) van één observatie: hoe ver de voorspelling van de echte y ligt.	Kwadratische fout bij MSE, absolute fout bij MAE, log-verlies bij cross-entropie.	d12-loss
+l_mse	L<sub>MSE</sub>	Mean squared error: gemiddelde gekwadrateerde fout.	(1/N) Σ (y<sub>i</sub> − f̂(x<sub>i</sub>))². Gevoelig voor uitschieters; impliceert Gaussische fouten. Hetzelfde idee als de kleinste kwadraten (Deel 7).	d12-loss
+l_mae	L<sub>MAE</sub>	Mean absolute error: gemiddelde absolute fout.	(1/N) Σ |y<sub>i</sub> − f̂(x<sub>i</sub>)|. Robuuster bij uitschieters; impliceert Laplaciaanse fouten.	d12-loss
+l_ce	L<sub>CE</sub>	Cross-entropie (cross-entropy, log-verlies): de standaard-loss voor classificatie.	−(1/N) Σ<sub>i</sub> Σ<sub>k</sub> y<sub>i,k</sub> log p̂<sub>i,k</sub>. Bestraft vooral een zelfverzekerd verkeerde klasse.	d12-loss
+y_ik	y<sub>i,k</sub>	Aanduiding van de werkelijke klasse k van observatie i (niet gedefinieerd in de cursus).	De notities definiëren het niet. Standaard (one-hot): 1 als observatie i tot klasse k behoort, anders 0.	d12-loss
+phat_ik	p̂<sub>i,k</sub>	Voorspelde kans (predicted probability) dat observatie i tot klasse k behoort.	Uitvoer van het classificatiemodel: één kans per klasse (bv. Cat 82 %, Dog 12 %); de hoogste kans is de voorspelde klasse.	d12-loss
+e_err	e	Fout (error) van één voorspelling: e = y<sub>pred</sub> − y<sub>true</sub>.	Voorspelling min echte waarde. MSE-term e², MAE-term |e|; gelijk bij |e| = 1, voor |e| &gt; 1 straft MSE harder.	d12-loss
+y_pred	y<sub>pred</sub>	Voorspelde waarde (predicted value) van het model voor één observatie.	Uitvoer van het model: f̂(x).	d12-loss
+y_true	y<sub>true</sub>	Werkelijke, gemeten waarde (true value) van die observatie.	Gegeven in de data: het label y.	d12-loss
+delta_huber	δ	Drempel (threshold) van de Huber-loss tussen kwadratisch en lineair gedrag.	In de figuur van ML p. 11: δ = 1,0. Kwadratisch voor |e| ≤ δ, lineair daarbuiten. De cursus geeft geen formule.	d12-loss
+theta	θ	Vector van gewichten (weights, parameters) van het model: θ = (w<sub>1</sub>, …, w<sub>d</sub>).	Gevonden door het trainingsalgoritme (loss minimaliseren), niet door de analist. Bij lineaire regressie: de coëfficiënten β.	d12-modellen
+theta_hat	θ̂<sub>D</sub>	Geschatte gewichten (estimated weights): de θ met de kleinste loss op dataset D.	θ̂<sub>D</sub> = arg min<sub>θ</sub> L<sub>D</sub>: de waarde van θ, niet de minimale loss zelf. Andere data D geven andere gewichten.	d12-modellen
+w	w<sub>i</sub>	Gewicht (weight): één parameter van het model, bv. een verbindingssterkte in een neuraal netwerk.	Getraind door het algoritme (gradient descent met backpropagation), niet vooraf gekozen: een parameter, geen hyperparameter.	d12-modellen
+beta_coef	β<sub>j</sub>	Regressiecoëfficiënt (coefficient) j; β<sub>0</sub> is het intercept.	Geschat met OLS (MSE minimaliseren; analytische oplossing, zie Deel 7). Een parameter, geen hyperparameter. Niet de β van een beta-verdeling.	d12-linreg
+y_hat	ŷ	Voorspelde waarde (predicted value) van het regressiemodel.	ŷ = β<sub>0</sub> + β<sub>1</sub>x<sub>1</sub> + ⋯ + β<sub>p</sub>x<sub>p</sub>, met de geschatte coëfficiënten ingevuld.	d12-linreg
+x_feat	x<sub>j</sub>	Invoervariabele (feature) j: één kenmerk, of één invoer van een neuron.	Gegeven in de data. In het lineaire model mag je x<sub>j</sub> transformeren (kwadraat, sinus): het model blijft lineair in β.	d12-linreg
+k_folds	k	Aantal folds (number of folds) bij k-voudige cross-validatie.	Zelf gekozen, typisch k = 5 of 10. Per ronde train je op k − 1 folds en evalueer je op 1; in totaal train je k keer.	d12-crossvalidatie
+bias	Bias	Systematische fout (bias): f(x) − f̃(x), wat zelfs het gemiddelde model mist.	Theoretisch. Hoog bij een te eenvoudig model (underfitting); daalt als de complexiteit stijgt. Niet de bias b van een neuron.	d12-bias-variance
+variance	Variance	Gevoeligheid (variance) van de voorspelling voor de toevallige traindataset D.	E[(f̃(x) − f̂(x; D))²]. Hoog bij een te complex model (overfitting); stijgt met de complexiteit. Niet de spreiding van de data: dat is σ².	d12-bias-variance
+sigma2_noise	σ²	Irreducibele ruis (irreducible noise): variantie van y rond de echte regressielijn f(x).	E[(y − f(x))²]. Eigen aan de data; geen enkel model kan dit deel van de fout verkleinen.	d12-bias-variance
+accuracy	Accuracy	Aandeel correct geclassificeerde observaties (accuracy).	(TP + TN)/(TP + TN + FP + FN) = diagonaal / totaal. Misleidend bij onevenwichtige klassen. Niet de SPC-nauwkeurigheid (= bias).	d12-confusion
+precision	Precision, P	Precisie (precision): aandeel echte positieven onder de positieve voorspellingen.	TP/(TP + FP). Belangrijk als vals positieven duur zijn. Niet verwarren met recall (noemer TP + FN).	d12-confusion
+recall	Recall, R	Recall (sensitiviteit, sensitivity, TPR): aandeel van de echte positieven dat gevonden wordt.	TP/(TP + FN). Belangrijk als vals negatieven (gemiste defecten) duur zijn.	d12-confusion
+f1	F1	F1-score: harmonisch gemiddelde (harmonic mean) van precision en recall.	2·P·R/(P + R), niet (P + R)/2. Eén evenwichtsmaat als je beide wilt bewaken.	d12-confusion
+tp	TP	True positive: werkelijk positief en als positief voorspeld.	Cel werkelijk + / voorspeld +; bij meer klassen de diagonaalcel van klasse k. Lees eerst welke as werkelijk en welke voorspeld is.	d12-confusion
+fp	FP	False positive (vals alarm): werkelijk negatief, maar positief voorspeld.	Cel werkelijk − / voorspeld +; bij meer klassen de rest van de lijn voorspeld k.	d12-confusion
+fn	FN	False negative (gemist geval): werkelijk positief, maar negatief voorspeld.	Cel werkelijk + / voorspeld −; bij meer klassen de rest van de lijn werkelijk k.	d12-confusion
+tn	TN	True negative: werkelijk negatief en als negatief voorspeld.	Cel werkelijk − / voorspeld −, of totaal − TP − FP − FN.	d12-confusion
+error_rate	Error rate	Aandeel foute voorspellingen (error rate); staat niet in de cursus.	1 − accuracy. Een rij in het blad Confusion matrix van bb_toolkit.xlsx.	d12-confusion
+k_classes	K	Aantal klassen (number of classes) bij meerklassen-classificatie.	Gegeven door het probleem; de confusion matrix wordt een K × K-matrix.	d12-confusion
+y_nn	y, Y	Uitvoer (output) van een neuron of van het hele netwerk.	Neuron: y = f(w<sub>1</sub>x<sub>1</sub> + ⋯ + w<sub>n</sub>x<sub>n</sub> + b). Netwerk: een getal bij regressie, kansen bij classificatie.	d12-neuraal
+f_act	f	Activatiefunctie (activation function): de niet-lineaire functie in elk neuron.	Gekozen bij het ontwerp: ReLU f(x) = max(0, x), sigmoid of tanh.	d12-neuraal
+x_arg	x	Argument van de activatiefunctie: de gewogen som die het neuron binnenkrijgt.	x = w<sub>1</sub>x<sub>1</sub> + ⋯ + w<sub>n</sub>x<sub>n</sub> + b; ReLU geeft dan max(0, x).	d12-neuraal
+x_nn	X	Invoer (input) van het netwerk: de kenmerken die de invoerlaag binnenkrijgt.	Gegeven: de kenmerken van één observatie (in ML p. 38: 3 invoerneuronen).	d12-neuraal
+b_bias	b	Bias van een neuron: een extra parameter die bij de gewogen som komt.	Getraind, net als de gewichten. Niet de bias uit de bias-variance afweging.	d12-neuraal
+w_matrix	W1, W2, W3	Gewichtsmatrix (weight matrix) van een laag: één gewicht per verbinding.	Afmeting = (neuronen in deze laag) × (neuronen in de vorige laag); ML p. 38: W1 4×3, W2 4×4, W3 1×4. Getraind.	d12-neuraal
+b_layer	B1, B2, B3	Biases van een laag (in de cursus niet toegelicht).	Vermoedelijk de biases b van de neuronen van die laag: één per neuron (4, 4 en 1 in ML p. 38).	d12-neuraal
+koolstof	koolstofgehalte	Koolstofgehalte (carbon content) van het staal: voorbeeldkenmerk in een knoop.	Een kenmerk (feature) uit de data; de knoop vraagt of het boven een drempelwaarde ligt.	d12-bomen
+value	value	Telling per klasse in een knoop: [aantal niet overleefd, aantal overleefd].	Afgelezen in het vakje van de boom (ML p. 44); de grootste telling geeft de class (meerderheidsklasse).	d12-bomen
+samples	samples	Aantal trainingsobservaties (passagiers) dat in een knoop terechtkomt.	Afgelezen in het vakje van de boom; gelijk aan de som van de twee getallen van value.	d12-bomen
+sex	Sex	Geslacht van de passagier, als getal gecodeerd: een kenmerk van de Titanic-data.	Splitsing in de wortel van de boom van ML p. 44; True (Sex ≤ 0,5 waar) gaat naar links. De codering staat niet in de cursus.	d12-bomen
+pclass	Pclass	Passagiersklasse (passenger class): een kenmerk van de Titanic-data.	Splitsingen Pclass ≤ 1,5 en Pclass ≤ 2,5 in de boom van ML p. 44; True gaat naar links.	d12-bomen
+age	Age	Leeftijd (age) van de passagier: een kenmerk van de Titanic-data.	Splitsingen op leeftijd in de boom van ML p. 44 (bv. Age ≤ 3,5); True gaat naar links. Een getrainde drempel is een parameter.	d12-bomen
+fare	Fare	Ticketprijs (fare) van de passagier: een kenmerk van de Titanic-data.	Splitsing Fare ≤ 20,8 in de boom van ML p. 44; True gaat naar links.	d12-bomen
+k_clusters	k	Aantal clusters (number of clusters).	K-means: vooraf kiezen. Hiërarchische clustering: achteraf, uit het dendrogram. In de figuur van ML p. 48: k = 3.	d12-unsupervised
+theta_bayes	θ	Parameter(s) van het data-genererend model; Bayesiaans zelf een stochastische grootheid.	Onbekend: je krijgt een verdeling (de posterior P(θ | data)), geen vaste waarde. Frequentistisch is θ niet stochastisch.	d12-bayes
+data_obs	data	De waargenomen gegevens (observed data).	Gegeven, bv. de worpen K K M K M. De likelihood P(data | θ) zegt hoe waarschijnlijk ze zijn bij een gegeven θ.	d12-bayes
+prior	prior	Prior P(θ): wat je over de parameter weet vóór de data.	Gekozen uit voorkennis (domeinkennis, eerdere experimenten); hier komt de subjectiviteit binnen. Muntstuk: Beta(1, 1), vlak.	d12-bayes
+likelihood	likelihood, L(p)	Likelihood P(data | θ): hoe waarschijnlijk de data zijn bij een gegeven parameter.	Muntstuk, 3 keer kop en 2 keer munt: L(p) ∝ p³ · (1 − p)², maximaal bij de MLE k/n.	d12-bayes
+posterior	posterior	Posterior P(θ | data): de bijgewerkte kennis na de data.	Regel van Bayes: likelihood × prior / P(data). Muntstuk: Beta(α + k, β + n − k), gemiddelde α/(α + β).	d12-bayes
+p_coin	p	Onbekende kans op kop (probability of heads) van het muntstuk.	De parameter θ van het voorbeeld. MLE = k/n; Bayesiaans een beta-verdeling.	d12-bayes
+k_heads	k	Aantal keer kop (number of heads) in n worpen.	Tel in de data: K K M K M geeft k = 3. Komt bij α: posterior α + k.	d12-bayes
+n_tosses	n	Aantal worpen (number of tosses).	Tel in de data: n = 5. Het aantal keer munt is n − k; dat komt bij β.	d12-bayes
+alpha_prior	α	Eerste parameter van de beta-verdeling Beta(α, β).	Prior gegeven; posterior α + k. Gemiddelde van Beta(α, β) = α/(α + β), niet α/β.	d12-bayes
+beta_prior	β	Tweede parameter van de beta-verdeling Beta(α, β).	Prior gegeven; posterior β + n − k (het aantal keer munt erbij). Niet de regressiecoëfficiënt β.	d12-bayes
+mle	MLE	Maximum likelihood estimate: de waarde van p waar de likelihood maximaal is.	Muntstuk: k/n = 3/5 = 0,60, de steekproeffractie. Gebruikt geen prior.	d12-bayes

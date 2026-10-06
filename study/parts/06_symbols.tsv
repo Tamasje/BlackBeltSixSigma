@@ -1,0 +1,90 @@
+key	symbool	betekenis	hoe	anchor
+pi	π (ook p, P = D/N)	Werkelijke fractie defecten (fraction defectives) van het lot of het proces.	Lot: π = D/N, vast maar onbekend; je schat het met P = d/n. De AS-slides schrijven π, de Further Reading p, TH P = D/N. In OC(p) en AOQ(p) de variabele op de x-as.	d06-waarom
+p_bernoulli	P	0/1-variabele (Bernoulli) van één output: 1 = defect, 0 = conform.	E[P] = π: het gemiddelde van P is de fractie defecten. Niet de steekproeffractie P = d/n van 06.4.	d06-kwaliteit
+p_sample	P	Fractie defecten in de steekproef (sample fraction), de schatter van π.	P = d/n. Zuiver: E[P] = π. Bij een SRS σ²[P] = π(1 − π)/n (binomiaal). Let op: TH schrijft P = D/N ook voor het lot zelf.	d06-srs
+d_sample	d (ook X)	Aantal defecten in de steekproef (number of defectives in the sample).	Tellen. Aanvaard als d ≤ c. Kansen: HYPGEOM.DIST(d, n, D, N, …) exact, BINOM.DIST(d, n, π, …) als n ≪ N.	d06-oc
+i_value	i	Een mogelijke waarde van het aantal defecten d in de steekproef.	Je kiest i zelf (0, 1, …, n) en rekent P[d = i]. In de AOQ-som loopt i van 0 tot c.	d06-srs
+i_lot	i	Aantal defecten in een lot van N stuks uit een stabiel proces.	Binomiaal als defecten onafhankelijk ontstaan: BINOM.DIST(i, N, π, …); E[i] = Nπ (Cpk = 1, N = 10 000: 27).	d06-lotdefecten
+n_lot	N	Lotgrootte (lot size): aantal stuks in het lot, de populatie.	Gegeven in de opgave. Nodig voor de exacte (hypergeometrische) kansen; is n ≪ N, dan mag binomiaal en speelt N nauwelijks een rol.	d06-procedure
+d_lot	D	Aantal defecten in het lot (number of defectives in the lot).	D = N·π; in de praktijk onbekend. Derde argument van HYPGEOM.DIST(d, n, D, N, …).	d06-waarom
+n	n	Steekproefgrootte (sample size): aantal geïnspecteerde stuks.	Gegeven in het plan (n, c) of (n, k), of ontworpen uit AQL en LQL. Bij de SPRT: het aantal stuks tot nu toe.	d06-oc
+xu	X<sub>U</sub>	Bovenste specificatiegrens (upper specification limit).	Gegeven (klant, specificatie). Niet de grens van een regelkaart.	d06-kwaliteit
+xl	X<sub>L</sub>	Onderste specificatiegrens (lower specification limit).	Gegeven (klant, specificatie).	d06-kwaliteit
+cpk	C<sub>pk</sub>	Capabiliteitsindex (process capability index) die ook de ligging van μ meetelt.	min((X<sub>U</sub> − μ)/(3σ); (μ − X<sub>L</sub>)/(3σ)). Gecentreerd: 1 ↔ 0,27 % defect, 1,33 ↔ 63 ppm (AS p. 10).	d09-cpk
+mu	μ	Gemiddelde (mean) van de verdeling: proces, lot of populatie.	Gegeven, of geschat met X̄. Voor Cpk uit metingen binnen subgroepen (Deel 9–10). Twee strata: μ = W<sub>A</sub>μ<sub>A</sub> + W<sub>B</sub>μ<sub>B</sub>.	d06-lotdefecten
+sigma	σ	Standaardafwijking (standard deviation) van één stuk in proces, lot of populatie.	Gegeven, of geschat met s. Voor Cpk uit metingen binnen subgroepen (Deel 9–10). σ = √σ².	d06-lotdefecten
+sigma2	σ²	Variantie (variance) van één stuk in de populatie.	0/1-kenmerk: σ² = π(1 − π). Twee strata: W<sub>A</sub>σ<sub>A</sub>² + W<sub>B</sub>σ<sub>B</sub>² + het tussen-strata-deel. Een gemiddelde van n stuks: σ²/n.	d06-strat
+w_stratum	W<sub>A</sub>, W<sub>B</sub>	Gewicht (weight) van stratum A of B: zijn aandeel in de populatie.	W<sub>A</sub> = N<sub>A</sub>/N (tegels: 0,6 en 0,4); W<sub>A</sub> + W<sub>B</sub> = 1.	d06-strat
+n_pop_stratum	N<sub>A</sub>, N<sub>B</sub>	Aantal stuks in stratum A of B van het lot.	Gegeven (tegels: 6000 en 4000); N<sub>A</sub> + N<sub>B</sub> = N.	d06-strat
+n_stratum	n<sub>A</sub>, n<sub>B</sub>	Steekproefgrootte uit stratum A of B.	Proportioneel: n<sub>A</sub> = W<sub>A</sub>·n. Optimaal: n<sub>A</sub> = W<sub>A</sub>σ<sub>A</sub>/(W<sub>A</sub>σ<sub>A</sub> + W<sub>B</sub>σ<sub>B</sub>)·n, met σ en niet σ².	d06-strat
+d_stratum	d<sub>A</sub>, d<sub>B</sub>	Aantal defecten in de deelsteekproef uit stratum A of B.	Tellen; P<sub>A</sub> = d<sub>A</sub>/n<sub>A</sub>.	d06-strat
+p_stratum	P<sub>A</sub>, P<sub>B</sub>	Fractie defecten in de deelsteekproef van stratum A of B.	P<sub>A</sub> = d<sub>A</sub>/n<sub>A</sub>, schatter van π<sub>A</sub>.	d06-strat
+pi_stratum	π<sub>A</sub>, π<sub>B</sub>	Werkelijke fractie defecten in stratum (batch) A of B.	Gegeven (tegels: 3 % en 0,5 %); in de praktijk onbekend. Voor optimale stratificatie vooraf schatten, bv. met een voorafgaande steekproef.	d06-strat
+p_strat	P<sub>s</sub>	Gestratificeerde schatter van π (stratified estimator).	P<sub>s</sub> = W<sub>A</sub>P<sub>A</sub> + W<sub>B</sub>P<sub>B</sub>, ook bij post-stratificatie. σ²[P<sub>s</sub>] = (W<sub>A</sub>σ<sub>A</sub>² + W<sub>B</sub>σ<sub>B</sub>²)/n.	d06-strat
+sigma_stratum	σ<sub>A</sub>, σ<sub>B</sub>	Standaardafwijking binnen stratum A of B.	0/1-kenmerk: σ<sub>A</sub> = √(π<sub>A</sub>(1 − π<sub>A</sub>)). Voor optimale stratificatie σ gebruiken, niet σ².	d06-strat
+sigma2_stratum	σ<sub>A</sub>², σ<sub>B</sub>², σ<sub>S</sub>²	Variantie binnen stratum A of B; σ<sub>S</sub>²: de gemeenschappelijke variantie van beide.	0/1-kenmerk: σ<sub>A</sub>² = π<sub>A</sub>(1 − π<sub>A</sub>) (tegels: 0,0291). Normale strata: gegeven (σ<sub>S</sub>² = 4).	d06-strat
+mu_stratum	μ<sub>A</sub>, μ<sub>B</sub>	Gemiddelde van stratum A of B.	Gegeven (voorbeeld: 10 en 15); μ = W<sub>A</sub>μ<sub>A</sub> + W<sub>B</sub>μ<sub>B</sub>.	d06-strat
+xbar_s	X̄<sub>S</sub>	Steekproefgemiddelde van de proportioneel gestratificeerde steekproef.	Variantie σ²[X̄<sub>S</sub>] = σ<sub>S</sub>²/n, kleiner dan σ²[X̄] van een SRS (AS p. 19).	d06-strat
+p_cluster	P<sub>C</sub>	Fractie defecten in een clustersteekproef.	P<sub>C</sub> = d<sub>C</sub>/n. Zuiver als elk niveau aselect is; σ²[P<sub>C</sub>] via Monte Carlo (0,000267 op AS p. 20).	d06-cluster
+d_cluster	d<sub>C</sub>	Aantal defecten in een clustersteekproef.	Tellen in de volledig geïnspecteerde dozen.	d06-cluster
+c_coef	c	Coëfficiënt vóór π<sup>3</sup>(1 − π)<sup>17</sup>: aantal manieren om 3 defecten te krijgen.	SRS van 20: C<sub>20</sub><sup>3</sup>; twee dozen: 2·C<sub>10</sub><sup>3</sup> + 2·10·C<sub>10</sub><sup>2</sup>; beide 1140. Niet het aanvaardingsgetal c.	d06-cluster
+c_accept	c (ook Ac)	Aanvaardingsgetal (acceptance number): meeste defecten waarbij je het lot nog aanvaardt.	Uit het plan (n, c). Aanvaard als d ≤ c (≤, niet &lt;). Kies c zo dat OC(AQL) ≥ 1 − α. Deming schrijft Ac.	d06-oc
+oc	OC	Operating characteristic: aanvaardingskans van een lot als functie van zijn fractie p.	OC(p) = P(d ≤ c) = HYPGEOM.DIST(c, n, [Np], N, TRUE), of BINOM.DIST(c, n, p, TRUE) als n ≪ N. α = 1 − OC(AQL), β = OC(LQL).	d06-oc
+aql	AQL (ook p<sub>0</sub>, p<sub>1</sub>)	Acceptable quality level: fractie defecten die normaal aanvaard moet worden.	Afgesproken tussen producent en consument; gegeven. OC(AQL) = 1 − α. Bij Peach p<sub>1</sub>, bij SPRT en variabelen p<sub>0</sub>. Niet de kwaliteit die je gegarandeerd krijgt.	d06-procedure
+lql	LQL (ook LTPD, p<sub>t</sub>, p<sub>2</sub>)	Limiting quality level (LTPD): fractie defecten die normaal afgekeurd moet worden.	Afgesproken tussen beide partijen; gegeven. OC(LQL) = β. Bij Peach p<sub>2</sub>, bij SPRT en variabelen p<sub>t</sub>.	d06-procedure
+alpha	α	Producentenrisico (producer's risk), significantie: kans om een goed lot af te keuren.	α = 1 − OC(AQL), type-I-fout. Standaard 5 % (AS-FR p. 4); gebruik de waarde uit de opgave.	d06-procedure
+beta	β	Consumentenrisico (consumer's risk): kans om een slecht lot te aanvaarden.	β = OC(LQL), type-II-fout. Standaard 10 % (AS-FR p. 4), maar de cursusvoorbeelden gebruiken 5 %: neem wat de opgave geeft.	d06-procedure
+power	ψ	Kracht (power): kans om een slecht lot terecht af te keuren.	ψ = 1 − OC(p) bij die fractie p, dus 1 − β bij de LQL.	d05-fouten
+m_p	M<sub>p</sub> (ook M)	Aantal defecten in een lot van N stuks met fractie p.	M<sub>p</sub> = [Np], het gehele deel van N·p. Derde argument van HYPGEOM.DIST(c, n, M, N, TRUE).	d06-oc
+r0	R<sub>0</sub>	Verhouding LQL/AQL bij de methode van Peach.	R<sub>0</sub> = p<sub>2</sub>/p<sub>1</sub>. Zoek in de tabel van Peach de eerstvolgende grotere waarde: die rij geeft c en n. De tabel zit niet in de cursus.	d06-peach
+n1	n<sub>1</sub>	Grootte van de eerste steekproef van een dubbel plan.	Gegeven in het plan (n<sub>1</sub>, c<sub>1</sub>, c<sub>2</sub>)+(n<sub>2</sub>, c<sub>3</sub>).	d06-dubbel
+n2	n<sub>2</sub>	Grootte van de tweede steekproef van een dubbel plan.	Gegeven in het plan; alleen nodig als c<sub>1</sub> &lt; d<sub>1</sub> &lt; c<sub>2</sub>.	d06-dubbel
+c1	c<sub>1</sub>	Aanvaardingsgrens na de eerste steekproef van een dubbel plan.	Gegeven in het plan. d<sub>1</sub> ≤ c<sub>1</sub>: meteen aanvaarden.	d06-dubbel
+c2	c<sub>2</sub>	Afkeurgrens na de eerste steekproef van een dubbel plan.	Gegeven in het plan. d<sub>1</sub> ≥ c<sub>2</sub>: meteen afkeuren (≥, niet &gt;).	d06-dubbel
+c3	c<sub>3</sub>	Aanvaardingsgetal voor het totaal d<sub>1</sub> + d<sub>2</sub> na de tweede steekproef.	Gegeven in het plan. Aanvaard als d<sub>1</sub> + d<sub>2</sub> ≤ c<sub>3</sub>: de som, niet d<sub>2</sub> alleen.	d06-dubbel
+d1	d<sub>1</sub>	Aantal defecten in de eerste steekproef van een dubbel plan.	Tellen; P(d<sub>1</sub> ≤ c<sub>1</sub>) = BINOM.DIST(c<sub>1</sub>, n<sub>1</sub>, p, TRUE).	d06-dubbel
+d2	d<sub>2</sub>	Aantal defecten in de tweede steekproef van een dubbel plan.	Tellen; telt alleen mee in de som d<sub>1</sub> + d<sub>2</sub>.	d06-dubbel
+j_first	j	Aantal defecten in de eerste steekproef waarbij een tweede steekproef nodig is.	Somindex van c<sub>1</sub> + 1 tot c<sub>2</sub> − 1; dan moet d<sub>2</sub> ≤ c<sub>3</sub> − j om te aanvaarden.	d06-dubbel
+pi_decision	Π	Kans op een beslissing (aanvaarden of afkeuren) na de eerste steekproef.	Π(p) = P(d<sub>1</sub> ≤ c<sub>1</sub>) + P(d<sub>1</sub> ≥ c<sub>2</sub>) = H(c<sub>1</sub>) + 1 − H(c<sub>2</sub> − 1). Let op c<sub>2</sub> − 1 in de verdelingsfunctie.	d06-dubbel
+asn	ASN	Average sample number: gemiddeld aantal geïnspecteerde stuks per lot bij fractie p.	Dubbel: n<sub>1</sub>Π + (n<sub>1</sub> + n<sub>2</sub>)(1 − Π). SPRT: formule van Wald (AS-FR p. 8). Enkelvoudig plan: altijd n.	d06-dubbel
+ac_seq	Ac	Aanvaardingsgrens van een sequentieel plan na i stuks.	Berekend voor de gewenste OC-curve; bij de SPRT de lijn −h<sub>1</sub> + s·n. Aanvaard als d(i) ≤ Ac(i).	d06-dubbel
+re_seq	Re	Afkeurgrens van een sequentieel plan na i stuks.	Bij de SPRT de lijn h<sub>2</sub> + s·n. Afkeuren als d(i) ≥ Re(i).	d06-dubbel
+x_n	X<sub>n</sub> (ook d(i))	Aantal defecten bij de eerste n (of i) stuks van een sequentiële keuring.	Tellen na elk stuk en vergelijken met de lijnen −h<sub>1</sub> + s·n (aanvaarden) en h<sub>2</sub> + s·n (afkeuren).	d06-dubbel
+lambda_lr	Λ	Likelihood ratio: hoeveel waarschijnlijker de waarnemingen zijn bij p<sub>t</sub> dan bij p<sub>0</sub>.	Formule op AS-FR p. 6; vergelijk log Λ met log A (aanvaarden) en log B (afkeuren).	d06-dubbel
+a_wald	A	Ondergrens van de SPRT: onder log A aanvaard je het lot.	A = β/(1 − α) &lt; 1.	d06-dubbel
+b_wald	B	Bovengrens van de SPRT: boven log B keur je het lot af.	B = (1 − β)/α &gt; 1. Niet verwisselen met A.	d06-dubbel
+g_sprt	g	Noemer in h<sub>1</sub>, h<sub>2</sub> en s van de SPRT.	g = log(p<sub>t</sub>(1 − p<sub>0</sub>)/(p<sub>0</sub>(1 − p<sub>t</sub>))). Het grondtal maakt niet uit zolang je overal hetzelfde neemt (bv. ln).	d06-dubbel
+h1	h<sub>1</sub>	Afstand van de aanvaardingslijn onder de oorsprong (snijpunt −h<sub>1</sub>).	h<sub>1</sub> = log((1 − α)/β)/g. Bij α = β is h<sub>1</sub> = h<sub>2</sub> (dan soms gewoon h).	d06-dubbel
+h2	h<sub>2</sub>	Snijpunt van de afkeurlijn met de verticale as.	h<sub>2</sub> = log((1 − β)/α)/g.	d06-dubbel
+s_slope	s	Helling (slope) van de twee SPRT-lijnen.	s = log((1 − p<sub>0</sub>)/(1 − p<sub>t</sub>))/g; ligt tussen p<sub>0</sub> en p<sub>t</sub>. Niet de standaardafwijking s van 06.12.	d06-dubbel
+tau	τ	Hulpparameter om de OC-curve van de SPRT te tekenen.	Formules op AS-FR p. 8: τ = 1 geeft p = p<sub>0</sub> (OC = 1 − α), τ = −1 geeft p = p<sub>t</sub> (OC = β), τ = 0 geeft p = s.	d06-dubbel
+xi	ξ	Ondergrens van de specificatie (lower specification limit) van het kenmerk X.	Gegeven. Een stuk is conform als X ≥ ξ. In het werkblad ξ = X<sub>p0</sub> = NORM.INV(p<sub>0</sub>, μ, σ).	d06-variabelen
+x_char	X	Het continue kwaliteitskenmerk (bv. de diameter van een as), normaal over het lot.	X ~ N(μ, σ); μ en σ van het lot zijn onbekend, je meet X op n stuks.	d06-variabelen
+x_i	X<sub>i</sub>	Gemeten waarde van stuk i in de steekproef (i = 1, …, n).	Meting op de n stuks van de SRS.	d06-variabelen
+xbar	X̄	Steekproefgemiddelde (sample mean).	X̄ = (1/n)ΣX<sub>i</sub> = AVERAGE (AS p. 27 vergeet 1/n). Variantie σ²[X̄] = σ²/n.	d06-variabelen
+s_sd	s	Standaardafwijking van de steekproef (sample standard deviation).	s = √(Σ(X<sub>i</sub> − X̄)²/(n − 1)) = STDEV.S: n − 1, niet n.	d06-variabelen
+q_stat	Q	Toetsgrootheid van het variabelenplan: afstand van X̄ tot ξ in eenheden s.	Q = (X̄ − ξ)/s. Aanvaard als Q ≥ k.	d06-variabelen
+k_var	k	Aanvaardingsconstante van het variabelenplan (n, k), de tegenhanger van c.	Bij gegeven n: k = t(1 − α, p<sub>0</sub>, n). Uit AQL en LQL: k = (z<sub>pt</sub>z<sub>α</sub> + z<sub>p0</sub>z<sub>β</sub>)/(z<sub>1−α</sub> + z<sub>1−β</sub>).	d06-variabelen
+t_tol	t	Factor van de ondertolerantiegrens X̄ − ks (lower tolerance limit) bij gegeven n.	t(1 − α, p<sub>0</sub>, n) met de formule uit de notities van AS p. 27; een lot op de AQL wordt dan met kans 1 − α aanvaard. Werkblad (n = 10): 1,3378.	d06-variabelen
+z_q	z<sub>q</sub>	q-kwantiel van de standaardnormale verdeling N(0, 1).	NORM.INV(q, 0, 1) (werkblad). z<sub>α</sub> &lt; 0 voor α = 5 % (−1,6449); z<sub>1−α</sub> = −z<sub>α</sub>. Let op het teken.	d06-variabelen
+x_p0	X<sub>p0</sub>	p<sub>0</sub>-kwantiel van X in het lot: daaronder ligt een fractie p<sub>0</sub>.	X<sub>p0</sub> = NORM.INV(p<sub>0</sub>, μ, σ) = μ + z<sub>p0</sub>·σ. Het lot is aanvaardbaar als X<sub>p0</sub> ≥ ξ.	d06-variabelen
+alpha_tol	α (tolerantiegrens)	1 − α is de betrouwbaarheid (confidence) van de ondertolerantiegrens X̄ − ks.	Gekozen; in het variabelenplan is dit de α van het producentenrisico.	d04-tolerantie
+beta_tol	β (tolerantiegrens)	1 − β is de minimale fractie van de populatie boven X̄ − ks.	Hier niet het consumentenrisico: in het variabelenplan neemt p<sub>0</sub> die plaats in, k = t(1 − α, p<sub>0</sub>, n).	d04-tolerantie
+aoq	AOQ	Average outgoing quality: gemiddelde fractie defecten na rectificerende inspectie.	Exact p·OC(p)·(1 − (n/N)R<sub>s</sub>*); de benadering p·OC(p) alleen als n ≪ N.	d06-aoq
+aoql	AOQL	Average outgoing quality limit: het maximum van AOQ(p) over alle p.	Maak een tabel van AOQ(p) over p en neem het maximum (blad Acceptance sampling, sectie 5). Een uitkomst, geen afspraak zoals de AQL.	d06-aoq
+ati	ATI	Average total inspection: gemiddeld aantal geïnspecteerde stuks per lot.	ATI = n·OC(p) + N·(1 − OC(p)): n voor aanvaarde lots, N voor gesorteerde.	d06-aoq
+rs_star	R<sub>s</sub>*	Correctiefactor in de exacte AOQ (enkelvoudig plan).	R<sub>s</sub>* = H(c − 1; N − 1, [Np] − 1, n − 1)/H(c; N, [Np], n) = HYPGEOM.DIST(c − 1, n − 1, M − 1, N − 1, TRUE)/HYPGEOM.DIST(c, n, M, N, TRUE).	d06-aoq
+p_q	P<sub>q</sub>	Kans dat een leverancier kwalificeert voor skip-lot.	Voorbeeld (80, 2): P<sub>q</sub> = B(3; 640, p) × B(0; 80, p)², B = BINOM.DIST(…, TRUE). Bij p = AQL = 1 %: 2,4 %.	d06-skiplot
+sscl	SSCL	Sample size code letter (ISO 2859): letter die de steekproefgrootte bepaalt.	Uit de ISO 2859-tabel met lotgrootte en keuringsniveau (I, II, III); lots van 1000, niveau II: J. De tabel zit niet in de cursus.	d06-skiplot
+q_accept	Q	Gemiddelde aanvaardingskans van een lot (inspectiecriterium van Deming).	Q = OC(p) = Σ π<sub>D</sub>β<sub>D</sub> (AS-FR p. 15). Niet de Q van het variabelenplan.	d06-deming
+p_reject	P	Kans dat een lot afgekeurd wordt (Deming).	P = 1 − Q.	d06-deming
+q_good	q	Kans dat een stuk goed is (Deming).	q = 1 − p; 1/q is het gemiddelde aantal inspecties tot een goed (vervang)stuk.	d06-deming
+p_dprime	p″	Gemiddelde fractie defecten in (de rest van) de aanvaarde lots.	Formule op AS-FR p. 15; altijd p″ &gt; p.	d06-deming
+cost1	C<sub>1</sub>	Kost van het inspecteren van de steekproef (Deming).	C<sub>1</sub> = n·k<sub>1</sub>/q.	d06-deming
+cost2	C<sub>2</sub>	Kost van het sorteren van de afgekeurde lots (Deming).	C<sub>2</sub> = (N − n)(1 − Q)·k<sub>1</sub>/q.	d06-deming
+cost3	C<sub>3</sub>	Kost van herstel na falen in de assemblage (Deming).	C<sub>3</sub> = (N − n)·p″·Q·k<sub>2</sub>.	d06-deming
+tc	TC	Totale kwaliteitskost (total quality cost) per lot.	TC = C<sub>1</sub> + C<sub>2</sub> + C<sub>3</sub>; minimaal bij n = 0 als p &lt; k<sub>1</sub>/k<sub>2</sub>, bij n = N als p &gt; k<sub>1</sub>/k<sub>2</sub>.	d06-deming
+k1_cost	k<sub>1</sub>	Inspectiekost per stuk (unit inspection cost).	Gegeven. Break-even kwaliteit = k<sub>1</sub>/k<sub>2</sub>, met k<sub>1</sub> in de teller.	d06-deming
+k2_cost	k<sub>2</sub>	Kost per defect stuk dat de assemblage doet falen.	Gegeven (demonteren, herstellen, opnieuw monteren). Normaal k<sub>1</sub> ≪ k<sub>2</sub>.	d06-deming
+pi_d	π<sub>D</sub>	Kans dat een lot precies D defecten bevat (Deming).	Binomiaal: π<sub>D</sub> = b(D; N, p) = BINOM.DIST(D, N, p, FALSE).	d06-deming
+beta_d	β<sub>D</sub>	Kans om een lot met D defecten te aanvaarden (Deming).	Hypergeometrisch: β<sub>D</sub> = H(Ac; N, D, n) = HYPGEOM.DIST(Ac, n, D, N, TRUE). Niet het consumentenrisico β.	d06-deming

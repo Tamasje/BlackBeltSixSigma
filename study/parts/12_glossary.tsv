@@ -1,0 +1,61 @@
+nl	en	anchor
+artificiële intelligentie (AI)	artificial intelligence	d12-terminologie
+machine learning (ML)	machine learning	d12-terminologie
+deep learning	deep learning	d12-terminologie
+data science	data science	d12-terminologie
+big data	big data	d12-terminologie
+gesuperviseerd leren	supervised learning	d12-paradigmas
+ongesuperviseerd leren	unsupervised learning	d12-paradigmas
+versterkend leren	reinforcement learning	d12-paradigmas
+regressie	regression	d12-paradigmas
+classificatie	classification	d12-paradigmas
+loss-functie (kostfunctie)	loss function (cost function)	d12-loss
+Mean Squared Error (MSE)	mean squared error	d12-loss
+Mean Absolute Error (MAE)	mean absolute error	d12-loss
+Huber-loss	Huber loss	d12-loss
+cross-entropie (log-verlies)	cross-entropy (log loss)	d12-loss
+gewogen loss-functie	weighted loss function	d12-loss
+uitschieter	outlier	d12-loss
+model (klasse van functies)	model (class of functions)	d12-modellen
+gewichten	weights	d12-modellen
+trainen	training	d12-modellen
+parameter	parameter	d12-hyperparameters
+hyperparameter	hyperparameter	d12-hyperparameters
+trainset	training set	d12-crossvalidatie
+testset	test set	d12-crossvalidatie
+validatieset	validation set	d12-crossvalidatie
+cross-validatie	cross-validation	d12-crossvalidatie
+k-voudige cross-validatie	k-fold cross-validation	d12-crossvalidatie
+underfitting	underfitting	d12-overfitting
+overfitting	overfitting	d12-overfitting
+U-vormige loss-curve	U-shaped loss curve	d12-overfitting
+bias (systematische fout)	bias	d12-bias-variance
+variance (gevoeligheid)	variance	d12-bias-variance
+irreducibele ruis	irreducible noise	d12-bias-variance
+bias-variance afweging	bias-variance trade-off	d12-bias-variance
+confusion matrix	confusion matrix	d12-confusion
+vals positief (FP)	false positive	d12-confusion
+vals negatief (FN)	false negative	d12-confusion
+nauwkeurigheid (accuracy)	accuracy	d12-confusion
+precisie	precision	d12-confusion
+recall (sensitiviteit)	recall (sensitivity, TPR)	d12-confusion
+F1-score	F1 score	d12-confusion
+lineaire regressie	linear regression	d12-linreg
+ridge-regressie	ridge regression	d12-linreg
+lasso-regressie	lasso regression	d12-linreg
+quantielregressie	quantile regression	d12-linreg
+logistische regressie	logistic regression	d12-linreg
+Deming-regressie	Deming regression (total least squares)	d12-linreg
+neuraal netwerk	neural network	d12-neuraal
+activatiefunctie	activation function	d12-neuraal
+verborgen laag	hidden layer	d12-neuraal
+regularisatie	regularization	d12-neuraal
+beslissingsboom	decision tree	d12-bomen
+Gini impurity	Gini impurity	d12-bomen
+random forest	random forest	d12-bomen
+gradient boosting	gradient boosting	d12-bomen
+clustering	clustering	d12-unsupervised
+dimensiereductie (PCA)	dimensionality reduction (principal component analysis)	d12-unsupervised
+anomaliedetectie	anomaly detection	d12-unsupervised
+prior / likelihood / posterior	prior / likelihood / posterior	d12-bayes
+Bayesiaans netwerk	Bayesian network	d12-bayes

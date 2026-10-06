@@ -1,0 +1,42 @@
+nl	en	anchor
+procescapabiliteit	process capability	d09-cp
+stabiliteit	stability	d09-stabiliteit
+stabiel / beheerst proces	stable / in control process	d09-stabiliteit
+voorspelbaar	predictable	d09-stabiliteit
+gewone oorzaak	common cause	d09-stabiliteit
+speciale oorzaak	special cause	d09-stabiliteit
+systematische oorzaak	systematic cause	d09-stabiliteit
+aanwijsbare oorzaak	assignable cause	d09-stabiliteit
+entitlement (haalbare minimale variatie)	entitlement	d09-stabiliteit
+capabiliteitsindex Cp	process capability index (Cp)	d09-cp
+tolerantie	tolerance (specification width)	d09-cp
+bovenste specificatiegrens	upper specification limit (USL, UL)	d09-cp
+onderste specificatiegrens	lower specification limit (LSL, LL)	d09-cp
+eenzijdige specificatie	one-sided specification	d09-cp
+gecorrigeerde capabiliteitsindex Cpk	adjusted capability index (Cpk)	d09-cpk
+CPU / CPL	upper / lower capability index	d09-cpk
+niet gecentreerd	off-center	d09-cpk
+procesprestatie-index Pp, Ppk	process performance index (Pp, Ppk)	d09-ppk
+korte-termijnvariatie (binnen subgroepen)	short-term (within) variation	d09-ppk
+lange-termijnvariatie (totaal)	long-term (overall) variation	d09-ppk
+potentiële capabiliteit	potential (within) capability	d09-ppk
+werkelijke capabiliteit	actual (overall) capability	d09-ppk
+σ-schatting	sigma estimate	d09-ppk
+biascorrectiefactor c4, d2	bias correction factor (c4, d2)	d09-ppk
+uitval / % buiten specificatie	defect rate / % out of specification	d09-uitval
+net capabel	just capable	d09-uitval
+tweezijdig rekenen	two-sided calculation	d09-uitval
+technische definitie van Six Sigma	technical definition of Six Sigma	d09-sixsigma
+6σ-criterium	six sigma criterion	d09-sixsigma
+spreiding verminderen	variation reduction	d09-verbeteren
+procesingenieur	process engineer	d09-verbeteren
+capabiliteitsverbeterplan	capability improvement plan	d09-verbeteren
+gidstabel	guide table	d09-matrix
+potentieel capabel	potentially capable	d09-matrix
+sorteerinspectie	screening inspection	d09-matrix
+steekproeffrequentie	sampling frequency	d09-matrix
+capabiliteitsanalyse (Minitab)	capability analysis	d09-minitab
+rapportkaart	report card	d09-minitab
+normaliteitstoets	normality test (Anderson-Darling)	d09-minitab
+Z.Bench	Z.Bench	d09-minitab
+waargenomen / verwacht	observed / expected	d09-minitab

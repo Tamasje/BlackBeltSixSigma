@@ -1,0 +1,89 @@
+<section class="part" id="d00" data-title="Deel 00 — Start" data-lecturer="" data-les="">
+  <h2>Deel 00 — Start</h2>
+  <p class="intro">Deze gids herschrijft de hele cursus Black Belt (Les 1–5) in leesbaar Nederlands, met de Engelse
+  termen erbij. Elke uitleg verwijst naar de slide waar het staat, elke oefening kun je hier zelf oplossen en
+  controleren, en het zoekvak bovenaan vindt trefwoorden in het Nederlands én in het Engels.</p>
+
+  <section class="unit" id="d00-gebruik" data-kw="gebruik; handleiding; how to use; zoeken; search; oefeningen; exercises; oplossing; solution; links; slides; variabele; variable; valkuil; pitfall">
+    <h3>0.1 Zo gebruik je deze gids</h3>
+    <ul>
+      <li><b>Zoeken (search)</b>: typ in het vak bovenaan, in het Nederlands of het Engels. De gids zoekt ook de
+      vertaling: "betrouwbaarheidsinterval" vindt ook "confidence interval", en omgekeerd. De resultaten verschijnen
+      bovenaan met een stukje tekst. Klik een resultaat aan om ernaartoe te springen; de treffers zijn geel gemarkeerd.
+      Sneltoetsen: <b>/</b> springt naar het zoekvak, <b>Enter</b> toont de resultaten, <b>Esc</b> wist de zoekopdracht.</li>
+      <li><b>Oefeningen</b> staan in een blauwgrijs kader. Vul je antwoord in (komma of punt mag) en klik
+      <b>Controleer</b>. "Hint" en "Toon oplossing" klappen open wanneer je erop klikt, dus de oplossing blijft verborgen
+      tot je ze zelf opent.</li>
+      <li><b>Formules</b>: elke variabele in een formule is aanklikbaar (stippellijn eronder). Je krijgt kort wat het is,
+      hoe je eraan komt (formule, Excel-functie, tabel of "gegeven") en een link "Meer uitleg" naar het deel dat het
+      uitlegt. <b>Esc</b> of een klik ernaast sluit het venster.</li>
+      <li><b>Valkuilen en strikvragen</b>: elk theoretisch onderdeel eindigt met een roze kader met de klassieke
+      misvattingen en rekenfouten, als stelling met "Juist" of "Fout" en de reden. Alle kaders samen staan in
+      <a href="#valkuilen">Valkuilen en strikvragen</a> achteraan. <span class="gen">algemeen</span> betekent: algemene
+      statistiek die de cursus niet zelf zegt.</li>
+      <li><b>Hulpmiddelen</b>: elk deel opent met een paars uitklapvak met rekenmachines (gele velden invullen, groene
+      resultaten) en de tabellen van de cursus.</li>
+      <li><b>Bronnen</b>: de kleine grijze links (bv. "DOE p. 6") openen de slide of pagina in de originele PDF in
+      <code>source/course/</code>. Houd daarom de map <code>source/</code> naast de map <code>study/</code>. De links
+      openen op de juiste pagina in de PDF-viewer van Chrome, Edge of Firefox; test dit op de examenlaptop.</li>
+      <li><b>Getallen</b> komen uit de slides. Waar de gids zelf iets uitrekent wat de slides niet tonen, staat
+      <span class="computed">zelf berekend</span>; die waarden komen uit de scripts in <code>study/parts/</code>, die
+      ook elk geciteerd slide-resultaat narekenen. Fouten in de slides staan in de tekst en verzameld in
+      <a href="#fouten">Fouten in de slides</a>.</li>
+      <li>Achteraan: de <a href="#woordenlijst">woordenlijst Nederlands ↔ English</a>, het
+      <a href="#formuleblad">formuleblad</a> met alle kernformules en de <a href="#valkuilen">valkuilen</a>.</li>
+    </ul>
+  </section>
+
+  <section class="unit" id="d00-opbouw" data-kw="opbouw; inhoud; structure; overview; overzicht; lessen; lectures; docenten; lecturers">
+    <h3>0.2 Opbouw: van kader naar technieken</h3>
+    <p>De delen volgen een logische lijn en niet strikt de volgorde van de lessen. Eerst het kader (wat is Lean Six
+    Sigma, hoe loopt een project), dan de statistische basis (data, kansen, de normale verdeling), dan schatten en
+    toetsen, en daarna de technieken die daarop steunen: aanvaardingssteekproeven, regressie, ANOVA en proefopzet,
+    capabiliteit, regelkaarten en meetsysteemanalyse. Machine learning sluit af. Wat in meerdere lessen terugkomt,
+    staat één keer uitgelegd; de andere delen verwijzen ernaar.</p>
+    <table>
+      <tr><th>Deel</th><th>Onderwerp</th><th>Docent / bron</th><th>Les</th></tr>
+      <tr><td><a href="#d01">01</a></td><td>Lean Six Sigma: kader, DMAIC, Define, team</td><td>Van Volsem</td><td>Les 1</td></tr>
+      <tr><td><a href="#d02">02</a></td><td>Data, kansen, verdelingen, EDA en causaliteit</td><td>Van Volsem, Naert</td><td>Les 1</td></tr>
+      <tr><td><a href="#d03">03</a></td><td>Normale verdeling, sigmaniveau en DPMO</td><td>slides Capabiliteit – SPC</td><td>Les 4</td></tr>
+      <tr><td><a href="#d04">04</a></td><td>Betrouwbaarheidsintervallen</td><td>Ottoy</td><td>Les 2</td></tr>
+      <tr><td><a href="#d05">05</a></td><td>Hypothesetoetsen en toetsrecepten</td><td>Ottoy</td><td>Les 2</td></tr>
+      <tr><td><a href="#d06">06</a></td><td>Aanvaardingssteekproeven en steekproefmethoden</td><td>Ottoy</td><td>Les 2</td></tr>
+      <tr><td><a href="#d07">07</a></td><td>Regressie</td><td>De Vuyst</td><td>Les 3</td></tr>
+      <tr><td><a href="#d08">08</a></td><td>ANOVA en proefopzet (DOE)</td><td>De Vuyst</td><td>Les 3</td></tr>
+      <tr><td><a href="#d09">09</a></td><td>Procescapabiliteit</td><td>slides Capabiliteit – SPC</td><td>Les 4</td></tr>
+      <tr><td><a href="#d10">10</a></td><td>SPC en regelkaarten</td><td>slides Capabiliteit – SPC</td><td>Les 4</td></tr>
+      <tr><td><a href="#d11">11</a></td><td>Meetsysteemanalyse en Gage R&amp;R</td><td>Ottoy</td><td>Les 5</td></tr>
+      <tr><td><a href="#d12">12</a></td><td>Machine learning en big data</td><td>Naert</td><td>Les 2 (Les 6: <span class="flag">niet te kennen</span>)</td></tr>
+      <tr><td><a href="#d13">13</a></td><td>Voorbeeldexamen, interactief</td><td>voorbeeldexamen 9 oktober 2025</td><td></td></tr>
+    </table>
+    <p class="small">Welke slides in de les getoond werden, volgt uit <code>source/course_reduced</code>; de gids behandelt
+    al die slides. Wat daarbuiten valt maar nodig is voor een oefening of examenvraag, staat gemarkeerd als
+    "extra (niet in de getoonde slides)". De verwijzingen gebruiken de paginanummers van de volledige PDF's in
+    <code>source/course</code>.</p>
+  </section>
+
+  <section class="unit" id="d00-rekentool" data-kw="rekentool; calculator; Excel; bb_toolkit; werkblad; sheet; berekenen; calculate">
+    <h3>0.3 De rekentool bij deze gids</h3>
+    <p>Voor rekenwerk is er <code>build/bb_toolkit.xlsx</code>: één werkblad per techniek. Je typt alleen in de gele
+    cellen; de groene cellen zijn resultaten. Elk deel verwijst in een paars kader naar het juiste werkblad.</p>
+    <table>
+      <tr><th>Werkblad</th><th>Waarvoor</th><th>Deel</th></tr>
+      <tr><td>Normal</td><td>kansen en kwantielen van de normale verdeling, µ ± kσ, σ uit een staartfractie</td><td><a href="#d03">03</a></td></tr>
+      <tr><td>Sigma &amp; DPMO</td><td>DPU, DPO, DPMO, sigmaniveau met en zonder 1,5σ-verschuiving, yield, RTY</td><td><a href="#d03">03</a></td></tr>
+      <tr><td>Distributions</td><td>Bernoulli, binomiaal, hypergeometrisch, Poisson, exponentieel, uniform</td><td><a href="#d02">02</a>, <a href="#d06">06</a></td></tr>
+      <tr><td>Mean &amp; proportion</td><td>BI en toetsen voor een gemiddelde (z, t), twee gemiddelden, gepaard, proporties</td><td><a href="#d04">04</a>, <a href="#d05">05</a></td></tr>
+      <tr><td>Variance CI &amp; tests</td><td>BI en toetsen voor σ² (χ²) en voor σ1²/σ2² (F)</td><td><a href="#d04">04</a>, <a href="#d05">05</a></td></tr>
+      <tr><td>Acceptance sampling</td><td>OC-curve, α, β, AOQ, AOQL, ATI, steekproefplan voor variabelen</td><td><a href="#d06">06</a></td></tr>
+      <tr><td>ANOVA DOE regression</td><td>one-way ANOVA, 2<sup>k</sup>-effecten en ANOVA, enkelvoudige regressie</td><td><a href="#d07">07</a>, <a href="#d08">08</a></td></tr>
+      <tr><td>Capability</td><td>Cp, Cpk, Pp, Ppk en % buiten specificatie, met elke σ-schatting naast elkaar</td><td><a href="#d09">09</a></td></tr>
+      <tr><td>Control charts</td><td>X̄-R, X̄-s, I-MR, p- en u-kaart met Western Electric-regels</td><td><a href="#d10">10</a></td></tr>
+      <tr><td>Gage R&amp;R</td><td>gemiddelde-en-spreidingsbreedte-methode en ANOVA-methode</td><td><a href="#d11">11</a></td></tr>
+      <tr><td>Confusion matrix</td><td>accuracy, precision, recall, F1 voor train en test</td><td><a href="#d12">12</a></td></tr>
+      <tr><td>Tables</td><td>constanten voor regelkaarten, capabiliteit en MSA, zoals gedrukt in de bronnen</td><td><a href="#d10">10</a>, <a href="#d11">11</a></td></tr>
+    </table>
+    <p class="small">Uitleg per werkblad: <code>build/README.md</code>. Alle formules in de werkbladen zijn getest tegen
+    de uitgewerkte voorbeelden van de cursus.</p>
+  </section>
+</section>

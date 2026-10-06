@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Les 3 explained</title>
+<style>
+:root { --ink: #1d2733; --muted: #5a6573; --rule: #d6dbe1; --accent: #1f4e79; --key: #eef4fb; --ex: #f3f8ef;
+        --warn: #fdf1e7; --warnline: #d9822b; --tool: #f5f0fa; }
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); background: #fff; font: 16px/1.6 Georgia, "Times New Roman", serif; }
+.wrap { display: flex; max-width: 1180px; margin: 0 auto; }
+nav { flex: 0 0 250px; position: sticky; top: 0; align-self: flex-start; max-height: 100vh; overflow-y: auto;
+      padding: 24px 16px; font: 13.5px/1.45 Arial, Helvetica, sans-serif; border-right: 1px solid var(--rule); }
+nav a { color: var(--ink); text-decoration: none; display: block; padding: 2px 0; }
+nav a:hover { color: var(--accent); text-decoration: underline; }
+nav .l2 { padding-left: 12px; color: var(--muted); }
+nav .deck { margin-top: 10px; font-size: 11.5px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+main { flex: 1; min-width: 0; padding: 24px 40px 80px; max-width: 860px; }
+h1 { font: bold 30px/1.25 Arial, Helvetica, sans-serif; margin: 8px 0 4px; }
+h2 { font: bold 23px/1.3 Arial, Helvetica, sans-serif; color: var(--accent); margin: 48px 0 8px;
+     border-bottom: 2px solid var(--accent); padding-bottom: 4px; }
+h3 { font: bold 18px/1.35 Arial, Helvetica, sans-serif; margin: 30px 0 6px; }
+.sub { color: var(--muted); font-style: italic; margin: 0 0 16px; }
+a { color: var(--accent); }
+a.p { font: 12.5px Arial, Helvetica, sans-serif; white-space: nowrap; }
+.box { border-left: 5px solid; padding: 10px 16px; margin: 16px 0; border-radius: 0 6px 6px 0; }
+.box > :first-child { margin-top: 0; } .box > :last-child { margin-bottom: 0; }
+.box .t { font: bold 14px Arial, Helvetica, sans-serif; text-transform: uppercase; letter-spacing: .04em; display: block;
+          margin-bottom: 4px; }
+.key { background: var(--key); border-color: var(--accent); }
+.ex { background: var(--ex); border-color: #4f8a3a; }
+.warn { background: var(--warn); border-color: var(--warnline); }
+.tool { background: var(--tool); border-color: #7a52a8; }
+.f { font-family: "Cambria Math", Cambria, Georgia, serif; background: #f7f8fa; border: 1px solid var(--rule);
+     border-radius: 6px; padding: 8px 14px; margin: 10px 0; overflow-x: auto; }
+.f div { margin: 3px 0; }
+table { border-collapse: collapse; margin: 10px 0 14px; font: 14px/1.4 Arial, Helvetica, sans-serif; }
+th, td { border: 1px solid var(--rule); padding: 4px 9px; text-align: left; vertical-align: top; }
+th { background: #eef1f5; }
+td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+.computed { font: 12px Arial, Helvetica, sans-serif; color: #6b4a00; background: #fff4d6; padding: 0 5px;
+            border-radius: 3px; white-space: nowrap; }
+ol.steps li, ul li { margin: 3px 0; }
+.small { font-size: 14px; color: var(--muted); }
+@media (max-width: 900px) { .wrap { display: block; } nav { position: static; max-height: none; border-right: 0;
+  border-bottom: 1px solid var(--rule); } main { padding: 16px; } }
+@media print { nav { display: none; } main { max-width: none; padding: 0; } a.p { color: #000; }
+  h2 { break-after: avoid; } .box, table, .f { break-inside: avoid; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav>
+  <b>Les 3 explained</b>
+  <a href="#start">0. Start here</a>
+  <div class="deck">Deck 1: Linear Regression</div>
+  <a href="#reg">1. Simple linear regression</a>
+  <a class="l2" href="#reg-model">The model</a>
+  <a class="l2" href="#reg-ls">Least squares</a>
+  <a class="l2" href="#reg-oxygen">Example: oxygen purity</a>
+  <a class="l2" href="#reg-anova">ANOVA and R²</a>
+  <a class="l2" href="#reg-tests">Tests and intervals</a>
+  <a class="l2" href="#reg-pred">CI versus prediction interval</a>
+  <a class="l2" href="#reg-check">Checking the model</a>
+  <a href="#mreg">2. Multiple regression</a>
+  <a class="l2" href="#mreg-oil">Example: heating oil</a>
+  <a class="l2" href="#mreg-adj">R² versus adjusted R²</a>
+  <a class="l2" href="#mreg-poly">Polynomial models, partial F</a>
+  <a class="l2" href="#mreg-select">Choosing variables</a>
+  <div class="deck">Deck 2: ANOVA and DOE</div>
+  <a href="#anova">3. One-way ANOVA</a>
+  <a class="l2" href="#anova-bridge">From regression to ANOVA</a>
+  <a class="l2" href="#anova-model">Model and question</a>
+  <a class="l2" href="#anova-split">Splitting the variation</a>
+  <a class="l2" href="#anova-f">The F-test</a>
+  <a class="l2" href="#anova-paper">Example: paper strength</a>
+  <a class="l2" href="#anova-fibre">Example: Excel output</a>
+  <a class="l2" href="#anova-check">Checking assumptions</a>
+  <a class="l2" href="#anova-machines">Try it: three machines</a>
+  <a href="#plan">4. Why plan experiments?</a>
+  <a class="l2" href="#plan-words">Vocabulary</a>
+  <a class="l2" href="#plan-factorial">Factorial designs</a>
+  <a class="l2" href="#plan-nuisance">Blocking, randomisation</a>
+  <a class="l2" href="#plan-yield">A bad and a good design</a>
+  <a href="#twok">5. 2<sup>k</sup> factorial designs</a>
+  <a class="l2" href="#twok-coding">Coding and standard order</a>
+  <a class="l2" href="#twok-effect">What an effect is</a>
+  <a class="l2" href="#twok-interaction">Interactions</a>
+  <a class="l2" href="#twok-contrast">Contrasts and SS</a>
+  <a class="l2" href="#twok-chem">Example: chemical process</a>
+  <a class="l2" href="#twok-signif">Which effects are real?</a>
+  <a class="l2" href="#twok-single">One replicate only</a>
+  <a href="#frac">6. Fractional factorials</a>
+  <a class="l2" href="#frac-alias">Aliases</a>
+  <a class="l2" href="#frac-res">Resolution</a>
+  <a class="l2" href="#frac-gen">Generators, 2<sup>k−p</sup></a>
+  <div class="deck">Reference</div>
+  <a href="#sheet">7. Formula sheet</a>
+  <a href="#errors">8. Errors in the slides</a>
+  <a href="#toolkit">9. The calculator sheet</a>
+</nav>
+
+<main>
+<h1>Les 3 explained: Regression, ANOVA and Design of Experiments</h1>
+<p class="sub">A readable companion to Stijn De Vuyst's two slide decks, in the order they were taught: first
+"Linear Regression" (REG, 67 pages), then "1-way and 2-way ANOVA / Design of Experiments" (DOE, 94 pages). Grey page
+links open the slide itself (keep the <code>source/</code> folder next to <code>study/</code>).</p>
+
+<h2 id="start">0. Start here</h2>
+
+<div class="box key"><span class="t">The one idea behind all of Les 3</span>
+<p>Every method in this lesson does the same thing. It splits the total variation in your measurements into
+<b>a part that a model explains</b> and <b>a part that is left over</b> (noise), and then asks whether the explained
+part is large compared with the noise.</p>
+<ul>
+<li><b>Regression</b> (parts 1–2): the explanation is "the response follows a line (or plane) in x".</li>
+<li><b>One-way ANOVA</b> (part 3): the explanation is "the groups have different means". This is the same model as
+regression, with a categorical x.</li>
+<li><b>Factorial designs, DOE</b> (parts 4–6): the explanation is "these factors, and their interactions, shift the
+response". You also choose the experiment so that the effects can be separated.</li>
+</ul>
+<p>The comparison is always an <b>F-ratio</b>: F = (explained variation per degree of freedom) / (noise per degree of
+freedom). If nothing is going on, F is about 1. A real effect makes F much larger than 1.</p>
+</div>
+
+<div class="box warn"><span class="t">Two notations for the same critical value</span>
+<p>The slides mix De Vuyst's own pages with scanned textbook pages (Montgomery), and they write critical values
+differently. This is a common source of confusion.</p>
+<ul>
+<li><b>De Vuyst's slides use quantiles.</b> t<sub>1−α/2, n−2</sub>
+(<a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=34">REG p. 34</a>) and F<sub>1−α, a−1, a(n−1)</sub>
+(<a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=7">DOE p. 7</a>) are the values with probability 1−α/2 (or 1−α)
+<i>below</i> them. In his interval formulas the lower bound uses t<sub>α/2, n−2</sub>, which is a <i>negative</i>
+number: "β̂ + t<sub>α/2</sub>·se" is the same as "β̂ − t<sub>1−α/2</sub>·se".</li>
+<li><b>The textbook pages use upper tails.</b> t<sub>0.005, 18</sub> = 2.88
+(<a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=32">REG p. 32</a>) and F<sub>0.01, 3, 20</sub> = 4.94
+(<a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=9">DOE p. 9</a>) are the values with α/2 (or α) <i>above</i> them.</li>
+</ul>
+<p>Both name the same critical value; only the subscript differs. In Excel: <code>T.INV(1−α/2; df)</code> and
+<code>F.INV.RT(α; df1; df2)</code>.</p>
+</div>
+
+<p class="small">Numbers in this text come from the slides. Where the text works something out that the slides do
+not show (an exercise solution, an intermediate step), it is marked <span class="computed">computed here</span>; those
+values are produced by <code>study/les3_numbers.py</code> from the course data, and the same script re-checks every
+slide result quoted below.</p>
+
+<!-- ================================================================ 1 -->
+<h2 id="reg">1. Simple linear regression <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=1">REG p. 1–45</a></h2>
+
+<h3 id="reg-model">1.1 What a regression model is <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=3">REG p. 3–19</a></h3>
+<div class="f">
+<div>Y = f(x<sub>1</sub>, …, x<sub>p−1</sub>) + ε, ε ~ N(0, σ²): a deterministic part plus random noise</div>
+<div>Multiple linear regression: Y = β<sub>0</sub> + β<sub>1</sub>x<sub>1</sub> + … + β<sub>p−1</sub>x<sub>p−1</sub> + ε</div>
+<div>Simple linear regression (one x): Y = β<sub>0</sub> + β<sub>1</sub>x + ε, with β<sub>0</sub> the intercept and β<sub>1</sub> the slope</div>
+</div>
+<p>"Linear" means <b>linear in the coefficients β</b>, not necessarily in x. A model with x<sub>1</sub>x<sub>2</sub>
+or x<sub>1</sub>² terms is still linear regression <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=6">REG p. 6–7</a>.</p>
+<p><b>Always look at the data first</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=8">REG p. 8–11</a>: is the relation linear or
+curved, strong, weak or absent? And be careful: <b>correlation is not causation</b>. Ice-cream sales and
+customers' sweat production move together because a hidden factor, the day's temperature, drives both
+<a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=11">REG p. 11</a>. A result must also have practical meaning.</p>
+<p><b>Assumptions</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=16">REG p. 16</a>: at each x the response is normal around the line,
+µ<sub>Y|x</sub> = β<sub>0</sub> + β<sub>1</sub>x, with the same variance σ² for every x (<b>homoscedasticity</b>;
+the opposite is heteroscedasticity). The true line µ<sub>Y|x</sub> and your fitted line Ŷ = β̂<sub>0</sub> + β̂<sub>1</sub>x
+are <b>two different lines</b>: the fitted one is your estimate of the true one
+<a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=19">REG p. 19</a>.</p>
+
+<h3 id="reg-ls">1.2 Least squares <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=17">REG p. 17–18</a></h3>
+<p>Choose the line that makes the <b>sum of squared vertical distances</b> from the points to the line as small as
+possible. Setting the derivatives to zero gives the <b>normal equations</b>:</p>
+<div class="f">
+<div>β̂<sub>1</sub> = S<sub>xY</sub> / S<sub>xx</sub>,  β̂<sub>0</sub> = Ȳ − β̂<sub>1</sub> x̄</div>
+<div>S<sub>xx</sub> = Σ (x<sub>i</sub> − x̄)²,  S<sub>xY</sub> = Σ (x<sub>i</sub> − x̄)(Y<sub>i</sub> − Ȳ)</div>
+</div>
+
+<h3 id="reg-oxygen">1.3 Worked example: oxygen purity <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=20">REG p. 2, 20–22, 32</a></h3>
+<div class="box ex"><span class="t">Worked example</span>
+<p>The response is oxygen purity y (%) and x is the hydrocarbon level (%), with n = 20 observations (data table on
+p. 2 and p. 20).</p>
+<ol class="steps">
+<li>x̄ = 1.196, ȳ = 92.1605 and S<sub>xy</sub> = 10.1774 <span class="computed">computed here</span>; S<sub>xx</sub> = 0.68088 (p. 32).</li>
+<li>β̂<sub>1</sub> = 10.1774 / 0.68088 = <b>14.947</b>.</li>
+<li>β̂<sub>0</sub> = 92.1605 − 14.947 × 1.196 = <b>74.283</b>.</li>
+</ol>
+<p><b>Reading the Minitab output</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=22">REG p. 22</a>:</p>
+<table>
+<tr><th>Predictor</th><th class="n">Coef</th><th class="n">SE Coef</th><th class="n">T</th><th class="n">P</th></tr>
+<tr><td>Constant (β̂<sub>0</sub>)</td><td class="n">74.283</td><td class="n">1.593</td><td class="n">46.62</td><td class="n">0.000</td></tr>
+<tr><td>HC Level (β̂<sub>1</sub>)</td><td class="n">14.947</td><td class="n">1.317</td><td class="n">11.35</td><td class="n">0.000</td></tr>
+</table>
+<p>S = 1.087 (= √MS<sub>E</sub>, the estimate of σ), R-Sq = 87.7 %, R-Sq(adj) = 87.1 %.</p>
+<table>
+<tr><th>Source</th><th class="n">DF</th><th class="n">SS</th><th class="n">MS</th><th class="n">F</th><th class="n">P</th></tr>
+<tr><td>Regression</td><td class="n">1</td><td class="n">152.13</td><td class="n">152.13</td><td class="n">128.86</td><td class="n">0.000</td></tr>
+<tr><td>Residual Error</td><td class="n">18</td><td class="n">21.25</td><td class="n">1.18</td><td></td><td></td></tr>
+<tr><td>Total</td><td class="n">19</td><td class="n">173.38</td><td></td><td></td><td></td></tr>
+</table>
+<p>The next three sections explain each part of this output. Use the p. 22 values: the figure caption on p. 21
+("ŷ = 74.20 + 14.97x") does not match them (see part 8).</p>
+</div>
+
+<h3 id="reg-anova">1.4 ANOVA and R² for regression <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=23">REG p. 23–28</a></h3>
+<p>The "Analysis of Variance" table splits the variation of y into an explained and an unexplained part. Keep this
+idea in mind: ANOVA in part 3 is exactly the same split.</p>
+<table>
+<tr><th>SS</th><th>Formula</th><th>Plain words</th><th>df</th></tr>
+<tr><td>SS<sub>Total</sub></td><td>Σ (Y<sub>i</sub> − Ȳ)²</td><td>scatter around the mean: what you would get with no model at all</td><td>n − 1</td></tr>
+<tr><td>SS<sub>Error</sub></td><td>Σ (Y<sub>i</sub> − Ŷ<sub>i</sub>)²</td><td>scatter around the line: what the model does not explain (a sum of squared <i>residuals</i>)</td><td>n − 2</td></tr>
+<tr><td>SS<sub>Regression</sub></td><td>Σ (Ŷ<sub>i</sub> − Ȳ)²</td><td>how far the line departs from the flat mean: what the model explains</td><td>1</td></tr>
+</table>
+<div class="f">
+<div>SS<sub>T</sub> = SS<sub>R</sub> + SS<sub>E</sub>  <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=27">REG p. 27</a></div>
+<div>R² = SS<sub>R</sub> / SS<sub>T</sub> = 1 − SS<sub>E</sub> / SS<sub>T</sub>: the fraction of the variation explained</div>
+<div>Mean squares: MS<sub>R</sub> = SS<sub>R</sub> / 1, MS<sub>E</sub> = SS<sub>E</sub> / (n − 2) = σ̂², the unbiased estimate of σ²
+<a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=28">REG p. 28</a></div>
+</div>
+<p>Oxygen example: 173.38 = 152.13 + 21.25, R² = 152.13 / 173.38 = 0.877, and MS<sub>E</sub> = 21.25 / 18 = 1.18.
+The model explains 87.7 % of the variation in purity.</p>
+
+<h3 id="reg-tests">1.5 Tests and confidence intervals for β<sub>0</sub> and β<sub>1</sub> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=29">REG p. 29–34</a></h3>
+<div class="f">
+<div>se(β̂<sub>1</sub>) = √( MS<sub>E</sub> / S<sub>xx</sub> ),  se(β̂<sub>0</sub>) = √( MS<sub>E</sub> (1/n + x̄²/S<sub>xx</sub>) )</div>
+<div>t<sub>0</sub> = (β̂ − reference value) / se(β̂) ~ t<sub>n−2</sub> under H<sub>0</sub></div>
+<div>(1 − α) CI: β̂<sub>1</sub> ± t<sub>1−α/2, n−2</sub> · se(β̂<sub>1</sub>), and the same for β<sub>0</sub>
+<a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=34">REG p. 34</a></div>
+</div>
+<p><b>Significance of regression</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=32">REG p. 32–33</a>: if β<sub>1</sub> = 0,
+x tells you nothing and the best prediction is just Ȳ. Test H<sub>0</sub>: β<sub>1</sub> = 0 in either of two
+equivalent ways:</p>
+<ul>
+<li>the <b>t-test</b> on β̂<sub>1</sub>, or</li>
+<li>the <b>F-test</b> F<sub>0</sub> = MS<sub>R</sub> / MS<sub>E</sub> ~ F<sub>1, n−2</sub>.</li>
+</ul>
+<p>For one x they always agree: F<sub>0</sub> = t<sub>0</sub>². Remember the F-test: explained mean square divided by
+error mean square. It returns in every ANOVA table of parts 3 and 5.</p>
+<div class="box ex"><span class="t">Oxygen example</span>
+<ul>
+<li>t<sub>0</sub> = 14.947 / √(1.18 / 0.68088) = 11.35. With α = 0.01, t<sub>0.005, 18</sub> = 2.88, and
+11.35 &gt; 2.88, so <b>reject H<sub>0</sub></b>; P = 1.23 × 10<sup>−9</sup> (p. 32). The intercept's
+t<sub>0</sub> = 46.62.</li>
+<li>Check: 11.35² ≈ 128.86 = F<sub>0</sub> <span class="computed">computed here</span>.</li>
+<li>95 % CIs (<span class="computed">computed here</span>, t<sub>0.975, 18</sub> = 2.101): β<sub>1</sub> ∈
+[12.18, 17.71] and β<sub>0</sub> ∈ [70.94, 77.63].</li>
+</ul>
+</div>
+
+<h3 id="reg-pred">1.6 Mean response versus a new observation <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=35">REG p. 35–39</a></h3>
+<p>At a new x<sub>0</sub> the fitted value is Ŷ<sub>0</sub> = β̂<sub>0</sub> + β̂<sub>1</sub>x<sub>0</sub>. There are
+two different questions, with two different intervals:</p>
+<table>
+<tr><th>Question</th><th>Interval</th><th>Standard error</th></tr>
+<tr><td>Where is the <b>average</b> response µ<sub>Y|x0</sub>?</td><td>confidence interval (CI)</td><td>se(Ŷ<sub>0</sub>) = √( MS<sub>E</sub> (1/n + (x<sub>0</sub> − x̄)²/S<sub>xx</sub>) )</td></tr>
+<tr><td>Where will <b>one new measurement</b> Y<sub>0</sub> fall?</td><td>prediction interval (PI)</td><td>se(e<sub>0</sub>) = √( MS<sub>E</sub> (<b>1</b> + 1/n + (x<sub>0</sub> − x̄)²/S<sub>xx</sub>) )</td></tr>
+</table>
+<div class="f"><div>Interval = Ŷ<sub>0</sub> ± t<sub>1−α/2, n−2</sub> · (standard error)</div></div>
+<p>The extra "1" is the noise ε<sub>0</sub> of that single new measurement, so the <b>PI is always wider</b>. Both
+intervals are narrowest at x<sub>0</sub> = x̄ and widen as you move away from it (pictures on p. 37 and p. 39).</p>
+<div class="box ex"><span class="t">Oxygen example at x<sub>0</sub> = 1.00 %</span> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=22">REG p. 22</a>
+<p>Fit 89.231, SE Fit 0.354. 95 % CI (88.486, 89.975): the <i>average</i> purity at 1.00 % hydrocarbons. 95 % PI
+(86.830, 91.632): where <i>one</i> new batch will probably fall.</p>
+</div>
+
+<h3 id="reg-check">1.7 Checking the model <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=40">REG p. 40–45</a></h3>
+<p>The assumptions are a linear relation, independent errors, and normal errors with the same variance. Check
+them with the <b>residuals</b> e<sub>i</sub> = y<sub>i</sub> − ŷ<sub>i</sub>:</p>
+<ul>
+<li><b>Residuals against fitted values</b> (or against y or x): there should be no pattern, and the band should
+have the same width everywhere.</li>
+<li><b>Normal probability plot</b>: the points should lie close to a straight line.</li>
+<li><b>Standardised residuals</b> d<sub>i</sub> = e<sub>i</sub> / √MS<sub>E</sub>: about 95 % should fall between
+−2 and +2. Points far outside are possible outliers.</li>
+<li><b>Bad patterns</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=42">REG p. 42</a>:
+<ul>
+<li>a funnel (the spread grows): transform y (√y, ln y, 1/y);</li>
+<li>a double bow;</li>
+<li>a curve (non-linear): add or change x-terms.</li>
+</ul></li>
+<li><b>R² with caution</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=44">REG p. 44</a>: adding terms always increases R², so a high
+R² alone does not prove the model is right.</li>
+<li><b>Outliers</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=45">REG p. 45</a>:
+<ul>
+<li>An outlier near x̄ mostly lifts the line. In the slide's example the slope barely moves (17.5467 → 17.516),
+the intercept rises (2.6765 → 3.102), and the standardised residual is 3.62.</li>
+<li>An outlier at either end of the x-range can tilt the line: an <b>influential observation</b>.</li>
+</ul></li>
+</ul>
+
+<!-- ================================================================ 2 -->
+<h2 id="mreg">2. Multiple regression <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=46">REG p. 46–66</a></h2>
+<div class="f">
+<div>Y<sub>i</sub> = β<sub>0</sub> + β<sub>1</sub>x<sub>1i</sub> + β<sub>2</sub>x<sub>2i</sub> + … + β<sub>k</sub>x<sub>ki</sub> + ε<sub>i</sub>; k + 2 parameters to estimate (β<sub>0</sub> … β<sub>k</sub> and σ)
+<a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=46">REG p. 46</a></div>
+<div>Fitted plane (k = 2): Ŷ = b<sub>0</sub> + b<sub>1</sub>X<sub>1</sub> + b<sub>2</sub>X<sub>2</sub>
+<a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=48">REG p. 48–49</a></div>
+</div>
+<p>Everything from part 1 carries over: least squares, the split SS<sub>T</sub> = SS<sub>R</sub> + SS<sub>E</sub>, R², the
+F-test, and t-tests and CIs per coefficient. What is new is how to interpret the coefficients and how to choose the
+variables.</p>
+<p><b>Meaning of a coefficient</b>: b<sub>j</sub> is the change in Ŷ for one unit more of x<sub>j</sub>, <b>with the
+other x's held constant</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=53">REG p. 53</a>.</p>
+<p><b>Why not several simple regressions?</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=50">REG p. 50</a> A simple-regression slope
+also absorbs the influence of every other variable that is correlated with X and Y (confounding). A multiple
+regression separates the variables as far as possible.</p>
+
+<h3 id="mreg-oil">2.1 Worked example: heating oil <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=51">REG p. 51–57</a></h3>
+<div class="box ex"><span class="t">Worked example</span>
+<p>15 houses. Y = oil used in January (gallons), X<sub>1</sub> = average temperature (°F), X<sub>2</sub> = insulation
+thickness (inches). Excel's regression output (p. 52), line by line:</p>
+<table>
+<tr><th>Excel says</th><th>Value</th><th>Meaning</th></tr>
+<tr><td>Multiple R</td><td class="n">0.98265</td><td>√R²</td></tr>
+<tr><td>R Square</td><td class="n">0.96561</td><td>96.6 % of the variation explained</td></tr>
+<tr><td>Adjusted R Square</td><td class="n">0.95988</td><td>R² corrected for the number of variables (2.2)</td></tr>
+<tr><td>Standard Error</td><td class="n">26.014</td><td>√MS<sub>E</sub> = σ̂</td></tr>
+<tr><td>ANOVA: F, Significance F</td><td class="n">168.47, 1.65E-09</td><td>the F-test of the whole model and its p-value</td></tr>
+<tr><td>Intercept</td><td class="n">562.151</td><td>b<sub>0</sub> (SE 21.09, P 4.8E-12)</td></tr>
+<tr><td>Temp</td><td class="n">−5.4366</td><td>b<sub>1</sub> (SE 0.336, t −16.17, 95 % CI −6.17 to −4.70)</td></tr>
+<tr><td>Insulation</td><td class="n">−20.0123</td><td>b<sub>2</sub> (SE 2.343, t −8.54, 95 % CI −25.12 to −14.91)</td></tr>
+</table>
+<ul>
+<li><b>Equation</b>: Ŷ = 562.15 − 5.44 X<sub>1</sub> − 20.01 X<sub>2</sub>. One °F warmer saves 5.44 gallons at the
+same insulation; one inch more insulation saves 20.01 gallons at the same temperature (p. 53).</li>
+<li><b>Significant digits</b>: Excel prints far too many digits; an engineer reports only meaningful ones (p. 53).</li>
+<li><b>Prediction</b> for a house at 30 °F with 6 inches: 278.97 gallons (p. 57). The exact value is 278.98
+<span class="computed">computed here</span>; the slide's line shows 5.43 where it should show 5.44.</li>
+<li>σ̂ = √(SS<sub>E</sub>/(n − k − 1)) = √(8120.6 / (15 − 2 − 1)) = 26.0 (p. 57). That is roughly the
+uncertainty of such a prediction.</li>
+</ul>
+</div>
+
+<h3 id="mreg-adj">2.2 R² versus adjusted R² <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=54">REG p. 54–56</a></h3>
+<p>Adding a variable <b>always</b> increases SS<sub>R</sub> and therefore R², even when the variable is useless.
+<b>Adjusted R²</b> penalises extra variables: it only rises when the added variable is significant enough. Use it to
+compare models; higher is better.</p>
+<div class="box warn"><span class="t">Which formula?</span>
+<p>The slide on p. 56 prints R²<sub>adj</sub> = 1 − (1 − R²)(n − 1)/(n − k − 2). The course's own outputs all use
+<b>n − k − 1</b>:</p>
+<ul>
+<li>Excel for the oil data: 1 − (1 − 0.96561) · 14/12 = 0.95988, Excel's value. With /11 you would get 0.9562
+<span class="computed">computed here</span>.</li>
+<li>Minitab for the oxygen data (REG p. 22) and Design-Expert in part 5 (DOE p. 61).</li>
+<li>The σ̂ formula on p. 57.</li>
+</ul>
+<p>The calculator sheet shows both, labelled.</p>
+</div>
+
+<h3 id="mreg-poly">2.3 Polynomial models and the partial F-test <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=58">REG p. 58–62</a></h3>
+<p>Polynomial terms (T², R², T×R) keep the model linear in the β's (1.1), so it is still fitted by ordinary least
+squares.</p>
+<div class="box ex"><span class="t">Worked example: acetylene yield</span>
+<p>16 runs; Y = yield, T = temperature, R = ratio (data on p. 58).</p>
+<ul>
+<li><b>First-order model</b> T + R (p. 59): R² = 92.0 %, R²<sub>adj</sub> = 90.7 %, S = 3.624, SS<sub>E</sub> = 170.73
+(13 df).</li>
+<li><b>Second-order model</b> with centred variables (T − 1212.5) and (R − 12.444), adding T×R, T² and R²
+(p. 60, 62): R² = 99.5 %, R²<sub>adj</sub> = 99.2 %, S = 1.066, SS<sub>E</sub> = 11.37 (10 df).</li>
+</ul>
+<p><b>Are the three extra terms worth it?</b> Use the <b>partial F-test</b> (p. 61). H<sub>0</sub>: all extra β's
+are 0. It compares how much the error sum of squares drops per extra term with the error mean square of the full
+model.</p>
+<div class="f"><div>F<sub>0</sub> = [ (SS<sub>E</sub>(reduced model) − SS<sub>E</sub>(full model)) / (k − r) ] / [ SS<sub>E</sub>(full model) / (n − p) ]</div></div>
+<p>Here k − r = 3 extra terms and n − p = 16 − 6 = 10, which gives
+F<sub>0</sub> = [(170.73 − 11.37)/3] / (11.37/10) = <b>46.7</b>. That is far above F<sub>0.05, 3, 10</sub> = 3.71, so
+<b>keep the second-order terms</b> <span class="computed">computed here</span>. Refitting the data here reproduces
+both printed SS<sub>E</sub> values.</p>
+</div>
+
+<h3 id="mreg-select">2.4 Choosing which variables to keep <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=63">REG p. 63–66</a></h3>
+<p>Shampoo data (N = 24): quality against Foam, Scent, Color, Residue and Region. Minitab's tables show four
+procedures:</p>
+<table>
+<tr><th>Procedure</th><th>How it works (as the tables show)</th><th>Result</th></tr>
+<tr><td>Best subsets (p. 63)</td><td>lists the best models of each size with R², R²<sub>adj</sub>, Mallows C<sub>p</sub> and S</td><td>the best 3-variable model: R² 77.6, R²<sub>adj</sub> 74.2</td></tr>
+<tr><td>Backward elimination (p. 64, α-to-remove 0.1)</td><td>start with all 5 variables and remove the least significant one at a time: Color (P 0.746), then Scent (P 0.155)</td><td>Foam, Residue, Region; R² 77.57, R²<sub>adj</sub> 74.20</td></tr>
+<tr><td>Forward selection (p. 65, α-to-enter 0.25)</td><td>start empty and add the most significant variable at a time: Foam, Residue, Region, then Scent (P 0.155 &lt; 0.25)</td><td>4 variables; R²<sub>adj</sub> 75.65</td></tr>
+<tr><td>Stepwise (p. 66, 0.15 / 0.15)</td><td>forward steps that also check for removal</td><td>Foam, Residue, Region; Scent stays out (0.155 &gt; 0.15)</td></tr>
+</table>
+<p>The lesson: the selected model depends on the procedure and its thresholds. Compare candidates on
+R²<sub>adj</sub> (and, as Minitab prints it, Mallows C<sub>p</sub>, which the slides do not explain further).</p>
+
+<!-- ================================================================ 3 -->
+<h2 id="anova">3. One-way ANOVA <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=2">DOE p. 2–20</a></h2>
+
+<h3 id="anova-bridge">3.1 From regression to ANOVA <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=5">DOE p. 2, 5–7</a></h3>
+<p>Regression explains y with a <b>numeric</b> x. ANOVA explains y with a <b>categorical</b> x, called a
+<b>factor</b>. A factor is a variable with a few fixed values (its <b>levels</b>) that have no numerical meaning or
+order: for example material (aluminium, zinc, tungsten) or age class
+<a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=2">DOE p. 2</a>.</p>
+<div class="box key"><span class="t">The bridge</span>
+<p>De Vuyst shows that the one-way ANOVA model is a <b>special case of the multiple linear regression model</b> of
+part 2. Give each level its own dummy variable and fit by least squares
+<a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=5">DOE p. 5</a>. The fitted value for every measurement is then simply the mean of its
+group, and everything from parts 1–2 carries over <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=6">DOE p. 6–7</a>:</p>
+<ul>
+<li>SS<sub>Total</sub> = SS<sub>Treatment</sub> + SS<sub>Error</sub> is the regression split
+SS<sub>T</sub> = SS<sub>R</sub> + SS<sub>E</sub>. The slide literally writes SS<sub>Treatment</sub> = SS<sub>R</sub>.</li>
+<li>The test is again explained mean square divided by error mean square, an F-ratio.</li>
+<li>The residuals are checked exactly as in 1.7.</li>
+</ul>
+</div>
+
+<h3 id="anova-model">3.2 The question and the model <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=3">DOE p. 2–4</a></h3>
+<p>The factor has <b>a levels</b>. Each level is a <b>group</b> (also called treatment or cell) holding <b>n
+measurements</b> (replicates). The question: do the group means really differ, or are the differences just noise?
+With two groups you would use a two-sample t-test. With more than two groups you use <b>one-way ANOVA</b>
+<a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=4">DOE p. 4</a>. The course always assumes a <b>balanced</b> experiment: the same n in every
+group.</p>
+<p>Two ways to write the same model <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=3">DOE p. 3</a>:</p>
+<div class="f">
+<div><b>Means model:</b> Y<sub>ij</sub> = µ<sub>i</sub> + ε<sub>ij</sub></div>
+<div><b>Effects model:</b> Y<sub>ij</sub> = µ + τ<sub>i</sub> + ε<sub>ij</sub>, with Σ τ<sub>i</sub> = 0</div>
+<div>ε<sub>ij</sub> ~ N(0, σ²), independent; i = 1…a (group), j = 1…n (measurement)</div>
+</div>
+<p>τ<sub>i</sub> is simply how far group i sits above or below the overall mean µ. The assumptions are: the errors are
+independent and normal, with the <b>same variance σ² in every group</b> (homoscedasticity again, as in 1.1).</p>
+<div class="f">
+<div>H<sub>0</sub>: µ<sub>1</sub> = µ<sub>2</sub> = … = µ<sub>a</sub> (equivalently: all τ<sub>i</sub> = 0)</div>
+<div>H<sub>A</sub>: at least one group mean differs <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=7">DOE p. 7</a></div>
+</div>
+
+<h3 id="anova-split">3.3 Splitting the variation <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=6">DOE p. 6</a></h3>
+<p>Write Ȳ<sub>i·</sub> for the mean of group i and Ȳ<sub>··</sub> for the grand mean of all a·n measurements.
+Compare each line with the regression table in 1.4.</p>
+<table>
+<tr><th>Sum of squares</th><th>Formula</th><th>What it measures</th><th>df</th><th>In regression</th></tr>
+<tr><td>SS<sub>Total</sub></td><td>Σ<sub>i</sub>Σ<sub>j</sub> (Y<sub>ij</sub> − Ȳ<sub>··</sub>)²</td><td>all variation in the data</td><td>an − 1</td><td>SS<sub>T</sub></td></tr>
+<tr><td>SS<sub>Treatment</sub></td><td>n · Σ<sub>i</sub> (Ȳ<sub>i·</sub> − Ȳ<sub>··</sub>)²</td><td>how far the group means lie from the grand mean (<b>between</b> groups, explained)</td><td>a − 1</td><td>SS<sub>R</sub></td></tr>
+<tr><td>SS<sub>Error</sub></td><td>Σ<sub>i</sub>Σ<sub>j</sub> (Y<sub>ij</sub> − Ȳ<sub>i·</sub>)²</td><td>how much measurements scatter inside their own group (<b>within</b> groups, unexplained)</td><td>a(n − 1)</td><td>SS<sub>E</sub></td></tr>
+</table>
+<div class="f"><div>SS<sub>Total</sub> = SS<sub>Treatment</sub> + SS<sub>Error</sub> (and the df add up the same way)</div></div>
+
+<h3 id="anova-f">3.4 The F-test <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=7">DOE p. 7–8</a></h3>
+<p>As in 1.5, divide each SS by its df to get a <b>mean square</b> (MS), then compare the two:</p>
+<div class="f">
+<div>MS<sub>Treatment</sub> = SS<sub>Treatment</sub> / (a − 1), MS<sub>Error</sub> = SS<sub>Error</sub> / (a(n − 1))</div>
+<div>F<sub>0</sub> = MS<sub>Treatment</sub> / MS<sub>Error</sub> ~ F<sub>a−1, a(n−1)</sub> if H<sub>0</sub> is true</div>
+<div>Reject H<sub>0</sub> when F<sub>0</sub> is larger than the critical value (α in the upper tail), or equivalently when the p-value &lt; α.</div>
+</div>
+<p><b>Why F is about 1 when nothing is going on</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=8">DOE p. 8</a>.
+MS<sub>Error</sub> always estimates σ². MS<sub>Treatment</sub> estimates σ² + n·Στ<sub>i</sub>²/(a − 1). That equals
+σ² only when every τ<sub>i</sub> is 0. So under H<sub>0</sub> the numerator and denominator are "about equal", and a
+real effect pushes F above 1.</p>
+<p>The results are written in an <b>ANOVA table</b> (Table 4.6):</p>
+<table>
+<tr><th>Source</th><th>SS</th><th>df</th><th>MS</th><th>F<sub>0</sub></th></tr>
+<tr><td>Treatments</td><td>SS<sub>Treatment</sub></td><td>a − 1</td><td>MS<sub>Treatment</sub></td><td>MS<sub>Treatment</sub> / MS<sub>E</sub></td></tr>
+<tr><td>Error</td><td>SS<sub>E</sub></td><td>a(n − 1)</td><td>MS<sub>E</sub></td><td></td></tr>
+<tr><td>Total</td><td>SS<sub>T</sub></td><td>an − 1</td><td></td><td></td></tr>
+</table>
+
+<h3 id="anova-paper">3.5 Worked example: tensile strength of paper <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=4">DOE p. 4, 9–10</a></h3>
+<div class="box ex"><span class="t">Worked example</span>
+<p>Four hardwood concentrations, six paper specimens each, tested in random order. Tensile strength in psi:</p>
+<table>
+<tr><th>Hardwood %</th><th class="n">1</th><th class="n">2</th><th class="n">3</th><th class="n">4</th><th class="n">5</th><th class="n">6</th><th class="n">Total</th><th class="n">Average</th></tr>
+<tr><td>5</td><td class="n">7</td><td class="n">8</td><td class="n">15</td><td class="n">11</td><td class="n">9</td><td class="n">10</td><td class="n">60</td><td class="n">10.00</td></tr>
+<tr><td>10</td><td class="n">12</td><td class="n">17</td><td class="n">13</td><td class="n">18</td><td class="n">19</td><td class="n">15</td><td class="n">94</td><td class="n">15.67</td></tr>
+<tr><td>15</td><td class="n">14</td><td class="n">18</td><td class="n">19</td><td class="n">17</td><td class="n">16</td><td class="n">18</td><td class="n">102</td><td class="n">17.00</td></tr>
+<tr><td>20</td><td class="n">19</td><td class="n">25</td><td class="n">22</td><td class="n">23</td><td class="n">18</td><td class="n">20</td><td class="n">127</td><td class="n">21.17</td></tr>
+<tr><td colspan="7"></td><td class="n">383</td><td class="n">15.96</td></tr>
+</table>
+<p>The slide uses α = 0.01 and the shortcut forms of the formulas (sum of squared values minus a correction):</p>
+<ol class="steps">
+<li>SS<sub>T</sub> = (7² + 8² + … + 20²) − 383²/24 = 512.96</li>
+<li>SS<sub>Treatments</sub> = (60² + 94² + 102² + 127²)/6 − 383²/24 = 382.79</li>
+<li>SS<sub>E</sub> = 512.96 − 382.79 = 130.17</li>
+</ol>
+<table>
+<tr><th>Source</th><th class="n">SS</th><th class="n">df</th><th class="n">MS</th><th class="n">F<sub>0</sub></th></tr>
+<tr><td>Hardwood concentration</td><td class="n">382.79</td><td class="n">3</td><td class="n">127.60</td><td class="n">19.61</td></tr>
+<tr><td>Error</td><td class="n">130.17</td><td class="n">20</td><td class="n">6.51</td><td></td></tr>
+<tr><td>Total</td><td class="n">512.96</td><td class="n">23</td><td></td><td></td></tr>
+</table>
+<p>Decision: F<sub>0.01, 3, 20</sub> = 4.94, and 19.61 &gt; 4.94, so <b>reject H<sub>0</sub></b>. The p-value is
+P = 3.59 × 10<sup>−6</sup>; Minitab rounds it to "0.000". Hardwood concentration affects paper strength.</p>
+<p>Minitab also lists each level's mean and standard deviation, and the <b>pooled StDev</b> = √MS<sub>E</sub> = 2.551.
+That is the estimate of σ, just like S in the regression output
+<a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=10">DOE p. 10</a>.</p>
+</div>
+
+<h3 id="anova-fibre">3.6 Second example: reading Excel's output <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=13">DOE p. 13–19</a></h3>
+<p>Synthetic fibre for shirts. The cotton content is set at five levels (15, 20, 25, 30 and 35 wt %), with 5
+replicates in random order. Is there an optimum cotton content? Excel's "Anova: Single Factor" gives
+<a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=15">DOE p. 15</a>:</p>
+<table>
+<tr><th>Source of Variation</th><th class="n">SS</th><th class="n">df</th><th class="n">MS</th><th class="n">F</th><th class="n">P-value</th><th class="n">F crit</th></tr>
+<tr><td>Between Groups</td><td class="n">475.76</td><td class="n">4</td><td class="n">118.94</td><td class="n">14.75682</td><td class="n">9.12794E-06</td><td class="n">2.866081</td></tr>
+<tr><td>Within Groups</td><td class="n">161.2</td><td class="n">20</td><td class="n">8.06</td><td></td><td></td><td></td></tr>
+<tr><td>Total</td><td class="n">636.96</td><td class="n">24</td><td></td><td></td><td></td><td></td></tr>
+</table>
+<ul>
+<li><b>Between Groups</b> is the treatment line and <b>Within Groups</b> is the error line.</li>
+<li><b>F crit</b> is the critical value at the α you chose in the dialog (0.05 here).</li>
+<li>F = 14.76 is far above 2.87, and P = 9.1 × 10<sup>−6</sup>, so <b>cotton content matters</b>. The group
+averages are 9.8, 15.4, 17.6, 21.6 and 10.8; 30 % gives the strongest fibre.</li>
+<li>The picture on <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=16">DOE p. 16</a> shows where F<sub>0</sub> = 14.76 falls in the F(4, 20)
+distribution: far beyond both F<sub>0.05, 4, 20</sub> and F<sub>0.01, 4, 20</sub>.</li>
+<li><b>Graphical comparison</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=19">DOE p. 19</a>: plot the five averages on one axis and slide a
+t-shaped curve over them. Its scale factor is √(MS<sub>E</sub>/n) = √(8.06/5) = 1.27. Averages that do not fit under
+one curve differ.</li>
+</ul>
+
+<h3 id="anova-check">3.7 Checking the assumptions <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=11">DOE p. 11, 18</a></h3>
+<p>The same residual checks as in 1.7. In ANOVA the fitted value of an observation is its group mean, so the
+residual is e<sub>ij</sub> = y<sub>ij</sub> − ȳ<sub>i·</sub>. Check visually:</p>
+<ul>
+<li><b>Normal probability plot</b> of the residuals: the points should lie close to a straight line.</li>
+<li><b>Residuals against factor level or group mean</b>: the spread should be about the same everywhere, with no
+pattern.</li>
+<li>If the spread grows with the mean, analyse a transformed response (log y or √y).</li>
+</ul>
+
+<h3>3.8 Which means differ? <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=12">DOE p. 12</a></h3>
+<p>A significant F only says "not all means are equal". To see <i>which</i> ones differ, compare them graphically
+or use a formal method such as Fisher's LSD (named on the slide; its formula is not given). For the paper example:
+20 % hardwood gives the highest strength, 5 % the lowest, and 10 % and 15 % do not differ from each other but are
+below 20 %.</p>
+
+<h3 id="anova-machines">3.9 Try it: three machines <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=20">DOE p. 20</a></h3>
+<div class="box ex"><span class="t">Exercise (the slide gives no solution)</span>
+<table>
+<tr><th>Machine 1</th><th>Machine 2</th><th>Machine 3</th></tr>
+<tr><td>47, 53, 49, 50, 46</td><td>55, 54, 58, 61, 52</td><td>54, 50, 51, 51, 49</td></tr>
+<tr><td>mean 49</td><td>mean 56</td><td>mean 51</td></tr>
+</table>
+<p>The slide already gives the grand mean 52 and Σ(X̄<sub>i</sub> − X̄)² = 9 + 16 + 1 = 26. The solution below is
+<span class="computed">computed here</span>:</p>
+<ol class="steps">
+<li>SS<sub>Treatment</sub> = n · 26 = 5 · 26 = 130, df = 2. MS = 65.</li>
+<li>SS<sub>Error</sub> = 94 (squared deviations of each value from its own machine mean), df = 12. MS = 7.83.</li>
+<li>F<sub>0</sub> = 65 / 7.83 = 8.30. The critical value F<sub>0.05, 2, 12</sub> = 3.89, and the p-value is 0.0055.</li>
+<li>Conclusion: <b>the machines differ</b>; machine 2 produces the most.</li>
+</ol>
+</div>
+
+<div class="box key"><span class="t">"2-way ANOVA"</span>
+<p>The deck's title says "1-way and 2-way ANOVA". The DOE demo workbook has two two-way exercise sheets:
+<code>2ANOVA</code> (4 machines × 5 operators, one value each) and <code>2ANOVArep</code> (watering × sunlight,
+n = 5). No slide explains two-way ANOVA separately. Its ideas (two factors, two main effects and their
+interaction) are exactly those of factorial designs in part 5. A two-way ANOVA table with an interaction line is
+also used in Les 5 (Gage R&amp;R).</p>
+</div>
+
+<!-- ================================================================ 4 -->
+<h2 id="plan">4. Why plan experiments? <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=21">DOE p. 21–45</a></h2>
+<p>So far the data were given. From here on you <b>design</b> the experiment yourself, so that the analysis of
+parts 1–3 can give clear answers.</p>
+<p><b>Goals</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=21">DOE p. 21–22</a>: find which factors x influence the response y most; find the
+settings of x that give the desired y, the smallest variability in y, and the least sensitivity to factors z you
+cannot control; design new processes at minimum cost; improve the performance, reliability and robustness of
+existing processes; compare alternatives.</p>
+
+<h3 id="plan-words">4.1 Vocabulary <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=23">DOE p. 23–24, 40</a></h3>
+<table>
+<tr><th>Slides (Dutch)</th><th>English</th><th>Meaning</th></tr>
+<tr><td>experimenteerpunt</td><td>design point</td><td>one combination of factor levels</td></tr>
+<tr><td>experimentele run</td><td>run</td><td>a design point at which you actually measure</td></tr>
+<tr><td>replicaties</td><td>replications</td><td>repeated observations of the same run</td></tr>
+<tr><td>experimentele fout</td><td>experimental error</td><td>the variation between replications</td></tr>
+<tr><td>experimenteergebied</td><td>experimental region</td><td>the range of settings studied</td></tr>
+<tr><td>proefschema</td><td>design</td><td>the factor levels, replications per point, run order, and how the work is organised (instrument, who measures, conditions)</td></tr>
+<tr><td></td><td>experimental unit</td><td>the item on which one observation is made</td></tr>
+<tr><td></td><td>balanced design</td><td>n replications in every run</td></tr>
+</table>
+
+<h3 id="plan-factorial">4.2 Factorial designs <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=26">DOE p. 25–28, 41–44</a></h3>
+<p>In a (full) factorial design you test <b>every combination</b> of the chosen factor levels. The simplest is the
+<b>2<sup>k</sup> design</b>: k factors, each at a low and a high level. Its advantages
+<a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=28">DOE p. 28</a>: no confounding of factors, an unambiguous interpretation, interactions
+can be detected and sized, and maximum efficiency and precision.</p>
+<div class="box ex"><span class="t">The golf example</span> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=27">DOE p. 27, 41–42</a>
+<p>Two factors: driver type (O or R) and ball type (B or T), two rounds per combination. Scores: O/B 88, 90;
+R/B 93, 91; O/T 88, 91; R/T 92, 94. The square in the figure shows how effects are read:</p>
+<ul>
+<li><b>Driver effect</b>: average of the R side minus average of the O side = 92.5 − 89.25 = 3.25.</li>
+<li><b>Ball effect</b>: T side minus B side = 91.25 − 90.5 = 0.75.</li>
+<li><b>Interaction</b>: one diagonal minus the other = 91.0 − 90.75 = 0.25.</li>
+</ul>
+<p>The three effect values are <span class="computed">computed here</span>; the slides show the figure only.</p>
+<p>With three factors the square becomes a cube
+<a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=43">DOE p. 43</a>. A fractional factorial tests only some of the corners
+<a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=44">DOE p. 44</a> (part 6).</p>
+</div>
+
+<h3 id="plan-nuisance">4.3 Nuisance factors: blocking and randomisation <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=29">DOE p. 29–33, 45</a></h3>
+<p>A <b>nuisance factor</b> affects the response but is of no interest to you: raw-material batch, operator, test
+equipment, shift, day of the week, weather <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=45">DOE p. 45</a>. It adds variation, so you want
+to neutralise it.</p>
+<table>
+<tr><th></th><th>known</th><th>unknown</th></tr>
+<tr><td>controllable</td><td><b>blocking</b></td><td style="background:#333;color:#fff">(blacked out on the slide)</td></tr>
+<tr><td>uncontrollable</td><td colspan="2" style="text-align:center"><b>randomisation</b></td></tr>
+</table>
+<p>In words: block on nuisance factors you know and can control; randomise against everything you cannot control,
+known or not.</p>
+<p><b>Example</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=30">DOE p. 30–33</a>. Two factors A and B, 4 replications each, 16 runs in
+total. If the weather (C or c) might matter, make it a <b>block</b>: run every A/B combination equally often in each
+weather condition. Even better, also <b>randomise the run order</b>, so that unknown factors that drift over time
+spread evenly over all combinations.</p>
+<p><b>Confounding</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=45">DOE p. 45</a>: two factors are confounded when the design cannot
+separate their effects. A good design keeps the factors you study from being confounded with each other or with
+nuisance factors. This is the experimental version of the confounding warning in regression (REG p. 11, 50).</p>
+
+<h3 id="plan-yield">4.4 A bad and a good design with the same cost <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=34">DOE p. 34–38</a></h3>
+<div class="box ex"><span class="t">Johan versus Nathalie: yield of a chemical reaction</span>
+<p>Johan says the additive concentration (0–12 %) matters most; Nathalie says the reaction time (10–25 min) does.</p>
+<p><b>Experiment 1</b> (4 runs, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=35">DOE p. 35</a>): concentration 0, 4, 8, 12 % together
+with time 10, 15, 20, 25 min; yields 17, 19, 21, 23. Both factors go up <i>together</i> (correlation 1), so they
+are <b>completely confounded</b>. You only learn that "something" raises the yield, and you cannot settle the
+argument. A regression on both x's could not separate them either.</p>
+<p><b>Experiment 2</b> (4 runs, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=37">DOE p. 37</a>): a 2 × 2 design with correlation 0.</p>
+<table>
+<tr><th></th><th class="n">time 10 min</th><th class="n">time 25 min</th></tr>
+<tr><td>concentration 0 %</td><td class="n">17</td><td class="n">24</td></tr>
+<tr><td>concentration 12 %</td><td class="n">16</td><td class="n">23</td></tr>
+</table>
+<p>The <b>interaction plots</b> settle it: time has a strong positive effect and concentration a slight negative
+one, so <b>Nathalie is right</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=38">DOE p. 38</a>. As effects
+(<span class="computed">computed here</span>): time +7 (23.5 − 16.5), concentration −1 (19.5 − 20.5), interaction 0
+(the lines are parallel).</p>
+<p>Both experiments cost 4 runs. Only the second one answers the question.</p>
+</div>
+<p><b>The seven steps</b> of an experiment <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=39">DOE p. 39</a>: problem statement; choice of
+factors, levels and ranges; choice of response; choice of design; running the experiment; statistical analysis
+(adapting the design if needed); conclusions and recommendations.</p>
+
+<!-- ================================================================ 5 -->
+<h2 id="twok">5. 2<sup>k</sup> factorial designs <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=46">DOE p. 46–77</a></h2>
+
+<h3 id="twok-coding">5.1 Coding the levels and the standard order <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=46">DOE p. 46–47, 62</a></h3>
+<ul>
+<li>Every factor's low level becomes <b>−1</b> and its high level <b>+1</b> (e.g. 80 mm → −1, 130 mm → +1). All
+factors then have the same scale, and an interaction column (the product of factor columns) also contains only
+−1 and +1.</li>
+<li>The design matrix can be <b>stacked</b> (one row per observation) or <b>unstacked</b> (one row per run, with the
+replicates side by side).</li>
+<li><b>Standard order</b> lists the runs so that A changes every run, B every 2 runs, C every 4 runs, and so on.
+In the labels, a lowercase letter means that factor is at +1, and (1) means all factors at −1:
+(1), a, b, ab, c, ac, bc, abc <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=62">DOE p. 62</a>.</li>
+</ul>
+
+<h3 id="twok-effect">5.2 What an effect is <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=48">DOE p. 48–50</a></h3>
+<div class="f"><div>[Q] = (average response where Q = +1) − (average response where Q = −1)</div></div>
+<p>This works for a factor and for an interaction alike. For an interaction such as AB, first make the column
+AB = A × B, then apply the same rule.</p>
+<div class="box ex"><span class="t">Worked example (n = 3)</span>
+<table>
+<tr><th class="n">A</th><th class="n">B</th><th class="n">AB</th><th>replicates</th></tr>
+<tr><td class="n">−1</td><td class="n">−1</td><td class="n">+1</td><td>5.94, 5.50, 6.10</td></tr>
+<tr><td class="n">−1</td><td class="n">+1</td><td class="n">−1</td><td>5.50, 5.25, 5.16</td></tr>
+<tr><td class="n">+1</td><td class="n">−1</td><td class="n">−1</td><td>4.16, 6.72, 2.72</td></tr>
+<tr><td class="n">+1</td><td class="n">+1</td><td class="n">+1</td><td>6.25, 5.90, 4.97</td></tr>
+</table>
+<ul>
+<li>[A] = 5.12 − 5.575 = <b>−0.455</b> (average of the six values with A = +1, minus the six with A = −1).</li>
+<li>[B] = 5.505 − 5.19 = <b>0.315</b>.</li>
+<li>[AB] = 5.777 − 4.918 = <b>0.858</b> <span class="computed">computed here</span>. The slide prints 0.857; see part 8.</li>
+</ul>
+</div>
+
+<h3 id="twok-interaction">5.3 Interactions <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=53">DOE p. 53–54</a></h3>
+<p>Two factors <b>interact</b> when the effect of one depends on the level of the other. In an interaction plot the
+lines are then not parallel.</p>
+<table>
+<tr><th>Corners (A−B−, A+B−, A−B+, A+B+)</th><th class="n">A</th><th class="n">B</th><th class="n">AB</th><th>Reading</th></tr>
+<tr><td>20, 40, 30, 52 (p. 53)</td><td class="n">21</td><td class="n">11</td><td class="n">+1</td><td>no real interaction: A helps at both levels of B</td></tr>
+<tr><td>20, 50, 40, 12 (p. 54)</td><td class="n">1</td><td class="n">−9</td><td class="n">−29</td><td>strong interaction: A helps when B is low and hurts when B is high</td></tr>
+</table>
+<p>The second row is the lesson. A's <i>average</i> effect is almost zero, yet A matters a lot, in opposite
+directions depending on B. Looking only at main effects would make you drop an important factor. (The slide on
+p. 53 prints AB = −1, but its own expression gives +1; see part 8.)</p>
+
+<h3 id="twok-contrast">5.4 Contrasts and sums of squares <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=55">DOE p. 55–58, 64–66</a></h3>
+<p>Let (1), a, b, ab also stand for the <b>totals</b> of the n observations in those runs. Multiply each total by its
+sign in the effect's column and add up: that sum is the <b>contrast</b>.</p>
+<div class="f">
+<div>C<sub>A</sub> = a + ab − b − (1),  C<sub>B</sub> = ab + b − a − (1),  C<sub>AB</sub> = ab + (1) − a − b</div>
+<div><b>Effect</b> = Contrast / (n · 2<sup>k−1</sup>)</div>
+<div><b>SS</b><sub>effect</sub> = Contrast² / (n · 2<sup>k</sup>), each with 1 degree of freedom</div>
+</div>
+<p>For a 2<sup>3</sup>, for example, A = [a + ab + ac + abc − b − c − bc − (1)] / (4n)
+<a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=64">DOE p. 64</a>. The signs come from the sign table
+<a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=80">DOE p. 80</a>: the column for an interaction is the product of its factors'
+columns. Each effect's SS is one line in the ANOVA table, exactly as SS<sub>Treatment</sub> was in part 3.</p>
+
+<h3 id="twok-chem">5.5 Worked example: chemical process <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=59">DOE p. 59–61</a></h3>
+<div class="box ex"><span class="t">Worked example</span>
+<p>A = reactant concentration, B = amount of catalyst, response = recovery, n = 3 replicates.</p>
+<table>
+<tr><th>Run</th><th class="n">A</th><th class="n">B</th><th>Replicates</th><th class="n">Total</th></tr>
+<tr><td>(1)</td><td class="n">−</td><td class="n">−</td><td>28, 25, 27</td><td class="n">80</td></tr>
+<tr><td>a</td><td class="n">+</td><td class="n">−</td><td>36, 32, 32</td><td class="n">100</td></tr>
+<tr><td>b</td><td class="n">−</td><td class="n">+</td><td>18, 19, 23</td><td class="n">60</td></tr>
+<tr><td>ab</td><td class="n">+</td><td class="n">+</td><td>31, 30, 29</td><td class="n">90</td></tr>
+</table>
+<ol class="steps">
+<li>Contrasts: C<sub>A</sub> = 100 + 90 − 60 − 80 = 50; C<sub>B</sub> = 60 + 90 − 100 − 80 = −30;
+C<sub>AB</sub> = 90 + 80 − 100 − 60 = 10.</li>
+<li>Effects (divide by n·2<sup>k−1</sup> = 6): A = <b>8.33</b>, B = <b>−5.00</b>, AB = <b>1.67</b>.</li>
+<li>SS (divide the contrast squared by n·2<sup>k</sup> = 12): 208.33, 75.00, 8.33.</li>
+<li><b>Pure error</b>: square each replicate's deviation from its run mean and add them all: 31.33, with
+2<sup>2</sup>·(3 − 1) = 8 df, so MS<sub>E</sub> = 3.92. This is the within-group error of part 3, with the 4 runs as
+the groups.</li>
+</ol>
+<table>
+<tr><th>Source</th><th class="n">SS</th><th class="n">df</th><th class="n">MS</th><th class="n">F</th><th class="n">Prob &gt; F</th></tr>
+<tr><td>Model</td><td class="n">291.67</td><td class="n">3</td><td class="n">97.22</td><td class="n">24.82</td><td class="n">0.0002</td></tr>
+<tr><td>A</td><td class="n">208.33</td><td class="n">1</td><td class="n">208.33</td><td class="n">53.19</td><td class="n">&lt; 0.0001</td></tr>
+<tr><td>B</td><td class="n">75.00</td><td class="n">1</td><td class="n">75.00</td><td class="n">19.15</td><td class="n">0.0024</td></tr>
+<tr><td>AB</td><td class="n">8.33</td><td class="n">1</td><td class="n">8.33</td><td class="n">2.13</td><td class="n">0.1828</td></tr>
+<tr><td>Pure Error</td><td class="n">31.33</td><td class="n">8</td><td class="n">3.92</td><td></td><td></td></tr>
+<tr><td>Cor Total</td><td class="n">323.00</td><td class="n">11</td><td></td><td></td><td></td></tr>
+</table>
+<ul>
+<li><b>A and B are significant; the interaction is not.</b> Raising the concentration increases recovery by 8.33
+on average; adding catalyst lowers it by 5.</li>
+<li>The <b>Model</b> line tests all effects together, just like the overall F-test of a regression (2.1): does A,
+B, AB or any combination matter?</li>
+<li>R² = 291.67 / 323.00 = 0.9030 and adjusted R² = 0.8666, with the same meaning as in regression (1.4, 2.2). The
+slides do not explain the other Design-Expert lines (Pred R-Squared, PRESS, Adeq Precision, C.V.).</li>
+</ul>
+</div>
+
+<h3 id="twok-signif">5.6 Which effects are real? <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=67">DOE p. 67–71</a></h3>
+<p>There are two routes:</p>
+<ol>
+<li><b>ANOVA</b> (as in part 3): each effect has 1 df, and F<sub>0</sub> = SS<sub>effect</sub> / MS<sub>E</sub>.</li>
+<li><b>Standard error of an effect</b>, comparable to the coefficient standard errors in 1.5:</li>
+</ol>
+<div class="f">
+<div>s.e.(effect) = √( σ̂² / (n · 2<sup>k−2</sup>) ), with σ̂² = MS<sub>E</sub></div>
+<div>effect ± 2 · s.e.(effect) is an approximate 95 % confidence interval; if it contains 0, the effect is not
+significant at α = 0.05 <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=68">DOE p. 68</a></div>
+</div>
+<div class="box ex"><span class="t">Worked example: surface finish</span> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=69">DOE p. 69–71</a>
+<p>A 2<sup>3</sup> design with n = 2: A = feed rate, B = depth of cut, C = tool angle; a larger value means a
+rougher surface. ANOVA (p. 71), with effects <span class="computed">computed here</span>:</p>
+<table>
+<tr><th>Effect</th><th class="n">effect</th><th class="n">SS</th><th class="n">F<sub>0</sub></th><th class="n">P</th></tr>
+<tr><td>A feed rate</td><td class="n">3.375</td><td class="n">45.5625</td><td class="n">18.69</td><td class="n">0.0025</td></tr>
+<tr><td>B depth of cut</td><td class="n">1.625</td><td class="n">10.5625</td><td class="n">4.33</td><td class="n">0.07</td></tr>
+<tr><td>C tool angle</td><td class="n">0.875</td><td class="n">3.0625</td><td class="n">1.26</td><td class="n">0.29</td></tr>
+<tr><td>AB</td><td class="n">1.375</td><td class="n">7.5625</td><td class="n">3.10</td><td class="n">0.12</td></tr>
+<tr><td>AC</td><td class="n">0.125</td><td class="n">0.0625</td><td class="n">0.03</td><td class="n">0.88</td></tr>
+<tr><td>BC</td><td class="n">−0.625</td><td class="n">1.5625</td><td class="n">0.64</td><td class="n">0.45</td></tr>
+<tr><td>ABC</td><td class="n">1.125</td><td class="n">5.0625 *</td><td class="n">2.08</td><td class="n">0.19</td></tr>
+<tr><td>Error</td><td></td><td class="n">19.5000 (8 df)</td><td colspan="2">MS<sub>E</sub> = 2.4375</td></tr>
+<tr><td>Total</td><td></td><td class="n">92.9375 (15 df)</td><td colspan="2"></td></tr>
+</table>
+<p class="small">* The slide prints 5.5625 for ABC; the data give 5.0625 (part 8).</p>
+<p><b>Only the feed rate (A) is significant.</b> With the standard-error route
+(<span class="computed">computed here</span>): s.e. = √(2.4375 / (2 · 2)) = 0.78, so A = 3.375 ± 1.56 =
+[1.81, 4.94], which does not contain 0.</p>
+<p><b>Careful with borderline effects.</b> For B, 1.625 ± 1.56 = [0.06, 3.19] just excludes 0, while the F-test
+gives P = 0.07. The "± 2" is an approximation (the course calls the interval approximate). With only 8 error df,
+the matching t-value is 2.31 <span class="computed">computed here</span>, so ±2 is slightly too narrow.</p>
+</div>
+
+<h3 id="twok-single">5.7 Only one replicate <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=72">DOE p. 72–77</a></h3>
+<p>With many factors you often run each combination only once (n = 1). Then there are no replicates to estimate
+the error. The way out is the <b>sparsity-of-effects principle</b>: usually only a few effects matter, and
+higher-order interactions are negligible. So you <b>pool the higher-order interactions</b> and use them as the
+error estimate.</p>
+<p>The full model with all interactions would use up every degree of freedom. This is called a
+<b>saturated</b> model; R then prints "NaN" instead of F-values
+<a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=76">DOE p. 76</a>. It is the regression situation with as many parameters as data
+points: SS<sub>E</sub> = 0 with 0 df.</p>
+<div class="box ex"><span class="t">Worked example: plasma etch rate</span> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=73">DOE p. 73–77</a>
+<p>A single-replicate 2<sup>4</sup>: A = gap, B = pressure, C = C<sub>2</sub>F<sub>6</sub> flow, D = power; 16 runs
+(p. 74). The largest estimated effects (p. 75) are D = 306.125, AD = −153.625 and A = −101.625.</p>
+<p>Pool the three- and four-factor interactions into the error (5 df) and fit main effects plus two-factor
+interactions (p. 77). Significant: <b>A</b> (F = 20.28, P = 0.0064), <b>D</b> (F = 183.99, P = 3.9 × 10<sup>−5</sup>)
+and <b>A:D</b> (F = 46.34, P = 0.0010). Everything else is not.</p>
+<p>Conclusion: the gap, the power and their interaction drive the etch rate.</p>
+</div>
+
+<!-- ================================================================ 6 -->
+<h2 id="frac">6. Fractional factorials <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=78">DOE p. 78–93</a></h2>
+<p><b>Why</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=78">DOE p. 78, 87</a>: the number of runs grows as 2<sup>k</sup>. With k = 11 a full
+factorial needs 2048 runs, and even a half fraction needs 1024. A design for 11 factors in 32 runs is a
+2<sup>−6</sup> = 1/64 fraction. If you can assume that higher-order interactions are negligible (the
+sparsity-of-effects principle of 5.7), a fraction still estimates the main effects and low-order interactions.</p>
+
+<h3>6.1 The half fraction <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=79">DOE p. 79–81</a></h3>
+<p>Take the full 2<sup>3</sup> sign table, including the identity column I (all +), and keep only the 4 runs where
+ABC = + (runs a, b, c, abc). In those runs the ABC column equals the I column, so the fraction is described by
+<b>I = ABC</b>. This is the <b>defining relation</b>, and ABC is the <b>generator</b>. The design is a
+2<sup>3−1</sup>: 3 factors in 2<sup>2</sup> = 4 runs.</p>
+
+<h3 id="frac-alias">6.2 Aliases: the price you pay <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=81">DOE p. 81–83</a></h3>
+<p>To find what an effect is aliased with, multiply the defining relation by that effect, using the rule that a
+letter times itself gives I (A·A = I):</p>
+<div class="f"><div>A · I = A · ABC = BC,  B · ABC = AC,  AB · ABC = C</div></div>
+<p>In these 4 runs the column for A is <i>identical</i> to the column for BC. The number you compute for "A" is
+therefore A and BC mixed together, and the design cannot separate them. This is deliberate, controlled confounding
+(4.3); it is acceptable only if you may assume BC is negligible.</p>
+<p><b>Projection</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=83">DOE p. 83</a>: if one or more factors turn out not to matter, drop
+them; the fraction then becomes a full factorial in the remaining factors. This is why fractions are so useful
+for screening.</p>
+
+<h3 id="frac-res">6.3 Resolution <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=84">DOE p. 84–86, 91</a></h3>
+<table>
+<tr><th>Resolution</th><th>Main effects are aliased with …</th><th>Two-factor interactions are aliased with …</th></tr>
+<tr><td><b>III</b></td><td>two-factor interactions (not with each other)</td><td>main effects</td></tr>
+<tr><td><b>IV</b></td><td>three-factor interactions (not with main effects or two-factor interactions)</td><td>each other</td></tr>
+<tr><td><b>V</b></td><td>four-factor interactions</td><td>three-factor interactions (not with each other)</td></tr>
+</table>
+<p class="small">The slides state the main-effect and two-factor-interaction parts of each row; the "three-" and
+"four-factor" entries follow from the word-length rule below.</p>
+<div class="f"><div><b>Resolution = length of the shortest word in the defining relation</b>
+<a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=91">DOE p. 91</a>. Notation: 2<sup>3−1</sup><sub>III</sub> has I = ABC, a word of 3 letters.</div></div>
+
+<h3 id="frac-gen">6.4 Smaller fractions: 2<sup>k−p</sup> designs <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=88">DOE p. 88–93</a></h3>
+<ol class="steps">
+<li>Write a full factorial for the first k − p factors (the base factors).</li>
+<li>Make each of the remaining p columns as a product of base columns, using a <b>design generator</b>.</li>
+</ol>
+<div class="box ex"><span class="t">Worked example: 2<sup>6−2</sup></span> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=89">DOE p. 89–91</a>
+<ol class="steps">
+<li>Full 2<sup>4</sup> in A, B, C, D: 16 runs.</li>
+<li>Generators E = ABC and F = BCD give I = ABCE and I = BCDF.</li>
+<li>Multiply the generator words together as well: ABCE · BCDF = ADEF.</li>
+<li>Complete defining relation: <b>I = ABCE = BCDF = ADEF</b>. The shortest word has 4 letters, so the resolution is
+<b>IV</b>.</li>
+</ol>
+<p>Choose the generators that give the <b>highest resolution</b>; a bad choice gives a lower one than necessary
+(p. 92). Montgomery's table on <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=93">DOE p. 93</a> lists good generators.</p>
+</div>
+<div class="box ex"><span class="t">The two questions in the DOE demo workbook</span>
+<ul>
+<li><b>"2^5-1 fract rep", I = ABCDE: what is the resolution?</b> The only word, ABCDE, has 5 letters, so
+<b>resolution V</b>. This matches the table on p. 93 (2<sup>5−1</sup><sub>V</sub>, E = ±ABCD).</li>
+<li><b>"2^5-2 fract rep": choose generators for D and E with the best resolution.</b> The table on p. 93 gives
+D = ±AB and E = ±AC (2<sup>5−2</sup><sub>III</sub>). The complete defining relation is then I = ABD = ACE = BCDE
+<span class="computed">computed here</span>, so <b>resolution III</b>. For example, A is aliased with BD, CE and
+ABCDE.</li>
+</ul>
+</div>
+
+<!-- ================================================================ 7 -->
+<h2 id="sheet">7. Formula sheet</h2>
+<table>
+<tr><th>What</th><th>Formula</th><th>Slide</th></tr>
+<tr><td>Least squares</td><td>β̂<sub>1</sub> = S<sub>xy</sub>/S<sub>xx</sub>; β̂<sub>0</sub> = ȳ − β̂<sub>1</sub>x̄</td><td>REG 18</td></tr>
+<tr><td>Regression ANOVA</td><td>SS<sub>T</sub> = SS<sub>R</sub> + SS<sub>E</sub>; R² = SS<sub>R</sub>/SS<sub>T</sub>; MS<sub>E</sub> = SS<sub>E</sub>/(n−2)</td><td>REG 27–28</td></tr>
+<tr><td>Slope test and CI</td><td>t<sub>0</sub> = (β̂<sub>1</sub> − β<sub>1,0</sub>)/√(MS<sub>E</sub>/S<sub>xx</sub>); β̂<sub>1</sub> ± t<sub>1−α/2,n−2</sub> √(MS<sub>E</sub>/S<sub>xx</sub>)</td><td>REG 30, 34</td></tr>
+<tr><td>Intercept test and CI</td><td>se = √(MS<sub>E</sub>(1/n + x̄²/S<sub>xx</sub>))</td><td>REG 31, 34</td></tr>
+<tr><td>F-test of the regression</td><td>F<sub>0</sub> = MS<sub>R</sub>/MS<sub>E</sub> ~ F<sub>1,n−2</sub> (= t<sub>0</sub>² for one x)</td><td>REG 33</td></tr>
+<tr><td>CI mean response</td><td>Ŷ<sub>0</sub> ± t · √(MS<sub>E</sub>(1/n + (x<sub>0</sub>−x̄)²/S<sub>xx</sub>))</td><td>REG 36</td></tr>
+<tr><td>Prediction interval</td><td>Ŷ<sub>0</sub> ± t · √(MS<sub>E</sub>(1 + 1/n + (x<sub>0</sub>−x̄)²/S<sub>xx</sub>))</td><td>REG 38</td></tr>
+<tr><td>Multiple regression σ̂</td><td>√(SS<sub>E</sub>/(n − k − 1))</td><td>REG 57</td></tr>
+<tr><td>Adjusted R²</td><td>1 − (1 − R²)(n − 1)/(n − k − 1), as the outputs compute it (p. 56 prints n − k − 2)</td><td>REG 56</td></tr>
+<tr><td>Partial F-test</td><td>[(SS<sub>E</sub>(RM) − SS<sub>E</sub>(FM))/(k − r)] / [SS<sub>E</sub>(FM)/(n − p)]</td><td>REG 61</td></tr>
+<tr><td>One-way ANOVA</td><td>SS<sub>T</sub> = SS<sub>Tr</sub> + SS<sub>E</sub>; F<sub>0</sub> = [SS<sub>Tr</sub>/(a−1)] / [SS<sub>E</sub>/(a(n−1))]</td><td>DOE 6–8</td></tr>
+<tr><td>Shortcut SS</td><td>SS<sub>T</sub> = ΣΣ y² − y<sub>··</sub>²/N; SS<sub>Tr</sub> = Σ y<sub>i·</sub>²/n − y<sub>··</sub>²/N</td><td>DOE 9</td></tr>
+<tr><td>Effect (2<sup>k</sup>)</td><td>avg(+) − avg(−) = Contrast / (n 2<sup>k−1</sup>)</td><td>DOE 48, 66</td></tr>
+<tr><td>SS of an effect</td><td>Contrast² / (n 2<sup>k</sup>), 1 df</td><td>DOE 57, 66</td></tr>
+<tr><td>s.e. of an effect</td><td>√(MS<sub>E</sub> / (n 2<sup>k−2</sup>)); effect ± 2 s.e. ≈ 95 % CI</td><td>DOE 67–68</td></tr>
+<tr><td>Fraction size</td><td>2<sup>k−p</sup> runs = a 2<sup>−p</sup> fraction of the 2<sup>k</sup></td><td>DOE 87</td></tr>
+<tr><td>Aliases</td><td>multiply by the defining relation; A·A = I</td><td>DOE 81</td></tr>
+<tr><td>Resolution</td><td>length of the shortest word in the defining relation</td><td>DOE 91</td></tr>
+</table>
+
+<!-- ================================================================ 8 -->
+<h2 id="errors">8. Errors in the slides</h2>
+<p>These were found by recomputing the slides' own data (study/les3_numbers.py and the toolkit's tests). Use the
+corrected value.</p>
+<table>
+<tr><th>Slide</th><th>Printed</th><th>Correct</th></tr>
+<tr><td>REG p. 21</td><td>ŷ = 74.20 + 14.97x</td><td>ŷ = 74.283 + 14.947x (p. 22)</td></tr>
+<tr><td>REG p. 56</td><td>R²<sub>adj</sub> with n − k − 2</td><td>n − k − 1, as every course output computes it</td></tr>
+<tr><td>REG p. 57</td><td>562.15 − 5.43 · 30 − 20.01 · 6 = 278.97</td><td>coefficient 5.44; prediction 278.98</td></tr>
+<tr><td>DOE p. 50</td><td>[AB] = 0.857</td><td>0.858 (exactly 0.8583)</td></tr>
+<tr><td>DOE p. 53</td><td>AB = (52 + 20)/2 − (30 + 40)/2 = −1</td><td>+1</td></tr>
+<tr><td>DOE p. 71</td><td>SS<sub>ABC</sub> = 5.5625</td><td>5.0625 (contrast 9; consistent with F<sub>0</sub> 2.08 and the total 92.9375)</td></tr>
+<tr><td>DOE p. 71</td><td>P(A) = 2.54 × 10<sup>−3</sup></td><td>2.53 × 10<sup>−3</sup></td></tr>
+</table>
+
+<!-- ================================================================ 9 -->
+<h2 id="toolkit">9. The calculator sheet for this lesson</h2>
+<div class="box tool"><span class="t">bb_toolkit.xlsx, sheet "ANOVA DOE regression"</span>
+<p>The sheet's sections are in a different order from this text:</p>
+<ul>
+<li><b>Section 3</b>, simple regression (part 1 here): type up to 200 (x, y) pairs and x<sub>0</sub>. You get
+b<sub>0</sub>, b<sub>1</sub>, the ANOVA, R² both ways, the t-tests (≠, &gt;, &lt;), CIs for β<sub>0</sub> and
+β<sub>1</sub>, and the CI and PI at x<sub>0</sub>.</li>
+<li>Multiple regression (part 2) is not on the sheet. Use Excel's Data Analysis → Regression, which produces the
+output of the oil example.</li>
+<li><b>Section 1</b>, one-way ANOVA (part 3): type one group per column. You get the ANOVA table, the p-value, F crit
+at your α, the group means and standard deviations, and the pooled sd.</li>
+<li><b>Section 2</b>, 2<sup>k</sup> factorial (parts 5–6; k = 2 to 5, up to 4 replicates): type the responses in
+standard order. You get every effect, coefficient (effect/2), SS, F and p-value, the effect ± 2 s.e., the model
+ANOVA, and R² both ways. For a single replicate, choose the interaction order to pool. For a fraction, enter it as
+the full design of its base factors (each effect is then an alias chain).</li>
+</ul>
+</div>
+<p class="small">Written 2026-10-06 from source/course/Les 3 (Regression and DOE decks and both demo workbooks).
+Derived numbers: <code>python3 study/les3_numbers.py</code>.</p>
+</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+key	symbool	betekenis	hoe	anchor
+x_var	X	Variabele X (random variable): de grootheid of kolom waarover je een kans uitspreekt.	Gegeven in de opgave. Hoofdletter X = de variabele, kleine x = een waarde ervan: P(X ≤ x). In 02.12–02.15 de variabele waarop je ingrijpt.	d02-verdelingen
+x_val	x	Een bepaalde waarde van een variabele (van X, of van Cu in do(Cu = x)).	Gegeven in de vraag, bv. 7 in "hoogstens 7": P(X ≤ 7). Niet verwarren met de variabele X zelf.	d02-verdelingen
+y_var	Y	Variabele Y (random variable); in de causale delen de uitkomst (outcome).	Gegeven. In P(Y | X) is Y de grootheid waarvan je de verdeling zoekt en X de voorwaarde (de rijen die je filtert).	d02-kansen
+y_val	y	Een bepaalde waarde van Y; in ∫<sub>y</sub> … dy de variabele waarover je optelt.	Bij een discrete tabel wordt ∫<sub>y</sub> … dy een som over alle waarden y: tel de cellen van een rij of kolom op.	d02-kansen
+pdf	f	Kansdichtheidsfunctie (probability density function, pdf): de vorm van de verdeling.	Discreet: f(x) = P(X = x), de kans op precies x. Continu: een dichtheid, geen kans; kansen zijn oppervlakten onder f.	d02-verdelingen
+cdf	F	Cumulatieve verdelingsfunctie (cumulative distribution function, cdf): F(x) = P(X ≤ x).	Integraal (continu) of som (discreet) van de pdf tot x. Excel: …DIST met TRUE/WAAR, bv. POISSON.DIST(7;λ;WAAR). "Meer dan x" = 1 − F(x).	d02-verdelingen
+t_int	t	Integratievariabele in F(x) = ∫ f(t) dt; loopt van −∞ tot x.	Niets te berekenen: een hulpletter, anders dan x omdat x de bovengrens van de integraal is.	d02-verdelingen
+x_bound	x<sub>1</sub>, x<sub>2</sub>	Onder- en bovengrens van het interval waarvoor je de kans zoekt.	Gegeven in de vraag. P(x<sub>1</sub> ≤ X ≤ x<sub>2</sub>) = F(x<sub>2</sub>) − F(x<sub>1</sub>): bovengrens min ondergrens.	d02-verdelingen
+lambda	λ	Parameter van de Poisson-verdeling: gemiddeld aantal gebeurtenissen per tijdseenheid.	Gegeven, of geschat uit tellingen (inference): Naert p. 9 geeft 2.959 klanten per minuut. Geldt per tijdseenheid van de data.	d02-poisson
+k_count	k	Het aantal gebeurtenissen (telling) waarvoor je de Poisson-kans berekent.	Uit de vraag: "hoogstens 7" = P(X ≤ 7); "meer dan 7" = 1 − P(X ≤ 7) = P(X ≥ 8). Niet 1 − P(X ≤ 8).	d02-poisson
+u	U	Spanning (voltage): de respons in de wet van Ohm.	Deterministisch U = RI; gemeten U = RI + ε, met ε de meetfout (VV p. 114).	d02-model
+r_ohm	R	Weerstand (resistance) in de wet van Ohm.	Gegeven; in het voorbeeld van de 20 studenten voor iedereen dezelfde.	d02-model
+i_ohm	I	Stroom (current) in de wet van Ohm.	Gegeven; in het voorbeeld van de 20 studenten voor iedereen dezelfde.	d02-model
+eps	ε	Meetfout of experimentele fout: de random component van het model.	Niet gegeven: wat overblijft naast het deterministische deel. Aanname: onafhankelijk, vaste verdeling, vaste locatie, constante spreiding (02.8).	d02-model
+xbarbar	X̿	Gemiddelde van de subgroepgemiddelden (grand mean) op een X̄-kaart.	Gemiddelde van alle subgroepgemiddelden x̄, of gegeven (VV p. 127: 71.8 mm). Schat het procesgemiddelde µ.	d10-formules
+sbar	s̄	Gemiddelde van de standaardafwijkingen van de subgroepen op een X̄-s-kaart.	Gemiddelde van de s per subgroep, of gegeven (VV p. 127: 0.2 mm). Welke σ je daaruit haalt voor capabiliteit: zie 09.4.	d10-formules
+n	n, N	Aantal waarnemingen (sample size); bij Anscombe het aantal punten (x, y).	Tel de waarnemingen (Anscombe: N = 11). De residuele standaardafwijking deelt door n − 2, niet door n.	d02-eda
+r_corr	r	Correlatiecoëfficiënt (correlation): sterkte van het lineaire verband, tussen −1 en 1.	Excel CORRELATIE/CORREL, of r = √R² met het teken van de helling. Een hoge r bewijst geen lineair verband (Anscombe) en geen oorzaak.	d02-eda
+r2	R²	Determinatiecoëfficiënt: fractie van de variatie in y die de rechte verklaart.	Blad ANOVA DOE regression (B168), of r². Zie Deel 7.	d07-anova
+b1	b<sub>1</sub>	Geschatte helling (slope) van de kleinste-kwadratenrechte.	Excel HELLING/SLOPE, of blad ANOVA DOE regression (B161).	d07-kk
+b0	b<sub>0</sub>	Geschat intercept van de kleinste-kwadratenrechte.	Excel SNIJPUNT/INTERCEPT, of blad ANOVA DOE regression (B162).	d07-kk
+sse	SS<sub>E</sub>	Residuele kwadratensom (error sum of squares): som van de gekwadrateerde residuen.	Uit de ANOVA-tabel van de regressie. Residuele standaardafwijking = √(SS<sub>E</sub>/(n − 2)).	d07-anova
+mse	MS<sub>E</sub>	Gemiddelde residuele kwadratensom (mean square error) = SS<sub>E</sub>/(n − 2).	ANOVA-tabel van de regressie; σ̂ = √MS<sub>E</sub> is de residuele standaardafwijking.	d07-anova
+sigma_hat	σ̂	Geschatte residuele standaardafwijking: spreiding van de punten rond de regressierechte.	σ̂ = √MS<sub>E</sub>; Excel STAND.FOUT.YX/STEYX; blad ANOVA DOE regression (B167).	d07-anova
+mu_yx	µ<sub>Y|x</sub>	Gemiddelde respons bij gegeven x: de ware regressierechte, gelijk aan E[Y | X = x].	Onbekend; geschat met de kleinste-kwadratenrechte b<sub>0</sub> + b<sub>1</sub>x (Deel 7).	d07-model
+beta0	β<sub>0</sub>	Intercept van de ware regressierechte (populatie).	Onbekend; geschat door b<sub>0</sub> (Excel SNIJPUNT/INTERCEPT).	d07-kk
+beta1	β<sub>1</sub>	Helling van de ware regressierechte (populatie).	Onbekend; geschat door b<sub>1</sub> (Excel HELLING/SLOPE).	d07-kk
+y_i	Y<sub>i</sub>	De i-de meting in tijdsvolgorde; Y<sub>i−1</sub> is de meting ervoor.	Uit de data, in de volgorde van meten. Run sequence plot: Y<sub>i</sub> tegen i; lag plot: Y<sub>i</sub> tegen Y<sub>i−1</sub> (onafhankelijkheid).	d02-4plot
+x_feat	X<sub>1</sub> … X<sub>n</sub>	De n kenmerken (features) van één waarneming: de kolommen van de dataset.	Uit de dataset. n is hier het aantal kolommen (dimensies), niet het aantal rijen.	d02-associatie
+g	G	Geslacht (gender): discrete variabele, man of vrouw.	Gegeven. In P(M | G = vrouw) is G de voorwaarde: hou alleen de rijen met vrouwen over.	d02-kansen
+m_gewicht	M	Gewicht of massa (weight): continue variabele.	Gegeven. P(G = man, M = 100 kg) is strikt genomen een kansdichtheid, geen kans (Naert p. 15).	d02-associatie
+l	L	Productielijn (lijn 1 of lijn 2): een rij van de kruistabel.	Voorwaardelijk op L = lijn 1: deel de cel door het rijtotaal 270, niet door 500.	d02-kansen
+b_breedte	B	Gerealiseerde breedte van het product.	Gemeten kenmerk (kolom) in de dataset (Naert notities p. 8).	d02-associatie
+s_snelheid	S	Lijnsnelheid (line speed).	Gemeten kenmerk (kolom) in de dataset (Naert notities p. 8).	d02-associatie
+k	K	Kwaliteitsklasse: Accepted, Downgraded of Rejected (een kolom van de kruistabel).	Marginaal P(K): kolomtotaal / 500. Voorwaardelijk P(K | L = lijn 1): cel / rijtotaal 270.	d02-kansen
+x0	x<sub>0</sub>	De waarde waarop je X vastzet bij de interventie do(X = x<sub>0</sub>).	Gekozen door wie ingrijpt. Nieuwe Y: rond E[Y | X = x<sub>0</sub>] als X oorzaak is, anders verdeeld zoals P(Y).	d02-dag
+m_med	M	Mediator: variabele op het causale pad X → M → Y.	Een aanname in het causale diagram, niet af te lezen uit de data. Ingrijpen op X werkt dan via M.	d02-dag
+confounder	Z, C	Confounder (verstorende variabele): gemeenschappelijke oorzaak van oorzaak en uitkomst, zoals X ← Z → Y.	Een causale aanname uit domeinkennis (leeftijd, ernst, …); in 02.15 heet ze C: T ← C → Y. Ingrijpen op X verandert Y dan niet: P(Y | do(X)) = P(Y).	d02-dag
+t_beh	T	Behandeling (treatment): wat in een RCT willekeurig toegewezen wordt.	Gegeven (bv. medicijn ja/nee, nieuwe of oude webpagina). In een RCT: P(Y | do(T = t)) = P(Y | T = t).	d02-rct
+t_val	t	Een waarde van de behandeling T (behandeld of controle).	Gegeven: de groep die je bekijkt.	d02-rct
+r_toeval	R	Randomisatie: het toevalsmechanisme dat de behandeling T bepaalt (R → T).	Door de onderzoeker ingevoerd (loting); vervangt alle pijlen van confounders naar T.	d02-rct
+ernst	Ernst	Ernst van de aandoening: de confounder in het medicijnvoorbeeld.	In de data als groepsvariabele (zes ernstgroepen, Naert p. 38). Negeer je ze, dan zie je het omgekeerde teken.	d02-simpson
+medicijn	Hoeveelheid medicijn	De behandeling (treatment) in het medicijnvoorbeeld.	Geobserveerd, niet gerandomiseerd: ernstiger zieken kregen meer (Naert notities p. 20).	d02-simpson
+uitkomst	Gezondheidsuitkomst	De uitkomst (outcome) in het medicijnvoorbeeld.	Hangt af van medicijn én ernst; de totale helling −0.45 (Naert p. 37) is daarom geen causaal effect.	d02-simpson
+cu	Cu	Koperconcentratie van het staal: de variabele waarop je wil ingrijpen.	Geobserveerd volgt ze uit de schrootmix (schroot → Cu). Bij do(Cu = x) leg je zelf koper bij en verdwijnt die pijl.	d02-dag
+ni	Ni	Nikkelconcentratie: komt met de schrootmix mee en beïnvloedt de sterkte.	Gemeten. Vormt de achterdeur Cu ← schroot → Ni → Sterkte (Naert notities p. 23).	d02-dag
+cr	Cr	Chroomconcentratie: derde legeringselement uit de schrootmix.	Gemeten; schroot → Cr → Sterkte (Naert notities p. 22).	d02-dag
+schroot	schroot	De schrootmix: gemeenschappelijke oorzaak (confounder) van Cu, Ni en Cr.	Een causale aanname over het proces (Naert notities p. 22), niet uit de data af te leiden.	d02-dag
+sterkte	Sterkte	Sterkte van het staal: de uitkomst (outcome).	Gemeten (MPa). 100 ppm meer Cu gaat samen met 10 MPa meer sterkte, deels via Ni (Naert notities p. 23).	d02-dag
+m1	M<sub>1</sub>	Gemeten temperatuur vóór het afkoelen, met meetfout.	In de data. M<sub>1</sub> = T<sub>1</sub> + ε<sub>1</sub>; de werkelijke T<sub>1</sub> zie je niet.	d02-staal
+m2	M<sub>2</sub>	Gemeten temperatuur na het afkoelen, met meetfout.	In de data. M<sub>2</sub> = T<sub>2</sub> + ε<sub>2</sub>.	d02-staal
+m_val	m	Een bepaalde waarde van de gemeten begintemperatuur M<sub>1</sub>.	Gekozen. E[M<sub>2</sub> | M<sub>1</sub> = m] is de regressielijn van M<sub>2</sub> op M<sub>1</sub>.	d02-staal
+t1	T<sub>1</sub>	Werkelijke temperatuur vóór het afkoelen; zit niet in de dataset.	Niet gemeten, alleen M<sub>1</sub> = T<sub>1</sub> + ε<sub>1</sub>. Var(T<sub>1</sub>) = Var(M<sub>1</sub>) − Var(ε<sub>1</sub>).	d02-staal
+t2	T<sub>2</sub>	Werkelijke temperatuur na het afkoelen.	Niet gemeten. Model: T<sub>2</sub> = α T<sub>1</sub> + β W + ε<sub>0</sub> (Naert p. 56).	d02-staal
+eps1	ε<sub>1</sub>	Meetfout op de gemeten begintemperatuur M<sub>1</sub>.	Niet gegeven; een meetsysteemanalyse (Deel 11) brengt zulke fouten in kaart. Elke Var(ε<sub>1</sub>) &gt; 0 maakt α′ &lt; α.	d02-staal
+eps2	ε<sub>2</sub>	Meetfout op de gemeten eindtemperatuur M<sub>2</sub>.	Niet gegeven. Een fout in de uitkomst; de verdunning van de helling komt van ε<sub>1</sub>, de fout in de verklarende variabele.	d02-staal
+eps0	ε<sub>0</sub>	Toevallige restterm (random component) in het model voor T<sub>2</sub>.	Niet gegeven; de cursus werkt ε<sub>0</sub> niet verder uit (Naert p. 56).	d02-staal
+alpha	α	Afkoelcoëfficiënt: hoe T<sub>2</sub> van T<sub>1</sub> afhangt (hier niet het significantieniveau).	Correct: Cov(M<sub>1</sub>, M<sub>2</sub>)/Var(T<sub>1</sub>). α = 1: warm en koud staal dalen evenveel; α &lt; 1: warm staal koelt sneller af.	d02-staal
+alpha_n	α′	Naïeve schatting van α: de OLS-helling van M<sub>2</sub> op M<sub>1</sub>.	Cov(M<sub>1</sub>, M<sub>2</sub>)/Var(M<sub>1</sub>). Altijd kleiner dan α als M<sub>1</sub> meetfout bevat (attenuation bias).	d02-staal
+beta_w	β	Coëfficiënt van de wachtduur W in het afkoelmodel.	Niet gegeven en in het voorbeeld niet geschat (Naert p. 56).	d02-staal
+w	W	Wachtduur: hoe lang de staalpan afkoelt.	Gemeten per staalpan; in het causale model een tweede oorzaak van T<sub>2</sub>.	d02-staal

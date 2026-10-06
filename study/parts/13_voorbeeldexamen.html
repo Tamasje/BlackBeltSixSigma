@@ -1,0 +1,366 @@
+<section class="part" id="d13" data-title="Deel 13 — Voorbeeldexamen (interactief)" data-lecturer="" data-les="Examen">
+  <h2>Deel 13 — Voorbeeldexamen (interactief)</h2>
+  <p class="intro">Het voorbeeldexamen van 9 oktober 2025 (7 vragen, 20 punten), vraag per vraag om zelf op te lossen.
+  Er bestaat geen officiële antwoordsleutel: de oplossingen hieronder zijn <b>modelantwoorden</b>, opgebouwd uit de
+  slides waarnaar ze verwijzen. Getallen die de gids zelf berekent, komen uit <code>study/parts/13_numbers.py</code>.
+  <a class="p" href="../source/exam/20251009_voorbeeldexamen%20six%20sigma.pdf#page=1">examen p. 1</a></p>
+
+  <section class="unit" id="d13-v1" data-kw="voorbeeldexamen; exam; vraag 1; question 1; significant; relevant; betrouwbaarheidsinterval; confidence interval; nauwkeurigheid; precision; steekproefgrootte; sample size; cluster sampling; non-response bias; dualiteit; duality">
+    <h3>13.1 Vraag 1 — Juist of niet juist? (2,5 punten) <a class="p" href="../source/exam/20251009_voorbeeldexamen%20six%20sigma.pdf#page=1">examen p. 1</a></h3>
+    <div class="exercise" id="ex-13-1" data-kw="vraag 1; uitspraken; statements; significant; relevant; BI; CI; cluster; non-response; 99%">
+      <h4>Oefening 13.1 — Aanvaard je de uitspraak als correct? Motiveer kort.</h4>
+      <div class="q" data-type="choice" data-answer="niet">
+        <label>a. Een hypothesetest toont een significant positief effect van een dure procesaanpassing aan; dus investeren ligt voor de hand.</label>
+        <select><option value="">kies…</option><option value="correct">correct</option><option value="niet">niet correct</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="correct">
+        <label>b. Een 95%-BI voor het percentage defectieven is [1,4 %; 2,2 %]; het proces is dus niet geschikt om minder dan 1 % defectieven te leveren.</label>
+        <select><option value="">kies…</option><option value="correct">correct</option><option value="niet">niet correct</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="correct">
+        <label>c. Het populatiegemiddelde kan in theorie met om het even welke vooropgestelde nauwkeurigheid geschat worden.</label>
+        <select><option value="">kies…</option><option value="correct">correct</option><option value="niet">niet correct</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="niet">
+        <label>d. Cluster sampling zal nooit non-response bias vertonen.</label>
+        <select><option value="">kies…</option><option value="correct">correct</option><option value="niet">niet correct</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <p>e. Om een hypothese te toetsen bij een significantie van 1 % dient een 99%-betrouwbaarheidsinterval berekend te
+      worden. (Motiveer; zie de oplossing voor de nuance.)</p>
+      <details class="hint"><summary>Hint</summary><p>Denk aan: significantie versus relevantie; wat een BI zegt over de
+      ware waarde; nauwkeurigheid versus steekproefgrootte; wanneer cluster sampling onvertekend is; de dualiteit tussen
+      toetsen en betrouwbaarheidsintervallen (en eenzijdig/tweezijdig).</p></details>
+      <details class="solution"><summary>Toon oplossing</summary>
+        <ol>
+          <li><b>a. Niet correct.</b> Een significant resultaat is niet automatisch relevant. Ottoy noemt dit expliciet als
+          valkuil: "believing a significant result is always relevant"; met grote steekproeven worden ook kleine,
+          onbelangrijke afwijkingen significant (de "big data fallacy trap")
+          <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=11">TH p. 11</a>. Ook De Vuyst:
+          een resultaat moet praktische betekenis hebben
+          <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=11">REG p. 11</a>. Kijk dus naar de grootte
+          van het effect (bv. met een betrouwbaarheidsinterval) en zet die af tegen de kost.</li>
+          <li><b>b. Correct</b> (voor het proces zoals het nu loopt). Het BI is het gebied waarin we de ware fractie
+          defectieven situeren <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=6">CI p. 6</a>. Het hele
+          interval ligt boven 1 %, dus met 95 % betrouwbaarheid is de ware fractie groter dan 1 %. Toetsen met een BI is
+          gelijkwaardig aan een klassieke toets <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=12">CI p. 12–13</a>:
+          <var data-s="h0">H<sub>0</sub></var>: <var data-s="pi">π</var> ≤ 1 % wordt verworpen. Nuance: dit zegt iets over het huidige proces; na verbetering kan het
+          wel geschikt worden.</li>
+          <li><b>c. Correct.</b> Betrouwbaarheid en nauwkeurigheid kunnen allebei hoog zijn, "however at the expense of an
+          ever-larger sample size" <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=7">CI p. 7</a>: de
+          breedte van het interval neemt af met de steekproefgrootte (halveren van de breedte vraagt ongeveer vier keer
+          zoveel waarnemingen). In theorie haal je dus elke nauwkeurigheid, in de praktijk ten koste van een grote
+          steekproef.</li>
+          <li><b>d. Niet correct.</b> Cluster sampling is enkel onvertekend als de steekproef op elk niveau van de hiërarchie
+          (palet, doos, …) toevallig blijft. Wordt één niveau systematisch (bv. altijd de bovenste dozen van een palet),
+          dan kan non-response bias optreden
+          <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=20">AS p. 20</a>; zie ook
+          <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=21">AS p. 21–22</a> (systematische steekproef,
+          frame) en <a href="#d06">Deel 06</a>.</li>
+          <li><b>e. Juist in de zin van de dualiteit, maar "dient" klopt niet.</b> Toets je met een (1 − <var data-s="alpha">α</var>)·100 %-BI, dan
+          is de significantie van de toets <var data-s="alpha">α</var>; een 99%-BI hoort dus bij <var data-s="alpha">α</var> = 1 %
+          <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=13">CI p. 13</a>. Twee kanttekeningen:
+          (1) het BI is een <i>alternatief</i> voor de klassieke toets, die gelijkwaardig is; je bent dus niet verplicht een
+          BI te berekenen <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=12">CI p. 12</a>; (2) het
+          interval moet van hetzelfde type zijn als de toets: een eenzijdige toets hoort bij een eenzijdig 99%-BI
+          (zie de recepten op dezelfde slide). Meer in <a href="#d04">Deel 04</a> en <a href="#d05">Deel 05</a>.</li>
+        </ol>
+      </details>
+    </div>
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>a. "Significant, dus investeren ligt voor de hand."</b> Fout: significant zegt niets over de grootte van het effect; met een grote steekproef wordt ook een klein, onbelangrijk verschil significant ("big data fallacy trap") <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=11">TH p. 11</a>. Kijk naar de grootte (een BI) en zet die af tegen de kost; zie <a href="#d05-valkuilen">05.6</a>.</li>
+      <li><b>b. "Een 95%-BI zegt niets zeker over de ware fractie, dus b is niet correct."</b> Fout: het BI situeert de ware fractie <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=6">CI p. 6</a>, en toetsen met een BI is gelijkwaardig aan een klassieke toets <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=12">CI p. 12–13</a>: 1 % ligt buiten [1,4 %; 2,2 %], dus <var data-s="h0">H<sub>0</sub></var>: <var data-s="pi">π</var> ≤ 1 % wordt verworpen. Het besluit geldt voor het proces zoals het nu loopt; zie <a href="#d04-dualiteit">04.9</a>.</li>
+      <li><b>c. "Een willekeurig hoge nauwkeurigheid kan niet."</b> Fout: betrouwbaarheid en nauwkeurigheid kunnen allebei hoog zijn, ten koste van een steeds grotere steekproef <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=7">CI p. 7</a>; de breedte halveren kost ongeveer vier keer zoveel waarnemingen. Zie <a href="#d04-nauwkeurigheid">04.2</a>.</li>
+      <li><b>d. "Cluster sampling is altijd onvertekend."</b> Fout: alleen als de keuze op elk niveau van de hiërarchie (palet, doos …) toevallig blijft; een systematisch niveau, zoals altijd de bovenste dozen, kan non-response bias geven <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=20">AS p. 20</a>. Zie <a href="#d06-cluster">06.6</a>.</li>
+      <li><b>e. "Voor een toets met <var data-s="alpha">α</var> = 1 % moet je een 99%-BI berekenen."</b> Fout: "moet" klopt niet. Een (1 − <var data-s="alpha">α</var>)-BI hoort wel bij significantie <var data-s="alpha">α</var> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=13">CI p. 13</a>, maar het is een gelijkwaardig alternatief voor de klassieke toets <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=12">CI p. 12</a>, en het moet van hetzelfde type zijn: een eenzijdige toets hoort bij een eenzijdig BI. Zie <a href="#d04-dualiteit">04.9</a>.</li>
+      <li><b>Let op:</b> woorden als "nooit" (d) en "dient" (e) maken een uitspraak vaak fout of half juist; de punten zitten in de korte motivering met de juiste nuance. <span class="gen">algemeen</span></li>
+    </ul></div>
+  </section>
+
+  <section class="unit" id="d13-v2" data-kw="vraag 2; question 2; twee machines; two machines; F-verdeling; F distribution; F.INV; variantieverhouding; variance ratio; eenzijdig betrouwbaarheidsinterval; one-sided confidence interval; nauwkeuriger; more precise">
+    <h3>13.2 Vraag 2 — Is machine M1 nauwkeuriger dan M2? (3 punten) <a class="p" href="../source/exam/20251009_voorbeeldexamen%20six%20sigma.pdf#page=2">examen p. 2</a></h3>
+    <div class="exercise" id="ex-13-2" data-kw="vraag 2; F-toets; F test; σ2²/σ1²; F.INV; machines; precisie; precision">
+      <h4>Oefening 13.2 — Eenzijdig 95%-BI voor σ<sub>2</sub>²/σ<sub>1</sub>²</h4>
+      <p>Machines M1 en M2 zijn afgesteld op <var data-s="x_dim">X</var> = 10,000; X is normaal verdeeld. Vermoeden: M1 is nauwkeuriger dan M2.
+      Steekproeven <var data-s="n1">n<sub>1</sub></var> = 10 (M1) en <var data-s="n2">n<sub>2</sub></var> = 15 (M2). Hint van het examen:
+      (<var data-s="s1">s<sub>1</sub></var>²/<var data-s="s2">s<sub>2</sub></var>²)·(<var data-s="sigma2">σ<sub>2</sub></var>²/<var data-s="sigma1">σ<sub>1</sub></var>²) volgt een F-verdeling met <var data-s="n1">n<sub>1</sub></var> − 1 en
+      <var data-s="n2">n<sub>2</sub></var> − 1 vrijheidsgraden; gebruik F.INV. <b>Het Excel-bestand met de metingen zit niet in de
+      cursusbestanden</b>; los de vraag dus algemeen op en reken s<sub>1</sub> en s<sub>2</sub> pas in als je de data hebt
+      (werkblad "Variance CI &amp; tests").</p>
+      <div class="q" data-type="choice" data-answer="onder">
+        <label>Welke grens heb je nodig om "M1 nauwkeuriger" (<var data-s="sigma1">σ<sub>1</sub></var> &lt; <var data-s="sigma2">σ<sub>2</sub></var>) aan te tonen?</label>
+        <select><option value="">kies…</option><option value="onder">een ondergrens voor σ2²/σ1²</option><option value="boven">een bovengrens voor σ2²/σ1²</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="0.3305" data-tol="0.001">
+        <label>F.INV(<var data-s="p_left">0,05</var>; <var data-s="df1">9</var>; <var data-s="df2">14</var>) = (4 decimalen)</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <details class="hint"><summary>Hint</summary><p>Schrijf P[ <var data-s="f_stat">F</var> ≥ F.INV(<var data-s="p_left">0,05</var>; <var data-s="df1">9</var>; <var data-s="df2">14</var>) ] = 0,95 met
+      <var data-s="f_stat">F</var> = (<var data-s="s1">s<sub>1</sub></var>²/<var data-s="s2">s<sub>2</sub></var>²)(<var data-s="sigma2">σ<sub>2</sub></var>²/<var data-s="sigma1">σ<sub>1</sub></var>²) en los op naar <var data-s="sigma2">σ<sub>2</sub></var>²/<var data-s="sigma1">σ<sub>1</sub></var>².</p></details>
+      <details class="solution"><summary>Toon oplossing</summary>
+        <ol class="steps">
+          <li>Met <var data-s="f_stat">F</var> = (<var data-s="s1">s<sub>1</sub></var>²/<var data-s="s2">s<sub>2</sub></var>²)·(<var data-s="sigma2">σ<sub>2</sub></var>²/<var data-s="sigma1">σ<sub>1</sub></var>²) ~ F<sub>9, 14</sub> geldt
+          P[ <var data-s="f_stat">F</var> ≥ F.INV(<var data-s="p_left">0,05</var>; <var data-s="df1">9</var>; <var data-s="df2">14</var>) ] = 0,95.</li>
+          <li>Herschikken geeft het eenzijdige 95%-BI:
+          <var data-s="sigma2">σ<sub>2</sub></var>²/<var data-s="sigma1">σ<sub>1</sub></var>² ≥ F.INV(<var data-s="p_left">0,05</var>; <var data-s="df1">9</var>; <var data-s="df2">14</var>) · <var data-s="s2">s<sub>2</sub></var>²/<var data-s="s1">s<sub>1</sub></var>² = 0,3305 · <var data-s="s2">s<sub>2</sub></var>²/<var data-s="s1">s<sub>1</sub></var>²
+          <span class="computed">zelf berekend</span>.</li>
+          <li><b>Besluit</b>: ligt die ondergrens boven 1, dan is <var data-s="sigma2">σ<sub>2</sub></var> &gt; <var data-s="sigma1">σ<sub>1</sub></var> met 95 % betrouwbaarheid
+          en is het vermoeden gerechtvaardigd. Ligt ze onder 1, dan kun je het niet besluiten (het BI bevat dan 1).</li>
+          <li>De formules voor F-intervallen en de F-toets staan in de toetsrecepten
+          <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=12">Recepten p. 12–14</a>;
+          zie <a href="#d04">Deel 04</a> en <a href="#d05">Deel 05</a>. In de rekentool: werkblad "Variance CI &amp; tests",
+          rij "one-sided: <var data-s="sigma1">σ1</var>²/<var data-s="sigma2">σ2</var>² at most …" (die toont <var data-s="sigma2">σ2</var>²/<var data-s="sigma1">σ1</var>² "at least …").</li>
+        </ol>
+      </details>
+    </div>
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>"Om aan te tonen dat M1 nauwkeuriger is, bereken je een bovengrens voor <var data-s="sigma2">σ<sub>2</sub></var>²/<var data-s="sigma1">σ<sub>1</sub></var>²."</b> Fout: nauwkeuriger betekent <var data-s="sigma1">σ<sub>1</sub></var> &lt; <var data-s="sigma2">σ<sub>2</sub></var>, dus <var data-s="sigma2">σ<sub>2</sub></var>²/<var data-s="sigma1">σ<sub>1</sub></var>² &gt; 1: je hebt een <b>ondergrens</b> nodig, en die moet boven 1 liggen. Zie <a href="#d04-f">04.8</a>.</li>
+      <li><b>Let op:</b> de vrijheidsgraden zijn <var data-s="n1">n<sub>1</sub></var> − 1 = 9 en <var data-s="n2">n<sub>2</sub></var> − 1 = 14, in die volgorde (de teller hoort bij <var data-s="s1">s<sub>1</sub></var>²). Draai je de verhouding om, dan wissel je ook de vrijheidsgraden <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=12">Recepten p. 12</a>.</li>
+      <li><b>Let op:</b> F.INV geeft het punt met de opgegeven kans eronder. Voor de eenzijdige ondergrens neem je F.INV(<var data-s="p_left">0,05</var>; <var data-s="df1">9</var>; <var data-s="df2">14</var>) = 0,3305, niet F.INV(0,95; <var data-s="df1">9</var>; <var data-s="df2">14</var>) = 2,6458 <span class="computed">zelf berekend</span>.</li>
+      <li><b>"De ondergrens ligt onder 1, dus M1 en M2 zijn even nauwkeurig."</b> Fout: dan bevat het BI de waarde 1 en kun je niets besluiten; niet verwerpen is geen bewijs <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=11">TH p. 11</a>. Zie <a href="#d05-valkuilen">05.6</a>.</li>
+      <li><b>Let op:</b> de F-uitspraak geldt voor twee onafhankelijke steekproeven uit normale populaties <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=12">Recepten p. 12</a>; de opgave geeft dat <var data-s="x_dim">X</var> normaal verdeeld is. Vermeld het in je antwoord.</li>
+    </ul></div>
+  </section>
+
+  <section class="unit" id="d13-v3" data-kw="vraag 3; question 3; plaatstaal; steel strip; capabiliteit; capability; Cp; Cpk; uitval; percentage out of spec; 6 sigma criterium; six sigma criterion; ppm">
+    <h3>13.3 Vraag 3 — Capabiliteit van een rol plaatstaal (2 punten) <a class="p" href="../source/exam/20251009_voorbeeldexamen%20six%20sigma.pdf#page=3">examen p. 3</a></h3>
+    <div class="exercise" id="ex-13-3" data-kw="vraag 3; Cp; Cpk; uitval; specificatie; 1400; 1460; 1440">
+      <h4>Oefening 13.3 — Specificatie 1400–1460 mm, gemiddelde 1440 mm, standaardafwijking 10 mm</h4>
+      <div class="q" data-answer="1.00" data-tol="0.01"><label>a. <var data-s="cp">Cp</var> =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span></div>
+      <div class="q" data-answer="0.667" data-tol="0.01"><label>a. <var data-s="cpk">Cpk</var> =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span></div>
+      <div class="q" data-answer="2.278" data-tol="0.02"><label>b. verwachte uitval (in %) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span></div>
+      <p>c. Geef twee manieren om de capabiliteit te verbeteren. d. Welk % uitval kan hoogstens getolereerd worden om
+      aan het 6σ-criterium te voldoen?</p>
+      <details class="hint"><summary>Hint</summary><p>Cp vergelijkt de tolerantie met 6<var data-s="sigma">σ</var>; Cpk kijkt naar de dichtste
+      specificatiegrens. Voor de uitval: twee staarten, met <var data-s="z">z</var> = (grens − <var data-s="mu">µ</var>)/<var data-s="sigma">σ</var>.</p></details>
+      <details class="solution"><summary>Toon oplossing</summary>
+        <ol class="steps">
+          <li><b>a.</b> <var data-s="cp">Cp</var> = (<var data-s="usl">USL</var> − <var data-s="lsl">LSL</var>)/(6<var data-s="sigma">σ</var>) = 60/60 = <b>1,00</b>; <var data-s="cpk">Cpk</var> = min{(1460 − 1440)/30; (1440 − 1400)/30} =
+          min{0,667; 1,333} = <b>0,67</b>. Het proces is niet gecentreerd: het ligt te dicht bij de bovengrens.
+          Zie <a href="#d09">Deel 09</a>.</li>
+          <li><b>b.</b> Boven: <var data-s="z">z</var> = (1460 − 1440)/10 = 2, staart 2,275 %. Onder: <var data-s="z">z</var> = (1400 − 1440)/10 = −4, staart
+          0,0032 %. Samen <b>2,28 %</b> uitval <span class="computed">zelf berekend</span> (Z-tabel, of
+          NORM.S.DIST in Excel; zie <a href="#d03">Deel 03</a>).</li>
+          <li><b>c.</b> (1) Het proces centreren: het gemiddelde naar het midden van de tolerantie (1430 mm) brengen. Dan
+          is <var data-s="cpk">Cpk</var> = <var data-s="cp">Cp</var> = 1 en daalt de uitval naar 0,27 % <span class="computed">zelf berekend</span>. (2) De spreiding
+          verkleinen (σ omlaag), waardoor Cp en Cpk stijgen. De slides tonen deze twee hefbomen als "process variation
+          pre/post project" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=25">SPC p. 25–26</a>.</li>
+          <li><b>d.</b> De cursus geeft twee lezingen van het 6σ-criterium, en de gids toont ze allebei (beslissing 2):
+          <b>3,4 ppm</b> (= 0,00034 %) met de 1,5σ-verschuiving op lange termijn, of <b>0,002 ppm</b> (<var data-s="cp">Cp</var> = 2, korte termijn,
+          geen verschuiving): "<var data-s="cp">Cp</var> = 2: 6 Sigma quality level – 2 defect per billion of opportunities (short term)" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a>, <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a>.
+          Zie <a href="#d03">Deel 03</a> en <a href="#d09">Deel 09</a>. Rekentool: werkblad "Capability", rijen
+          "6σ criterion".</li>
+        </ol>
+      </details>
+    </div>
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>"<var data-s="cp">Cp</var> = 1, dus het proces is net capabel met 0,27 % uitval."</b> Fout: Cp kijkt niet naar de ligging. Met <var data-s="mu">µ</var> = 1440 is <var data-s="cpk">Cpk</var> = 0,67 en de uitval 2,28 %; 0,27 % geldt alleen gecentreerd op 1430 <span class="computed">zelf berekend</span>. Zie <a href="#d09-cpk">09.3</a>.</li>
+      <li><b>Let op:</b> <var data-s="cp">Cp</var> deelt de hele tolerantie door 6<var data-s="sigma">σ</var>, <var data-s="cpk">Cpk</var> de afstand tot de dichtste grens door 3<var data-s="sigma">σ</var>: (1460 − 1440)/30, niet /60.</li>
+      <li><b>Let op:</b> de uitval zijn beide staarten samen (2,275 % + 0,0032 %); hier is de onderste staart verwaarloosbaar, maar bij twee grenzen tel je ze altijd op. Zie <a href="#d09-uitval">09.5</a>.</li>
+      <li><b>"Het 6σ-criterium betekent 3,4 % uitval."</b> Fout: 3,4 ppm = 0,00034 % (lange termijn, met de 1,5σ-verschuiving) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a>; de cursus geeft ook 2 per miljard = 0,002 ppm (<var data-s="cp">Cp</var> = 2, korte termijn) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a>. Geef beide (beslissing 2); zie <a href="#d09-sixsigma">09.6</a>.</li>
+      <li><b>"De capabiliteit verbeter je door de specificaties ruimer te maken."</b> Fout: de specificaties zijn de stem van de klant. De twee hefbomen van de cursus zijn centreren en de spreiding verkleinen <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=25">SPC p. 25–26</a>; zie <a href="#d09-verbeteren">09.7</a>.</li>
+    </ul></div>
+  </section>
+
+  <section class="unit" id="d13-v4" data-kw="vraag 4; question 4; regelkaart; control chart; normale verdeling; normal distribution; centrale limietstelling; central limit theorem; oorzaken; special causes; common causes; range; spreidingsbreedte">
+    <h3>13.4 Vraag 4 — Regelkaarten (1,5 punten) <a class="p" href="../source/exam/20251009_voorbeeldexamen%20six%20sigma.pdf#page=3">examen p. 3</a></h3>
+    <div class="exercise" id="ex-13-4" data-kw="vraag 4; regelkaart; CLT; special cause; R-kaart; s-kaart">
+      <h4>Oefening 13.4 — Drie korte vragen over meet- en regelkaarten</h4>
+      <p>a. Waarom mogen we bij regelkaarten de normale verdeling veronderstellen en met gemiddelden en
+      standaardafwijkingen werken? b. Welk soort oorzaken van afwijking detecteren we met een meet- en regelkaart?
+      c. Wanneer gebruiken we de range als beste schatting?</p>
+      <div class="q" data-type="choice" data-answer="special">
+        <label>b. Een regelkaart detecteert vooral…</label>
+        <select><option value="">kies…</option><option value="common">gewone oorzaken (common causes)</option><option value="special">speciale oorzaken (special/assignable causes)</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <details class="solution"><summary>Toon oplossing</summary>
+        <ol>
+          <li><b>a.</b> Niet elk proces is normaal verdeeld, maar op de X̄-kaart zetten we <i>gemiddelden</i> van
+          steekproeven uit, en die zijn (bij benadering) normaal verdeeld volgens de centrale limietstelling
+          <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=62">SPC p. 62–63</a>.</li>
+          <li><b>b.</b> Speciale oorzaken (special causes): onverwachte variatie buiten wat het proces normaal doet, niet
+          zuiver toevallig. Gewone oorzaken (common causes) zijn de normale, voorspelbare ruis; die blijven binnen de
+          controlegrenzen <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=31">SPC p. 31</a>.</li>
+          <li><b>c.</b> Bij kleine steekproeven (<var data-s="n_sub">n</var> &lt; 10) en bij manueel bijgehouden kaarten: dan is R handiger en
+          volstaat het. Voor grotere steekproeven is s efficiënter
+          <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=73">SPC p. 73–74</a> (sprekersnotities bij dia 73).</li>
+        </ol>
+        <p>Meer in <a href="#d10">Deel 10</a>.</p>
+      </details>
+    </div>
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>a. "We mogen normaliteit aannemen omdat elk proces normaal verdeeld is."</b> Fout: niet elk proces is normaal; je zet gemiddelden van steekproeven uit, en die zijn bij benadering normaal (centrale limietstelling) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=62">SPC p. 62–63</a>. Zie <a href="#d10-wat">10.1</a>.</li>
+      <li><b>Let op:</b> de centrale limietstelling geldt voor gemiddelden, niet voor losse metingen: op een I-MR-kaart helpt ze niet <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=251">Dummies p. 251</a>. Zie <a href="#d10-imr">10.8</a>.</li>
+      <li><b>b. "Een regelkaart detecteert gewone oorzaken."</b> Fout: ze detecteert speciale (aanwijsbare) oorzaken; gewone oorzaken zijn de normale ruis binnen de grenzen <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=31">SPC p. 31</a>. Zie <a href="#d10-wat">10.1</a>.</li>
+      <li><b>c. "De range is altijd de beste schatting."</b> Fout: alleen bij kleine steekproeven (<var data-s="n_sub">n</var> &lt; 10) en met de hand bijgehouden kaarten; voor grotere steekproeven is s efficiënter <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=73">SPC p. 73–74</a>. Zie <a href="#d10-formules">10.5</a>.</li>
+      <li><b>Let op:</b> "in control" (geen speciale oorzaken) zegt niets over de specificaties: stabiel is niet hetzelfde als capabel <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=70">SPC p. 70</a>. Zie <a href="#d10-grenzen">10.2</a>.</li>
+    </ul></div>
+  </section>
+
+  <section class="unit" id="d13-v5" data-kw="vraag 5; question 5; beslissingsboom; decision tree; confusion matrix; verwarringsmatrix; bias; variantie; variance; overfitting; underfitting; accuracy; trainingsset; testset">
+    <h3>13.5 Vraag 5 — Drie beslissingsbomen (4 punten) <a class="p" href="../source/exam/20251009_voorbeeldexamen%20six%20sigma.pdf#page=4">examen p. 4–5</a></h3>
+    <div class="exercise" id="ex-13-5" data-kw="vraag 5; model A; model B; model C; hoge variantie; hoge bias; optimaal; accuracy">
+      <h4>Oefening 13.5 — Welk model heeft hoge variantie, welk hoge bias, welk is optimaal?</h4>
+      <p>Rijen = werkelijke klasse, kolommen = voorspelde klasse (Goed, Slecht).</p>
+      <table>
+        <tr><th>Model</th><th>Training: Goed→Goed, Goed→Slecht, Slecht→Goed, Slecht→Slecht</th><th>Test: idem</th></tr>
+        <tr><td>A</td><td class="n">480, 20, 15, 485</td><td class="n">180, 120, 110, 190</td></tr>
+        <tr><td>B</td><td class="n">380, 120, 140, 360</td><td class="n">190, 110, 120, 180</td></tr>
+        <tr><td>C</td><td class="n">420, 80, 70, 430</td><td class="n">200, 100, 85, 215</td></tr>
+      </table>
+      <div class="q" data-answer="0.965" data-tol="0.001"><label>Accuracy model A op de trainingsset =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span></div>
+      <div class="q" data-answer="0.6167" data-tol="0.001"><label>Accuracy model A op de testset =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span></div>
+      <div class="q" data-type="choice" data-answer="A"><label>Hoge variantie (overfitting):</label>
+        <select><option value="">kies…</option><option value="A">A</option><option value="B">B</option><option value="C">C</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span></div>
+      <div class="q" data-type="choice" data-answer="B"><label>Hoge bias (underfitting):</label>
+        <select><option value="">kies…</option><option value="A">A</option><option value="B">B</option><option value="C">C</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span></div>
+      <div class="q" data-type="choice" data-answer="C"><label>Optimaal:</label>
+        <select><option value="">kies…</option><option value="A">A</option><option value="B">B</option><option value="C">C</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span></div>
+      <details class="hint"><summary>Hint</summary><p>Vergelijk per model de accuracy op training en test. Hoge
+      variantie: goed op training, veel slechter op test. Hoge bias: slecht op beide.</p></details>
+      <details class="solution"><summary>Toon oplossing</summary>
+        <table>
+          <tr><th>Model</th><th class="n">Accuracy training</th><th class="n">Accuracy test</th><th>Lezing</th></tr>
+          <tr><td>A</td><td class="n">0,965</td><td class="n">0,617</td><td>bijna perfect op training, slecht op test → <b>hoge variantie</b> (overfitting)</td></tr>
+          <tr><td>B</td><td class="n">0,740</td><td class="n">0,617</td><td>zwak op training én test → <b>hoge bias</b> (underfitting)</td></tr>
+          <tr><td>C</td><td class="n">0,850</td><td class="n">0,692</td><td>goed op training en de beste op test → <b>optimaal</b></td></tr>
+        </table>
+        <p class="small">Accuracies <span class="computed">zelf berekend</span> als (Goed→Goed + Slecht→Slecht) / totaal.</p>
+        <p><b>b.</b> Hoge bias betekent een te eenvoudig model. Maak de boom complexer: laat hem dieper groeien (grotere
+        maximale diepte, max_depth), laat kleinere bladeren toe (minder observaties per blad) of eis minder winst voor
+        een split <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20slides.pdf#page=46">Naert web-slides p. 46</a>.
+        Over under- en overfitting en bias-variantie:
+        <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=22">Naert p. 22–28</a>; confusion matrix
+        <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=29">Naert p. 29–32</a>. Zie <a href="#d12">Deel 12</a>;
+        rekentool: werkblad "Confusion matrix".</p>
+      </details>
+    </div>
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>"Model A is het beste: het heeft de hoogste accuracy."</b> Fout: dat is op de trainingsset (0,965); op de testset zakt A naar 0,617 <span class="computed">zelf berekend</span>. Een grote kloof tussen training en test is overfitting (hoge variantie); beoordeel een model op de testset. Zie <a href="#d12-diagnose">12.15</a>.</li>
+      <li><b>"A en B halen dezelfde test-accuracy, dus ze hebben hetzelfde probleem."</b> Fout: A is bijna perfect op training (hoge variantie), B is zwak op training én test (hoge bias). Kijk naar het niveau én naar de kloof; zie <a href="#d12-bias-variance">12.9</a>.</li>
+      <li><b>"Hoge bias los je op met een eenvoudiger boom."</b> Fout: hoge bias betekent een te eenvoudig model; maak de boom complexer: dieper, kleinere bladeren, minder winst per split <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20slides.pdf#page=46">Naert web-slides p. 46</a>. Zie <a href="#d12-bomen">12.14</a>.</li>
+      <li><b>Let op:</b> lees eerst de assen van de matrix. In het examen zijn de rijen de werkelijke klasse; het 4 × 4-voorbeeld van <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=30">Naert p. 30</a> zet de voorspelling in de rijen. De diagonaal (en dus de accuracy) blijft dezelfde, maar FP en FN wisselen van plaats. Zie <a href="#d12-confusion">12.10</a>.</li>
+    </ul></div>
+  </section>
+
+  <section class="unit" id="d13-v6" data-kw="vraag 6; question 6; elco; condensator; capacitor; kansverdeling; distribution; Poisson; exponentieel; exponential; normaal; normal; Bernoulli; binomiaal; binomial; uniform; verwachtingswaarde; expected value; variantie; variance; iid; onafhankelijk">
+    <h3>13.6 Vraag 6 — Elco's: welke verdeling? (4 punten) <a class="p" href="../source/exam/20251009_voorbeeldexamen%20six%20sigma.pdf#page=7">examen p. 7</a></h3>
+    <div class="exercise" id="ex-13-6" data-kw="vraag 6; B; T; C; X; D; Var[C]; 720; 820; 2 op 40; 175,3">
+      <h4>Oefening 13.6 — Elco's van nominaal 800 µF</h4>
+      <p>Een elco met capaciteit onder 720 µF is niet-conform. Gemiddeld zijn 2 op 40 elco's niet-conform en de gemiddelde
+      capaciteit is 820 µF. Klanten bestellen loten van 100 stuks; er komen gemiddeld 175,3 bestellingen per week binnen
+      (van gemiddeld 3,6 loten). <var data-s="b_orders">B</var> = aantal bestellingen per week, <var data-s="t_between">T</var> = tijd tussen twee bestellingen, <var data-s="c_cap">C</var> = capaciteit van
+      een elco, <var data-s="x_conf">X</var> = conformiteit van een elco (wel/niet), <var data-s="d_noncon">D</var> = aantal niet-conforme elco's in een lot.</p>
+      <div class="q" data-type="choice" data-answer="poisson"><label>a. Familie van B:</label>
+        <select><option value="">kies…</option><option value="normaal">normaal</option><option value="bernoulli">Bernoulli</option><option value="exponentieel">exponentieel</option><option value="uniform">uniform</option><option value="poisson">Poisson</option><option value="binomiaal">binomiaal</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span></div>
+      <div class="q" data-type="choice" data-answer="exponentieel"><label>a. Familie van T:</label>
+        <select><option value="">kies…</option><option value="normaal">normaal</option><option value="bernoulli">Bernoulli</option><option value="exponentieel">exponentieel</option><option value="uniform">uniform</option><option value="poisson">Poisson</option><option value="binomiaal">binomiaal</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span></div>
+      <div class="q" data-type="choice" data-answer="normaal"><label>a. Familie van C:</label>
+        <select><option value="">kies…</option><option value="normaal">normaal</option><option value="bernoulli">Bernoulli</option><option value="exponentieel">exponentieel</option><option value="uniform">uniform</option><option value="poisson">Poisson</option><option value="binomiaal">binomiaal</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span></div>
+      <div class="q" data-type="choice" data-answer="bernoulli"><label>a. Familie van X:</label>
+        <select><option value="">kies…</option><option value="normaal">normaal</option><option value="bernoulli">Bernoulli</option><option value="exponentieel">exponentieel</option><option value="uniform">uniform</option><option value="poisson">Poisson</option><option value="binomiaal">binomiaal</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span></div>
+      <div class="q" data-type="choice" data-answer="binomiaal"><label>a. Familie van D:</label>
+        <select><option value="">kies…</option><option value="normaal">normaal</option><option value="bernoulli">Bernoulli</option><option value="exponentieel">exponentieel</option><option value="uniform">uniform</option><option value="poisson">Poisson</option><option value="binomiaal">binomiaal</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span></div>
+      <div class="q" data-answer="5" data-tol="0.01"><label>E[<var data-s="d_noncon">D</var>] =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span></div>
+      <div class="q" data-answer="3696" data-tol="25"><label>c. Var[<var data-s="c_cap">C</var>] (µF²) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span></div>
+      <details class="hint"><summary>Hint</summary><p>Aantallen per tijdseenheid, wachttijden, een meetwaarde, één ja/nee,
+      en een aantal "ja" in 100 stuks. Voor Var[<var data-s="c_cap">C</var>]: welke z hoort bij 5 % links van 720?</p></details>
+      <details class="solution"><summary>Toon oplossing</summary>
+        <table>
+          <tr><th>Variabele</th><th>Familie</th><th>Verwachtingswaarde</th></tr>
+          <tr><td>B (bestellingen per week)</td><td>Poisson (aantallen per tijdseenheid)</td><td>E[<var data-s="b_orders">B</var>] = 175,3 per week</td></tr>
+          <tr><td>T (tijd tussen bestellingen)</td><td>exponentieel (wachttijden)</td><td>E[<var data-s="t_between">T</var>] = 1/175,3 week ≈ 0,0057 week ≈ 57,5 minuten <span class="computed">zelf berekend</span></td></tr>
+          <tr><td>C (capaciteit)</td><td>normaal</td><td>E[<var data-s="c_cap">C</var>] = 820 µF</td></tr>
+          <tr><td>X (conformiteit)</td><td>Bernoulli</td><td>E[<var data-s="x_conf">X</var>] = 2/40 = 0,05 (kans op niet-conform)</td></tr>
+          <tr><td>D (niet-conform in een lot van 100)</td><td>binomiaal (<var data-s="n_lot">n</var> = 100, <var data-s="p_noncon">p</var> = 0,05)</td><td>E[<var data-s="d_noncon">D</var>] = 100 · 0,05 = 5</td></tr>
+        </table>
+        <p>Naert koppelt Poisson aan tellingen en de exponentiële verdeling aan wachttijden
+        <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=7">Naert p. 7</a>; binomiaal en hypergeometrisch voor
+        defectieven in een lot: <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=12">AS p. 12</a>.
+        Opgelet: de algemene formules E[<var data-s="t_between">T</var>] = 1/<var data-s="lambda">λ</var> en Var = <var data-s="lambda">λ</var> voor Poisson staan niet in de slides (beslissing 20); zie
+        <a href="#d02">Deel 02</a>.</p>
+        <p><b>b.</b> Meerdere antwoorden mogelijk. Voorbeelden: B en T (bestellingen hangen af van seizoen, dag van de week,
+        promoties: niet elke week of elk moment heeft dezelfde verdeling); X en D (opeenvolgende elco's uit dezelfde
+        productierun of hetzelfde lot zijn niet onafhankelijk: een probleem in de machine raakt veel stuks tegelijk).</p>
+        <p><b>c.</b> P(<var data-s="c_cap">C</var> &lt; 720) = 0,05, dus (720 − 820)/<var data-s="sigma_c">σ</var> = <var data-s="z005">z<sub>0,05</sub></var> = −1,645 → <var data-s="sigma_c">σ</var> = 100/1,645 = 60,8 µF en
+        <b>Var[<var data-s="c_cap">C</var>] = <var data-s="sigma_c">σ</var>² ≈ 3696 µF²</b> <span class="computed">zelf berekend</span>. (Met <var data-s="z005">z</var> = 1,64 uit de tabel krijg je
+        ongeveer 3718.) Rekentool: werkblad "Normal", rij "σ uit een staartfractie"; zie <a href="#d03">Deel 03</a>.</p>
+      </details>
+    </div>
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>"<var data-s="b_orders">B</var> is binomiaal: je telt bestellingen."</b> Fout: een telling per tijdseenheid zonder vast aantal pogingen is Poisson; binomiaal is het aantal "ja" in een vast aantal stuks, zoals <var data-s="d_noncon">D</var> (<var data-s="n_lot">n</var> = 100) <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=7">Naert p. 7</a>, <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=12">AS p. 12</a>. Zie <a href="#d02-verdelingen">02.4</a>.</li>
+      <li><b>"<var data-s="t_between">T</var> is ook Poisson: het gaat om bestellingen."</b> Fout: <var data-s="t_between">T</var> is een wachttijd, en wachttijden zijn exponentieel <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=7">Naert p. 7</a>.</li>
+      <li><b>Let op:</b> <var data-s="x_conf">X</var> (één elco, ja/nee) is Bernoulli; <var data-s="d_noncon">D</var> (het aantal in een lot van 100) is binomiaal met <var data-s="n_lot">n</var> = 100 en <var data-s="p_noncon">p</var> = 0,05, dus E[<var data-s="d_noncon">D</var>] = 5.</li>
+      <li><b>Let op:</b> E[<var data-s="c_cap">C</var>] is het gegeven gemiddelde 820 µF, niet de nominale 800 µF. Var[<var data-s="c_cap">C</var>] vraagt <var data-s="sigma_c">σ</var>² (≈ 3696 µF²), niet <var data-s="sigma_c">σ</var> (60,8 µF).</li>
+      <li><b>Let op:</b> P(<var data-s="c_cap">C</var> &lt; 720) = 0,05 is de linkerstaart: <var data-s="z005">z<sub>0,05</sub></var> = −1,645; met de afgeronde 1,64 uit de tabel krijg je ongeveer 3718. Niet elk gegeven is nodig: de 3,6 loten per bestelling gebruik je in de modelantwoorden niet.</li>
+      <li><b>Let op (b):</b> "iid" vraagt twee dingen, onafhankelijk én identiek verdeeld. Zeg bij elk voorbeeld welke van de twee faalt (<var data-s="b_orders">B</var> en <var data-s="t_between">T</var>: seizoen, promoties; <var data-s="x_conf">X</var> en <var data-s="d_noncon">D</var>: dezelfde productierun). Zie <a href="#d02-4plot">02.8</a>.</li>
+    </ul></div>
+  </section>
+
+  <section class="unit" id="d13-v7" data-kw="vraag 7; question 7; gloeitemperatuur; annealing temperature; sterkte; strength; regressielijn; regression line; voorwaardelijke verwachting; conditional expectation; causaal diagram; causal diagram; interventie; intervention; do-operator">
+    <h3>13.7 Vraag 7 — Regressielijn en interventie (3 punten) <a class="p" href="../source/exam/20251009_voorbeeldexamen%20six%20sigma.pdf#page=9">examen p. 9</a></h3>
+    <div class="exercise" id="ex-13-7" data-kw="vraag 7; E[S|T]; S → T; T → S; 730 °C; interventie; observatie">
+      <h4>Oefening 13.7 — Sterkte S tegen gloeitemperatuur T</h4>
+      <p>De figuur op examen p. 9 toont een puntenwolk: de sterkte daalt met de temperatuur; de laagste punten liggen bij
+      de hoogste temperaturen. a. Schets E[<var data-s="s_strength">S</var> | <var data-s="t_temp">T</var> = <var data-s="x_temp">x</var>].
+      b. Causaal diagram <var data-s="s_strength">S</var> → <var data-s="t_temp">T</var>: we leggen T vast op 730 °C; schets een tiental observaties. c. Idem voor <var data-s="t_temp">T</var> → <var data-s="s_strength">S</var>.</p>
+      <div class="q" data-type="choice" data-answer="marginaal"><label>b. Bij <var data-s="s_strength">S</var> → <var data-s="t_temp">T</var> en ingreep <var data-s="t_temp">T</var> = 730 °C volgt S…</label>
+        <select><option value="">kies…</option><option value="marginaal">zijn gewone (marginale) verdeling: de ingreep verandert S niet</option><option value="voorwaardelijk">de voorwaardelijke verdeling bij T = 730 °C</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span></div>
+      <div class="q" data-type="choice" data-answer="voorwaardelijk"><label>c. Bij <var data-s="t_temp">T</var> → <var data-s="s_strength">S</var> en ingreep <var data-s="t_temp">T</var> = 730 °C volgt S…</label>
+        <select><option value="">kies…</option><option value="marginaal">zijn gewone (marginale) verdeling: de ingreep verandert S niet</option><option value="voorwaardelijk">de voorwaardelijke verdeling bij T = 730 °C</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span></div>
+      <details class="solution"><summary>Toon oplossing</summary>
+        <ol>
+          <li><b>a.</b> De regressielijn E[<var data-s="s_strength">S</var> | <var data-s="t_temp">T</var> = <var data-s="x_temp">x</var>] is het gemiddelde van S bij elke temperatuur x: een dalende lijn of
+          curve door het midden van de puntenwolk, per verticale strook
+          <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=26">Naert p. 26–27</a>.</li>
+          <li><b>b. <var data-s="s_strength">S</var> → <var data-s="t_temp">T</var></b>: de sterkte bepaalt de temperatuur, niet omgekeerd. Leg je T vast op 730 °C, dan verandert
+          dat niets aan S. De bolletjes staan dus allemaal bij <var data-s="t_temp">T</var> = 730 °C, maar verticaal verspreid zoals de <i>hele</i>
+          puntenwolk (de marginale verdeling van S), niet alleen zoals de punten die toevallig rond 730 °C liggen.</li>
+          <li><b>c. <var data-s="t_temp">T</var> → <var data-s="s_strength">S</var></b>: de temperatuur bepaalt de sterkte. Leg je T vast op 730 °C, dan volgt S de voorwaardelijke
+          verdeling bij 730 °C: de kruisjes liggen rond de waarde van de regressielijn bij 730 °C (laag), met de spreiding
+          van de punten in die buurt. Dat geldt als er geen verstorende factor (confounder) is.</li>
+        </ol>
+        <p>Achtergrond: zien (associatie, P(<var data-s="s_strength">S</var> | <var data-s="t_temp">T</var>)) versus doen (interventie), causale diagrammen en het praktijkvoorbeeld
+        "koelt warm staal sneller af"
+        <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=40">Naert p. 40–46</a>,
+        <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=53">p. 53–57</a> (extra). Zie
+        <a href="#d02">Deel 02</a>.</p>
+      </details>
+    </div>
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>"Bij <var data-s="s_strength">S</var> → <var data-s="t_temp">T</var> en de ingreep <var data-s="t_temp">T</var> = 730 °C liggen de nieuwe punten rond de regressielijn bij 730 °C."</b> Fout: een interventie schrapt de pijlen die in <var data-s="t_temp">T</var> aankomen; <var data-s="t_temp">T</var> is hier geen oorzaak van <var data-s="s_strength">S</var>, dus <var data-s="s_strength">S</var> volgt zijn marginale verdeling, over de hele hoogte van de wolk <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=44">Naert p. 44</a>. Zie <a href="#d02-dag">02.14</a>.</li>
+      <li><b>"De regressielijn E[<var data-s="s_strength">S</var> | <var data-s="t_temp">T</var> = <var data-s="x_temp">x</var>] voorspelt wat er gebeurt als je <var data-s="t_temp">T</var> op <var data-s="x_temp">x</var> zet."</b> Fout: de regressielijn is zien, niet doen. Ze valt alleen samen met het effect van een ingreep als <var data-s="t_temp">T</var> een oorzaak van <var data-s="s_strength">S</var> is zonder confounder. Zie <a href="#d02-ladder">02.12</a>.</li>
+      <li><b>Let op:</b> teken E[<var data-s="s_strength">S</var> | <var data-s="t_temp">T</var> = <var data-s="x_temp">x</var>] door het midden van elke verticale strook, niet langs de lange as van de schuine wolk (die helt sterker); de lijn mag krom zijn <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=26">Naert p. 26–27</a>. Zie <a href="#d02-regressielijn">02.11</a>.</li>
+      <li><b>"Uit de puntenwolk zie je of <var data-s="s_strength">S</var> → <var data-s="t_temp">T</var> of <var data-s="t_temp">T</var> → <var data-s="s_strength">S</var>."</b> Fout: een causaal diagram is een aanname over het proces; je kunt het niet uit de data zelf afleiden <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=44">Naert p. 44</a>.</li>
+    </ul></div>
+  </section>
+</section>

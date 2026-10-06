@@ -5,9 +5,29 @@ acceptance list) was pasted by the user in the first message of session 2026-09-
 holds the standing rules.
 
 ## Current phase
-Phase 2 (workbook): sheet 1 (Tables + Capability) APPROVED and committed 2026-09-28; building tools 2-11 in approved order.
-Phase 1 approved 2026-09-28 ("For all, do it so its just as clear as possible for me"); decisions in
-inventory/conventions.md "Decisions (user)"; tools in inventory/approved_tools.md; oracle tagged `oracle-approved`.
+Study guide STOP, 2026-10-06: study/studiegids.html (Dutch study guide of the whole course, bilingual search,
+202 interactive exercises, a "Hulpmiddelen" dropdown with calculators and course tables per part, clickable
+variables in every formula, "Valkuilen en strikvragen" boxes) is built and tested; waiting for the user's review
+before committing study/ and Phase 3.
+Phase 3 (index) STOP since 2026-10-05: build/index.html waits for the user's offline link test.
+Phase 2 complete: all 11 approved tools have a sheet; stats-auditor run; build/README.md and /add-calculator exist.
+Decisions 18-20 (2026-10-05) in inventory/conventions.md; oracle updated once with the user's approval (commit
+3cad3e4: S02-WE09 added, S05-WE09 corrected) and re-tagged `oracle-approved` there.
+
+## Open items for the user
+1. Review study/studiegids.html (open it from the folder; keep source/ next to study/), then approve the commit of
+   study/, tests/test_study_tools.py and Phase 3.
+2. Test the index links offline (Phase 3 STOP).
+3. Still pending from earlier: activate the guard hook in /hooks; set the /goal line.
+4. S11 worked examples (S11-WE01..06) are in inventory/raw/S11.json but not in the oracle (locked). None needs
+   a calculator: Beta(2,8) figure, Poisson (= S02-WE09), the production-lines exercise (= S02-WE01, now with
+   answers), the copper exercise (qualitative), regression dilution (α' ≈ 0.94), Beta-binomial coin.
+5. Oracle remarks from the study-guide writers (oracle not edited; needs approval to change): S03-WE11 'true mean
+   1270' (TH FR p. 9 figure and the stated β 16 % / 1 % imply 1300); S03-WE15 cites CI FR p. 20 for [0.53, 0.67],
+   which is on TH FR p. 20; S03-WE16 lists UTL 5.55, which does not follow from the printed Ȳ + kσ (6.06);
+   S06-WE05/WE06 R̄ label (0.0001767 printed vs the workbook's named range 0.0001748).
+6. Guide-only calculators beyond approved_tools.md: Z-table lookup, quantile/p-value calculator, contingency table
+   (joint/marginal/conditional, Naert Les 1 p. 22-23) and fractional-factorial aliases (DOE p. 80-92). Keep or drop?
 
 ## Done
 ### Phase 0 (approved 2026-09-28)
@@ -51,6 +71,7 @@ inventory/conventions.md "Decisions (user)"; tools in inventory/approved_tools.m
 | S08 | Les 4: Dummies 141–258 | 118 |
 | S09 | Les 4: Dummies 259–362, Harry-Schroeder 1–12, book summary 1–8 | 124 |
 | S10 | Les 5: MSA 1–38, steel strip 1–2, meter unit 1–5, GRR theory 1–2, tabel MSA 1, GRR xlsx, Rheostat xls, linearity.txt, ToC.html | 48 |
+| S11 | ugain.naert.net prints (2026-10-05): Les 1 web lecture 1 notes 1–30, Les 2 web lecture 2 notes 1–25, Les 2 web lecture 2 slides 1–59 | 114 |
 
 ### Phase 1 extraction and merge (2026-09-28)
 - 10 course-extractor agents ran; all `inventory/raw/S01..S10.json` parse. 48 of 48 course files read, each in
@@ -72,12 +93,74 @@ inventory/conventions.md "Decisions (user)"; tools in inventory/approved_tools.m
   Build: `PYTHONPATH=src python3 -m bbtools.build_workbook` -> build/bb_toolkit.xlsx (openpyxl file,
   fullCalcOnLoad; LibreOffice recalculates a copy: 88 formulas, 0 errors) + build/README.md.
 - pytest (pyproject.toml; importlib mode, strict markers, xfail_strict): 84 passed, 8 strict xfails (printed
-  course values on deck p. 46 and p. 49 that disagree with the computation; listed in build/README.md).
+  course values on deck p. 46 and p. 50 that disagree with the computation; listed in build/README.md).
 - Constant check: 94 of 991 printed constants differ from their definition at printed precision; 60 by <= 1
   unit of the last digit, 34 more (pinned in tests/test_constant_definitions.py, listed in build/README.md):
   Table 18 D1-D4 for n >= 11 (up to 4 units), Table A d3(21) = 0.7272 (def. 0.7242), Six Sigma Demystified
   B6(2) = 3.267 (def. 2.606, printed on a stray row). Transcriptions never changed.
 - ruff/mypy not installed; not run.
+
+### Phase 2, tools 2-11 (2026-09-28)
+- One commit per tool (9c794c9 … ea75931): Normal, Sigma & DPMO, Variance CI & tests, Confusion matrix,
+  Distributions, Mean & proportion, Control charts, Gage R&R (+ MSA d2* table on Tables), Acceptance sampling,
+  ANOVA DOE regression. Build: 3,334 formulas, 0 LibreOffice errors.
+- pytest: 255 passed, 31 strict xfails (printed course values that disagree with the computation, each with
+  file + page, listed per sheet in build/README.md); oracle diff against `oracle-approved` empty.
+- stats-auditor (.claude/agents/stats-auditor.md; run as a sonnet general-purpose agent with that file's
+  instructions, since new agent types load only in a new session): PASS for Confusion matrix (26 values),
+  Variance F part (28), Distributions Bernoulli/Poisson/exponential/uniform (14); see open question 1.
+- .claude/commands/add-calculator.md: gate on approved_tools.md and the oracle, build, test, STOP for review,
+  commit, audit.
+
+### Phase 3 (2026-09-28, awaiting link test)
+- src/bbtools/build_index.py -> build/index.html (run: `PYTHONPATH=src python3 -m bbtools.build_index`): one
+  static file, inline CSS + a filter box; calculators, exam question map (question -> course pages ->
+  calculator sheet), 582 topics and 300 formulas with relative links `../source/...pdf#page=N`; Les 6 flagged.
+- tests/test_build_index.py: no http(s) or external resources; every link resolves to an existing file and a
+  PDF page within its page count (pdfinfo); every topic, formula and question listed; Les 6 flagged.
+- Dummies pages in the inventory are PDF page indices (checked: PDF p. 233 = printed p. 215), so links land.
+- Full suite 2026-10-05 (after S11): 261 passed, 29 strict xfails, exit 0; oracle diff against the new tag empty.
+
+### ugain.naert.net (2026-10-05, decisions 18-20)
+- Site = Naert's 3 lectures (slides + full notes). Lecture 1 and 3 decks identical to the course PDFs (59, 38
+  slides); lecture 2 deck has 59 slides vs 57 (new: 46 "Trainingskeuzes bij beslissingsbomen", 55 "Bayesiaanse
+  inferentie"). Lecture 3 study guide: "niet te kennen voor het examen" (not saved).
+- Printed with local headless Chrome (throwaway profile) into source/course/ (lock lifted per folder and
+  restored): Les 1/20261005_naert_web_lecture 1 notes.pdf (30 p; the 5 collapsed boxes expanded before
+  printing, so exercises and answers are included), Les 2/20261005_naert_web_lecture 2 notes.pdf (25 p, no
+  collapsed boxes), Les 2/20261005_naert_web_lecture 2 slides.pdf (59 p).
+- Slice S11 extracted (54 topics, 41 formulas, 27 tables, 6 worked examples, 68 conventions incl. both
+  study guides, 19 ambiguities); numbers in non-figure tables and examples checked against the text layer.
+  Merge with the oracle locked: 636 topics, 341 formulas, 124 tables; oracle unchanged.
+
+### Study guide (2026-10-06, awaiting review)
+- study/parts/NN_*.html (Deel 00-13, Dutch prose + English terms, written per lecturer/topic from
+  source/course_reduced's presented slides; links to source/course PDF pages), NN_numbers.py (every computed
+  value and every exercise answer; all 13 exit 0), NN_glossary/formulas/errata.tsv.
+- study/build_study.py -> study/studiegids.html: 14 parts, 202 exercises, 2,223 slide links, validated (files,
+  PDF page ranges, ids, no http, every exercise has a solution).
+- Hulpmiddelen per part (2026-10-06, user request): study/assets/stats.js (distributions; vs scipy 1e-7),
+  calc.js (23 calculators porting the workbook formulas, constants per decision 4 and tabel MSA), tools.js (UI),
+  course tables as printed in <template>s (Z table, sigma tables, Dummies t/χ²/F, control-chart constants, d2*).
+  tests/test_study_tools.py: 37 passed (course worked examples S03-WE13/20/21, S04-WE16/18, S05-WE01/07/17,
+  S06-WE03, S10-WE02/03, the course sigma tables; scipy/statsmodels for random inputs). Browser-checked.
+- Les 4 citations (user request 'everywhere'): deck footer = PDF page − 1 fixed in 93eccda; 2026-10-06 also
+  Dummies Table 1-2 p. 42 -> 41 (raw S07 + merge, conventions decision 3, sheet_sigma), decision 13 '25
+  subgroups' Dummies p. 248 -> 244, Gage R&R sheet 'Gauge R&R ≤ 20 % of tolerance' deck p. 60 -> 61.
+  Workbook rebuilt (3,334 formulas, 0 errors); affected suites 118 passed, 8 strict xfails; oracle unchanged.
+
+### Study guide: clickable variables and pitfalls (2026-10-06, user request)
+- Every variable in every formula (formula blocks, inline formulas, exercises, solutions, NN_formulas.tsv) is a
+  <var data-s="key">; clicking it shows NN_symbols.tsv's meaning, how to get it, and a link to the explaining unit
+  (831 symbols, 11,733 vars; build validates keys and anchors; tests/test_study_guide.py requires every formula block
+  to have one). 173 "Valkuilen en strikvragen" boxes (Juist/Fout statements and computing traps, course page links;
+  general statistics marked "algemeen"), collected in the #valkuilen overview. Done per part by agents; a checker
+  proved the existing text unchanged (markup only). Formula font Georgia (Cambria Math drew X̿/R̿ as boxes).
+- Search: a multi-word query now translates glossary terms in place ("pitfall p-value" -> "valkuil p-waarde").
+- Small fixes found on the way: exercise 12.11(e) option; Deel 13 Q4c link p. 73; Deel 08 unit 8.9 n -> r (MSA
+  notation); Deel 04/05 Dummies labels now PDF pages (were printed pages); Dummies F-interval upper bound 1.938
+  (was 1.937; 0.5333 × 3.633 = 1.93765) in Deel 04, sheet_variance DOC/README and a test reason; AS p. 26
+  'non-defectives' added to 06_errata.tsv.
 
 ## Answered questions (inventory-review STOP; decisions in inventory/conventions.md)
 Convention questions (details and sources in inventory/conventions.md, "Conflicts and gaps"):

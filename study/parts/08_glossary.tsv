@@ -1,0 +1,56 @@
+nl	en	anchor
+variantieanalyse	analysis of variance (ANOVA)	d08-brug
+factor	factor	d08-brug
+niveau	level	d08-brug
+behandeling	treatment	d08-brug
+replicatie	replicate	d08-brug
+gebalanceerd experiment	balanced experiment	d08-brug
+dummyvariabele	dummy variable	d08-brug
+gemiddeldenmodel	means model	d08-model
+effectenmodel	effects model	d08-model
+groot gemiddelde	grand mean	d08-model
+enkelvoudige variantieanalyse	one-way ANOVA	d08-model
+variatie tussen groepen	between-group variation	d08-opsplitsing
+variatie binnen groepen	within-group variation	d08-opsplitsing
+ANOVA-tabel	ANOVA table	d08-ftoets
+gepoolde standaardafwijking	pooled standard deviation	d08-papier
+verkorte formules	computing (shortcut) formulas	d08-papier
+grafische vergelijking van gemiddelden	graphical comparison of means	d08-residuen
+kleinste significante verschil van Fisher	Fisher's LSD	d08-residuen
+tweewegs-ANOVA	two-way ANOVA	d08-tweeweg
+zonder replicatie	without replication	d08-tweeweg
+interactie	interaction	d08-interactie
+proefopzet	design of experiments (DOE)	d08-doelen
+experimenteerpunt	design point	d08-doelen
+experimentele run	run	d08-doelen
+experimentele fout	experimental error	d08-doelen
+experimenteergebied	experimental region	d08-doelen
+proefschema	design	d08-doelen
+experimentele eenheid	experimental unit	d08-doelen
+gebalanceerd ontwerp	balanced design	d08-doelen
+factorieel ontwerp	factorial design	d08-factorieel
+volledig factorieel ontwerp	full factorial design	d08-factorieel
+storende factor	nuisance factor	d08-blocking
+blokken vormen	blocking	d08-blocking
+randomisatie	randomization	d08-blocking
+vermenging	confounding	d08-blocking
+interactieplot	interaction plot	d08-opbrengst
+coderen van factorniveaus	coding of factor levels	d08-coderen
+ontwerpmatrix	design matrix	d08-coderen
+standaardvolgorde	standard order	d08-coderen
+hoofdeffect	main effect	d08-effect
+interactie-effect	interaction effect	d08-effect
+contrast	contrast	d08-contrast
+tekentabel	sign table	d08-contrast
+zuivere fout	pure error	d08-chemisch
+standaardfout van een effect	standard error of an effect	d08-significant
+spaarzaamheid van effecten	sparsity-of-effects principle	d08-enkel
+verzadigd model	saturated model	d08-enkel
+hogere interacties poolen	pooling higher-order interactions	d08-enkel
+fractioneel factorieel ontwerp	fractional factorial design	d08-fractie
+halve fractie	one-half fraction	d08-fractie
+definiërende relatie	defining relation	d08-fractie
+alias	alias	d08-fractie
+projectie	projection	d08-fractie
+resolutie	resolution	d08-resolutie
+ontwerpgenerator	design generator	d08-generatoren

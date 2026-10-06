@@ -1,0 +1,730 @@
+<section class="part" id="d01" data-title="Deel 01 — Lean Six Sigma: kader, DMAIC, Define en het team" data-lecturer="S. Van Volsem" data-les="Les 1">
+  <h2>Deel 01 — Lean Six Sigma: kader, DMAIC, Define en het team</h2>
+  <p class="intro">Dit deel volgt de projectkant van de eerste les van Van Volsem (Les 1): wat Six Sigma en Lean zijn,
+  hoe een verbeterproject verloopt (DMAIC), wat er in de Define-fase gebeurt (doelen, klantenstem, sponsor, business
+  case, stakeholders) en hoe je een team samenstelt en door een verandering leidt. De statistiek uit dezelfde les
+  (Measure, data, EDA) staat in Deel 2; sigmaniveaus en DPMO in Deel 3.</p>
+
+  <p class="small">Bron: <code>20260521_van volsem.pdf</code>, afgekort "VV"; paginanummers zijn die van de PDF (het
+  nummer rechtsonder op de slide ligt soms één hoger). De slides zijn grotendeels Engels; de gids gebruikt Nederlandse
+  termen met de Engelse ernaast. Dit deel bevat geen eigen berekeningen: alle getallen komen van de slides.</p>
+
+  <!-- ============================================================ 01.1 -->
+  <section class="unit" id="d01-sixsigma" data-kw="Six Sigma; zes sigma; 6σ; definitie; definition; variatie; variation; feiten; fact-based; belts; Black Belt; Green Belt; White Belt; Champion; DMAIC">
+    <h3>01.1 Wat is Six Sigma? <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=8">VV p. 8</a></h3>
+    <p>Van Volsem vat Six Sigma samen in vijf punten <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=8">VV p. 8</a>:</p>
+    <ol>
+      <li>de kwaliteit verhogen door <b>variatie</b> (<i>variation</i>) te verminderen;</li>
+      <li>verbeteringen uitdrukken in zichtbare, tastbare, <b>meetbare resultaten</b>;</li>
+      <li>beslissingen op <b>feiten</b> baseren (<i>fact-based decisions</i>);</li>
+      <li>uitgevoerd door <b>verbeterspecialisten</b> (de "belts": de slide toont een zwarte, groene en gele gordel);</li>
+      <li>met het <b>DMAIC</b>-concept als leidraad (01.3).</li>
+    </ol>
+    <div class="box key"><span class="t">Kernidee</span>
+      <p>Six Sigma = minder variatie, gemeten in cijfers, op basis van feiten, door opgeleide mensen, volgens een vaste
+      projectstructuur. Wat "6 sigma" als kwaliteitsniveau betekent (defecten per miljoen kansen), staat in Deel 3.</p>
+    </div>
+    <p><b>De belts en hun rol</b> <span class="small">extra (niet in de getoonde slides)</span>. De piramide op
+    <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=66">VV p. 66</a> (wel getoond) zet van boven
+    naar onder: Champion, Black Belt, Green Belt, White Belt, met de Sponsor langs de zijkanten. De rollen staan op
+    <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=23">VV p. 23–26</a>:</p>
+    <table>
+      <tr><th>Rol</th><th>Omschrijving op de slide</th></tr>
+      <tr><td>Initiative Champion</td><td>maakt het engagement van het management en de organisatorische randvoorwaarden mogelijk</td></tr>
+      <tr><td>Sponsor</td><td>de katalysator die veranderingen duurzaam maakt (zie 01.9)</td></tr>
+      <tr><td>Black Belt</td><td>leidt de uitvoering van initiatieven en het kritisch denken; "de motor" van een Lean Six Sigma-programma; leidt strategische, cross-functionele projecten; coacht Green Belts</td></tr>
+      <tr><td>Green Belt</td><td>vormt de kritische massa van lokale verbeterleiders</td></tr>
+      <tr><td>White Belt</td><td>legt de basis met een elementair begrip van Lean Six Sigma</td></tr>
+    </table>
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>"Six Sigma pakt vooral verspilling aan."</b> Fout: Six Sigma verhoogt de kwaliteit door <b>variatie</b> te verminderen <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=8">VV p. 8</a>; verspilling (<i>waste</i>) is het terrein van Lean <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=19">VV p. 19</a>, zie <a href="#d01-lean">01.2</a>.</li>
+      <li><b>"De Initiative Champion en de Sponsor zijn dezelfde rol."</b> Fout: de Initiative Champion maakt het engagement van het management en de organisatorische randvoorwaarden mogelijk; de Sponsor is "de katalysator die veranderingen duurzaam maakt" <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=23">VV p. 23</a>.</li>
+      <li><b>"De Black Belt kiest de projecten en is verantwoordelijk voor het projectresultaat."</b> Fout: volgens de slide doet de Sponsor dat: projecten en mensen kiezen, projectcharters maken, verantwoordelijk zijn voor het resultaat <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=25">VV p. 25</a>. De Black Belt leidt de uitvoering ("de motor") en coacht Green Belts <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=26">VV p. 26</a>.</li>
+      <li><b>"Green Belts leiden de strategische, cross-functionele projecten."</b> Fout: dat doen Black Belts <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=26">VV p. 26</a>; Green Belts vormen de kritische massa van lokale verbeterleiders <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=23">VV p. 23</a>.</li>
+    </ul></div>
+  </section>
+
+  <!-- ============================================================ 01.2 -->
+  <section class="unit" id="d01-lean" data-kw="Lean; verspilling; waste; muda; mura; muri; variatie; variation; waarde; value added; non-value added; toegevoegde waarde; Lean Six Sigma; perfecte combinatie; 3 M">
+    <h3>01.2 Lean en Six Sigma: verspilling en variatie <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=10">VV p. 10, 19</a></h3>
+    <p>Waarom zijn Lean en Six Sigma "de perfecte combinatie" voor efficiëntere processen
+    <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=10">VV p. 10</a>? Omdat ze elk een
+    andere vijand aanpakken <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=19">VV p. 19</a>:</p>
+    <table>
+      <tr><th></th><th>Lean: verspilling (<i>waste</i>)</th><th>Six Sigma: variatie (<i>variation</i>)</th></tr>
+      <tr><th>Definitie</th><td>alles wat in de ogen van de klant geen waarde toevoegt</td><td>afwijking van een streefwaarde voor producten, diensten of kenmerken</td></tr>
+      <tr><th>Waarom erg?</th><td>niet alle verspilling is zichtbaar; ze vermomt zich vaak als nuttig werk</td><td>ze geeft onbetrouwbare prestaties, herwerk en afval (<i>rework and scrap</i>) en is een van de grootste oorzaken van verspilling</td></tr>
+      <tr><th>Principe</th><td>verspilling verminderen is een basisprincipe van Lean</td><td>variatie verminderen is de essentie van Six Sigma</td></tr>
+    </table>
+    <p>De twee overlappen: variatie veroorzaakt verspilling. Daarom staat in het midden van de slide "LEAN 6σ".</p>
+    <div class="box ex"><span class="t">Extra: de drie M's en de soorten verspilling</span>
+      <p><span class="small">extra (niet in de getoonde slides)</span> De Japanse "3 M's"
+      <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=12">VV p. 12</a>: <b>muda</b> =
+      verspilling (Lean), <b>mura</b> = variatie (Six Sigma), <b>muri</b> = overbelasting (<i>work overload</i>). Alle
+      processen bevatten verspilling <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=13">VV p. 13</a>;
+      de slide noemt als niet-waardetoevoegend: defects (defecten), overproduction (overproductie), waiting (wachten),
+      not utilizing employees (talent niet benutten), transportation (transport), inventory (voorraad), motion
+      (beweging) en extra processing (overbewerking), en zegt dat typisch 95 % van de doorlooptijd geen waarde toevoegt.</p>
+    </div>
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>"Muda is variatie en mura is verspilling."</b> Fout: omgekeerd. Muda = verspilling (Lean), mura = variatie (Six Sigma), muri = overbelasting <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=12">VV p. 12</a>.</li>
+      <li><b>"Verspilling zie je altijd meteen."</b> Fout: niet alle verspilling is zichtbaar; ze vermomt zich vaak als nuttig werk <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=19">VV p. 19</a>.</li>
+      <li><b>"Variatie en verspilling hebben niets met elkaar te maken."</b> Fout: variatie geeft onbetrouwbare prestaties, herwerk en afval, en is een van de grootste oorzaken van verspilling; daarom passen Lean en Six Sigma samen <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=19">VV p. 19</a>.</li>
+      <li><b>"Of iets waarde toevoegt, beslist het proces."</b> Fout: verspilling is alles wat <b>in de ogen van de klant</b> geen waarde toevoegt <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=19">VV p. 19</a>. Ook wachten, transport, voorraad en overbewerking staan op de lijst van niet-waardetoevoegende activiteiten <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=13">VV p. 13</a>.</li>
+    </ul></div>
+  </section>
+
+  <!-- ============================================================ 01.3 -->
+  <section class="unit" id="d01-dmaic" data-kw="DMAIC; Define; Measure; Analyze; Improve; Control; fasen; phases; projectstructuur; stage-gate; funneling; Y = f(x); X'en; root cause; grondoorzaak">
+    <h3>01.3 De vijf DMAIC-fasen <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=9">VV p. 9</a></h3>
+    <p>Een Six Sigma-project volgt vijf fasen. Na elke fase moet je een duidelijk antwoord hebben op een paar vragen
+    <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=9">VV p. 9</a>:</p>
+    <table>
+      <tr><th>Fase</th><th>Kern</th><th>Vragen die beantwoord moeten zijn</th></tr>
+      <tr><td><b>Define</b></td><td>begrijp de nood aan verandering</td><td>Waarom moeten we veranderen? Wat is het doel? Wie moet betrokken worden?</td></tr>
+      <tr><td><b>Measure</b></td><td>begrijp de realiteit</td><td>Hoe werken we nu? Hoe kunnen we dat meten?</td></tr>
+      <tr><td><b>Analyze</b></td><td>vind oorzaken en acties</td><td>Wat zijn de belangrijkste grondoorzaken (<i>root causes</i>) of bijdragers? Welke oplossing(en) dichten de kloof naar de gewenste situatie?</td></tr>
+      <tr><td><b>Improve</b></td><td>doe het (<i>make it happen</i>)</td><td>Hoe voer je dit in, met het engagement van de mensen? Hoe volg je de voortgang op?</td></tr>
+      <tr><td><b>Control</b></td><td>laat het blijven (<i>make it stick</i>)</td><td>Is het doel bereikt? Blijft de oplossing? Kan iemand anders van je ervaring leren?</td></tr>
+    </table>
+    <p>Onder de tabel staat: "Do the right things the right way". De Define-fase wordt in dit deel uitgewerkt
+    (01.5–01.13); de Measure-fase begint op <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=76">VV p. 76</a>
+    en staat in Deel 2. Na het statistiekblok keert de les met een DMAIC-tussenslide
+    <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=146">VV p. 146</a> terug naar
+    projectonderwerpen: business case, stakeholders en team (01.10–01.13).</p>
+    <div class="box ex"><span class="t">Extra: van veel X'en naar enkele</span>
+      <p><span class="small">extra (niet in de getoonde slides)</span> De uitkomst Y hangt af van vele mogelijke
+      oorzaken: <var data-s="y_out">Y</var> = f(<var data-s="x_in">x<sub>1</sub></var>, <var data-s="x_in">x<sub>2</sub></var>, …, <var data-s="x_in">x<sub>n</sub></var>). DMAIC "trechtert" die X'en
+      <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=73">VV p. 73</a>: Define &gt; 100 X'en,
+      Measure ≤ 20, Analyze ≤ 6, Improve ≤ 4, Control ≤ 3, tot iets als <var data-s="y_out">Y</var> = f(<var data-s="x_in">x<sub>7</sub></var>, <var data-s="x_in">x<sub>22</sub></var>,
+      <var data-s="x_in">x<sub>57</sub></var>): van de "trivial many" naar de "significantly few". De "stage-gate"-structuur op
+      <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=58">VV p. 58</a> deelt het project in
+      drie blokken met elk een eigen mijlpaal: Define (de juiste projecten kiezen, prioriteiten, kick-off,
+      bedrijfsopportuniteiten bepalen); Measure en Analyze (beschrijving van de realiteit, grondoorzaakanalyse,
+      geprioriteerde initiatieven, met als mijlpaal goedgekeurde verbeterinitiatieven); Improve en Control (invoering,
+      doelbereiking, overdracht van nieuwe werkwijzen, validatie van de bedrijfsimpact, met als mijlpaal de
+      projectafsluiting).</p>
+    </div>
+
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>Let op de volgorde en de vragen:</b> Define (waarom veranderen, wat is het doel, wie betrekken), Measure (hoe werken we nu, hoe meten we dit), Analyze (grondoorzaken, welke oplossing), Improve (invoeren met engagement, voortgang opvolgen), Control (doel bereikt, blijft het, kan iemand anders ervan leren) <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=9">VV p. 9</a>.</li>
+      <li><b>"De grondoorzaken zoek je in Measure."</b> Fout: Measure beschrijft de realiteit; de belangrijkste grondoorzaken en de oplossing die de kloof dicht, horen bij Analyze <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=9">VV p. 9</a>.</li>
+      <li><b>"Na Improve is het project af."</b> Fout: Control moet nog nagaan of het doel bereikt is en of de oplossing blijft ("make it stick") <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=9">VV p. 9</a>; de mijlpaal "projectafsluiting" komt pas na Improve en Control <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=58">VV p. 58</a>.</li>
+      <li><b>"In Control beheers je nog alle X'en uit Define."</b> Fout: DMAIC trechtert de X'en van meer dan 100 in Define tot hoogstens 3 kritische in Control, van de "trivial many" naar de "significantly few" <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=73">VV p. 73</a>.</li>
+    </ul></div>
+
+    <div class="exercise" id="ex-01-1" data-kw="DMAIC; fase; phase; Define; Measure; Analyze; Improve; Control; vragen; questions">
+      <h4>Oefening 01.1 — In welke fase hoort deze vraag? <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=9">VV p. 9</a></h4>
+      <p>Na welke DMAIC-fase moet je deze vraag kunnen beantwoorden?</p>
+      <div class="q" data-type="choice" data-answer="M">
+        <label>a. Wat is de huidige manier van werken?</label>
+        <select><option value="">kies…</option><option value="D">Define</option><option value="M">Measure</option><option value="A">Analyze</option><option value="I">Improve</option><option value="C">Control</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="C">
+        <label>b. Zal de oplossing blijven werken?</label>
+        <select><option value="">kies…</option><option value="D">Define</option><option value="M">Measure</option><option value="A">Analyze</option><option value="I">Improve</option><option value="C">Control</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="D">
+        <label>c. Wie moet er betrokken worden?</label>
+        <select><option value="">kies…</option><option value="D">Define</option><option value="M">Measure</option><option value="A">Analyze</option><option value="I">Improve</option><option value="C">Control</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="A">
+        <label>d. Wat zijn de belangrijkste grondoorzaken?</label>
+        <select><option value="">kies…</option><option value="D">Define</option><option value="M">Measure</option><option value="A">Analyze</option><option value="I">Improve</option><option value="C">Control</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="I">
+        <label>e. Hoe volgen we de voortgang van de invoering op?</label>
+        <select><option value="">kies…</option><option value="D">Define</option><option value="M">Measure</option><option value="A">Analyze</option><option value="I">Improve</option><option value="C">Control</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="M">
+        <label>f. Hoe kunnen we dit meten?</label>
+        <select><option value="">kies…</option><option value="D">Define</option><option value="M">Measure</option><option value="A">Analyze</option><option value="I">Improve</option><option value="C">Control</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <details class="solution"><summary>Toon oplossing</summary>
+        <p>Volgens VV p. 9: a Measure, b Control, c Define, d Analyze, e Improve, f Measure. Ezelsbruggetje met de
+        kernwoorden: Define = waarom en wie, Measure = hoe nu en hoe meten, Analyze = waarom gebeurt het, Improve = doen,
+        Control = laten blijven.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============================================================ 01.4 -->
+  <section class="unit" id="d01-dfss" data-kw="Design for Six Sigma; DfSS; DMADV; Define Measure Analyze Design Verify; DMAIC; robuustheid; robustness; kostenbesparing; cost savings; productontwikkeling; product development; nieuw proces; bestaand proces">
+    <h3>01.4 Design for Six Sigma: DMADV versus DMAIC <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=21">VV p. 21</a></h3>
+    <p>Problemen kun je op twee momenten aanpakken <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=21">VV p. 21</a>:</p>
+    <table>
+      <tr><th></th><th>Design for Six Sigma (DfSS)</th><th>Six Sigma</th></tr>
+      <tr><th>Doel</th><td>defecten <b>voorkomen</b> tijdens de ontwikkeling van een product of proces</td><td>defecten <b>wegwerken</b> in bestaande processen</td></tr>
+      <tr><th>Werkwijze</th><td><b>DMADV</b>: Define, Measure, Analyze, Design, Verify</td><td><b>DMAIC</b>: Define, Measure, Analyze, Improve, Control</td></tr>
+      <tr><th>Resultaat</th><td>robuustheid (<i>robustness</i>)</td><td>kostenbesparing (<i>cost savings</i>)</td></tr>
+    </table>
+    <p>Het verschil zit in de laatste twee letters: bij een nieuw ontwerp ontwerp je (Design) en verifieer je (Verify);
+    bij een bestaand proces verbeter je (Improve) en borg je (Control).</p>
+
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>"DMADV gebruik je om de fouten van een bestaand proces weg te werken."</b> Fout: DMADV (Design for Six Sigma) <b>voorkomt</b> defecten tijdens de ontwikkeling van een nieuw product of proces; een bestaand proces verbeter je met DMAIC <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=21">VV p. 21</a>.</li>
+      <li><b>"De V van DMADV staat voor Validate."</b> Fout: Verify (Define, Measure, Analyze, Design, Verify) <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=21">VV p. 21</a>.</li>
+      <li><b>"DfSS levert kostenbesparing, DMAIC robuustheid."</b> Fout: omgekeerd. De slide koppelt DfSS aan robuustheid en Six Sigma (DMAIC) aan kostenbesparing <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=21">VV p. 21</a>.</li>
+      <li><b>Let op:</b> de eerste drie letters zijn gelijk (Define, Measure, Analyze); alleen de laatste twee verschillen: Design en Verify tegenover Improve en Control.</li>
+    </ul></div>
+
+    <div class="exercise" id="ex-01-2" data-kw="DMADV; DMAIC; Design for Six Sigma; DfSS; nieuw product; bestaand proces; robuustheid; kostenbesparing">
+      <h4>Oefening 01.2 — DMAIC of DMADV? <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=21">VV p. 21</a></h4>
+      <div class="q" data-type="choice" data-answer="DMAIC">
+        <label>a. Een bestaand facturatieproces maakt te veel fouten.</label>
+        <select><option value="">kies…</option><option value="DMAIC">DMAIC</option><option value="DMADV">DMADV</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="DMADV">
+        <label>b. Een nieuw product is in ontwikkeling en moet van bij de start robuust zijn.</label>
+        <select><option value="">kies…</option><option value="DMAIC">DMAIC</option><option value="DMADV">DMADV</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="verify">
+        <label>c. Waarvoor staat de V in DMADV?</label>
+        <select><option value="">kies…</option><option value="validate">Validate</option><option value="verify">Verify</option><option value="visualize">Visualize</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="kosten">
+        <label>d. Welk resultaat koppelt de slide aan DMAIC?</label>
+        <select><option value="">kies…</option><option value="robuust">robuustheid</option><option value="kosten">kostenbesparing</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <details class="solution"><summary>Toon oplossing</summary>
+        <p>a. DMAIC: defecten in een bestaand proces wegwerken. b. DMADV (Design for Six Sigma): defecten voorkomen tijdens
+        de ontwikkeling. c. Verify (Define, Measure, Analyze, Design, Verify). d. Kostenbesparing; DMADV leidt tot
+        robuustheid. Alles van VV p. 21.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============================================================ 01.5 -->
+  <section class="unit" id="d01-define" data-kw="Define; nood aan verandering; need of change; waarom verbeteren; kosten van niet-kwaliteit; cost of poor quality; improvement charter; projectcharter; probleemstelling; problem statement; opportunity; one-slider; sponsor; change leader; benchmark; risico's">
+    <h3>01.5 Define: de nood aan verandering begrijpen <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=29">VV p. 29, 35, 57</a></h3>
+    <p><b>Waarom verbeteren?</b> <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=35">VV p. 35</a>
+    Het doel is de organisatie verbeteren door de <b>processen</b> te verbeteren:</p>
+    <ul>
+      <li><b>extern</b>: vanuit het standpunt van de klant;</li>
+      <li><b>intern</b>: de continuïteit verzekeren, steeds terugkerende problemen aanpakken, en de kosten van
+      niet-kwaliteit (<i>cost of poor quality</i>) verminderen: klachten en claims, tijdverlies en wachten, herbeginnen en
+      herwerken, imagoschade;</li>
+      <li>rekening houdend met alle relevante belanghebbenden (maatschappij, overheid, …).</li>
+    </ul>
+    <p><b>De Define-fase in één slide</b> <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=57">VV p. 57</a>
+    (titel: "Understand the need of change", <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=29">VV p. 29</a>).
+    Drie kolommen, elk met een vraag en drie taken:</p>
+    <table>
+      <tr><th>Gedeelde nood creëren (<i>create shared need</i>)</th><th>Gewenste situatie bepalen (<i>define wanted position</i>)</th><th>Engagement mobiliseren (<i>mobilize commitment</i>)</th></tr>
+      <tr><td><i>Waarom hebben we deze verandering nodig?</i></td><td><i>Wat is het doel?</i></td><td><i>Wie moet betrokken worden?</i></td></tr>
+      <tr><td>sponsor en change leader aanduiden (01.9)<br>probleem of opportuniteit beschrijven<br>vergelijkbare verbeteringen benchmarken</td>
+          <td>doelen en scope bepalen (01.6)<br>de bedrijfsvoordelen kwantificeren (01.10)<br>risico's identificeren en aanpakken</td>
+          <td>de belangrijkste stakeholders identificeren (01.11)<br>een communicatie- en betrokkenheidsplan maken<br>veranderbarrières identificeren en een veranderaanpak bepalen (01.13)</td></tr>
+    </table>
+    <p>Alles samen leidt tot een ingevuld <b>improvement charter</b> (projectcharter). Het motto onderaan: "A problem
+    well stated is a problem half solved".</p>
+    <div class="box ex"><span class="t">Extra: de "one-slider"</span>
+      <p><span class="small">extra (niet in de getoonde slides)</span> Zo'n charter op één slide
+      <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=64">VV p. 64</a> heeft zes vakken:
+      <b>probleem-/opportuniteitsstelling</b> (een korte slogan: waarom deze verandering nodig is en waar we nu staan, zo
+      geschreven dat elke medewerker het verband met de bedrijfsstrategie begrijpt); <b>doelstelling</b> (de SMART,
+      meetbare definitie van welke resultaten wanneer bereikt moeten zijn); <b>business case</b> (het financiële voordeel:
+      kosten van project, investeringen en invoering tegenover harde en zachte besparingen); <b>scope en belangrijkste
+      stakeholders</b> (wat valt erbinnen en wat niet); en de <b>drie grootste risico's</b>.</p>
+    </div>
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>"In Define kies je de oplossing."</b> Fout: Define beantwoordt waarom (gedeelde nood), wat (doel, scope, bedrijfsvoordelen, risico's) en wie (stakeholders, communicatie, veranderbarrières), en levert een ingevuld improvement charter <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=57">VV p. 57</a>. Oplossingen komen uit Analyze en Improve <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=9">VV p. 9</a>.</li>
+      <li><b>"Sponsor en change leader duid je aan zodra de eerste data binnen zijn."</b> Fout: dat is de eerste taak in Define, in de kolom "gedeelde nood creëren" <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=57">VV p. 57</a>.</li>
+      <li><b>"Risico's bekijk je pas bij de invoering."</b> Fout: risico's identificeren en aanpakken is een Define-taak, en de one-slider heeft een vak voor de drie grootste risico's <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=57">VV p. 57</a>, <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=64">VV p. 64</a>.</li>
+      <li><b>"Kosten van niet-kwaliteit zijn de kosten van herwerk."</b> Fout: te eng. De slide noemt ook klachten en claims, tijdverlies en wachten, herbeginnen en imagoschade <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=35">VV p. 35</a>.</li>
+    </ul></div>
+  </section>
+
+  <!-- ============================================================ 01.6 -->
+  <section class="unit" id="d01-smart" data-kw="SMART; doel; doelstelling; goal; goal statement; objective; specific; measurable; achievable; realistic; time bounded; specifiek; meetbaar; haalbaar; realistisch; tijdsgebonden; ondersteunend doel; supportive target; korte termijn">
+    <h3>01.6 Doelen formuleren: SMART en ondersteunende doelen <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=59">VV p. 59, 63</a></h3>
+    <p>Een goed doel is <b>SMART</b> <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=59">VV p. 59</a>:</p>
+    <table>
+      <tr><th>Letter</th><th>Engels (slide)</th><th>Betekenis</th></tr>
+      <tr><td>S</td><td>Specific</td><td>specifiek: makkelijk te begrijpen</td></tr>
+      <tr><td>M</td><td>Measurable</td><td>meetbaar: je kunt de huidige en de toekomstige toestand meten</td></tr>
+      <tr><td>A</td><td>Achievable</td><td>haalbaar: het doel is te bereiken</td></tr>
+      <tr><td>R</td><td>Realistic</td><td>realistisch: het doel is op tijd te bereiken met de beschikbare middelen</td></tr>
+      <tr><td>T</td><td>Time bounded</td><td>tijdsgebonden: er is gepland wanneer het klaar moet zijn</td></tr>
+    </table>
+    <p><b>Meer dan één doel?</b> <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=63">VV p. 63</a>
+    Stel jezelf drie controlevragen; de slide geeft bij elk een voorbeeld:</p>
+    <table>
+      <tr><th>Controlevraag</th><th>Zo ja</th><th>Voorbeeld van de slide</th></tr>
+      <tr><td>Kan je doel andere doelen schaden, of bereikt worden met kortere wegen (<i>short-cuts</i>)?</td><td>voeg een <b>ondersteunend doel</b> toe (<i>supportive target</i>), bv. voor klanttevredenheid, kwaliteit of kosten</td><td>"Shorten the lead-time for CSR handling by 20%" … "while maintaining a customer satisfaction score of 79"; "Improve the lead-time precision for projects by 30%" … "while keeping similar scope, the same delivery quality and the same lead time frames as today (5 months)"</td></tr>
+      <tr><td>Zie je het effect pas lang na de invoering?</td><td>voeg ook <b>kortetermijndoelen</b> toe die vroege vooruitgang tonen</td><td>"Decrease the initial return rate of the new product by 50%" … en "Decrease the failures in pilot customer testing by 70% (Q2 2025)"</td></tr>
+      <tr><td>Dekt je prestatiedoel niet de hele scope?</td><td>voeg nog een prestatiedoel toe</td><td>"98% of the meetings start on time" … en "90% of the meetings has a content approval rating over 80%"</td></tr>
+    </table>
+    <div class="box ex"><span class="t">Extra: criteria en opbouw van een doel</span>
+      <p><span class="small">extra (niet in de getoonde slides)</span> Is het doel belangrijk voor het succes van het
+      bedrijf, duidelijk en concreet, beïnvloedbaar, de prioriteit waard, motiverend, realistisch binnen de tijd en
+      middelen, en meetbaar? <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=60">VV p. 60</a>.
+      Bouw de doelstelling op in stappen <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=61">VV p. 61</a>:
+      de metriek vinden (welke prestatie zie je als je klaar bent? waar kun je die meten?), ze specifiek maken (is er
+      een nulmeting of <i>baseline</i>? hoeveel verbetering? tegen wanneer? waar: de scope?) en tot slot herbekijken en
+      afwegen.</p>
+    </div>
+
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>Let op A en R:</b> A (Achievable) = het doel is te bereiken; R (Realistic) = het doel is op tijd te bereiken met de beschikbare middelen <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=59">VV p. 59</a>. "Met de beschikbare middelen" wijst dus naar R, niet naar A.</li>
+      <li><b>"Measurable betekent dat je het resultaat achteraf meet."</b> Fout: je moet de huidige én de toekomstige toestand kunnen meten <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=59">VV p. 59</a>; vraag daarom naar een nulmeting (<i>baseline</i>) <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=61">VV p. 61</a>.</li>
+      <li><b>"Time bounded betekent: snel te halen."</b> Fout: het betekent dat gepland is wanneer het klaar moet zijn <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=59">VV p. 59</a>.</li>
+      <li><b>"Eén SMART-doel volstaat altijd."</b> Fout: voeg een ondersteunend doel toe als het doel andere doelen kan schaden of via short-cuts te halen is, kortetermijndoelen als het effect pas laat zichtbaar wordt, en een extra prestatiedoel als het doel de scope niet dekt <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=63">VV p. 63</a>.</li>
+    </ul></div>
+
+    <div class="exercise" id="ex-01-3" data-kw="SMART; specific; measurable; achievable; realistic; time bounded; ondersteunend doel; supportive target; kortetermijndoel; doelstelling">
+      <h4>Oefening 01.3 — SMART en ondersteunende doelen <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=59">VV p. 59, 63</a></h4>
+      <p>Welke SMART-letter hoort bij de omschrijving?</p>
+      <div class="q" data-type="choice" data-answer="R">
+        <label>a. Het doel is op tijd te bereiken met de beschikbare middelen.</label>
+        <select><option value="">kies…</option><option value="S">S</option><option value="M">M</option><option value="A">A</option><option value="R">R</option><option value="T">T</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="M">
+        <label>b. Je kunt de huidige en de toekomstige toestand meten.</label>
+        <select><option value="">kies…</option><option value="S">S</option><option value="M">M</option><option value="A">A</option><option value="R">R</option><option value="T">T</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="T">
+        <label>c. Er is gepland wanneer het af moet zijn.</label>
+        <select><option value="">kies…</option><option value="S">S</option><option value="M">M</option><option value="A">A</option><option value="R">R</option><option value="T">T</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <p>Welke controlevraag van p. 63 leidde tot de toevoeging?</p>
+      <div class="q" data-type="choice" data-answer="schade">
+        <label>d. "Shorten the lead-time for CSR handling by 20%" krijgt "…while maintaining a customer satisfaction score of 79".</label>
+        <select><option value="">kies…</option><option value="schade">kan het doel andere doelen schaden of via short-cuts bereikt worden?</option><option value="laat">zie je het effect pas lang na de invoering?</option><option value="scope">dekt het doel niet de hele scope?</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="laat">
+        <label>e. "Decrease the initial return rate of the new product by 50%" krijgt "Decrease the failures in pilot customer testing by 70% (Q2 2025)".</label>
+        <select><option value="">kies…</option><option value="schade">kan het doel andere doelen schaden of via short-cuts bereikt worden?</option><option value="laat">zie je het effect pas lang na de invoering?</option><option value="scope">dekt het doel niet de hele scope?</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="scope">
+        <label>f. "98% of the meetings start on time" krijgt "90% of the meetings has a content approval rating over 80%".</label>
+        <select><option value="">kies…</option><option value="schade">kan het doel andere doelen schaden of via short-cuts bereikt worden?</option><option value="laat">zie je het effect pas lang na de invoering?</option><option value="scope">dekt het doel niet de hele scope?</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <details class="solution"><summary>Toon oplossing</summary>
+        <p>a R (Realistic), b M (Measurable), c T (Time bounded) (p. 59). d: een kortere doorlooptijd zou ten koste van de
+        klanttevredenheid kunnen gaan, dus een ondersteunend doel. e: het retourpercentage zie je pas na de lancering,
+        dus een kortetermijndoel uit de pilottests. f: op tijd beginnen dekt niet de hele "vergaderefficiëntie", dus een
+        extra prestatiedoel over de inhoud (p. 63).</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============================================================ 01.7 -->
+  <section class="unit" id="d01-strategie" data-kw="strategie; strategy; strategische afstemming; strategy alignment; projectselectie; project selection; juiste projecten; DMAIC project; criteria; Green Belt; Black Belt; projectduur; 2-5 maanden; 6-9 maanden; improvement versus implementation; DIC">
+    <h3>01.7 Strategie en de juiste projecten kiezen <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=65">VV p. 65, 66, 72</a></h3>
+    <p>Lean Six Sigma moet de bedrijfsstrategie helpen uitvoeren, en dat begint bij de keuze van de juiste projecten
+    <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=65">VV p. 65</a>.</p>
+    <p><b>Strategie ontwikkelen en afstemmen</b> <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=66">VV p. 66</a>.
+    De slide toont een trechter van boven naar onder. Bovenaan staat de <b>strategie</b> ("WHAT"): visie en algemene
+    doelen, strategische richting, succesfactoren, kritische succesfactoren. Daaronder de <b>operationele
+    activiteiten</b> ("HOW"): beleid, doelstellingen, programma's en plannen, en uiteindelijk de processen en de
+    organisatie. Die strategie wordt gevoed door de omgeving: de operationele context, de belanghebbenden (<i>interested
+    parties</i>) en de organisatie zelf. Rechts staat de belt-piramide (Champion, Black Belt, Green Belt, White Belt, met de
+    Sponsor langs de zijkant) en de vraag: hoe draagt Lean Six Sigma bij aan de uitvoering van de strategie?</p>
+    <p><b>Wat maakt een goed DMAIC-project?</b> <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=72">VV p. 72</a>
+    Een project met volledig potentieel heeft:</p>
+    <ul>
+      <li>een verband met een <b>continu herhaald proces</b>;</li>
+      <li>een doel dat sterk samenhangt met problemen of onbenutte opportuniteiten in dat proces;</li>
+      <li>een aanzienlijke <b>bedrijfsimpact</b>: minder variatie, minder verspilling, indien mogelijk uitgedrukt in geld;</li>
+      <li>beschikbare <b>kwalitatieve of kwantitatieve data</b>;</li>
+      <li>grenzen die afronding mogelijk maken binnen <b>2–5 maanden (Green Belt)</b> of <b>6–9 maanden (Black Belt)</b>.</li>
+    </ul>
+    <div class="box warn"><span class="t">Verbeteren is niet invoeren</span>
+      <p>"IMPROVEMENT vs. IMPLEMENTATION" (p. 72): een DMAIC-project heeft de volledige DMAIC nodig, niet alleen "DIC"
+      (Define, Improve, Control). Wie de oplossing al kent en ze alleen moet invoeren, heeft een implementatieproject,
+      geen verbeterproject; Measure en Analyze ontbreken dan.</p>
+    </div>
+
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>"De eenmalige installatie van een al gekozen systeem is een goed DMAIC-project."</b> Fout: een DMAIC-project hoort bij een continu herhaald proces en vraagt de volledige DMAIC, niet alleen "DIC"; ligt de oplossing al vast, dan is het implementatie, geen verbetering <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=72">VV p. 72</a>.</li>
+      <li><b>Let op:</b> een Green Belt-project moet binnen 2–5 maanden af kunnen, een Black Belt-project binnen 6–9 maanden; niet omwisselen <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=72">VV p. 72</a>.</li>
+      <li><b>"Zonder kwantitatieve data geen DMAIC-project."</b> Fout: de slide vraagt kwalitatieve <i>of</i> kwantitatieve data <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=72">VV p. 72</a>.</li>
+      <li><b>"De strategie zegt hoe, de operationele activiteiten zeggen wat."</b> Fout: omgekeerd. De strategie is het WHAT (visie, richting, succesfactoren), de operationele activiteiten het HOW (beleid, doelstellingen, programma's, processen en organisatie) <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=66">VV p. 66</a>.</li>
+    </ul></div>
+
+    <div class="exercise" id="ex-01-4" data-kw="projectselectie; project selection; DMAIC project; criteria; Black Belt; Green Belt; projectduur; implementatie; implementation; herhaald proces">
+      <h4>Oefening 01.4 — Is dit een goed DMAIC-project? <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=72">VV p. 72</a></h4>
+      <div class="q" data-type="choice" data-answer="nee">
+        <label>a. De eenmalige installatie van een nieuw, al gekozen IT-systeem.</label>
+        <select><option value="">kies…</option><option value="ja">geschikt DMAIC-project</option><option value="nee">niet geschikt</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="ja">
+        <label>b. De doorlooptijd van de dagelijkse orderverwerking varieert sterk, kost geld en er zijn gegevens van elke order.</label>
+        <select><option value="">kies…</option><option value="ja">geschikt DMAIC-project</option><option value="nee">niet geschikt</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="69">
+        <label>c. Binnen welke termijn moet een Black Belt-project afgerond kunnen worden?</label>
+        <select><option value="">kies…</option><option value="25">2–5 maanden</option><option value="69">6–9 maanden</option><option value="geen">de slide legt geen termijn vast</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="25">
+        <label>d. En een Green Belt-project?</label>
+        <select><option value="">kies…</option><option value="25">2–5 maanden</option><option value="69">6–9 maanden</option><option value="geen">de slide legt geen termijn vast</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <details class="solution"><summary>Toon oplossing</summary>
+        <p>a. Niet geschikt: geen continu herhaald proces, en de oplossing ligt al vast (implementatie, niet verbetering;
+        alleen "DIC"). b. Geschikt: herhaald proces, variatie en kosten (bedrijfsimpact), data beschikbaar. c. 6–9
+        maanden. d. 2–5 maanden. Alles volgens VV p. 72.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============================================================ 01.8 -->
+  <section class="unit" id="d01-voc" data-kw="Voice of the Customer; VOC; stem van de klant; Critical to Quality; CTQ; CTQ-boom; CTQ tree; kritisch voor kwaliteit; klantbehoefte; customer requirements; features; kenmerken; metingen; measurements; marktonderzoek; enquêtes; focusgroepen">
+    <h3>01.8 Voice of the Customer en de CTQ-boom <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=68">VV p. 68–71</a></h3>
+    <p><b>De stem van de klant</b> (<i>Voice of the Customer</i>, VOC) leer je kennen via
+    <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=68">VV p. 68</a>: marktonderzoek,
+    klachten van klanten, historische data, bestaande enquêtes, focusgroepen en workshops, enquêtes en interviews,
+    klanten observeren, en zelf klant zijn ("Be A Customer").</p>
+    <p><b>De CTQ-boom</b> (<i>Critical to Quality tree</i>) <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=69">VV p. 69</a>:</p>
+    <table>
+      <tr><th>Waarom?</th><td>om algemene klantwensen op te splitsen in specificaties en factoren waarop je invloed hebt</td></tr>
+      <tr><th>Wat?</th><td>een visueel hulpmiddel om die opsplitsing en interpretatie te structureren</td></tr>
+      <tr><th>Wanneer?</th><td>in Define om de beïnvloedende factoren te begrijpen; in Measure om te begrijpen wat er gemeten moet worden</td></tr>
+      <tr><th>Wie?</th><td>het verbeterteam</td></tr>
+    </table>
+    <div class="box ex"><span class="t">Voorbeeld: van VOC naar CTQ <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=70">VV p. 70</a></span>
+      <p>De boom leest van links (vaag) naar rechts (meetbaar): VOC → kenmerken (<i>features</i>) → CTQ's →
+      doel/meting.</p>
+      <table>
+        <tr><th>VOC</th><th>Kenmerk</th><th>CTQ</th><th>Meting</th></tr>
+        <tr><td rowspan="4">klanttevredenheid (<i>customer satisfaction</i>)</td><td rowspan="2">reactiesnelheid (<i>responsiveness</i>)</td><td>notification responsiveness</td><td>aantal gemiste meldingen</td></tr>
+        <tr><td>response time</td><td>de reactietijd</td></tr>
+        <tr><td rowspan="2">snelheid waarmee problemen opgelost worden</td><td>estimated time of resolution</td><td>% tickets (TT's) opgelost binnen de SLA</td></tr>
+        <tr><td>no/delayed updates</td><td>% tijdige updates per ticket</td></tr>
+      </table>
+    </div>
+    <p><b>Gebruik van de CTQ-boom</b> <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=71">VV p. 71</a>:
+    een gemeenschappelijk beeld van het geheel krijgen; prioriteiten stellen en het project op een geschikte omvang
+    afbakenen; zien waar je metingen en data vindt en resultaten kunt zien; en begrijpen hoe die metingen met elkaar
+    samenhangen.</p>
+
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>Let op de volgorde in de CTQ-boom:</b> VOC → kenmerk (<i>feature</i>) → CTQ → meting, van vaag (links) naar meetbaar (rechts). "Klanttevredenheid" is de VOC, "response time" een CTQ, "% tickets opgelost binnen de SLA" een meting <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=70">VV p. 70</a>.</li>
+      <li><b>"De CTQ-boom gebruik je alleen in Define."</b> Fout: in Define om de beïnvloedende factoren te begrijpen, in Measure om te begrijpen wat gemeten moet worden <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=69">VV p. 69</a>.</li>
+      <li><b>"De klant stelt de CTQ-boom op."</b> Fout: dat doet het verbeterteam <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=69">VV p. 69</a>; de klant levert de VOC.</li>
+      <li><b>"De VOC haal je uit een enquête."</b> Fout: te eng. Ook marktonderzoek, klachten, historische data, focusgroepen, interviews, klanten observeren en zelf klant zijn ("Be A Customer") <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=68">VV p. 68</a>.</li>
+    </ul></div>
+
+    <div class="exercise" id="ex-01-5" data-kw="CTQ-boom; CTQ tree; VOC; Voice of the Customer; feature; kenmerk; CTQ; meting; measurement; klanttevredenheid">
+      <h4>Oefening 01.5 — Lees de CTQ-boom <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=70">VV p. 70</a></h4>
+      <p>In welk niveau van de CTQ-boom van p. 70 staat elk element?</p>
+      <div class="q" data-type="choice" data-answer="feature">
+        <label>a. Snelheid waarmee problemen opgelost worden (<i>speed of resolving problems</i>):</label>
+        <select><option value="">kies…</option><option value="voc">VOC</option><option value="feature">kenmerk (feature)</option><option value="ctq">CTQ</option><option value="meting">meting</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="meting">
+        <label>b. % tickets (TT's) opgelost binnen de SLA:</label>
+        <select><option value="">kies…</option><option value="voc">VOC</option><option value="feature">kenmerk (feature)</option><option value="ctq">CTQ</option><option value="meting">meting</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="voc">
+        <label>c. Klanttevredenheid:</label>
+        <select><option value="">kies…</option><option value="voc">VOC</option><option value="feature">kenmerk (feature)</option><option value="ctq">CTQ</option><option value="meting">meting</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="ctq">
+        <label>d. Response time (als tak onder "responsiveness"):</label>
+        <select><option value="">kies…</option><option value="voc">VOC</option><option value="feature">kenmerk (feature)</option><option value="ctq">CTQ</option><option value="meting">meting</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <details class="solution"><summary>Toon oplossing</summary>
+        <p>a kenmerk, b meting, c VOC, d CTQ (VV p. 70). Hoe verder naar rechts, hoe concreter en meetbaarder. In de
+        Measure-fase (Deel 2) gebruik je de metingen uit de laatste kolom voor je dataverzamelingsplan.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============================================================ 01.9 -->
+  <section class="unit" id="d01-sponsor" data-kw="sponsor; succesfactoren; key success factors; driver; projectleider; change leader; engagement; commitment; Define-fase; communicatie; tijd en middelen">
+    <h3>01.9 De sponsor <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=74">VV p. 74</a></h3>
+    <p>De <b>kritische succesfactoren</b> van de sponsor in de Define-fase
+    <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=74">VV p. 74</a>:</p>
+    <ul>
+      <li>een trekker (<i>driver</i>) aanduiden met de juiste competentie en ervaring;</li>
+      <li>zorgen dat die trekker genoeg tijd en middelen heeft;</li>
+      <li>niet overhaast conclusies trekken om tijd te winnen, maar een volwaardige Define-fase toelaten;</li>
+      <li>actief meedenken en meewerken aan de probleemstelling, het doel, enz.;</li>
+      <li>actief communiceren om het engagement van de belangrijkste stakeholders te krijgen.</li>
+    </ul>
+    <p class="small">Extra (niet in de getoonde slides): de algemene rol van de sponsor,
+    <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=25">VV p. 25</a>: "de katalysator die
+    veranderingen duurzaam maakt"; vaak iemand met een managementfunctie; communiceert het initiatief, kiest projecten
+    en mensen, maakt projectcharters, volgt de voortgang op, is verantwoordelijk voor het resultaat, steunt de belts en
+    ruimt hindernissen voor hen op.</p>
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>"Een goede sponsor kort de Define-fase in om tijd te winnen."</b> Fout: "Don't jump to conclusions to save some time, enable a proper Define phase" <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=74">VV p. 74</a>.</li>
+      <li><b>"De sponsor trekt het project zelf."</b> Fout: de sponsor duidt een trekker (<i>driver</i>) aan met de juiste competentie en ervaring, en zorgt dat die genoeg tijd en middelen heeft <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=74">VV p. 74</a>.</li>
+      <li><b>"De sponsor laat probleemstelling en doel aan het team over."</b> Fout: actief meedenken over probleemstelling en doel, en actief communiceren om het engagement van de belangrijkste stakeholders te krijgen, zijn kritische succesfactoren van de sponsor <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=74">VV p. 74</a>.</li>
+    </ul></div>
+  </section>
+
+  <!-- ============================================================ 01.10 -->
+  <section class="unit" id="d01-business" data-kw="business case; bedrijfsvoordeel; financieel voordeel; break even; break-even; terugverdientijd; payback; groei; growth; efficiëntie; efficiency; perceptie; perception; kostenbesparing; doorlooptijd; lead time">
+    <h3>01.10 De business case <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=147">VV p. 147–149</a></h3>
+    <p>Een verbeterproject moet zichzelf terugbetalen. De <b>business case</b>
+    <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=147">VV p. 147</a> beschrijft welke
+    effecten het project heeft. De slide over prestatie-effecten
+    <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=148">VV p. 148</a> deelt ze in drie
+    lagen in:</p>
+    <table>
+      <tr><th>Laag</th><th>Voorbeelden op de slide</th></tr>
+      <tr><td><b>groei</b> (<i>growth</i>)</td><td>meer verkoop, groter marktaandeel, hogere marge</td></tr>
+      <tr><td><b>efficiëntie</b> (<i>efficiency</i>)</td><td>procesprestaties: doorlooptijd, cyclustijd, productiviteit, werkkapitaal, leverbetrouwbaarheid, prestaties van IT-systemen, proceskwaliteit; directe kostenbesparingen: inkoop, uitbesteding, uitgaven; product- en dienstprestaties: productkwaliteit, dienstkwaliteit</td></tr>
+      <tr><td><b>perceptie</b> (<i>perception</i>)</td><td>klanttevredenheid, motivatie van medewerkers, betere goodwill</td></tr>
+    </table>
+    <p><b>Business case-berekening</b> <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=149">VV p. 149</a>.
+    De grafiek zet het cumulatieve geld ($) uit tegen de tijd. De kromme zakt eerst onder nul (het project kost geld:
+    projectkosten en investeringen), bereikt een minimum, stijgt dan en snijdt de tijdas in het <b>break-evenpunt</b>; daarna
+    levert het project netto op en vlakt de winst af. De slide geeft geen formules of getallen.</p>
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>"Het break-evenpunt is het laagste punt van de curve."</b> Fout: het laagste punt is waar het project cumulatief het meeste gekost heeft; break-even is waar de kromme weer de tijdas snijdt, daarna levert het project netto op <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=149">VV p. 149</a>.</li>
+      <li><b>"Klanttevredenheid is een efficiëntie-effect."</b> Fout: klanttevredenheid, motivatie van medewerkers en goodwill vallen onder perceptie; efficiëntie omvat procesprestaties, directe kostenbesparingen en product- en dienstprestaties <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=148">VV p. 148</a>.</li>
+      <li><b>"Een business case telt alleen harde besparingen."</b> Fout: de one-slider zet de kosten (project, investeringen, invoering) tegenover harde én zachte besparingen <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=64">VV p. 64</a>.</li>
+    </ul></div>
+  </section>
+
+  <!-- ============================================================ 01.11 -->
+  <section class="unit" id="d01-stakeholders" data-kw="stakeholder; belanghebbende; stakeholder map; stakeholdermap; level of interest; level of authority; interesse; invloed; macht; communicatie; communication; selling phase; start-up phase; driving phase; closing phase; communicatieplan">
+    <h3>01.11 Stakeholders en communicatie <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=150">VV p. 150–152</a></h3>
+    <p>Een <b>stakeholder</b> (belanghebbende) is een persoon of rol die door een verandering geraakt wordt of die de
+    verandering, in welke richting ook, kan beïnvloeden. Pas je gedrag en je communicatieplanning aan de geïdentificeerde
+    stakeholders aan <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=150">VV p. 150</a>.</p>
+    <p><b>Stakeholdermap</b>: een 2×2-rooster met horizontaal het <b>niveau van interesse</b> (<i>level of interest</i>,
+    − naar +) en verticaal het <b>niveau van gezag</b> (<i>level of authority</i>, − naar +):</p>
+    <table>
+      <tr><th></th><th>lage interesse</th><th>hoge interesse</th></tr>
+      <tr><th>hoog gezag</th><td>A (rood)</td><td>B (groen)</td></tr>
+      <tr><th>laag gezag</th><td>C (oranje)</td><td>D (groen)</td></tr>
+    </table>
+    <p class="small">De slide geeft alleen de kleuren, geen voorgeschreven aanpak per kwadrant. De kleuren suggereren dat
+    A (veel macht, weinig interesse) het meeste aandacht vraagt.</p>
+    <p><b>Strategie per stakeholder</b> <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=151">VV p. 151</a>:
+    een tabel met vier kolommen: wie (stakeholder), waarom geïnteresseerd, mogelijk negatief en positief effect op het
+    project, en hoe je ermee omgaat. Voorbeeld: de marketingafdeling wil informatie voor campagnes en wil zeker zijn dat
+    er naar de klant geluisterd wordt; risico's zijn een vertraagde lancering, slecht geïnformeerde verkoopkantoren of een
+    product dat niet aan de klantwensen voldoet; aanpak: marketing in het productteam en in de doorlopen van de
+    ontwikkeling betrekken.</p>
+    <p><b>Communicatie in DMAIC</b> <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=152">VV p. 152</a>.
+    Elke groep doorloopt vier communicatiefasen: <b>selling</b> (overtuigen), <b>start-up</b>, <b>driving</b> en
+    <b>closing</b>, maar niet op hetzelfde moment:</p>
+    <table>
+      <tr><th>Groep</th><th>Wanneer</th></tr>
+      <tr><td>stakeholders en projectteam</td><td>selling in Define, start-up rond de overgang naar Measure, driving van Measure tot in Control, closing aan het einde</td></tr>
+      <tr><td>wie geraakt wordt en vroeg geïnformeerd wordt (<i>affected &amp; early informed</i>)</td><td>een lange selling-fase van Define tot in Improve, daarna start-up, driving en closing in Improve en Control</td></tr>
+      <tr><td>wie geraakt wordt (<i>affected</i>)</td><td>alle vier de fasen pas op het einde: selling rond de overgang van Analyze naar Improve, daarna start-up, driving en closing in Improve en Control</td></tr>
+    </table>
+
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>"Een stakeholder is iemand die het project steunt."</b> Fout: iedereen (persoon of rol) die door de verandering geraakt wordt of ze kan beïnvloeden, in welke richting ook; tegenstanders dus ook <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=150">VV p. 150</a>.</li>
+      <li><b>Let op de assen:</b> horizontaal het niveau van interesse, verticaal het niveau van gezag. Vak A = hoog gezag en lage interesse (rood), vak D = laag gezag en hoge interesse <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=150">VV p. 150</a>.</li>
+      <li><b>"De slide schrijft per kwadrant een aanpak voor."</b> Fout: ze geeft alleen kleuren. De regel is: pas je gedrag en je communicatieplanning aan de stakeholders aan <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=150">VV p. 150</a>, per stakeholder uitgewerkt in een tabel <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=151">VV p. 151</a>.</li>
+      <li><b>"Alle groepen doorlopen de communicatiefasen tegelijk."</b> Fout: stakeholders en projectteam starten met selling in Define; wie alleen geraakt wordt (<i>affected</i>), krijgt de selling-fase pas rond de overgang van Analyze naar Improve <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=152">VV p. 152</a>.</li>
+    </ul></div>
+
+    <div class="exercise" id="ex-01-6" data-kw="stakeholder map; stakeholdermap; interesse; gezag; level of interest; level of authority; communicatiefasen; selling phase; kwadrant">
+      <h4>Oefening 01.6 — Stakeholders plaatsen en informeren <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=150">VV p. 150, 152</a></h4>
+      <div class="q" data-type="choice" data-answer="A">
+        <label>a. Een directeur met veel beslissingsmacht die weinig interesse heeft in je project. Welk vak?</label>
+        <select><option value="">kies…</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="D">
+        <label>b. Operatoren met weinig gezag die sterk geïnteresseerd zijn omdat hun werkwijze verandert. Welk vak?</label>
+        <select><option value="">kies…</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="affected">
+        <label>c. Welke groep wordt volgens p. 152 het laatst "verkocht" (selling-fase pas rond de overgang naar Improve)?</label>
+        <select><option value="">kies…</option><option value="team">stakeholders en projectteam</option><option value="early">affected &amp; early informed</option><option value="affected">affected</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <details class="solution"><summary>Toon oplossing</summary>
+        <p>a. A: hoog gezag, lage interesse (rood vak). b. D: laag gezag, hoge interesse. c. De groep "affected": haar selling-fase
+        begint pas rond de overgang van Analyze naar Improve; start-up, driving en closing volgen in Improve en Control
+        (p. 152). Wat je per vak doet, legt de slide
+        niet vast; de algemene regel is "pas je gedrag en communicatie aan de stakeholders aan" (p. 150), uitgewerkt per
+        stakeholder in een tabel zoals op p. 151.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============================================================ 01.12 -->
+  <section class="unit" id="d01-team" data-kw="team; teamsamenstelling; team composition; high performing team; vertrouwen; trust; samenwerking; cooperation; Belbin; teamrollen; team roles; Shaper; Implementer; Completer Finisher; Coordinator; Teamworker; Resource Investigator; Plant; Monitor Evaluator; Specialist">
+    <h3>01.12 Het team en de teamrollen van Belbin <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=153">VV p. 153–158</a></h3>
+    <p><b>Wie heb je nodig in je team?</b> <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=153">VV p. 153</a>
+    Kijk naar functie, rol, competenties, persoonlijkheid, de mogelijkheid om invloed uit te oefenen, het vermogen om
+    problemen te overwinnen, en steun bij de uitvoering.</p>
+    <p><b>Een goed presterend team ontwikkelen</b> <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=154">VV p. 154</a>.
+    Vier bouwstenen: middelen (<i>resources</i>), engagement (<i>commitment</i>), diversiteit en competentie. Daarnaast
+    een grafiek met <b>vertrouwen</b> (<i>trust</i>) verticaal en <b>samenwerking</b> (<i>cooperation</i>) horizontaal:
+    bij weinig van beide is het team <b>defensief</b> (win/verlies of verlies/win), in het midden <b>respectvol</b> (compromis),
+    bij veel van beide <b>synergetisch</b> (win/win).</p>
+    <p><b>De teamrollen van Belbin</b> <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=155">VV p. 155</a>:
+    een teamrol is "een neiging om je op een bepaalde manier te gedragen, bij te dragen en met anderen om te gaan". Negen
+    rollen in drie groepen (de slides houden de Engelse namen; die gebruikt de gids ook):</p>
+    <table>
+      <tr><th>Groep</th><th>Rol</th><th>Kernzin op de slide</th><th>Kenmerken (en zwakte)</th></tr>
+      <tr><td rowspan="3"><b>actiegericht</b> (<i>action</i>) <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=158">VV p. 158</a></td><td>Shaper</td><td>daagt het team uit om te verbeteren</td><td>extravert, dynamisch, competitief, gedreven, brengt leven in het team, provocerend; ongeduld</td></tr>
+      <tr><td>Implementer</td><td>zet ideeën om in actie</td><td>georganiseerd, houdt van routine, praktisch, systematisch, werkt hard, loyaal; weinig flexibel</td></tr>
+      <tr><td>Completer Finisher</td><td>zorgt voor grondige, tijdige afwerking</td><td>ordelijk, gewetensvol, werkt door tot het af is, hoge normen, oog voor detail, angstig; delegeert niet</td></tr>
+      <tr><td rowspan="3"><b>mensgericht</b> (<i>people</i>) <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=156">VV p. 156</a></td><td>Coordinator</td><td>treedt op als voorzitter</td><td>zelfzeker, beheerst, motiverend, verwelkomt alle bijdragen, raadpleegt anderen</td></tr>
+      <tr><td>Resource Investigator</td><td>verkent kansen buiten het team</td><td>extravert, enthousiast, communicatief, netwerker, bouwt voort op goede ideeën, denkt snel; enthousiasme kan wegebben</td></tr>
+      <tr><td>Teamworker</td><td>moedigt samenwerking aan</td><td>sociaal, gevoelig voor gevoelens van anderen, diplomatisch, flexibel, goede luisteraar, steunend, teamspeler; besluiteloos in een crisis</td></tr>
+      <tr><td rowspan="3"><b>denkend</b> (<i>thinking</i>) <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=157">VV p. 157</a></td><td>Plant</td><td>brengt nieuwe ideeën en benaderingen</td><td>individualistisch, ernstig, onorthodox, zeer creatief, onafhankelijk; negeert praktische details, reageert sterk op kritiek</td></tr>
+      <tr><td>Monitor Evaluator</td><td>analyseert de opties</td><td>ernstig, emotieloos, kritische denker, weegt analyse en evaluatie af; mist de kracht om te inspireren</td></tr>
+      <tr><td>Specialist</td><td>levert gespecialiseerde vaardigheden</td><td>zelfstarter, wil expert worden, veel technische en specialistische kennis; draagt alleen bij binnen het eigen vakgebied</td></tr>
+    </table>
+
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>Let op de drie groepen:</b> actiegericht = Shaper, Implementer, Completer Finisher; mensgericht = Coordinator, Teamworker, Resource Investigator; denkend = Plant, Monitor Evaluator, Specialist <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=155">VV p. 155</a>.</li>
+      <li><b>"De Coordinator is een actierol, want hij leidt."</b> Fout: de Coordinator ("acts as a chairperson") is mensgericht <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=156">VV p. 156</a>; de Shaper, die het team uitdaagt, is de actierol <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=158">VV p. 158</a>.</li>
+      <li><b>"De Resource Investigator brengt de originele ideeën."</b> Fout: nieuwe ideeën en benaderingen komen van de Plant (denkend) <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=157">VV p. 157</a>; de Resource Investigator verkent kansen buiten het team en bouwt voort op goede ideeën (mensgericht) <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=156">VV p. 156</a>.</li>
+      <li><b>"Een teamrol is je functie in het project."</b> Fout: Belbin noemt een teamrol "een neiging om je op een bepaalde manier te gedragen, bij te dragen en met anderen om te gaan" <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=155">VV p. 155</a>.</li>
+      <li><b>"Veel vertrouwen volstaat voor een synergetisch team."</b> Fout: synergetisch (win/win) vraagt veel vertrouwen én veel samenwerking <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=154">VV p. 154</a>.</li>
+    </ul></div>
+
+    <div class="exercise" id="ex-01-7" data-kw="Belbin; teamrollen; team roles; Shaper; Implementer; Completer Finisher; Coordinator; Teamworker; Resource Investigator; Plant; Monitor Evaluator; Specialist; actiegericht; mensgericht; denkend">
+      <h4>Oefening 01.7 — Herken de Belbin-rol <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=155">VV p. 155–158</a></h4>
+      <div class="q" data-type="choice" data-answer="coordinator">
+        <label>a. Leidt de vergadering, verwelkomt alle bijdragen en motiveert:</label>
+        <select><option value="">kies…</option><option value="shaper">Shaper</option><option value="coordinator">Coordinator</option><option value="plant">Plant</option><option value="monitor">Monitor Evaluator</option><option value="completer">Completer Finisher</option><option value="resource">Resource Investigator</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="plant">
+        <label>b. Zeer creatief en onorthodox, maar negeert praktische details:</label>
+        <select><option value="">kies…</option><option value="shaper">Shaper</option><option value="coordinator">Coordinator</option><option value="plant">Plant</option><option value="monitor">Monitor Evaluator</option><option value="completer">Completer Finisher</option><option value="resource">Resource Investigator</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="completer">
+        <label>c. Werkt alles grondig en op tijd af, maar delegeert niet:</label>
+        <select><option value="">kies…</option><option value="shaper">Shaper</option><option value="coordinator">Coordinator</option><option value="plant">Plant</option><option value="monitor">Monitor Evaluator</option><option value="completer">Completer Finisher</option><option value="resource">Resource Investigator</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="resource">
+        <label>d. Netwerker die kansen buiten het team zoekt; het enthousiasme kan wegebben:</label>
+        <select><option value="">kies…</option><option value="shaper">Shaper</option><option value="coordinator">Coordinator</option><option value="plant">Plant</option><option value="monitor">Monitor Evaluator</option><option value="completer">Completer Finisher</option><option value="resource">Resource Investigator</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="denkend">
+        <label>e. Tot welke groep behoort de Monitor Evaluator?</label>
+        <select><option value="">kies…</option><option value="actie">actiegericht</option><option value="mens">mensgericht</option><option value="denkend">denkend</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="actie">
+        <label>f. En de Shaper?</label>
+        <select><option value="">kies…</option><option value="actie">actiegericht</option><option value="mens">mensgericht</option><option value="denkend">denkend</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <details class="solution"><summary>Toon oplossing</summary>
+        <p>a Coordinator ("acts as a chairperson", p. 156). b Plant ("presents new ideas and approaches", p. 157).
+        c Completer Finisher ("ensures thorough, timely completion", p. 158). d Resource Investigator ("explores outside
+        opportunities", p. 156). e Denkend (thinking roles: Plant, Monitor Evaluator, Specialist, p. 155). f Actiegericht
+        (action roles: Shaper, Implementer, Completer Finisher, p. 155).</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============================================================ 01.13 -->
+  <section class="unit" id="d01-verandering" data-kw="teamontwikkeling; team development; forming; storming; norming; performing; adjourning; Tuckman; werkmoraal; productiviteit; verandering leiden; leading change; change management; insight; prepare; act; reinforce; learn and adjust; co-creatie; participatie">
+    <h3>01.13 Teamontwikkeling en verandering leiden <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=159">VV p. 159–160</a></h3>
+    <p><b>Teamwerk is een reis</b> <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=159">VV p. 159</a>.
+    Een team doorloopt vijf fasen, elk met een eigen behoefte:</p>
+    <table>
+      <tr><th>Fase</th><th>Typisch</th><th>Wat het team nodig heeft</th></tr>
+      <tr><td><b>Forming</b></td><td>oriëntatie</td><td>duidelijkheid en doel (<i>clarity &amp; purpose</i>)</td></tr>
+      <tr><td><b>Storming</b></td><td>ontevredenheid</td><td>engagement versterken en open communicatie</td></tr>
+      <tr><td><b>Norming</b></td><td>integratie</td><td>erkenning, aanmoediging, leren</td></tr>
+      <tr><td><b>Performing</b></td><td>productie</td><td>nieuwe uitdagingen, erkenning, autonomie</td></tr>
+      <tr><td><b>Adjourning</b> (de slide schrijft "Ajourning")</td><td>beëindiging</td><td>officiële afsluiting, samenvatten, vieren</td></tr>
+    </table>
+    <p>De grafiek op de slide toont twee lijnen: de <b>werkmoraal</b> begint hoog, zakt diep in de storming-fase en
+    herstelt daarna geleidelijk; de <b>productiviteit</b> stijgt gestaag over alle fasen.</p>
+    <p><b>Stappen om verandering te leiden</b> <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=160">VV p. 160</a>
+    (bron op de slide: IFAB, CANEA Partner Group AB). Vier stappen, met tussen Prepare en Act een lus "Learn &amp;
+    Adjust", en eronder een pijl "co-creatie en participatie". Elke stap heeft een organisatorische en een individuele
+    kant:</p>
+    <table>
+      <tr><th>Stap</th><th>Organisatorisch perspectief</th><th>Individueel perspectief</th></tr>
+      <tr><td><b>Insight</b></td><td>verduidelijken waarom er verandering nodig is; feiten en omstandigheden begrijpen; de gewenste toekomstige situatie bepalen</td><td>ruimte laten voor vragen; ingaan op verschillende reacties op verandering; helpen ontdekken "what's in it for me"</td></tr>
+      <tr><td><b>Prepare</b></td><td>de route bepalen en communiceren; hindernissen wegnemen; kennis en middelen voorzien; deelname creëren</td><td>begrijpen hoe bereid en bekwaam individuen zijn om bij te dragen; nieuwe werkwijzen leren aanmoedigen; individuen coachen om bij te dragen en hun verantwoordelijkheid te zien</td></tr>
+      <tr><td><b>Act</b></td><td>activiteiten coördineren en opvolgen; het plan wendbaar bijsturen; competenties verdiepen</td><td>rolmodellen in de verf zetten; coachen bij nieuwe gewoonten; persoonlijke feedback; ervaringen laten uitwisselen; ruimte om te oefenen</td></tr>
+      <tr><td><b>Reinforce</b></td><td>resultaten en effecten communiceren; vooruitgang vieren; blijven zoeken naar nieuwe veranderbehoeften</td><td>feedback geven op persoonlijke betrokkenheid; lessen en nieuwe vaardigheden zichtbaar maken; "feedforward" op verdere verandering</td></tr>
+    </table>
+
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>Let op de volgorde:</b> Forming, Storming, Norming, Performing, Adjourning (de slide schrijft "Ajourning") <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=159">VV p. 159</a>.</li>
+      <li><b>"In de storming-fase zakt ook de productiviteit."</b> Fout: op de slide zakt de werkmoraal het diepst in storming, terwijl de productiviteit gestaag blijft stijgen <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=159">VV p. 159</a>.</li>
+      <li><b>"Een team in de performing-fase heeft vooral duidelijkheid en een doel nodig."</b> Fout: dat is Forming ("clarity &amp; purpose"); Performing vraagt nieuwe uitdagingen, erkenning en autonomie <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=159">VV p. 159</a>.</li>
+      <li><b>Let op de veranderstappen:</b> Insight, Prepare, Act, Reinforce, met de lus "Learn &amp; Adjust" tussen Prepare en Act. "What's in it for me" hoort bij Insight, vooruitgang vieren bij Reinforce <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=160">VV p. 160</a>.</li>
+    </ul></div>
+
+    <div class="exercise" id="ex-01-8" data-kw="teamontwikkeling; forming; storming; norming; performing; adjourning; Tuckman; werkmoraal; verandering leiden; insight; prepare; act; reinforce">
+      <h4>Oefening 01.8 — Teamfasen en veranderstappen <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=159">VV p. 159–160</a></h4>
+      <div class="q" data-type="choice" data-answer="storming">
+        <label>a. Het team is ontevreden en de werkmoraal zit op haar laagste punt. Welke fase?</label>
+        <select><option value="">kies…</option><option value="forming">Forming</option><option value="storming">Storming</option><option value="norming">Norming</option><option value="performing">Performing</option><option value="adjourning">Adjourning</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="performing">
+        <label>b. Het team heeft nu vooral nieuwe uitdagingen, erkenning en autonomie nodig. Welke fase?</label>
+        <select><option value="">kies…</option><option value="forming">Forming</option><option value="storming">Storming</option><option value="norming">Norming</option><option value="performing">Performing</option><option value="adjourning">Adjourning</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="forming">
+        <label>c. Een nieuw team heeft vooral duidelijkheid en een doel nodig. Welke fase?</label>
+        <select><option value="">kies…</option><option value="forming">Forming</option><option value="storming">Storming</option><option value="norming">Norming</option><option value="performing">Performing</option><option value="adjourning">Adjourning</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="insight">
+        <label>d. In welke veranderstap help je mensen ontdekken "what's in it for me"?</label>
+        <select><option value="">kies…</option><option value="insight">Insight</option><option value="prepare">Prepare</option><option value="act">Act</option><option value="reinforce">Reinforce</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="reinforce">
+        <label>e. In welke stap vier je de vooruitgang?</label>
+        <select><option value="">kies…</option><option value="insight">Insight</option><option value="prepare">Prepare</option><option value="act">Act</option><option value="reinforce">Reinforce</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <details class="solution"><summary>Toon oplossing</summary>
+        <p>a Storming (ontevredenheid; de moraalcurve zakt daar het diepst, p. 159). b Performing. c Forming
+        ("clarity &amp; purpose"). d Insight (individueel perspectief, p. 160). e Reinforce ("celebrate progress",
+        p. 160).</p>
+      </details>
+    </div>
+  </section>
+</section>

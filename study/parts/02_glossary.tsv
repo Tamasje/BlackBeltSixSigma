@@ -1,0 +1,61 @@
+nl	en	anchor
+kwalitatieve data	qualitative data	d02-data
+kwantitatieve data	quantitative data	d02-data
+dataverzamelingsplan	data collection plan	d02-data
+categorische data	categorical data	d02-meetschalen
+numerieke data	numerical data	d02-meetschalen
+discreet	discrete	d02-meetschalen
+continu	continuous	d02-meetschalen
+meetschaal	measurement scale	d02-meetschalen
+nominaal	nominal	d02-meetschalen
+ordinaal	ordinal	d02-meetschalen
+intervalschaal	interval scale	d02-meetschalen
+ratioschaal	ratio scale	d02-meetschalen
+absoluut nulpunt	absolute zero	d02-meetschalen
+kansrekening	probability	d02-statkans
+statistiek	statistics	d02-statkans
+sampling (steekproeftrekking)	sampling	d02-statkans
+inferentie	inference	d02-statkans
+random steekproef	random sample (RS)	d02-statkans
+random variabele	random variable (RV)	d02-statkans
+kansverdeling	probability distribution	d02-verdelingen
+kansdichtheid	probability density function (pdf)	d02-verdelingen
+cumulatieve verdelingsfunctie	cumulative distribution function (cdf)	d02-verdelingen
+exponentiële verdeling	exponential distribution	d02-verdelingen
+beta-verdeling	beta distribution	d02-verdelingen
+Poisson-verdeling	Poisson distribution	d02-poisson
+voorspelling	prediction	d02-poisson
+deterministisch model	deterministic model	d02-model
+probabilistisch model	probabilistic model	d02-model
+meetfout, experimentele fout	measurement error, experimental error	d02-model
+ingenieursmethode	engineering method	d02-model
+industriële statistiek	industrial statistics	d02-model
+verkennende data-analyse	exploratory data analysis (EDA)	d02-eda
+spreidingsdiagram	scatter plot	d02-eda
+uitschieter	outlier	d02-eda
+kwartet van Anscombe	Anscombe's quartet	d02-eda
+4-plot	4-plot (run sequence plot, lag plot, histogram, probability plot)	d02-4plot
+residu	residual	d02-4plot
+associatie	association	d02-associatie
+gezamenlijke kansverdeling	joint probability distribution	d02-associatie
+marginale verdeling	marginal distribution	d02-kansen
+voorwaardelijke verdeling	conditional distribution	d02-kansen
+onafhankelijkheid	independence	d02-kansen
+voorwaardelijke verwachtingswaarde	conditional expectation E[Y | X = x]	d02-regressielijn
+regressielijn	regression line	d02-regressielijn
+ladder van causaliteit	ladder of causation	d02-ladder
+interventie	intervention, do(X)	d02-ladder
+counterfactueel	counterfactual	d02-ladder
+PINO-principe	Prediction Is Not Optimization	d02-ladder
+cum hoc ergo propter hoc-drogreden	cum hoc ergo propter hoc fallacy	d02-ladder
+Simpson's paradox	Simpson's paradox	d02-simpson
+verstorende variabele	confounder	d02-simpson
+causaal diagram	causal diagram, DAG (directed acyclic graph)	d02-dag
+achterdeurpad	backdoor path	d02-dag
+mediator	mediator	d02-dag
+gerandomiseerde gecontroleerde studie	randomized controlled trial (RCT)	d02-rct
+A/B-test	A/B test	d02-rct
+do-calculus	do-calculus	d02-rct
+regressieverdunning	regression dilution, attenuation bias	d02-staal
+survivorship bias	survivorship bias	d02-misleiding
+procentpunt	percentage point	d02-misleiding

@@ -1,0 +1,79 @@
+key	symbool	betekenis	hoe	anchor
+mu	μ	Procesgemiddelde (process mean) van de individuele metingen.	Gegeven in de opgave, of geschat door X̿, het gemiddelde van de subgroepgemiddelden.	d10-xbar
+sigma	σ	Standaardafwijking van het proces (process standard deviation): spreiding van de losse metingen.	Gegeven, of geschat met σ̂ = R̄/d<sub>2</sub> (d<sub>2</sub> bij n, Table 18). Niet σ<sub>x̄</sub> = σ/√n, de spreiding van de gemiddelden.	d10-xbar
+mu0	μ<sub>0</sub>	Gemiddelde van het stabiele proces: X ~ N(μ<sub>0</sub>, σ<sub>0</sub>).	In de praktijk geschat door X̿. De X̄-kaart bewaakt of μ<sub>0</sub> constant blijft.	d10-xbar
+sigma0	σ<sub>0</sub>	Standaardafwijking van het stabiele proces: X ~ N(μ<sub>0</sub>, σ<sub>0</sub>).	Geschat met R̄/d<sub>2</sub> (of s̄/c<sub>4</sub>). De R- of s-kaart bewaakt of σ<sub>0</sub> constant blijft.	d10-xbar
+sigma_xbar	σ<sub>x̄</sub>	Standaardafwijking van de steekproefgemiddelden (standard error of the mean).	σ/√n (centrale limietstelling). Uit een kaart: (UCL − CL)/3 of A<sub>2</sub>R̄/3. De X̄-grenzen liggen op 3σ<sub>x̄</sub>, niet op 3σ.	d10-xbar
+n	n	Steekproefgrootte (subgroup size): aantal metingen per subgroep.	Gegeven. Bepaalt de rij in Table 18 (A<sub>2</sub>, d<sub>2</sub>, D<sub>3</sub>, D<sub>4</sub>). Niet het aantal subgroepen k.	d10-formules
+n_i	n<sub>i</sub>	Grootte van subgroep i, als die per subgroep verschilt.	Gegeven per subgroep. Elke subgroep krijgt eigen grenzen: X̿ ± 3σ̂/√n<sub>i</sub>, p̄ ± 3√(p̄(1 − p̄)/n<sub>i</sub>) of ū ± 3√(ū/n<sub>i</sub>).	d10-attribuut
+n_new	n<sub>nieuw</sub>	Nieuwe steekproefgrootte waarmee je verder monitort (SPC-oefening 4).	Gegeven. Lees A<sub>2</sub>, d<sub>2</sub>, D<sub>3</sub>, D<sub>4</sub> bij n<sub>nieuw</sub>, maar σ̂ blijft R̄/d<sub>2</sub> met de oude n.	ex-10-8
+k	k (ook m)	Aantal subgroepen (steekproeven) waaruit je de grenzen berekent.	Tel ze; minstens 20 (deck) of 25 (Dummies). Niet verwarren met de steekproefgrootte n.	d10-opzet
+k_obs	k	Aantal individuele metingen op een I-MR-kaart.	Tel de metingen; k metingen geven k − 1 moving ranges.	d10-imr
+ucl	UCL	Bovenste regelgrens (upper control limit) van de X̄-kaart.	X̿ + A<sub>2</sub>R̄ of X̿ + A<sub>3</sub>s̄; met gegeven μ en σ: μ + 3σ/√n. Stem van het proces, geen specificatiegrens (USL).	d10-formules
+lcl	LCL	Onderste regelgrens (lower control limit) van de X̄-kaart.	X̿ − A<sub>2</sub>R̄ of X̿ − A<sub>3</sub>s̄; met gegeven μ en σ: μ − 3σ/√n. Geen specificatiegrens (LSL).	d10-formules
+cl	CL	Centrale lijn (center line) van de X̄-kaart.	X̿, het gemiddelde van de subgroepgemiddelden; of μ als die gegeven is.	d10-formules
+ucl_r	UCL<sub>R</sub>	Bovenste regelgrens van de R-kaart (range chart).	D<sub>4</sub>·R̄, met D<sub>4</sub> uit Table 18 bij n (n = 5: 2,115).	d10-formules
+lcl_r	LCL<sub>R</sub>	Onderste regelgrens van de R-kaart.	D<sub>3</sub>·R̄; D<sub>3</sub> = 0 voor n ≤ 6, dan is LCL<sub>R</sub> = 0.	d10-formules
+cl_r	CL (R-kaart)	Centrale lijn van de R-kaart.	R̄, het gemiddelde van de ranges.	d10-formules
+ucl_s	UCL (s-kaart)	Bovenste regelgrens van de s-kaart.	B<sub>4</sub>·s̄, met B<sub>4</sub> uit Table 18 bij n (n = 5: 2,089).	d10-formules
+lcl_s	LCL (s-kaart)	Onderste regelgrens van de s-kaart.	B<sub>3</sub>·s̄; B<sub>3</sub> = 0 voor n ≤ 5 (Table 18).	d10-formules
+cl_s	CL (s-kaart)	Centrale lijn van de s-kaart.	s̄, het gemiddelde van de standaardafwijkingen van de subgroepen.	d10-formules
+ucl_x	UCL<sub>X</sub>	Bovenste regelgrens van de I-kaart (individuele waarden).	X̄ + E<sub>2</sub>·MR̄, met E<sub>2</sub> = 2,660 (Six Sigma Demystified, beslissing 4) of 2,659 (Dummies).	d10-imr
+lcl_x	LCL<sub>X</sub>	Onderste regelgrens van de I-kaart.	X̄ − E<sub>2</sub>·MR̄.	d10-imr
+ucl_mr	UCL<sub>MR</sub>	Bovenste regelgrens van de moving-range-kaart.	D<sub>4</sub>·MR̄ met D<sub>4</sub> voor n = 2: 3,267·MR̄.	d10-imr
+lcl_mr	LCL<sub>MR</sub>	Onderste regelgrens van de moving-range-kaart.	D<sub>3</sub>·MR̄ met D<sub>3</sub> = 0 voor n = 2: altijd 0.	d10-imr
+ucl_p	UCL<sub>i</sub> (p-kaart)	Bovenste regelgrens van de p-kaart voor subgroep i.	p̄ + 3√(p̄(1 − p̄)/n<sub>i</sub>), met de eigen n<sub>i</sub> van die subgroep.	d10-attribuut
+lcl_p	LCL<sub>i</sub> (p-kaart)	Onderste regelgrens van de p-kaart voor subgroep i.	p̄ − 3√(p̄(1 − p̄)/n<sub>i</sub>); een negatieve waarde betekent niets, neem dan 0.	d10-attribuut
+ucl_u	UCL<sub>i</sub> (u-kaart)	Bovenste regelgrens van de u-kaart voor subgroep i.	ū + 3√(ū/n<sub>i</sub>). Dummies noemt ze USL<sub>i</sub>, maar het is een regelgrens.	d10-attribuut
+lcl_u	LCL<sub>i</sub> (u-kaart)	Onderste regelgrens van de u-kaart voor subgroep i.	ū − 3√(ū/n<sub>i</sub>); een negatieve waarde wordt 0.	d10-attribuut
+sigma_hat	σ̂	Geschatte standaardafwijking van het proces (estimated σ), binnen de subgroepen.	R̄/d<sub>2</sub> (d<sub>2</sub> bij de n van de subgroepen, Table 18) of s̄/c<sub>4</sub>; bij losse metingen MR̄/1,128. Niet R̄ zelf.	d10-xbar
+sigma_hat_i	σ̂<sub>i</sub>	Schatting van σ uit één subgroep i (variabele steekproefgrootte).	R<sub>i</sub>/d<sub>2</sub>, met de d<sub>2</sub> van die subgroepgrootte; σ̂ is het gemiddelde van de σ̂<sub>i</sub>.	d10-formules
+rbar	R̄	Gemiddelde range (average range) van de k subgroepen.	(1/k) Σ R<sub>i</sub>, met R<sub>i</sub> = grootste − kleinste per subgroep. Dit is geen σ: σ̂ = R̄/d<sub>2</sub>.	d10-formules
+rbar_new	R̄<sub>nieuw</sub>	Verwachte gemiddelde range bij een nieuwe steekproefgrootte (ook R̄<sub>3</sub>, R̄<sub>8</sub>).	d<sub>2</sub>(n<sub>nieuw</sub>) · σ̂, met σ̂ = R̄/d<sub>2</sub> van de oude n.	ex-10-8
+r_i	R<sub>i</sub>	Range (spreidingsbreedte) van subgroep i.	Grootste − kleinste waarde in de subgroep (Excel: MAX − MIN).	d10-formules
+xbarbar	X̿	Groot gemiddelde (grand mean): gemiddelde van de subgroepgemiddelden.	(1/k) Σ x̄<sub>i</sub> (AVERAGE van de x̄'s). Schat μ; centrale lijn van de X̄-kaart.	d10-formules
+xbar_i	x̄<sub>i</sub>	Gemiddelde van subgroep i: het punt op de X̄-kaart.	AVERAGE van de n metingen van die subgroep.	d10-formules
+sbar	s̄	Gemiddelde standaardafwijking van de k subgroepen.	(1/k) Σ s<sub>i</sub>. Voor σ: σ̂ = s̄/c<sub>4</sub>, met c<sub>4</sub> uit Table A.	d10-formules
+s_i	s<sub>i</sub>	Standaardafwijking van subgroep i.	STDEV.S van de n metingen van die subgroep (deler n − 1).	d10-formules
+s_overall	s	Standaardafwijking van alle metingen samen (overall, lange termijn).	STDEV.S van alle metingen (hier 100). Geeft Pp en Ppk, niet Cp en Cpk.	d09-ppk
+a2	A<sub>2</sub>	Constante voor de grenzen van de X̄-kaart met R̄ (±3σ<sub>x̄</sub>).	Table 18 bij n (n = 5: 0,577; n = 3: 1,023). Volgt uit 3/(d<sub>2</sub>√n).	d10-formules
+a3	A<sub>3</sub>	Constante voor de grenzen van de X̄-kaart met s̄.	Six Sigma Demystified bij n (n = 5: 1,427); Table 18 heeft geen kolom A<sub>3</sub>.	d10-formules
+a1	A<sub>1</sub>	Constante uit Table 18 voor de X̄-kaart met s̄ in de vorm van Table 7.2.	Table 18 bij n (n = 5: 1,596). A<sub>1</sub>·√((n − 1)/n) is A<sub>3</sub>.	d10-formules
+a_sigma	A	Constante voor de X̄-kaart met gegeven μ en σ: μ ± Aσ.	Table 18 bij n (n = 5: 1,342); voor n &gt; 25 geeft de tabel 3/√n.	d10-formules
+d1_sigma	D<sub>1</sub>	Constante voor de onderste grens van de R-kaart met gegeven σ: D<sub>1</sub>σ.	Table 18 bij n (0 voor n ≤ 6). Niet verwarren met D<sub>3</sub>, dat met R̄ werkt.	d10-formules
+d2_sigma	D<sub>2</sub>	Constante voor de bovenste grens van de R-kaart met gegeven σ: D<sub>2</sub>σ.	Table 18 bij n (n = 5: 4,918). Niet verwarren met de kleine d<sub>2</sub> (n = 5: 2,326).	d10-formules
+d2	d<sub>2</sub>	Verhouding tussen de gemiddelde range en σ, bij subgroepgrootte n.	Table 18 bij n (n = 2: 1,128; n = 5: 2,326). Neem de n waaruit R̄ komt; σ̂ = R̄/d<sub>2</sub>.	d10-xbar
+d3	D<sub>3</sub>	Constante voor de onderste grens van een R-kaart (of MR-kaart).	Table 18 bij n: 0 voor n ≤ 6 (n = 8: 0,136). LCL<sub>R</sub> = D<sub>3</sub>R̄.	d10-formules
+d4	D<sub>4</sub>	Constante voor de bovenste grens van een R-kaart (of MR-kaart).	Table 18 bij n: 2,115 (n = 5), 2,575 (n = 3), 3,267 (n = 2). Dummies en Demystified: 2,114 en 2,574.	d10-formules
+b3	B<sub>3</sub>	Constante voor de onderste grens van de s-kaart.	Table 18 bij n: 0 voor n ≤ 5 (n = 6: 0,030).	d10-formules
+b4	B<sub>4</sub>	Constante voor de bovenste grens van de s-kaart.	Table 18 bij n (n = 5: 2,089).	d10-formules
+c4	c<sub>4</sub>	Biascorrectie (bias correction factor) voor een σ-schatting uit s̄.	Table A (Wheeler) bij n (n = 5: 0,9400); σ̂ = s̄/c<sub>4</sub>.	d10-formules
+e2	E<sub>2</sub>	Constante voor de grenzen van de I-kaart (individuele waarden).	Voor n = 2: 2,660 (Six Sigma Demystified, beslissing 4) of 2,659 (Dummies, oefening 10.11). UCL<sub>X</sub> = X̄ + E<sub>2</sub>·MR̄.	d10-imr
+d2_n2	1,128	d<sub>2</sub> voor n = 2: een moving range overspant twee metingen.	Table 18, rij n = 2. σ<sub>ST</sub> = MR̄/1,128.	d10-imr
+sigma_st	σ<sub>ST</sub>	Korte-termijnstandaardafwijking (short-term σ).	MR̄/1,128 bij individuele waarden, alleen in meetvolgorde; bij subgroepen R̄/d<sub>2</sub>. Hoort bij Cp en Cpk.	d10-imr
+xbar_ind	X̄	Gemiddelde van de individuele waarden: centrale lijn van de I-kaart.	(X<sub>1</sub> + … + X<sub>k</sub>)/k (AVERAGE).	d10-imr
+x_i	X<sub>i</sub>	Individuele meting nummer i, in de volgorde waarin ze genomen is.	Gegeven (de data), in meetvolgorde.	d10-imr
+mr_i	MR<sub>i</sub>	Bewegend bereik (moving range): verschil tussen twee opeenvolgende metingen.	|X<sub>i+1</sub> − X<sub>i</sub>|, altijd positief; k metingen geven k − 1 waarden.	d10-imr
+mrbar	MR̄	Gemiddeld bewegend bereik (average moving range).	(MR<sub>1</sub> + … + MR<sub>k−1</sub>)/(k − 1): deel door k − 1, niet door k.	d10-imr
+p_i	p<sub>i</sub>	Fractie defectieven (proportion defective) in subgroep i.	Aantal defectieve stuks gedeeld door n<sub>i</sub>.	d10-attribuut
+pbar	p̄	Gemiddelde fractie defectieven: centrale lijn van de p-kaart.	Totaal defectief / (n<sub>1</sub> + … + n<sub>k</sub>); niet het gemiddelde van de p<sub>i</sub>.	d10-attribuut
+u_i	u<sub>i</sub>	Aantal defecten per eenheid (defects per unit) in subgroep i.	Aantal defecten gedeeld door n<sub>i</sub>.	d10-attribuut
+ubar	ū	Gemiddeld aantal defecten per eenheid: centrale lijn van de u-kaart.	Totaal defecten / (n<sub>1</sub> + … + n<sub>k</sub>); niet het gemiddelde van de u<sub>i</sub>.	d10-attribuut
+var_total	σ<sup>2</sup><sub>Total</sub>	Totale variantie die je op de kaart ziet (total variance).	σ<sup>2</sup><sub>Part-Part</sub> + σ<sup>2</sup><sub>R&amp;R</sub>: de varianties tellen op, de standaardafwijkingen niet.	d10-opzet
+var_pp	σ<sup>2</sup><sub>Part-Part</sub>	Variantie tussen de stuks (part-to-part): de echte procesvariatie.	σ<sup>2</sup><sub>Total</sub> − σ<sup>2</sup><sub>R&amp;R</sub>.	d10-opzet
+var_rr	σ<sup>2</sup><sub>R&amp;R</sub>	Variantie van het meetsysteem: herhaalbaarheid plus reproduceerbaarheid (gauge R&amp;R).	Uit een Gage R&amp;R-studie (Deel 11). Les 4: R&amp;R ≤ 20 % van de tolerantie; Les 5: 10 % / 30 %.	d11-rr
+cp	Cp	Procescapabiliteitsindex (process capability index): tolerantie gedeeld door 6σ.	(USL − LSL)/(6σ) met σ̂ = R̄/d<sub>2</sub> (korte termijn). Negeert de ligging: daarvoor Cpk.	d09-cp
+cpk	Cpk	Capabiliteitsindex die ook de ligging van het gemiddelde meetelt.	min[(X̿ − LSL)/(3σ) ; (USL − X̿)/(3σ)]: 3σ in de noemer, de dichtste grens telt.	d09-cpk
+pp	Pp	Performance-index: zoals Cp, maar met de totale (lange-termijn) standaardafwijking.	(USL − LSL)/(6s) met s = STDEV.S van alle metingen (Minitab: StDev(overall)).	d09-ppk
+ppk	Ppk	Performance-index met ligging: zoals Cpk, met de totale standaardafwijking.	min[(X̿ − LSL)/(3s) ; (USL − X̿)/(3s)] met s van alle metingen.	d09-ppk
+usl	USL	Bovenste specificatiegrens (upper specification limit): de stem van de klant.	Gegeven in de opgave (bv. 16,2 + 0,5 = 16,7). Niet de UCL van een regelkaart.	d09-cp
+lsl	LSL	Onderste specificatiegrens (lower specification limit): de stem van de klant.	Gegeven in de opgave (bv. 16,2 − 0,5 = 15,7). Niet de LCL van een regelkaart.	d09-cp
+stdev_within	StDev(within)	Minitab-naam voor de korte-termijn-σ binnen de subgroepen.	Op de X̄-R-kaart R̄/d<sub>2</sub> = 0,20636; Minitabs capabiliteitsanalyse drukt 0,20982 (methode niet uitgelegd). Hoort bij Cp en Cpk.	d09-minitab
+stdev_overall	StDev(overall)	Minitab-naam voor de standaardafwijking van alle metingen samen.	STDEV.S van alle metingen (oefening 2: 0,20212). Hoort bij Pp en Ppk.	d09-minitab
+p_value	P	p-waarde (p-value) van de normaliteitstoets (Anderson-Darling) in Minitab.	Gedrukt door Minitab. Kleiner dan α: de normaliteit wordt verworpen.	d05-pwaarde
+z	Z	Standaardnormale z-waarde: afstand tot een grens in standaardafwijkingen.	(USL − X̿)/σ̂ = 3·Cpk aan de bovenkant; kans erboven 1 − Φ(Z) (Excel: 1 − NORM.S.DIST(Z;TRUE)).	d03-z
+p_out	P	Fractie buiten de specificatie aan één kant (uitval).	1 − Φ(Z) met Z = (USL − X̿)/σ̂; tel de andere kant er apart bij; ×100 voor %.	d09-uitval
+sigma_zone	σ (zones)	Standaardafwijking van wat je uitzet: bepaalt de zones A, B en C.	(UCL − CL)/3. Bij een X̄-kaart is dat σ<sub>x̄</sub> = σ/√n, niet de σ van de losse metingen.	d10-regels
+x_code	x	Gecodeerde waarde: alleen de laatste drie decimalen (bv. 34,5).	Gegeven in de tabel. Reken gecodeerd en pas op het einde terug: x′ = x/10000 + 0,5.	ex-10-7
+x_mm	x′	Werkelijke binnendiameter in mm.	x/10000 + 0,5 (34,5 wordt 0,50345 mm).	ex-10-7
+r_mm	R′	Werkelijke range in mm.	R/10000, zonder + 0,5: een verschil verschuift niet mee.	ex-10-7

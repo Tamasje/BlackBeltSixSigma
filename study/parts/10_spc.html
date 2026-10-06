@@ -1,0 +1,1159 @@
+<section class="part" id="d10" data-title="Deel 10 — SPC en regelkaarten" data-lecturer="Dries Grymonprez" data-les="Les 4">
+  <h2>Deel 10 — SPC en regelkaarten (control charts)</h2>
+  <p class="intro">Statistische procesbeheersing (statistical process control, SPC) bewaakt of een proces stabiel
+  blijft: je neemt regelmatig een kleine steekproef, zet het resultaat uit op een regelkaart en grijpt pas in als de
+  kaart een signaal geeft. Dit is de tweede helft van Les 4 (Dries Grymonprez, ArcelorMittal Gent; deck
+  "Capabiliteit – SPC", SPC p. 54–89) met de zes SPC-oefeningen en de rekenbladen van de docent. Je hebt de normale
+  verdeling nodig (<a href="#d03">Deel 03</a>) en Cp/Cpk en stabiliteit (<a href="#d09">Deel 09</a>); het meetsysteem
+  komt uitgebreid in <a href="#d11">Deel 11</a>. De I-MR-, p- en u-kaart komen uit Six Sigma For Dummies (extra).</p>
+
+  <!-- ====================================================================================== 10.1 -->
+  <section class="unit" id="d10-wat" data-kw="SPC; statistische procesbeheersing; statistical process control; regelkaart; controlekaart; control chart; stabiel proces; stable process; common cause; special cause; gewone oorzaak; speciale oorzaak; aanwijsbare oorzaak; assignable cause; centrale limietstelling; central limit theorem; Control-fase; sustain">
+    <h3>10.1 Wat is SPC? <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=55">SPC p. 55</a></h3>
+    <p>SPC staat voor <b>Statistical Process Control</b>, in het Nederlands <b>statistische procesbeheersing</b>. Het
+    is een techniek om de <b>stabiliteit</b> van een productieproces te bewaken <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=55">SPC p. 55</a>. Een proces is stabiel
+    (stable) als de verdeling van zijn kenmerken constant blijft in de tijd, bijvoorbeeld N(<var data-s="mu">μ</var>, <var data-s="sigma">σ</var>) met μ en σ
+    constant. De slide zegt dat SPC beschermt "tegen aanwijsbare, niet tegen systematische oorzaken".</p>
+    <ol class="steps">
+      <li><b>Statistische fase</b>: je controleert regelmatig de essentiële proceskenmerken (een kleine steekproef,
+      een punt op de kaart).</li>
+      <li><b>Engineering fase</b>: is een controle niet OK, dan volgt actie.</li>
+    </ol>
+    <p>In DMAIC hoort SPC bij de laatste stap: de sprekersnotities noemen SPC het middel "to sustain", zodat de winst
+    van een project niet verloren gaat <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=53">SPC p. 53</a>.</p>
+
+    <div class="box key"><span class="t">Kernidee</span>
+    <p>Een <b>regelkaart (control chart)</b> is een grafiek van een steekproefresultaat (een gemiddelde, een range,
+    een fractie …) in de tijd, met een <b>centrale lijn (center line, CL)</b> en twee <b>regelgrenzen (control
+    limits)</b>: de bovenste (upper control limit, UCL) en de onderste (lower control limit, LCL), op ±3 standaard­
+    afwijkingen van die statistiek <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=56">SPC p. 56</a>. De grenzen scheiden, op basis van kansen, de <b>gewone variatie
+    (common cause)</b> van <b>speciale oorzaken (special cause)</b> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=57">SPC p. 57</a>: punten binnen de grenzen zonder
+    patroon zijn gewone ruis; een punt erbuiten (of een vreemd patroon, zie 10.6) wijst op een speciale oorzaak die
+    je moet zoeken.</p>
+    </div>
+    <p>Wat gewone en speciale oorzaken zijn, en waarom een stabiel proces voorspelbaar is, staat in
+    <a href="#d09">Deel 09</a> (<a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=30">SPC p. 30–32</a>).</p>
+
+    <h4>Enkele opmerkingen over SPC <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=62">SPC p. 62</a></h4>
+    <ul>
+      <li>Als alleen gewone oorzaken spelen, ligt de verdeling van de metingen vast (vaak, niet altijd, een normale
+      verdeling).</li>
+      <li>Natuurlijke slijtage (wear, fatigue …) is onvermijdelijk. Vang je ze niet op, bv. met goed preventief
+      onderhoud, dan wordt het proces instabiel.</li>
+      <li>SPC steunt op de normale verdeling, maar niet elk proces is normaal verdeeld. <b>Gemiddelden van
+      steekproeven</b> volgen wel (bij benadering) een normale verdeling: de <b>centrale limietstelling (central limit
+      theorem)</b>. Daarom zet je gemiddelden uit en geen losse metingen (zie 10.4).</li>
+    </ul>
+    <p class="small">Vraag 4 van het voorbeeldexamen vraagt precies dit: waarom mag je normaliteit aannemen, welke
+    oorzaken detecteert een regelkaart, en wanneer gebruik je de range (zie <a href="#d13">Deel 13</a>).</p>
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>"Een regelkaart spoort vooral de gewone oorzaken (common causes) op."</b> Fout: de grenzen scheiden de gewone ruis van de speciale (aanwijsbare) oorzaken; een signaal wijst op een speciale oorzaak <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=57">SPC p. 57</a>. SPC beschermt "tegen aanwijsbare, niet tegen systematische oorzaken" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=55">SPC p. 55</a>. Voorbeeldexamen vraag 4b, zie <a href="#d13-v4">13.4</a>.</li>
+      <li><b>"SPC mag alleen als het proces normaal verdeeld is."</b> Fout: niet elk proces is normaal, maar je zet gemiddelden van steekproeven uit, en die zijn bij benadering normaal verdeeld (centrale limietstelling) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=62">SPC p. 62</a>. Voorbeeldexamen vraag 4a.</li>
+      <li><b>"Een stabiel proces blijft vanzelf stabiel."</b> Fout: natuurlijke slijtage is onvermijdelijk; zonder bv. goed preventief onderhoud wordt het proces instabiel <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=62">SPC p. 62</a>.</li>
+      <li><b>"SPC hoort bij de Improve-fase."</b> Fout: SPC is het middel "to sustain", de laatste DMAIC-stap: de winst van het project vasthouden <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=53">SPC p. 53</a>.</li>
+    </ul></div>
+  </section>
+
+  <!-- ====================================================================================== 10.2 -->
+  <section class="unit" id="d10-grenzen" data-kw="regelgrenzen; control limits; specificatiegrenzen; specification limits; tolerantiegrenzen; tolerance limits; UCL; LCL; USL; LSL; voice of the process; voice of the customer; stem van het proces; stem van de klant; in control; onder controle; out of control; capabel">
+    <h3>10.2 Regelgrenzen zijn geen specificatiegrenzen <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=56">SPC p. 56</a></h3>
+    <p>Dit is de belangrijkste valkuil van het hoofdstuk. De slide zet beide soorten grenzen naast elkaar; de
+    sprekersnotities geven de Nederlandse namen: <b>regelgrenzen</b> en <b>tolerantiegrenzen</b> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=56">SPC p. 56</a>.</p>
+    <table>
+      <tr><th></th><th>Regelgrenzen (control limits) UCL, LCL</th><th>Specificatie- of tolerantiegrenzen
+      (specification limits) USL, LSL</th></tr>
+      <tr><td>Bepaald door</td><td>de prestatie van het proces: ±3 geschatte standaardafwijkingen rond het
+      gemiddelde</td><td>de klant(en)</td></tr>
+      <tr><td>Beantwoordt</td><td>is het proces "in control" (zonder speciale oorzaken)?</td><td>maakt het proces
+      defecten?</td></tr>
+      <tr><td>Getekend op</td><td>regelkaarten</td><td>histogrammen (niet op regelkaarten)</td></tr>
+      <tr><td>Stem van</td><td>het proces (voice of the process)</td><td>de klant (voice of the customer)</td></tr>
+    </table>
+    <p>De figuur op dezelfde slide toont een kaart met UCL en LCL op 3 s en, verder naar buiten, USL en LSL op 6 s.</p>
+
+    <div class="box warn"><span class="t">Onder controle ≠ binnen specificatie</span>
+    <p>"Process in Statistical Control ≠ Process Satisfies Customer Requirements" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=70">SPC p. 70</a>. De slide toont vier
+    toestanden: (1) in control én binnen de specificaties; (2) in control maar buiten de specificaties (de
+    regelgrenzen liggen buiten USL/LSL: stabiel, maar niet capabel); (3) out of control maar (nog) binnen de
+    specificaties; (4) out of control en buiten de specificaties. Ook <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=66">SPC p. 66</a> zet "in control", "out of control"
+    en "capable of meeting specification" (histogram met LCL en UCL ruim binnen de specificaties) naast elkaar.
+    Stabiliteit zegt dus niets over capabiliteit: daarvoor heb je Cp/Cpk nodig (<a href="#d09">Deel 09</a>).</p>
+    </div>
+
+    <p><b>Specificaties op een X̄-kaart?</b> Op <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=70">SPC p. 70</a> staan regel- en specificatiegrenzen op dezelfde grafiek,
+    maar volgens de sprekersnotities kan dat eigenlijk niet: een X̄-kaart toont <i>steekproefgemiddelden</i>, die je
+    niet zomaar met specificaties voor <i>individuele</i> stuks mag vergelijken; "you have to recalculate the
+    USL/LSL". Het rekenblad van oefening 2 (<a class="p" href="../source/course/Les%204/__Xbar%20R%20kaart%20data%20-%20berekeningen%20oefening%202.xlsx">werkboek oefening 2</a>) volgt dezelfde lijn: op blad 'Berekening' staat "USL en LSL mag
+    niet op controlekaarten gezet worden!" en "Goede praktijk: bekijk steeds volledige populatie versus specificatie
+    limieten". Op blad 'Grafieken' tekent de docent wel een "USL corr" en "LSL corr" bij de gemiddelden: het midden
+    van de specificaties ± (halve tolerantie)/√5, voor 16,2 ± 0,5 dus 16,4236 en 15,9764. De slides leggen die
+    correctie niet verder uit.</p>
+    <p class="small">Six Sigma For Dummies zegt hetzelfde: "Never confuse control chart limits with specification
+    limits" en zet geen specificatiegrenzen op een regelkaart <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=244">Dummies p. 244–245</a>.</p>
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>"Het proces is onder controle, dus (bijna) alles ligt binnen de specificaties."</b> Fout: "Process in Statistical Control ≠ Process Satisfies Customer Requirements" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=70">SPC p. 70</a>. Een stabiel proces kan breder zijn dan de tolerantie (toestand 2): dat beoordeel je met Cp/Cpk, zie <a href="#d09-cp">09.2</a>. SPC-oefening 1a (<a href="#ex-10-4">oefening 10.4</a>).</li>
+      <li><b>"Een punt buiten de regelgrenzen betekent een defect stuk."</b> Fout: regelgrenzen zijn de stem van het proces, specificaties de stem van de klant <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=56">SPC p. 56</a>. Een proces kan out of control zijn en toch (nog) binnen de specificaties blijven (toestand 3) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=70">SPC p. 70</a>.</li>
+      <li><b>"De regelgrenzen legt de klant of de ingenieur vast."</b> Fout: ze komen uit de prestatie van het proces zelf, ±3 geschatte standaardafwijkingen rond het gemiddelde <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=56">SPC p. 56</a>.</li>
+      <li><b>"Zet USL en LSL op de X̄-kaart en vergelijk de gemiddelden ermee."</b> Fout: de X̄-kaart toont gemiddelden, de specificaties gelden voor individuele stuks; volgens de notities en het rekenblad horen ze niet op een regelkaart <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=70">SPC p. 70</a>, <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=244">Dummies p. 244–245</a>.</li>
+    </ul></div>
+  </section>
+
+  <!-- ====================================================================================== 10.3 -->
+  <section class="unit" id="d10-opzet" data-kw="SPC opzetten; set up; subgroepen; subgroups; 20 subgroepen; 25 subgroepen; rationele subgroep; rational subgroup; PDCA; OCAP; out of control action plan; diagnostic phase; engineering phase; meetsysteem; measurement system; gauge R&amp;R; repeatability; reproducibility; OSPC; ArcelorMittal">
+    <h3>10.3 SPC opzetten: stappen, PDCA-cirkel en OCAP <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=58">SPC p. 58</a></h3>
+    <p>De slide "SPC process set up" geeft drie stappen <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=58">SPC p. 58</a>:</p>
+    <ol class="steps">
+      <li><b>Kies het meetpunt (data collection point)</b>: waar in het proces begin je data te verzamelen?</li>
+      <li><b>Leg meetmethode en meetcriteria vast</b>: standaardiseer de bemonstering en zorg dat het meetsysteem
+      (measurement system) valide is.</li>
+      <li><b>Verzamel en plot leerdata (learning data) en bepaal de regelgrenzen</b>: leg de aanpak uit en train wie
+      meet; laat het proces ongemoeid lopen volgens de standaardprocedures; "effective control charts need at least
+      20 subgroups of data".</li>
+    </ol>
+
+    <div class="box warn"><span class="t">20 of 25 subgroepen?</span>
+    <p>De cursus noemt twee minima (beslissing 13: ken ze allebei):</p>
+    <ul>
+      <li><b>20 subgroepen</b>: de SPC-slide <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=58">SPC p. 58</a>. Oefening 2 werkt ook met 20 "voorbereidende samples"
+      <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=75">SPC p. 75</a>.</li>
+      <li><b>25 subgroepen</b>: Dummies, "a minimum of 25 subgroups of data (with 2 to 5 measurements in each
+      subgroup)" <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=244">Dummies p. 244</a>, en het Minitab-rapport van oefening 2 voor een capabiliteitsanalyse: "You only have 20
+      subgroups … collect at least 25 subgroups" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=80">SPC p. 80</a> (extra, verborgen dia).</li>
+    </ul>
+    </div>
+
+    <p><b>Rationele subgroepen (rational subgroups)</b> (extra, <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=248">Dummies p. 248</a>): de stuks in één subgroep zijn onder zo
+    gelijk mogelijke omstandigheden en kort na elkaar gemaakt, zodat er binnen een subgroep geen speciale oorzaak kan
+    optreden; typisch 3 tot 5 metingen. Werken meerdere machines of operatoren aan hetzelfde kenmerk, maak dan een
+    aparte kaart per stroom. Behandel het proces tijdens de meting niet anders dan normaal, anders is de kaart
+    waardeloos <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=244">Dummies p. 244</a>.</p>
+
+    <h4>De PDCA-cirkel van SPC <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=59">SPC p. 59</a></h4>
+    <p>De sprekersnotities onderscheiden twee fasen: <b>controle bereiken (achieving control)</b> en
+    <b>controle behouden (maintaining control)</b>. Om controle te bereiken bestudeer je de oorzaken van variatie,
+    schakel je speciale oorzaken uit en leer je de blijvende gewone oorzaken kennen. Daarna houd je de controle vast
+    met regelkaarten. Het geheel is een PDCA-cyclus:</p>
+    <table>
+      <tr><th>Stap</th><th>Wat (volgens de figuur)</th></tr>
+      <tr><td>P (plan)</td><td>oorzaken bestuderen, de kaart opstellen (CL, UCL, LCL)</td></tr>
+      <tr><td>D (do)</td><td>steekproef nemen, de kaart invullen</td></tr>
+      <tr><td>C (check)</td><td>regels toepassen om speciale oorzaken te zien (10.6)</td></tr>
+      <tr><td>A (act)</td><td>het OCAP toepassen</td></tr>
+    </table>
+    <p>Een <b>OCAP (Out of Control Action Plan)</b> hoort bij de kaart: een reeks vragen en controles die de operator
+    doorloopt om te vinden wat er misliep. Die zoektocht heet de <b>diagnosefase (diagnostic phase)</b>. Brengt het
+    OCAP geen antwoord, dan onderzoekt het management het geval en past het OCAP eventueel aan: de
+    <b>engineeringfase (engineering phase)</b>.</p>
+
+    <h4>Het meetsysteem telt mee <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=60">SPC p. 60–61</a></h4>
+    <p>Wat je op de kaart ziet, is procesvariatie plus meetvariatie. De figuur op <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=60">SPC p. 60</a> toont drie verdelingen:
+    meten (m, smal), proces (P) en totaal (T, het breedst), met de R&amp;R-breedte, het totale spreidingsinterval (TV)
+    en de tolerantie tussen OTG en BTG (de onderste en bovenste tolerantiegrens). Op <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=61">SPC p. 61</a>:</p>
+    <div class="f"><div><var data-s="var_total">σ<sup>2</sup><sub>Total</sub></var> = <var data-s="var_pp">σ<sup>2</sup><sub>Part-Part</sub></var> + <var data-s="var_rr">σ<sup>2</sup><sub>R&amp;R</sub></var></div></div>
+    <p>met als aanbeveling: resolutie ≤ 10 % van de tolerantie en Gauge R&amp;R ≤ 20 % van de tolerantie.
+    Herhaalbaarheid (repeatability, equipment variation) is de variatie bij één toestel, één operator, hetzelfde
+    stuk; reproduceerbaarheid (reproducibility, appraiser variation) de variatie tussen operatoren met hetzelfde
+    toestel; stabiliteit of drift (stability, drift) de variatie op een referentie over een lange periode. Les 5
+    gebruikt andere drempels (10 % / 30 %): zie <a href="#d11">Deel 11</a>.</p>
+
+    <h4>SPC in de praktijk: OSPC bij ArcelorMittal Gent <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=88">SPC p. 88–89</a></h4>
+    <p>De laatste slides tonen de online SPC-schermen ("OSPC controle door productie – bewaking meetmiddelen") van
+    diktemeters in mm. De schermen tonen de meetreeks met daarboven en daaronder gearceerde zones bij de
+    "tolerantiegrenzen", en een icoon met het label "OCAP" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=89">SPC p. 89</a>. De productie bewaakt dus zelf, en het OCAP zegt
+    wat te doen bij een alarm.</p>
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>Let op:</b> de cursus noemt twee minima: 20 subgroepen <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=58">SPC p. 58</a> en 25 <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=244">Dummies p. 244</a> (ook Minitab bij een capabiliteitsanalyse, <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=80">SPC p. 80</a>). Noem op het examen allebei, met de bron (beslissing 13).</li>
+      <li><b>"Neem voor een subgroep stuks verspreid over de dag, dan zie je alle variatie."</b> Fout: een rationele subgroep bestaat uit stuks die kort na elkaar onder zo gelijk mogelijke omstandigheden gemaakt zijn, zodat er binnen de subgroep geen speciale oorzaak kan optreden; meerdere machines of operatoren krijgen elk een eigen kaart <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=248">Dummies p. 248</a>.</li>
+      <li><b>"Tijdens het verzamelen van leerdata stuur je het proces extra zorgvuldig bij."</b> Fout: laat het proces ongemoeid lopen volgens de standaardprocedures <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=58">SPC p. 58</a>; wie het proces anders behandelt dan normaal, maakt de kaart waardeloos <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=244">Dummies p. 244</a>.</li>
+      <li><b>"Wat je op de kaart ziet, is de procesvariatie."</b> Fout: het is procesvariatie plus meetvariatie, <var data-s="var_total">σ<sup>2</sup><sub>Total</sub></var> = <var data-s="var_pp">σ<sup>2</sup><sub>Part-Part</sub></var> + <var data-s="var_rr">σ<sup>2</sup><sub>R&amp;R</sub></var> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=61">SPC p. 61</a>. Het zijn de varianties die optellen, niet de standaardafwijkingen.</li>
+      <li><b>Let op:</b> Les 4 vraagt Gauge R&amp;R ≤ 20 % van de tolerantie <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=61">SPC p. 61</a>; Les 5 gebruikt 10 % / 30 % (<a href="#d11-avgrange">11.17</a>). Vermeld welke drempel je gebruikt.</li>
+      <li><b>"Bij een alarm onderzoekt het management meteen de oorzaak."</b> Fout: eerst doorloopt de operator het OCAP (diagnosefase); pas als dat geen antwoord geeft, onderzoekt het management het geval en past het OCAP aan (engineeringfase) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=59">SPC p. 59</a>.</li>
+    </ul></div>
+  </section>
+
+  <!-- ====================================================================================== 10.4 -->
+  <section class="unit" id="d10-xbar" data-kw="X-bar kaart; Xbar; x̄-kaart; gemiddeldenkaart; X-bar chart; mean chart; sigma xbar; σx̄; standaardafwijking van het gemiddelde; standard error; centrale limietstelling; central limit theorem; 3 sigma; drie sigma; UCL; LCL; R̄/d2; d2">
+    <h3>10.4 De X̄-kaart: waarom gemiddelden? <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=63">SPC p. 63–64</a></h3>
+    <p>Stel dat een proceskenmerk X verdeeld is als N(<var data-s="mu0">μ<sub>0</sub></var>, <var data-s="sigma0">σ<sub>0</sub></var>). SPC gaat na of μ<sub>0</sub>
+    en σ<sub>0</sub> constant blijven (en neemt aan dat de verdeling normaal blijft) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=63">SPC p. 63</a>. Het gemiddelde
+    μ<sub>0</sub> bewaak je met de <b>X̄-kaart (X-bar chart)</b>: bij elke controle neem je een kleine steekproef,
+    bereken je het gemiddelde x̄ en zet je dat uit tussen de regellijnen. Valt een punt buiten de grenzen, dan is het
+    gemiddelde gewijzigd ("punt buiten controle ⇒ gemiddelde gewijzigd").</p>
+
+    <div class="box key"><span class="t">Twee verschillende sigma's</span>
+    <p>De sprekersnotities bij <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=64">SPC p. 64</a> vragen om het verschil goed te zien:</p>
+    <ul>
+      <li><b><var data-s="sigma">σ</var></b> = de spreiding van het proces (van de individuele metingen);</li>
+      <li><b><var data-s="sigma_xbar">σ<sub>x̄</sub></var></b> = de spreiding van de steekproefgemiddelden: <var data-s="sigma_xbar">σ<sub>x̄</sub></var> = <var data-s="sigma">σ</var>/√<var data-s="n">n</var>
+      (centrale limietstelling).</li>
+    </ul>
+    <p>De regelgrenzen van een X̄-kaart liggen op 3<var data-s="sigma_xbar">σ<sub>x̄</sub></var>, niet op 3<var data-s="sigma">σ</var>. Hoe groter n, hoe smaller de
+    grenzen. Omdat σ meestal onbekend is, schat je het uit de ranges: <b><var data-s="sigma_hat">σ̂</var> = <var data-s="rbar">R̄</var>/<var data-s="d2">d<sub>2</sub></var></b>, met d<sub>2</sub>
+    uit de tabel bij de steekproefgrootte n.</p>
+    </div>
+    <div class="f">
+      <div><var data-s="sigma_xbar">σ<sub>x̄</sub></var> = <var data-s="sigma">σ</var> / √<var data-s="n">n</var></div>
+      <div><var data-s="ucl">UCL</var> = <var data-s="mu">μ</var> + 3 <var data-s="sigma_xbar">σ<sub>x̄</sub></var> ,  <var data-s="cl">CL</var> = <var data-s="mu">μ</var> ,  <var data-s="lcl">LCL</var> = <var data-s="mu">μ</var> − 3 <var data-s="sigma_xbar">σ<sub>x̄</sub></var></div>
+      <div><var data-s="sigma_hat">σ̂</var> = <var data-s="rbar">R̄</var> / <var data-s="d2">d<sub>2</sub></var></div>
+    </div>
+    <div class="box ex"><span class="t">Uitgewerkt voorbeeld <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=64">SPC p. 64</a></span>
+    <p>Individuele metingen: normaal met <var data-s="mu">μ</var> = 1,5 en <var data-s="sigma">σ</var> = 0,15. Steekproeven van <var data-s="n">n</var> = 5. Dan
+    <var data-s="sigma_xbar">σ<sub>x̄</sub></var> = 0,15/√5 = 0,0671 en <var data-s="ucl">UCL</var> = 1,5 + 3 · 0,0671 = 1,7013, <var data-s="lcl">LCL</var> = 1,5 − 3 · 0,0671 = 1,2987, zoals de
+    figuur toont. <span class="computed">zelf berekend</span> Zonder tussentijdse afronding krijg je 1,70125 en
+    1,29875 (dus 1,7012 en 1,2988 op vier decimalen); de figuur rondt σ<sub>x̄</sub> eerst af.</p>
+    </div>
+    <p><b>Waarom 3σ?</b> Binnen ±3 standaardafwijkingen ligt 99,7 % van een normale verdeling; de kans dat een punt
+    van een stabiel proces buiten de grenzen valt, is dus maar 0,3 % (<a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=243">Dummies p. 243</a>; het voorbeeld daar is een kaart van
+    100 losse waarden met gemiddelde 50 en grenzen 58,7 en 41,3). Een punt erbuiten is daarom zo onwaarschijnlijk dat je een speciale oorzaak vermoedt. Hoe je zo'n
+    kans uitrekent, staat in <a href="#d03">Deel 03</a>.</p>
+
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>"De grenzen van de X̄-kaart liggen op <var data-s="mu">μ</var> ± 3<var data-s="sigma">σ</var>."</b> Fout: op <var data-s="mu">μ</var> ± 3<var data-s="sigma_xbar">σ<sub>x̄</sub></var> = <var data-s="mu">μ</var> ± 3<var data-s="sigma">σ</var>/√<var data-s="n">n</var>: je zet gemiddelden uit, en die spreiden minder dan losse metingen <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=64">SPC p. 64</a>.</li>
+      <li><b>Let op:</b> <var data-s="sigma_hat">σ̂</var> = <var data-s="rbar">R̄</var>/<var data-s="d2">d<sub>2</sub></var>, niet <var data-s="rbar">R̄</var>; <var data-s="d2">d<sub>2</sub></var> lees je bij de subgroepgrootte <var data-s="n">n</var> (<var data-s="n">n</var> = 5: 2,326) in Table 18 <a class="p" href="../source/course/Les%204/___4.1%20tabellen%20SPC.pdf#page=2">tabellen SPC p. 2</a>.</li>
+      <li><b>"Grotere steekproeven geven bredere grenzen."</b> Fout: <var data-s="sigma_xbar">σ<sub>x̄</sub></var> = <var data-s="sigma">σ</var>/√<var data-s="n">n</var> daalt, dus de grenzen worden smaller en een verschuiving valt sneller op (<a href="#ex-10-8">oefening 10.8</a>).</li>
+      <li><b>"Bij een stabiel proces valt nooit een punt buiten de 3σ-grenzen."</b> Fout: binnen ±3 standaardafwijkingen ligt 99,7 %; de kans op een punt erbuiten is 0,3 % <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=243">Dummies p. 243</a>. Klein genoeg om een speciale oorzaak te vermoeden, maar niet nul.</li>
+      <li><b>Let op:</b> rond <var data-s="sigma_xbar">σ<sub>x̄</sub></var> niet tussentijds af: de figuur rekent met 0,0671 en drukt 1,7013 en 1,2987; exact is het 1,70125 en 1,29875 <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=64">SPC p. 64</a>.</li>
+      <li><b>Let op in Excel:</b> het rekenblad van oefening 2 schrijft <code>=R31*(5)^1/2</code> voor <var data-s="sigma_xbar">σ<sub>x̄</sub></var>·√5; Excel leest dat als ·5/2 en geeft 0,18925 in plaats van 0,16927 <a class="p" href="../source/course/Les%204/__Xbar%20R%20kaart%20data%20-%20berekeningen%20oefening%202.xlsx">werkboek oefening 2</a>.</li>
+    </ul></div>
+    <div class="exercise" id="ex-10-1" data-kw="X-bar kaart; regelgrenzen; control limits; sigma xbar; σx̄; centrale limietstelling; UCL; LCL; n = 5">
+      <h4>Oefening 10.1 — Regelgrenzen bij gekende μ en σ <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=64">SPC p. 64</a></h4>
+      <p>Een kenmerk is normaal verdeeld met <var data-s="mu">μ</var> = 1,5 en <var data-s="sigma">σ</var> = 0,15. Je neemt steekproeven van <var data-s="n">n</var> = 5 en zet de
+      gemiddelden uit op een X̄-kaart met 3σ-grenzen.</p>
+      <div class="q" data-answer="0.0671" data-tol="0.0001">
+        <label><var data-s="sigma_xbar">σ<sub>x̄</sub></var> (4 decimalen) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="1.70125" data-tol="0.0001">
+        <label><var data-s="ucl">UCL</var> (4 decimalen) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="1.29875" data-tol="0.0001">
+        <label><var data-s="lcl">LCL</var> (4 decimalen) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <details class="hint"><summary>Hint</summary><p>De grenzen gelden voor gemiddelden van 5 stuks: gebruik
+      <var data-s="sigma">σ</var>/√<var data-s="n">n</var>, niet <var data-s="sigma">σ</var>.</p></details>
+      <details class="solution"><summary>Toon oplossing</summary>
+      <ol class="steps">
+        <li><var data-s="sigma_xbar">σ<sub>x̄</sub></var> = 0,15/√5 = 0,0671 (de figuur op <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=64">SPC p. 64</a> drukt 0,0671).</li>
+        <li><var data-s="ucl">UCL</var> = 1,5 + 3 · 0,0671 = 1,7013 en <var data-s="lcl">LCL</var> = 1,5 − 3 · 0,0671 = 1,2987 (zo in de figuur).</li>
+        <li><span class="computed">zelf berekend</span> Exact: 1,5 ± 0,20125 = 1,70125 en 1,29875. Beide
+        afrondingen worden aanvaard.</li>
+      </ol>
+      </details>
+    </div>
+  </section>
+
+  <!-- ====================================================================================== 10.5 -->
+  <section class="unit" id="d10-formules" data-kw="Xbar-R; X̄-R; Xbar-s; R-kaart; range chart; s-kaart; s chart; A2; A3; D3; D4; d2; c4; constanten; constants; Table 18; variabele steekproefgrootte; variable sample size; R̄; X̿">
+    <h3>10.5 X̄-R- en X̄-s-kaart: formules en constanten <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=73">SPC p. 73–74</a></h3>
+    <p>Een regelkaart voor metingen bestaat altijd uit <b>twee kaarten</b>: één voor de ligging (de steekproef­
+    gemiddelden, X̄-kaart) en één voor de spreiding (de ranges R of de standaardafwijkingen s) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=73">SPC p. 73</a>. Dummies
+    voegt toe dat je eerst de spreidingskaart moet bekijken: is die niet in control, dan kloppen de grenzen van de
+    X̄-kaart niet, want die worden uit de spreiding berekend <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=252">Dummies p. 252</a>.</p>
+    <p>Notatie: k steekproeven (subgroepen) van grootte n; x̄<sub>i</sub>, R<sub>i</sub> en s<sub>i</sub> zijn het
+    gemiddelde, de range (spreidingsbreedte, grootste − kleinste) en de standaardafwijking van steekproef i.</p>
+    <div class="f">
+      <div><var data-s="xbarbar">X̿</var> = (1/<var data-s="k">k</var>) Σ <var data-s="xbar_i">x̄<sub>i</sub></var> ;  <var data-s="rbar">R̄</var> = (1/<var data-s="k">k</var>) Σ <var data-s="r_i">R<sub>i</sub></var> ;  <var data-s="sbar">s̄</var> = (1/<var data-s="k">k</var>) Σ <var data-s="s_i">s<sub>i</sub></var></div>
+      <div><b>X̄/R-kaart</b>: X̄-kaart <var data-s="cl">CL</var> = <var data-s="xbarbar">X̿</var>, <var data-s="ucl">UCL</var> = <var data-s="xbarbar">X̿</var> + <var data-s="a2">A<sub>2</sub></var><var data-s="rbar">R̄</var>, <var data-s="lcl">LCL</var> = <var data-s="xbarbar">X̿</var> − <var data-s="a2">A<sub>2</sub></var><var data-s="rbar">R̄</var> ;
+      R-kaart <var data-s="cl_r">CL</var> = <var data-s="rbar">R̄</var>, <var data-s="ucl_r">UCL</var> = <var data-s="d4">D<sub>4</sub></var><var data-s="rbar">R̄</var>, <var data-s="lcl_r">LCL</var> = <var data-s="d3">D<sub>3</sub></var><var data-s="rbar">R̄</var></div>
+      <div><b>X̄/s-kaart</b>: X̄-kaart <var data-s="cl">CL</var> = <var data-s="xbarbar">X̿</var>, <var data-s="ucl">UCL</var> = <var data-s="xbarbar">X̿</var> + <var data-s="a3">A<sub>3</sub></var><var data-s="sbar">s̄</var>, <var data-s="lcl">LCL</var> = <var data-s="xbarbar">X̿</var> − <var data-s="a3">A<sub>3</sub></var><var data-s="sbar">s̄</var> ;
+      s-kaart <var data-s="cl_s">CL</var> = <var data-s="sbar">s̄</var>, <var data-s="ucl_s">UCL</var> = <var data-s="b4">B<sub>4</sub></var><var data-s="sbar">s̄</var>, <var data-s="lcl_s">LCL</var> = <var data-s="b3">B<sub>3</sub></var><var data-s="sbar">s̄</var></div>
+      <div><b>Variabele steekproefgrootte</b> <var data-s="n_i">n<sub>i</sub></var>: <var data-s="cl">CL</var> = <var data-s="xbarbar">X̿</var>, <var data-s="ucl">UCL</var>/<var data-s="lcl">LCL</var> = <var data-s="xbarbar">X̿</var> ± 3 <var data-s="sigma_hat">σ̂</var>/√<var data-s="n_i">n<sub>i</sub></var>, met
+      <var data-s="sigma_hat">σ̂</var> = (1/<var data-s="k">k</var>) Σ <var data-s="sigma_hat_i">σ̂<sub>i</sub></var> en <var data-s="sigma_hat_i">σ̂<sub>i</sub></var> = <var data-s="r_i">R<sub>i</sub></var>/<var data-s="d2">d<sub>2</sub></var></div>
+    </div>
+    <p class="small">Bron: <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=74">SPC p. 74</a> (titel: "R small sample &lt; 10"). Dummies geeft dezelfde formules in
+    Table 10-2 <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=249">Dummies p. 249</a>.</p>
+
+    <h4>Waar komen A<sub>2</sub>, D<sub>3</sub>, D<sub>4</sub> vandaan?</h4>
+    <p>De notities zeggen alleen "uitleggen van waar die letters komen, verwijzen naar tabel" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=74">SPC p. 74</a>; het
+    rekenblad van oefening 2 zegt "Constanten zo opgesteld dat regelgrenzen +/- 3 sigma zijn" (<a class="p" href="../source/course/Les%204/__Xbar%20R%20kaart%20data%20-%20berekeningen%20oefening%202.xlsx">werkboek oefening 2</a>, blad
+    'Berekening'). Je ziet het zelf: zet <var data-s="sigma_hat">σ̂</var> = <var data-s="rbar">R̄</var>/<var data-s="d2">d<sub>2</sub></var> in <var data-s="ucl">UCL</var> = <var data-s="xbarbar">X̿</var> + 3<var data-s="sigma_hat">σ̂</var>/√<var data-s="n">n</var>, dan is
+    <var data-s="a2">A<sub>2</sub></var> = 3/(<var data-s="d2">d<sub>2</sub></var>√<var data-s="n">n</var>). <span class="computed">zelf berekend</span> Voor <var data-s="n">n</var> = 5:
+    3/(2,326 · √5) = 0,5768 ≈ 0,577 = <var data-s="a2">A<sub>2</sub></var> uit de tabel; voor <var data-s="n">n</var> = 3: 1,0231 ≈ 1,023. D<sub>3</sub> en
+    D<sub>4</sub> doen hetzelfde voor de R-kaart. Voor <var data-s="n">n</var> ≤ 6 is <var data-s="d3">D<sub>3</sub></var> = 0: de R-kaart heeft dan geen
+    ondergrens boven nul.</p>
+
+    <h4>De constanten (n = 2 tot 10)</h4>
+    <p>A<sub>2</sub>, d<sub>2</sub>, D<sub>3</sub>, D<sub>4</sub>, B<sub>3</sub>, B<sub>4</sub>: Table 18 (Crow,
+    Davis &amp; Maxfield, 1960) <a class="p" href="../source/course/Les%204/___4.1%20tabellen%20SPC.pdf#page=2">tabellen SPC p. 2</a>; A<sub>3</sub>: Six Sigma Demystified <a class="p" href="../source/course/Les%204/Control%20charts%20-%20constants.pdf#page=1">constants p. 1</a>; c<sub>4</sub>: Table A
+    (Wheeler) <a class="p" href="../source/course/Les%204/___4.1%20tabellen%20SPC.pdf#page=1">tabellen SPC p. 1</a>. Dit is de keuze van beslissing 4: de rekenbladen van de docent gebruiken Table 18.</p>
+    <table>
+<tr><th>n</th><th class="n">A<sub>2</sub></th><th class="n">d<sub>2</sub></th><th class="n">D<sub>3</sub></th><th class="n">D<sub>4</sub></th><th class="n">A<sub>3</sub></th><th class="n">B<sub>3</sub></th><th class="n">B<sub>4</sub></th><th class="n">c<sub>4</sub></th></tr>
+<tr><td class="n">2</td><td class="n">1,880</td><td class="n">1,128</td><td class="n">0</td><td class="n">3,267</td><td class="n">2,659</td><td class="n">0</td><td class="n">3,267</td><td class="n">0,7979</td></tr>
+<tr><td class="n">3</td><td class="n">1,023</td><td class="n">1,693</td><td class="n">0</td><td class="n">2,575</td><td class="n">1,954</td><td class="n">0</td><td class="n">2,568</td><td class="n">0,8862</td></tr>
+<tr><td class="n">4</td><td class="n">0,729</td><td class="n">2,059</td><td class="n">0</td><td class="n">2,282</td><td class="n">1,628</td><td class="n">0</td><td class="n">2,266</td><td class="n">0,9213</td></tr>
+<tr><td class="n">5</td><td class="n">0,577</td><td class="n">2,326</td><td class="n">0</td><td class="n">2,115</td><td class="n">1,427</td><td class="n">0</td><td class="n">2,089</td><td class="n">0,9400</td></tr>
+<tr><td class="n">6</td><td class="n">0,483</td><td class="n">2,534</td><td class="n">0</td><td class="n">2,004</td><td class="n">1,287</td><td class="n">0,030</td><td class="n">1,970</td><td class="n">0,9515</td></tr>
+<tr><td class="n">7</td><td class="n">0,419</td><td class="n">2,704</td><td class="n">0,076</td><td class="n">1,924</td><td class="n">1,182</td><td class="n">0,118</td><td class="n">1,882</td><td class="n">0,9594</td></tr>
+<tr><td class="n">8</td><td class="n">0,373</td><td class="n">2,847</td><td class="n">0,136</td><td class="n">1,864</td><td class="n">1,099</td><td class="n">0,185</td><td class="n">1,815</td><td class="n">0,9650</td></tr>
+<tr><td class="n">9</td><td class="n">0,337</td><td class="n">2,970</td><td class="n">0,184</td><td class="n">1,816</td><td class="n">1,032</td><td class="n">0,239</td><td class="n">1,761</td><td class="n">0,9693</td></tr>
+<tr><td class="n">10</td><td class="n">0,308</td><td class="n">3,078</td><td class="n">0,223</td><td class="n">1,777</td><td class="n">0,975</td><td class="n">0,284</td><td class="n">1,716</td><td class="n">0,9727</td></tr>
+</table>
+    <div class="box warn"><span class="t">De tabellen verschillen in de derde decimaal</span>
+    <p>Table 18 geeft <var data-s="d4">D<sub>4</sub></var> = 2,115 (<var data-s="n">n</var> = 5) en 2,575 (<var data-s="n">n</var> = 3); Six Sigma Demystified <a class="p" href="../source/course/Les%204/Control%20charts%20-%20constants.pdf#page=2">constants p. 2</a> en Dummies
+    Table 10-2 <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=250">Dummies p. 250</a> geven 2,114 en 2,574. Ook E<sub>2</sub>(2) verschilt: 2,660 (Demystified) en 2,659
+    (Dummies). De oefeningen van de docent rekenen met 2,115 en 2,575 (Table 18). Een verschil in de derde decimaal
+    van UCL<sub>R</sub> is dus geen fout; vermeld welke tabel je gebruikt.</p>
+    <p>Table 18 heeft geen kolom A<sub>3</sub>. Table 7.2 in hetzelfde bestand <a class="p" href="../source/course/Les%204/___4.1%20tabellen%20SPC.pdf#page=2">tabellen SPC p. 2</a> schrijft de X̄-kaart met
+    s̄ als <var data-s="xbarbar">X̿</var> ± <var data-s="a1">A<sub>1</sub></var> <var data-s="sbar">s̄</var> √((<var data-s="n">n</var>−1)/<var data-s="n">n</var>); dat is hetzelfde: voor <var data-s="n">n</var> = 5 is 1,596 · √(4/5) = 1,4275 ≈ <var data-s="a3">A<sub>3</sub></var>
+    = 1,427 <span class="computed">zelf berekend</span>. Table 7.2 geeft ook de varianten met gegeven μ en σ
+    (<var data-s="mu">μ</var> ± <var data-s="a_sigma">A</var><var data-s="sigma">σ</var>; R-kaart <var data-s="d1_sigma">D<sub>1</sub></var><var data-s="sigma">σ</var> tot <var data-s="d2_sigma">D<sub>2</sub></var><var data-s="sigma">σ</var>).</p>
+    </div>
+
+    <h4>R-kaart of s-kaart?</h4>
+    <ul>
+      <li>Deck: de R-kaart voor kleine steekproeven (<var data-s="n">n</var> &lt; 10, titel <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=74">SPC p. 74</a>). De notities bij <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=73">SPC p. 73</a>: voor
+      steekproeven groter dan 10 is de s-kaart beter, omdat s σ veel efficiënter schat; voor kleine steekproeven en
+      voor kaarten die met de hand worden bijgehouden, is R handiger.</li>
+      <li>Dummies: X̄-R voor subgroepen van 2 tot 10, X̄-s voor meer dan 10 (Table 10-2, <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=249">Dummies p. 249</a>); in de tekst
+      "ten measurements or greater" voor X̄-s <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=253">Dummies p. 253</a>. De range gebruikt maar twee waarden (de grootste en de
+      kleinste), s gebruikt alle data en is nauwkeuriger <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=253">Dummies p. 253</a>.</li>
+      <li>Het rekenblad van oefening 2: "Range gebruiken we bij continue variabelen met kleine steekproefgroottes
+      &lt; 10" (<a class="p" href="../source/course/Les%204/__Xbar%20R%20kaart%20data%20-%20berekeningen%20oefening%202.xlsx">werkboek oefening 2</a>).</li>
+    </ul>
+
+    <div class="box ex"><span class="t">Voorbeeld: Xbar-R Chart of Oil <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=73">SPC p. 73</a></span>
+    <p>Een Minitab-kaart met per kwartaal (2000–2005) een gemiddelde en een range. X̄-kaart: <var data-s="ucl">UCL</var> = 31,59,
+    <var data-s="xbarbar">X̿</var> = 28,46, <var data-s="lcl">LCL</var> = 25,32; R-kaart: <var data-s="ucl_r">UCL</var> = 7,88, <var data-s="rbar">R̄</var> = 3,06, <var data-s="lcl_r">LCL</var> = 0. Minitab tekent de punten buiten de grenzen
+    als rode vierkantjes met het cijfer "1": op de X̄-kaart twee losse punten net boven de UCL (eind 2000 en begin
+    2003), twee punten onder de LCL (eind 2001 en begin 2002) en vanaf 2004 een stijgende reeks van acht gemiddelden
+    ver boven de UCL; op de R-kaart één range boven 7,88 (eind 2004). Dit proces is duidelijk niet in control: het
+    gemiddelde verschuift en stijgt.</p>
+    </div>
+
+    <div class="box tool"><span class="t">Rekentool</span>
+    <p>Blad <b>Control charts</b> van <code>bb_toolkit.xlsx</code>, deel 1: typ de subgroepen vanaf rij 30, als ruwe
+    waarden (tot 10 per rij) of als x̄ en R (en s) met n in de gele cel bovenaan. Het blad geeft X̿, R̄, s̄,
+    <var data-s="sigma_hat">σ̂</var> = <var data-s="rbar">R̄</var>/<var data-s="d2">d<sub>2</sub></var> en <var data-s="sigma_hat">σ̂</var> = <var data-s="sbar">s̄</var>/<var data-s="c4">c<sub>4</sub></var>, de grenzen van de X̄-R- en X̄-s-kaart en een vlag bij elk punt
+    buiten de grenzen. Blad <b>Tables</b> toont alle constantentabellen van de cursus; oranje cellen verschillen
+    tussen bronnen.</p>
+    </div>
+
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>"Kijk eerst of de X̄-kaart in control is."</b> Fout: bekijk eerst de spreidingskaart (R of s). Is die niet in control, dan kloppen de grenzen van de X̄-kaart niet, want die worden uit de spreiding berekend <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=252">Dummies p. 252</a>.</li>
+      <li><b>Let op:</b> <var data-s="a2">A<sub>2</sub></var>, <var data-s="d2">d<sub>2</sub></var>, <var data-s="d3">D<sub>3</sub></var> en <var data-s="d4">D<sub>4</sub></var> lees je bij de subgroepgrootte <var data-s="n">n</var>, niet bij het aantal subgroepen <var data-s="k">k</var> (20 of 25) <a class="p" href="../source/course/Les%204/___4.1%20tabellen%20SPC.pdf#page=2">tabellen SPC p. 2</a>.</li>
+      <li><b>Let op:</b> voor <var data-s="n">n</var> ≤ 6 is <var data-s="d3">D<sub>3</sub></var> = 0, dus <var data-s="lcl_r">LCL<sub>R</sub></var> = 0: een R-kaart met subgroepen van 5 heeft geen ondergrens boven nul.</li>
+      <li><b>"Voor subgroepen van 12 neem je een X̄-R-kaart."</b> Fout: R voor kleine steekproeven (<var data-s="n">n</var> &lt; 10, <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=73">SPC p. 73–74</a>; Dummies: 2 tot 10), s voor grotere: s gebruikt alle data, R maar twee waarden <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=253">Dummies p. 253</a>.</li>
+      <li><b>"<var data-s="d4">D<sub>4</sub></var> = 2,114 is fout, want de oefeningen rekenen met 2,115."</b> Fout: de tabellen verschillen in de derde decimaal (Table 18 tegenover Six Sigma Demystified <a class="p" href="../source/course/Les%204/Control%20charts%20-%20constants.pdf#page=2">constants p. 2</a> en Dummies <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=250">Dummies p. 250</a>). De docent gebruikt Table 18 (beslissing 4); vermeld welke tabel je gebruikt.</li>
+      <li><b>Let op:</b> monitor je verder met een andere steekproefgrootte, dan blijft <var data-s="sigma_hat">σ̂</var> = <var data-s="rbar">R̄</var>/<var data-s="d2">d<sub>2</sub></var> met de <var data-s="d2">d<sub>2</sub></var> van de <var data-s="n">n</var> waaruit <var data-s="rbar">R̄</var> komt. Het rekenblad van oefening 4 deelt ten onrechte door <var data-s="d2">d<sub>2</sub></var>(3) en <var data-s="d2">d<sub>2</sub></var>(8) <a class="p" href="../source/course/Les%204/__Xbar%20R%20kaart%20data%20-%20berekeningen%20oefening%203.xlsx">werkboek oefening 3</a>; zie <a href="#ex-10-8">oefening 10.8</a>.</li>
+    </ul></div>
+    <div class="exercise" id="ex-10-2" data-kw="Oil; Xbar-R; steekproefgrootte afleiden; subgroup size; A2; D4; Minitab">
+      <h4>Oefening 10.2 — Welke steekproefgrootte? <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=73">SPC p. 73</a></h4>
+      <p>Op de Minitab-kaart "Xbar-R Chart of Oil" lees je: <var data-s="ucl">UCL</var> = 31,59, <var data-s="xbarbar">X̿</var> = 28,46, <var data-s="lcl">LCL</var> = 25,32, <var data-s="rbar">R̄</var> = 3,06 en
+      <var data-s="ucl_r">UCL<sub>R</sub></var> = 7,88. De steekproefgrootte staat er niet bij. Bepaal n met de constanten van 10.5.</p>
+      <div class="q" data-answer="3" data-tol="0">
+        <label><var data-s="n">n</var> =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <details class="hint"><summary>Hint</summary><p>Reken <var data-s="a2">A<sub>2</sub></var> = (<var data-s="ucl">UCL</var> − <var data-s="lcl">LCL</var>)/(2<var data-s="rbar">R̄</var>) en
+      <var data-s="d4">D<sub>4</sub></var> = <var data-s="ucl_r">UCL<sub>R</sub></var>/<var data-s="rbar">R̄</var> uit en zoek ze in de tabel.</p></details>
+      <details class="solution"><summary>Toon oplossing</summary>
+      <p><span class="computed">zelf berekend</span> (31,59 − 25,32)/(2 · 3,06) = 1,0245 en 7,88/3,06 = 2,5752. In
+      Table 18 horen <var data-s="a2">A<sub>2</sub></var> = 1,023 en <var data-s="d4">D<sub>4</sub></var> = 2,575 bij <b><var data-s="n">n</var> = 3</b> (<var data-s="n">n</var> = 2: 1,880 en 3,267; <var data-s="n">n</var> = 4:
+      0,729 en 2,282). Het kleine verschil bij A<sub>2</sub> komt doordat Minitab de waarden afgerond toont
+      (X̿ ligt eigenlijk midden tussen 31,59 en 25,32, op 28,455). De slide zegt niets over n; dit is een
+      afleiding.</p>
+      </details>
+    </div>
+
+    <div class="exercise" id="ex-10-3" data-kw="Dummies; Xbar-R; X̄-R; averages and ranges chart; Figure 10-9; A2; D4; extra">
+      <h4>Oefening 10.3 — Grenzen van een X̄-R-kaart (extra) <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=252">Dummies p. 252</a></h4>
+      <p>Figuur 10-9 van Dummies toont een X̄-R-kaart met <var data-s="xbarbar">X̿</var> = 84,50 en <var data-s="rbar">R̄</var> = 5,750 (subgroepen van 5, wat je uit de
+      grenzen kunt afleiden). Bereken de grenzen met Table 18.</p>
+      <div class="q" data-answer="87.818" data-tol="0.005">
+        <label><var data-s="ucl">UCL</var> van de X̄-kaart (2 decimalen) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="81.182" data-tol="0.005">
+        <label><var data-s="lcl">LCL</var> van de X̄-kaart =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="12.161" data-tol="0.01">
+        <label><var data-s="ucl_r">UCL</var> van de R-kaart =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <details class="solution"><summary>Toon oplossing</summary>
+      <ol class="steps">
+        <li><var data-s="n">n</var> = 5: <var data-s="a2">A<sub>2</sub></var> = 0,577, <var data-s="d3">D<sub>3</sub></var> = 0, <var data-s="d4">D<sub>4</sub></var> = 2,115 (Table 18).</li>
+        <li><var data-s="ucl">UCL</var> = 84,50 + 0,577 · 5,750 = 87,82; <var data-s="lcl">LCL</var> = 84,50 − 3,318 = 81,18.</li>
+        <li><var data-s="ucl_r">UCL<sub>R</sub></var> = 2,115 · 5,750 = 12,16 (met Dummies' 2,114 ook 12,16); <var data-s="lcl_r">LCL<sub>R</sub></var> = 0.</li>
+        <li>Dummies drukt 87,82, 81,18 en 12,16: alles klopt <span class="computed">zelf berekend</span>.</li>
+      </ol>
+      </details>
+    </div>
+  </section>
+
+  <!-- ====================================================================================== 10.6 -->
+  <section class="unit" id="d10-regels" data-kw="Western Electric regels; Western Electric rules; sensitizing rules; zones; zone A; run; trend; shift; verschuiving; patroon; pattern; 8 op rij; tampering; overreageren; underreacting; onderreageren; out of control; buiten controle; waarschuwingsgrenzen; warning limits">
+    <h3>10.6 Een regelkaart lezen: Western Electric-regels <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=67">SPC p. 67–69</a></h3>
+    <p>Een proces is <b>in statistische controle (in statistical control)</b> als de punten willekeurig rond het
+    doel schommelen en allemaal binnen de grenzen liggen. Actie is nodig bij geïsoleerde punten buiten de grenzen
+    (outliers), lange trends omhoog of omlaag (trend) en verschuivingen weg van het doel (shift) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=67">SPC p. 67</a>. Om ook
+    patronen binnen de grenzen te vangen, verdeel je de ruimte tussen centrale lijn en regelgrens in drie
+    <b>zones</b> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=69">SPC p. 69</a>:</p>
+    <table>
+      <tr><th>Zone</th><th>Gebied (aan elke kant van de centrale lijn)</th></tr>
+      <tr><td>A</td><td>tussen 2<var data-s="sigma_zone">σ</var> en de regelgrens (3<var data-s="sigma_zone">σ</var>)</td></tr>
+      <tr><td>B</td><td>tussen 1<var data-s="sigma_zone">σ</var> en 2<var data-s="sigma_zone">σ</var></td></tr>
+      <tr><td>C</td><td>binnen 1<var data-s="sigma_zone">σ</var> van de centrale lijn</td></tr>
+    </table>
+    <p class="small">σ is hier de standaardafwijking van wat je uitzet; bij een X̄-kaart is dat <var data-s="sigma_xbar">σ<sub>x̄</sub></var> =
+    (<var data-s="ucl">UCL</var> − <var data-s="cl">CL</var>)/3.</p>
+    <p>Table 5.1 op <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=68">SPC p. 68</a> ("Some Sensitizing Rules for Shewhart Control Charts"); regels 1–4 heten de
+    <b>Western Electric-regels (Western Electric rules)</b>:</p>
+    <ol>
+      <li>Eén of meer punten buiten de regelgrenzen.</li>
+      <li>Twee van drie opeenvolgende punten buiten de 2σ-waarschuwingsgrenzen (warning limits), maar nog binnen de
+      regelgrenzen.</li>
+      <li>Vier van vijf opeenvolgende punten voorbij de 1σ-grenzen.</li>
+      <li>Een reeks (run) van acht opeenvolgende punten aan dezelfde kant van de centrale lijn.</li>
+      <li>Zes punten op rij die steeds stijgen of steeds dalen.</li>
+      <li>Vijftien punten op rij in zone C (boven en onder de centrale lijn).</li>
+      <li>Veertien punten op rij die afwisselend stijgen en dalen.</li>
+      <li>Acht punten op rij aan beide kanten van de centrale lijn, geen enkel in zone C.</li>
+      <li>Een ongewoon of niet-willekeurig patroon.</li>
+      <li>Eén of meer punten dicht bij een waarschuwings- of regelgrens.</li>
+    </ol>
+    <div class="box warn"><span class="t">Dummies formuleert enkele regels anders (extra)</span>
+    <p>Dummies <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=245">Dummies p. 245–246</a>: één punt buiten een regelgrens; twee van drie opeenvolgende punten in zone A,
+    <i>en alle drie aan dezelfde kant</i> van het gemiddelde; vier van vijf in zone B of A, alle vijf aan dezelfde
+    kant; vijftien punten op rij in zone C. Table 10-1 <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=246">Dummies p. 246–247</a> voegt "run" (punten aan één kant), "trend"
+    (zeven of meer opeenvolgende punten in dezelfde richting; het deck zegt zes), "cycle" (herhalend patroon) en
+    "hugging" (punten kleven aan de centrale lijn of aan een grens: wijst op een fout in de subgroepering) toe. Bij
+    regels 2 en 3 tellen de punten altijd aan dezelfde kant.</p>
+    </div>
+    <p><b>Waarom werken die regels?</b> Dummies vergelijkt het met dobbelstenen: 7 gooien met twee stenen heeft
+    ongeveer 17 % kans, drie keer na elkaar maar ongeveer 0,46 %. Zie je dat, dan vermoed je vervalste stenen
+    <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=245">Dummies p. 245</a>. Elk patroon uit de lijst is bij een stabiel proces even onwaarschijnlijk als een punt buiten de
+    grenzen.</p>
+
+    <h4>Twee soorten fouten bij het reageren <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=65">SPC p. 65</a></h4>
+    <table>
+      <tr><th>Wat de variatie echt is ↓ / hoe je ze behandelt →</th><th>als gewone oorzaak</th><th>als speciale oorzaak</th></tr>
+      <tr><td>gewone oorzaak (common cause)</td><td>goed: werk aan een fundamentele procesverandering</td>
+      <td><b>fout 1: tampering (overreageren)</b>: verhoogt de variatie</td></tr>
+      <tr><td>speciale oorzaak (special cause)</td><td><b>fout 2: underreacting (onderreageren)</b>: gemiste
+      preventie</td><td>goed: onderzoek de speciale oorzaak</td></tr>
+    </table>
+    <p>Het nut van de regelkaart is dat ze je zegt wanneer je moet ingrijpen en wanneer niet. Dummies: laat een
+    stabiel en capabel proces met rust; bij een speciale oorzaak moet je ze vinden en voorkomen <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=245">Dummies p. 245</a>.</p>
+
+    <div class="box tool"><span class="t">Rekentool</span>
+    <p>Blad <b>Control charts</b> vlagt automatisch regel 1 (punt buiten de grenzen) in elke tabel. Regels 2–4 staan
+    als tekst onderaan het blad (deel 5): die controleer je zelf met de zones (<var data-s="sigma_zone">σ</var> = (<var data-s="ucl">UCL</var> − <var data-s="cl">CL</var>)/3).</p>
+    </div>
+
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>"Geen enkel punt ligt buiten de grenzen, dus het proces is onder controle."</b> Fout: ook patronen binnen de grenzen zijn signalen (regels 2–4: 2 van 3 voorbij 2σ, 4 van 5 voorbij 1σ, 8 op rij aan één kant) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=68">SPC p. 68</a>. In SPC-oefening 1 ligt geen punt buiten de grenzen en toch is het proces niet onder controle <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=72">SPC p. 72</a>.</li>
+      <li><b>Let op:</b> bij regels 2 en 3 tellen alleen punten aan dezelfde kant van de centrale lijn <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=245">Dummies p. 245–246</a>.</li>
+      <li><b>Let op:</b> de zones meet je in de standaardafwijking van wat je uitzet: bij een X̄-kaart <var data-s="sigma_zone">σ</var> = (<var data-s="ucl">UCL</var> − <var data-s="cl">CL</var>)/3 = <var data-s="sigma_xbar">σ<sub>x̄</sub></var>, niet de <var data-s="sigma">σ</var> van de losse metingen.</li>
+      <li><b>Let op:</b> een trend is zes punten op rij die stijgen of dalen in het deck (Table 5.1, <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=68">SPC p. 68</a>), maar zeven of meer bij Dummies <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=246">Dummies p. 246–247</a>. Noem je bron.</li>
+      <li><b>"Wijkt een punt af van het doel, dan stuur je het proces bij."</b> Fout: gewone variatie behandelen als een speciale oorzaak is tampering (overreageren) en verhoogt de variatie; een speciale oorzaak negeren is underreacting <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=65">SPC p. 65</a>. Een stabiel en capabel proces laat je met rust <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=245">Dummies p. 245</a>.</li>
+      <li><b>Let op:</b> herziene grenzen (revised limits): je laat een punt met een aanwijsbare oorzaak weg en herberekent. In SPC-oefening 3 laat de docent steekproef 9 weg hoewel die binnen de grenzen ligt: ken beide antwoorden (<a href="#ex-10-7">oefening 10.7</a>).</li>
+    </ul></div>
+    <div class="exercise" id="ex-10-4" data-kw="SPC oefening 1; Western Electric; regels toepassen; apply rules; in control; specificatie; specification limits; zones; run">
+      <h4>Oefening 10.4 — SPC oefening 1 <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=72">SPC p. 72</a></h4>
+      <p>a. Als een proces statistisch onder controle is, betekent dat dan noodzakelijk dat alle of bijna alle
+      eindproducten binnen de specificatielimieten liggen?</p>
+      <p>b. Pas de Western Electric-regels toe op de X̄-kaart van <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=72">SPC p. 72</a> (25 steekproeven; geen getallen op de
+      as, alleen UCL, centrale lijn en LCL). Open de slide. De tabel geeft de zone van elk punt, afgelezen uit de
+      figuur <span class="computed">zelf berekend</span> (<var data-s="sigma_zone">σ</var> = een derde van de afstand <var data-s="cl">CL</var>–<var data-s="ucl">UCL</var>; "−" is onder de
+      centrale lijn).</p>
+      <table>
+        <tr><th>steekproef</th><td class="n">1</td><td class="n">2</td><td class="n">3</td><td class="n">4</td><td class="n">5</td><td class="n">6</td><td class="n">7</td><td class="n">8</td><td class="n">9</td><td class="n">10</td><td class="n">11</td><td class="n">12</td><td class="n">13</td></tr>
+        <tr><th>zone</th><td>B−</td><td>C+</td><td>B−</td><td>A−</td><td>A− ?</td><td>B−</td><td>C−</td><td>C+ ?</td><td>B+ ?</td><td>B+</td><td>C−</td><td>B−</td><td>B− ?</td></tr>
+        <tr><th>steekproef</th><td class="n">14</td><td class="n">15</td><td class="n">16</td><td class="n">17</td><td class="n">18</td><td class="n">19</td><td class="n">20</td><td class="n">21</td><td class="n">22</td><td class="n">23</td><td class="n">24</td><td class="n">25</td><td></td></tr>
+        <tr><th>zone</th><td>B− ?</td><td>C−</td><td>C+</td><td>B− ?</td><td>A+</td><td>C−</td><td>C−</td><td>B−</td><td>B−</td><td>A−</td><td>A−</td><td>B−</td><td></td></tr>
+      </table>
+      <p class="small">"?" = het punt ligt binnen 0,1σ van een zonegrens, de aflezing is daar onzeker: 1, 8, 13 en
+      17 liggen vlak bij een 1σ-lijn, 5, 9 en 14 vlak bij een 2σ-lijn.</p>
+      <div class="q" data-type="choice" data-answer="nee">
+        <label>a. In control ⇒ (bijna) alles binnen specificatie?</label>
+        <select><option value="">kies…</option><option value="ja">ja</option><option value="nee">nee</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="nee">
+        <label>Regel 1 (punt buiten de grenzen)?</label>
+        <select><option value="">kies…</option><option value="ja">signaal</option><option value="nee">geen signaal</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="ja">
+        <label>Regel 2 (2 van 3 voorbij 2σ)?</label>
+        <select><option value="">kies…</option><option value="ja">signaal</option><option value="nee">geen signaal</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="ja">
+        <label>Regel 3 (4 van 5 voorbij 1σ)?</label>
+        <select><option value="">kies…</option><option value="ja">signaal</option><option value="nee">geen signaal</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="nee">
+        <label>Regel 4 (8 op rij aan één kant)?</label>
+        <select><option value="">kies…</option><option value="ja">signaal</option><option value="nee">geen signaal</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="nee">
+        <label>Is het proces onder statistische controle?</label>
+        <select><option value="">kies…</option><option value="ja">ja</option><option value="nee">nee</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <details class="hint"><summary>Hint</summary><p>Kijk vooral naar de laatste steekproeven (21–25) en naar
+      steekproeven 3–6. Tel bij regels 2 en 3 alleen punten aan dezelfde kant.</p></details>
+      <details class="solution"><summary>Toon oplossing</summary>
+      <p><b>a.</b> Nee. "Process in Statistical Control ≠ Process Satisfies Customer Requirements" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=70">SPC p. 70</a>:
+      regelgrenzen zijn de stem van het proces, specificaties de stem van de klant <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=56">SPC p. 56</a>. Een stabiel proces
+      kan een spreiding hebben die breder is dan de tolerantie (toestand 2 op <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=70">SPC p. 70</a>). Of het binnen specificatie
+      blijft, beoordeel je met Cp/Cpk (<a href="#d09">Deel 09</a>).</p>
+      <p><b>b.</b> De slide geeft geen oplossing; dit is een eigen aflezing <span class="computed">zelf
+      berekend</span>.</p>
+      <ul>
+        <li><b>Regel 1</b>: geen signaal; het hoogste punt (18) ligt in zone A boven, het laagste (24) in zone A
+        onder, allebei binnen de grenzen.</li>
+        <li><b>Regel 2</b>: signaal bij <b>steekproef 24</b>: 23 en 24 liggen allebei in zone A onder (2 van de 3
+        punten 22–24). Bij 4–5 is het twijfelachtig: punt 5 ligt vrijwel op de −2σ-lijn.</li>
+        <li><b>Regel 3</b>: signaal bij <b>steekproef 6</b>: 3, 4, 5 en 6 liggen alle vier onder −1σ (4 van de 5
+        punten 2–6), en opnieuw bij <b>steekproeven 24–25</b>: 21 tot 25 liggen alle vijf onder −1σ.</li>
+        <li><b>Regel 4</b>: geen signaal. De langste reeks aan één kant is 19–25: zeven punten onder de centrale
+        lijn (punt 18 ligt erboven). Nog één punt eronder en regel 4 zou ook afgaan.</li>
+        <li>Extra (regel 5 van Table 5.1): steekproeven 4 tot en met 9 (zes punten) stijgen voortdurend, en 18 tot
+        en met 24 (zeven punten) dalen voortdurend.</li>
+      </ul>
+      <p><b>Besluit</b>: het proces is <b>niet</b> onder statistische controle, hoewel geen enkel punt buiten de
+      grenzen ligt. Dit is precies waarom je meer dan regel 1 gebruikt.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ====================================================================================== 10.7 -->
+  <section class="unit" id="d10-oefeningen" data-kw="SPC oefeningen; oefening 2; oefening 3; oefening 4; oefening 5; oefening 6; bleekproduct; lagers; binnendiameter; bearing; Xbar R; Cp; Cpk; herziene grenzen; revised control limits; Minitab; uitval; percentage niet-conform">
+    <h3>10.7 Oefeningen SPC 2–6, met de rekenbladen van de docent <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=75">SPC p. 75</a></h3>
+    <p>De data van oefeningen 2 en 3 staan in <a class="p" href="../source/course/Les%204/__Gegevens%20oefeningen.xlsx">__Gegevens oefeningen.xlsx</a>; de oplossingen van de docent in <a class="p" href="../source/course/Les%204/__Xbar%20R%20kaart%20data%20-%20berekeningen%20oefening%202.xlsx">werkboek oefening 2</a>, <a class="p" href="../source/course/Les%204/__Xbar%20R%20kaart%20data%20-%20berekeningen%20oefening%203.xlsx">werkboek oefening 3</a> (ook
+    oefening 4) en <a class="p" href="../source/course/Les%204/__Xbar%20R%20kaart%20data%20-%20berekeningen%20oefening%205.xlsx">werkboek oefening 5</a>. Oefening 6 is op de slide zelf opgelost <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=87">SPC p. 87</a>. Alle oefeningen gebruiken <var data-s="n">n</var> = 5 en
+    de constanten van Table 18: <var data-s="a2">A<sub>2</sub></var> = 0,577, <var data-s="d3">D<sub>3</sub></var> = 0, <var data-s="d4">D<sub>4</sub></var> = 2,115,
+    <var data-s="d2">d<sub>2</sub></var> = 2,326. Cp en Cpk worden uitgelegd in <a href="#d09">Deel 09</a> (<a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=34">SPC p. 34–35</a>):
+    <var data-s="cp">Cp</var> = (<var data-s="usl">USL</var> − <var data-s="lsl">LSL</var>)/(6<var data-s="sigma">σ</var>) en <var data-s="cpk">Cpk</var> = min[(<var data-s="xbarbar">X̿</var> − <var data-s="lsl">LSL</var>)/(3<var data-s="sigma">σ</var>) ; (<var data-s="usl">USL</var> − <var data-s="xbarbar">X̿</var>)/(3<var data-s="sigma">σ</var>)], met <var data-s="sigma_hat">σ̂</var> = <var data-s="rbar">R̄</var>/<var data-s="d2">d<sub>2</sub></var>.</p>
+    <p>De verborgen dia's <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=76">SPC p. 76–83</a> ("Oefening 2 in Minitab") werden niet getoond; ze staan hier als
+    <b>extra (verborgen dia)</b> bij oefening 2.</p>
+
+    <div class="exercise" id="ex-10-5" data-kw="SPC oefening 2; bleekproduct; nettogewicht; Xbar R kaart opstellen; control limits; X̿; R̄; UCL; LCL; in control; 20 samples">
+      <h4>Oefening 10.5 — SPC oefening 2 a–b: X̄- en R-kaart opstellen <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=75">SPC p. 75</a></h4>
+      <p>Het nettogewicht van een bleekproduct wordt opgevolgd met X̄- en R-kaarten, <var data-s="n">n</var> = 5. Hieronder de 20
+      voorbereidende steekproeven (<a class="p" href="../source/course/Les%204/__Gegevens%20oefeningen.xlsx">__Gegevens oefeningen.xlsx</a>, blad 'Gegevens oefening 2'). a) Stel de X̄- en R-kaart op. Is het
+      proces statistisch onder controle? b) Schat het procesgemiddelde en bepaal UCL en LCL.</p>
+      <table>
+<tr><th>steekproef</th><th>x1</th><th>x2</th><th>x3</th><th>x4</th><th>x5</th></tr>
+<tr><td class="n">1</td><td class="n">15,8</td><td class="n">16,3</td><td class="n">16,2</td><td class="n">16,1</td><td class="n">16,6</td></tr>
+<tr><td class="n">2</td><td class="n">16,3</td><td class="n">15,9</td><td class="n">15,9</td><td class="n">16,2</td><td class="n">16,4</td></tr>
+<tr><td class="n">3</td><td class="n">16,1</td><td class="n">16,2</td><td class="n">16,5</td><td class="n">16,4</td><td class="n">16,3</td></tr>
+<tr><td class="n">4</td><td class="n">16,3</td><td class="n">16,2</td><td class="n">15,9</td><td class="n">16,5</td><td class="n">16,0</td></tr>
+<tr><td class="n">5</td><td class="n">16,1</td><td class="n">16,1</td><td class="n">16,4</td><td class="n">16,6</td><td class="n">16,4</td></tr>
+<tr><td class="n">6</td><td class="n">16,1</td><td class="n">15,8</td><td class="n">16,7</td><td class="n">16,1</td><td class="n">16,5</td></tr>
+<tr><td class="n">7</td><td class="n">16,2</td><td class="n">16,3</td><td class="n">16,5</td><td class="n">16,1</td><td class="n">16,3</td></tr>
+<tr><td class="n">8</td><td class="n">16,3</td><td class="n">16,1</td><td class="n">16,2</td><td class="n">16,3</td><td class="n">16,5</td></tr>
+<tr><td class="n">9</td><td class="n">16,6</td><td class="n">16,2</td><td class="n">16,4</td><td class="n">16,1</td><td class="n">16,5</td></tr>
+<tr><td class="n">10</td><td class="n">16,2</td><td class="n">16,3</td><td class="n">16,4</td><td class="n">16,3</td><td class="n">16,4</td></tr>
+<tr><td class="n">11</td><td class="n">15,9</td><td class="n">16,4</td><td class="n">15,9</td><td class="n">16,2</td><td class="n">16,5</td></tr>
+<tr><td class="n">12</td><td class="n">16,4</td><td class="n">16,6</td><td class="n">16,7</td><td class="n">16,4</td><td class="n">16,1</td></tr>
+<tr><td class="n">13</td><td class="n">16,5</td><td class="n">16,1</td><td class="n">16,6</td><td class="n">16,3</td><td class="n">16,4</td></tr>
+<tr><td class="n">14</td><td class="n">16,4</td><td class="n">16,3</td><td class="n">16,2</td><td class="n">16,2</td><td class="n">16,2</td></tr>
+<tr><td class="n">15</td><td class="n">16,0</td><td class="n">16,1</td><td class="n">16,3</td><td class="n">16,3</td><td class="n">16,2</td></tr>
+<tr><td class="n">16</td><td class="n">16,4</td><td class="n">16,2</td><td class="n">16,3</td><td class="n">16,3</td><td class="n">16,2</td></tr>
+<tr><td class="n">17</td><td class="n">16,0</td><td class="n">16,2</td><td class="n">16,4</td><td class="n">16,3</td><td class="n">16,2</td></tr>
+<tr><td class="n">18</td><td class="n">16,0</td><td class="n">16,2</td><td class="n">16,4</td><td class="n">16,5</td><td class="n">16,1</td></tr>
+<tr><td class="n">19</td><td class="n">16,4</td><td class="n">16,0</td><td class="n">16,3</td><td class="n">16,4</td><td class="n">16,4</td></tr>
+<tr><td class="n">20</td><td class="n">16,4</td><td class="n">16,4</td><td class="n">16,5</td><td class="n">16,0</td><td class="n">15,8</td></tr>
+</table>
+      <div class="q" data-answer="16.266" data-tol="0.001">
+        <label><var data-s="xbarbar">X̿</var> (3 decimalen) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="0.48" data-tol="0.001">
+        <label><var data-s="rbar">R̄</var> =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="16.54296" data-tol="0.001">
+        <label><var data-s="ucl">UCL</var> van de X̄-kaart (3 decimalen) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="15.98904" data-tol="0.001">
+        <label><var data-s="lcl">LCL</var> van de X̄-kaart (3 decimalen) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="1.0152" data-tol="0.001">
+        <label><var data-s="ucl_r">UCL</var> van de R-kaart (3 decimalen) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="ja">
+        <label>Ligt elk punt van beide kaarten binnen de grenzen?</label>
+        <select><option value="">kies…</option><option value="ja">ja, onder controle</option><option value="nee">nee</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="geen">
+        <label>Geven de Western Electric-regels 2–4 op de X̄-kaart een signaal?</label>
+        <select><option value="">kies…</option><option value="geen">geen enkele regel</option><option value="r2">regel 2</option><option value="r3">regel 3</option><option value="r4">regel 4</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <details class="hint"><summary>Hint</summary><p>Per rij: <var data-s="xbar_i">x̄</var> = gemiddelde, <var data-s="r_i">R</var> = grootste − kleinste. Dan
+      <var data-s="xbarbar">X̿</var> = gemiddelde van de 20 <var data-s="xbar_i">x̄</var>'s, <var data-s="rbar">R̄</var> = gemiddelde van de 20 <var data-s="r_i">R</var>'s. Voor de zones: <var data-s="sigma_xbar">σ<sub>x̄</sub></var> = <var data-s="a2">A<sub>2</sub></var><var data-s="rbar">R̄</var>/3.</p></details>
+      <details class="solution"><summary>Toon oplossing</summary>
+      <p>Gemiddelde en range per steekproef (blad 'Berekening' van <a class="p" href="../source/course/Les%204/__Xbar%20R%20kaart%20data%20-%20berekeningen%20oefening%202.xlsx">werkboek oefening 2</a>):</p>
+      <table>
+<tr><th>steekproef</th><th class="n">1</th><th class="n">2</th><th class="n">3</th><th class="n">4</th><th class="n">5</th><th class="n">6</th><th class="n">7</th><th class="n">8</th><th class="n">9</th><th class="n">10</th></tr>
+<tr><td>x̄</td><td class="n">16,20</td><td class="n">16,14</td><td class="n">16,30</td><td class="n">16,18</td><td class="n">16,32</td><td class="n">16,24</td><td class="n">16,28</td><td class="n">16,28</td><td class="n">16,36</td><td class="n">16,32</td></tr>
+<tr><td>R</td><td class="n">0,8</td><td class="n">0,5</td><td class="n">0,4</td><td class="n">0,6</td><td class="n">0,5</td><td class="n">0,9</td><td class="n">0,4</td><td class="n">0,4</td><td class="n">0,5</td><td class="n">0,2</td></tr>
+<tr><th>steekproef</th><th class="n">11</th><th class="n">12</th><th class="n">13</th><th class="n">14</th><th class="n">15</th><th class="n">16</th><th class="n">17</th><th class="n">18</th><th class="n">19</th><th class="n">20</th></tr>
+<tr><td>x̄</td><td class="n">16,18</td><td class="n">16,44</td><td class="n">16,38</td><td class="n">16,26</td><td class="n">16,18</td><td class="n">16,28</td><td class="n">16,22</td><td class="n">16,24</td><td class="n">16,30</td><td class="n">16,22</td></tr>
+<tr><td>R</td><td class="n">0,6</td><td class="n">0,6</td><td class="n">0,5</td><td class="n">0,2</td><td class="n">0,3</td><td class="n">0,2</td><td class="n">0,4</td><td class="n">0,5</td><td class="n">0,4</td><td class="n">0,7</td></tr>
+</table>
+      <ol class="steps">
+        <li><var data-s="xbarbar">X̿</var> = 16,266 (het procesgemiddelde) en <var data-s="rbar">R̄</var> = 0,48.</li>
+        <li>X̄-kaart: <var data-s="ucl">UCL</var> = 16,266 + 0,577 · 0,48 = 16,54296; <var data-s="lcl">LCL</var> = 16,266 − 0,27696 = 15,98904; <var data-s="cl">CL</var> = 16,266.</li>
+        <li>R-kaart: <var data-s="ucl_r">UCL</var> = 2,115 · 0,48 = 1,0152; <var data-s="lcl_r">LCL</var> = 0 · 0,48 = 0; <var data-s="cl_r">CL</var> = 0,48.</li>
+        <li>Het hoogste gemiddelde is 16,44 (steekproef 12), het laagste 16,14 (steekproef 2); de grootste range
+        0,9 (steekproef 6). Alles ligt binnen de grenzen: <b>onder controle</b> volgens regel 1.</li>
+        <li><span class="computed">zelf berekend</span> Met <var data-s="sigma_xbar">σ<sub>x̄</sub></var> = 0,577 · 0,48/3 = 0,0923 liggen alle
+        gemiddelden in zone C of B; geen enkele Western Electric-regel (2–4, ook regel 5 niet) geeft een signaal.</li>
+      </ol>
+      <p><b>Extra (verborgen dia's <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=76">SPC p. 76–79</a>)</b>: Minitab komt tot hetzelfde besluit: "The process mean and
+      variation are stable. No subgroups are out of control on either chart" en "100 or more data points" volstaan
+      voor nauwkeurige grenzen. Minitab drukt <var data-s="ucl">UCL</var> = 16,5429 en <var data-s="lcl">LCL</var> = 15,9891 en <var data-s="stdev_within">StDev(within)</var> = 0,20636: Minitab
+      rekent met 3<var data-s="sigma_hat">σ̂</var>/√<var data-s="n">n</var> (de formule met variabele n van <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=74">SPC p. 74</a>) in plaats van met de afgeronde <var data-s="a2">A<sub>2</sub></var> =
+      0,577 <span class="computed">zelf berekend</span>; het verschil zit in de vierde decimaal.</p>
+      </details>
+    </div>
+
+    <div class="exercise" id="ex-10-6" data-kw="SPC oefening 2c; capabiliteit; capability; Cp; Cpk; Pp; Ppk; specs 16,2; R̄/d2; overall; within; Minitab capability analysis">
+      <h4>Oefening 10.6 — SPC oefening 2 c: capabiliteit <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=75">SPC p. 75</a></h4>
+      <p>Neem de kaarten van oefening 10.5 (<var data-s="xbarbar">X̿</var> = 16,266, <var data-s="rbar">R̄</var> = 0,48, <var data-s="n">n</var> = 5). De specificaties zijn 16,2 ± 0,5. Wat kun
+      je besluiten over de capabiliteit (Cp, Cpk)? Schat <var data-s="sigma">σ</var> met <var data-s="rbar">R̄</var>/<var data-s="d2">d<sub>2</sub></var>.</p>
+      <div class="q" data-answer="0.206363" data-tol="0.0005">
+        <label><var data-s="sigma_hat">σ̂</var> = <var data-s="rbar">R̄</var>/<var data-s="d2">d<sub>2</sub></var> (4 decimalen) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="0.807639" data-tol="0.002">
+        <label><var data-s="cp">Cp</var> (3 decimalen) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="0.701031" data-tol="0.002">
+        <label><var data-s="cpk">Cpk</var> (3 decimalen) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="nee">
+        <label>Is het proces capabel?</label>
+        <select><option value="">kies…</option><option value="ja">ja</option><option value="nee">nee</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <p>Extra (verborgen dia <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=81">SPC p. 81</a>): met de standaardafwijking van alle 100 metingen, <var data-s="s_overall">s</var> = 0,20212, berekent
+      Minitab Pp en Ppk. Reken ze na.</p>
+      <div class="q" data-answer="0.824592" data-tol="0.005">
+        <label><var data-s="pp">Pp</var> (2 decimalen) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="0.715746" data-tol="0.005">
+        <label><var data-s="ppk">Ppk</var> (2 decimalen) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <details class="hint"><summary>Hint</summary><p><var data-s="lsl">LSL</var> = 15,7 en <var data-s="usl">USL</var> = 16,7. Het gemiddelde ligt dichter bij de
+      USL, dus die kant bepaalt Cpk.</p></details>
+      <details class="solution"><summary>Toon oplossing</summary>
+      <ol class="steps">
+        <li><var data-s="sigma_hat">σ̂</var> = <var data-s="rbar">R̄</var>/<var data-s="d2">d<sub>2</sub></var> = 0,48/2,326 = 0,20636.</li>
+        <li><var data-s="cp">Cp</var> = (16,7 − 15,7)/(6 · 0,20636) = 1/1,23818 = <b>0,8076</b>.</li>
+        <li>(16,266 − 15,7)/(3 · 0,20636) = 0,9142 en (16,7 − 16,266)/(3 · 0,20636) = 0,7010, dus
+        <b><var data-s="cpk">Cpk</var> = 0,7010</b>.</li>
+        <li>Het rekenblad noteert "<var data-s="cp">Cp</var>: 1,33 = acceptable, 1,66 = good" en "<var data-s="cpk">Cpk</var>: 1,33 = good" en besluit "So:
+        process not capable" (<a class="p" href="../source/course/Les%204/__Xbar%20R%20kaart%20data%20-%20berekeningen%20oefening%202.xlsx">werkboek oefening 2</a>, blad 'Berekening'). Het proces is stabiel (oefening 10.5) maar <b>niet
+        capabel</b>: toestand 2 van <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=70">SPC p. 70</a>.</li>
+      </ol>
+      <p><b>Extra (verborgen dia's <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=80">SPC p. 80–83</a>)</b>. De Minitab-capabiliteitsanalyse geeft: <var data-s="stdev_overall">StDev(overall)</var> =
+      0,20212, <var data-s="pp">Pp</var> = 0,82, <var data-s="ppk">Ppk</var> = 0,72 en verwacht 1,84 % buiten specificatie (18 440 ppm); "Potential (within)":
+      <var data-s="cp">Cp</var> = 0,79, <var data-s="cpk">Cpk</var> = 0,69 en 2,28 % (22 792 ppm). <span class="computed">zelf berekend</span> <var data-s="pp">Pp</var> = 1/(6 · 0,20212)
+      = 0,8246 en <var data-s="ppk">Ppk</var> = (16,7 − 16,266)/(3 · 0,20212) = 0,7157; ook 1,84 % en 2,28 % kloppen. Let op: Minitab
+      gebruikt in de capabiliteitsanalyse <var data-s="stdev_within">StDev(within)</var> = 0,20982, niet de 0,20636 (<var data-s="rbar">R̄</var>/<var data-s="d2">d<sub>2</sub></var>) van zijn eigen
+      X̄-R-kaart <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=79">SPC p. 79</a>; de slides leggen niet uit waarom. (Ter vergelijking: de gepoolde standaardafwijking van
+      de 20 steekproeven, √(gemiddelde <var data-s="s_i">s<sub>i</sub></var><sup>2</sup>), is 0,2092.) Verder meldt Minitab dat de data de
+      normaliteitstoets niet halen (Anderson-Darling, <var data-s="p_value">P</var> &lt; 0,005) en dat 20 subgroepen weinig is (25 aanbevolen).
+      Pp/Ppk en het onderscheid korte/lange termijn: <a href="#d09">Deel 09</a>.</p>
+      <div class="box warn"><span class="t">Formulefout in het rekenblad</span>
+      <p>Het rekenblad toont ook <var data-s="sigma_xbar">σ<sub>x̄</sub></var> = STDEV van de 20 gemiddelden = 0,0757 en daaruit
+      <var data-s="sigma">σ</var> = 0,0757 · √5 = 0,16927 (cel W31). Cel W32 ("sigma individuele metingen") rekent hetzelfde met de formule
+      <code>=R31*(5)^1/2</code>; Excel leest dat als 0,0757 · 5/2 = 0,18925. <span class="computed">zelf
+      berekend</span> Bedoeld is √5, dus 0,16927.</p>
+      </div>
+      </details>
+    </div>
+
+    <div class="exercise" id="ex-10-7" data-kw="SPC oefening 3; lagers; bearings; binnendiameter; inner diameter; gecodeerde data; coded data; herziene grenzen; revised limits; trial control limits; uitschieter; outlier; steekproef 9">
+      <h4>Oefening 10.7 — SPC oefening 3: lagers, herziene grenzen <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=84">SPC p. 84</a></h4>
+      <p>De data zijn x̄ en R voor 24 steekproeven van <var data-s="n">n</var> = 5 uit een proces dat lagers maakt; gemeten wordt de
+      binnendiameter. Alleen de laatste 3 decimalen zijn genoteerd: 34,5 betekent 0,50345 mm (<var data-s="x_mm">x′</var> = <var data-s="x_code">x</var>/10000 + 0,5;
+      voor R: <var data-s="r_mm">R′</var> = <var data-s="r_i">R</var>/10000). Stel de X̄- en R-kaart op. Is het proces statistisch onder controle? Herzie zo nodig de
+      (voorlopige) regelgrenzen. Werk in gecodeerde eenheden (zoals 34,5).</p>
+      <table>
+<tr><th>#</th><th class="n">x̄</th><th class="n">R</th><th>#</th><th class="n">x̄</th><th class="n">R</th><th>#</th><th class="n">x̄</th><th class="n">R</th></tr>
+<tr><td class="n">1</td><td class="n">34,2</td><td class="n">1,5</td><td class="n">9</td><td class="n">35,0</td><td class="n">2,2</td><td class="n">17</td><td class="n">33,9</td><td class="n">1,5</td></tr>
+<tr><td class="n">2</td><td class="n">34,2</td><td class="n">0,8</td><td class="n">10</td><td class="n">34,2</td><td class="n">3,5</td><td class="n">18</td><td class="n">33,3</td><td class="n">0,8</td></tr>
+<tr><td class="n">3</td><td class="n">33,7</td><td class="n">2,1</td><td class="n">11</td><td class="n">33,5</td><td class="n">2,7</td><td class="n">19</td><td class="n">34,0</td><td class="n">1,8</td></tr>
+<tr><td class="n">4</td><td class="n">34,2</td><td class="n">1,5</td><td class="n">12</td><td class="n">34,4</td><td class="n">1,1</td><td class="n">20</td><td class="n">33,8</td><td class="n">1,2</td></tr>
+<tr><td class="n">5</td><td class="n">34,1</td><td class="n">2,9</td><td class="n">13</td><td class="n">33,9</td><td class="n">2,0</td><td class="n">21</td><td class="n">34,4</td><td class="n">1,0</td></tr>
+<tr><td class="n">6</td><td class="n">33,9</td><td class="n">1,7</td><td class="n">14</td><td class="n">33,9</td><td class="n">1,1</td><td class="n">22</td><td class="n">33,8</td><td class="n">1,4</td></tr>
+<tr><td class="n">7</td><td class="n">33,3</td><td class="n">1,1</td><td class="n">15</td><td class="n">33,8</td><td class="n">1,3</td><td class="n">23</td><td class="n">34,4</td><td class="n">2,3</td></tr>
+<tr><td class="n">8</td><td class="n">34,2</td><td class="n">2,6</td><td class="n">16</td><td class="n">33,7</td><td class="n">1,8</td><td class="n">24</td><td class="n">34,2</td><td class="n">2,5</td></tr>
+</table>
+      <div class="q" data-answer="34" data-tol="0.005">
+        <label><var data-s="xbarbar">X̿</var> (gecodeerd) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="1.76667" data-tol="0.002">
+        <label><var data-s="rbar">R̄</var> (gecodeerd, 3 decimalen) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="35.0194" data-tol="0.002">
+        <label><var data-s="ucl">UCL</var> van de X̄-kaart (gecodeerd, 3 decimalen) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="32.9806" data-tol="0.002">
+        <label><var data-s="lcl">LCL</var> van de X̄-kaart (gecodeerd) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="3.7365" data-tol="0.002">
+        <label><var data-s="ucl_r">UCL</var> van de R-kaart (gecodeerd) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="geen">
+        <label>Welke steekproef ligt buiten de grenzen van de eerste kaarten?</label>
+        <select><option value="">kies…</option><option value="geen">geen enkele</option><option value="9">steekproef 9</option><option value="7en18">steekproeven 7 en 18</option><option value="10">steekproef 10 (R)</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <p>De docent haalt steekproef 9 eruit ("uitschieter ! eruit halen") en herberekent met de overige 23. Bereken de
+      herziene grenzen.</p>
+      <div class="q" data-answer="33.95652" data-tol="0.002">
+        <label>herziene <var data-s="xbarbar">X̿</var> (gecodeerd, 3 decimalen) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="34.96501" data-tol="0.002">
+        <label>herziene <var data-s="ucl">UCL</var> (gecodeerd) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="32.94803" data-tol="0.002">
+        <label>herziene <var data-s="lcl">LCL</var> (gecodeerd) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="3.69665" data-tol="0.002">
+        <label>herziene <var data-s="ucl_r">UCL</var> van de R-kaart (gecodeerd) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <details class="hint"><summary>Hint</summary><p>Met gecodeerde getallen reken je net zo: gemiddelden van de
+      kolommen, dan <var data-s="a2">A<sub>2</sub></var> = 0,577 en <var data-s="d4">D<sub>4</sub></var> = 2,115. Pas op het einde terugrekenen naar mm.</p></details>
+      <details class="solution"><summary>Toon oplossing</summary>
+      <ol class="steps">
+        <li><var data-s="xbarbar">X̿</var> = 34,00 en <var data-s="rbar">R̄</var> = 1,7667 (gecodeerd), dus 0,5034 mm en 0,000177 mm.</li>
+        <li>X̄-kaart: <var data-s="ucl">UCL</var> = 34,00 + 0,577 · 1,7667 = 35,019 en <var data-s="lcl">LCL</var> = 32,981, of 0,503502 en 0,503298 mm.
+        R-kaart: <var data-s="ucl_r">UCL</var> = 2,115 · 1,7667 = 3,7365 (0,00037365 mm), <var data-s="lcl_r">LCL</var> = 0. Zo staat het in <a class="p" href="../source/course/Les%204/__Xbar%20R%20kaart%20data%20-%20berekeningen%20oefening%203.xlsx">werkboek oefening 3</a>.</li>
+        <li>Regel 1: het grootste gemiddelde is steekproef 9 met 35,0, net <b>onder</b> <var data-s="ucl">UCL</var> = 35,019; de kleinste
+        (33,3, steekproeven 7 en 18) liggen boven LCL; de grootste range (3,5, steekproef 10) ligt onder 3,7365.
+        <span class="computed">zelf berekend</span> Geen enkel punt ligt buiten de grenzen, en ook regels 2–5 geven
+        geen signaal (<var data-s="sigma_xbar">σ<sub>x̄</sub></var> = 0,3398; alleen 7, 9 en 18 liggen in zone A; 7 en 9 vallen wel binnen drie
+        opeenvolgende punten, maar aan verschillende kanten van de centrale lijn).</li>
+        <li>Het rekenblad markeert steekproef 9 toch als "uitschieter ! eruit halen" en herberekent zonder: <var data-s="xbarbar">X̿</var> =
+        33,9565, <var data-s="rbar">R̄</var> = 1,7478, <var data-s="ucl">UCL</var> = 34,965, <var data-s="lcl">LCL</var> = 32,948, <var data-s="ucl_r">UCL<sub>R</sub></var> = 3,6967 (gecodeerd), of 0,5033957,
+        0,000174783, 0,5034965, 0,5032948 en 0,000369665 mm.</li>
+      </ol>
+      <div class="box warn"><span class="t">Twee antwoorden kennen</span>
+      <p>Strikt volgens de regels is het proces onder controle en hoef je niets te herzien
+      <span class="computed">zelf berekend</span>. De docent behandelt steekproef 9 (het gemiddelde dat het dichtst
+      tegen de UCL ligt) als uitschieter. Vermeld op het examen beide: de controle per regel, en dat je bij een
+      echte uitschieter met een aanwijsbare oorzaak dat punt weglaat en de grenzen herberekent ("herzie de
+      testcontrolelimieten").</p>
+      </div>
+      <div class="box tool"><span class="t">Rekentool</span>
+      <p>Blad <b>Control charts</b>, deel 1: vul <var data-s="n">n</var> = 5 in en typ per rij x̄ (kolom "x̄ typed") en R (kolom "R
+      typed"). Laat rij 9 weg voor de herziene grenzen.</p>
+      </div>
+      </details>
+    </div>
+
+    <div class="exercise" id="ex-10-8" data-kw="SPC oefening 4; andere steekproefgrootte; new sample size; n = 3; n = 8; grenzen herberekenen; 2 sigma verschuiving; shift detection; detecteren; gevoeligheid; sensitivity">
+      <h4>Oefening 10.8 — SPC oefening 4: andere steekproefgrootte <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=85">SPC p. 85</a></h4>
+      <p>Neem de (herziene) X̄- en R-kaarten van oefening 3, met <var data-s="n">n</var> = 5: <var data-s="xbarbar">X̿</var> = 33,9565 en <var data-s="rbar">R̄</var> = 1,7478 (gecodeerd).
+      a) Je wilt verder monitoren met steekproeven van <var data-s="n">n</var> = 3. Welke grenzen gebruik je? b) En met <var data-s="n">n</var> = 8? c) Wat is de
+      impact op de kans om een verschuiving van het gemiddelde met 2<var data-s="sigma">σ</var> te ontdekken?</p>
+      <div class="q" data-answer="35.258" data-tol="0.003">
+        <label><var data-s="n">n</var> = 3: <var data-s="ucl">UCL</var> van de X̄-kaart (gecodeerd) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="32.655" data-tol="0.003">
+        <label><var data-s="n">n</var> = 3: <var data-s="lcl">LCL</var> van de X̄-kaart (gecodeerd) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="3.276" data-tol="0.003">
+        <label><var data-s="n">n</var> = 3: <var data-s="ucl_r">UCL</var> van de R-kaart (gecodeerd) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="34.754" data-tol="0.003">
+        <label><var data-s="n">n</var> = 8: <var data-s="ucl">UCL</var> van de X̄-kaart (gecodeerd) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="33.159" data-tol="0.003">
+        <label><var data-s="n">n</var> = 8: <var data-s="lcl">LCL</var> van de X̄-kaart (gecodeerd) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="3.988" data-tol="0.003">
+        <label><var data-s="n">n</var> = 8: <var data-s="ucl_r">UCL</var> van de R-kaart (gecodeerd) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="0.291" data-tol="0.003">
+        <label><var data-s="n">n</var> = 8: <var data-s="lcl_r">LCL</var> van de R-kaart (gecodeerd) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="0.678713" data-tol="0.005">
+        <label>c. <var data-s="n">n</var> = 3: kans dat de eerste steekproef na een 2σ-verschuiving buiten de grenzen valt (0 tot 1) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="0.996056" data-tol="0.003">
+        <label>c. <var data-s="n">n</var> = 8: dezelfde kans =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <details class="hint"><summary>Hint</summary><p>Het proces verandert niet, alleen de steekproef. <var data-s="sigma_hat">σ̂</var> =
+      <var data-s="rbar">R̄</var>/<var data-s="d2">d<sub>2</sub></var>(5) blijft dus hetzelfde. Bij een nieuwe n verwacht je een andere gemiddelde range:
+      <var data-s="rbar_new">R̄<sub>nieuw</sub></var> = <var data-s="d2">d<sub>2</sub></var>(<var data-s="n_new">n<sub>nieuw</sub></var>) · <var data-s="sigma_hat">σ̂</var>. Voor c: de verschuiving 2<var data-s="sigma">σ</var> is 2√<var data-s="n">n</var> keer
+      <var data-s="sigma_xbar">σ<sub>x̄</sub></var>. De notities zeggen: "bij een kleiner sample vergroten de limieten, maar ook de
+      standaardafwijking: wat is het effect hiervan?"</p></details>
+      <details class="solution"><summary>Toon oplossing</summary>
+      <p>De slide geeft geen getallen; het rekenblad (<a class="p" href="../source/course/Les%204/__Xbar%20R%20kaart%20data%20-%20berekeningen%20oefening%203.xlsx">werkboek oefening 3</a>, rijen 45–54) zet alleen de constanten klaar:
+      <var data-s="n">n</var> = 3: <var data-s="a2">A<sub>2</sub></var> = 1,023, <var data-s="d3">D<sub>3</sub></var> = 0, <var data-s="d4">D<sub>4</sub></var> = 2,575, <var data-s="d2">d<sub>2</sub></var> = 1,693; <var data-s="n">n</var> = 8:
+      <var data-s="a2">A<sub>2</sub></var> = 0,373, <var data-s="d3">D<sub>3</sub></var> = 0,136, <var data-s="d4">D<sub>4</sub></var> = 1,864, <var data-s="d2">d<sub>2</sub></var> = 2,847. De uitwerking
+      hieronder is <span class="computed">zelf berekend</span> met de formules van <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=64">SPC p. 64</a> en <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=74">SPC p. 74</a>.</p>
+      <ol class="steps">
+        <li><var data-s="sigma_hat">σ̂</var> = <var data-s="rbar">R̄</var>/<var data-s="d2">d<sub>2</sub></var>(5) = 1,7478/2,326 = 0,7514 (gecodeerd; 0,0000751 mm).</li>
+        <li><b><var data-s="n">n</var> = 3</b>: <var data-s="rbar_new">R̄<sub>3</sub></var> = 1,693 · 0,7514 = 1,2722. X̄-kaart: 33,9565 ± 1,023 · 1,2722, dus
+        <var data-s="ucl">UCL</var> = 35,258 en <var data-s="lcl">LCL</var> = 32,655 (met <var data-s="xbarbar">X̿</var> ± 3<var data-s="sigma_hat">σ̂</var>/√3 krijg je hetzelfde). R-kaart: <var data-s="cl_r">CL</var> = 1,272, <var data-s="ucl_r">UCL</var> = 2,575 · 1,2722
+        = 3,276, <var data-s="lcl_r">LCL</var> = 0. In mm: <var data-s="ucl">UCL</var> 0,503526, <var data-s="lcl">LCL</var> 0,503266, <var data-s="ucl_r">UCL<sub>R</sub></var> 0,000328.</li>
+        <li><b><var data-s="n">n</var> = 8</b>: <var data-s="rbar_new">R̄<sub>8</sub></var> = 2,847 · 0,7514 = 2,1393. X̄-kaart: 33,9565 ± 0,373 · 2,1393, dus
+        <var data-s="ucl">UCL</var> = 34,754 en <var data-s="lcl">LCL</var> = 33,159 (via <var data-s="xbarbar">X̿</var> ± 3<var data-s="sigma_hat">σ̂</var>/√8: 34,7535 en 33,1595, het verschil komt van de afgeronde
+        <var data-s="a2">A<sub>2</sub></var>). R-kaart: <var data-s="cl_r">CL</var> = 2,139, <var data-s="ucl_r">UCL</var> = 1,864 · 2,1393 =
+        3,988, <var data-s="lcl_r">LCL</var> = 0,136 · 2,1393 = 0,291. In mm: <var data-s="ucl">UCL</var> 0,503475, <var data-s="lcl">LCL</var> 0,503316.</li>
+        <li><b>c.</b> Een verschuiving van 2<var data-s="sigma">σ</var> is 2√<var data-s="n">n</var> · <var data-s="sigma_xbar">σ<sub>x̄</sub></var>. De kans dat het eerste gemiddelde na de
+        verschuiving buiten de 3σ<sub>x̄</sub>-grenzen valt, is ongeveer P(<var data-s="z">Z</var> &gt; 3 − 2√<var data-s="n">n</var>): <var data-s="n">n</var> = 3: 0,68; <var data-s="n">n</var> = 5: 0,93;
+        <var data-s="n">n</var> = 8: 0,996. Kleinere steekproeven geven bredere grenzen en ontdekken een verschuiving dus later; grotere
+        steekproeven ontdekken ze sneller, maar kosten meer metingen.</li>
+      </ol>
+      <div class="box warn"><span class="t">Opgelet in het rekenblad</span>
+      <p>Het rekenblad berekent bij <var data-s="n">n</var> = 3 en <var data-s="n">n</var> = 8 een "sigma" als <var data-s="rbar">R̄</var>/<var data-s="d2">d<sub>2</sub></var>(3) = 0,000103 mm en
+      <var data-s="rbar">R̄</var>/<var data-s="d2">d<sub>2</sub></var>(8) = 0,0000614 mm. Maar <var data-s="rbar">R̄</var> = 0,000175 mm komt uit steekproeven van 5; de processpreiding is
+      <var data-s="sigma_hat">σ̂</var> = <var data-s="rbar">R̄</var>/<var data-s="d2">d<sub>2</sub></var>(5) = 0,0000751 mm en hangt niet af van de toekomstige steekproefgrootte
+      <span class="computed">zelf berekend</span>. Gebruik die getallen dus niet als σ.</p>
+      </div>
+      </details>
+    </div>
+
+    <div class="exercise" id="ex-10-9" data-kw="SPC oefening 5; procescapabiliteit; Cp; Cpk; percentage niet-conform; percent defective; uitval; centreren; standaardnormale verdeling; NORM.S.DIST; 26,40">
+      <h4>Oefening 10.9 — SPC oefening 5: capabiliteit en uitval <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=86">SPC p. 86</a></h4>
+      <p>Elk uur wordt een steekproef van <var data-s="n">n</var> = 5 genomen; het kenmerk is normaal verdeeld. Na <var data-s="k">m</var> = 25 steekproeven:
+      Σ <var data-s="xbar_i">x̄<sub>i</sub></var> = 662,50 en Σ <var data-s="r_i">R<sub>i</sub></var> = 9,00. Beide kaarten zijn onder controle. De specificaties zijn
+      26,40 ± 0,50. Wat is de procescapabiliteit? Welk percentage niet-conforme eenheden verwacht je? En als het
+      procesgemiddelde 26,40 zou zijn? (Hint van de slide: gebruik de cumulatieve standaardnormale verdeling.)</p>
+      <div class="q" data-answer="0.154772" data-tol="0.0005">
+        <label><var data-s="sigma_hat">σ̂</var> (4 decimalen) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="1.076852" data-tol="0.003">
+        <label><var data-s="cp">Cp</var> =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="0.861481" data-tol="0.003">
+        <label><var data-s="cpk">Cpk</var> =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="0.492975" data-tol="0.01">
+        <label>niet-conform (in %) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="0.12355" data-tol="0.003">
+        <label>niet-conform bij gemiddelde 26,40 (in %) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <details class="hint"><summary>Hint</summary><p><var data-s="xbarbar">X̿</var> = Σ<var data-s="xbar_i">x̄</var>/<var data-s="k">m</var> en <var data-s="rbar">R̄</var> = Σ<var data-s="r_i">R</var>/<var data-s="k">m</var>. Uitval boven: <var data-s="z">Z</var> = (<var data-s="usl">USL</var> − <var data-s="xbarbar">X̿</var>)/<var data-s="sigma_hat">σ̂</var> = 3 ·
+      <var data-s="cpk">Cpk</var>; <var data-s="p_out">P</var> = 1 − Φ(<var data-s="z">Z</var>). Tel beide kanten op.</p></details>
+      <details class="solution"><summary>Toon oplossing</summary>
+      <p>Zo staat het in <a class="p" href="../source/course/Les%204/__Xbar%20R%20kaart%20data%20-%20berekeningen%20oefening%205.xlsx">werkboek oefening 5</a>:</p>
+      <ol class="steps">
+        <li><var data-s="xbarbar">X̿</var> = 662,50/25 = 26,5; <var data-s="rbar">R̄</var> = 9/25 = 0,36; <var data-s="sigma_hat">σ̂</var> = 0,36/2,326 = 0,15477.</li>
+        <li><var data-s="usl">USL</var> = 26,9, <var data-s="lsl">LSL</var> = 25,9. <var data-s="cp">Cp</var> = 1/(6 · 0,15477) = <b>1,077</b>.</li>
+        <li>(26,9 − 26,5)/(3 · 0,15477) = 0,8615 en (26,5 − 25,9)/(3 · 0,15477) = 1,2922, dus <b><var data-s="cpk">Cpk</var> = 0,8615</b>.
+        Het proces ligt niet gecentreerd.</li>
+        <li>Boven: <var data-s="z">Z</var> = 3 · 0,8615 = 2,584, uitval 1 − Φ(2,584) = 0,00488. Onder: <var data-s="z">Z</var> = 3 · 1,2922 = 3,877, uitval
+        0,0000529 (verwaarloosbaar, noteert het rekenblad). Totaal 0,00493, dus <b>0,493 %</b>.</li>
+        <li>Gecentreerd (gemiddelde 26,40): <var data-s="cpk">Cpk</var> = <var data-s="cp">Cp</var> = 1,077, <var data-s="z">Z</var> = 3,231 aan elke kant, 0,000618 per kant, totaal
+        0,001235 = <b>0,1235 %</b>.</li>
+      </ol>
+      <p class="small">Het rekenblad gebruikt <code>1-NORMDIST(z;0;1;TRUE)</code> en noteert: "in percent! Anders x 100
+      doen". Excel-functies voor de normale verdeling: <a href="#d03">Deel 03</a>.</p>
+      <div class="box tool"><span class="t">Rekentool</span>
+      <p>Blad <b>Capability</b> (rij met <var data-s="sigma_hat">σ̂</var> = <var data-s="rbar">R̄</var>/<var data-s="d2">d<sub>2</sub></var>) voor Cp, Cpk en % buiten specificatie; blad
+      <b>Normal</b> voor de staartkansen.</p>
+      </div>
+      </details>
+    </div>
+
+    <div class="exercise" id="ex-10-10" data-kw="SPC oefening 6; gefreesd stuk; milled part; 100 ± 10; Cp; Cpk; centreren; adjust mean; 6 sigma breder dan tolerantie">
+      <h4>Oefening 10.10 — SPC oefening 6: kan centreren helpen? <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=87">SPC p. 87</a></h4>
+      <p>Een kritische dimensie van een gefreesd stuk heeft specificaties 100 ± 10. De regelkaart toont dat het
+      proces onder controle is met <var data-s="xbarbar">X̿</var> = 104 en <var data-s="rbar">R̄</var> = 9,30, <var data-s="n">n</var> = 5. Kun je, als het kenmerk normaal verdeeld is, het
+      gemiddelde zo verschuiven (door de freespositie aan te passen) dat alle output binnen de specificaties valt? Wat
+      is de huidige capabiliteit?</p>
+      <div class="q" data-answer="3.998" data-tol="0.01">
+        <label><var data-s="sigma_hat">σ̂</var> (2 decimalen) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="nee">
+        <label>Kan centreren alle output binnen specificatie brengen?</label>
+        <select><option value="">kies…</option><option value="ja">ja</option><option value="nee">nee</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="0.8337" data-tol="0.005">
+        <label><var data-s="cp">Cp</var> (2 decimalen) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="0.5002" data-tol="0.005">
+        <label><var data-s="cpk">Cpk</var> (2 decimalen) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="6.6955" data-tol="0.05">
+        <label>Extra: huidig percentage buiten specificatie (in %) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="1.23817" data-tol="0.02">
+        <label>Extra: percentage buiten specificatie als het gemiddelde op 100 staat (in %) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <details class="solution"><summary>Toon oplossing</summary>
+      <p>Op de slide zelf <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=87">SPC p. 87</a>:</p>
+      <ol class="steps">
+        <li><var data-s="sigma">σ</var> = <var data-s="rbar">R̄</var>/<var data-s="d2">d<sub>2</sub></var> = 9,3/2,326 ≈ 4.</li>
+        <li>"Neen, 3 sigma = 12: buiten specs": ±3<var data-s="sigma">σ</var> = ±12 rond om het even welk gemiddelde is breder dan ±10. De
+        6σ-breedte (24) is groter dan de tolerantie (20); centreren kan dat niet oplossen, alleen de spreiding
+        verkleinen.</li>
+        <li><var data-s="cp">Cp</var> = 20/24 = <b>0,83</b>.</li>
+        <li><var data-s="cpk">Cpk</var> = min[(104 − 90)/(3·4) ; (110 − 104)/(3·4)] = min[1,17 ; 0,5] = <b>0,5</b>. In de slide betekent
+        "(3.4)" 3 × 4, niet het getal 3,4.</li>
+      </ol>
+      <p><span class="computed">zelf berekend</span> Met <var data-s="sigma_hat">σ̂</var> = 3,998: nu ligt 6,67 % boven 110 en 0,02 % onder 90,
+      samen <b>6,70 %</b>. Gecentreerd op 100: 2 · (1 − Φ(10/3,998)) = <b>1,24 %</b>. Centreren helpt veel, maar
+      haalt nooit alles binnen de specificaties.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ====================================================================================== 10.8 -->
+  <section class="unit" id="d10-imr" data-kw="I-MR; I-MR kaart; individuals chart; moving range; bewegend bereik; individuele waarden; individual values; E2; MR̄; subgroepgrootte 1; subgroup size one; 1,128; Dummies">
+    <h3>10.8 Individuele waarden: de I-MR-kaart (extra) <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=249">Dummies p. 249–251</a></h3>
+    <p>Het deck behandelt alleen kaarten met subgroepen. Soms is er per tijdstip maar één meting: elke meting is een
+    batch, metingen liggen ver uit elkaar, de test is destructief, of het gaat om maandcijfers en chemische analyses
+    van een grote tank. Dan is de subgroepgrootte 1 en gebruik je de <b>I-MR-kaart (individuals and moving range
+    chart)</b> <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=251">Dummies p. 251</a>. De bovenste kaart toont de individuele waarden, de onderste het <b>bewegend bereik (moving
+    range)</b>: het verschil tussen twee opeenvolgende metingen.</p>
+    <div class="f">
+      <div><var data-s="xbar_ind">X̄</var> = (<var data-s="x_i">X<sub>1</sub></var> + … + <var data-s="x_i">X<sub>k</sub></var>)/<var data-s="k_obs">k</var> ;  <var data-s="mr_i">MR<sub>i</sub></var> = |<var data-s="x_i">X<sub>i+1</sub></var> − <var data-s="x_i">X<sub>i</sub></var>| ;
+      <var data-s="mrbar">MR̄</var> = (<var data-s="mr_i">MR<sub>1</sub></var> + … + <var data-s="mr_i">MR<sub>k−1</sub></var>)/(<var data-s="k_obs">k</var> − 1)</div>
+      <div>X-kaart: <var data-s="ucl_x">UCL<sub>X</sub></var> = <var data-s="xbar_ind">X̄</var> + <var data-s="e2">E<sub>2</sub></var>·<var data-s="mrbar">MR̄</var> , <var data-s="lcl_x">LCL<sub>X</sub></var> = <var data-s="xbar_ind">X̄</var> − <var data-s="e2">E<sub>2</sub></var>·<var data-s="mrbar">MR̄</var></div>
+      <div>MR-kaart: <var data-s="ucl_mr">UCL<sub>MR</sub></var> = <var data-s="d4">D<sub>4</sub></var>·<var data-s="mrbar">MR̄</var> , <var data-s="lcl_mr">LCL<sub>MR</sub></var> = <var data-s="d3">D<sub>3</sub></var>·<var data-s="mrbar">MR̄</var>  (constanten voor <var data-s="n">n</var> = 2)</div>
+    </div>
+    <p>Met <var data-s="n">n</var> = 2: <var data-s="e2">E<sub>2</sub></var> = 2,659 (Dummies <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=250">Dummies p. 250</a>) of 2,660 (Six Sigma Demystified <a class="p" href="../source/course/Les%204/Control%20charts%20-%20constants.pdf#page=2">constants p. 2</a>),
+    <var data-s="d4">D<sub>4</sub></var> = 3,267, <var data-s="d3">D<sub>3</sub></var> = 0. De korte-termijnspreiding volgt uit de opeenvolgende ranges:
+    <var data-s="sigma_st">σ<sub>ST</sub></var> = <var data-s="mrbar">MR̄</var>/<var data-s="d2_n2">1,128</var>, en dat mag alleen op metingen in de volgorde waarin ze genomen zijn <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=116">Dummies p. 116</a>
+    (zie ook <a href="#d09">Deel 09</a>, beslissing 1).</p>
+    <div class="box warn"><span class="t">Minder gevoelig</span>
+    <p>Omdat de I-MR-kaart met losse metingen werkt, is ze minder gevoelig voor procesveranderingen dan de X̄-R- of
+    X̄-s-kaart <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=251">Dummies p. 251</a>, en de centrale limietstelling helpt hier niet: losse metingen zijn niet vanzelf normaal
+    verdeeld (vgl. <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=62">SPC p. 62</a>).</p>
+    </div>
+    <div class="box tool"><span class="t">Rekentool</span>
+    <p>Blad <b>Control charts</b>, deel 2 (vanaf rij 82): één waarde per rij; het blad geeft MR<sub>i</sub>, X̄,
+    MR̄, <var data-s="sigma_hat">σ̂</var> = <var data-s="mrbar">MR̄</var>/<var data-s="d2">d<sub>2</sub></var>(2) en de grenzen, met een vlag per punt.</p>
+    </div>
+
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>"Eén meting per tijdstip: neem een X̄-R-kaart met <var data-s="n">n</var> = 1."</b> Fout: met één meting is er geen range binnen de subgroep. Gebruik de I-MR-kaart; het bewegend bereik is het verschil tussen twee opeenvolgende metingen <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=251">Dummies p. 251</a>.</li>
+      <li><b>Let op:</b> de constanten zijn die voor <var data-s="n">n</var> = 2, want een moving range overspant twee metingen: <var data-s="e2">E<sub>2</sub></var> = 2,659 of 2,660, <var data-s="d4">D<sub>4</sub></var> = 3,267, <var data-s="d3">D<sub>3</sub></var> = 0, <var data-s="d2">d<sub>2</sub></var> = 1,128.</li>
+      <li><b>Let op:</b> <var data-s="mrbar">MR̄</var> deel je door <var data-s="k_obs">k</var> − 1: <var data-s="k_obs">k</var> metingen geven <var data-s="k_obs">k</var> − 1 moving ranges.</li>
+      <li><b>"<var data-s="sigma_st">σ<sub>ST</sub></var> = <var data-s="mrbar">MR̄</var>/<var data-s="d2_n2">1,128</var> mag ook op gesorteerde data."</b> Fout: alleen op metingen in de volgorde waarin ze genomen zijn <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=116">Dummies p. 116</a>.</li>
+      <li><b>"De I-MR-kaart is even gevoelig als de X̄-R-kaart."</b> Fout: ze is minder gevoelig voor procesveranderingen, en de centrale limietstelling helpt niet: losse metingen zijn niet vanzelf normaal verdeeld <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=251">Dummies p. 251</a>, <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=62">SPC p. 62</a>.</li>
+    </ul></div>
+    <div class="exercise" id="ex-10-11" data-kw="I-MR; Dummies Figure 10-8; individuals; moving range; E2; D4; extra">
+      <h4>Oefening 10.11 — Grenzen van een I-MR-kaart (extra) <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=251">Dummies p. 251</a></h4>
+      <p>Figuur 10-8 van Dummies toont een I-MR-kaart met <var data-s="xbar_ind">X̄</var> = 100,1 en <var data-s="mrbar">MR̄</var> = 1,658. Bereken de grenzen met
+      <var data-s="e2">E<sub>2</sub></var> = 2,659 en <var data-s="d4">D<sub>4</sub></var> = 3,267, en de korte-termijn-σ.</p>
+      <div class="q" data-answer="104.509" data-tol="0.03">
+        <label><var data-s="ucl_x">UCL<sub>X</sub></var> (2 decimalen) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="95.691" data-tol="0.03">
+        <label><var data-s="lcl_x">LCL<sub>X</sub></var> (2 decimalen) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="5.41669" data-tol="0.002">
+        <label><var data-s="ucl_mr">UCL<sub>MR</sub></var> (3 decimalen) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="1.46986" data-tol="0.002">
+        <label><var data-s="sigma_st">σ<sub>ST</sub></var> = <var data-s="mrbar">MR̄</var>/<var data-s="d2_n2">1,128</var> (3 decimalen) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <details class="solution"><summary>Toon oplossing</summary>
+      <p><span class="computed">zelf berekend</span> <var data-s="ucl_x">UCL<sub>X</sub></var> = 100,1 + 2,659 · 1,658 = 104,51;
+      <var data-s="lcl_x">LCL<sub>X</sub></var> = 100,1 − 4,409 = 95,69; <var data-s="ucl_mr">UCL<sub>MR</sub></var> = 3,267 · 1,658 = 5,417; <var data-s="lcl_mr">LCL<sub>MR</sub></var> = 0;
+      <var data-s="sigma_st">σ<sub>ST</sub></var> = 1,658/<var data-s="d2_n2">1,128</var> = 1,470. Dummies drukt 104,5, 95,71 en 5,418: Minitab toont X̄ en MR̄ afgerond
+      (met <var data-s="xbar_ind">X̄</var> = 100,12 en <var data-s="mrbar">MR̄</var> = 1,6584 komen 95,71 en 5,418 precies uit). Op een examen zijn beide antwoorden goed.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ====================================================================================== 10.9 -->
+  <section class="unit" id="d10-attribuut" data-kw="p-kaart; p chart; u-kaart; u chart; attribuutdata; attribute data; defectieven; defectives; defecten; defects; fractie defect; proportion defective; defects per unit; binomiaal; binomial; Poisson; beslisboom; decision tree; welke kaart">
+    <h3>10.9 Attributen: p-kaart en u-kaart (extra) <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=253">Dummies p. 253–256</a></h3>
+    <p>Niet alles is meetbaar op een continue schaal. Bij <b>attribuutdata (attribute data)</b> (goed/slecht,
+    aantallen fouten) gebruik je de p- of de u-kaart <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=253">Dummies p. 253</a>. Welke kaart je kiest, hangt eerst af van het soort
+    data en daarna van de subgroepgrootte (beslisboom, <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=240">Dummies p. 240</a>):</p>
+    <table>
+      <tr><th>Data</th><th>Situatie</th><th>Kaart</th></tr>
+      <tr><td rowspan="3">continu (metingen)</td><td>subgroepgrootte 1</td><td>I-MR (10.8)</td></tr>
+      <tr><td>subgroepgrootte 2–10</td><td>X̄-R (10.5)</td></tr>
+      <tr><td>subgroepgrootte &gt; 10</td><td>X̄-s (10.5)</td></tr>
+      <tr><td rowspan="2">attribuut (tellingen)</td><td><b>defectieven (defectives)</b>: het hele stuk is goed of
+      slecht</td><td>p-kaart</td></tr>
+      <tr><td><b>defecten (defects)</b>: het aantal fouten op een stuk</td><td>u-kaart</td></tr>
+    </table>
+    <p>Dummies legt het verschil uit met een soepbord <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=254">Dummies p. 254</a>: één vlieg of tien, het bord is onaanvaardbaar
+    (een <i>defectief</i>, p-kaart); tel je drie vliegen, dan heeft het bord drie <i>defecten</i> (u-kaart). Kies je
+    het verkeerde type, dan is de kaart ongeldig. De p-kaart steunt op de binomiale verdeling, de u-kaart op de
+    Poissonverdeling <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=255">Dummies p. 255</a>.</p>
+    <div class="f">
+      <div><b>p-kaart</b>: <var data-s="p_i">p<sub>i</sub></var> = aantal defectief/<var data-s="n_i">n<sub>i</sub></var> ; <var data-s="pbar">p̄</var> = totaal defectief/(<var data-s="n_i">n<sub>1</sub></var> + … +
+      <var data-s="n_i">n<sub>k</sub></var>) ; <var data-s="ucl_p">UCL<sub>i</sub></var>, <var data-s="lcl_p">LCL<sub>i</sub></var> = <var data-s="pbar">p̄</var> ± 3√(<var data-s="pbar">p̄</var>(1 − <var data-s="pbar">p̄</var>)/<var data-s="n_i">n<sub>i</sub></var>)</div>
+      <div><b>u-kaart</b>: <var data-s="u_i">u<sub>i</sub></var> = aantal defecten/<var data-s="n_i">n<sub>i</sub></var> ; <var data-s="ubar">ū</var> = totaal defecten/(<var data-s="n_i">n<sub>1</sub></var> + … +
+      <var data-s="n_i">n<sub>k</sub></var>) ; <var data-s="ucl_u">UCL<sub>i</sub></var>, <var data-s="lcl_u">LCL<sub>i</sub></var> = <var data-s="ubar">ū</var> ± 3√(<var data-s="ubar">ū</var>/<var data-s="n_i">n<sub>i</sub></var>)</div>
+    </div>
+    <p class="small">Bron: Table 10-3 <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=254">Dummies p. 254</a>. Daar staan de u-kaartgrenzen als "USL<sub>i</sub>" en
+    "LSL<sub>i</sub>"; het zijn regelgrenzen (UCL/LCL), geen specificatiegrenzen.</p>
+    <ul>
+      <li>Verschilt de subgroepgrootte, dan verschillen ook de grenzen per subgroep: de lijnen lopen trapsgewijs
+      (Figuur 10-10, p-kaart met <var data-s="pbar">p̄</var> = 0,2232 en grenzen 0,2777 en 0,1687 bij de laatste subgroep, <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=255">Dummies p. 255</a>). De
+      regels om de kaart te lezen blijven dezelfde.</li>
+      <li>De p-kaart is typisch voor kleine foutkansen (meestal onder 10 %); de subgroep moet groot genoeg zijn om
+      defectieven te vinden (Table 10-3: "usually &gt; 50") <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=254">Dummies p. 254</a>, <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=256">Dummies p. 256</a>.</li>
+      <li>Een negatieve ondergrens heeft geen betekenis; de rekentool toont ze als 0.</li>
+    </ul>
+    <div class="box tool"><span class="t">Rekentool</span>
+    <p>Blad <b>Control charts</b>, deel 3 (p-kaart, vanaf rij 195: n<sub>i</sub> en aantal defectieven) en deel 4
+    (u-kaart, vanaf rij 253: n<sub>i</sub> en aantal defecten). Het blad geeft p̄ of ū, de grenzen per subgroep en een
+    vlag.</p>
+    </div>
+
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>"Een soepbord met drie vliegen telt als drie defectieven."</b> Fout: het bord is één defectief (p-kaart, goed of slecht); de drie vliegen zijn drie defecten (u-kaart). Kies je het verkeerde type, dan is de kaart ongeldig <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=254">Dummies p. 254</a>.</li>
+      <li><b>"De p-kaart steunt op de Poissonverdeling."</b> Fout: p-kaart binomiaal, u-kaart Poisson <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=255">Dummies p. 255</a>.</li>
+      <li><b>Let op:</b> <var data-s="pbar">p̄</var> = totaal defectief / Σ <var data-s="n_i">n<sub>i</sub></var> (en <var data-s="ubar">ū</var> = totaal defecten / Σ <var data-s="n_i">n<sub>i</sub></var>), niet het gemiddelde van de <var data-s="p_i">p<sub>i</sub></var> of <var data-s="u_i">u<sub>i</sub></var>; bij ongelijke <var data-s="n_i">n<sub>i</sub></var> is dat niet hetzelfde (<a href="#ex-10-13">oefening 10.13</a>).</li>
+      <li><b>Let op:</b> bij een wisselende subgroepgrootte heeft elke subgroep zijn eigen grenzen (trapsgewijs); vergelijk <var data-s="p_i">p<sub>i</sub></var> met de grenzen van zijn eigen <var data-s="n_i">n<sub>i</sub></var> <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=255">Dummies p. 255</a>. Een negatieve ondergrens heeft geen betekenis: neem 0.</li>
+      <li><b>"Dummies noemt de u-kaartgrenzen USL<sub>i</sub> en LSL<sub>i</sub>, dus het zijn specificatiegrenzen."</b> Fout: het zijn regelgrenzen (UCL, LCL); de p-kaart in dezelfde Table 10-3 heet wel UCL/LCL <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=254">Dummies p. 254</a>.</li>
+    </ul></div>
+    <div class="exercise" id="ex-10-12" data-kw="welke kaart; which chart; p chart; u chart; I-MR; Xbar-R; Xbar-s; defectives; defects; beslisboom; decision tree">
+      <h4>Oefening 10.12 — Welke regelkaart? <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=240">Dummies p. 240</a></h4>
+      <p>Kies telkens de kaart volgens de beslisboom van Dummies en de voorbeelden op <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=254">Dummies p. 254–255</a>.</p>
+      <div class="q" data-type="choice" data-answer="p">
+        <label>a. Het aantal patiënten dat per dag te laat komt op de tandarts (het aantal patiënten verschilt per dag):</label>
+        <select><option value="">kies…</option><option value="imr">I-MR</option><option value="xr">X̄-R</option><option value="xs">X̄-s</option><option value="p">p-kaart</option><option value="u">u-kaart</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="u">
+        <label>b. Het aantal ontbrekende velden per aanvraagformulier:</label>
+        <select><option value="">kies…</option><option value="imr">I-MR</option><option value="xr">X̄-R</option><option value="xs">X̄-s</option><option value="p">p-kaart</option><option value="u">u-kaart</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="xr">
+        <label>c. De diameter van gaten, met als subgroep telkens vier na elkaar geboorde gaten:</label>
+        <select><option value="">kies…</option><option value="imr">I-MR</option><option value="xr">X̄-R</option><option value="xs">X̄-s</option><option value="p">p-kaart</option><option value="u">u-kaart</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="imr">
+        <label>d. De maandelijkse omzet:</label>
+        <select><option value="">kies…</option><option value="imr">I-MR</option><option value="xr">X̄-R</option><option value="xs">X̄-s</option><option value="p">p-kaart</option><option value="u">u-kaart</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="xs">
+        <label>e. Een gewicht, gemeten in subgroepen van meer dan tien stuks op een snelle productielijn:</label>
+        <select><option value="">kies…</option><option value="imr">I-MR</option><option value="xr">X̄-R</option><option value="xs">X̄-s</option><option value="p">p-kaart</option><option value="u">u-kaart</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <details class="solution"><summary>Toon oplossing</summary>
+      <ul>
+        <li>a. <b>p-kaart</b>: elke patiënt is te laat of niet (defectief), met een wisselend aantal per dag
+        <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=255">Dummies p. 255</a>.</li>
+        <li>b. <b>u-kaart</b>: je telt fouten (defecten) per formulier <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=254">Dummies p. 254</a>.</li>
+        <li>c. <b>X̄-R</b>: continue metingen in rationele subgroepen van 4 (het voorbeeld van <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=248">Dummies p. 248</a>); 2–10 per
+        subgroep.</li>
+        <li>d. <b>I-MR</b>: één waarde per maand, subgroepgrootte 1 <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=251">Dummies p. 251</a>.</li>
+        <li>e. <b>X̄-s</b>: meer dan 10 per subgroep (<a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=249">Dummies p. 249</a>, <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=253">Dummies p. 253</a>: "processes with a high rate of
+        production"; deck: s-kaart voor <var data-s="n">n</var> &gt; 10, <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=73">SPC p. 73</a>).</li>
+      </ul>
+      </details>
+    </div>
+
+    <div class="exercise" id="ex-10-13" data-kw="u-kaart; u chart; Dummies Figure 10-11; insurance claim forms; verzekeringsformulieren; defects per unit; ū; grenzen per subgroep; extra">
+      <h4>Oefening 10.13 — u-kaart voor claimformulieren (extra) <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=256">Dummies p. 256</a></h4>
+      <p>Een ziekenhuis telt per dag de fouten (defecten) op de verwerkte verzekeringsformulieren. Subgroepgrootte =
+      aantal formulieren die dag.</p>
+      <table>
+<tr><th>subgroep</th><th class="n">n<sub>i</sub></th><th class="n">defecten</th><th>subgroep</th><th class="n">n<sub>i</sub></th><th class="n">defecten</th></tr>
+<tr><td class="n">1</td><td class="n">53</td><td class="n">101</td><td class="n">11</td><td class="n">66</td><td class="n">113</td></tr>
+<tr><td class="n">2</td><td class="n">64</td><td class="n">80</td><td class="n">12</td><td class="n">65</td><td class="n">156</td></tr>
+<tr><td class="n">3</td><td class="n">59</td><td class="n">115</td><td class="n">13</td><td class="n">58</td><td class="n">142</td></tr>
+<tr><td class="n">4</td><td class="n">52</td><td class="n">127</td><td class="n">14</td><td class="n">55</td><td class="n">114</td></tr>
+<tr><td class="n">5</td><td class="n">65</td><td class="n">99</td><td class="n">15</td><td class="n">57</td><td class="n">147</td></tr>
+<tr><td class="n">6</td><td class="n">60</td><td class="n">57</td><td class="n">16</td><td class="n">55</td><td class="n">113</td></tr>
+<tr><td class="n">7</td><td class="n">56</td><td class="n">99</td><td class="n">17</td><td class="n">61</td><td class="n">109</td></tr>
+<tr><td class="n">8</td><td class="n">49</td><td class="n">109</td><td class="n">18</td><td class="n">60</td><td class="n">115</td></tr>
+<tr><td class="n">9</td><td class="n">53</td><td class="n">100</td><td class="n">19</td><td class="n">68</td><td class="n">98</td></tr>
+<tr><td class="n">10</td><td class="n">59</td><td class="n">121</td><td class="n">20</td><td class="n">65</td><td class="n">92</td></tr>
+</table>
+      <div class="q" data-answer="1.870339" data-tol="0.001">
+        <label><var data-s="ubar">ū</var> (3 decimalen) =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="2.37923" data-tol="0.001">
+        <label><var data-s="ucl_u">UCL</var> voor subgroep 20 (<var data-s="n_i">n</var> = 65), 3 decimalen =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="1.361448" data-tol="0.001">
+        <label><var data-s="lcl_u">LCL</var> voor subgroep 20 =</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="6" data-tol="0">
+        <label>Hoeveel subgroepen liggen buiten hun eigen grenzen?</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <details class="hint"><summary>Hint</summary><p><var data-s="ubar">ū</var> is totaal defecten gedeeld door totaal formulieren (niet het
+      gemiddelde van de <var data-s="u_i">u<sub>i</sub></var>). Elke subgroep heeft eigen grenzen met zijn eigen n<sub>i</sub>.</p></details>
+      <details class="solution"><summary>Toon oplossing</summary>
+      <ol class="steps">
+        <li>Totaal 2207 defecten op 1180 formulieren: <var data-s="ubar">ū</var> = 1,870 (Dummies: 1,870).</li>
+        <li>Subgroep 20: 3√(1,870/65) = 0,509, dus <var data-s="ucl_u">UCL</var> = 2,379 en <var data-s="lcl_u">LCL</var> = 1,361. Dummies drukt "−3.0SL = 1.361" en
+        "3.0SL = 2379": dat laatste mist de komma, bedoeld is 2,379.</li>
+        <li><span class="computed">zelf berekend</span> Per subgroep u<sub>i</sub> vergelijken met de eigen
+        grenzen: <b>boven</b> <var data-s="ucl_u">UCL</var> liggen subgroepen 4 (2,442 &gt; 2,439), 12 (2,400 &gt; 2,379), 13 (2,448 &gt;
+        2,409) en 15 (2,579 &gt; 2,414); <b>onder</b> <var data-s="lcl_u">LCL</var> liggen 2 (1,250 &lt; 1,357) en 6 (0,950 &lt; 1,341). Zes
+        subgroepen dus: het proces is niet onder controle. Dummies trekt zelf geen besluit.</li>
+      </ol>
+      </details>
+    </div>
+  </section>
+</section>

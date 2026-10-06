@@ -1,0 +1,57 @@
+nl	en	anchor
+F-verhouding	F-ratio	d07-start
+kritieke waarde	critical value	d07-start
+kwantiel	quantile	d07-start
+regressiemodel	regression model	d07-model
+enkelvoudige lineaire regressie	simple linear regression	d07-model
+regressiecoëfficiënt	regression coefficient	d07-model
+regressor	regressor	d07-model
+intercept	intercept	d07-model
+helling	slope	d07-model
+foutterm	error term	d07-model
+homoscedasticiteit	homoscedasticity	d07-model
+heteroscedasticiteit	heteroscedasticity	d07-model
+spreidingsdiagram	scatter plot	d07-model
+lineair verband	linear relationship	d07-model
+verborgen factor	hidden factor	d07-model
+kleinste kwadraten	least squares	d07-kk
+normaalvergelijkingen	normal equations	d07-kk
+geschatte regressielijn	fitted regression line	d07-kk
+kwadratensom	sum of squares	d07-anova
+totale kwadratensom	total sum of squares (SST)	d07-anova
+regressiekwadratensom	regression sum of squares (SSR)	d07-anova
+residuele kwadratensom	error sum of squares (SSE)	d07-anova
+gemiddelde kwadratensom	mean square (MS)	d07-anova
+determinatiecoëfficiënt	coefficient of determination (R²)	d07-anova
+vrijheidsgraden	degrees of freedom	d07-anova
+residu	residual	d07-anova
+standaardfout van een coëfficiënt	standard error of a coefficient	d07-toetsen
+significantie van de regressie	significance of regression	d07-toetsen
+referentiewaarde	reference value	d07-toetsen
+betrouwbaarheidsinterval voor de helling	confidence interval for the slope	d07-toetsen
+betrouwbaarheidsinterval voor de gemiddelde respons	confidence interval on the mean response	d07-bi-pi
+voorspellingsinterval	prediction interval	d07-bi-pi
+modelcontrole	model adequacy checking	d07-residuen
+normaal-kansplot	normal probability plot	d07-residuen
+gestandaardiseerd residu	standardized residual	d07-residuen
+trechterpatroon	funnel pattern	d07-residuen
+uitschieter	outlier	d07-residuen
+invloedrijke waarneming	influential observation	d07-residuen
+meervoudige lineaire regressie	multiple linear regression	d07-meervoudig
+richtingscoëfficiënten	slope coefficients	d07-meervoudig
+geschatte respons	estimated response	d07-meervoudig
+verwarring	confounding	d07-meervoudig
+beduidende cijfers	significant digits	d07-stookolie
+verklarende kracht	explanatory power	d07-radj
+aangepaste R²	adjusted R²	d07-radj
+polynoommodel	polynomial model	d07-polynoom
+tweede-ordemodel	second-order model	d07-polynoom
+partiële F-toets	partial F-test	d07-polynoom
+volledig model	full model	d07-polynoom
+gereduceerd model	reduced model	d07-polynoom
+beste deelverzamelingen	best subsets regression	d07-selectie
+achterwaartse eliminatie	backward elimination	d07-selectie
+voorwaartse selectie	forward selection	d07-selectie
+stapsgewijze regressie	stepwise regression	d07-selectie
+extrapolatie	extrapolation	d07-demo
+multicollineariteit	multicollinearity	d07-demo

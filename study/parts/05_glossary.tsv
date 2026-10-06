@@ -1,0 +1,54 @@
+nl	en	anchor
+hypothese	hypothesis	d05-idee
+hypothesetoets	hypothesis test	d05-idee
+toetsen van hypothesen	testing of hypotheses	d05-idee
+nulhypothese (H0)	null hypothesis (H0)	d05-idee
+alternatieve hypothese (HA)	alternative hypothesis (HA, H1)	d05-idee
+status quo	status quo (do-nothing scenario)	d05-idee
+speciale actie	special action	d05-idee
+toetsingsgrootheid	test statistic	d05-recept
+referentieverdeling	reference distribution	d05-recept
+kritische waarde	critical value	d05-recept
+significantie	significance (level)	d05-recept
+aanvaardingsgebied	acceptance region	d05-recept
+H0 verwerpen	reject H0	d05-recept
+H0 aanvaarden	accept H0	d05-recept
+type-I-fout	type I error	d05-fouten
+type-II-fout	type II error	d05-fouten
+producentenrisico	producer's risk	d05-fouten
+consumentenrisico	consumer's risk	d05-fouten
+OC-curve	operating characteristic curve (OC curve)	d05-fouten
+kracht van een toets	power of a test	d05-fouten
+onderscheidingsvermogen	discernment power, sensitivity	d05-fouten
+relatieve efficiëntie	relative efficiency	d05-fouten
+p-waarde	p-value	d05-pwaarde
+tweezijdige p-waarde	two-sided p-value	d05-pwaarde
+risicobeheer	risk management	d05-pwaarde
+eenzijdige toets	one-sided test	d05-zijdig
+tweezijdige (dubbelzijdige) toets	two-sided test	d05-zijdig
+valkuil	pitfall	d05-valkuilen
+statistisch significant	statistically significant	d05-valkuilen
+praktisch relevant	practical significance, relevance	d05-valkuilen
+big-data-valkuil	big data fallacy trap	d05-valkuilen
+t-toets	t-test	d05-ttoets
+χ²-toets voor de standaardafwijking	chi-square test for the standard deviation	d05-chi2toets
+toetsrecept	test recipe	d05-recepten
+parametrische toets	parametric test	d05-recepten
+robuuste toets	robust test	d05-recepten
+niet-gepaarde t-toets	unpaired (two-sample) t-test	d05-t-recepten
+gepaarde t-toets	paired t-test	d05-t-recepten
+Z-toets voor een proportie	Z-test for a proportion	d05-z-pi
+continuïteitscorrectie	continuity correction	d05-z-pi
+F-toets	F-test	d05-chi2-f
+χ²-aanpassingstoets	chi-square goodness of fit test	d05-frequenties
+kruistabel	contingency table	d05-frequenties
+verwachte frequentie	expected frequency	d05-frequenties
+waargenomen frequentie	observed frequency	d05-frequenties
+continuïteitscorrectie van Yates	Yates' continuity correction	d05-frequenties
+niet-parametrische toets	non-parametric test	d05-nietparam
+Wilcoxon-Mann-Whitney-toets	Wilcoxon-Mann-Whitney test	d05-nietparam
+rangsom	rank sum	d05-nietparam
+Wilcoxon-tekenrangtoets	Wilcoxon signed ranks test	d05-nietparam
+runs-toets	runs test (Wald-Wolfowitz)	d05-nietparam
+mediaan	median	d05-nietparam
+gelijke waarden (ties)	ties	d05-nietparam

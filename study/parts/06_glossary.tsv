@@ -1,0 +1,61 @@
+nl	en	anchor
+bedrijfsproces	business process	d06-kwaliteit
+kwaliteit (mate van conformiteit)	quality (degree of conformance)	d06-kwaliteit
+conform / defect (non-conform)	conforming / defective (nonconforming)	d06-kwaliteit
+kwaliteitsladder	quality ladder	d06-kwaliteit
+procesvariatie	process variation	d06-lotdefecten
+centrale limietstelling	central limit theorem	d06-lotdefecten
+fractie defecten in een lot	lot fraction defectives	d06-lotdefecten
+binomiale verdeling	binomial distribution	d06-lotdefecten
+volledige inspectie	screening (100 % inspection)	d06-waarom
+destructieve test	destructive testing	d06-waarom
+populatie	population	d06-waarom
+steekproef	sample	d06-waarom
+representatieve steekproef	representative sample	d06-waarom
+enkelvoudige aselecte steekproef	simple random sample (SRS)	d06-srs
+steekproevenverdeling	sampling distribution	d06-srs
+hypergeometrische verdeling	hypergeometric distribution	d06-srs
+zuivere schatter	unbiased estimator	d06-srs
+gestratificeerde steekproef	stratified random sampling	d06-strat
+stratum (deelpopulatie)	stratum (sub-population)	d06-strat
+pre-stratificatie (proportioneel)	(proportional) pre-stratification	d06-strat
+post-stratificatie	post-stratification	d06-strat
+optimale stratificatie	optimal stratification	d06-strat
+clustersteekproef	cluster sampling	d06-cluster
+Monte Carlo-simulatie	Monte Carlo simulation	d06-cluster
+systematische steekproef	systematic sampling	d06-bias
+gemakssteekproef	convenience sampling	d06-bias
+non-response bias	non-response bias	d06-bias
+frame (steekproefkader)	frame	d06-bias
+toevallige fout	random error	d06-bias
+systematische fout (bias)	systematic error (bias)	d06-bias
+aanvaardingssteekproef	acceptance sampling	d06-procedure
+operationele definitie	operational definition	d06-procedure
+aanvaardbaar kwaliteitsniveau	acceptable quality level (AQL)	d06-procedure
+grenskwaliteit	limiting quality level (LQL), lot tolerance percent defectives (LTPD)	d06-procedure
+producentenrisico	producer's risk	d06-procedure
+consumentenrisico	consumer's risk	d06-procedure
+kracht (sensitiviteit) van de toets	power	d06-procedure
+enkelvoudig steekproefplan (n, c)	single sampling plan (n, c)	d06-oc
+aanvaardingsgetal	acceptance number	d06-oc
+OC-curve	operating characteristic curve (OC curve)	d06-oc
+equivalente plannen	equivalent plans	d06-oc
+methode van Peach	method of Peach	d06-peach
+dubbel steekproefplan	double sampling plan	d06-dubbel
+sequentieel steekproefplan	sequential sampling plan	d06-dubbel
+gemiddelde steekproefgrootte	average sample number (ASN)	d06-dubbel
+sequentiële kansverhoudingstoets	sequential probability ratio test (SPRT)	d06-dubbel
+steekproefplan voor variabelen (n, k)	sampling plan for variables (n, k)	d06-variabelen
+ondergrens van de specificatie	lower specification limit	d06-variabelen
+ondertolerantiegrens	lower tolerance limit	d06-variabelen
+rectificerende inspectie	rectifying inspection	d06-aoq
+gemiddelde uitgaande kwaliteit	average outgoing quality (AOQ)	d06-aoq
+grens van de gemiddelde uitgaande kwaliteit	average outgoing quality limit (AOQL)	d06-aoq
+gemiddelde totale inspectie	average total inspection (ATI)	d06-aoq
+skip-lot-steekproefplan	skip-lot sampling plan (SLSP)	d06-skiplot
+steekproefsysteem (ISO 2859, ISO 3951)	sampling system (ISO 2859, ISO 3951)	d06-skiplot
+keuringsniveau	inspection level	d06-skiplot
+steekproefgrootte-codeletter	sample size code letter (SSCL)	d06-skiplot
+gecertificeerde leverancier	certified quality provider	d06-skiplot
+inspectiecriterium van Deming	Deming's inspection criterion	d06-deming
+break-even kwaliteit	break-even quality	d06-deming

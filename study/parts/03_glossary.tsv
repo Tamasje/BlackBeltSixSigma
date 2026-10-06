@@ -1,0 +1,55 @@
+nl	en	anchor
+statistisch denken	statistical thinking	d03-intro
+spreiding	dispersion / variation	d03-intro
+steekproefgrootte	sample size	d03-intro
+dataverzameling	data collection	d03-intro
+populatie	population	d03-populatie
+steekproef	sample	d03-populatie
+Galton-plank	Galton board	d03-populatie
+centrale limietstelling	central limit theorem	d03-populatie
+spreiding van gemiddelden (σ/√n)	standard deviation of the mean	d03-populatie
+waarschuwingsgrens	warning limit (UWL, LWL)	d03-populatie
+regelgrens	control limit (UCL, LCL)	d03-populatie
+normale verdeling	normal distribution	d03-normaal
+kansverdeling	probability distribution	d03-normaal
+buigpunt	inflection point	d03-normaal
+gepiektheid	kurtosis	d03-normaal
+kansdichtheid	probability density	d03-normaal
+68-95-99,7-regel	68-95-99.7 rule	d03-normaal
+standaardafwijking (sigma)	standard deviation	d03-normaal
+standaardnormale verdeling	standard normal distribution	d03-z
+Z-waarde	z-score	d03-z
+normaliseren	standardize	d03-z
+sigmascore	sigma score	d03-z
+Z-tabel	standard normal table (Z table)	d03-ztabel
+oppervlakte links van z	area to the left of z	d03-ztabel
+cumulatieve kans	cumulative probability	d03-excel
+kwantiel (grenswaarde bij een kans)	quantile	d03-excel
+σ uit een staartfractie	sigma from a tail fraction	d03-excel
+stem van de klant	voice of the customer (VOC)	d03-voc
+stem van het proces	voice of the process (VOP)	d03-voc
+specificatiegrens	specification limit (LSL, USL)	d03-voc
+centreren	centering	d03-voc
+korte-termijnprestatie	short term performance	d03-voc
+lange-termijnprestatie	long term performance	d03-voc
+defect	defect	d03-dpmo
+defectief (product)	defective	d03-dpmo
+opportuniteit (kans op een defect)	opportunity	d03-dpmo
+eenheid	unit	d03-dpmo
+defecten per eenheid	defects per unit (DPU)	d03-dpmo
+defecten per opportuniteit	defects per opportunity (DPO)	d03-dpmo
+defecten per miljoen opportuniteiten	defects per million opportunities (DPMO)	d03-dpmo
+delen per miljoen	parts per million (PPM)	d03-dpmo
+opbrengst	yield	d03-dpmo
+traditionele yield	traditional yield (Y)	d03-yield
+first time yield	first time yield (FTY)	d03-yield
+rolled throughput yield	rolled throughput yield (RTY)	d03-yield
+throughput yield	throughput yield (TY)	d03-yield
+genormaliseerde yield	normalized yield (NY)	d03-yield
+verborgen fabriek	hidden factory	d03-yield
+herbewerking	rework	d03-yield
+afkeur	scrap	d03-yield
+sigmaniveau	sigma level	d03-sigma
+1,5σ-verschuiving	1.5 sigma shift	d03-sigma
+korte-termijnsigmascore	short-term sigma score (Z_ST)	d03-sigma
+lange-termijnsigmascore	long-term sigma score (Z_LT)	d03-sigma

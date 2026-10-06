@@ -1,0 +1,87 @@
+key	symbool	betekenis	hoe	anchor
+xbar	x̄	Steekproefgemiddelde (sample mean) van de n waarnemingen; X̄ als toevalsgrootheid.	AVERAGE(data). X̄ ~ N(µ; σ/√n) (centrale limietstelling). Het BI ligt rond x̄; x̄ is een puntschatting, niet de ware µ.	d04-mu
+mu	µ	Populatiegemiddelde (population mean): een vaste, onbekende constante.	Niet uit de data te berekenen: schat µ met x̄ en geef een BI. µ verandert niet van steekproef tot steekproef, het interval wel.	d04-waarom
+mu0	µ<sub>0</sub>	Waarde van µ onder de nulhypothese (hypothesized mean).	Gegeven in de opgave (bv. het nominale procescentrum 10). Aanvaard H<sub>0</sub> als µ<sub>0</sub> in het BI van hetzelfde type (een- of tweezijdig) ligt.	d04-dualiteit
+sigma	σ	Standaardafwijking (standard deviation) van de populatie of het proces.	Gegeven (σ gekend): z-interval. Anders schat je σ met s en gebruik je t. BI voor σ: wortel uit de grenzen voor σ².	d04-mu
+sigma_sq	σ²	Populatievariantie (population variance).	Onbekend; BI uit (n − 1)s²/σ² ~ χ²(n − 1), alleen geldig als X normaal is. Het interval ligt niet symmetrisch rond s².	d04-sigma
+s	s	Steekproefstandaardafwijking (sample standard deviation).	STDEV.S(data), met n − 1 in de noemer. Met s in plaats van σ gebruik je t met n − 1 vrijheidsgraden, niet Z.	d04-mu
+s_sq	s²	Steekproefvariantie (sample variance).	VAR.S(data) (noemer n − 1), bv. 0,00013582 in CI.xlsx cel E2. In het BI voor σ²: (n − 1)s² gedeeld door een χ²-waarde.	d04-sigma
+n	n	Steekproefgrootte (sample size): aantal waarnemingen, of aantal paren bij gepaarde data.	Gegeven of tel de data (COUNT). Niet de populatiegrootte. Breedte ∝ 1/√n: halve breedte vraagt 4n. Vrijheidsgraden voor t en χ²: n − 1.	d04-nauwkeurigheid
+alpha	α	Significantie (significance level); de betrouwbaarheid is 1 − α.	Gegeven in de opgave; de cursus heeft geen standaardwaarde (meestal 5 %). Tweezijdig α/2 per staart, eenzijdig de hele α aan één kant.	d04-dualiteit
+beta_tol	β	Tolerantie-interval: 1 − β is de fractie van de verdeling binnen het percentielpunt.	Uit de eis: minstens 90 % van de blokken sterk genoeg geeft β = 10 %. Niet het β-risico (fout van de tweede soort) van een toets.	d04-tolerantie
+z_stat	Z	Standaardnormale grootheid (standard normal variable), Z ~ N(0;1).	Z = (X̄ − µ)/(σ/√n) als σ gekend is; kwantielen met NORM.S.INV (Deel 03). Vervang je σ door s, dan krijg je t, niet Z.	d04-mu
+z_1ma2	Z<sub>1−α/2</sub>	Tweezijdige kritische z-waarde (critical value): α/2 in elke staart.	NORM.S.INV(1 − α/2). Bij 95 %: 1,96, geschreven Z<sub>0,975</sub> (kwantielnotatie) of Z<sub>0,025</sub> (bovenstaartnotatie). Bij 90 %: 1,645. Dummies' Z = 2 hoort bij ±2σ, niet bij 95 %.	d04-inversie
+z_1ma	z<sub>1−α</sub>	Eenzijdige kritische z-waarde: de hele α in één staart.	NORM.S.INV(1 − α). Bij α = 5 %: 1,645, geschreven z<sub>0,95</sub> (kwantielnotatie) of Z<sub>0,05</sub> (bovenstaartnotatie). Bij α = 1 %: 2,326.	d04-dualiteit
+z_1mb	z<sub>1−β</sub>	(1 − β)-kwantiel van Z: afstand van het percentielpunt tot µ, in σ.	NORM.S.INV(1 − β); bij β = 10 % is dat z<sub>0,90</sub> = NORM.S.INV(0,9). Het punt µ − z<sub>1−β</sub>σ is het β-percentiel.	d04-tolerantie
+z_1mb2	Z<sub>1−β/2</sub>	(1 − β/2)-kwantiel van Z, voor het tweezijdige tolerantie-interval.	NORM.S.INV(1 − β/2): de punten µ ± Z<sub>1−β/2</sub>σ omsluiten een fractie 1 − β van de verdeling.	d04-tolerantie
+z_b	Z<sub>β</sub>	β-kwantiel van Z in kwantielnotatie; negatief als β kleiner is dan 50 %.	NORM.S.INV(β), bv. Z<sub>0,1</sub> = NORM.S.INV(0,1) voor het 10%-percentiel. In de formule voor t(α, β, n) staat het gekwadrateerd.	d04-tolerantie
+t_stat	t	t-grootheid (t statistic) (X̄ − µ)/(s/√n), of een t-verdeelde variabele.	Bereken met x̄, s en n. Volgt t(n − 1) als X normaal is; robuust, tenzij kleine n én sterk niet-normale verdeling.	d04-mu
+t_crit	t<sub>1−α/2; n−1</sub>	Kritische t-waarde (critical t value) bij het gegeven aantal vrijheidsgraden.	T.INV(1 − α/2; df) tweezijdig, T.INV(1 − α; df) eenzijdig. df = n − 1 (één steekproef, gepaard) of n<sub>1</sub> + n<sub>2</sub> − 2 (niet-gepaard). t<sub>0,975</sub> (kwantiel) = t<sub>0,025</sub> (bovenstaart).	d04-mu
+t_002	t<sub>0,02; 19</sub>	2%-kwantiel van t(19) in kwantielnotatie: een negatief getal.	T.INV(0,02; 19) = −2,2047 (CI.xlsx). x̄ − t<sub>0,02; 19</sub>·s/√n is dus x̄ + 2,2047·s/√n: een bovengrens boven x̄.	d04-mu
+x_chi	X	χ²-verdeelde hulpgrootheid in de definitie van t en F, geen meetwaarde.	Komt niet uit de data: X ~ χ²(n) in t = Z/√(X/n) en in F = (X/n)/(Y/m). In de toepassing is het (n − 1)s²/σ².	d04-f
+y_chi	Y	Tweede χ²-verdeelde hulpgrootheid in de definitie van F, onafhankelijk van X.	Y ~ χ²(m); dan volgt (X/n)/(Y/m) een F(n, m)-verdeling. In de toepassing hoort Y bij steekproef 2.	d04-f
+df_n	n	Vrijheidsgraden (degrees of freedom) in een definitie: t(n), χ²(n) of de teller van F(n, m).	Geen steekproefgrootte: in de toepassing wordt het n − 1 (t, χ²) of n<sub>1</sub> − 1 (teller van F).	d04-f
+df_m	m	Vrijheidsgraden van de noemer van F(n, m).	In de toepassing n<sub>2</sub> − 1. Draai je de verhouding om, dan wisselen n en m: F<sub>α</sub>(n, m) = 1/F<sub>1−α</sub>(m, n).	d04-f
+p	p	Steekproeffractie (sample proportion) defectieven; P is dezelfde grootheid als toevalsgrootheid.	P = d/n: aantal defectieven gedeeld door n, als fractie (0,04, niet 4). Het benaderde BI pas vanaf minstens 5 defectieven.	d04-pi
+p_value	p-waarde	Kans op een resultaat minstens zo extreem als het waargenomene, als H<sub>0</sub> waar is (p-value).	Uit de toets (Deel 05). Kleiner dan α: H<sub>0</sub> verwerpen. Niet verwarren met de steekproeffractie p.	d05-pwaarde
+pi	π	Ware fractie defectieven (true proportion) van de partij of het proces: vast, onbekend.	Geschat met p. BI: p ± Z<sub>1−α/2</sub>·√(p(1 − p)/n) bij minstens 5 defectieven, anders exact via de binomiaalverdeling (nomogram).	d04-pi
+pi0	π<sub>0</sub>	Waarde van π onder H<sub>0</sub>, bv. de AQL.	Gegeven in de opgave. Toetsen met een BI: aanvaard H<sub>0</sub> als π<sub>0</sub> in het BI van het juiste type ligt.	d04-dualiteit
+pi_l	π<sub>L</sub>	Ondergrens (lower limit) van het BI voor π.	Eenzijdig ]π<sub>L</sub>; 1] bij HA: π &gt; π<sub>0</sub>, met de hele α aan één kant; tweezijdig met α/2.	d04-dualiteit
+pi_u	π<sub>U</sub>	Bovengrens (upper limit) van het BI voor π.	Eenzijdig [0; π<sub>U</sub>[ bij HA: π &lt; π<sub>0</sub>; tweezijdig ]π<sub>L</sub>; π<sub>U</sub>[ bij HA: π ≠ π<sub>0</sub>.	d04-dualiteit
+pi1	π<sub>1</sub>	Ware fractie in populatie 1.	Geschat met p<sub>1</sub>. BI voor π<sub>1</sub> − π<sub>2</sub> alleen met twee grote steekproeven (normale benadering).	d04-pi
+pi2	π<sub>2</sub>	Ware fractie in populatie 2.	Geschat met p<sub>2</sub>. Bevat het BI voor π<sub>1</sub> − π<sub>2</sub> de 0 niet, dan verschillen de fracties.	d04-pi
+p1	p<sub>1</sub>	Steekproeffractie in steekproef 1.	Aantal (defecten of goede stuks) in steekproef 1 gedeeld door n<sub>1</sub>, als fractie.	d04-pi
+p2	p<sub>2</sub>	Steekproeffractie in steekproef 2.	Aantal in steekproef 2 gedeeld door n<sub>2</sub>, als fractie.	d04-pi
+n1	n<sub>1</sub>	Grootte van steekproef 1 (bij Dummies n<sub>A</sub>).	Gegeven of COUNT. Mag verschillen van n<sub>2</sub> (niet-gepaard). Vrijheidsgraden: n<sub>1</sub> + n<sub>2</sub> − 2 (gepoolde t), n<sub>1</sub> − 1 (teller van F).	d04-verschil
+n2	n<sub>2</sub>	Grootte van steekproef 2 (bij Dummies n<sub>B</sub>).	Gegeven of COUNT. Noemer-vrijheidsgraden van F: n<sub>2</sub> − 1.	d04-verschil
+d	d	Aantal defectieven (defectives) in de steekproef.	Tellen. P = d/n; het plan (100, 4) aanvaardt de partij als d ≤ 4.	d04-dualiteit
+c	c	Kritische waarde (critical value) voor P in de klassieke toets.	Uit de verdeling van P onder H<sub>0</sub> of het steekproefplan (Deel 06); bij de tegels hoort bij α = 5 % de kritische waarde 4 defectieven.	d06-oc
+theta	θ	Algemene populatiegrootheid (parameter): µ, π, σ …	Vast en onbekend. Het BI [L<sub>α</sub>(T); U<sub>α</sub>(T)] bevat alle θ<sub>0</sub> die je met de waargenomen T aanvaardt.	d04-inversie
+theta0	θ<sub>0</sub>	Waarde van θ onder H<sub>0</sub>.	Gegeven. HA: θ &gt; θ<sub>0</sub> hoort bij een ondergrens, HA: θ &lt; θ<sub>0</sub> bij een bovengrens, HA: θ ≠ θ<sub>0</sub> bij een tweezijdig BI.	d04-dualiteit
+teststat	T	Toetsingsgrootheid (test statistic), berekend uit de steekproef.	Bv. x̄ voor µ of P = d/n voor π. Het BI keert de relatie waar θ → waarschijnlijke T om (functie-inversie).	d04-inversie
+k_lo	K̲<sub>α</sub>	Ondergrens van het aanvaardingsgebied voor T, als functie van θ.	Het α/2-kwantiel van T als θ waar is; voor π: BINOM.INV(n; π; α/2)/n (de onderste kromme van het nomogram).	d04-inversie
+k_hi	K̄<sub>α</sub>	Bovengrens van het aanvaardingsgebied voor T, als functie van θ.	Het (1 − α/2)-kwantiel van T als θ waar is; voor π: BINOM.INV(n; π; 1 − α/2)/n.	d04-inversie
+l_alpha	L<sub>α</sub>(T)	Ondergrens van het (1 − α)-BI: de kleinste θ die je met T nog aanvaardt.	inf{θ : T ≤ K̄<sub>α</sub>(θ)}; grafisch het snijpunt van de lijn door de waargenomen T met de kromme K̄<sub>α</sub>.	d04-inversie
+u_alpha	U<sub>α</sub>(T)	Bovengrens van het (1 − α)-BI: de grootste θ die je met T nog aanvaardt.	sup{θ : T ≥ K̲<sub>α</sub>(θ)}; grafisch het snijpunt met de kromme K̲<sub>α</sub>.	d04-inversie
+y_count	y	Aantal successen in de steekproef (Dummies-notatie); y/n is de steekproeffractie.	Tellen: 4 van 5 tandartsen geeft y/n = 0,8. De normale benadering vraagt minstens 5 in de getelde categorie.	ex-04-8
+mu1	µ<sub>1</sub>	Populatiegemiddelde van groep of materiaal 1.	Vast, onbekend; geschat met x̄<sub>1</sub>. Je maakt een BI voor het verschil µ<sub>1</sub> − µ<sub>2</sub>.	d04-verschil
+mu2	µ<sub>2</sub>	Populatiegemiddelde van groep of materiaal 2.	Geschat met x̄<sub>2</sub>. 0 ∉ BI voor µ<sub>1</sub> − µ<sub>2</sub>: verschil; 0 ∈ BI: geen verschil aangetoond (wat niet betekent dat ze gelijk zijn).	d04-verschil
+bi	BI<sub>95</sub>	Betrouwbaarheidsinterval (confidence interval), met de betrouwbaarheid in % als index.	Bereken het met de formule voor de grootheid. BI<sub>99</sub> is breder dan BI<sub>95</sub>. Lees het als het gebied van plausibele waarden.	d04-verschil
+sigma1	σ<sub>1</sub>	Standaardafwijking van populatie 1 (bv. machine 1).	Geschat met s<sub>1</sub>. De niet-gepaarde t-formule veronderstelt σ<sub>1</sub> = σ<sub>2</sub>. Nauwkeuriger betekent kleinere σ.	d04-f
+sigma2	σ<sub>2</sub>	Standaardafwijking van populatie 2.	Geschat met s<sub>2</sub>. σ<sub>1</sub> &lt; σ<sub>2</sub> is hetzelfde als σ<sub>2</sub>²/σ<sub>1</sub>² &gt; 1.	d04-f
+sigma1_sq	σ<sub>1</sub>²	Variantie van populatie 1 (bij Dummies σ<sub>A</sub>²).	Onbekend; BI voor de verhouding via (s<sub>1</sub>²/s<sub>2</sub>²)(σ<sub>2</sub>²/σ<sub>1</sub>²) ~ F(n<sub>1</sub> − 1; n<sub>2</sub> − 1).	d04-f
+sigma2_sq	σ<sub>2</sub>²	Variantie van populatie 2 (bij Dummies σ<sub>B</sub>²).	Is 1 nauwkeuriger? Eenzijdige ondergrens σ<sub>2</sub>²/σ<sub>1</sub>² ≥ (s<sub>2</sub>²/s<sub>1</sub>²)·F.INV(α; n<sub>1</sub> − 1; n<sub>2</sub> − 1); boven 1 betekent ja.	d04-f
+xbar1	x̄<sub>1</sub>	Steekproefgemiddelde van steekproef 1.	AVERAGE van de data van groep 1.	d04-verschil
+xbar2	x̄<sub>2</sub>	Steekproefgemiddelde van steekproef 2.	AVERAGE van de data van groep 2.	d04-verschil
+cov	cov	Covariantie (covariance) tussen de twee metingen binnen een paar.	Positief als dezelfde jongen beide schoenen sneller verslijt; cov/σ² = ρ. Hoe groter, hoe meer paren oplevert.	d04-verschil
+rho	ρ	Correlatie (correlation) tussen de twee metingen binnen een paar.	ρ = cov/σ². Lengteverhouding gepaard/niet-gepaard = √(1 − ρ); bij ρ ≤ 0 biedt paren geen voordeel.	d04-verschil
+sp	s<sub>p</sub>	Gepoolde standaardafwijking (pooled standard deviation) van twee steekproeven.	Wortel uit s<sub>p</sub>², met noemer n<sub>1</sub> + n<sub>2</sub> − 2 (CI FR p. 15 drukt − 1 af: drukfout). Alleen als σ<sub>1</sub> = σ<sub>2</sub>.	d04-verschil
+sp_sq	s<sub>p</sub>²	Gepoolde variantie (pooled variance).	[(n<sub>1</sub> − 1)s<sub>1</sub>² + (n<sub>2</sub> − 1)s<sub>2</sub>²]/(n<sub>1</sub> + n<sub>2</sub> − 2), niet − 1.	d04-verschil
+s1	s<sub>1</sub>	Steekproefstandaardafwijking van steekproef 1.	STDEV.S van de data van groep 1.	d04-verschil
+s2	s<sub>2</sub>	Steekproefstandaardafwijking van steekproef 2.	STDEV.S van de data van groep 2.	d04-verschil
+s1_sq	s<sub>1</sub>²	Steekproefvariantie van steekproef 1 (bij Dummies s<sub>A</sub>²).	VAR.S van groep 1, of s<sub>1</sub> in het kwadraat. Hoort bij de teller-vrijheidsgraden n<sub>1</sub> − 1.	d04-f
+s2_sq	s<sub>2</sub>²	Steekproefvariantie van steekproef 2 (bij Dummies s<sub>B</sub>²).	VAR.S van groep 2, of s<sub>2</sub> in het kwadraat. Hoort bij n<sub>2</sub> − 1.	d04-f
+v_i	v<sub>i</sub>	Verschil (difference) binnen paar i: v<sub>i</sub> = x<sub>1,i</sub> − x<sub>2,i</sub>.	Per paar aftrekken, altijd in dezelfde volgorde; daarna reken je verder met één steekproef van n verschillen.	d04-verschil
+x1i	x<sub>1,i</sub>	Meting met behandeling of materiaal 1 in paar i.	Uit de data, bv. LD<sub>1</sub> van jongen i.	d04-verschil
+x2i	x<sub>2,i</sub>	Meting met behandeling of materiaal 2 in paar i.	Uit de data, bv. LD<sub>2</sub> van jongen i.	d04-verschil
+vbar	v̄	Gemiddelde van de verschillen (mean difference).	AVERAGE van de v<sub>i</sub> (= x̄<sub>1</sub> − x̄<sub>2</sub> van de paren). Schat µ<sub>1</sub> − µ<sub>2</sub>.	d04-verschil
+s_v	s<sub>V</sub>	Standaardafwijking van de verschillen (standard deviation of the differences).	STDEV.S van de v<sub>i</sub>, niet uit s<sub>1</sub> en s<sub>2</sub>. Met t bij n − 1 vrijheidsgraden (n = aantal paren).	d04-verschil
+ld1	LD<sub>1</sub>	Levensduur (lifetime) van een zool uit materiaal 1.	Uit de data; afgeleid uit de gemeten sleet.	d04-verschil
+ld2	LD<sub>2</sub>	Levensduur van een zool uit materiaal 2.	Uit de data. In het gepaarde experiment gecorreleerd met LD<sub>1</sub> van dezelfde jongen.	d04-verschil
+chi2_upper	χ²<sub>1−α/2; n−1</sub>	Bovenste χ²-waarde (upper critical value) met n − 1 vrijheidsgraden.	CHISQ.INV(1 − α/2; n − 1); eenzijdig CHISQ.INV(1 − α; n − 1). In bovenstaartnotatie heet ze χ²<sub>0,025; n−1</sub>. Geeft de ondergrens voor σ².	d04-sigma
+chi2_lower	χ²<sub>α/2; n−1</sub>	Onderste χ²-waarde (lower critical value) met n − 1 vrijheidsgraden.	CHISQ.INV(α/2; n − 1). In bovenstaartnotatie heet ze χ²<sub>0,975; n−1</sub>. Geeft de bovengrens voor σ².	d04-sigma
+f_stat	F	F-verdeelde grootheid; hier (s<sub>1</sub>²/s<sub>2</sub>²)(σ<sub>2</sub>²/σ<sub>1</sub>²).	Volgt F(n<sub>1</sub> − 1; n<sub>2</sub> − 1) bij twee onafhankelijke steekproeven uit normale populaties. Verwachting m/(m − 2) &gt; 1 (voor m &gt; 2).	d04-f
+f_q	F<sub>α</sub>	Kritische F-waarde met kans α aan één kant.	Excel: F.INV(p; df1; df2) geeft kans p eronder, F.INV.RT(p; df1; df2) kans p erboven. Omkeerregel F<sub>α</sub>(n, m) = 1/F<sub>1−α</sub>(m, n).	d04-f
+f_lo	F<sub>lo</sub>	Onderste F-waarde voor het tweezijdige BI (in het overzicht F<sub>α/2</sub>).	F.INV(α/2; n<sub>1</sub> − 1; n<sub>2</sub> − 1). Maal s<sub>2</sub>²/s<sub>1</sub>² geeft de ondergrens voor σ<sub>2</sub>²/σ<sub>1</sub>².	d04-f
+f_hi	F<sub>hi</sub>	Bovenste F-waarde voor het tweezijdige BI (in het overzicht F<sub>1−α/2</sub>).	F.INV(1 − α/2; n<sub>1</sub> − 1; n<sub>2</sub> − 1) = F.INV.RT(α/2; …). Maal s<sub>2</sub>²/s<sub>1</sub>² geeft de bovengrens voor σ<sub>2</sub>²/σ<sub>1</sub>².	d04-f
+y_ln	Y	Natuurlijke logaritme van de weerstand, Y = ln X, normaal verdeeld.	LN van elke meting; in het voorbeeld Y ~ N(5,75; 0,2). De eis 240 kg/cm² wordt ln(240) = 5,48.	d04-tolerantie
+x_res	X	Weerstand (strength) van een betonblok tegen belasting; lognormaal verdeeld.	Gemeten per blok in kg/cm²; reken met Y = ln X.	d04-tolerantie
+y_beta	Y<sub>β</sub>	β-percentielpunt van Y: een fractie β ligt eronder.	Bij gekende verdeling µ + Z<sub>β</sub>σ. Is µ onbekend, dan ligt het met (1 − α) betrouwbaarheid in [LTL; +∞[.	d04-tolerantie
+y_1mb	Y<sub>1−β</sub>	(1 − β)-percentielpunt van Y: een fractie β ligt erboven.	µ + z<sub>1−β</sub>σ; ligt met (1 − α) betrouwbaarheid in ]−∞; UTL].	d04-tolerantie
+ltl	LTL	Ondergrens van het tolerantie-interval (lower tolerance limit).	Ȳ − kσ (σ gekend) of Ȳ − ks met k ≈ t(α, β, n) (σ onbekend). Ligt de eis in [LTL; +∞[, dan is ze niet aangetoond.	d04-tolerantie
+utl	UTL	Bovengrens van het tolerantie-interval (upper tolerance limit).	Ȳ + kσ (σ gekend) of Ȳ + ks (σ onbekend). De 5,55 op CI FR p. 22 volgt niet uit deze formule.	d04-tolerantie
+ybar	Ȳ	Steekproefgemiddelde van Y = ln X.	AVERAGE van de ln-waarden (bv. 5,732 bij n = 20).	d04-tolerantie
+k_tol	k	Tolerantiefactor (tolerance factor): aantal σ (of s) tussen Ȳ en de tolerantiegrens.	σ gekend: z<sub>1−α</sub>/√n + z<sub>1−β</sub>. σ onbekend: k ≈ t(α, β, n) met de formule van CI FR p. 23; die k is groter.	d04-tolerantie
+k2_tol	k′	Tolerantiefactor voor het tweezijdige interval bij onbekende σ.	k′ ≈ t(α/2, β/2, n): de formule van t(α, β, n) met α/2 en β/2.	d04-tolerantie
+x_min	x<sub>(1)</sub>	Kleinste waarde (minimum) van de steekproef.	MIN(data). Samen met x<sub>(n)</sub> een distributievrij tolerantie-interval als (1 − β/2)<sup>n</sup> − ½(1 − β)<sup>n</sup> ≤ α/2.	d04-tolerantie
+x_max	x<sub>(n)</sub>	Grootste waarde (maximum) van de steekproef.	MAX(data). Bij α = 5 % en β = 10 % vraagt [x<sub>(1)</sub>; x<sub>(n)</sub>] minstens n = 72.	d04-tolerantie

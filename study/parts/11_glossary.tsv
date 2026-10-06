@@ -1,0 +1,61 @@
+nl	en	anchor
+meetsysteemanalyse	measurement system analysis (MSA)	d11-meten
+meting	measurement	d11-meten
+meetsysteem	measurement system	d11-meten
+meetinstrument	gauge	d11-meten
+meeteenheid	measurement unit (MU)	d11-meten
+regel van tien	rule of tens	d11-meten
+SWIPE-model	SWIPE error model	d11-meten
+standaard	standard	d11-standaard
+referentiestandaard	reference standard	d11-standaard
+kalibratiestandaard	calibration standard	d11-standaard
+werkstandaard	working standard	d11-standaard
+kalibratie	calibration	d11-standaard
+SI-basiseenheden	SI base units	d11-standaard
+eindmaat	gauge block	d11-standaard
+herleidbaarheid (traceerbaarheid)	traceability	d11-standaard
+nationaal metrologie-instituut	national measurement institute (NMI)	d11-standaard
+referentiewaarde	reference value (master value)	d11-standaard
+ware waarde	true value	d11-standaard
+discriminatie	discrimination	d11-discriminatie
+resolutie, afleesbaarheid	resolution, readability	d11-discriminatie
+effectieve resolutie	effective resolution	d11-discriminatie
+datacategorieën	data categories	d11-discriminatie
+bias (systematische fout)	bias (systematic error)	d11-bias
+operatorbias	operator bias (appraiser bias)	d11-bias
+nauwkeurigheid, juistheid	accuracy	d11-bias
+stabiliteit	stability	d11-bias
+lineariteit	linearity	d11-bias
+meetbereik	operating range	d11-bias
+herhaalbaarheid	repeatability (equipment variation, EV)	d11-rr
+reproduceerbaarheid	reproducibility (appraiser variation, AV)	d11-rr
+precisie	precision	d11-rr
+consistentie	consistency	d11-rr
+uniformiteit	uniformity	d11-rr
+herhaalbaarheid en reproduceerbaarheid van het meetinstrument	gauge repeatability and reproducibility (GRR, gauge R&R)	d11-rr
+toevallige fout	random error	d11-indeling
+meetsysteemcapabiliteit	measurement system capability	d11-indeling
+meetsysteemprestatie	measurement system performance	d11-indeling
+type I-fout, producentenrisico	type I error, producer's risk (false negative)	d11-product
+type II-fout, consumentenrisico	type II error, consumer's risk (false positive)	d11-product
+waarschijnlijke fout	probable error (PE)	d11-product
+waargenomen procesvariatie	observed process variation	d11-proces
+werkelijke procesvariatie	actual process variation	d11-proces
+procesaanvaarding	process acceptance (buy-off)	d11-proces
+bijsturen, overcorrectie	tampering, over-adjustment	d11-proces
+prestatiecurve van het meetinstrument	gauge performance curve (GPC)	d11-gpc
+kans op aanvaarding	probability of acceptance	d11-gpc
+meetonzekerheid	measurement uncertainty	d11-onzekerheid
+uitgebreide onzekerheid	expanded uncertainty (U)	d11-onzekerheid
+dekkingsfactor	coverage factor (k)	d11-onzekerheid
+gecombineerde standaardonzekerheid	combined standard uncertainty (uc)	d11-onzekerheid
+type A-evaluatie, type B-evaluatie	type A evaluation, type B evaluation	d11-onzekerheid
+onvoldoende discriminatie	inadequate discrimination	d11-rheostat
+conversiefactor d2*	conversion factor d2*	d11-d2ster
+gemiddelde range	average range	d11-d2ster
+gemiddelde-en-spreidingsbreedte-methode	average and range method	d11-avgrange
+onderdeelvariatie	part variation (PV)	d11-avgrange
+totale variatie	total variation (TV)	d11-avgrange
+ANOVA-methode	ANOVA method	d11-anova
+additief model (zonder interactie)	additive model (without interaction)	d11-anova
+Hawthorne-effect	Hawthorne effect	d11-studie

@@ -1,0 +1,53 @@
+nl	en	anchor
+betrouwbaarheidsinterval	confidence interval	d04-waarom
+BI (betrouwbaarheidsinterval)	CI (confidence interval)	d04-waarom
+puntschatting	point estimate	d04-waarom
+intervalschatting	interval estimate	d04-waarom
+aselecte steekproef (RS)	random sample (SRS)	d04-waarom
+steekproef zonder teruglegging	random sample without replacement (RSWOR)	d04-waarom
+partij	lot	d04-waarom
+betrouwbaarheid	confidence level	d04-nauwkeurigheid
+nauwkeurigheid	accuracy	d04-nauwkeurigheid
+precisie	precision	d04-nauwkeurigheid
+breedte van het interval	width of the interval	d04-nauwkeurigheid
+steekproefgrootte	sample size	d04-nauwkeurigheid
+relatieve nauwkeurigheid	relative accuracy	d04-nauwkeurigheid
+functie-inversie	function inversion	d04-inversie
+steekproevenverdeling	sampling distribution	d04-inversie
+nomogram	nomogram	d04-inversie
+eenzijdig betrouwbaarheidsinterval	one-sided confidence interval	d04-inversie
+tweezijdig betrouwbaarheidsinterval	two-sided (double sided) confidence interval	d04-inversie
+kwantiel	quantile	d04-inversie
+bovenstaartnotatie	upper-tail notation	d04-inversie
+t-verdeling van Student	Student's t-distribution	d04-mu
+vrijheidsgraden	degrees of freedom	d04-mu
+standaardfout	standard error	d04-mu
+centrale limietstelling (CLS)	central limit theorem (CLT)	d04-mu
+robuustheid	robustness	d04-mu
+proportie	proportion	d04-pi
+fractie defectieven	fraction defective	d04-pi
+normale benadering	normal approximation	d04-pi
+exact binomiaal interval	exact binomial interval	d04-pi
+verschil van twee proporties	difference of two proportions	d04-pi
+verschil van twee gemiddelden	difference of two means	d04-verschil
+gepaarde vergelijking	paired comparison	d04-verschil
+niet-gepaarde vergelijking	unpaired comparison	d04-verschil
+gepoolde variantie	pooled variance	d04-verschil
+blokfactor	blocking factor	d04-verschil
+randomisatie	randomization	d04-verschil
+correlatie	correlation	d04-verschil
+levensduur (LD)	lifetime	d04-verschil
+chi-kwadraatverdeling	chi-square distribution	d04-sigma
+variantie	variance	d04-sigma
+standaardafwijking	standard deviation	d04-sigma
+F-verdeling	F distribution	d04-f
+verhouding van varianties	ratio of variances	d04-f
+nauwkeuriger (kleinere spreiding)	more precise	d04-f
+dualiteit tussen toetsen en intervallen	duality of tests and confidence intervals	d04-dualiteit
+toetsen met een betrouwbaarheidsinterval	testing with a confidence interval	d04-dualiteit
+tolerantie-interval	tolerance interval	d04-tolerantie
+onderste tolerantiegrens	lower tolerance limit (LTL)	d04-tolerantie
+bovenste tolerantiegrens	upper tolerance limit (UTL)	d04-tolerantie
+percentiel	percentile	d04-tolerantie
+distributievrij	distribution-free	d04-tolerantie
+lognormale verdeling	lognormal distribution	d04-tolerantie

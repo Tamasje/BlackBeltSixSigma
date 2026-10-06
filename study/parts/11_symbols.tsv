@@ -1,0 +1,127 @@
+key	symbool	betekenis	hoe	anchor
+sigma_o	σ<sub>o</sub>	Waargenomen (observed) processtandaardafwijking: werkelijke spreiding plus meetfout.	σ²<sub>o</sub> = σ²<sub>a</sub> + σ²<sub>m</sub>: varianties tellen op, standaardafwijkingen niet. Uit de spreiding van de gemeten waarden; in een GRR-studie speelt TV die rol.	d11-proces
+sigma_a	σ<sub>a</sub>	Werkelijke (actual) processtandaardafwijking, zonder meetfout.	Niet rechtstreeks meetbaar: σ²<sub>a</sub> = σ²<sub>o</sub> − σ²<sub>m</sub>. In een GRR-studie speelt PV die rol.	d11-proces
+sigma_m	σ<sub>m</sub>	Standaardafwijking van de meetfout (measurement variation); ook σ<sub>me</sub> of kort σ.	Korte termijn: σ<sub>m</sub> = σ<sub>GRR</sub>, geschat door GRR = √(EV² + AV²) (MSA p. 24, 28). Anders gegeven in de opgave.	d11-proces
+grr	GRR	Gauge R&amp;R: standaardafwijking van herhaalbaarheid en reproduceerbaarheid samen.	GRR = √(EV² + AV²), niet EV + AV. EV en AV uit de gemiddelde-en-spreidingsbreedte-methode of de ANOVA-methode.	d11-rr
+ev	EV	Herhaalbaarheid (repeatability, equipment variation): één operator, één toestel, hetzelfde onderdeel.	R̿/d<sub>2</sub> met d<sub>2</sub> voor r herhalingen, of met ANOVA √MS<sub>e</sub>. E = equipment, niet appraiser.	d11-rr
+av	AV	Reproduceerbaarheid (reproducibility, appraiser variation): verschil tussen de operatorgemiddelden.	√((X̄<sub>DIFF</sub>·K<sub>2</sub>)² − EV²/(nr)), of met ANOVA √((MS<sub>a</sub> − EV²)/(nr)). A = appraiser, niet equipment.	d11-rr
+pv	PV	Variatie tussen de onderdelen (part variation): de procesvariatie in de studie.	√((R<sub>p</sub>·K<sub>3</sub>)² − EV²/(kr)) ≈ R<sub>p</sub>·K<sub>3</sub>; met ANOVA √((MS<sub>p</sub> − EV²)/(kr)).	d11-avgrange
+tv	TV	Totale variatie (total variation): meetsysteem plus onderdelen.	TV = √(GRR² + PV²) = √(EV² + AV² + PV²): optellen in het kwadraat.	d11-avgrange
+pct_grr	%GRR	Aandeel van de meetfout, als verhouding van standaardafwijkingen (geen varianties).	GRR/TV × 100 % (= 6σ<sub>m</sub>/6σ<sub>o</sub>) of 6σ<sub>m</sub>/TOL. Oordeel: ≤ 10 % ok, 10–30 % misschien, &gt; 30 % niet (MSA p. 35).	d11-avgrange
+dnu_cs	Δν<sub>Cs</sub>	Frequentie van de cesiumstraling: vaste natuurconstante die de seconde definieert.	Vaste waarde 9 192 631 770 Hz (MSA p. 7).	d11-standaard
+c_light	c	Lichtsnelheid in vacuüm (speed of light), vaste natuurconstante.	Vaste waarde 299 792 458 m/s (Meter unit p. 3).	d11-standaard
+l_block	L	Lengte van een eindmaat (gauge block).	Met laserinterferometrie: L = N·λ/2, bij exact 20,00 °C (Meter unit p. 4–5).	d11-standaard
+n_fringes	N	Aantal interferentiefranjes (fringes) bij de laserinterferometer.	Geteld bij de meting; gegeven in de opgave.	d11-standaard
+lambda	λ	Golflengte (wavelength) van het gebruikte licht (krypton-86, laser).	Gegeven; krypton-86: 1 m / 1 650 763,73 = 605,78 nm (Meter unit p. 3).	d11-standaard
+t_period	T	Periode (period) van een slinger: duur van een volledige heen-en-weerbeweging.	Gegeven: een secondeslinger heeft T = 2 s (Meter unit p. 1).	d11-standaard
+l_pend	l	Lengte van de slinger (pendulum length).	l = g·(T/2π)²; voor T = 2 s en g = 9,81 m/s² is dat 994 mm (Meter unit p. 1).	d11-standaard
+g_grav	g	Valversnelling (gravitational acceleration); niet overal op aarde gelijk.	Gegeven: ongeveer 9,81 m/s² (Meter unit p. 1). Daarom werd de secondeslinger als definitie van de meter verworpen.	d11-standaard
+lambda_cs	λ<sub>Cs</sub>	Golflengte van de cesiumstraling (caesium wavelength).	λ<sub>Cs</sub> = c/Δν<sub>Cs</sub> = 0,0326 m (Meter unit p. 4).	d11-standaard
+discr	discriminatie	Discriminatie of resolutie: kleinste verandering die het toestel kan aanwijzen.	Meestal de kleinste schaalverdeling (bv. 0,02 mm), opgegeven als meeteenheid. Regel van tien: ≤ 1/10 van de tolerantie of de procesvariatie (MSA p. 10).	d11-discriminatie
+bereik	bereik	Het bereik dat je wilt meten: de tolerantie óf de procesvariatie.	Tolerantie = USL − LSL (gegeven); procesvariatie = 6σ van het proces. Vuistregel: discriminatie ≤ bereik/10.	d11-discriminatie
+sigma_grr	σ<sub>GRR</sub>	Standaardafwijking van de meetfout door herhaalbaarheid en reproduceerbaarheid samen.	σ²<sub>GRR</sub> = σ²<sub>repeatability</sub> + σ²<sub>reproducibility</sub>; geschat door GRR = √(EV² + AV²) (MSA p. 18).	d11-rr
+sigma_rep	σ²<sub>repeatability</sub>	Variantie van de herhaalbaarheid (repeatability): binnen één systeem.	= EV², met EV = R̿/d<sub>2</sub> of √MS<sub>e</sub>.	d11-rr
+sigma_repro	σ²<sub>reproducibility</sub>	Variantie van de reproduceerbaarheid (reproducibility): tussen operatoren of systemen.	= AV², met AV uit X̄<sub>DIFF</sub> (met correctie) of uit MS<sub>a</sub>.	d11-rr
+sigma_cap	σ²<sub>cap</sub>	Variantie van de meetsysteemcapabiliteit (capability): meetfout op korte termijn.	σ²<sub>lin</sub> + σ²<sub>GRR</sub> (MSA p. 20).	d11-indeling
+sigma_lin	σ²<sub>lin</sub>	Variantiebijdrage van de lineariteit (linearity): bias die over het meetbereik verandert.	Uit een lineariteitsstudie (11.15); de cursus geeft geen formule om dit getal te berekenen.	d11-indeling
+sigma_perf	σ²<sub>perf</sub>	Variantie van de meetsysteemprestatie (performance): alle bronnen over de tijd.	σ²<sub>cap</sub> + σ²<sub>stab</sub> + σ²<sub>consist</sub> (MSA p. 20).	d11-indeling
+sigma_stab	σ²<sub>stab</sub>	Variantiebijdrage van de stabiliteit (stability): bias die in de tijd verandert.	Uit een stabiliteitsstudie met een referentiestandaard op een X̄/R-kaart (11.13); de cursus geeft geen formule om dit getal te berekenen.	d11-indeling
+sigma_consist	σ²<sub>consist</sub>	Variantiebijdrage van de consistentie (consistency): herhaalbaarheid die in de tijd verandert.	Uit de R- of s-kaart van een stabiliteitsstudie (11.13); de cursus geeft geen formule om dit getal te berekenen.	d11-indeling
+u	u	Standaardonzekerheid (standard uncertainty) van één grootheid: een standaardafwijking.	Type A: uit herhaalde metingen (bv. R/d<sub>2</sub>). Type B: certificaat (deel door de dekkingsfactor), uniforme fout a/√3.	d11-onzekerheid
+u_c	u<sub>c</sub>	Gecombineerde standaardonzekerheid (combined standard uncertainty) = σ van de meetfout.	Onafhankelijke bronnen kwadratisch: √(u<sub>1</sub>² + u<sub>2</sub>² + …); gemiddelde van n metingen: u/√n (MSA p. 29).	d11-onzekerheid
+u_exp	U	Uitgebreide onzekerheid (expanded uncertainty): halve breedte van het interval meting ± U.	U = k·u<sub>c</sub> met k = 2 (ongeveer 95 %) (MSA p. 28).	d11-onzekerheid
+k_cov	k	Dekkingsfactor (coverage factor): bepaalt het betrouwbaarheidsniveau van U.	In de praktijk k = 2 (ongeveer 95 %, ISO-gids; MSA p. 28). Niet k = aantal operatoren in een GRR-studie.	d11-onzekerheid
+n_sample	n, m	Steekproef- of subgroepgrootte (sample/subgroup size): aantal metingen per subgroep of gemiddelde.	Tellen of gegeven. In de tabel MSA heet ze m (kolom), naast g subgroepen (rij). Niet n = aantal onderdelen in een GRR-studie.	d11-d2ster
+x_val	x, X	Een gemeten grootheid of individuele meting (individual value).	De meetwaarde zelf, met onzekerheid u(x); gegeven in de opgave.	d11-onzekerheid
+y_val	y	Een tweede gemeten grootheid, gecombineerd met x (som, verschil, product).	Gegeven, met een eigen onzekerheid u(y).	d11-onzekerheid
+y_out	y	Uitkomst y = f(x), berekend uit een gemeten x.	u(y) ≈ |f′(x)|·u(x): hoe gevoeliger y voor x, hoe groter de onzekerheid (MSA p. 29).	d11-onzekerheid
+xbar	x̄, X̄	Gemiddelde (mean) van n metingen.	Som / n. Zijn standaardafwijking is σ/√n (σ²(X̄) = σ²(X)/n), dus u(x̄) = u(x)/√n.	d11-d2ster
+pe	PE	Probable error (waarschijnlijke fout) van Wheeler: 75 %-kwantiel min gemiddelde van de meetverdeling.	PE ≈ 0,67σ<sub>m</sub> (de gids rekent met 0,6745σ<sub>m</sub>); ongeveer 50 % van de metingen ligt binnen μ ± PE (MSA p. 23).	d11-product
+mu_m	μ	Gemiddelde (mean) van de meetverdeling van één onderdeel.	Referentiewaarde plus bias; geschat door het gemiddelde van herhaalde metingen.	d11-product
+ev_g	G	Gebeurtenis "goed": referentiewaarde in [LSL + δ, USL − δ], het onderdeel is conform.	Definitie uit de notes (MSA p. 23); niet waarneembaar, want de referentiewaarde is onbekend.	d11-product
+ev_b	B	Gebeurtenis "slecht": referentiewaarde buiten [LSL − δ, USL + δ], niet conform.	Definitie uit de notes (MSA p. 23).	d11-product
+ev_x	X	Gebeurtenis: gemeten waarde in [LSL + PE, USL − PE]; besluit "conform".	Kijk of de meting binnen de PE-vernauwde specs ligt (MSA p. 23).	d11-product
+ev_y	Y	Gebeurtenis: gemeten waarde buiten [LSL − PE, USL + PE]; besluit "niet conform".	Kijk of de meting buiten de PE-verruimde specs ligt; daartussen is de twijfelzone Z (MSA p. 23).	d11-product
+delta	δ	Afstand (δ &gt; 0) waarover de grenzen voor G en B verschoven zijn.	Gekozen in de opgave (bv. δ = PE); de odds P(G|X)/P(B|X) is een functie van δ.	d11-product
+c_pe	c	Aantal PE's waarmee de specificatiegrenzen verschoven zijn.	c = 1 voor PE-specs, c = 2 voor 2PE-specs.	ex-11-6
+usl	USL	Bovenste specificatiegrens (upper specification limit): de stem van de klant.	Gegeven in de opgave. Niet de UCL van een regelkaart.	d09-cp
+lsl	LSL	Onderste specificatiegrens (lower specification limit): de stem van de klant.	Gegeven in de opgave. Niet de LCL van een regelkaart.	d09-cp
+x_m	X<sub>m</sub>, meting	Gemeten waarde (measured value) van een onderdeel, met meetfout.	Afgelezen. X<sub>m</sub> ~ N(X<sub>r</sub> + b, σ<sub>GRR</sub>): referentiewaarde plus bias plus toevallige fout (MSA p. 27).	d11-gpc
+cp	C<sub>p</sub>	Procescapabiliteitsindex (process capability index).	(USL − LSL)/(6σ) met de korte-termijn-σ; zie Deel 9.	d09-cp
+cpo	C<sub>p,o</sub>	Waargenomen (observed) C<sub>p</sub>: met de gemeten spreiding, meetfout inbegrepen.	(USL − LSL)/6σ<sub>o</sub>; altijd ≤ C<sub>p,a</sub>. Met %GRR t.o.v. procesvariatie: C<sub>p,a</sub>·√(1 − %GRR²).	d11-proces
+cpa	C<sub>p,a</sub>	Werkelijke (actual) C<sub>p</sub> van het proces, zonder meetfout.	1/C²<sub>p,a</sub> = 1/C²<sub>p,o</sub> − 1/C²<sub>p,m</sub>; met %GRR t.o.v. procesvariatie: C<sub>p,o</sub>/√(1 − %GRR²).	d11-proces
+cpm	C<sub>p,m</sub>	C<sub>p</sub> van het meetsysteem: tolerantie gedeeld door 6σ<sub>m</sub>.	(USL − LSL)/6σ<sub>m</sub> = 1/%GRR als %GRR t.o.v. de tolerantie is uitgedrukt.	d11-proces
+tol	TOL	Tolerantie (tolerance): breedte van het specificatie-interval.	TOL = USL − LSL, gegeven. %GRR t.o.v. de tolerantie = 6σ<sub>m</sub>/TOL.	d11-proces
+sigma	σ	Standaardafwijking (standard deviation) van de individuele waarden van het proces of de meetreeks.	Gegeven, of geschat uit ranges: R̄/d<sub>2</sub>, want E(R) = d<sub>2</sub>σ.	d11-d2ster
+x_r	X<sub>r</sub>, referentiewaarde	Referentiewaarde (reference value): aanvaarde vervanger van de onkenbare ware waarde.	Gemeten met hogere-orde, herleidbare apparatuur, of wettelijk of afgesproken; meestal gegeven. Niet hetzelfde als de ware waarde (MSA p. 9).	d11-standaard
+b_bias	b	Bias van het meetsysteem: systematische afwijking van de meting.	Gegeven, of geschat als gemiddelde meting min referentiewaarde (X̿ − referentiewaarde).	d11-gpc
+beta_gpc	β	Kans op aanvaarding (probability of acceptance) van een onderdeel met referentiewaarde X<sub>r</sub>.	Φ((USL − (X<sub>r</sub> + b))/σ<sub>GRR</sub>) − Φ((LSL − (X<sub>r</sub> + b))/σ<sub>GRR</sub>); Excel NORM.S.DIST(…;TRUE). Niet de β-fout van een toets.	d11-gpc
+u1	u<sub>1</sub>	Standaardonzekerheid door de kalibratie van het meetlint (type B).	Certificaat: 0,1 % van de aflezing bij dekkingsfactor 2, dus 1834 × 0,1 %/2 = 0,917 mm (deel door 2).	d11-onzekerheid
+u2	u<sub>2</sub>	Standaardonzekerheid door de resolutie van het meetlint (type B).	Aflezen tot op 1 mm: fout hoogstens 0,5 mm, uniform: 0,5/√3 = 0,289 mm.	d11-onzekerheid
+u3	u<sub>3</sub>	Standaardonzekerheid doordat het lint niet haaks ligt (type B).	Uniform met halve breedte 0,917 mm: 0,917/√3 = 0,529 mm.	d11-onzekerheid
+u4	u<sub>4</sub>	Standaardonzekerheid door de herhaalbaarheid, voor het gemiddelde van 3 metingen (type A).	(R/d<sub>2</sub>)/√3 = (2/1,693)/√3 = 0,682 mm; vergeet de /√3 niet.	d11-onzekerheid
+a_half	a	Halve breedte (half-width) van een uniform verdeelde fout.	Uit de opgave, bv. een halve afleeseenheid (0,5 mm). Standaardafwijking a/√3, niet a.	d11-onzekerheid
+r_range	R	Range (spreidingsbreedte) van één subgroep: grootste min kleinste waarde.	max − min. E(R) = d<sub>2</sub>σ, dus σ ≈ R/d<sub>2</sub> met d<sub>2</sub> voor de subgroepgrootte.	d11-d2ster
+d2	d<sub>2</sub>	Constante: verwachte range van n normale waarden, in eenheden σ.	Table 18 (rij n) of laatste rij (g → ∞) van de tabel MSA (kolom m); bv. 1,128 voor n = 2, 1,693 voor n = 3.	d11-d2ster
+mu_unit	MU	Meeteenheid (measurement unit): kleinste stap waarin de metingen gerapporteerd worden.	De afrondingseenheid, bv. 0,01 inch (afgeronde Rheostat-data) of 0,0005 inch (GRR-studie).	d11-rheostat
+rbar	R̄	Gemiddelde range (average range) over de subgroepen.	Som van de ranges / aantal subgroepen. σ ≈ R̄/d<sub>2</sub>; E(R̄²) = d<sub>2</sub>*²σ².	d11-d2ster
+ucl_r	UCL, UCL<sub>R</sub>	Bovenste regelgrens (upper control limit) van de R-kaart.	D<sub>4</sub>·R̄ (Table 18); in het grensgeval σ = MU: D<sub>4</sub>·d<sub>2</sub>·MU.	d11-rheostat
+lcl_r	LCL	Onderste regelgrens (lower control limit) van de R-kaart.	D<sub>3</sub>·R̄ (Table 18); D<sub>3</sub> = 0 voor n ≤ 6, dus dan LCL = 0.	d11-rheostat
+d3_r	D<sub>3</sub>	Constante voor de onderste grens van de R-kaart.	Table 18, rij n (subgroepgrootte); 0 voor n ≤ 6.	d11-rheostat
+d4_r	D<sub>4</sub>	Constante voor de bovenste grens van de R-kaart.	Table 18, rij n: 3,267 voor n = 2, 2,115 voor n = 5 (het Rheostat-werkboek gebruikt 2,114).	d11-rheostat
+a2	A<sub>2</sub>	Constante voor de grenzen van de X̄-kaart: X̿ ± A<sub>2</sub>R̄.	Table 18, rij n: 0,577 voor n = 5.	d10-formules
+xbarbar	X̿	Totaal gemiddelde (grand mean): gemiddelde van alle metingen of subgroepgemiddelden.	Som van alle metingen / aantal. Centrale lijn van de X̄-kaart; bias = X̿ − referentiewaarde.	d11-stabiliteit
+ucl_x	UCL<sub>X̄</sub>	Bovenste regelgrens van de X̄-kaart.	X̿ + A<sub>2</sub>R̄ (Table 18).	d10-formules
+lcl_x	LCL<sub>X̄</sub>	Onderste regelgrens van de X̄-kaart.	X̿ − A<sub>2</sub>R̄ (Table 18).	d10-formules
+bias	bias	Systematische fout (bias): gemiddelde meting min referentiewaarde.	bias = X̿ − referentiewaarde (MSA p. 31); positief: het toestel meet te hoog. E(bias) is de ware bias.	d11-bias
+sigma_r	σ<sub>r</sub>, herhaalbaarheid	Herhaalbaarheid (repeatability) als standaardafwijking van één meting.	R̄/d<sub>2</sub> met d<sub>2</sub> voor de subgroepgrootte (laatste rij tabel MSA of Table 18); niet R̄ zelf.	d11-biastoets
+t_stat	t	Toetsgrootheid (test statistic) van een t-toets.	Bias: (bias − E(bias))/σ<sub>r</sub>·√(gm)·d<sub>2</sub>*/d<sub>2</sub>; regressie: coëfficiënt / standaardfout. Vergelijk met t<sub>1−α/2,ν</sub>.	d11-biastoets
+t_crit	t<sub>1−α/2,ν</sub>	Kritieke t-waarde (critical value), tweezijdig, met ν vrijheidsgraden.	T.INV(1 − α/2; ν) of T.INV.2T(α; ν). Bij de bias-toets komt ν uit de tabel MSA, niet gm − 1.	d11-biastoets
+g_sub	g	Aantal subgroepen (number of subgroups); in de lineariteitsstudie het aantal onderdelen.	Tellen. Rij van de tabel MSA (g = 1 tot 20); g → ∞ is de laatste rij (d<sub>2</sub>). Voor K<sub>2</sub> en K<sub>3</sub>: g = 1.	d11-d2ster
+d2star	d<sub>2</sub>*	Conversiefactor (Patnaik): als d<sub>2</sub>, maar voor de gemiddelde range van g subgroepen.	Tabel MSA, rij g, kolom m: het onderste getal in de cel. Altijd ≥ d<sub>2</sub>; d<sub>2</sub>* → d<sub>2</sub> als g → ∞.	d11-d2ster
+nu	ν	Vrijheidsgraden (degrees of freedom) van Patnaiks benadering; meestal geen geheel getal.	Tabel MSA, rij g, kolom m: het bovenste getal in de cel (bv. 9,3 voor g = 5, m = 3).	d11-d2ster
+alpha	α	Significantieniveau (significance level): kans op een type I-fout.	Gegeven in de vraag; de cursus geeft geen standaardwaarde, meestal 5 % (beslissing 5).	d05-fouten
+chi2	χ²	Chi-kwadraatverdeling (chi-square distribution) met ν vrijheidsgraden.	Gemiddelde ν, variantie 2ν (GRR theory p. 1); hier alleen gebruikt in Patnaiks resultaat.	d11-biastoets
+z_stat	Z	Standaardnormale grootheid (standard normal variable), verdeeld als N(0, 1).	(schatter − verwachting)/standaardafwijking; hier (bias − E(bias))/(σ/√(gm)).	d11-biastoets
+w_chi	W	Hulpgrootheid νR̄²/(d<sub>2</sub>*²σ²), χ²(ν)-verdeeld volgens Patnaik.	Niet uitrekenen: alleen gebruikt in het bewijs dat t een t-verdeling volgt (t = Z/√(W/ν)).	ex-11-17
+slope	helling	Helling (slope) van de regressie van de bias op de referentiewaarde.	Excel SLOPE of LINEST; toets H<sub>0</sub>: helling = 0 (lineariteit). Niet significant is niet bewezen lineair: plot altijd de biases (lack of fit).	d11-lineariteit
+intercept	intercept	Intercept van de regressie van de bias op de referentiewaarde: de bias bij referentiewaarde 0.	Excel INTERCEPT of LINEST; toets H<sub>0</sub>: intercept = 0 (constante bias). Ligt vaak buiten het meetbereik.	d11-lineariteit
+x_reg	x	Verklarende variabele (explanatory variable) van de regressie: hier de referentiewaarde.	Uit de opgave; elke meting levert een punt (in 11.19: 60 punten).	d11-lineariteit
+y_reg	y	Responsvariabele (response) van de regressie: hier de bias van één meting.	y = meting − referentiewaarde, per meting (niet per onderdeel gemiddeld).	d11-lineariteit
+p_value	p	p-waarde (p-value): kans op een minstens zo extreem resultaat als H<sub>0</sub> waar is.	Uit de Excel-output (P-value); verwerp H<sub>0</sub> als p &lt; α.	d05-pwaarde
+r2	R²	Determinatiecoëfficiënt (coefficient of determination): aandeel verklaarde variatie.	Uit de regressie-output (Deel 7). Een lage R² met een vlakke helling kan op een gebogen patroon wijzen.	d07-anova
+f_stat	F	F-toetsgrootheid (F statistic): verhouding van twee mean squares.	MS van de factor / MS<sub>e</sub>; vergelijk met F crit uit de Excel-output of gebruik de p-waarde.	d08-ftoets
+d3	d<sub>3</sub>	Constante: standaardafwijking van de range van n normale waarden, in eenheden σ.	Table A (bv. 0,8641 voor n = 5); σ(R) = d<sub>3</sub>σ.	d11-d2ster
+x_ijl	X<sub>ijl</sub>	Meting door operator i op onderdeel j bij herhaling l.	De ruwe data van de GRR-studie (k × n × r metingen).	d11-avgrange
+x_part	X<sub>.j.</sub>	Ware (referentie)waarde van onderdeel j in het GRR-model.	Onbekend; het onderdeelgemiddelde X̄<sub>j</sub> schat ze.	d11-avgrange
+x_op	X<sub>i..</sub>	Operatorbias van operator i in het GRR-model.	Onbekend; de verschillen tussen de operatorgemiddelden X̄<sub>i</sub> tonen ze. Hun spreiding is AV.	d11-avgrange
+x_err	X<sub>..l</sub>	Toevallige meetfout bij herhaling l, normaal met standaardafwijking σ (de herhaalbaarheid).	Niet apart te meten; σ schat je met R̿/d<sub>2</sub> = EV.	d11-avgrange
+xbar_i	X̄<sub>i</sub>	Gemiddelde van operator i over alle onderdelen en herhalingen (nr metingen).	Gemiddelde van zijn n·r metingen; de range van de X̄<sub>i</sub> is X̄<sub>DIFF</sub>.	d11-avgrange
+xbar_j	X̄<sub>j</sub>	Gemiddelde van onderdeel j over alle operatoren en herhalingen (kr metingen).	Gemiddelde van k·r metingen; de range van de X̄<sub>j</sub> is R<sub>p</sub>.	d11-avgrange
+xbar_p	X̄<sub>p</sub>	Gemiddelde ware waarde van de gekozen onderdelen: een vast getal.	Niet apart nodig; valt weg in het verschil tussen operatoren.	d11-avgrange
+xbar_r	X̄<sub>r</sub>	Gemiddelde meetfout over de metingen van één operator (of van één onderdeel).	Normaal met standaardafwijking σ/√(nr) per operator, of σ/√(kr) per onderdeel.	d11-avgrange
+xbar_a	X̄<sub>a</sub>	Gemiddelde operatorbias over de operatoren: een vast getal.	Niet apart nodig; valt weg in het verschil tussen onderdelen.	d11-avgrange
+rbarbar	R̿	Gemiddelde van alle ranges R<sub>ij</sub> (over onderdelen en operatoren), elk over r herhalingen.	Som van de k·n ranges / (k·n). EV = R̿/d<sub>2</sub> = R̿·K<sub>1</sub>.	d11-avgrange
+r_ij	R<sub>ij</sub>	Range van de r herhalingen van operator i op onderdeel j.	Grootste − kleinste van die r metingen (bij r = 2: het absolute verschil).	d11-avgrange
+xdiff	X̄<sub>DIFF</sub>	Range van de operatorgemiddelden: grootste − kleinste X̄<sub>i</sub>.	max X̄<sub>i</sub> − min X̄<sub>i</sub>; daarna AV via K<sub>2</sub>, en trek EV²/(nr) af.	d11-avgrange
+r_p	R<sub>p</sub>	Range van de onderdeelgemiddelden: grootste − kleinste X̄<sub>j</sub>.	max X̄<sub>j</sub> − min X̄<sub>j</sub>; PV ≈ R<sub>p</sub>·K<sub>3</sub>.	d11-avgrange
+k1	K<sub>1</sub>	Factor voor EV: 1/d<sub>2</sub>.	d<sub>2</sub> voor subgroepgrootte r (aantal herhalingen); r = 2: 1/1,12838.	d11-avgrange
+k2	K<sub>2</sub>	Factor voor AV: 1/d<sub>2</sub>*.	d<sub>2</sub>* voor 1 subgroep (g = 1) van grootte k (operatoren); k = 3: 1/1,91155.	d11-avgrange
+k3	K<sub>3</sub>	Factor voor PV: 1/d<sub>2</sub>*.	d<sub>2</sub>* voor 1 subgroep (g = 1) van grootte n (onderdelen); n = 5: 1/2,48124.	d11-avgrange
+k_ops	k	Aantal operatoren (appraisers) in de GRR-studie.	Tellen (3 in de oefening van slide 38). Bepaalt K<sub>2</sub>. Niet de dekkingsfactor k.	d11-avgrange
+n_parts	n	Aantal onderdelen (parts) in de GRR-studie.	Tellen (5 in de oefening van slide 38). Bepaalt K<sub>3</sub>. Niet de subgroepgrootte (dat is r).	d11-avgrange
+r_trials	r	Aantal herhalingen (trials) per operator en onderdeel.	Tellen (2 in de oefening van slide 38). Subgroepgrootte voor d<sub>2</sub> en K<sub>1</sub>.	d11-avgrange
+ss_a	SS<sub>a</sub>	Kwadratensom (sum of squares) van de factor operator.	n·r·Σ(X̄<sub>i</sub> − X̿)²; in Excels "Anova: Two-Factor With Replication" de rij Columns.	d11-anova
+ss_p	SS<sub>p</sub>	Kwadratensom van de factor onderdeel (part).	k·r·Σ(X̄<sub>j</sub> − X̿)²; in de Excel-output de rij Sample.	d11-anova
+ss_e	SS<sub>e</sub>	Kwadratensom van de fout (error) in het model zonder interactie.	SS<sub>T</sub> − SS<sub>a</sub> − SS<sub>p</sub> = within-SS + interactie-SS.	d11-anova
+ss_t	SS<sub>T</sub>	Totale kwadratensom: Σ(X<sub>ijl</sub> − X̿)² over alle metingen.	Over alle nkr metingen; df = nkr − 1.	d11-anova
+ss_w	within-SS	Kwadratensom binnen de cellen (within), in het model met interactie.	Σ(meting − celgemiddelde)²; df = nk(r − 1).	d11-anova
+df_a	df<sub>a</sub>	Vrijheidsgraden van de factor operator.	k − 1.	d11-anova
+df_p	df<sub>p</sub>	Vrijheidsgraden van de factor onderdeel.	n − 1.	d11-anova
+df_e	df<sub>e</sub>	Vrijheidsgraden van de fout in het model zonder interactie.	nk(r − 1) + (k − 1)(n − 1); 23 in de GRR-studie (Excels within alleen: nk(r − 1) = 15).	d11-anova
+df_t	df<sub>T</sub>	Totaal aantal vrijheidsgraden.	nkr − 1.	d11-anova
+ms_a	MS<sub>a</sub>	Mean square van de factor operator.	SS<sub>a</sub>/df<sub>a</sub>; verwachting nr·AV² + EV².	d11-anova
+ms_p	MS<sub>p</sub>	Mean square van de factor onderdeel.	SS<sub>p</sub>/df<sub>p</sub>; verwachting kr·PV² + EV².	d11-anova
+ms_e	MS<sub>e</sub>	Mean square van de fout: schat de herhaalbaarheid EV².	SS<sub>e</sub>/df<sub>e</sub>; EV = √MS<sub>e</sub>.	d11-anova
+xhat_ij	X̂<sub>ij</sub>	Voorspelde meting voor operator i en onderdeel j in het additieve model.	X̿ + (X̄<sub>i</sub> − X̿) + (X̄<sub>j</sub> − X̿).	d11-anova
+xbar_ij	celgemiddelde	Celgemiddelde: gemiddelde van de r herhalingen van operator i op onderdeel j.	Gemiddelde van die r metingen.	d11-anova
