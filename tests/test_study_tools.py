@@ -437,13 +437,13 @@ def table_constant(symbol: str, n: int) -> float:
 
 
 def test_capability_rows_use_the_decision_4_constants() -> None:
-    # arrange -- example exam Q3 numbers plus R̄, s̄, MR̄ and an overall s
+    # arrange -- example exam Q3 numbers plus R̄, s̄ and an overall s (MR̄/1.128 is book-only, Deel 14)
     lsl, usl, mean, n = 1400.0, 1460.0, 1440.0, 5
     spreads = {"given": 10.0, "rbar_d2": 23.0 / table_constant("d2", n), "sbar": 9.4, "sbar_c4": 9.4 / table_constant("c4", n),
-               "mrbar": 11.0 / table_constant("d2", 2), "overall": 11.5}
+               "overall": 11.5}
     # act
     rows = run_js([("Calc.capability", [{"lsl": lsl, "usl": usl, "mean": mean, "sigma": 10.0, "rbar": 23.0, "sbar": 9.4, "n": n,
-                                         "mrbar": 11.0, "overall": 11.5}, "@K"])])[0]
+                                         "overall": 11.5}, "@K"])])[0]
     # assert
     assert [r["key"] for r in rows] == list(spreads)
     for row in rows:
@@ -816,6 +816,16 @@ def test_run_rules_on_the_spc_p72_chart() -> None:
     # assert
     assert hits["1"] == [] and hits["2"] == [5, 6, 24, 25] and hits["3"] == [5, 6, 7, 24, 25] and hits["4"] == []
     assert hits["5"] == [9, 23, 24]
+
+
+def test_run_rules_literal_reading_counts_both_sides() -> None:
+    # arrange -- SPC p. 68 rules 2 and 3 do not say "same side"; one point beyond +2σ and the next beyond -2σ
+    z = [0.0, 2.5, -2.5, 0.0, 1.5, -1.5, 1.5, -1.5, 0.0]
+    # act
+    hits = run_js([("Calc.runRules", [z, 0, 1])])[0]["hits"]
+    # assert -- same-side reading sees nothing, the literal reading flags both windows
+    assert hits["2"] == [] and hits["2b"] == [3, 4]
+    assert hits["3"] == [] and hits["3b"] == [6, 7, 8, 9]
 
 
 def test_observed_cp_msa_p26() -> None:

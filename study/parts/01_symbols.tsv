@@ -1,3 +1,3 @@
 key	symbool	betekenis	hoe	anchor
-y_out	Y	Uitkomst (output) van het proces: wat je wil verbeteren.	Volgt uit Define: het doel en de CTQ-meting (01.6, 01.8). Y verbeter je via de kritische X'en, niet rechtstreeks (VV p. 73).	d01-dmaic
-x_in	x<sub>1</sub> … x<sub>n</sub>	Mogelijke oorzaken of inputs (de X'en) die de uitkomst Y beïnvloeden.	Verzameld in Define (meer dan 100), teruggebracht in Measure en Analyze tot de kritische enkele (Control: hoogstens 3), VV p. 73. De index is een volgnummer, geen waarde.	d01-dmaic
+y_out	Y	Uitkomst (output) van het proces: wat je wil verbeteren.	Volgt uit Define: het doel en de CTQ-meting (01.6, 01.8). Y verbeter je via de kritische X'en, niet rechtstreeks (LSS p. 73).	d01-dmaic
+x_in	x<sub>1</sub> … x<sub>n</sub>	Mogelijke oorzaken of inputs (de X'en) die de uitkomst Y beïnvloeden.	Verzameld in Define (meer dan 100), teruggebracht in Measure en Analyze tot de kritische enkele (Control: hoogstens 3), LSS p. 73. De index is een volgnummer, geen waarde.	d01-dmaic

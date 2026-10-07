@@ -58,7 +58,7 @@
   document.querySelectorAll('div.exercise').forEach(function (el) { makeFoldable(el, 'h4'); });
   document.addEventListener('click', function (e) {
     var h = e.target.closest && e.target.closest('.fold-head');
-    if (!h || e.target.closest('a, button, input, select, textarea, var')) return;
+    if (!h || e.target.closest('a, button, input, select, textarea, var, [data-s]')) return;
     setFolded(h.parentElement, !h.parentElement.classList.contains('folded'));
   });
   document.addEventListener('keydown', function (e) {
@@ -94,7 +94,22 @@
   window.addEventListener('hashchange', function () { reveal(decodeURIComponent(location.hash.slice(1))); });
   if (location.hash) reveal(decodeURIComponent(location.hash.slice(1)));
 
-  /* ---------- clickable variables: <var data-s="NN:key"> opens a short explanation (NN_symbols.tsv) ---------- */
+  /* ---------- figures: click to see a figure full size; click again or Esc to close ---------- */
+  document.addEventListener('click', function (e) {
+    var img = e.target.closest && e.target.closest('figure.fig img');
+    var open = document.getElementById('figzoom');
+    if (open) { open.remove(); return; }
+    if (!img) return;
+    var box = document.createElement('div');
+    box.id = 'figzoom';
+    var big = document.createElement('img');
+    big.src = img.src; big.alt = img.alt;
+    box.appendChild(big);
+    document.body.appendChild(box);
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { var z = document.getElementById('figzoom'); if (z) z.remove(); } });
+
+  /* ---------- clickable variables: <var data-s="NN:key"> (text) or <mrow data-s="NN:key"> (formula) opens a short explanation (NN_symbols.tsv) ---------- */
   var symbols = {};
   try { symbols = JSON.parse(document.getElementById('symbols-data').textContent); } catch (e) { symbols = {}; }
   var pop = document.createElement('div');
@@ -105,7 +120,7 @@
   var current = null;
   function hidePop() { pop.hidden = true; if (current) current.classList.remove('on'); current = null; }
   function showPop(v) {
-    var d = symbols[v.dataset.s];
+    var d = symbols[v.getAttribute('data-s')];
     if (!d) return;
     if (current) current.classList.remove('on');
     current = v; v.classList.add('on');
@@ -118,16 +133,16 @@
     pop.style.left = Math.max(12, Math.min(window.scrollX + r.left, window.scrollX + window.innerWidth - w - 12)) + 'px';
     pop.style.top = (window.scrollY + r.bottom + 6) + 'px';
   }
-  document.querySelectorAll('var[data-s]').forEach(function (v) { v.tabIndex = 0; });
+  document.querySelectorAll('var[data-s]').forEach(function (v) { v.tabIndex = 0; });  // formula variables carry tabindex already
   document.addEventListener('click', function (e) {
-    var v = e.target.closest && e.target.closest('var[data-s]');
+    var v = e.target.closest && e.target.closest('[data-s]');
     if (v) { e.preventDefault(); if (current === v) hidePop(); else showPop(v); return; }
     if (e.target.closest && e.target.closest('#sympop a.more')) { hidePop(); return; }
     if (!(e.target.closest && e.target.closest('#sympop')) || e.target.classList.contains('x')) hidePop();
   });
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') hidePop();
-    if (e.key === 'Enter' && document.activeElement && document.activeElement.matches('var[data-s]')) showPop(document.activeElement);
+    if (e.key === 'Enter' && document.activeElement && document.activeElement.matches('[data-s]')) showPop(document.activeElement);
   });
 
   /* ---------- search ---------- */

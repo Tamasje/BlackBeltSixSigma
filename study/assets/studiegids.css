@@ -108,6 +108,11 @@ nav#toc a.l2.tools { color: #5a3a86; font-style: italic; }
 /* clickable variables in formulas and their explanation pop-up */
 var[data-s] { font-style: inherit; cursor: help; border-bottom: 1px dotted #7a52a8; border-radius: 2px; }
 var[data-s]:hover, var[data-s]:focus, var[data-s].on { background: #efe6fa; outline: none; }
+/* formulas: MathML from the LaTeX in the parts, drawn with the system's math font */
+math { font-family: "STIX Two Math", "Cambria Math", "Latin Modern Math", math; font-size: 1.08em; }
+math[display="block"] { display: inline math; margin: 4px 0; }  /* block math is always centred; inline keeps it left, still in display style */
+mrow[data-s] { cursor: help; border-bottom: 1px dotted #7a52a8; }
+mrow[data-s]:hover, mrow[data-s]:focus, mrow[data-s].on { background: #efe6fa; outline: none; }
 #sympop { position: absolute; z-index: 30; background: #fff; border: 1px solid #c9b6e0; border-left: 5px solid #7a52a8;
           border-radius: 6px; box-shadow: 0 6px 20px rgba(0, 0, 0, .18); padding: 8px 14px 10px;
           font: 13.5px/1.45 Arial, Helvetica, sans-serif; color: var(--ink); }
@@ -124,7 +129,7 @@ var[data-s]:hover, var[data-s]:focus, var[data-s].on { background: #efe6fa; outl
 .gen { font: 11.5px Arial, Helvetica, sans-serif; color: #6b4a00; background: #fff4d6; padding: 0 4px; border-radius: 3px;
        white-space: nowrap; }
 #valkuilen h4 { margin-top: 14px; }
-@media print { #sympop { display: none; } var[data-s] { border-bottom: 0; } }
+@media print { #sympop { display: none; } var[data-s], mrow[data-s] { border-bottom: 0; } }
 .fld.row { flex-direction: row; flex-wrap: wrap; gap: 6px 14px; align-items: flex-end; }
 /* collapsible parts, units and exercises */
 .fold-head { cursor: pointer; position: relative; }
@@ -153,3 +158,12 @@ nav#toc details.toc-part > summary::-webkit-details-marker { display: none; }
 nav#toc details.toc-part > summary::before { content: "▸"; flex: 0 0 auto; width: 1em; cursor: pointer; }
 nav#toc details.toc-part[open] > summary::before { content: "▾"; }
 nav#toc details.toc-part > summary a.l1 { margin-top: 0; }
+/* figures from the course (embedded); click to enlarge */
+figure.fig { margin: 14px 0; text-align: center; }
+figure.fig img { max-width: 100%; height: auto; border: 1px solid var(--rule); border-radius: 4px; background: #fff;
+                 cursor: zoom-in; }
+figure.fig figcaption { font: 13px/1.45 Arial, Helvetica, sans-serif; color: var(--muted); margin-top: 4px; text-align: left; }
+#figzoom { position: fixed; inset: 0; z-index: 40; background: rgba(20, 24, 30, .86); display: flex; align-items: center;
+           justify-content: center; cursor: zoom-out; padding: 20px; }
+#figzoom img { max-width: 96vw; max-height: 92vh; background: #fff; border-radius: 4px; }
+@media print { figure.fig img { cursor: default; } #figzoom { display: none; } }

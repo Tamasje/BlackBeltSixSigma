@@ -17,6 +17,7 @@ Run from the project root:  python3 study/build_study.py
 """
 from __future__ import annotations
 
+import base64
 import csv
 import html
 import json
@@ -30,6 +31,7 @@ from urllib.parse import quote, unquote
 
 STUDY = Path(__file__).resolve().parent
 PARTS = STUDY / "parts"
+FIGURES = STUDY / "figures"
 OUTPUT = STUDY / "studiegids.html"
 FRAGMENT = re.compile(r"^(\d\d)_(?!numbers).+\.html$")
 sys.path.insert(0, str(STUDY.parent / "src"))
@@ -72,10 +74,10 @@ DOCS = {  # short name -> PDF under source/course/
     "TH": "Les 2/20260529_ottoy_Testing of Hypotheses.pdf",
     "AS": "Les 2/20260529_ottoy_Acceptance Sampling.pdf",
     "AS FR": "Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
-    "Naert L1": "Les 1/20260522_naert_big data.pdf",
-    "Naert L2": "Les 2/20260529_naert.pdf",
+    "Data": "Les 1/20260522_naert_big data.pdf",
+    "ML": "Les 2/20260529_naert.pdf",
     "CI": "Les 2/20260529_ottoy_Confidence Intervals.pdf",
-    "VV": "Les 1/20260521_van volsem.pdf",
+    "LSS": "Les 1/20260521_van volsem.pdf",
     "REG": "Les 3/20260605_de vuyst_BB_Regression.pdf",
     "DOE": "Les 3/20260605_de vuyst_BB_DOE.pdf",
     "MSA": "Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf",
@@ -97,14 +99,14 @@ TOOLS: dict[str, Tool] = {
     "normaal": Tool("Rekenmachine normale verdeling: µ, σ, x, z en kansen uit elkaar",
                     "normale verdeling; normal distribution; z-waarde; z-score; kans; probability; NORM.DIST; NORM.INV; "
                     "standaardnormaal; standard normal; staartkans; tail; rekenmachine; calculator",
-                    (("SPC", 16, "SPC p. 16–19, 27"), ("Excel", 1, "Excel-functies p. 1–3")), "Normal"),
+                    (("SPC", 16, "SPC p. 16–19, 27"), ("Excel", 1, "Excel-functies p. 1–3")), "Normaal"),
     "ztabel": Tool("Z-tabel van de cursus (met zoekfunctie)",
                    "Z-tabel; Z table; standaardnormale tabel; standard normal table; kans links van z",
                    (("Ztable", 1, "Ztable.pdf p. 1–2"),)),
-    "sigma": Tool("Rekenmachine sigmaniveau, DPMO en yield",
-                  "sigmaniveau; sigma level; DPMO; DPU; DPO; yield; RTY; rolled throughput yield; FTY; first-time yield; "
-                  "verborgen fabriek; hidden factory; 1,5 sigma shift; verschuiving",
-                  (("SPC", 20, "SPC p. 20–21, 37–40"), ("Dummies", 147, "Dummies p. 147–161"), ("H&S", 3, "Harry & Schroeder p. 3–5")),
+    "sigma": Tool("Rekenmachine sigmaniveau, DPO en DPMO",
+                  "sigmaniveau; sigma level; DPMO; DPO; defecten per kans; defects per opportunity; yield; "
+                  "1,5 sigma shift; verschuiving",
+                  (("SPC", 20, "SPC p. 20–21, 37–40"),),
                   "Sigma & DPMO"),
     "sigmatabellen": Tool("Sigmatabellen zoals gedrukt in de cursus",
                           "sigmatabel; sigma table; sigma scale; DPMO-tabel; sigma level table; Z DPMO",
@@ -113,70 +115,70 @@ TOOLS: dict[str, Tool] = {
                        "kritieke waarde; critical value; kwantiel; quantile; p-waarde; p-value; t-verdeling; t distribution; "
                        "chi-kwadraat; chi-square; F-verdeling; F distribution; T.INV; CHISQ.INV; F.INV",
                        (("TR", 4, "Test Recipes p. 4–14"),)),
-    "dummiestabellen": Tool("t-, χ²- en F-tabellen van Six Sigma For Dummies",
+    "dummiestabellen": Tool("Extra (niet te kennen): t-, χ²- en F-tabellen van Six Sigma For Dummies",
                             "t-tabel; t table; chi-kwadraattabel; chi-square table; F-tabel; F table; Dummies",
                             (("Dummies", 192, "Dummies p. 192–196"),)),
     "gemiddelde": Tool("Rekenmachine één gemiddelde: BI en z- of t-toets",
                        "betrouwbaarheidsinterval gemiddelde; confidence interval mean; t-toets; t-test; z-toets; z-test; "
                        "eenzijdig; one-sided; tweezijdig; two-sided",
                        (("CI FR", 5, "CI Further Reading p. 5–8"), ("TR", 4, "Test Recipes p. 4"), ("TH FR", 10, "TH Further Reading p. 10–14")),
-                       "Mean & proportion"),
+                       "Gemiddelde & proportie"),
     "tweegemiddelden": Tool("Rekenmachine twee gemiddelden: ongepaard (gepoold) en gepaard",
                             "twee gemiddelden; two means; gepaard; paired; ongepaard; unpaired; gepoolde variantie; pooled "
                             "variance; verschil; difference",
-                            (("CI FR", 15, "CI Further Reading p. 15–19"), ("TR", 5, "Test Recipes p. 5–10")), "Mean & proportion"),
+                            (("CI FR", 15, "CI Further Reading p. 15–19"), ("TR", 5, "Test Recipes p. 5–10")), "Gemiddelde & proportie"),
     "proportie": Tool("Rekenmachine proporties: BI (benaderd en exact) en Z-toets",
                       "proportie; proportion; fractie; fraction; Clopper-Pearson; exact; binomiaal; Z-toets; z-test; "
                       "twee proporties; two proportions",
-                      (("CI FR", 20, "CI Further Reading p. 20"), ("Dummies", 197, "Dummies p. 197")), "Mean & proportion"),
+                      (("CI FR", 20, "CI Further Reading p. 20"),), "Gemiddelde & proportie"),
     "variantie": Tool("Rekenmachine varianties: χ² (één σ) en F (twee σ's)",
                       "variantie; variance; standaardafwijking; standard deviation; chi-kwadraattoets; chi-square test; "
                       "F-toets; F-test; verhouding van varianties; variance ratio; nauwkeuriger; more precise",
-                      (("CI FR", 21, "CI Further Reading p. 21"), ("TR", 11, "Test Recipes p. 11–14")), "Variance CI & tests"),
+                      (("CI FR", 21, "CI Further Reading p. 21"), ("TR", 11, "Test Recipes p. 11–14")), "Varianties BI & toetsen"),
     "verdelingen": Tool("Rekenmachine kansverdelingen: Bernoulli, binomiaal, hypergeometrisch, Poisson, exponentieel, uniform",
                         "kansverdeling; probability distribution; binomiaal; binomial; hypergeometrisch; hypergeometric; "
                         "Poisson; exponentieel; exponential; uniform; Bernoulli; verwachtingswaarde; expected value",
-                        (("AS", 12, "AS p. 12, 16, 20"), ("Naert L1", 5, "Naert Les 1 p. 5–10")), "Distributions"),
+                        (("AS", 12, "AS p. 12, 16, 20"), ("Data", 5, "Data p. 5–10")), "Verdelingen"),
     "kruistabel": Tool("Rekenmachine kruistabel: gezamenlijke, marginale en voorwaardelijke kansen",
                        "kruistabel; contingency table; gezamenlijke kans; joint probability; marginale kans; marginal "
                        "probability; voorwaardelijke kans; conditional probability; onafhankelijk; independent",
-                       (("Naert L1", 22, "Naert Les 1 p. 22–23"),)),
+                       (("Data", 22, "Data p. 22–23"),)),
     "steekproefplan": Tool("Rekenmachine aanvaardingssteekproef: OC, α, β, AOQ, AOQL, ATI, AQL/LQL van een plan, plan voor variabelen",
                            "aanvaardingssteekproef; acceptance sampling; OC-curve; operating characteristic; AQL; LQL; LTPD; "
                            "producentenrisico; producer's risk; consumentenrisico; consumer's risk; AOQ; AOQL; ATI",
-                           (("AS FR", 2, "AS Further Reading p. 2–10"), ("TH", 5, "TH p. 5–11")), "Acceptance sampling"),
+                           (("AS FR", 2, "AS Further Reading p. 2–10"), ("TH", 5, "TH p. 5–11")), "Aanvaardingssteekproeven"),
     "regressie": Tool("Rekenmachine enkelvoudige regressie (ook uit sommen of kwadratensommen) en partiële F-toets",
                       "regressie; regression; kleinste kwadraten; least squares; R²; helling; slope; intercept; "
                       "predictie-interval; prediction interval; betrouwbaarheidsinterval; confidence interval",
-                      (("REG", 16, "REG p. 16–38"),), "ANOVA DOE regression"),
+                      (("REG", 16, "REG p. 16–38"),), "ANOVA DOE regressie"),
     "anova": Tool("Rekenmachine eenweg-ANOVA",
                   "ANOVA; variantieanalyse; analysis of variance; one-way; eenweg; F-toets; F-test; kwadratensom; sum of squares",
-                  (("DOE", 3, "DOE p. 3–15"),), "ANOVA DOE regression"),
+                  (("DOE", 3, "DOE p. 3–15"),), "ANOVA DOE regressie"),
     "factorieel": Tool("Rekenmachine 2^k-factorieel: effecten, SS en F-toetsen",
                        "factorieel; factorial; 2^k; effect; interactie; interaction; contrast; poolen; pooling; DOE; "
                        "proefopzet; design of experiments",
-                       (("DOE", 46, "DOE p. 46–79"),), "ANOVA DOE regression"),
+                       (("DOE", 46, "DOE p. 46–79"),), "ANOVA DOE regressie"),
     "aliassen": Tool("Rekenmachine fractioneel factorieel: generatoren, aliassen, resolutie",
                      "fractioneel; fractional factorial; alias; generator; resolutie; resolution; definiërende relatie; "
                      "defining relation; halve fractie; half fraction",
                      (("DOE", 80, "DOE p. 80–92"),)),
     "capabiliteit": Tool("Rekenmachine procescapabiliteit: Cp, Cpk, Pp, Ppk, % buiten specificatie",
                          "capabiliteit; capability; Cp; Cpk; Pp; Ppk; specificatie; specification; LSL; USL; ppm; uitval",
-                         (("SPC", 33, "SPC p. 33–47"), ("tabellen SPC", 1, "tabellen SPC p. 1–2")), "Capability"),
-    "regelkaart": Tool("Rekenmachine regelkaarten: X̄-R, X̄-s, I-MR, p, u, standaardwaarden en Western Electric-regels",
+                         (("SPC", 33, "SPC p. 33–47"), ("tabellen SPC", 1, "tabellen SPC p. 1–2")), "Capabiliteit"),
+    "regelkaart": Tool("Rekenmachine regelkaarten: X̄-R, X̄-s, standaardwaarden en Western Electric-regels",
                        "regelkaart; control chart; controlegrenzen; control limits; UCL; LCL; X-bar; R-kaart; s-kaart; "
-                       "I-MR; individuals; p-kaart; p chart; u-kaart; u chart",
-                       (("SPC", 62, "SPC p. 62–74"), ("Dummies", 249, "Dummies p. 249–254")), "Control charts"),
-    "constanten": Tool("Constanten voor regelkaarten zoals gedrukt (Table 18, Table A, Six Sigma Demystified, Dummies)",
+                       "Western Electric; run rules; standaardwaarden; standard values",
+                       (("SPC", 62, "SPC p. 62–74"), ("tabellen SPC", 2, "tabellen SPC p. 2")), "Regelkaarten"),
+    "constanten": Tool("Constanten voor regelkaarten zoals gedrukt (Table 18, Table A, Six Sigma Demystified)",
                        "constanten; constants; regelkaartconstanten; control chart constants; A2; D3; D4; d2; c4; B3; B4; E2; A3; Table 18; tabel",
-                       (), "Tables"),
+                       (), "Tabellen"),
     "grr": Tool("Rekenmachine Gage R&R: gemiddelde-en-spreidingsbreedte en ANOVA",
                 "Gage R&R; GRR; meetsysteemanalyse; measurement system analysis; MSA; herhaalbaarheid; repeatability; "
                 "reproduceerbaarheid; reproducibility; EV; AV; PV; %GRR",
                 (("MSA", 34, "MSA p. 34–37"), ("tabel MSA", 1, "tabel MSA.pdf")), "Gage R&R"),
     "msatabel": Tool("Tabel d2* (distribution of the average range) zoals gedrukt",
                      "d2*; d2 ster; d2 star; tabel MSA; average range; spreidingsbreedte",
-                     (("tabel MSA", 1, "tabel MSA.pdf p. 1"),), "Tables"),
+                     (("tabel MSA", 1, "tabel MSA.pdf p. 1"),), "Tabellen"),
     "steekproefgrootte": Tool("Rekenmachine steekproefgrootte voor een betrouwbaarheidsinterval",
                               "steekproefgrootte; sample size; nauwkeurigheid; accuracy; breedte; width; hoeveel metingen; "
                               "how many; foutmarge; margin of error",
@@ -204,7 +206,7 @@ TOOLS: dict[str, Tool] = {
     "planontwerp": Tool("Rekenmachine steekproefplan (n, c) ontwerpen voor AQL en LQL",
                         "plan ontwerpen; design a plan; Peach; AQL; LQL; producentenrisico; consumentenrisico; "
                         "sampling plan; n en c",
-                        (("AS FR", 4, "AS FR p. 4, 17"),), "Acceptance sampling"),
+                        (("AS FR", 4, "AS FR p. 4, 17"),), "Aanvaardingssteekproeven"),
     "dubbelplan": Tool("Rekenmachine dubbel steekproefplan: OC en ASN",
                        "dubbel steekproefplan; double sampling plan; ASN; average sample number; tweede steekproef; "
                        "second sample",
@@ -214,7 +216,7 @@ TOOLS: dict[str, Tool] = {
                  (("AS FR", 6, "AS FR p. 6–8"),)),
     "variabelenplan": Tool("Rekenmachine plan voor variabelen met gegeven n (ξ, k, Q)",
                            "plan voor variabelen; variables sampling plan; k-factor; ondergrens; lower limit; Q-statistiek",
-                           (("AS", 26, "AS p. 26–27"), ("AS FR", 9, "AS FR p. 9")), "Acceptance sampling"),
+                           (("AS", 26, "AS p. 26–27"), ("AS FR", 9, "AS FR p. 9")), "Aanvaardingssteekproeven"),
     "skiplot": Tool("Rekenmachine skip-lot en het criterium van Deming",
                     "skip-lot; kwalificatie; qualification; Deming; break-even; geen inspectie; volledige inspectie; "
                     "100 % inspection",
@@ -223,7 +225,7 @@ TOOLS: dict[str, Tool] = {
                          "beschrijvende statistiek; descriptive statistics; gemiddelde; mean; mediaan; median; modus; "
                          "mode; standaardafwijking; standard deviation; bereik; range; correlatie; correlation; "
                          "covariantie; covariance",
-                         (("VV", 131, "VV p. 131"), ("REG", 43, "REG p. 43"))),
+                         (("LSS", 131, "LSS p. 131"), ("REG", 43, "REG p. 43"))),
     "meervoudig": Tool("Rekenmachine meervoudige lineaire regressie (ook polynomen)",
                        "meervoudige regressie; multiple regression; polynoom; polynomial; tweede orde; second order; "
                        "coëfficiënten; coefficients; R² adj; centreren; centring",
@@ -234,26 +236,38 @@ TOOLS: dict[str, Tool] = {
     "bayes": Tool("Rekenmachine regel van Bayes en Beta-posterior",
                   "Bayes; voorwaardelijke kans; conditional probability; prior; posterior; likelihood; Beta-verdeling; "
                   "Beta distribution; odds",
-                  (("Naert L1", 18, "Naert Les 1 p. 18–20"), ("Naert L2", 53, "ML p. 53"))),
+                  (("Data", 18, "Data p. 18–20"), ("ML", 53, "ML p. 53"))),
     "meetsysteem": Tool("Rekenmachines meetsysteem: waargenomen Cp, GPC, onzekerheid, bias, meeteenheid",
                         "waargenomen Cp; observed Cp; gauge performance curve; GPC; meetonzekerheid; measurement "
                         "uncertainty; uc; dekkingsfactor; coverage factor; bias-toets; bias test; meeteenheid; "
                         "discrimination; resolutie",
                         (("MSA", 24, "MSA p. 24–32"),)),
+    "sigma_extra": Tool("Extra (niet te kennen): DPU, yields, RTY en genormaliseerde yield",
+                        "DPU; defects per unit; throughput yield; first-time yield; FTY; verborgen fabriek; hidden factory; "
+                        "rolled throughput yield; RTY; normalized yield; genormaliseerde yield; Dummies; Harry",
+                        (("Dummies", 147, "Dummies p. 147–161"), ("H&S", 3, "Harry & Schroeder p. 3–5")), "Extra (boeken)"),
+    "regelkaart_extra": Tool("Extra (niet te kennen): I-MR-, p- en u-kaart",
+                             "I-MR; individuals; moving range; p-kaart; p chart; u-kaart; u chart; attributen; attributes; Dummies",
+                             (("Dummies", 249, "Dummies p. 249–256"),), "Extra (boeken)"),
+    "sigmatabellen_extra": Tool("Extra (niet te kennen): sigmatabellen van Six Sigma For Dummies",
+                                "sigma scale; sigma score table; Dummies; Table 1-2; Table 6-3",
+                                (("Dummies", 41, "Dummies p. 41, 160"),)),
+    "constanten_extra": Tool("Extra (niet te kennen): regelkaartconstanten van Six Sigma For Dummies (Table 10-2)",
+                             "constanten Dummies; Table 10-2; control chart constants Dummies",
+                             (("Dummies", 250, "Dummies p. 250"),)),
     "confusion": Tool("Rekenmachine confusion matrix (2 × 2 en k klassen): accuracy, recall, precision, F1",
                       "confusion matrix; verwarringsmatrix; accuracy; nauwkeurigheid; recall; precision; F1; overfitting; "
                       "underfitting; train; test",
-                      (("Naert L2", 19, "Naert Les 2 p. 19–32"),), "Confusion matrix"),
+                      (("ML", 19, "ML p. 19–32"),), "Confusion matrix"),
 }
 
 PART_TOOLS: dict[str, tuple[str, ...]] = {
     "01": ("sigmatabellen",),
     "02": ("beschrijvend", "verdelingen", "kruistabel", "bayes", "normaal", "ztabel"),
     "03": ("normaal", "ztabel", "sigma", "sigmatabellen"),
-    "04": ("gemiddelde", "tweegemiddelden", "proportie", "variantie", "steekproefgrootte", "tolerantie", "kwantielen",
-           "dummiestabellen"),
+    "04": ("gemiddelde", "tweegemiddelden", "proportie", "variantie", "steekproefgrootte", "tolerantie", "kwantielen"),
     "05": ("gemiddelde", "tweegemiddelden", "proportie", "variantie", "onderscheidingsvermogen", "chikwadraat",
-           "nietparametrisch", "kwantielen", "dummiestabellen"),
+           "nietparametrisch", "kwantielen"),
     "06": ("steekproefplan", "planontwerp", "dubbelplan", "sprt", "variabelenplan", "skiplot", "steekproefmethoden",
            "verdelingen", "normaal"),
     "07": ("regressie", "meervoudig", "beschrijvend", "kwantielen"),
@@ -262,6 +276,7 @@ PART_TOOLS: dict[str, tuple[str, ...]] = {
     "10": ("regelkaart", "constanten", "normaal"),
     "11": ("grr", "meetsysteem", "msatabel", "regressie", "capabiliteit", "bayes"),
     "12": ("confusion", "bayes"),
+    "14": ("sigma_extra", "regelkaart_extra", "sigmatabellen_extra", "dummiestabellen", "constanten_extra"),
     "13": ("variantie", "kwantielen", "capabiliteit", "normaal", "confusion", "verdelingen", "sigma", "regelkaart",
            "kruistabel"),
 }
@@ -315,10 +330,15 @@ def z_table() -> str:
     return "".join(parts)
 
 
-def chart_constants() -> str:
-    """Every control-chart constant table as printed, with the table each calculator uses (decision 4)."""
+def chart_constants(extra: bool = False) -> str:
+    """The control-chart constant tables as printed, with the table each calculator uses (decision 4).
+
+    extra=False: the course tables (Table 18, Table A, Six Sigma Demystified); extra=True: the Dummies table (Deel 14).
+    """
     blocks = []
     for table in load_all():
+        if (table.source.key == "DUM") != extra:
+            continue
         used = sorted(symbol for symbol, key in USED_TABLE.items() if key == table.source.key)
         head = "".join(f"<th>{html.escape(c)}</th>" for c in table.columns)
         body = "".join("<tr>" + "".join(f"<td>{html.escape(c)}</td>" for c in row) + "</tr>" for row in table.rows)
@@ -327,8 +347,11 @@ def chart_constants() -> str:
                       f'{source_link(table.source_file, table.source_page, Path(table.source_file).name + " p. " + str(table.source_page))}'
                       f'</p><p class="help">{role} Bron: {html.escape(table.source.origin)}.</p>'
                       f'<div class="scroll"><table class="out grid printed"><tr>{head}</tr>{body}</table></div>')
-    return ('<p class="help">Beslissing 4: Table 18 eerst (de oefenwerkboeken van de docent gebruiken die waarden), c4 en d3 uit '
-            'Table A, A3, E2, B5 en B6 uit Six Sigma Demystified. Kleine verschillen tussen de tabellen staan in '
+    if extra:
+        return ('<p class="help">Uit Six Sigma For Dummies (niet te kennen voor het examen); ter vergelijking met de '
+                'tabellen van de cursus.</p>' + "".join(blocks))
+    return ('<p class="help">Beslissing 4: Table 18 eerst (de oefenwerkboeken van de cursus gebruiken die waarden), c4 en '
+            'd3 uit Table A, A3, E2, B5 en B6 uit Six Sigma Demystified. Kleine verschillen tussen de tabellen staan in '
             'build/README.md.</p>' + "".join(blocks))
 
 
@@ -350,17 +373,17 @@ def templates() -> str:
     """<template> elements with the static tables; tools.js copies them into a panel when it is opened."""
     sigma = "".join(printed_table(stem) for stem in (
         "S06_voc_vs_vop_sigma_capability_defects_per_million_opportunitie",
-        "S01_sigma_level_defects_per_million_yield_tabel",
-        "S07_table_1_2_the_sigma_scale",
-        "S08_table_6_3_sigma_score_table_z_dpmo"))
-    sigma = ('<p class="help">Alle tabellen rekenen met de 1,5σ-verschuiving (beslissing 3). 2σ: de slides en Harry &amp; '
-             'Schroeder drukken 308,537 en Van Volsem 308,000; correct afgerond is 308 538.</p>' + sigma)
+        "S01_sigma_level_defects_per_million_yield_tabel"))
+    sigma = ('<p class="help">Beide tabellen rekenen met de 1,5σ-verschuiving (beslissing 3). 2σ: SPC p. 21 drukt 308,537 '
+             'en LSS p. 7 308,000; correct afgerond is 308 538.</p>' + sigma)
+    sigma_extra = ('<p class="help">Uit Six Sigma For Dummies (niet te kennen voor het examen), ook met de 1,5σ-verschuiving.</p>'
+                   + "".join(printed_table(stem) for stem in ("S07_table_1_2_the_sigma_scale", "S08_table_6_3_sigma_score_table_z_dpmo")))
     dummies = ('<p class="calc-warn">Let op: Dummies noemt "95 %" wat ±2σ is (95,45 %, 2,275 % per staart) bij de χ²-tabel, '
                'en een rechterstaart van 5 % bij de F-tabel; de kolommen staan per n, niet per vrijheidsgraden. Gebruik voor '
-               'de oefeningen van Ottoy de rekenmachine voor kritieke waarden.</p>' + "".join(printed_table(stem) for stem in (
+               'de oefeningen van de cursus de rekenmachine voor kritieke waarden.</p>' + "".join(printed_table(stem) for stem in (
                    "S08_table_8_1_t_values", "S08_table_8_2_chi_square_values", "S08_table_8_3_f_values_for_95_confidence")))
-    content = {"ztabel": z_table(), "sigmatabellen": sigma, "dummiestabellen": dummies, "constanten": chart_constants(),
-               "msatabel": msa_table()}
+    content = {"ztabel": z_table(), "sigmatabellen": sigma, "sigmatabellen_extra": sigma_extra, "dummiestabellen": dummies,
+               "constanten": chart_constants(), "constanten_extra": chart_constants(extra=True), "msatabel": msa_table()}
     return "\n".join(f'<template id="tpl-{name}">{body}</template>' for name, body in content.items())
 
 
@@ -506,8 +529,110 @@ def symbols(parts: list[Part]) -> tuple[dict[str, dict[str, str]], list[str]]:
 
 
 def qualify(text: str, number: str) -> str:
-    """Give every <var data-s="key"> of part `number` its part prefix (data-s="NN:key"); 'MM:key' stays as written."""
-    return VAR.sub(lambda m: f'<var data-s="{m.group(1) if ":" in m.group(1) else number + ":" + m.group(1)}">', text)
+    """Give every clickable variable of part `number` its part prefix: <var data-s="key"> and \\sym{key}{…} in a formula
+    become data-s="NN:key" and \\sym{NN:key}{…}; 'MM:key' stays as written."""
+    def prefix(key: str) -> str:
+        return key if ":" in key else f"{number}:{key}"
+    text = VAR.sub(lambda m: f'<var data-s="{prefix(m.group(1))}">', text)
+    return SYM.sub(lambda m: f"\\sym{{{prefix(m.group(1))}}}{{", text)
+
+
+# ---------- formulas in LaTeX: \( … \) inline, \[ … \] display; pandoc turns them into MathML at build time ----------
+# MathML is drawn by the browser itself (Chrome, Edge, Safari, Firefox), so the guide stays one offline file without
+# a JavaScript math library. \sym{key}{TeX} marks a clickable variable, like <var data-s="key"> in plain text.
+
+MATH = re.compile(r"\\\((.+?)\\\)|\\\[(.+?)\\\]", re.S)
+SYM = re.compile(r"\\sym\{([^{}]+)\}\{")
+DATA_S = re.compile(r'data-s="([^"]*)"')
+
+
+def split_symbols(tex: str) -> tuple[str, list[tuple[str, str]]]:
+    """Replace every \\sym{key}{body} by a text placeholder (one token for pandoc); return the TeX and the (key, body)
+    pairs in order. The bodies are converted on their own and put back as a clickable <mrow>."""
+    out, pairs, position = [], [], 0
+    while (match := SYM.search(tex, position)):
+        depth, end = 1, match.end()
+        while depth and end < len(tex):
+            depth += {"{": 1, "}": -1}.get(tex[end], 0)
+            end += 1
+        if depth:
+            raise ValueError(f"unbalanced braces after \\sym{{{match.group(1)}}} in: {tex}")
+        out.append(tex[position:match.start()] + f"\\text{{ZQS{len(pairs)}ZQ}}")
+        pairs.append((match.group(1), tex[match.end():end - 1]))
+        position = end
+    return "".join(out) + tex[position:], pairs
+
+
+def pandoc_mathml(items: list[tuple[str, bool]]) -> dict[tuple[str, bool], str | None]:
+    """MathML (<math> element) for every (TeX, display) pair in one pandoc run; None where pandoc cannot read the TeX."""
+    def delimit(tex: str, display: bool) -> str:
+        fence = "$$" if display else "$"
+        # a decimal comma written 1{,}96 would come out as the list "1, 96": pass the number through as one token
+        tex = re.sub(r"(\d+)\{,\}(\d+)", r"\\text{ZQD\1C\2ZQ}", " ".join(tex.split()))
+        return f"{fence}{tex}{fence}"
+    doc = "\n\n".join(f"ZQSEP{i}ZQ {delimit(tex, display)}" for i, (tex, display) in enumerate(items))
+    out = subprocess.run(["pandoc", "-f", "markdown", "-t", "html", "--mathml", "--wrap=none"],
+                         input=doc, capture_output=True, text=True, check=True).stdout
+    chunks = re.split(r"ZQSEP(\d+)ZQ", out)
+    result: dict[tuple[str, bool], str | None] = {}
+    for index, chunk in zip(chunks[1::2], chunks[2::2]):
+        match = re.search(r"<math\b.*?</math>", chunk, re.S)
+        if not match:
+            result[items[int(index)]] = None
+            continue
+        mathml = re.sub(r"</?semantics>|<annotation\b.*?</annotation>| xmlns=\"[^\"]*\"", "", match.group(0), flags=re.S)
+        mathml = re.sub(r"<mtext[^>]*>ZQD(\d+)C(\d+)ZQ</mtext>", r"<mn>\1,\2</mn>", mathml)
+        result[items[int(index)]] = mathml
+    return result
+
+
+def typeset(content: str) -> tuple[str, list[str]]:
+    """Replace every \\( … \\) and \\[ … \\] in the content by MathML; the problems list names TeX that does not convert."""
+    matches = list(MATH.finditer(content))
+    if not matches:
+        return content, []
+    problems, plans, batch = [], [], {}
+    for match in matches:
+        tex = html.unescape(match.group(1) if match.group(1) is not None else match.group(2))
+        display = match.group(2) is not None
+        try:
+            main, pairs = split_symbols(tex)
+        except ValueError as error:
+            problems.append(str(error))
+            plans.append(None)
+            continue
+        plans.append((tex, display, main, pairs))
+        batch[(main, display)] = None
+        for _, body in pairs:
+            batch[(body, False)] = None
+    mathml = pandoc_mathml(list(batch))
+
+    def build(plan: tuple[str, bool, str, list[tuple[str, str]]]) -> str:
+        tex, display, main, pairs = plan
+        out = mathml[(main, display)]
+        if out is None:
+            problems.append(f"TeX that pandoc cannot read: {main}")
+            return html.escape(tex)
+        out = out.replace('display="inline"', "") if not display else out
+        for i, (key, body) in enumerate(pairs):
+            inner = mathml[(body, False)]
+            if inner is None:
+                problems.append(f"TeX that pandoc cannot read (in \\sym{{{key}}}): {body}")
+                continue
+            inner = re.sub(r"^<math[^>]*>|</math>$", "", inner)
+            out, n = re.subn(rf"<mtext[^>]*>ZQS{i}ZQ</mtext>",
+                             lambda _: f'<mrow class="v" data-s="{key}" tabindex="0">{inner}</mrow>', out, count=1)
+            if n != 1:
+                problems.append(f"\\sym{{{key}}} lost in conversion of: {tex}")
+        return out
+
+    pieces, position = [], 0
+    for match, plan in zip(matches, plans):
+        pieces.append(content[position:match.start()])
+        pieces.append(build(plan) if plan else match.group(0))
+        position = match.end()
+    pieces.append(content[position:])
+    return "".join(pieces), problems
 
 
 def anchor_titles(page: str) -> dict[str, str]:
@@ -520,11 +645,18 @@ def anchor_titles(page: str) -> dict[str, str]:
     return titles
 
 
-def symbols_data(table: dict[str, dict[str, str]], page: str) -> dict[str, dict[str, str]]:
-    """What the page embeds for the variable pop-ups: symbol, meaning, how to get it, link and its title."""
+def symbols_data(table: dict[str, dict[str, str]], page: str) -> tuple[dict[str, dict[str, str]], list[str]]:
+    """What the page embeds for the variable pop-ups: symbol, meaning, how to get it (LaTeX typeset), link and its
+    title; and the TeX that could not be typeset."""
     titles = anchor_titles(page)
-    return {key: {"s": row["symbool"], "b": row["betekenis"], "h": row["hoe"], "a": row["anchor"],
-                  "t": titles.get(row["anchor"], row["anchor"])} for key, row in table.items()}
+    fields = [(key, field, row[column]) for key, row in table.items()
+              for field, column in (("s", "symbool"), ("b", "betekenis"), ("h", "hoe"))]
+    # one pandoc run for all pop-ups: join the fields with a character that never occurs in text or MathML
+    typeset_text, problems = typeset("\x00".join(text for _, _, text in fields))
+    data = {key: {"a": row["anchor"], "t": titles.get(row["anchor"], row["anchor"])} for key, row in table.items()}
+    for (key, field, _), text in zip(fields, typeset_text.split("\x00")):
+        data[key][field] = text
+    return data, [f"symbol pop-up: {p}" for p in problems]
 
 
 PIT = re.compile(r'<div class="box pit">(.*?)</div>', re.S)
@@ -629,11 +761,12 @@ def validate(page: str, table: dict[str, dict[str, str]]) -> list[str]:
     content = page.split("<!--APP-->")[0]
     if re.search(r'<var(?! data-s=")', content):
         problems.append(f"<var> without data-s: …{re.search(r'.{40}<var(?! data-s=).{40}', content, re.S).group(0)}…")
-    for key in sorted(set(VAR.findall(content)) - set(table)):
+    for key in sorted(set(DATA_S.findall(content)) - set(table)):
         problems.append(f"part {key.split(':')[0]}: unknown symbol key {key!r} (not in its NN_symbols.tsv)")
     for key, row in table.items():
         if row["anchor"] not in idset:
             problems.append(f"part {key.split(':')[0]}: symbol {key!r} links to missing anchor #{row['anchor']}")
+    problems += figure_problems(content)
     for box in re.findall(r'<div class="box pit">(.*?)</div>', content, re.S):
         if "<div" in box or 'id="' in box:
             problems.append(f"a pitfall box contains a <div> or an id: {box[:80]}…")
@@ -654,18 +787,49 @@ def div_blocks(text: str, opening: str) -> list[str]:
     return blocks
 
 
+FIGURE_IMG = re.compile(r'<img src="figures/([^"]+)"([^>]*)>')
+MIME = {".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".svg": "image/svg+xml"}
+
+
+def figure_problems(content: str) -> list[str]:
+    """Every image is a file in study/figures/ with a description (alt), inside a <figure class="fig"> with a caption."""
+    problems = []
+    for name, attrs in FIGURE_IMG.findall(content):
+        if not (FIGURES / name).is_file():
+            problems.append(f"missing figure file: study/figures/{name}")
+        if Path(name).suffix.lower() not in MIME:
+            problems.append(f"figure type not supported: {name}")
+        if not re.search(r'alt="[^"]{5,}"', attrs):
+            problems.append(f"figure without a description (alt): {name}")
+    if len(re.findall(r"<img\b", content)) != len(FIGURE_IMG.findall(content)):
+        problems.append("an <img> that does not load from figures/")
+    for block in re.findall(r'<figure class="fig">(.*?)</figure>', content, re.S):
+        if "<figcaption>" not in block:
+            problems.append(f"figure without caption: {block[:60]}")
+    return problems
+
+
+def inline_figures(page: str) -> str:
+    """Embed every figure as a data URI, so the guide stays one self-contained file that shows its figures anywhere."""
+    def embed(match: re.Match[str]) -> str:
+        path = FIGURES / match.group(1)
+        data = base64.b64encode(path.read_bytes()).decode("ascii")
+        return f'<img src="data:{MIME[path.suffix.lower()]};base64,{data}"{match.group(2)}>'
+    return FIGURE_IMG.sub(embed, page)
+
+
 def coverage(page: str) -> dict[str, int]:
     """Per part: formula blocks (<div class="f">) that contain no clickable variable."""
     missing: dict[str, int] = {}
     for part_id, body in re.findall(r'<section class="part" id="d(\d\d)".*?>(.*?)(?=<section class="part"|<!--APP-->)', page, re.S):
         for block in div_blocks(body, '<div class="f">'):
-            if "<var" not in block:
+            if 'data-s="' not in block:
                 missing[part_id] = missing.get(part_id, 0) + 1
     return missing
 
 
-def render(parts: list[Part], table: dict[str, dict[str, str]]) -> str:
-    """The complete page."""
+def render(parts: list[Part], table: dict[str, dict[str, str]]) -> tuple[str, list[str]]:
+    """The complete page, with its formulas typeset, and the formulas that could not be typeset."""
     gloss_html, pairs = glossary(parts)
     css = (STUDY / "assets" / "studiegids.css").read_text(encoding="utf-8")
     js = "\n".join((STUDY / "assets" / name).read_text(encoding="utf-8")
@@ -710,8 +874,13 @@ def render(parts: list[Part], table: dict[str, dict[str, str]]) -> str:
 </body>
 </html>
 """
-    data = json.dumps(symbols_data(table, page), ensure_ascii=False).replace("</", "<\\/")
-    return new_tab_links(page).replace("@SYMBOLS@", data, 1)
+    head, sep, rest = page.partition("<main>")
+    content, app, scripts = rest.partition("<!--APP-->")  # the scripts contain regular expressions such as \(
+    content, problems = typeset(content)
+    page = head + sep + content + app + scripts
+    popups, popup_problems = symbols_data(table, page)
+    data = json.dumps(popups, ensure_ascii=False).replace("</", "<\\/")
+    return new_tab_links(page).replace("@SYMBOLS@", data, 1), problems + popup_problems
 
 
 def new_tab_links(page: str) -> str:
@@ -730,8 +899,8 @@ def main() -> None:
     if not parts:
         sys.exit("no parts found in study/parts")
     table, problems = symbols(parts)
-    page = render(parts, table)
-    problems += validate(page, table)
+    page, math_problems = render(parts, table)
+    problems += math_problems + validate(page, table)
     if problems:
         print("\n".join(problems))
         sys.exit(f"{len(problems)} problem(s); {OUTPUT.name} not written")
@@ -741,7 +910,7 @@ def main() -> None:
     if "--check" in sys.argv:
         print("check only: no problems")
         return
-    OUTPUT.write_text(page, encoding="utf-8", newline="\n")
+    OUTPUT.write_text(inline_figures(page), encoding="utf-8", newline="\n")
     exercises = page.count('<div class="exercise"')
     words = len(re.sub(r"<[^>]+>", " ", page.split("<!--APP-->")[0]).split())
     print(f"{OUTPUT}: {len(parts)} parts, {exercises} exercises, {words} words, "

@@ -292,7 +292,7 @@ var Calc = (function () {
     if (all(lsl, mean)) { r.cpl = (mean - lsl) / (3 * sigma); r.zLsl = (mean - lsl) / sigma; r.below = S.normCdf(-r.zLsl); }
     if (num(r.cpu) || num(r.cpl)) {
       r.cpk = num(r.cpu) && num(r.cpl) ? Math.min(r.cpu, r.cpl) : (num(r.cpu) ? r.cpu : r.cpl);
-      r.capable = r.cpk > 1.33 ? 'ja' : 'nee';
+      r.capable = r.cpk >= 1.33 ? 'ja' : 'nee';  // SPC p. 41: Cpk = 1,33 is 'Good'
       r.out = (num(r.below) ? r.below : 0) + (num(r.above) ? r.above : 0);
       r.ppm = r.out * MILLION;
     }
@@ -306,11 +306,10 @@ var Calc = (function () {
       if (r) { r.key = key; r.label = label; r.constant = constant; rows.push(r); }
     }
     if (num(inp.sigma)) add('given', 'σ gegeven', inp.sigma, null);
-    var d2 = K.get('d2', inp.n), c4 = K.get('c4', inp.n), d2two = K.get('d2', 2);
+    var d2 = K.get('d2', inp.n), c4 = K.get('c4', inp.n);
     if (num(inp.rbar) && num(d2)) add('rbar_d2', 'R̄ / d2 (korte termijn)', inp.rbar / d2, 'd2(' + inp.n + ') = ' + d2);
     if (num(inp.sbar)) add('sbar', 's̄ rechtstreeks (zoals SPC p. 46)', inp.sbar, null);
     if (num(inp.sbar) && num(c4)) add('sbar_c4', 's̄ / c4 (zuiver)', inp.sbar / c4, 'c4(' + inp.n + ') = ' + c4);
-    if (num(inp.mrbar) && num(d2two)) add('mrbar', 'MR̄ / d2(2) (individuele waarden)', inp.mrbar / d2two, 'd2(2) = ' + d2two);
     if (num(inp.overall)) add('overall', 'totale s (lange termijn: Pp, Ppk)', inp.overall, null);
     return rows;
   }
@@ -1080,13 +1079,16 @@ var Calc = (function () {
   // the centre line breaks a run; ties break a trend or an alternation; zone C is |z| ≤ 1.
   function runRules(xs, cl, sigma) {
     if (!xs || xs.length < 1 || !all(cl, sigma) || sigma <= 0) return null;
-    var z = xs.map(function (x) { return (x - cl) / sigma; }), n = z.length, hits = { 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [] };
+    var z = xs.map(function (x) { return (x - cl) / sigma; }), n = z.length, hits = { 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], '2b': [], '3b': [] };
     function count(from, to, test) { var c = 0; for (var q = from; q <= to; q++) if (test(z[q])) c++; return c; }
     function all_(from, to, test) { for (var q = from; q <= to; q++) if (!test(z[q], q)) return false; return true; }
     for (var i = 0; i < n; i++) {
       if (Math.abs(z[i]) > 3) hits[1].push(i + 1);
       if (i >= 2 && (count(i - 2, i, function (v) { return v > 2; }) >= 2 || count(i - 2, i, function (v) { return v < -2; }) >= 2)) hits[2].push(i + 1);
       if (i >= 4 && (count(i - 4, i, function (v) { return v > 1; }) >= 4 || count(i - 4, i, function (v) { return v < -1; }) >= 4)) hits[3].push(i + 1);
+      // SPC p. 68 does not say 'same side' for rules 2 and 3: the literal reading counts points on either side
+      if (i >= 2 && count(i - 2, i, function (v) { return Math.abs(v) > 2; }) >= 2) hits['2b'].push(i + 1);
+      if (i >= 4 && count(i - 4, i, function (v) { return Math.abs(v) > 1; }) >= 4) hits['3b'].push(i + 1);
       if (i >= 7 && (all_(i - 7, i, function (v) { return v > 0; }) || all_(i - 7, i, function (v) { return v < 0; }))) hits[4].push(i + 1);
       if (i >= 5 && (all_(i - 4, i, function (v, q) { return z[q] > z[q - 1]; }) || all_(i - 4, i, function (v, q) { return z[q] < z[q - 1]; }))) hits[5].push(i + 1);
       if (i >= 14 && all_(i - 14, i, function (v) { return Math.abs(v) <= 1; })) hits[6].push(i + 1);

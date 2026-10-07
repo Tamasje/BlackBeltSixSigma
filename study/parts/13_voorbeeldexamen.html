@@ -1,8 +1,8 @@
 <section class="part" id="d13" data-title="Deel 13 — Voorbeeldexamen (interactief)" data-lecturer="" data-les="Examen">
   <h2>Deel 13 — Voorbeeldexamen (interactief)</h2>
   <p class="intro">Het voorbeeldexamen van 9 oktober 2025 (7 vragen, 20 punten), vraag per vraag om zelf op te lossen.
-  Er bestaat geen officiële antwoordsleutel: de oplossingen hieronder zijn <b>modelantwoorden</b>, opgebouwd uit de
-  slides waarnaar ze verwijzen. Getallen die de gids zelf berekent, komen uit <code>study/parts/13_numbers.py</code>.
+  Er bestaat geen officiële antwoordsleutel: de oplossingen hieronder zijn <b>modelantwoorden</b>, opgebouwd uit het
+  cursusmateriaal waarnaar ze verwijzen. Getallen die de gids zelf berekent, komen uit <code>study/parts/13_numbers.py</code>.
   <a class="p" href="../source/exam/20251009_voorbeeldexamen%20six%20sigma.pdf#page=1">examen p. 1</a></p>
 
   <section class="unit" id="d13-v1" data-kw="voorbeeldexamen; exam; vraag 1; question 1; significant; relevant; betrouwbaarheidsinterval; confidence interval; nauwkeurigheid; precision; steekproefgrootte; sample size; cluster sampling; non-response bias; dualiteit; duality">
@@ -36,10 +36,10 @@
       toetsen en betrouwbaarheidsintervallen (en eenzijdig/tweezijdig).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol>
-          <li><b>a. Niet correct.</b> Een significant resultaat is niet automatisch relevant. Ottoy noemt dit expliciet als
+          <li><b>a. Niet correct.</b> Een significant resultaat is niet automatisch relevant. De cursus noemt dit expliciet als
           valkuil: "believing a significant result is always relevant"; met grote steekproeven worden ook kleine,
           onbelangrijke afwijkingen significant (de "big data fallacy trap")
-          <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=11">TH p. 11</a>. Ook De Vuyst:
+          <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=11">TH p. 11</a>. Ook bij regressie geldt:
           een resultaat moet praktische betekenis hebben
           <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=11">REG p. 11</a>. Kijk dus naar de grootte
           van het effect (bv. met een betrouwbaarheidsinterval) en zet die af tegen de kost.</li>
@@ -66,7 +66,7 @@
           (1) het BI is een <i>alternatief</i> voor de klassieke toets, die gelijkwaardig is; je bent dus niet verplicht een
           BI te berekenen <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=12">CI p. 12</a>; (2) het
           interval moet van hetzelfde type zijn als de toets: een eenzijdige toets hoort bij een eenzijdig 99%-BI
-          (zie de recepten op dezelfde slide). Meer in <a href="#d04">Deel 04</a> en <a href="#d05">Deel 05</a>.</li>
+          (zie de recepten op dezelfde pagina, CI p. 13). Meer in <a href="#d04">Deel 04</a> en <a href="#d05">Deel 05</a>.</li>
         </ol>
       </details>
     </div>
@@ -152,8 +152,14 @@
           NORM.S.DIST in Excel; zie <a href="#d03">Deel 03</a>).</li>
           <li><b>c.</b> (1) Het proces centreren: het gemiddelde naar het midden van de tolerantie (1430 mm) brengen. Dan
           is <var data-s="cpk">Cpk</var> = <var data-s="cp">Cp</var> = 1 en daalt de uitval naar 0,27 % <span class="computed">zelf berekend</span>. (2) De spreiding
-          verkleinen (σ omlaag), waardoor Cp en Cpk stijgen. De slides tonen deze twee hefbomen als "process variation
-          pre/post project" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=25">SPC p. 25–26</a>.</li>
+          verkleinen (σ omlaag), waardoor Cp en Cpk stijgen. De figuur hieronder toont deze twee hefbomen ("process
+          variation pre/post project") <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=25">SPC p. 25–26</a>.
+          <figure class="fig"><img src="figures/13_procesvariatie_voor_na.png" alt="Links de procesverdeling vóór het project: brede, verschoven groepsverdelingen en een brede langetermijnverdeling tussen LSL en USL; rechts na het project: smalle, gecentreerde verdelingen rond het doel">
+          <figcaption>Figuur: procesvariatie vóór (links) en na (rechts) een verbeterproject. Vóór liggen de verdelingen van de
+          groepen (group 1–4: dagen, batches, klanten, …) verschoven en samen vormen ze een brede verdeling op lange termijn
+          (long term performance) met staarten buiten LSL en USL. Na liggen ze gecentreerd op het doel (Target) en zijn ze
+          smal: de spreiding is verkleind (reduce dispersion) en het gemiddelde verschoven (shift mean).
+          <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=25">SPC p. 25–26</a></figcaption></figure></li>
           <li><b>d.</b> De cursus geeft twee lezingen van het 6σ-criterium, en de gids toont ze allebei (beslissing 2):
           <b>3,4 ppm</b> (= 0,00034 %) met de 1,5σ-verschuiving op lange termijn, of <b>0,002 ppm</b> (<var data-s="cp">Cp</var> = 2, korte termijn,
           geen verschuiving): "<var data-s="cp">Cp</var> = 2: 6 Sigma quality level – 2 defect per billion of opportunities (short term)" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a>, <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a>.
@@ -194,15 +200,16 @@
           controlegrenzen <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=31">SPC p. 31</a>.</li>
           <li><b>c.</b> Bij kleine steekproeven (<var data-s="n_sub">n</var> &lt; 10) en bij manueel bijgehouden kaarten: dan is R handiger en
           volstaat het. Voor grotere steekproeven is s efficiënter
-          <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=73">SPC p. 73–74</a> (sprekersnotities bij dia 73).</li>
+          <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=73">SPC p. 73–74</a> (notities bij dia 73 in de pptx-versie).</li>
         </ol>
         <p>Meer in <a href="#d10">Deel 10</a>.</p>
       </details>
     </div>
+    <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-13-imr">14 De centrale limietstelling en de I-MR-kaart</a>.</p>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>a. "We mogen normaliteit aannemen omdat elk proces normaal verdeeld is."</b> Fout: niet elk proces is normaal; je zet gemiddelden van steekproeven uit, en die zijn bij benadering normaal (centrale limietstelling) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=62">SPC p. 62–63</a>. Zie <a href="#d10-wat">10.1</a>.</li>
-      <li><b>Let op:</b> de centrale limietstelling geldt voor gemiddelden, niet voor losse metingen: op een I-MR-kaart helpt ze niet <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=251">Dummies p. 251</a>. Zie <a href="#d10-imr">10.8</a>.</li>
+      <li><b>Let op:</b> de centrale limietstelling geldt voor gemiddelden, niet voor losse metingen: niet elke procesverdeling volgt de normale wet, gemiddelden van steekproeven wel <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=62">SPC p. 62</a>.</li>
       <li><b>b. "Een regelkaart detecteert gewone oorzaken."</b> Fout: ze detecteert speciale (aanwijsbare) oorzaken; gewone oorzaken zijn de normale ruis binnen de grenzen <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=31">SPC p. 31</a>. Zie <a href="#d10-wat">10.1</a>.</li>
       <li><b>c. "De range is altijd de beste schatting."</b> Fout: alleen bij kleine steekproeven (<var data-s="n_sub">n</var> &lt; 10) en met de hand bijgehouden kaarten; voor grotere steekproeven is s efficiënter <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=73">SPC p. 73–74</a>. Zie <a href="#d10-formules">10.5</a>.</li>
       <li><b>Let op:</b> "in control" (geen speciale oorzaken) zegt niets over de specificaties: stabiel is niet hetzelfde als capabel <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=70">SPC p. 70</a>. Zie <a href="#d10-grenzen">10.2</a>.</li>
@@ -245,10 +252,10 @@
         <p class="small">Accuracies <span class="computed">zelf berekend</span> als (Goed→Goed + Slecht→Slecht) / totaal.</p>
         <p><b>b.</b> Hoge bias betekent een te eenvoudig model. Maak de boom complexer: laat hem dieper groeien (grotere
         maximale diepte, max_depth), laat kleinere bladeren toe (minder observaties per blad) of eis minder winst voor
-        een split <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20slides.pdf#page=46">Naert web-slides p. 46</a>.
+        een split <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20slides.pdf#page=46">ML-webslides p. 46</a>.
         Over under- en overfitting en bias-variantie:
-        <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=22">Naert p. 22–28</a>; confusion matrix
-        <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=29">Naert p. 29–32</a>. Zie <a href="#d12">Deel 12</a>;
+        <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=22">ML p. 22–28</a>; confusion matrix
+        <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=29">ML p. 29–32</a>. Zie <a href="#d12">Deel 12</a>;
         rekentool: werkblad "Confusion matrix".</p>
       </details>
     </div>
@@ -256,8 +263,8 @@
     <ul>
       <li><b>"Model A is het beste: het heeft de hoogste accuracy."</b> Fout: dat is op de trainingsset (0,965); op de testset zakt A naar 0,617 <span class="computed">zelf berekend</span>. Een grote kloof tussen training en test is overfitting (hoge variantie); beoordeel een model op de testset. Zie <a href="#d12-diagnose">12.15</a>.</li>
       <li><b>"A en B halen dezelfde test-accuracy, dus ze hebben hetzelfde probleem."</b> Fout: A is bijna perfect op training (hoge variantie), B is zwak op training én test (hoge bias). Kijk naar het niveau én naar de kloof; zie <a href="#d12-bias-variance">12.9</a>.</li>
-      <li><b>"Hoge bias los je op met een eenvoudiger boom."</b> Fout: hoge bias betekent een te eenvoudig model; maak de boom complexer: dieper, kleinere bladeren, minder winst per split <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20slides.pdf#page=46">Naert web-slides p. 46</a>. Zie <a href="#d12-bomen">12.14</a>.</li>
-      <li><b>Let op:</b> lees eerst de assen van de matrix. In het examen zijn de rijen de werkelijke klasse; het 4 × 4-voorbeeld van <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=30">Naert p. 30</a> zet de voorspelling in de rijen. De diagonaal (en dus de accuracy) blijft dezelfde, maar FP en FN wisselen van plaats. Zie <a href="#d12-confusion">12.10</a>.</li>
+      <li><b>"Hoge bias los je op met een eenvoudiger boom."</b> Fout: hoge bias betekent een te eenvoudig model; maak de boom complexer: dieper, kleinere bladeren, minder winst per split <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20slides.pdf#page=46">ML-webslides p. 46</a>. Zie <a href="#d12-bomen">12.14</a>.</li>
+      <li><b>Let op:</b> lees eerst de assen van de matrix. In het examen zijn de rijen de werkelijke klasse; het 4 × 4-voorbeeld van <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=30">ML p. 30</a> zet de voorspelling in de rijen. De diagonaal (en dus de accuracy) blijft dezelfde, maar FP en FN wisselen van plaats. Zie <a href="#d12-confusion">12.10</a>.</li>
     </ul></div>
   </section>
 
@@ -299,10 +306,10 @@
           <tr><td>X (conformiteit)</td><td>Bernoulli</td><td>E[<var data-s="x_conf">X</var>] = 2/40 = 0,05 (kans op niet-conform)</td></tr>
           <tr><td>D (niet-conform in een lot van 100)</td><td>binomiaal (<var data-s="n_lot">n</var> = 100, <var data-s="p_noncon">p</var> = 0,05)</td><td>E[<var data-s="d_noncon">D</var>] = 100 · 0,05 = 5</td></tr>
         </table>
-        <p>Naert koppelt Poisson aan tellingen en de exponentiële verdeling aan wachttijden
-        <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=7">Naert p. 7</a>; binomiaal en hypergeometrisch voor
+        <p>Poisson hoort bij tellingen en de exponentiële verdeling bij wachttijden
+        <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=7">Data p. 7</a>; binomiaal en hypergeometrisch voor
         defectieven in een lot: <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=12">AS p. 12</a>.
-        Opgelet: de algemene formules E[<var data-s="t_between">T</var>] = 1/<var data-s="lambda">λ</var> en Var = <var data-s="lambda">λ</var> voor Poisson staan niet in de slides (beslissing 20); zie
+        Opgelet: de algemene formules E[<var data-s="t_between">T</var>] = 1/<var data-s="lambda">λ</var> en Var = <var data-s="lambda">λ</var> voor Poisson staan niet in de cursus (beslissing 20); zie
         <a href="#d02">Deel 02</a>.</p>
         <p><b>b.</b> Meerdere antwoorden mogelijk. Voorbeelden: B en T (bestellingen hangen af van seizoen, dag van de week,
         promoties: niet elke week of elk moment heeft dezelfde verdeling); X en D (opeenvolgende elco's uit dezelfde
@@ -314,8 +321,8 @@
     </div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"<var data-s="b_orders">B</var> is binomiaal: je telt bestellingen."</b> Fout: een telling per tijdseenheid zonder vast aantal pogingen is Poisson; binomiaal is het aantal "ja" in een vast aantal stuks, zoals <var data-s="d_noncon">D</var> (<var data-s="n_lot">n</var> = 100) <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=7">Naert p. 7</a>, <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=12">AS p. 12</a>. Zie <a href="#d02-verdelingen">02.4</a>.</li>
-      <li><b>"<var data-s="t_between">T</var> is ook Poisson: het gaat om bestellingen."</b> Fout: <var data-s="t_between">T</var> is een wachttijd, en wachttijden zijn exponentieel <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=7">Naert p. 7</a>.</li>
+      <li><b>"<var data-s="b_orders">B</var> is binomiaal: je telt bestellingen."</b> Fout: een telling per tijdseenheid zonder vast aantal pogingen is Poisson; binomiaal is het aantal "ja" in een vast aantal stuks, zoals <var data-s="d_noncon">D</var> (<var data-s="n_lot">n</var> = 100) <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=7">Data p. 7</a>, <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=12">AS p. 12</a>. Zie <a href="#d02-verdelingen">02.4</a>.</li>
+      <li><b>"<var data-s="t_between">T</var> is ook Poisson: het gaat om bestellingen."</b> Fout: <var data-s="t_between">T</var> is een wachttijd, en wachttijden zijn exponentieel <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=7">Data p. 7</a>.</li>
       <li><b>Let op:</b> <var data-s="x_conf">X</var> (één elco, ja/nee) is Bernoulli; <var data-s="d_noncon">D</var> (het aantal in een lot van 100) is binomiaal met <var data-s="n_lot">n</var> = 100 en <var data-s="p_noncon">p</var> = 0,05, dus E[<var data-s="d_noncon">D</var>] = 5.</li>
       <li><b>Let op:</b> E[<var data-s="c_cap">C</var>] is het gegeven gemiddelde 820 µF, niet de nominale 800 µF. Var[<var data-s="c_cap">C</var>] vraagt <var data-s="sigma_c">σ</var>² (≈ 3696 µF²), niet <var data-s="sigma_c">σ</var> (60,8 µF).</li>
       <li><b>Let op:</b> P(<var data-s="c_cap">C</var> &lt; 720) = 0,05 is de linkerstaart: <var data-s="z005">z<sub>0,05</sub></var> = −1,645; met de afgeronde 1,64 uit de tabel krijg je ongeveer 3718. Niet elk gegeven is nodig: de 3,6 loten per bestelling gebruik je in de modelantwoorden niet.</li>
@@ -327,8 +334,14 @@
     <h3>13.7 Vraag 7 — Regressielijn en interventie (3 punten) <a class="p" href="../source/exam/20251009_voorbeeldexamen%20six%20sigma.pdf#page=9">examen p. 9</a></h3>
     <div class="exercise" id="ex-13-7" data-kw="vraag 7; E[S|T]; S → T; T → S; 730 °C; interventie; observatie">
       <h4>Oefening 13.7 — Sterkte S tegen gloeitemperatuur T</h4>
-      <p>De figuur op examen p. 9 toont een puntenwolk: de sterkte daalt met de temperatuur; de laagste punten liggen bij
-      de hoogste temperaturen. a. Schets E[<var data-s="s_strength">S</var> | <var data-s="t_temp">T</var> = <var data-s="x_temp">x</var>].
+      <p>De figuur hieronder (examen p. 9) toont een puntenwolk: de sterkte daalt met de temperatuur; de laagste punten
+      liggen bij de hoogste temperaturen.</p>
+      <figure class="fig"><img src="figures/13_sterkte_temperatuur.png" alt="Puntenwolk van de sterkte in MPa tegen de gloeitemperatuur in graden Celsius, van ongeveer 550 tot 750 graden; de sterkte daalt licht met de temperatuur">
+      <figcaption>Figuur: "Sterkte vs. Temperatuur tijdens Gloeien", de (fictieve) data van vraag 7: sterkte S (MPa, 380–500)
+      tegen gloeitemperatuur T (°C, 550–750). De wolk daalt licht naar rechts; de laagste punten (rond 390–405 MPa) liggen
+      bij de hoogste temperaturen. Het examen drukt de figuur twee keer af: de eerste voor a en b, de tweede voor c.
+      <a class="p" href="../source/exam/20251009_voorbeeldexamen%20six%20sigma.pdf#page=9">examen p. 9</a></figcaption></figure>
+      <p>a. Schets E[<var data-s="s_strength">S</var> | <var data-s="t_temp">T</var> = <var data-s="x_temp">x</var>].
       b. Causaal diagram <var data-s="s_strength">S</var> → <var data-s="t_temp">T</var>: we leggen T vast op 730 °C; schets een tiental observaties. c. Idem voor <var data-s="t_temp">T</var> → <var data-s="s_strength">S</var>.</p>
       <div class="q" data-type="choice" data-answer="marginaal"><label>b. Bij <var data-s="s_strength">S</var> → <var data-s="t_temp">T</var> en ingreep <var data-s="t_temp">T</var> = 730 °C volgt S…</label>
         <select><option value="">kies…</option><option value="marginaal">zijn gewone (marginale) verdeling: de ingreep verandert S niet</option><option value="voorwaardelijk">de voorwaardelijke verdeling bij T = 730 °C</option></select>
@@ -340,7 +353,12 @@
         <ol>
           <li><b>a.</b> De regressielijn E[<var data-s="s_strength">S</var> | <var data-s="t_temp">T</var> = <var data-s="x_temp">x</var>] is het gemiddelde van S bij elke temperatuur x: een dalende lijn of
           curve door het midden van de puntenwolk, per verticale strook
-          <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=26">Naert p. 26–27</a>.</li>
+          <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=26">Data p. 26–27</a>. De figuur hieronder toont dat idee op een
+          gebogen wolk: de regressielijn volgt per x het midden van de verdeling van Y, ook als die kromt.
+          <figure class="fig"><img src="figures/13_regressielijn_ml.jpg" alt="Heatmap van een U-vormige gezamenlijke verdeling van X en Y met een stippellijn E[Y | X] door het midden van de wolk">
+          <figcaption>Figuur: gezamenlijke kansverdeling van X en Y (heatmap, U-vormige wolk) met de voorwaardelijke
+          verwachting E[Y | X] als stippellijn: per waarde van x het gemiddelde van Y, dus een kromme door het midden van de
+          wolk. <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=27">Data p. 27</a></figcaption></figure></li>
           <li><b>b. <var data-s="s_strength">S</var> → <var data-s="t_temp">T</var></b>: de sterkte bepaalt de temperatuur, niet omgekeerd. Leg je T vast op 730 °C, dan verandert
           dat niets aan S. De bolletjes staan dus allemaal bij <var data-s="t_temp">T</var> = 730 °C, maar verticaal verspreid zoals de <i>hele</i>
           puntenwolk (de marginale verdeling van S), niet alleen zoals de punten die toevallig rond 730 °C liggen.</li>
@@ -350,17 +368,17 @@
         </ol>
         <p>Achtergrond: zien (associatie, P(<var data-s="s_strength">S</var> | <var data-s="t_temp">T</var>)) versus doen (interventie), causale diagrammen en het praktijkvoorbeeld
         "koelt warm staal sneller af"
-        <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=40">Naert p. 40–46</a>,
-        <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=53">p. 53–57</a> (extra). Zie
+        <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=40">Data p. 40–46</a>,
+        <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=53">Data p. 53–57</a> (extra). Zie
         <a href="#d02">Deel 02</a>.</p>
       </details>
     </div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"Bij <var data-s="s_strength">S</var> → <var data-s="t_temp">T</var> en de ingreep <var data-s="t_temp">T</var> = 730 °C liggen de nieuwe punten rond de regressielijn bij 730 °C."</b> Fout: een interventie schrapt de pijlen die in <var data-s="t_temp">T</var> aankomen; <var data-s="t_temp">T</var> is hier geen oorzaak van <var data-s="s_strength">S</var>, dus <var data-s="s_strength">S</var> volgt zijn marginale verdeling, over de hele hoogte van de wolk <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=44">Naert p. 44</a>. Zie <a href="#d02-dag">02.14</a>.</li>
+      <li><b>"Bij <var data-s="s_strength">S</var> → <var data-s="t_temp">T</var> en de ingreep <var data-s="t_temp">T</var> = 730 °C liggen de nieuwe punten rond de regressielijn bij 730 °C."</b> Fout: een interventie schrapt de pijlen die in <var data-s="t_temp">T</var> aankomen; <var data-s="t_temp">T</var> is hier geen oorzaak van <var data-s="s_strength">S</var>, dus <var data-s="s_strength">S</var> volgt zijn marginale verdeling, over de hele hoogte van de wolk <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=44">Data p. 44</a>. Zie <a href="#d02-dag">02.14</a>.</li>
       <li><b>"De regressielijn E[<var data-s="s_strength">S</var> | <var data-s="t_temp">T</var> = <var data-s="x_temp">x</var>] voorspelt wat er gebeurt als je <var data-s="t_temp">T</var> op <var data-s="x_temp">x</var> zet."</b> Fout: de regressielijn is zien, niet doen. Ze valt alleen samen met het effect van een ingreep als <var data-s="t_temp">T</var> een oorzaak van <var data-s="s_strength">S</var> is zonder confounder. Zie <a href="#d02-ladder">02.12</a>.</li>
-      <li><b>Let op:</b> teken E[<var data-s="s_strength">S</var> | <var data-s="t_temp">T</var> = <var data-s="x_temp">x</var>] door het midden van elke verticale strook, niet langs de lange as van de schuine wolk (die helt sterker); de lijn mag krom zijn <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=26">Naert p. 26–27</a>. Zie <a href="#d02-regressielijn">02.11</a>.</li>
-      <li><b>"Uit de puntenwolk zie je of <var data-s="s_strength">S</var> → <var data-s="t_temp">T</var> of <var data-s="t_temp">T</var> → <var data-s="s_strength">S</var>."</b> Fout: een causaal diagram is een aanname over het proces; je kunt het niet uit de data zelf afleiden <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=44">Naert p. 44</a>.</li>
+      <li><b>Let op:</b> teken E[<var data-s="s_strength">S</var> | <var data-s="t_temp">T</var> = <var data-s="x_temp">x</var>] door het midden van elke verticale strook, niet langs de lange as van de schuine wolk (die helt sterker); de lijn mag krom zijn <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=26">Data p. 26–27</a>. Zie <a href="#d02-regressielijn">02.11</a>.</li>
+      <li><b>"Uit de puntenwolk zie je of <var data-s="s_strength">S</var> → <var data-s="t_temp">T</var> of <var data-s="t_temp">T</var> → <var data-s="s_strength">S</var>."</b> Fout: een causaal diagram is een aanname over het proces; je kunt het niet uit de data zelf afleiden <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=44">Data p. 44</a>.</li>
     </ul></div>
   </section>
 </section>

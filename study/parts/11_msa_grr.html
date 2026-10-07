@@ -2,8 +2,7 @@
   <h2>Deel 11 — Meetsysteemanalyse (MSA) en Gage R&amp;R</h2>
   <p class="intro">Elk getal in een Six Sigma-project komt uit een meting, en elke meting varieert zelf ook. Meetsysteemanalyse
   (measurement system analysis, MSA) onderzoekt hoe groot die meetvariatie is, waar ze vandaan komt en of het meetsysteem
-  goed genoeg is voor zijn doel. P.L. Ottoy gaf dit deel in Les 5 met de slides "A primer on Measurement System Analysis"
-  (38 pagina's, hier "MSA p. N") en zes oefenbestanden. Het bouwt op SPC (<a href="#d10">Deel 10</a>) en ANOVA
+  goed genoeg is voor zijn doel. Dit deel bouwt op SPC (<a href="#d10">Deel 10</a>) en ANOVA
   (<a href="#d08">Deel 8</a>): een Gage R&amp;R-studie is in de kern een tweeweg-ANOVA met de factoren operator en onderdeel.</p>
 
   <div class="box key"><span class="t">Het hele deel in vijf zinnen</span>
@@ -22,7 +21,7 @@
   <!-- ================================================================== 11.1 -->
   <section class="unit" id="d11-meten" data-kw="meting; measurement; meetsysteem; measurement system; meetinstrument; gauge; meetproces; measurement process; SWIPE; visgraat; Ishikawa; regel van tien; rule of tens; Go/NoGo; Eisenhart; meeteenheid">
     <h3>11.1 Wat is meten? Het meetproces <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=2">MSA p. 2</a></h3>
-    <p class="small">De slides steunen vooral op de "Measurement Systems Analysis"-handleiding van de AIAG (1994), op
+    <p class="small">De theorie in dit deel steunt vooral op de "Measurement Systems Analysis"-handleiding van de AIAG (1994), op
     Wheeler en Lyday, "Evaluating the Measurement Process" (1989) en op Youden, "Experimentation and Measurement" (NIST).
     Voorkennis: SPC en ANOVA. Destructieve metingen en metingen die het onderdeel veranderen vallen buiten deze inleiding
     <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=1">MSA p. 1</a>.</p>
@@ -40,13 +39,21 @@
     meeste moderne industrieën 10–15 % van de productiekosten (cijfers van eind 20e eeuw) <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=3">MSA p. 3</a>.</p>
 
     <div class="box key"><span class="t">Kernidee: meten is ook een proces</span>
-    <p>Ottoy bekijkt het meetproces als een productieproces dat <i>getallen</i> produceert <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=4">MSA p. 4</a>. Alle technieken van
+    <p>Je kunt het meetproces bekijken als een productieproces dat <i>getallen</i> produceert <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=4">MSA p. 4</a>. Alle technieken van
     procesbeheersing (SPC, <a href="#d10">Deel 10</a>) zijn er dus op toepasbaar. Een ideaal meetsysteem geeft altijd de
     referentiewaarde: nul variantie, nul bias en nul kans om een product verkeerd te klasseren. In werkelijkheid geven
     herhaalde metingen van hetzelfde ding nooit exact hetzelfde resultaat; hoe gevoeliger het toestel, hoe zichtbaarder die
     variatie. De kwaliteit van een meetsysteem wordt bepaald door de statistische eigenschappen van de data die het over de
     tijd produceert, en het management moet vastleggen welke eigenschappen nodig zijn (p. 4, notes).</p>
     </div>
+    <p>De figuur hieronder zet beide processen onder elkaar: het gewone proces (input → bewerking → output) en het
+    meetproces dat het te beheersen proces meet. Het meetproces levert een waarde, die waarde wordt geanalyseerd, en de
+    beslissing grijpt terug in op het gewone proces.</p>
+    <figure class="fig"><img src="figures/11_meetproces.png" alt="Schema: bovenaan het algemene proces input, operation, output; onderaan het meetproces met process to be controlled, measurement, value, analysis en decision, met een pijl van de beslissing terug naar het proces">
+    <figcaption>Figuur: het meetproces als proces. Bovenaan het algemene proces (General Process: input → operation → output),
+    onderaan het meetproces (Measurement Process: te beheersen proces → meting → waarde → analyse → beslissing); de
+    beslissing stuurt het algemene proces bij. Onderschrift in de figuur: een meetproces is een productieproces dat getallen
+    produceert. <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=4">MSA p. 4</a></figcaption></figure>
 
     <p>Drie eigenschappen die elk goed meetsysteem moet hebben <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=5">MSA p. 5</a>:</p>
     <ol class="steps">
@@ -63,11 +70,15 @@
     <p><b>Het SWIPE-model</b> <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=5">MSA p. 5</a> ordent de bronnen van meetvariatie in een oorzaak-gevolgdiagram (visgraat,
     cause-and-effect diagram) met vijf takken: <b>S</b>tandard, <b>W</b>orkpiece (het gemeten onderdeel),
     <b>I</b>nstrument (gauge), <b>P</b>erson (appraiser) / <b>P</b>rocedure en <b>E</b>nvironment. De notes spreken van zes
-    elementen omdat de P voor Person én Procedure staat. In de figuur staan bijvoorbeeld bij Standard: kalibratie,
+    elementen omdat de P voor Person én Procedure staat. In de figuur hieronder staan bijvoorbeeld bij Standard: kalibratie,
     thermische uitzettingscoëfficiënt, herleidbaarheid; bij Workpiece: elastische vervorming, reinheid, verborgen geometrie;
     bij Instrument: ontwerp, onderhoud, bias, lineariteit, herhaalbaarheid; bij Environment: temperatuur, trillingen,
     verlichting, luchtverontreiniging; bij Person: opleiding, ervaring, vaardigheid, procedures. Gebruik het als startpunt
     voor het model van je eigen meetsysteem (p. 5, notes).</p>
+    <figure class="fig"><img src="figures/11_swipe.jpg" alt="Visgraatdiagram van het SWIPE-model met takken Standard, Workpiece, Instrument, Person en Environment die uitkomen op Measurement System Variability">
+    <figcaption>Figuur: het SWIPE-foutenmodel als oorzaak-gevolgdiagram (visgraat). Vijf hoofdtakken (Standard, Workpiece
+    (Part), Instrument (Gage), Person (Appraiser), Environment) met hun deeloorzaken lopen naar het effect "Measurement
+    System Variability". <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=5">MSA p. 5</a></figcaption></figure>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"Een meting is gewoon een getal."</b> Fout: een meting heeft altijd twee delen, een getal en een meeteenheid ("2,1 m"), en komt altijd neer op een vergelijking met een standaard <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=2">MSA p. 2</a>.</li>
@@ -83,7 +94,7 @@
     <h3>11.2 Standaarden, SI-eenheden, herleidbaarheid en referentiewaarde <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=6">MSA p. 6</a></h3>
     <p>Een <b>standaard (standard)</b> is volgens het NPL een maatstaf, meetinstrument, referentiemateriaal of meetsysteem
     bedoeld om een eenheid of een waarde van een grootheid te definiëren, te realiseren, te bewaren of te reproduceren,
-    zodat ze als referentie kan dienen <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=6">MSA p. 6</a>. Voorbeelden op de slide: massastandaarden en standaardbalansen (massa),
+    zodat ze als referentie kan dienen <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=6">MSA p. 6</a>. Voorbeelden: massastandaarden en standaardbalansen (massa),
     standaardcondensatoren en referentiebronnen voor hoge spanning (elektriciteit), interferometrische comparatoren en
     eindmaten (gauge blocks; lengte), de cesium-atoomklok (tijd). Een standaard kan een <i>artefact</i> zijn (een eindmaat)
     of een <i>ensemble</i>: alle instrumenten en procedures samen die een waarde reproduceren (comparator, operator,
@@ -120,7 +131,14 @@
     vergelijkingen die elk een vermelde onzekerheid hebben (ISO-woordenboek). De keten eindigt bij een primaire standaard
     van een nationaal metrologie-instituut (NMI), zoals NIST in de VS. Metingen die naar dezelfde primaire standaard
     herleidbaar zijn, komen beter overeen. Bedrijven zonder eigen meetlabo werken met geaccrediteerde labo's (ISO 17025).
-    Internationaal gelden alle maten en toleranties bij 20 °C (p. 8, notes).</p>
+    Internationaal gelden alle maten en toleranties bij 20 °C (p. 8, notes). De figuur hieronder toont die keten van boven
+    (de definitie van de eenheid) naar onder (het meettoestel op de werkvloer).</p>
+    <figure class="fig"><img src="figures/11_herleidbaarheid.png" alt="Herleidbaarheidsketen: links een piramide van organisaties, midden de keten van standaarden, rechts voorbeelden van meter tot micrometer">
+    <figcaption>Figuur: de herleidbaarheidsketen (traceability chain). Links de organisaties als piramide: definitie van de
+    eenheid (BIPM), nationaal metrologie-instituut (bv. NIST), geaccrediteerde labo's, bedrijven, eindgebruikers op de
+    werkvloer. Midden de standaarden: primaire standaard → referentiestandaard → werkstandaard → productietoestel, telkens
+    via een transferstandaard of comparator. Rechts een voorbeeld: meter → referentie-eindmaten → eindmaten → micrometer.
+    <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=8">MSA p. 8</a></figcaption></figure>
 
     <p><b>Referentiewaarde (reference value, master value)</b> <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=9">MSA p. 9</a>: de <b>ware waarde (true value)</b> van een
     onderdeel is onbekend en onkenbaar. De referentiewaarde dient als vervanger; beide termen worden vaak door elkaar
@@ -183,7 +201,13 @@
     Dat een keukenweegschaal tot 0,1 g aanwijst, betekent nog niet dat de resultaten maar 0,1 g variëren; een schuifmaat met nonius leest af
     tot 0,02 mm, maar de effectieve resolutie hangt vooral af van de vaardigheid van de gebruiker. Factoren die de
     gevoeligheid beïnvloeden: vaardigheid van de operator, herhaalbaarheid van het toestel, omgeving (vuil, vochtigheid).</p>
-    <p>Als de meeteenheid grof is, vallen de metingen in enkele <b>datacategorieën (data categories)</b> <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=10">MSA p. 10</a>:</p>
+    <p>Als de meeteenheid grof is, vallen de metingen in enkele <b>datacategorieën (data categories)</b> <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=10">MSA p. 10</a>.
+    De figuur hieronder toont dezelfde procesverdeling met 1, met 2–4 en met 5 of meer categorieën; de tabel zegt wat je
+    in elk geval met de metingen kunt doen:</p>
+    <figure class="fig"><img src="figures/11_datacategorieen.png" alt="Drie keer dezelfde normale procesverdeling, verdeeld in 1 datacategorie, in 2 tot 4 datacategorieën en in 5 of meer datacategorieën">
+    <figcaption>Figuur: dezelfde procesverdeling, gemeten met een steeds fijnere meeteenheid. Boven valt alles in 1
+    datacategorie, in het midden in 2–4 categorieën, onder in 5 of meer categorieën (de verticale lijnen zijn de grenzen
+    tussen de categorieën). <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=10">MSA p. 10</a></figcaption></figure>
     <table>
       <tr><th>Aantal datacategorieën binnen de procesverdeling</th><th>Gebruik volgens de notes</th></tr>
       <tr><td>1 categorie</td><td>Alleen bruikbaar voor procesbeheersing als de procesvariatie heel klein is t.o.v. de
@@ -228,6 +252,9 @@
     op hetzelfde onderdeel: de <b>systematische fout (systematic error)</b> van het meetsysteem <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=11">MSA p. 11</a>. Mogelijke
     oorzaken: het toestel moet gekalibreerd worden, een fout in de master, een slecht ontwerp van het toestel, een fout in
     een toegepaste constante, een fout in de opspanning (fixture).</p>
+    <figure class="fig"><img src="figures/11_bias.png" alt="Normale meetverdeling met haar gemiddelde links van de referentiewaarde; de afstand tussen beide is de bias">
+    <figcaption>Figuur: bias. De meetverdeling ligt rond het gemiddelde van het meetsysteem (Measurement System's Average);
+    de afstand tot de referentiewaarde (Reference Value) is de bias. <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=11">MSA p. 11</a></figcaption></figure>
     <p>Wheeler breidt het begrip uit: als operatoren systematisch verschillende gemiddelden geven voor hetzelfde ding, is er
     <b>operatorbias (operator bias)</b>; bij verschillende toestellen <b>equipment bias</b>. In een klassieke GRR-studie
     hangt de reproduceerbaarheid samen met operatorbias, en de ANOVA-methode toont dat (p. 11, notes; 11.18).
@@ -236,14 +263,25 @@
     van bias (p. 11, notes).</p>
     <p><b>Stabiliteit (stability)</b> is de verandering van de bias in de tijd. Een stabiel meetsysteem heeft een constante
     bias en is dus in statistische controle wat locatie betreft <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=12">MSA p. 12</a>. Oorzaken van instabiliteit: kalibratie nodig,
-    slijtage en veroudering, fout in de master, slecht onderhoud, andere methode. De figuur toont een meetverdeling die
-    over de tijd verschuift ("instable system").</p>
+    slijtage en veroudering, fout in de master, slecht onderhoud, andere methode. De figuur hieronder toont een
+    meetverdeling die over de tijd verschuift ("instable system").</p>
+    <figure class="fig"><img src="figures/11_stabiliteit.png" alt="Drie meetverdelingen schuin boven elkaar langs een tijdas; de afstand tussen gemiddelde en referentiewaarde verandert van verdeling tot verdeling">
+    <figcaption>Figuur: een instabiel meetsysteem. Langs de tijdas (TIME) schuift de meetverdeling op ten opzichte van de
+    referentiewaarde (Reference value): de bias (de dubbele pijl) is telkens anders. <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=12">MSA p. 12</a></figcaption></figure>
     <p><b>Lineariteit (linearity)</b> is de verandering van de bias over het meetbereik (operating range) van het toestel
-    <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=13">MSA p. 13</a>: bij een kleine waarde ("value 1") is de bias anders dan bij een grote ("value N"). Oorzaken zoals hierboven,
-    plus een andere methode van opstelling, belading of opspanning. De notes tonen drie figuren van bias
-    (gemeten − referentie) tegen de referentiewaarde: een horizontale lijn onder nul (<i>constante bias</i>: lineair, maar
-    niet zuiver), een gebogen lijn en een schuine lijn die van negatieve naar positieve bias gaat (beide <i>niet-constante
-    bias</i>, dus een lineariteitsfout).</p>
+    <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=13">MSA p. 13</a>: bij een kleine waarde ("value 1" in de eerste figuur hieronder) is de bias anders dan bij een grote
+    ("value N"). Oorzaken zoals hierboven, plus een andere methode van opstelling, belading of opspanning. De tweede figuur
+    hieronder zet de bias (gemeten − referentie) uit tegen de referentiewaarde in drie gevallen: een horizontale lijn onder
+    nul (<i>constante bias</i>: lineair, maar niet zuiver), een gebogen lijn en een schuine lijn die van negatieve naar
+    positieve bias gaat (beide <i>niet-constante bias</i>, dus een lineariteitsfout).</p>
+    <figure class="fig"><img src="figures/11_lineariteit_bias.png" alt="Twee meetverdelingen: bij value 1 een kleine afstand tussen gemiddelde en referentiewaarde, bij value N een grotere">
+    <figcaption>Figuur: lineariteitsfout. Bij een kleine referentiewaarde (value 1) is de bias klein, bij een grote
+    (value N) groter. <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=13">MSA p. 13</a></figcaption></figure>
+    <figure class="fig"><img src="figures/11_lineariteit_vormen.png" alt="Drie grafieken van bias (observed min reference) tegen de referentiewaarde: een horizontale lijn onder nul, een boog en een stijgende rechte">
+    <figcaption>Figuur: vormen van bias over het meetbereik, met op de verticale as gemeten − referentie en op de horizontale
+    as de referentiewaarde. Links een constante bias (horizontaal, onder de stippellijn "Zero Bias"); midden en rechts een
+    niet-constante bias (Linearity error): een boog en een rechte die van negatieve naar positieve bias stijgt.
+    <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=13">MSA p. 13</a></figcaption></figure>
     <p class="small">Hoe je bias, stabiliteit en lineariteit vaststelt met data: 11.13–11.15.</p>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
@@ -265,6 +303,10 @@
     <i>binnen</i> het systeem. Bronnen: binnen het onderdeel (vorm, tapsheid, oppervlakteafwerking), binnen het toestel
     (kwaliteit, onderhoud, slijtage), binnen de operator (vaardigheid, ervaring, techniek) <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=14">MSA p. 14</a>. <b>Precisie
     (precision)</b> is verwant: de "nabijheid" van herhaalde aflezingen; ASTM gebruikt het ruimer (p. 14, notes).</p>
+    <figure class="fig"><img src="figures/11_herhaalbaarheid.png" alt="Eén meetverdeling met haar gemiddelde naast de referentiewaarde; de breedte van de verdeling is aangeduid als repeatability">
+    <figcaption>Figuur: herhaalbaarheid is de breedte (spreiding) van de verdeling van herhaalde metingen door één operator op
+    één onderdeel (Repeatability onder de as); het gemiddelde van het meetsysteem (Measurement system's average) en de
+    referentiewaarde (Reference value) liggen er los van. <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=14">MSA p. 14</a></figcaption></figure>
     <p><b>Reproduceerbaarheid (reproducibility)</b>: de variatie in het <i>gemiddelde</i> van de metingen door verschillende
     operatoren met hetzelfde toestel op hetzelfde kenmerk van hetzelfde onderdeel ("between appraisers variability").
     Synoniem: <b>Appraiser Variation (AV)</b>. Bronnen: opleiding, vaardigheid, ervaring, techniek. Uitgebreid (ASTM): de
@@ -273,6 +315,14 @@
     operator (alles in één opstelling) is de reproduceerbaarheid nul, met meerdere opspanningen is ze de variatie tussen de
     opspanningen; en de gemiddelden van verschillende operatoren verschillen altijd een beetje door de herhaalbaarheid,
     ook als er geen echt operatoreffect is. Een <i>significante</i> reproduceerbaarheid betekent operatorbias.</p>
+    <p>De figuur hieronder brengt de twee spreidingscomponenten samen: elke operator heeft zijn eigen meetverdeling. De
+    breedte van één verdeling is de herhaalbaarheid; hoe ver de gemiddelden van de operatoren uit elkaar liggen, is de
+    reproduceerbaarheid; de afstand van één operatorgemiddelde tot de referentiewaarde is zijn operatorbias.</p>
+    <figure class="fig"><img src="figures/11_reproduceerbaarheid.png" alt="Drie meetverdelingen van operatoren A, B en C naast elkaar met de referentiewaarde tussen B en C; aangeduid zijn repeatability, reproducibility en operator C bias">
+    <figcaption>Figuur: herhaalbaarheid en reproduceerbaarheid. Operatoren (Appraiser) A, B en C meten hetzelfde onderdeel;
+    de breedte van elke verdeling is de herhaalbaarheid (repeatability), de spreiding van hun gemiddelden de
+    reproduceerbaarheid (REPRODUCIBILITY), en de afstand van C tot de referentiewaarde (Reference Value) de operatorbias van
+    C. <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=15">MSA p. 15</a></figcaption></figure>
     <p>In het ANOVA-model (11.18) is herhaalbaarheid de <i>onverklaarde</i> variatie (de foutterm) en reproduceerbaarheid de
     <i>verklaarde</i> variatie (de factoren) (p. 14, notes).</p>
     <p><b>Consistentie (consistency)</b>: een consistent meetproces heeft een constante herhaalbaarheid in de tijd;
@@ -309,7 +359,12 @@
   <!-- ================================================================== 11.6 -->
   <section class="unit" id="d11-indeling" data-kw="indeling meetfout; classification measurement error; systematische fout; toevallige fout; random error; capability meetsysteem; measurement system capability; performance meetsysteem; measurement system performance; korte termijn; short term; σcap; σperf">
     <h3>11.6 Soorten meetfouten; capability en performance van een meetsysteem <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=19">MSA p. 19</a></h3>
-    <p>De slide vat alles samen in een boom (classification of measurement system error) <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=19">MSA p. 19</a>:</p>
+    <p>Alle soorten meetfout uit 11.3–11.5 passen in één boom (classification of measurement system error) <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=19">MSA p. 19</a>.
+    De figuur toont de boom, de tabel zet hem op een rij:</p>
+    <figure class="fig"><img src="figures/11_indeling_meetfout.png" alt="Boomschema: Measurement System Error splitst in systematic error (bias), random error (repeatability, reproducibility), non-constancy over time (stability, consistency) en non-constancy over operating range (linearity, uniformity)">
+    <figcaption>Figuur: indeling van de meetfout (Measurement System Error) in vier takken: systematische fout (bias),
+    toevallige fout (herhaalbaarheid, reproduceerbaarheid), niet-constant in de tijd (stabiliteit, consistentie) en
+    niet-constant over het meetbereik (lineariteit, uniformiteit). <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=19">MSA p. 19</a></figcaption></figure>
     <table>
       <tr><th>Soort meetfout</th><th>Begrippen</th></tr>
       <tr><td>Systematische fout (systematic error, location)</td><td>bias</td></tr>
@@ -336,14 +391,14 @@
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"Reproduceerbaarheid gaat over operatorbias, dus het is een systematische fout."</b> Fout: in de boom van slide 19 staat reproduceerbaarheid bij de toevallige fout (random error), samen met herhaalbaarheid; alleen bias staat bij de systematische fout <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=19">MSA p. 19</a>.</li>
+      <li><b>"Reproduceerbaarheid gaat over operatorbias, dus het is een systematische fout."</b> Fout: in de boom van de meetfouten (figuur hierboven) staat reproduceerbaarheid bij de toevallige fout (random error), samen met herhaalbaarheid; alleen bias staat bij de systematische fout <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=19">MSA p. 19</a>.</li>
       <li><b>"Meetsysteemcapabiliteit is hetzelfde als GRR."</b> Fout: <var data-s="sigma_cap">σ²<sub>cap</sub></var> = <var data-s="sigma_lin">σ²<sub>lin</sub></var> + <var data-s="sigma_grr">σ²<sub>GRR</sub></var>: ook de lineariteit hoort erbij <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=20">MSA p. 20</a>.</li>
       <li><b>"Performance is de meetfout op korte termijn."</b> Fout: capability is korte termijn; performance is het effect van alle bronnen over de tijd: capability plus stabiliteit en consistentie <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=20">MSA p. 20</a>. Vergelijk met Cp (korte termijn) en Pp (lange termijn) in <a href="#d09-ppk">09.4</a>.</li>
       <li><b>Let op:</b> een uitspraak over capability hoort altijd bij een afgebakend toepassingsgebied. "Korte termijn" kan een reeks meetcycli zijn, de duur van een GRR-studie, een productieperiode of de kalibratieperiode (p. 20, notes) <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=20">MSA p. 20</a>.</li>
     </ul></div>
     <div class="exercise" id="ex-11-3" data-kw="terminologie; terminology; bias; stabiliteit; stability; lineariteit; linearity; herhaalbaarheid; repeatability; reproduceerbaarheid; reproducibility; consistentie; consistency; uniformiteit; uniformity; discriminatie; discrimination">
       <h4>Oefening 11.3 — Welke term past bij de situatie? <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=19">MSA p. 19</a></h4>
-      <p>Kies telkens het begrip uit slides 10–17 dat de situatie beschrijft.</p>
+      <p>Kies telkens het begrip uit 11.3–11.5 (slides 10–17) dat de situatie beschrijft.</p>
       <div class="q" data-type="choice" data-answer="herhaalbaarheid">
         <label>(a) Eén operator meet hetzelfde onderdeel tien keer met dezelfde micrometer; de waarden verschillen telkens een beetje.</label>
         <select><option value="">kies…</option><option value="bias">bias</option><option value="stabiliteit">stabiliteit</option><option value="lineariteit">lineariteit</option><option value="herhaalbaarheid">herhaalbaarheid</option><option value="reproduceerbaarheid">reproduceerbaarheid</option><option value="consistentie">consistentie</option><option value="uniformiteit">uniformiteit</option><option value="discriminatie">discriminatie</option></select>
@@ -423,9 +478,13 @@
   <!-- ================================================================== 11.7 -->
   <section class="unit" id="d11-resolutie" data-kw="effectieve resolutie; effective resolution; meetfout; measurement error; middelen; averaging; herhaalde metingen; repeated measurements; kleine verschillen; small differences; Rayleigh; argon">
     <h3>11.7 Meetfout en effectieve resolutie <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=21">MSA p. 21</a></h3>
-    <p>De effectieve resolutie hangt af van de meetvariabiliteit <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=21">MSA p. 21</a>. Bovenaan op de slide: een kleine verschuiving
-    van de referentiewaarde verdwijnt in de brede meetverdeling. Onderaan: als je meerdere herhaalde metingen middelt, wordt
-    de verdeling van het gemiddelde smal en zie je de verschuiving wel.</p>
+    <p>De effectieve resolutie hangt af van de meetvariabiliteit <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=21">MSA p. 21</a>. Bovenaan in de figuur hieronder: een kleine
+    verschuiving van de referentiewaarde verdwijnt in de brede meetverdeling. Onderaan: als je meerdere herhaalde metingen
+    middelt, wordt de verdeling van het gemiddelde smal en zie je de verschuiving wel.</p>
+    <figure class="fig"><img src="figures/11_effectieve_resolutie.png" alt="Boven twee brede, sterk overlappende meetverdelingen na een kleine verschuiving; onder twee smalle verdelingen van gemiddelden die duidelijk gescheiden zijn">
+    <figcaption>Figuur: effectieve resolutie. Boven: een kleine verandering van de referentiewaarde (pijl) wordt bedekt door de
+    meetfout, want de twee meetverdelingen overlappen bijna volledig. Onder: het gemiddelde van meerdere herhaalde metingen
+    heeft een smalle verdeling, zodat dezelfde verandering duidelijk zichtbaar wordt. <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=21">MSA p. 21</a></figcaption></figure>
     <p>Voorbeeld uit de notes: een meting wordt afgelezen tot 0,1 mm, maar heeft een standaardafwijking van 1 mm. Een
     verandering van 0,1 mm in de referentiewaarde valt dan weg in de meetfout. Kun je de meetfout niet verkleinen, dan
     moet je herhaald meten en middelen. Het belang van kleine verschillen illustreert de cursus met Lord Rayleigh: stikstof
@@ -450,7 +509,7 @@
       <details class="solution"><summary>Toon oplossing</summary>
         <p><var data-s="u_exp">U</var> = 2·<var data-s="sigma_m">σ</var>/√<var data-s="n_sample">n</var> ≤ 0,1 ⇒ √<var data-s="n_sample">n</var> ≥ 2·1/0,1 = 20 ⇒ <b><var data-s="n_sample">n</var> ≥ 400</b> <span class="computed">zelf berekend</span>. Dit is één
         redelijke lezing; met een ander criterium (bv. een toets op het verschil van twee gemiddelden) kom je op een ander
-        getal. Het punt van de slide blijft: omdat de standaardafwijking van een gemiddelde als 1/√<var data-s="n_sample">n</var> daalt, kost elke
+        getal. Het punt van 11.7 blijft: omdat de standaardafwijking van een gemiddelde als 1/√<var data-s="n_sample">n</var> daalt, kost elke
         halvering van de ruis vier keer zoveel metingen.</p>
       </details>
     </div>
@@ -471,6 +530,12 @@
     genoemd. Om meer juiste beslissingen te nemen kun je (1) het proces verbeteren, zodat alle onderdelen in zone III
     vallen, of (2) het meetsysteem verbeteren, zodat de zones II smaller worden (p. 22, notes). Vergelijk met α en β bij
     aanvaardingssteekproeven (<a href="#d06">Deel 6</a>).</p>
+    <figure class="fig"><img src="figures/11_productbeslissingen.png" alt="Boven een meetverdeling van een goed onderdeel waarvan de staart onder LSL valt (type I), daaronder een meetverdeling van een slecht onderdeel waarvan de staart boven LSL valt (type II), onderaan de zones I, II, III, II, I langs de specificatiegrenzen">
+    <figcaption>Figuur: verkeerde productbeslissingen. Boven: een goed onderdeel (pijl net boven LSL) waarvan de gearceerde
+    staart van de meetverdeling onder LSL valt: type I-fout, vals negatief, producentenrisico. Midden: een slecht onderdeel
+    (pijl net onder LSL) waarvan de gearceerde staart boven LSL valt: type II-fout, vals positief, consumentenrisico.
+    Onder: de zones I (altijd slecht genoemd), II (twijfelzone rond LSL en USL) en III (altijd goed genoemd).
+    <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=22">MSA p. 22</a></figcaption></figure>
 
     <p><b>Wheelers aanpak met de probable error (PE)</b> <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=23">MSA p. 23</a>. Je beslist op de <i>gemeten</i> waarde, niet op de
     referentiewaarde. Wheeler definieert de <b>PE (waarschijnlijke fout, probable error)</b> als het verschil tussen het
@@ -484,6 +549,12 @@
       <li>Daartussen (Z): twijfelgeval. Meet opnieuw, middel de metingen en vergelijk met grenzen die verschoven zijn met
       de PE van het <i>gemiddelde</i> (p. 23, notes).</li>
     </ul>
+    <figure class="fig"><img src="figures/11_pe_wheeler.png" alt="Links twee meetverdelingen rond LSL, rechts een normale verdeling met de PE en 25, 50, 25 procent, onderaan de PE-verruimde en PE-vernauwde specificatiegrenzen met de besluiten niet conform, twijfel en conform">
+    <figcaption>Figuur: Wheelers aanpak. Bovenaan links ("What to conclude?"): een gemeten waarde (pijl) net boven LSL kan van
+    een onderdeel buiten of binnen de specificatie komen. Bovenaan rechts ("The notion PE"): bij een normale meetverdeling ligt
+    50 % tussen μ − 0,67σ en μ + 0,67σ, en 25 % in elke staart; de PE is de afstand van μ tot het 75 %-kwantiel. Onder:
+    buiten de PE-verruimde grenzen (PE widened spec) besluit je "niet conform", binnen de PE-vernauwde grenzen (PE tightened
+    spec) "conform", daartussen is het twijfel (vraagteken). <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=23">MSA p. 23</a></figcaption></figure>
     <p>In de praktijk noemt men metingen vaak ontoereikend als σ<sub>GRR</sub> boven een bepaald percentage van de
     tolerantie ligt (gewoonlijk 20 % of 30 %); de redenering hierboven toont dat metingen dan toch nog nut kunnen hebben
     (p. 23, notes).</p>
@@ -546,6 +617,14 @@
     <div class="f">
       <div><var data-s="sigma_o">σ²<sub>o</sub></var> = <var data-s="sigma_a">σ²<sub>a</sub></var> + <var data-s="sigma_m">σ²<sub>m</sub></var> &nbsp; ⇔ &nbsp; 1/<var data-s="cpo">C²<sub>p,o</sub></var> = 1/<var data-s="cpa">C²<sub>p,a</sub></var> + 1/<var data-s="cpm">C²<sub>p,m</sub></var></div>
     </div>
+    <p>De figuur hieronder (uit het SPC-deel van de cursus, <a href="#d10">Deel 10</a>) toont die optelling: de smalle
+    verdeling van de meting en de verdeling van het proces vormen samen de bredere totale verdeling, en die moet binnen
+    de tolerantie passen.</p>
+    <figure class="fig"><img src="figures/11_spreiding_meetinstrument.jpg" alt="Drie verdelingen rond hetzelfde midden: een smalle voor de meting, een middelbrede voor het proces en een brede totale verdeling, tussen de grenzen OTG en BTG; onderaan de intervallen R&amp;R, totale spreiding TV en tolerantie">
+    <figcaption>Figuur: spreiding door het meetinstrument. De smalle verdeling is de meting (Meten, m), de middelste het proces
+    (Proces, P), de brede het totaal (Totaal, T). Onderaan van smal naar breed: het R&amp;R-interval, het totale
+    spreidingsinterval (TV) en de tolerantie tussen de ondergrens (OTG) en de bovengrens (BTG).
+    <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=60">SPC p. 60</a></figcaption></figure>
     <p>%GRR kun je op twee manieren uitdrukken, en de formule voor de waargenomen C<sub>p</sub> hangt ervan af
     <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=24">MSA p. 24</a>:</p>
     <table>
@@ -557,15 +636,21 @@
     <var data-s="cpo">C<sub>p,o</sub></var> = <var data-s="cpa">C<sub>p,a</sub></var>/√(1 + (<var data-s="pct_grr">%GRR</var> × <var data-s="cpa">C<sub>p,a</sub></var>)²) <span class="computed">zelf berekend</span>
     (rechtstreeks uit 1/<var data-s="cpo">C²<sub>p,o</sub></var> = 1/<var data-s="cpa">C²<sub>p,a</sub></var> + <var data-s="pct_grr">%GRR</var>², omdat 6<var data-s="sigma_m">σ<sub>m</sub></var>/<var data-s="tol">TOL</var> = 1/<var data-s="cpm">C<sub>p,m</sub></var>).</p>
     <div class="box warn"><span class="t">Opgelet: factor 6 of 5,15</span>
-    <p>Voetnoot op slide 24: historisch nam men een spreiding van 99 % als "volledige spreiding van de meetfout", met
-    factor <b>5,15</b>; recenter gebruikt men factor <b>6</b> (99,73 %). De formules op de slides gebruiken 6, en deze
-    gids en de rekentool ook (beslissing 11 in <code>inventory/conventions.md</code>). Gebruik 5,15 alleen als een vraag
+    <p>Voetnoot bij deze formules (MSA p. 24): historisch nam men een spreiding van 99 % als "volledige spreiding van de
+    meetfout", met factor <b>5,15</b>; recenter gebruikt men factor <b>6</b> (99,73 %). De formules van de cursus gebruiken
+    6, en deze gids en de rekentool ook (beslissing 11 in <code>inventory/conventions.md</code>). Gebruik 5,15 alleen als een vraag
     het uitdrukkelijk vraagt.</p>
     </div>
-    <p>De grafieken in de notes <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=24">MSA p. 24</a> tonen C<sub>p,o</sub> tegen C<sub>p,a</sub> voor <var data-s="pct_grr">%GRR</var> = 10, 30, 50, 70 en 90 %.
+    <p>De grafieken hieronder <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=24">MSA p. 24</a> tonen C<sub>p,o</sub> tegen C<sub>p,a</sub> voor <var data-s="pct_grr">%GRR</var> = 10, 30, 50, 70 en 90 %.
     Links (t.o.v. procesvariatie) zijn het rechte lijnen door de oorsprong met helling √(1 − <var data-s="pct_grr">%GRR</var>²). Rechts (t.o.v. de
     tolerantie) buigen de curven af en vlakken ze af: hoe goed het proces ook wordt, de waargenomen C<sub>p</sub> komt nooit
-    boven 1/<var data-s="pct_grr">%GRR</var> <span class="computed">zelf berekend</span>, bv. 2 bij <var data-s="pct_grr">%GRR</var> = 50 %. Het bewijs staat op <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=25">MSA p. 25</a>:</p>
+    boven 1/<var data-s="pct_grr">%GRR</var> <span class="computed">zelf berekend</span>, bv. 2 bij <var data-s="pct_grr">%GRR</var> = 50 %.</p>
+    <figure class="fig"><img src="figures/11_cp_waargenomen.png" alt="Twee grafieken van de waargenomen Cp (Cpo) tegen de werkelijke Cp (Cpa) voor vijf waarden van %GRR: links rechte lijnen, rechts curven die afvlakken">
+    <figcaption>Figuur: waargenomen C<sub>p</sub> (Cpo, verticaal) tegen werkelijke C<sub>p</sub> (Cpa, horizontaal), voor
+    %GRR = 10 % (blauw), 30 % (groen), 50 % (rood), 70 % (kastanjebruin) en 90 % (zwart). Links met %GRR t.o.v. de
+    procesvariatie: rechte lijnen, des te vlakker naarmate %GRR groter is. Rechts met %GRR t.o.v. de tolerantie: de curven
+    vlakken af, bij 90 % net boven 1. <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=24">MSA p. 24</a></figcaption></figure>
+    <p>Het bewijs staat op <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=25">MSA p. 25</a>:</p>
     <div class="f">
       <div><var data-s="cpo">C<sub>p,o</sub></var> = (<var data-s="usl">USL</var> − <var data-s="lsl">LSL</var>)/6<var data-s="sigma_o">σ<sub>o</sub></var> → 1/<var data-s="cpo">C²<sub>p,o</sub></var> = 36<var data-s="sigma_o">σ²<sub>o</sub></var>/(<var data-s="usl">USL</var> − <var data-s="lsl">LSL</var>)² = 36(<var data-s="sigma_a">σ²<sub>a</sub></var> + <var data-s="sigma_m">σ²<sub>m</sub></var>)/(<var data-s="usl">USL</var> − <var data-s="lsl">LSL</var>)² → 1/<var data-s="cpo">C²<sub>p,o</sub></var> = 1/<var data-s="cpa">C²<sub>p,a</sub></var> + 1/<var data-s="cpm">C²<sub>p,m</sub></var></div>
       <div><var data-s="pct_grr">%GRR</var> = 6<var data-s="sigma_m">σ<sub>m</sub></var>/6<var data-s="sigma_o">σ<sub>o</sub></var> = <var data-s="cpo">C<sub>p,o</sub></var>/<var data-s="cpm">C<sub>p,m</sub></var> → 1/<var data-s="cpo">C²<sub>p,o</sub></var> = 1/<var data-s="cpa">C²<sub>p,a</sub></var> + <var data-s="pct_grr">%GRR</var>²/<var data-s="cpo">C²<sub>p,o</sub></var> → <var data-s="cpo">C²<sub>p,o</sub></var> = <var data-s="cpa">C²<sub>p,a</sub></var>(1 − <var data-s="pct_grr">%GRR</var>²)</div>
@@ -579,7 +664,7 @@
       <li><b>"Door de meetfout kan de waargenomen C<sub>p</sub> hoger uitvallen dan de werkelijke."</b> Fout: <var data-s="sigma_o">σ²<sub>o</sub></var> = <var data-s="sigma_a">σ²<sub>a</sub></var> + <var data-s="sigma_m">σ²<sub>m</sub></var> ≥ <var data-s="sigma_a">σ²<sub>a</sub></var>, dus <var data-s="cpo">C<sub>p,o</sub></var> ≤ <var data-s="cpa">C<sub>p,a</sub></var>: de meetfout maakt de capabiliteit altijd pessimistischer <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=24">MSA p. 24</a>.</li>
       <li><b>"Bij <var data-s="pct_grr">%GRR</var> = 60 % hoort één waargenomen C<sub>p</sub>."</b> Fout: dat hangt af van de basis. Bij <var data-s="cpa">C<sub>p,a</sub></var> = 2 geeft %GRR t.o.v. de procesvariatie <var data-s="cpo">C<sub>p,o</sub></var> = 2·√(1 − 0,36) = 1,6, en %GRR t.o.v. de tolerantie <var data-s="cpo">C<sub>p,o</sub></var> = 1,28 <span class="computed">zelf berekend</span>. Kijk dus of %GRR t.o.v. TV of t.o.v. TOL gegeven is <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=24">MSA p. 24</a>.</li>
       <li><b>"Hoe beter het proces, hoe hoger de waargenomen C<sub>p</sub>, zonder grens."</b> Fout: met %GRR t.o.v. de tolerantie komt <var data-s="cpo">C<sub>p,o</sub></var> nooit boven 1/<var data-s="pct_grr">%GRR</var>, bv. 2 bij <var data-s="pct_grr">%GRR</var> = 50 % <span class="computed">zelf berekend</span>.</li>
-      <li><b>Let op:</b> factor 6, niet 5,15. De formules op de slides (en in deze gids) gebruiken 6σ (99,73 %); 5,15 (99 %) is de historische conventie uit de voetnoot. Gebruik 5,15 alleen als de vraag dat uitdrukkelijk vraagt <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=24">MSA p. 24</a>.</li>
+      <li><b>Let op:</b> factor 6, niet 5,15. De formules van de cursus (en van deze gids) gebruiken 6σ (99,73 %); 5,15 (99 %) is de historische conventie uit de voetnoot. Gebruik 5,15 alleen als de vraag dat uitdrukkelijk vraagt <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=24">MSA p. 24</a>.</li>
       <li><b>"Bij de buy-off was de waargenomen C<sub>p</sub> 1,96, in productie 1,71: het proces is verslechterd."</b> Fout: bij dezelfde werkelijke <var data-s="cpa">C<sub>p</sub></var> = 2 komt het verschil volledig van het productiemeetsysteem (%GRR 30 % in plaats van 10 %) <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=26">MSA p. 26</a>. De notes drukken bij <var data-s="pct_grr">%GRR</var> = 60 % "1,20" af; correct is 1,28 (kader "Fout in de notes" verderop).</li>
       <li><b>"Na elke meting buiten 4,90–5,10 g bijregelen houdt het proces op doel."</b> Fout: bijregelen op basis van één meting van één onderdeel voegt variatie toe (tampering, Deming) <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=26">MSA p. 26</a>; ken eerst je meetsysteem en regel niet bij als het proces in controle is.</li>
     </ul></div>
@@ -598,7 +683,7 @@
       <details class="solution"><summary>Toon oplossing</summary>
         <p>(a) <var data-s="cpa">C<sub>p,a</sub></var> = <var data-s="cpo">C<sub>p,o</sub></var>/√(1 − <var data-s="pct_grr">%GRR</var>²) = 1,33/√0,75 = <b>1,536</b>.</p>
         <p>(b) 1/<var data-s="cpa">C²<sub>p,a</sub></var> = 1/<var data-s="cpo">C²<sub>p,o</sub></var> − <var data-s="pct_grr">%GRR</var>² = 1/1,33² − 0,25 = 0,5653 − 0,25 = 0,3153, dus
-        <var data-s="cpa">C<sub>p,a</sub></var> = <b>1,781</b>. Controle met de vorm van de slide: 1,781·√(1 − (0,5 × 1,33)²) = 1,33.</p>
+        <var data-s="cpa">C<sub>p,a</sub></var> = <b>1,781</b>. Controle met de rechterformule van de tabel in 11.9: 1,781·√(1 − (0,5 × 1,33)²) = 1,33.</p>
         <p class="small">Beide <span class="computed">zelf berekend</span>; de cursus drukt geen antwoord af. Met %GRR t.o.v.
         de tolerantie kan de waargenomen C<sub>p</sub> nooit boven 1/0,5 = 2 komen.</p>
       </details>
@@ -705,13 +790,18 @@
     </div>
     <p>Φ is de standaardnormale verdelingsfunctie (<a href="#d03">Deel 3</a>). Waarom: het onderdeel wordt aanvaard als
     <var data-s="lsl">LSL</var> ≤ <var data-s="x_m">X<sub>m</sub></var> ≤ <var data-s="usl">USL</var>; standaardiseer met gemiddelde <var data-s="x_r">X<sub>r</sub></var> + <var data-s="b_bias">b</var> en standaardafwijking σ<sub>GRR</sub> (dat is
-    de "proof as an exercise" uit de notes). De figuur in de notes toont de GPC voor <var data-s="lsl">LSL</var> = 0,6, <var data-s="usl">USL</var> = 1,0, <var data-s="b_bias">b</var> = 0,05 en
+    de "proof as an exercise" uit de notes). De rechterfiguur hieronder toont de GPC voor <var data-s="lsl">LSL</var> = 0,6, <var data-s="usl">USL</var> = 1,0, <var data-s="b_bias">b</var> = 0,05 en
     <var data-s="sigma_grr">σ<sub>GRR</sub></var> = 0,05: een afgeronde, iets naar links verschoven rechthoek (door de positieve bias worden onderdelen
     net onder LSL soms aanvaard en onderdelen net onder USL soms afgekeurd).</p>
+    <figure class="fig"><img src="figures/11_gpc.png" alt="Links de ideale gauge performance curve, een rechthoek met kans 1 tussen LSL en USL; rechts de werkelijke curve met afgeronde flanken rond 0,6 en 1,0">
+    <figcaption>Figuur: gauge performance curve, kans op aanvaarding (Probability of acceptance) tegen de referentiewaarde van
+    het onderdeel. Links de ideale GPC: 1 tussen LSL en USL, 0 erbuiten. Rechts het voorbeeld met LSL = 0,6, USL = 1,0,
+    b = 0,05 en σ<sub>GRR</sub> = 0,05: de flanken zijn afgerond en liggen iets links van de specificatiegrenzen (verticale
+    lijnen bij 0,6 en 1,0). <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=27">MSA p. 27</a></figcaption></figure>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"De GPC geeft de kans dat een onderdeel goed is."</b> Fout: ze geeft voor elke referentiewaarde de kans dat het onderdeel <i>aanvaard</i> wordt, dus gemeten tussen LSL en USL. De ideale GPC is een rechthoek: 1 binnen de specs, 0 erbuiten <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=27">MSA p. 27</a>.</li>
-      <li><b>"Een positieve bias schuift de GPC naar rechts."</b> Fout: elke meting ligt b te hoog, dus de curve schuift naar links: onderdelen net onder LSL worden soms aanvaard, onderdelen net onder USL soms afgekeurd (figuur in de notes) <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=27">MSA p. 27</a>.</li>
+      <li><b>"Een positieve bias schuift de GPC naar rechts."</b> Fout: elke meting ligt b te hoog, dus de curve schuift naar links: onderdelen net onder LSL worden soms aanvaard, onderdelen net onder USL soms afgekeurd (figuur hierboven) <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=27">MSA p. 27</a>.</li>
       <li><b>Let op:</b> standaardiseer met het gemiddelde van de meting, <var data-s="x_r">X<sub>r</sub></var> + <var data-s="b_bias">b</var> (niet met de referentiewaarde alleen), en deel door σ<sub>GRR</sub>, de meetfout, niet door de processpreiding <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=27">MSA p. 27</a>.</li>
       <li><b>Let op:</b> <var data-s="beta_gpc">β</var>(<var data-s="x_r">X<sub>r</sub></var>) is hier de kans op aanvaarding, niet de β-fout (type II) van een toets (<a href="#d05-fouten">05.3</a>). De GPC lijkt wel op een OC-curve (<a href="#d06-oc">06.9</a>) <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=27">MSA p. 27</a>.</li>
     </ul></div>
@@ -900,7 +990,7 @@
 
     <p><b>Illustratie: Rheostat Knob Data</b> <a class="p" href="../source/course/Les%205/20260619_ottoy_Rheostat%20Knob%20Data.xls">Rheostat Knob Data.xls</a>. Hetzelfde stabiele proces, 27 subgroepen van 5, eens gemeten tot op
     1/1000 inch (werkblad "originele data") en eens afgerond tot op 1/100 inch ("afgeronde data"). De werkbladen
-    "… - opgelost" bevatten de opgeloste X̄/R-kaarten van de docent. Met de originele data is de kaart in controle; met de
+    "… - opgelost" bevatten de opgeloste X̄/R-kaarten. Met de originele data is de kaart in controle; met de
     afgeronde data lijkt hij uit controle. Dan mag je de kaart niet lezen als een beeld van het proces (p. 30, notes).</p>
     <div class="box warn"><span class="t">Constante D<sub>4</sub> in het Rheostat-werkboek</span>
     <p>De opgeloste werkbladen rekenen UCL<sub>R</sub> met <var data-s="d4_r">D<sub>4</sub></var> = 2,114 (zoals Six Sigma Demystified); Table 18 van
@@ -991,7 +1081,7 @@
           <tr><td>ranges boven UCL<sub>R</sub></td><td class="n">0</td><td class="n">2 (subgroepen 3 en 24, R = 0,02)</td></tr>
           <tr><td>mogelijke rangewaarden binnen de R-grenzen</td><td class="n">19 (0 tot 0,018)</td><td class="n">2 (0 en 0,01)</td></tr>
         </table>
-        <p>X̿, R̄ en de X̄-grenzen zijn identiek aan de opgeloste werkbladen van de docent; de aantallen buiten de grenzen en de
+        <p>X̿, R̄ en de X̄-grenzen zijn identiek aan de opgeloste werkbladen van het werkboek; de aantallen buiten de grenzen en de
         mogelijke rangewaarden zijn <span class="computed">zelf berekend</span>.</p>
         <p>(f) Met de afgeronde data liggen er slechts 2 mogelijke rangewaarden binnen de grenzen (≤ 4 bij <var data-s="n_sample">n</var> = 5): de
         meeteenheid is <b>te grof</b>. De "uit controle"-signalen komen van de afronding: R̄ is kunstmatig gedaald van
@@ -1105,13 +1195,13 @@
     <p>ν is hier geen geheel getal (het begrip vrijheidsgraden wordt uitgebreid). Omdat E(<var data-s="chi2">χ²</var>(<var data-s="nu">ν</var>)) = <var data-s="nu">ν</var>, volgt
     <var data-s="d2star">d<sub>2</sub>*</var>² = E(<var data-s="rbar">R̄</var>²)/<var data-s="sigma">σ</var>².</p>
     <div class="box warn"><span class="t">Kleine fout op slide 32</span>
-    <p>De slide zegt dat t "een t-verdeling met <b>n</b> vrijheidsgraden" volgt; bedoeld is <b>ν</b> (het interval op
-    dezelfde slide gebruikt t<sub>1−α/2,ν</sub>, en n is elders het aantal onderdelen).</p>
+    <p>MSA p. 32 zegt dat t "een t-verdeling met <b>n</b> vrijheidsgraden" volgt; bedoeld is <b>ν</b> (het interval op
+    dezelfde pagina gebruikt t<sub>1−α/2,ν</sub>, en n is elders het aantal onderdelen).</p>
     </div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"t volgt een t-verdeling met n vrijheidsgraden."</b> Fout: met ν vrijheidsgraden uit de tabel MSA (Patnaik), meestal geen geheel getal. De slide schrijft n, maar bedoelt ν (kader hierboven) <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=32">MSA p. 32</a>.</li>
+      <li><b>"t volgt een t-verdeling met n vrijheidsgraden."</b> Fout: met ν vrijheidsgraden uit de tabel MSA (Patnaik), meestal geen geheel getal. MSA p. 32 schrijft n, maar bedoelt ν (kader hierboven) <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=32">MSA p. 32</a>.</li>
       <li><b>"<var data-s="nu">ν</var> = <var data-s="g_sub">g</var><var data-s="n_sample">m</var> − 1, zoals bij een gewone t-toets."</b> Fout: ν komt uit de tabel MSA; voor <var data-s="g_sub">g</var> = 1, <var data-s="n_sample">m</var> = 12 is <var data-s="nu">ν</var> = 9,0 <a class="p" href="../source/course/Les%205/20260619_ottoy_tabel%20MSA.pdf#page=1">Tabel MSA p. 1</a>.</li>
       <li><b>Let op:</b> verwissel d<sub>2</sub> en d<sub>2</sub>* niet. <var data-s="sigma_r">σ<sub>r</sub></var> = <var data-s="rbar">R̄</var>/<var data-s="d2">d<sub>2</sub></var> gebruikt d<sub>2</sub> (laatste rij van de tabel MSA, voor subgroepgrootte m); de t-formule bevat daarnaast de factor <var data-s="d2star">d<sub>2</sub>*</var>/<var data-s="d2">d<sub>2</sub></var>, met d<sub>2</sub>* uit rij g, kolom m <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=32">MSA p. 32</a>.</li>
       <li><b>Let op:</b> √(<var data-s="g_sub">g</var><var data-s="n_sample">m</var>) is de wortel van het totale aantal metingen (g subgroepen van m), niet √<var data-s="g_sub">g</var> of √<var data-s="n_sample">m</var>.</li>
@@ -1128,7 +1218,7 @@
           <li>Patnaik: <var data-s="w_chi">W</var> = <var data-s="nu">ν</var><var data-s="rbar">R̄</var>²/(<var data-s="d2star">d<sub>2</sub>*</var>²<var data-s="sigma">σ</var>²) ~ <var data-s="chi2">χ²</var>(<var data-s="nu">ν</var>), onafhankelijk van X̿.</li>
           <li>Een t-verdeling is <var data-s="z_stat">Z</var>/√(<var data-s="w_chi">W</var>/<var data-s="nu">ν</var>). Hier: √(<var data-s="w_chi">W</var>/<var data-s="nu">ν</var>) = <var data-s="rbar">R̄</var>/(<var data-s="d2star">d<sub>2</sub>*</var><var data-s="sigma">σ</var>), dus <var data-s="z_stat">Z</var>/√(<var data-s="w_chi">W</var>/<var data-s="nu">ν</var>) = (<var data-s="bias">bias</var> − E(<var data-s="bias">bias</var>))·√(<var data-s="g_sub">g</var><var data-s="n_sample">m</var>)·<var data-s="d2star">d<sub>2</sub>*</var>/<var data-s="rbar">R̄</var>.</li>
           <li>Met <var data-s="rbar">R̄</var> = <var data-s="sigma_r">σ<sub>r</sub></var>·<var data-s="d2">d<sub>2</sub></var> wordt dat (<var data-s="bias">bias</var> − E(<var data-s="bias">bias</var>))/<var data-s="sigma_r">σ<sub>r</sub></var> · √(<var data-s="g_sub">g</var><var data-s="n_sample">m</var>)·<var data-s="d2star">d<sub>2</sub>*</var>/<var data-s="d2">d<sub>2</sub></var>:
-          de formule van de slide, met ν vrijheidsgraden.</li>
+          de formule van 11.14, met ν vrijheidsgraden.</li>
           <li>Interval: −<var data-s="t_crit">t<sub>1−α/2,ν</sub></var> ≤ <var data-s="t_stat">t</var> ≤ <var data-s="t_crit">t<sub>1−α/2,ν</sub></var>, oplossen naar E(bias) geeft
           <var data-s="bias">bias</var> ∓ <var data-s="sigma_r">σ<sub>r</sub></var>·<var data-s="d2">d<sub>2</sub></var>/(<var data-s="d2star">d<sub>2</sub>*</var>√(<var data-s="g_sub">g</var><var data-s="n_sample">m</var>))·<var data-s="t_crit">t<sub>1−α/2,ν</sub></var>.</li>
         </ol>
@@ -1282,7 +1372,7 @@
           <li><b>Kijk naar de grafiek</b> (de waarschuwing van de notes): de gemiddelde biases zijn +0,50, −0,06, +0,01,
           −0,18, +0,50. Hoog aan beide uiteinden, rond nul in het midden: een <b>gebogen (U-vormig) patroon</b>. Een rechte
           beschrijft dat niet (<var data-s="r2">R²</var> = 0,005); de vlakke helling komt doordat beide uiteinden even hoog liggen. Dit is
-          precies het "lack of fit"-geval: een niet-constante bias zoals in de middelste figuur van <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=13">MSA p. 13</a>.</li>
+          precies het "lack of fit"-geval: een niet-constante bias zoals de boog in de middelste grafiek van de figuur in 11.4 <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=13">MSA p. 13</a>.</li>
           <li><b>Band</b>: de 95 %-band voor E(bias) bevat 0 niet bij de referentiewaarden 1,99 tot 7,99 (bv. [0,066 ;
           0,243] bij 5,97); alleen bij 9,80 reikt hij tot onder 0. De lijn bias = 0 ligt dus <b>niet</b> volledig binnen de
           band: het toestel is niet vrij van bias.</li>
@@ -1324,7 +1414,13 @@
     Manual van DaimlerChrysler, Ford en GM, 2002): rijen <var data-s="g_sub">g</var> = aantal subgroepen (1 tot 20), kolommen <var data-s="n_sample">m</var> = subgroepgrootte (2
     tot 20). Elke cel heeft twee getallen: <b>boven ν</b>, <b>onder d<sub>2</sub>*</b>. De laatste rij geeft
     <var data-s="d2">d<sub>2</sub></var> (<var data-s="g_sub">g</var> → ∞) en cd (waarmee je ν voor grotere g kunt opbouwen). In de rekentool staat de tabel op het werkblad
-    Tables, gesplitst in een ν-rooster en een d<sub>2</sub>*-rooster.</p>
+    Tables, gesplitst in een ν-rooster en een d<sub>2</sub>*-rooster. De figuur hieronder toont een uitsnede, zodat je ziet
+    hoe een cel eruitziet.</p>
+    <figure class="fig"><img src="figures/11_tabel_msa_uitsnede.png" alt="Uitsnede van de tabel MSA: kolommen 2 tot 10, rijen 1 tot 5 met in elke cel twee getallen, en daaronder de rijen d2 en cd">
+    <figcaption>Figuur: uitsnede uit de tabel MSA (Values associated with the Distribution of the Average Range). Kolommen =
+    subgroepgrootte m (2 tot 10), rijen = aantal subgroepen g (1 tot 5); in elke cel staat bovenaan ν en daaronder
+    d<sub>2</sub>*, bv. g = 2, m = 4: 5,7 en 2,15069. Onderaan de rijen d<sub>2</sub> en cd voor dezelfde kolommen. De
+    volledige tabel gaat tot m = 20 en g = 20. <a class="p" href="../source/course/Les%205/20260619_ottoy_tabel%20MSA.pdf#page=1">Tabel MSA p. 1</a></figcaption></figure>
     <div class="box ex"><span class="t">Waarom is d<sub>2</sub>* groter dan d<sub>2</sub>?</span>
     <p>Zelf afgeleid uit de feiten hierboven: E(<var data-s="rbar">R̄</var>²) = Var(<var data-s="rbar">R̄</var>) + E(<var data-s="rbar">R̄</var>)² = <var data-s="d3">d<sub>3</sub></var>²<var data-s="sigma">σ</var>²/<var data-s="g_sub">g</var> + <var data-s="d2">d<sub>2</sub></var>²<var data-s="sigma">σ</var>², dus</p>
     <div class="f"><div><var data-s="d2star">d<sub>2</sub>*</var>² = <var data-s="d2">d<sub>2</sub></var>² + <var data-s="d3">d<sub>3</sub></var>²/<var data-s="g_sub">g</var></div></div>
@@ -1381,8 +1477,12 @@
     procesvariatie vertegenwoordigen <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=34">MSA p. 34</a>.</p>
     <p><b>Het model</b>: meting <var data-s="x_ijl">X<sub>ijl</sub></var> (operator i, onderdeel j, herhaling l) = <var data-s="x_part">X<sub>.j.</sub></var> + <var data-s="x_op">X<sub>i..</sub></var> +
     <var data-s="x_err">X<sub>..l</sub></var>, met X<sub>.j.</sub> de ware (referentie)waarde van onderdeel j, X<sub>i..</sub> de operatorbias en
-    <var data-s="x_err">X<sub>..l</sub></var> ~ N(0, <var data-s="sigma_r">σ</var>) de meetfout; σ is de herhaalbaarheid. De figuur toont dat als drie stukken op een lijn: ware
-    waarde, verschoven met de operatorbias, en daarrond de meetverdeling met spreiding σ.</p>
+    <var data-s="x_err">X<sub>..l</sub></var> ~ N(0, <var data-s="sigma_r">σ</var>) de meetfout; σ is de herhaalbaarheid. De figuur hieronder toont dat als drie stukken op
+    een lijn: ware waarde, verschoven met de operatorbias, en daarrond de meetverdeling met spreiding σ.</p>
+    <figure class="fig"><img src="figures/11_grr_model.png" alt="Op een as: de ware waarde van het onderdeel, daarna de operatorbias tot het midden van de meetverdeling met spreiding sigma, en de gemeten waarde als één trekking uit die verdeling">
+    <figcaption>Figuur: het model van de GRR-studie. Vanaf de ware waarde (true part value, X<sub>.j.</sub>) schuift de
+    operatorbias X<sub>i..</sub> het midden van de meetverdeling op; de meetfout X<sub>..l</sub> met spreiding σ bepaalt
+    waar de gemeten waarde X<sub>ijl</sub> uitkomt. <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=34">MSA p. 34</a></figcaption></figure>
     <p>Daaruit volgen gemiddelden (p. 34, notes):</p>
     <ul>
       <li><var data-s="xbar_i">X̄<sub>i</sub></var> = gemiddelde van operator i over alle onderdelen en herhalingen = <var data-s="xbar_p">X̄<sub>p</sub></var> + <var data-s="x_op">X<sub>i..</sub></var> +
@@ -1409,8 +1509,8 @@
     weglaten: <var data-s="pv">PV</var> ≈ <var data-s="r_p">R<sub>p</sub></var>·<var data-s="k3">K<sub>3</sub></var> (p. 35, notes; afleiding in <a class="p" href="../source/course/Les%205/20260619_ottoy_Theoretical%20background%20of%20a%20GRR%20study.pdf#page=2">GRR theory p. 2</a>).</p>
     <div class="box warn"><span class="t">Waar de cursus stil is</span>
     <ul>
-      <li>Als (<var data-s="xdiff">X̄<sub>DIFF</sub></var>·<var data-s="k2">K<sub>2</sub></var>)² kleiner is dan <var data-s="ev">EV</var>²/(<var data-s="n_parts">n</var><var data-s="r_trials">r</var>), wordt het getal onder de wortel negatief. De slides
-      zeggen niet wat je dan doet.</li>
+      <li>Als (<var data-s="xdiff">X̄<sub>DIFF</sub></var>·<var data-s="k2">K<sub>2</sub></var>)² kleiner is dan <var data-s="ev">EV</var>²/(<var data-s="n_parts">n</var><var data-s="r_trials">r</var>), wordt het getal onder de wortel negatief. De cursus
+      zegt niet wat je dan doet.</li>
       <li>Het aantal onderscheidbare categorieën (ndc, number of distinct categories) staat niet in de cursus
       (beslissing 11).</li>
     </ul>
@@ -1427,12 +1527,16 @@
     <p><var data-s="pct_grr">%GRR</var> = <var data-s="grr">GRR</var>/<var data-s="tv">TV</var> is hetzelfde als 6<var data-s="sigma_m">σ<sub>m</sub></var>/6<var data-s="sigma_o">σ<sub>o</sub></var> (%GRR t.o.v. de procesvariatie, slide 24). Je kunt GRR
     ook t.o.v. de tolerantie uitdrukken: 6·<var data-s="grr">GRR</var>/<var data-s="tol">TOL</var> (slide 24); de rekentool toont beide.</p>
     </div>
-    <p class="small">Andere drempels elders in de cursus (beslissing 11, als nota): de Les 4-slides raden "<var data-s="grr">Gauge R&amp;R</var> ≤ 20 %
-    of tolerance" en "<var data-s="discr">resolution</var> ≤ 10 % of tolerance" aan <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=60">SPC p. 60</a> (zie <a href="#d10">Deel 10</a>); notes p. 23 noemen
-    20 % of 30 % van de tolerantie; Six Sigma for Dummies werkt met de <i>variantie</i>verhouding
-    <var data-s="sigma_m">σ²<sub>meting</sub></var>/<var data-s="sigma_o">σ²<sub>waargenomen</sub></var> ≤ 0,1 goed, 0,1–0,3 marginaal, ≥ 0,3 onaanvaardbaar <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=178">Dummies p. 178</a>. Let op
-    dat die laatste een verhouding van varianties is: <var data-s="pct_grr">%GRR</var> = 30 % komt overeen met een variantieverhouding van 0,09
-    <span class="computed">zelf berekend</span>. Voor een GRR-vraag over deze les: gebruik de 10/30 %-regel van slide 35.</p>
+    <p class="small">Andere drempels elders in de cursus (beslissing 11, als nota): het SPC-deel van de cursus raadt "<var data-s="grr">Gauge R&amp;R</var> ≤ 20 %
+    of tolerance" en "<var data-s="discr">resolution</var> ≤ 10 % of tolerance" aan <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=61">SPC p. 61</a> (zie <a href="#d10">Deel 10</a>); notes p. 23 noemen
+    20 % of 30 % van de tolerantie. Voor een GRR-vraag over meetsysteemanalyse: gebruik de 10/30 %-regel van slide 35.
+    De figuur hieronder toont die aanbeveling uit het SPC-deel, samen met de optelling van de varianties.</p>
+    <figure class="fig"><img src="figures/11_grr_impact.png" alt="Formule sigma kwadraat totaal is sigma kwadraat part-part plus sigma kwadraat R&amp;R, de aanbevelingen resolutie hoogstens 10 procent en Gauge R&amp;R hoogstens 20 procent van de tolerantie, en twee verdelingen: een brede voor part-part en een smalle voor R&amp;R">
+    <figcaption>Figuur: de impact van het meetinstrument in het SPC-deel van de cursus. De totale variantie is de som van de
+    variantie tussen de onderdelen (Part-Part) en die van het meetsysteem (R&amp;R); rechts de brede verdeling van de
+    onderdelen naast de smalle verdeling van R&amp;R. Aanbeveling: resolutie ≤ 10 % en Gauge R&amp;R ≤ 20 % van de te meten
+    tolerantie. <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=61">SPC p. 61</a></figcaption></figure>
+    <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-11-varratio">14 De variantieverhouding als drempel voor het meetsysteem</a>.</p>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
@@ -1440,7 +1544,7 @@
       <li><b>"<var data-s="ev">EV</var>/<var data-s="tv">TV</var> + <var data-s="av">AV</var>/<var data-s="tv">TV</var> + <var data-s="pv">PV</var>/<var data-s="tv">TV</var> = 100 %."</b> Fout: alleen de kwadraten tellen op: <var data-s="tv">TV</var>² = <var data-s="ev">EV</var>² + <var data-s="av">AV</var>² + <var data-s="pv">PV</var>². In de GRR-studie is de som van de drie verhoudingen 157 % <span class="computed">zelf berekend</span>.</li>
       <li><b>Let op:</b> <var data-s="k1">K<sub>1</sub></var> = 1/<var data-s="d2">d<sub>2</sub></var> met d<sub>2</sub> voor subgroepgrootte <var data-s="r_trials">r</var> (herhalingen); <var data-s="k2">K<sub>2</sub></var> = 1/<var data-s="d2star">d<sub>2</sub>*</var> voor 1 subgroep van grootte <var data-s="k_ops">k</var> (operatoren); <var data-s="k3">K<sub>3</sub></var> = 1/<var data-s="d2star">d<sub>2</sub>*</var> voor 1 subgroep van grootte <var data-s="n_parts">n</var> (onderdelen) <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=35">MSA p. 35</a>. In de oefening van slide 38: 1,12838; 1,91155; 2,48124.</li>
       <li><b>Let op:</b> vergeet de correctie niet: <var data-s="av">AV</var> = √((<var data-s="xdiff">X̄<sub>DIFF</sub></var>·<var data-s="k2">K<sub>2</sub></var>)² − <var data-s="ev">EV</var>²/(<var data-s="n_parts">n</var><var data-s="r_trials">r</var>)), met nr het aantal metingen per operator; bij PV trek je <var data-s="ev">EV</var>²/(<var data-s="k_ops">k</var><var data-s="r_trials">r</var>) af <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=35">MSA p. 35</a>.</li>
-      <li><b>"<var data-s="pct_grr">%GRR</var> = 20 %, dus niet aanvaardbaar."</b> Fout: volgens slide 35 is 10 % &lt; <var data-s="pct_grr">%GRR</var> ≤ 30 % "misschien aanvaardbaar" <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=35">MSA p. 35</a>. De Les 4-slides (≤ 20 % van de tolerantie) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=60">SPC p. 60</a> en Dummies (variantieverhouding) <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=178">Dummies p. 178</a> gebruiken andere drempels: kijk welke regel en welke basis de vraag bedoelt.</li>
+      <li><b>"<var data-s="pct_grr">%GRR</var> = 20 %, dus niet aanvaardbaar."</b> Fout: volgens slide 35 is 10 % &lt; <var data-s="pct_grr">%GRR</var> ≤ 30 % "misschien aanvaardbaar" <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=35">MSA p. 35</a>. Het SPC-deel van de cursus gebruikt een andere drempel en basis (≤ 20 % van de tolerantie) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=61">SPC p. 61</a>: kijk welke regel en welke basis de vraag bedoelt.</li>
       <li><b>"Kies onderdelen die sterk op elkaar lijken, dan zie je de meetfout zuiver."</b> Fout: de onderdelen moeten de procesvariatie vertegenwoordigen <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=34">MSA p. 34</a>. Met te gelijkaardige onderdelen wordt <var data-s="pv">PV</var> te klein en <var data-s="pct_grr">%GRR</var> = <var data-s="grr">GRR</var>/<var data-s="tv">TV</var> te groot.</li>
     </ul></div>
     <div class="exercise" id="ex-11-21" data-kw="AV; reproduceerbaarheid; reproducibility; EV²/(nr); correctie; correction; X̄DIFF; operatorgemiddelden; appraiser averages; afleiding; derivation">
@@ -1472,6 +1576,10 @@
       <tr><td>e = fout</td><td><var data-s="ss_e">SS<sub>e</sub></var></td><td><var data-s="n_parts">n</var><var data-s="k_ops">k</var>(<var data-s="r_trials">r</var> − 1) + (<var data-s="k_ops">k</var> − 1)(<var data-s="n_parts">n</var> − 1)</td><td><var data-s="ss_e">SS<sub>e</sub></var>/<var data-s="df_e">df<sub>e</sub></var></td><td></td><td>herhaalbaarheid</td></tr>
       <tr><td>totaal</td><td><var data-s="ss_t">SS<sub>T</sub></var></td><td><var data-s="n_parts">n</var><var data-s="k_ops">k</var><var data-s="r_trials">r</var> − 1</td><td></td><td></td><td></td></tr>
     </table>
+    <figure class="fig"><img src="figures/11_anova_tabel.jpg" alt="ANOVA-tabel van de GRR-studie met de rijen appraiser, part en error; het label reproducibility wijst naar appraiser en part, het label repeatability naar error">
+    <figcaption>Figuur: de ANOVA-tabel zoals de cursus hem geeft (model zonder interactie). Het label reproducibility hoort bij
+    de factoren (a = appraiser, en bij uitbreiding p = part), repeatability bij de foutterm (e = error).
+    <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=36">MSA p. 36</a></figcaption></figure>
     <div class="f">
       <div><var data-s="ev">EV</var> = √<var data-s="ms_e">MS<sub>e</sub></var>; &nbsp; <var data-s="av">AV</var> = √((<var data-s="ms_a">MS<sub>a</sub></var> − <var data-s="ev">EV</var>²)/(<var data-s="n_parts">n</var><var data-s="r_trials">r</var>)); &nbsp; <var data-s="pv">PV</var> = √((<var data-s="ms_p">MS<sub>p</sub></var> − <var data-s="ev">EV</var>²)/(<var data-s="k_ops">k</var><var data-s="r_trials">r</var>))</div>
     </div>
@@ -1496,12 +1604,12 @@
     <var data-s="x_ijl">X<sub>ijl</sub></var> − <var data-s="xbarbar">X̿</var> als de som van de drie stukken, kwadrateer, en toon dat de drie kruistermen nul zijn.</p>
 
     <div class="box warn"><span class="t">Met of zonder interactie? Wat het werkboek doet</span>
-    <p>De slides geven de tabel <i>zonder</i> interactie. Het werkboek van de docent <a class="p" href="../source/course/Les%205/20260619_ottoy_GRR%20-%20ANOVA%20-%20avegage%20and%20range%20-%202.xlsx">GRR-werkboek (xlsx)</a> (werkblad "2way anova") start
+    <p>De cursus geeft de tabel <i>zonder</i> interactie. Het GRR-werkboek <a class="p" href="../source/course/Les%205/20260619_ottoy_GRR%20-%20ANOVA%20-%20avegage%20and%20range%20-%202.xlsx">GRR-werkboek (xlsx)</a> (werkblad "2way anova") start
     met Excels "Anova: Two-Factor With Replication", die wel een interactierij operator × onderdeel geeft. Die interactie is
-    niet significant (<var data-s="p_value">p</var> = 0,294), en daarom bouwt de docent een "Afgeleide ANOVA-tabel, zonder schatting van de interactie
-    (additief model)": hij telt de interactie-SS bij de within-SS (<var data-s="df_e">df</var> 8 + 15 = 23) en rekent EV, AV en PV uit die tabel.
+    niet significant (<var data-s="p_value">p</var> = 0,294), en daarom bouwt het werkboek een "Afgeleide ANOVA-tabel, zonder schatting van de interactie
+    (additief model)": het telt de interactie-SS bij de within-SS (<var data-s="df_e">df</var> 8 + 15 = 23) en rekent EV, AV en PV uit die tabel.
     Een α voor die beslissing (poolen) staat nergens in de cursus. De rekentool toont beide tabellen met de p-waarde van de
-    interactie. Als de interactie wél significant zou zijn, geven de slides geen formule voor EV, AV en PV.</p>
+    interactie. Als de interactie wél significant zou zijn, geeft de cursus geen formule voor EV, AV en PV.</p>
     </div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
@@ -1511,7 +1619,7 @@
       <li><b>Let op:</b> in het model zonder interactie is <var data-s="df_e">df<sub>e</sub></var> = <var data-s="n_parts">n</var><var data-s="k_ops">k</var>(<var data-s="r_trials">r</var> − 1) + (<var data-s="k_ops">k</var> − 1)(<var data-s="n_parts">n</var> − 1), 23 in de GRR-studie. Excels "Anova: Two-Factor With Replication" geeft een aparte interactierij en within-df <var data-s="n_parts">n</var><var data-s="k_ops">k</var>(<var data-s="r_trials">r</var> − 1) = 15; tel interactie en within samen als je zonder interactie rekent <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=36">MSA p. 36</a>.</li>
       <li><b>"Een significante factor operator wijst op een slechte herhaalbaarheid."</b> Fout: ze wijst op operatorbias: de reproduceerbaarheid is significant groter dan 0 <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=36">MSA p. 36</a>.</li>
       <li><b>"Beide methoden geven dezelfde EV en AV."</b> Fout: in de GRR-studie geven ze allebei <var data-s="pct_grr">%GRR</var> ≈ 50 %, maar <var data-s="ev">EV</var>² = 14,75 (gemiddelde en spreidingsbreedte) tegen 30,83 (ANOVA). Volgens de cursus geeft ANOVA nauwkeurigere schattingen en kan ze interacties bestuderen <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=36">MSA p. 36</a>; zie <a href="#ex-11-25">oefening 11.25</a>.</li>
-      <li><b>Let op:</b> de cursus geeft geen α om de interactie bij de fout te poolen; de docent poolt omdat <var data-s="p_value">p</var> = 0,294. Is de interactie wel significant, dan geven de slides geen formule voor EV, AV en PV.</li>
+      <li><b>Let op:</b> de cursus geeft geen α om de interactie bij de fout te poolen; het werkboek poolt omdat <var data-s="p_value">p</var> = 0,294. Is de interactie wel significant, dan geeft de cursus geen formule voor EV, AV en PV.</li>
     </ul></div>
     <div class="exercise" id="ex-11-22" data-kw="bewijs; proof; SST; kruistermen; cross terms; tweeweg-ANOVA; two-way ANOVA; additief model; som van kwadraten; sum of squares">
       <h4>Oefening 11.22 — Waarom vallen de kruistermen weg? (bewijs van slide 37) <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=37">MSA p. 37</a></h4>
@@ -1521,7 +1629,7 @@
         <p>De term hangt niet af van l, dus de som over l geeft een factor r: 2<var data-s="r_trials">r</var>·Σ<sub>i</sub>(<var data-s="xbar_i">X̄<sub>i</sub></var> − <var data-s="xbarbar">X̿</var>) ·
         Σ<sub>j</sub>(<var data-s="xbar_j">X̄<sub>j</sub></var> − <var data-s="xbarbar">X̿</var>). Omdat de studie gebalanceerd is, is X̿ het gemiddelde van de X̄<sub>j</sub>, dus
         Σ<sub>j</sub>(<var data-s="xbar_j">X̄<sub>j</sub></var> − <var data-s="xbarbar">X̿</var>) = 0 (en ook Σ<sub>i</sub>(<var data-s="xbar_i">X̄<sub>i</sub></var> − <var data-s="xbarbar">X̿</var>) = 0). De term is nul; dat is term (3)
-        op <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=37">MSA p. 37</a>. Voor de termen met het residu (1) en (2) toont de slide hetzelfde: Σ<sub>j</sub>Σ<sub>l</sub> van het
+        op <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=37">MSA p. 37</a>. Voor de termen met het residu (1) en (2) toont MSA p. 37 hetzelfde: Σ<sub>j</sub>Σ<sub>l</sub> van het
         residu is voor elke operator i gelijk aan <var data-s="n_parts">n</var><var data-s="r_trials">r</var><var data-s="xbar_i">X̄<sub>i</sub></var> − <var data-s="n_parts">n</var><var data-s="r_trials">r</var><var data-s="xbar_i">X̄<sub>i</sub></var> − <var data-s="n_parts">n</var><var data-s="r_trials">r</var><var data-s="xbarbar">X̿</var> + <var data-s="n_parts">n</var><var data-s="r_trials">r</var><var data-s="xbarbar">X̿</var> = 0.</p>
       </details>
     </div>
@@ -1540,7 +1648,7 @@
     in een nieuwe willekeurige volgorde; zo ook B en C.</p>
     <p>De metingen zijn <b>blind</b>: de operatoren weten niet dat het meetsysteem beoordeeld wordt en kunnen de onderdelen
     niet herkennen. Zo vermijd je het <b>Hawthorne-effect</b> (mensen gedragen zich beter als ze weten dat ze bestudeerd
-    worden). Vraag: is het meetsysteem aanvaardbaar? De oplossing van de docent staat in het werkboek <a class="p" href="../source/course/Les%205/20260619_ottoy_GRR%20-%20ANOVA%20-%20avegage%20and%20range%20-%202.xlsx">GRR-werkboek (xlsx)</a> (werkbladen
+    worden). Vraag: is het meetsysteem aanvaardbaar? De uitgewerkte oplossing staat in het werkboek <a class="p" href="../source/course/Les%205/20260619_ottoy_GRR%20-%20ANOVA%20-%20avegage%20and%20range%20-%202.xlsx">GRR-werkboek (xlsx)</a> (werkbladen
     measurements, ranges en 2way anova).</p>
     <p><b>De data</b> (gecodeerd, werkblad measurements):</p>
     <table>
@@ -1558,7 +1666,7 @@
     blad geeft de gemiddelde-en-spreidingsbreedte-methode (sectie 4: R̿, X̄<sub>DIFF</sub>, R<sub>p</sub>, K's, EV, AV, PV,
     GRR, TV, %GRR), de ANOVA-methode zonder interactie zoals de cursus (sectie 5), de ANOVA met interactie (sectie 6) en
     het oordeel met de 10/30 %-regel (sectie 7). De constanten d<sub>2</sub> en d<sub>2</sub>* komen uit de tabel MSA op het
-    werkblad <b>Tables</b>. Het blad is getest tegen de oplossing van de docent.</p>
+    werkblad <b>Tables</b>. Het blad is getest tegen de oplossing in het GRR-werkboek.</p>
     </div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
@@ -1687,8 +1795,8 @@
           <tr><td>within</td><td class="n">412,50</td><td class="n">15</td><td class="n">27,50</td><td></td><td></td><td></td></tr>
           <tr><td>totaal</td><td class="n">4824,17</td><td class="n">29</td><td></td><td></td><td></td><td></td></tr>
         </table>
-        <p>De interactie is niet significant (<var data-s="p_value">p</var> = 0,294 &gt; 0,05); daarom gaat de docent over naar het additieve model van de
-        slide: interactie en within samen als fout.</p>
+        <p>De interactie is niet significant (<var data-s="p_value">p</var> = 0,294 &gt; 0,05); daarom gaat het werkboek over naar het additieve model van
+        MSA p. 36: interactie en within samen als fout.</p>
         <p><b>Zonder interactie</b> (werkblad 2way anova, J42:P47):</p>
         <table>
           <tr><th>Bron</th><th class="n">SS</th><th class="n">df</th><th class="n">MS</th><th class="n">F</th><th class="n">p</th><th class="n">F crit</th></tr>

@@ -148,13 +148,11 @@
   ];
 
   TOOLS.sigma = [
-    { title: 'Defecten: DPU, DPO, DPMO', help: 'SPC p. 20; Dummies p. 152–156.',
+    { title: 'Defecten: DPO en DPMO', help: 'SPC p. 20: DPO = defecten per kans (defects per opportunity), DPMO = DPO · 10⁶, yield = 1 − DPO.',
       form: inp('D', 'D = aantal defecten') + inp('N', 'N = aantal eenheden') + inp('O', 'O = kansen (opportunities) per eenheid'),
       run: function (v) {
         var r = Calc.defects(v.D, v.N, v.O);
-        return r ? out([['DPU = D / N', f(r.dpu)], ['DPO = D / (N·O)', f(r.dpo)], ['DPMO = DPO · 10⁶', f(r.dpmo)],
-                        ['yield per kans = 1 − DPO', fp(r.ypo)], ['throughput yield = 1 − DPU', fp(r.ty)],
-                        ['RTY ≈ e^(−DPU)', fp(r.rtyApprox), 'Dummies p. 156: als DPU klein is']]) : '';
+        return r ? out([['DPO = D / (N·O)', f(r.dpo)], ['DPMO = DPO · 10⁶', f(r.dpmo)], ['yield per kans = 1 − DPO', fp(r.ypo)]]) : '';
       } },
     { title: 'Van DPMO naar sigmaniveau (beide lezingen)',
       form: inp('dpmo', 'DPMO'),
@@ -170,32 +168,7 @@
         return r ? out([['DPMO met 1,5σ-verschuiving (staart voorbij Z − 1,5)', f(r.shifted), 'cursustabellen: 6σ → 3,4'],
                         ['yield met verschuiving', fp(r.yieldShifted)], ['DPMO zonder verschuiving, één staart', f(r.oneTail)],
                         ['DPMO zonder verschuiving, beide staarten (gecentreerd, Cp = Z/3)', f(r.twoTails), 'SPC p. 40: Cp = 2 → 2 per miljard']]) : '';
-      } },
-    { title: 'Traditionele yield, first-time yield, verborgen fabriek', help: 'Dummies p. 147–151.',
-      form: inp('in', 'eenheden in') + inp('out', 'eenheden uit (goed, na herwerk)') + inp('scrap', 'afgekeurd (scrap)') + inp('rework', 'herwerkt'),
-      run: function (v) {
-        var r = Calc.yields(v.in, v.out, v.scrap, v.rework);
-        return r ? out([['Y = uit / in', fp(r.y)], ['FTY = (in − scrap − herwerk) / in', fp(r.fty)], ['verborgen fabriek = Y − FTY', fp(r.hidden)]]) : '';
-      } },
-    { title: 'Rolled throughput yield uit de yields per stap',
-      form: area('steps', 'yield per stap (fracties of %, gescheiden door spaties of regels)', '0,98 0,95 0,99', 2),
-      run: function (v) {
-        var ys = parseList(v.text.steps).map(function (y) { return y > 1 ? y / 100 : y; });
-        var r = Calc.rolled(ys);
-        return r ? out([['k stappen', f(r.k)], ['RTY = product', fp(r.rty)], ['genormaliseerde yield NY = RTY^(1/k)', fp(r.ny)],
-                        ['DPU = −ln(RTY)', f(r.dpu)], ['eenheden per goede eenheid, herstelbaar: 1 + (1 − RTY)', f(r.repairable)],
-                        ['eenheden per goede eenheid, afgekeurd: 1 / RTY', f(r.scrapped)]]) : '';
-      } },
-    { title: 'Zelfde yield per stap: RTY = yield^k',
-      form: inp('y', 'yield per stap') + inp('k', 'aantal stappen k'),
-      run: function (v) { var r = Calc.yieldPower(v.y, v.k); return r ? out([['RTY', fp(r.rty)], ['één goede op …', f(r.oneIn)]]) : ''; }, pct: ['y'] },
-    { title: 'Yield per kans uit de eindyield', help: 'Harry & Schroeder p. 3–5.',
-      form: inp('y', 'eindyield') + inp('o', 'aantal kansen'),
-      run: function (v) {
-        var r = Calc.perOpportunity(v.y, v.o);
-        return r ? out([['yield per kans = yield^(1/kansen)', fp(r.ypo)], ['DPMO', f(r.dpmo)], ['Z zonder verschuiving', f(r.z)],
-                        ['sigmaniveau met 1,5σ-verschuiving', f(r.level)]]) : '';
-      }, pct: ['y'] }
+      } }
   ];
 
   TOOLS.kwantielen = [
@@ -282,7 +255,7 @@
           (r.condition ? 'ja' : '<b>nee</b>') + '</p>' + testRows(r.test, null);
         return h;
       }, pct: ['pi0'] },
-    { title: 'Twee proporties: π1 − π2 (normale benadering)', help: 'CI Further Reading p. 20; Dummies p. 197.',
+    { title: 'Twee proporties: π1 − π2 (normale benadering)', help: 'CI Further Reading p. 20.',
       form: ALPHA + inp('n1', 'n1') + inp('x1', 'x1') + inp('n2', 'n2') + inp('x2', 'x2'),
       run: function (v) {
         var r = Calc.twoProportions(v.n1, v.x1, v.n2, v.x2, v.alpha);
@@ -357,7 +330,7 @@
 
   TOOLS.kruistabel = [
     { title: 'Kruistabel: gezamenlijke, marginale en voorwaardelijke kansen',
-      help: 'Eén rij per regel, aantallen gescheiden door spaties (plak gerust uit Excel). Onafhankelijk ⇔ P(A en B) = P(A)·P(B) voor elke cel (Naert Les 1 p. 22–23).',
+      help: 'Eén rij per regel, aantallen gescheiden door spaties (plak gerust uit Excel). Onafhankelijk ⇔ P(A en B) = P(A)·P(B) voor elke cel (Data p. 22–23).',
       form: area('t', 'aantallen (rijen = categorieën van A, kolommen = categorieën van B)', '120 30\n80 270', 4),
       run: function (v) {
         var rows = parseRows(v.text.t), r = Calc.contingency(rows);
@@ -493,12 +466,12 @@
     { title: 'Cp, Cpk (Pp, Ppk) en % buiten specificatie, per σ-schatting',
       help: 'Vul de specificatie en het gemiddelde in, en elke spreiding die je hebt; elke σ-schatting krijgt een eigen rij (beslissing 1). Constanten: d2 uit Table 18, c4 uit Table A.',
       form: inp('lsl', 'LSL (leeg = eenzijdig)') + inp('usl', 'USL (leeg = eenzijdig)') + inp('mean', 'gemiddelde x̄ of X̿') + inp('sigma', 'σ gegeven') +
-            inp('rbar', 'R̄') + inp('sbar', 's̄') + inp('n', 'n (subgroepgrootte voor R̄, s̄)') + inp('mrbar', 'MR̄') + inp('overall', 'totale s (lange termijn)'),
+            inp('rbar', 'R̄') + inp('sbar', 's̄') + inp('n', 'n (subgroepgrootte voor R̄, s̄)') + inp('overall', 'totale s (lange termijn)'),
       run: function (v) {
-        var rows = Calc.capability({ lsl: v.lsl, usl: v.usl, mean: v.mean, sigma: v.sigma, rbar: v.rbar, sbar: v.sbar, n: v.n, mrbar: v.mrbar, overall: v.overall }, K);
+        var rows = Calc.capability({ lsl: v.lsl, usl: v.usl, mean: v.mean, sigma: v.sigma, rbar: v.rbar, sbar: v.sbar, n: v.n, overall: v.overall }, K);
         if (!rows.length) return (num(v.rbar) || num(v.sbar)) && !num(v.n) ? warn('geef n voor R̄/d2 of s̄/c4') : '';
         var lines = [['σ', 'sigma', f], ['Cp = (USL − LSL)/6σ', 'cp', f], ['niveau (SPC p. 40)', 'level', f], ['Cpu = (USL − x̄)/3σ', 'cpu', f],
-                     ['Cpl = (x̄ − LSL)/3σ', 'cpl', f], ['Cpk = min(Cpu, Cpl)', 'cpk', f], ['Cpk > 1,33?', 'capable', f], ['Z tot LSL', 'zLsl', f],
+                     ['Cpl = (x̄ − LSL)/3σ', 'cpl', f], ['Cpk = min(Cpu, Cpl)', 'cpk', f], ['Cpk ≥ 1,33 ("Good", SPC p. 41)?', 'capable', f], ['Z tot LSL', 'zLsl', f],
                      ['Z tot USL', 'zUsl', f], ['onder LSL', 'below', pc], ['boven USL', 'above', pc], ['totaal buiten specificatie', 'out', pc], ['ppm', 'ppm', f]];
         return grid(['σ-schatting →'].concat(rows.map(function (r) { return r.label + (r.constant ? '<br><span class="aux">' + esc(r.constant).replace('.', ',') + '</span>' : ''); })),
           lines.map(function (l) { return [l[0]].concat(rows.map(function (r) { return l[2](r[l[1]]); })); }));
@@ -530,25 +503,6 @@
         return out([['k subgroepen van n', f(r.k) + ' × ' + f(r.n)], ['X̿', f(r.xbarbar)], ['R̄', f(r.rbar)], ['s̄', f(r.sbar)]]) + limitsTable(r) +
           grid(['#', 'x̄', 'R', 's', 'x̄ (R-grenzen)', 'R', 'x̄ (s-grenzen)', 's'], r.groups.map(function (g, i) {
             return [String(i + 1), f(g.mean), f(g.range), f(g.s), flagged(g.fxR), flagged(g.fR), flagged(g.fxS), flagged(g.fS)]; }));
-      } },
-    { title: 'Individuele waarden en moving range (I-MR)', help: 'Dummies p. 249: X̄ ± E2·MR̄, D3·MR̄ … D4·MR̄ (n = 2).',
-      form: area('x', 'waarden in volgorde', '', 4),
-      run: function (v) {
-        var r = Calc.individuals(parseList(v.text.x), K);
-        if (!r) return '';
-        return out([['k', f(r.k)], ['X̄', f(r.xbar)], ['MR̄', f(r.mrbar)], ['σ̂ = MR̄/d2(2)', f(r.sigma), 'd2 = ' + f(r.d2)]]) +
-          grid(['kaart', 'LCL', 'CL', 'UCL', 'constanten'], [['X', f(r.X[0]), f(r.X[1]), f(r.X[2]), 'E2 = ' + f(r.E2)],
-            ['MR', f(r.MR[0]), f(r.MR[1]), f(r.MR[2]), 'D3 = ' + f(r.D3) + ', D4 = ' + f(r.D4)]]) +
-          grid(['#', 'x', 'MR', 'x-signaal', 'MR-signaal'], r.points.map(function (p, i) { return [String(i + 1), f(p.x), f(p.mr), flagged(p.fx), flagged(p.fmr)]; }));
-      } },
-    { title: 'p-kaart (fractie defect) of u-kaart (defecten per eenheid)', help: 'Dummies p. 254. Per regel: subgroepgrootte n_i en aantal. Grenzen per subgroep; negatieve LCL → 0.',
-      form: sel('kind', 'kaart', [['p', 'p-kaart (defectieven)'], ['u', 'u-kaart (defecten)']]) + area('d', 'n_i en aantal per regel', '', 5),
-      run: function (v) {
-        var r = Calc.attributeChart(v.text.kind, parseRows(v.text.d));
-        if (!r) return '';
-        return out([['totaal geïnspecteerd', f(r.total)], ['totaal aantal', f(r.count)], [v.text.kind === 'p' ? 'p̄ = totaal defectieven / totaal' : 'ū = totaal defecten / totaal eenheden', f(r.centre)]]) +
-          grid(['#', 'n_i', 'aantal', v.text.kind + '_i', 'LCL_i', 'UCL_i', 'signaal'], r.rows.map(function (q, i) {
-            return [String(i + 1), f(q.n), f(q.count), f(q.value), f(q.lcl), f(q.ucl), flagged(q.flag)]; }));
       } }
   ];
   function flagged(s) { return s ? '<b class="flag">' + s + '</b>' : ''; }
@@ -591,7 +545,7 @@
 
   TOOLS.confusion = [
     { title: 'Confusion matrix: accuracy, recall, precision, F1 (train en test)',
-      help: 'Rijen = werkelijke klasse, kolommen = voorspelde klasse (Naert Les 2 p. 29–32). Vul per model de vier aantallen in, rij per rij.',
+      help: 'Rijen = werkelijke klasse, kolommen = voorspelde klasse (ML p. 29–32). Vul per model de vier aantallen in, rij per rij.',
       form: ['A', 'B', 'C'].map(function (m) {
         return inp(m + 'tr', 'model ' + m + ' train: a b c d', '480 20 15 485') + inp(m + 'te', 'model ' + m + ' test: a b c d', '180 120 110 190');
       }).join(''),
@@ -607,11 +561,11 @@
           });
         });
         return rows.length ? grid(['', 'N', 'accuracy', 'foutratio', 'recall klasse 1', 'precision 1', 'F1 1', 'recall klasse 2', 'precision 2', 'F1 2'], rows) +
-          '<p class="xl">Grote kloof train ↔ test: overfitting (variantie). Beide laag: underfitting (bias). Naert Les 2 p. 19–28.</p>' : '';
+          '<p class="xl">Grote kloof train ↔ test: overfitting (variantie). Beide laag: underfitting (bias). ML p. 19–28.</p>' : '';
       } }
   ];
 
-  /* ---------- Les 2 (Ottoy): sample size, tolerance, β/power, χ² frequencies, rank tests, sampling plans ---------- */
+  /* ---------- Les 2 (CI, TH, AS): sample size, tolerance, β/power, χ² frequencies, rank tests, sampling plans ---------- */
   TOOLS.steekproefgrootte = [
     { title: 'Steekproefgrootte voor een betrouwbaarheidsinterval',
       help: 'De cursus noemt "nauwkeurigheid" de VOLLEDIGE breedte van het interval (bovengrens − ondergrens, CI p. 7). ' +
@@ -829,6 +783,62 @@
       }, pct: ['p'] }
   ];
 
+  /* ---------- Deel 14 (extra, niet te kennen): blocks that only the books Six Sigma For Dummies and Harry & Schroeder give ---------- */
+  TOOLS.sigma_extra = [
+    { title: 'DPU, throughput yield en RTY ≈ e^(−DPU)', help: 'Dummies p. 152–156; Harry & Schroeder p. 5. DPU = defecten per eenheid (defects per unit); TY = 1 − DPU; RTY ≈ e^(−DPU) als DPU klein is.',
+      form: inp('D', 'D = aantal defecten') + inp('N', 'N = aantal eenheden'),
+      run: function (v) {
+        var r = Calc.defects(v.D, v.N, null);
+        return r ? out([['DPU = D / N', f(r.dpu)], ['throughput yield = 1 − DPU', fp(r.ty)], ['RTY ≈ e^(−DPU)', fp(r.rtyApprox), 'Dummies p. 156: als DPU klein is']]) : '';
+      } },
+    { title: 'Traditionele yield, first-time yield, verborgen fabriek', help: 'Dummies p. 147–151.',
+      form: inp('in', 'eenheden in') + inp('out', 'eenheden uit (goed, na herwerk)') + inp('scrap', 'afgekeurd (scrap)') + inp('rework', 'herwerkt'),
+      run: function (v) {
+        var r = Calc.yields(v.in, v.out, v.scrap, v.rework);
+        return r ? out([['Y = uit / in', fp(r.y)], ['FTY = (in − scrap − herwerk) / in', fp(r.fty)], ['verborgen fabriek = Y − FTY', fp(r.hidden)]]) : '';
+      } },
+    { title: 'Rolled throughput yield uit de yields per stap',
+      form: area('steps', 'yield per stap (fracties of %, gescheiden door spaties of regels)', '0,98 0,95 0,99', 2),
+      run: function (v) {
+        var ys = parseList(v.text.steps).map(function (y) { return y > 1 ? y / 100 : y; });
+        var r = Calc.rolled(ys);
+        return r ? out([['k stappen', f(r.k)], ['RTY = product', fp(r.rty)], ['genormaliseerde yield NY = RTY^(1/k)', fp(r.ny)],
+                        ['DPU = −ln(RTY)', f(r.dpu)], ['eenheden per goede eenheid, herstelbaar: 1 + (1 − RTY)', f(r.repairable)],
+                        ['eenheden per goede eenheid, afgekeurd: 1 / RTY', f(r.scrapped)]]) : '';
+      } },
+    { title: 'Zelfde yield per stap: RTY = yield^k',
+      form: inp('y', 'yield per stap') + inp('k', 'aantal stappen k'),
+      run: function (v) { var r = Calc.yieldPower(v.y, v.k); return r ? out([['RTY', fp(r.rty)], ['één goede op …', f(r.oneIn)]]) : ''; }, pct: ['y'] },
+    { title: 'Yield per kans uit de eindyield', help: 'Harry & Schroeder p. 3–5.',
+      form: inp('y', 'eindyield') + inp('o', 'aantal kansen'),
+      run: function (v) {
+        var r = Calc.perOpportunity(v.y, v.o);
+        return r ? out([['yield per kans = yield^(1/kansen)', fp(r.ypo)], ['DPMO', f(r.dpmo)], ['Z zonder verschuiving', f(r.z)],
+                        ['sigmaniveau met 1,5σ-verschuiving', f(r.level)]]) : '';
+      }, pct: ['y'] }
+  ];
+  TOOLS.regelkaart_extra = [
+    { title: 'Individuele waarden en moving range (I-MR)', help: 'Dummies p. 249: X̄ ± E2·MR̄, D3·MR̄ … D4·MR̄ (n = 2).',
+      form: area('x', 'waarden in volgorde', '', 4),
+      run: function (v) {
+        var r = Calc.individuals(parseList(v.text.x), K);
+        if (!r) return '';
+        return out([['k', f(r.k)], ['X̄', f(r.xbar)], ['MR̄', f(r.mrbar)], ['σ̂ = MR̄/d2(2)', f(r.sigma), 'd2 = ' + f(r.d2)]]) +
+          grid(['kaart', 'LCL', 'CL', 'UCL', 'constanten'], [['X', f(r.X[0]), f(r.X[1]), f(r.X[2]), 'E2 = ' + f(r.E2)],
+            ['MR', f(r.MR[0]), f(r.MR[1]), f(r.MR[2]), 'D3 = ' + f(r.D3) + ', D4 = ' + f(r.D4)]]) +
+          grid(['#', 'x', 'MR', 'x-signaal', 'MR-signaal'], r.points.map(function (p, i) { return [String(i + 1), f(p.x), f(p.mr), flagged(p.fx), flagged(p.fmr)]; }));
+      } },
+    { title: 'p-kaart (fractie defect) of u-kaart (defecten per eenheid)', help: 'Dummies p. 254. Per regel: subgroepgrootte n_i en aantal. Grenzen per subgroep; negatieve LCL → 0.',
+      form: sel('kind', 'kaart', [['p', 'p-kaart (defectieven)'], ['u', 'u-kaart (defecten)']]) + area('d', 'n_i en aantal per regel', '', 5),
+      run: function (v) {
+        var r = Calc.attributeChart(v.text.kind, parseRows(v.text.d));
+        if (!r) return '';
+        return out([['totaal geïnspecteerd', f(r.total)], ['totaal aantal', f(r.count)], [v.text.kind === 'p' ? 'p̄ = totaal defectieven / totaal' : 'ū = totaal defecten / totaal eenheden', f(r.centre)]]) +
+          grid(['#', 'n_i', 'aantal', v.text.kind + '_i', 'LCL_i', 'UCL_i', 'signaal'], r.rows.map(function (q, i) {
+            return [String(i + 1), f(q.n), f(q.count), f(q.value), f(q.lcl), f(q.ucl), flagged(q.flag)]; }));
+      } }
+  ];
+
   /* ---------- descriptives, regression extras, multiple regression, two-way ANOVA ---------- */
   function modes(xs) {
     var c = {}, best = 0;
@@ -838,7 +848,7 @@
   }
   TOOLS.beschrijvend = [
     { title: 'Beschrijvende statistiek van één reeks',
-      help: 'VV p. 131: gemiddelde, mediaan (middelste waarde; bij even n het gemiddelde van de twee middelste), modus, s met n − 1, bereik. Excel: AVERAGE, MEDIAN, MODE, STDEV.S (n − 1) en STDEV.P (n).',
+      help: 'LSS p. 131: gemiddelde, mediaan (middelste waarde; bij even n het gemiddelde van de twee middelste), modus, s met n − 1, bereik. Excel: AVERAGE, MEDIAN, MODE, STDEV.S (n − 1) en STDEV.P (n).',
       form: area('x', 'waarden', '', 3),
       run: function (v) {
         var xs = parseList(v.text.x), r = Calc.descriptives(xs);
@@ -984,7 +994,7 @@
         return grid(['kaart', 'LCL', 'CL', 'UCL', 'constanten'], rows);
       } },
     { title: 'Regels voor speciale oorzaken (Western Electric, SPC p. 68–69)',
-      help: 'Zones: C binnen 1σ, B tussen 1σ en 2σ, A tussen 2σ en 3σ van de centrale lijn, met σ die van de uitgezette grootheid (bij een X̄-kaart σ/√n = (UCL − CL)/3). Regels 2 en 3 tellen de punten aan één kant van de centrale lijn, zoals de Western Electric-regels waar SPC p. 69 naar verwijst; Dummies p. 246 vraagt dat alle 3 (5) punten aan dezelfde kant liggen. Regels 9 en 10 (ongewoon patroon, punt dicht bij een grens) vragen een oordeel.',
+      help: 'Zones: C binnen 1σ, B tussen 1σ en 2σ, A tussen 2σ en 3σ van de centrale lijn, met σ die van de uitgezette grootheid (bij een X̄-kaart σ/√n = (UCL − CL)/3). SPC p. 68 zegt bij regels 2 en 3 niet of de punten aan dezelfde kant van de centrale lijn moeten liggen (bij regel 4 wel); de rekenmachine toont beide lezingen. De Western Electric-regels waar SPC p. 69 naar verwijst, tellen aan dezelfde kant. Regels 9 en 10 (ongewoon patroon, punt dicht bij een grens) vragen een oordeel.',
       form: inp('cl', 'centrale lijn CL') + inp('s', 'σ van de uitgezette grootheid') + inp('ucl', 'of UCL (dan σ = (UCL − CL)/3)') + area('x', 'punten in volgorde', '', 3),
       run: function (v) {
         var s = num(v.s) ? v.s : (num(v.ucl) && num(v.cl) ? (v.ucl - v.cl) / 3 : null), r = Calc.runRules(parseList(v.text.x), v.cl, s);
@@ -993,7 +1003,8 @@
           '3. 4 van 5 opeenvolgende punten voorbij 1σ (zelfde kant)', '4. 8 opeenvolgende punten aan één kant van de centrale lijn',
           '5. 6 punten op rij stijgend of dalend', '6. 15 punten op rij in zone C', '7. 14 punten op rij afwisselend op en neer',
           '8. 8 punten op rij aan beide kanten zonder één in zone C'];
-        return grid(['regel', 'signaal bij punt (laatste punt van het venster)'], [1, 2, 3, 4, 5, 6, 7, 8].map(function (q) {
+        names['2b'] = '2. letterlijk: 2 van 3 voorbij 2σ (eender welke kant)'; names['3b'] = '3. letterlijk: 4 van 5 voorbij 1σ (eender welke kant)';
+        return grid(['regel', 'signaal bij punt (laatste punt van het venster)'], [1, 2, '2b', 3, '3b', 4, 5, 6, 7, 8].map(function (q) {
             return [names[q], r.hits[q].length ? '<b class="flag">' + r.hits[q].join(', ') + '</b>' : 'geen']; })) +
           grid(['#', 'z = (x − CL)/σ', 'zone'], r.z.map(function (z, i) { return [String(i + 1), f(z, 3), r.zones[i]]; }));
       } });
@@ -1001,7 +1012,7 @@
   /* ---------- Bayes, Beta, k-class confusion matrix ---------- */
   TOOLS.bayes = [
     { title: 'Regel van Bayes: voorwaardelijke kans omkeren',
-      help: 'P(A|B) = P(B|A)·P(A)/P(B) (ML p. 53) met P(B) = P(B|A)·P(A) + P(B|niet A)·P(niet A) (marginaal plus productregel, Naert p. 18–20). Let op: P(A|B) ≠ P(B|A).',
+      help: 'P(A|B) = P(B|A)·P(A)/P(B) (ML p. 53) met P(B) = P(B|A)·P(A) + P(B|niet A)·P(niet A) (marginaal plus productregel, Data p. 18–20). Let op: P(A|B) ≠ P(B|A).',
       form: inp('pa', 'P(A) (voorkennis, prior)') + inp('ba', 'P(B | A)') + inp('bn', 'P(B | niet A)'),
       run: function (v) {
         var r = Calc.bayes(v.pa, v.ba, v.bn);
@@ -1009,7 +1020,7 @@
                         ['odds vooraf × likelihood-ratio = odds achteraf', f(r.priorOdds) + ' × ' + f(r.likelihoodRatio) + ' = ' + f(r.posteriorOdds)]]) : '';
       }, pct: ['pa', 'ba', 'bn'] },
     { title: 'Bayesiaans bijwerken van een proportie met een Beta-prior',
-      help: 'Web slides p. 55: prior Beta(α, β), k successen in n pogingen → posterior Beta(α + k, β + n − k); gemiddelde α/(α + β); MLE k/n. Modus en mediaan zoals in de Beta(2, 8)-figuur (Naert notities Les 1 p. 4): modus (α − 1)/(α + β − 2), mediaan BETA.INV(0,5; α; β).',
+      help: 'Web slides p. 55: prior Beta(α, β), k successen in n pogingen → posterior Beta(α + k, β + n − k); gemiddelde α/(α + β); MLE k/n. Modus en mediaan zoals in de Beta(2, 8)-figuur (Data-notities p. 4): modus (α − 1)/(α + β − 2), mediaan BETA.INV(0,5; α; β).',
       form: inp('a', 'α (prior)', '', '1') + inp('b', 'β (prior)', '', '1') + inp('k', 'k successen') + inp('n', 'n pogingen'),
       run: function (v) {
         var r = Calc.betaPosterior(v.a, v.b, v.k, v.n);

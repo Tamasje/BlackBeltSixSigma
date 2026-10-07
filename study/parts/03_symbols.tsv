@@ -19,24 +19,24 @@ lsl	LSL	Onderste specificatiegrens (lower specification limit): stem van de klan
 usl	USL	Bovenste specificatiegrens (upper specification limit): stem van de klant.	Gegeven in de opgave. Niet de UCL van een regelkaart: die komt uit het proces.	d03-voc
 d_defects	D	Aantal gevonden defecten (defects): afwijkingen op één kenmerk.	Tellen. Eén eenheid kan meerdere defecten hebben: defecten zijn geen defectieve eenheden.	d03-dpmo
 n_units	N	Aantal geïnspecteerde eenheden (units).	Tellen of gegeven.	d03-dpmo
-o_opp	O	Aantal opportuniteiten (opportunities) per eenheid: kenmerken waar het mis kan gaan.	Gegeven (CTQ's per eenheid). Niet kunstmatig opblazen: dan lijkt DPO beter (Dummies p. 154).	d03-dpmo
-dpu	DPU	Defecten per eenheid (defects per unit).	D/N. Eerlijk binnen één product, niet tussen producten van verschillende complexiteit: deel dan door O (DPO).	d03-dpmo
+o_opp	O	Aantal opportuniteiten (opportunities) per eenheid: kenmerken waar het mis kan gaan.	Gegeven (CTQ's per eenheid).	d03-dpmo
+dpu	DPU	Defecten per eenheid (defects per unit).	D/N. Eerlijk binnen één product, niet tussen producten van verschillende complexiteit: deel dan door O (DPO).	d14-03-dpu
 dpo	DPO	Defecten per opportuniteit (defects per opportunity).	D/(N · O) = DPU/O.	d03-dpmo
 dpmo	DPMO	Defecten per miljoen opportuniteiten (defects per million opportunities).	DPO × 1 000 000. In de sigmatabellen is de DPMO lange termijn (met de 1,5σ-verschuiving).	d03-dpmo
-yield_opp	Yield	Yield per opportuniteit (SPC p. 20): fractie opportuniteiten zonder defect.	1 − DPO = 1 − D/(N · O). Niet de fractie foutloze eenheden (zie FTY en RTY).	d03-dpmo
+yield_opp	Yield	Yield per opportuniteit (SPC p. 20): fractie opportuniteiten zonder defect.	1 − DPO = 1 − D/(N · O).	d03-dpmo
 ppm	PPM	Delen per miljoen (parts per million).	Fractie × 10<sup>6</sup>; van % naar ppm: × 10 000 (1 % = 10 000 ppm).	d03-dpmo
-y_trad	Y	Traditionele yield (traditional yield): fractie goede eenheden aan het einde.	out/in = 1 − scrap/in. Ziet de herwerking niet (de verborgen fabriek).	d03-yield
-fty	FTY	First time yield: fractie die de eerste keer goed is, zonder herwerking of afval.	(in − scrap − rework)/in.	d03-yield
-rty	RTY	Rolled throughput yield: kans dat een eenheid alle stappen in één keer goed doorloopt.	Product FTY<sub>1</sub> × … × FTY<sub>n</sub>, niet het gemiddelde. Nooit hoger dan de laagste stap-FTY.	d03-yield
-ny	NY	Normalized yield: gemiddelde yield per processtap.	RTY<sup>1/k</sup> (k-de wortel, k = aantal stappen). H&amp;S p. 5 drukt de exponent fout af (−10).	d03-yield
-k_steps	k	Aantal processtappen (number of steps).	Tellen of gegeven.	d03-yield
-in_units	in	Aantal eenheden dat de stap binnenkomt (input).	Gegeven (banden oppompen: 352).	d03-yield
-out_units	out	Aantal goede eenheden dat buitenkomt (output), na herwerking.	in − scrap (banden: 347).	d03-yield
-scrap	scrap	Afgekeurde eenheden die niet te herstellen zijn (scrap).	Gegeven (banden: 5). Telt mee in Y én in FTY.	d03-yield
-rework	rework	Eenheden die herwerkt werden tot ze goed zijn (rework).	Gegeven (banden: 98). Telt alleen mee in FTY: dat verschil is de verborgen fabriek.	d03-yield
-y_final	yield	Eindyield (final yield) van een product: fractie goede eenheden.	Gegeven (H&amp;S p. 3: A 85 %, B 96,8 %). Yield per opportuniteit = yield<sup>1/O</sup>.	ex-03-13
-z_st	Z<sub>ST</sub>	Korte-termijnsigmascore (short-term Z): het sigmaniveau van de sigmatabellen.	NORM.INV(1 − DPMO/10<sup>6</sup>;0;1) + 1,5, of de Z-kolom van de sigmatabel (SPC p. 21, Dummies p. 160).	d03-sigma
-z_lt	Z<sub>LT</sub>	Lange-termijnsigmascore (long-term Z).	Z<sub>ST</sub> − 1,5 (min, niet plus). De staart voorbij Z<sub>LT</sub> geeft de lange-termijn-DPMO.	d03-sigma
+y_trad	Y	Traditionele yield (traditional yield): fractie goede eenheden aan het einde.	out/in = 1 − scrap/in. Ziet de herwerking niet (de verborgen fabriek).	d14-03-yield
+fty	FTY	First time yield: fractie die de eerste keer goed is, zonder herwerking of afval.	(in − scrap − rework)/in.	d14-03-yield
+rty	RTY	Rolled throughput yield: kans dat een eenheid alle stappen in één keer goed doorloopt.	Product FTY<sub>1</sub> × … × FTY<sub>n</sub>, niet het gemiddelde. Nooit hoger dan de laagste stap-FTY.	d14-03-yield
+ny	NY	Normalized yield: gemiddelde yield per processtap.	RTY<sup>1/k</sup> (k-de wortel, k = aantal stappen). H&amp;S p. 5 drukt de exponent fout af (−10).	d14-03-yield
+k_steps	k	Aantal processtappen (number of steps).	Tellen of gegeven.	d14-03-yield
+in_units	in	Aantal eenheden dat de stap binnenkomt (input).	Gegeven (banden oppompen: 352).	d14-03-yield
+out_units	out	Aantal goede eenheden dat buitenkomt (output), na herwerking.	in − scrap (banden: 347).	d14-03-yield
+scrap	scrap	Afgekeurde eenheden die niet te herstellen zijn (scrap).	Gegeven (banden: 5). Telt mee in Y én in FTY.	d14-03-yield
+rework	rework	Eenheden die herwerkt werden tot ze goed zijn (rework).	Gegeven (banden: 98). Telt alleen mee in FTY: dat verschil is de verborgen fabriek.	d14-03-yield
+y_final	yield	Eindyield (final yield) van een product: fractie goede eenheden.	Gegeven (H&amp;S p. 3: A 85 %, B 96,8 %). Yield per opportuniteit = yield<sup>1/O</sup>.	ex-14-03-7
+z_st	Z<sub>ST</sub>	Korte-termijnsigmascore (short-term Z): het sigmaniveau van de sigmatabellen.	NORM.INV(1 − DPMO/10<sup>6</sup>;0;1) + 1,5, of de Z-kolom van de sigmatabel (SPC p. 21, Dummies p. 160).	d14-03-sigmatabel
+z_lt	Z<sub>LT</sub>	Lange-termijnsigmascore (long-term Z).	Z<sub>ST</sub> − 1,5 (min, niet plus). De staart voorbij Z<sub>LT</sub> geeft de lange-termijn-DPMO.	d14-03-sigmatabel
 sigma_level	sigmaniveau	Sigmaniveau (sigma level): aantal σ tussen gemiddelde en grens, zoals in de sigmatabellen.	Met verschuiving: NORM.INV(1 − DPMO/10<sup>6</sup>;0;1) + 1,5; zonder verschuiving zonder de + 1,5. Vermeld altijd welke lezing.	d03-sigma
 cp	Cp	Procescapabiliteitsindex (process capability index): toegelaten breedte gedeeld door 6σ.	(USL − LSL)/(6σ), met de korte-termijn-σ. Uitgewerkt in Deel 09.	d09-cp
 cpk	Cpk	Capabiliteitsindex met ligging: afstand tot de dichtste grens, gedeeld door 3σ.	min{USL − x̄; x̄ − LSL}/(3σ). Altijd ≤ Cp. Uitgewerkt in Deel 09.	d09-cpk

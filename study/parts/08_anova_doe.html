@@ -1,11 +1,11 @@
 <section class="part" id="d08" data-title="Deel 08 — ANOVA en proefopzet (design of experiments)" data-lecturer="Stijn De Vuyst" data-les="Les 3">
   <h2>Deel 08 — ANOVA en proefopzet (design of experiments)</h2>
-  <p class="intro">De tweede slidereeks van Stijn De Vuyst in Les 3, "1-way and 2-way ANOVA / Design of Experiments"
-  (hier DOE, 94 pagina's), gegeven na de regressie van <a href="#d07">Deel 7</a>. Eerst one-way ANOVA: een respons
-  verklaren met een categorische x, wiskundig hetzelfde als regressie. Daarna waarom en hoe je experimenten plant,
+  <p class="intro">Dit deel behandelt variantieanalyse en proefopzet en bouwt verder op de regressie van
+  <a href="#d07">Deel 7</a>. Eerst one-way ANOVA: een respons
+  verklaren met een categorische x, wiskundig hetzelfde als regressie; daarna tweewegs-ANOVA. Daarna waarom en hoe je experimenten plant,
   2<sup><var data-s="k_factors">k</var></sup>-proefopzetten en fractionele proefopzetten. Het kernidee (variatie opsplitsen, F-verhouding) en de twee
-  notaties voor kritieke waarden staan in <a href="#d07-start">7.1</a>. Tweewegs-ANOVA komt in de DOE-slides niet als
-  aparte theorie voor; de cursus behandelt de tabel in Les 5 (meetsysteemanalyse, <a href="#d11">Deel 11</a>).
+  notaties voor kritieke waarden staan in <a href="#d07-start">7.1</a>. De tabel voor tweewegs-ANOVA staat in de cursus bij
+  meetsysteemanalyse (<a href="#d11">Deel 11</a>).
   <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=1">DOE p. 1</a></p>
 
   <section class="unit" id="d08-brug" data-kw="ANOVA; variantieanalyse; analysis of variance; factor; categorische variabele; categorical variable; niveau; level; behandeling; treatment; groep; group; replicaties; replicates; gebalanceerd; balanced; dummyvariabelen; dummy variables; regressie; regression">
@@ -19,14 +19,14 @@
     categorie, groep, behandeling (treatment) of cel (cell). Heeft elke groep evenveel metingen, dan is het experiment
     <b>gebalanceerd (balanced)</b>; de cursus veronderstelt dat altijd <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=2">DOE p. 2</a>.</p>
     <div class="box key"><span class="t">De brug</span>
-      <p>De Vuyst toont dat het ANOVA-model met één factor een <b>speciaal geval is van het meervoudige lineaire
+      <p>Het ANOVA-model met één factor is een <b>speciaal geval van het meervoudige lineaire
       regressiemodel</b> van <a href="#d07-meervoudig">7.9</a>. Geef elk niveau zijn eigen dummyvariabele (bv. een factor
       Color met <var data-s="a_levels">a</var> = 4 niveaus red, green, blue, yellow) en pas het model met gewone kleinste kwadraten (OLS) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=5">DOE p. 5</a>. De
       geschatte waarde van elke meting is dan gewoon het gemiddelde van haar groep, en alles van Deel 7 blijft gelden
       <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=6">DOE p. 6–7</a>:</p>
       <ul>
         <li><var data-s="ss_total">SS<sub>Total</sub></var> = <var data-s="ss_tr">SS<sub>Treatment</sub></var> + <var data-s="ss_e">SS<sub>Error</sub></var> is de regressie-opsplitsing
-        <var data-s="ss_total">SS<sub>T</sub></var> = <var data-s="ss_r">SS<sub>R</sub></var> + <var data-s="ss_e">SS<sub>E</sub></var> van <a href="#d07-anova">7.5</a>; de slide schrijft letterlijk
+        <var data-s="ss_total">SS<sub>T</sub></var> = <var data-s="ss_r">SS<sub>R</sub></var> + <var data-s="ss_e">SS<sub>E</sub></var> van <a href="#d07-anova">7.5</a>; de cursus schrijft letterlijk
         <var data-s="ss_tr">SS<sub>Treatment</sub></var> = <var data-s="ss_r">SS<sub>R</sub></var>.</li>
         <li>De toets is opnieuw een verklaarde gemiddelde kwadratensom gedeeld door die van de fout: een F-verhouding.</li>
         <li>De residuen controleer je net als in <a href="#d07-residuen">7.8</a>.</li>
@@ -37,7 +37,7 @@
       <li><b>"ANOVA vergelijkt varianties: ze toetst of de groepen even sterk spreiden."</b> Fout: ANOVA toetst of de <i>gemiddelden</i> gelijk zijn; de naam komt van het opsplitsen van de variatie. Dezelfde variantie in elke groep is juist een aanname <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=3">DOE p. 3</a>.</li>
       <li><b>"De niveaus 5, 10, 15 en 20 % hebben een volgorde, en ANOVA gebruikt die."</b> Fout: een factor is nominaal; de niveaus hebben geen numerieke betekenis of volgorde <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=2">DOE p. 2</a>. ANOVA zegt dus niets over een stijgende trend; voor een numerieke x is er regressie (<a href="#d07">Deel 7</a>).</li>
       <li><b>"One-way ANOVA en regressie met dummyvariabelen geven een ander resultaat."</b> Fout: het ANOVA-model is een speciaal geval van meervoudige regressie, met <var data-s="ss_tr">SS<sub>Treatment</sub></var> = <var data-s="ss_r">SS<sub>R</sub></var> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=6">DOE p. 6</a>.</li>
-      <li><b>Let op:</b> de formules van de slides (<var data-s="n_rep">n</var>·Σ(…)², df <var data-s="a_levels">a</var>(<var data-s="n_rep">n</var> − 1)) gaan uit van een gebalanceerd experiment: evenveel metingen in elke groep <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=2">DOE p. 2</a>.</li>
+      <li><b>Let op:</b> de formules van de cursus (<var data-s="n_rep">n</var>·Σ(…)², df <var data-s="a_levels">a</var>(<var data-s="n_rep">n</var> − 1)) gaan uit van een gebalanceerd experiment: evenveel metingen in elke groep <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=2">DOE p. 2</a>.</li>
     </ul></div>
   </section>
 
@@ -55,6 +55,11 @@
     <p>τ<sub>i</sub> is gewoon hoe ver groep i boven of onder het grote gemiddelde (grand mean) µ ligt. De vraag: heeft
     factor A een statistisch significante invloed, met andere woorden, zijn de µ<sub>i</sub> verschillend, of is een
     τ<sub>i</sub> verschillend van nul <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=3">DOE p. 3</a>?</p>
+    <figure class="fig"><img src="figures/08_papier_boxplots_model.png" alt="Boven: boxplots van de treksterkte bij 5, 10, 15 en 20 % hardhout, stijgend. Onder: vier even brede normale klokken gecentreerd op mu plus tau_1 tot mu plus tau_4">
+    <figcaption>Figuur: (a) boxplots van de treksterkte van papier bij 5, 10, 15 en 20 % hardhout (het voorbeeld van 8.5): de
+    groepen liggen duidelijk op verschillende hoogte. (b) Het effectenmodel in beeld: elke groep is een normale verdeling met
+    gemiddelde µ<sub>i</sub> = µ + τ<sub>i</sub> rond het grote gemiddelde µ, en alle vier hebben dezelfde variantie σ².
+    <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=4">DOE p. 4</a></figcaption></figure>
     <div class="f">
       <div><var data-s="h0">H<sub>0</sub></var>: <var data-s="mu_i">µ<sub>1</sub></var> = <var data-s="mu_i">µ<sub>2</sub></var> = … = <var data-s="mu_i">µ<sub>a</sub></var> (gelijkwaardig: alle <var data-s="tau_i">τ<sub>i</sub></var> = 0)</div>
       <div><var data-s="ha">H<sub>A</sub></var>: minstens één groepsgemiddelde verschilt <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=7">DOE p. 7</a></div>
@@ -134,7 +139,7 @@
         <tr><td>20</td><td class="n">19</td><td class="n">25</td><td class="n">22</td><td class="n">23</td><td class="n">18</td><td class="n">20</td><td class="n">127</td><td class="n">21,17</td></tr>
         <tr><td colspan="7"></td><td class="n">383</td><td class="n">15,96</td></tr>
       </table>
-      <p>De slide gebruikt <var data-s="alpha">α</var> = 0,01 en de verkorte formules (som van de gekwadrateerde waarden min een correctieterm)
+      <p>Het voorbeeld gebruikt <var data-s="alpha">α</var> = 0,01 en de verkorte formules (som van de gekwadrateerde waarden min een correctieterm)
       <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=9">DOE p. 9</a>:</p>
       <ol class="steps">
         <li><var data-s="ss_total">SS<sub>T</sub></var> = (7² + 8² + … + 20²) − 383²/24 = 512,96</li>
@@ -153,6 +158,11 @@
       <p>Minitab geeft ook per niveau het gemiddelde en de standaardafwijking (5 %: 10,000 en 2,828; 10 %: 15,667 en
       2,805; 15 %: 17,000 en 1,789; 20 %: 21,167 en 2,639) en de <var data-s="sigma_hat"><b>Pooled StDev</b></var> = √<var data-s="ms_e">MS<sub>E</sub></var> = 2,551. Dat is de
       schatting van σ, net zoals S in de regressie-output <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=10">DOE p. 10</a>.</p>
+      <figure class="fig"><img src="figures/08_papier_minitab.png" alt="Minitab-output One-Way Analysis of Variance voor de papiersterkte, met per niveau N, Mean, StDev en een tekstgrafiek van de 95 %-betrouwbaarheidsintervallen">
+      <figcaption>Figuur: de Minitab-output (Table 4.7). Rechts onderaan tekent Minitab per niveau het 95 %-betrouwbaarheidsinterval
+      voor het gemiddelde, gebaseerd op de Pooled StDev. De intervallen schuiven van links (5 %) naar rechts (20 %); dat van 5 %
+      ligt los van de andere, die van 10 % en 15 % overlappen grotendeels.
+      <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=10">DOE p. 10</a></figcaption></figure>
     </div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
@@ -208,7 +218,12 @@
     <p>Een nieuwe synthetische vezel voor hemdenstof; de respons is de treksterkte. Het katoengehalte kan variëren van 10
     tot 40 gewichts-%, en er wordt wat niet-lineariteit verwacht. De onderzoeker kiest 5 niveaus (15, 20, 25, 30 en
     35 gew.-%) met elk 5 replicaties in willekeurige volgorde <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=13">DOE p. 13</a>. Vragen: verandert het katoengehalte de
-    gemiddelde treksterkte, en is er een optimum <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=14">DOE p. 14</a>? Excel's "Anova: Single Factor" geeft <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=15">DOE p. 15</a>:</p>
+    gemiddelde treksterkte, en is er een optimum <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=14">DOE p. 14</a>?</p>
+    <figure class="fig"><img src="figures/08_vezel_boxplots.png" alt="Boxplots van de treksterkte bij 15, 20, 25, 30 en 35 gewichtsprocent katoen: stijgend tot 30 en dan laag bij 35">
+    <figcaption>Figuur: boxplots van de treksterkte (lb/in²) per katoengehalte (Figure 3-1). De dozen stijgen van 15 naar 30 %
+    en zakken bij 35 % terug naar het niveau van 15 %: dat wijst op een optimum rond 30 %.
+    <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=14">DOE p. 14</a></figcaption></figure>
+    <p>Excel's "Anova: Single Factor" geeft <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=15">DOE p. 15</a>:</p>
     <table>
       <tr><th>Source of Variation</th><th class="n">SS</th><th class="n">df</th><th class="n">MS</th><th class="n">F</th><th class="n">P-value</th><th class="n">F crit</th></tr>
       <tr><td>Between Groups</td><td class="n">475.76</td><td class="n">4</td><td class="n">118.94</td><td class="n">14.75682</td><td class="n">9.12794E-06</td><td class="n">2.866081</td></tr>
@@ -229,11 +244,19 @@
       <li><b>F crit</b> is de kritieke waarde bij de α die je in het dialoogvenster koos (hier 0,05).</li>
       <li><var data-s="f0">F</var> = 14,76 ligt ver boven 2,87, en <var data-s="p_value">P</var> = 9,1 × 10<sup>−6</sup>: <b>het katoengehalte doet ertoe</b>. De
       groepsgemiddelden zijn 9,8; 15,4; 17,6; 21,6 en 10,8: 30 % geeft de sterkste vezel.</li>
-      <li>De figuur op <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=16">DOE p. 16</a> toont waar <var data-s="f0">F<sub>0</sub></var> = 14,76 valt in de <var data-s="f_dist">F(4, 20)</var>-verdeling: ver voorbij zowel
+      <li>De eerste figuur hieronder (<a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=16">DOE p. 16</a>) toont waar <var data-s="f0">F<sub>0</sub></var> = 14,76 valt in de <var data-s="f_dist">F(4, 20)</var>-verdeling: ver voorbij zowel
       <var data-s="f_crit">F<sub>0,05; 4; 20</sub></var> als <var data-s="f_crit">F<sub>0,01; 4; 20</sub></var> (die laatste is 4,431 <span class="computed">zelf berekend</span>).</li>
-      <li>De Design-Expert-figuur op <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=17">DOE p. 17</a> zet de metingen en gemiddelden per katoengehalte uit: de sterkte stijgt tot
+      <li>De Design-Expert-figuur daaronder (<a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=17">DOE p. 17</a>) zet de metingen en gemiddelden per katoengehalte uit: de sterkte stijgt tot
       30 % en zakt dan sterk bij 35 %.</li>
     </ul>
+    <figure class="fig"><img src="figures/08_vezel_fverdeling.png" alt="Dichtheid van de F-verdeling met 4 en 20 vrijheidsgraden, met pijlen bij de kritieke waarden voor 0,05 en 0,01 en een pijl ver rechts bij F0 = 14,76">
+    <figcaption>Figuur: de F-verdeling met (4, 20) vrijheidsgraden onder H<sub>0</sub>. De pijlen voor de kritieke waarden F<sub>0,05; 4, 20</sub>
+    en F<sub>0,01; 4, 20</sub> staan net links en net rechts van 4 op de as, waar de dichtheid al bijna nul is; de waargenomen
+    F<sub>0</sub> = 14,76 ligt veel verder rechts. <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=16">DOE p. 16</a></figcaption></figure>
+    <figure class="fig"><img src="figures/08_vezel_designexpert.png" alt="Design-Expert One Factor Plot: sterkte tegen katoengewichtsprocent met rode meetpunten, zwarte gemiddelden met foutstaven en een gestreepte lijn">
+    <figcaption>Figuur: Design-Expert "One Factor Plot" van de vezelproef: rode punten zijn de metingen (een "2" betekent twee
+    gelijke metingen), zwarte vierkanten de groepsgemiddelden met hun foutstaven. Het gemiddelde stijgt van 15 naar 30 % en
+    valt bij 35 % sterk terug. <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=17">DOE p. 17</a></figcaption></figure>
     <div class="box tool"><span class="t">Rekentool</span>
       <p>Werkblad <b>ANOVA DOE regression</b>, sectie <b>1 (one-way ANOVA)</b>: typ elke groep in een eigen kolom (tot 8
       groepen van elk tot 30 waarden; groepen mogen verschillend groot zijn). Je krijgt de ANOVA-tabel, de p-waarde,
@@ -335,20 +358,37 @@
     <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=11">DOE p. 11</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=18">DOE p. 18</a>. Controleer visueel:</p>
     <ul>
       <li><b>Normaal-kansplot (normal probability plot)</b> van de residuen: de punten liggen dicht bij een rechte (voor
-      de papierdata Figuur 4.13 <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=11">DOE p. 11</a>; voor de vezeldata <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=18">DOE p. 18</a>).</li>
+      de papierdata Figuur 4.13 <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=11">DOE p. 11</a>; voor de vezeldata <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=18">DOE p. 18</a>; beide in de figuren hieronder).</li>
       <li><b>Residuen tegen factorniveau of groepsgemiddelde</b>: ongeveer dezelfde spreiding overal, geen patroon
-      (Figuren 4.14 en 4.15).</li>
+      (Figuren 4.14 en 4.15, hieronder).</li>
       <li>Groeit de spreiding met het gemiddelde, analyseer dan een getransformeerde respons (bv. log y) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=11">DOE p. 11</a>.</li>
       <li>De onafhankelijkheid controleer je met de residuen tegen de volgorde waarin de runs gebeurden (run order): een
       patroon wijst op een tijdsafhankelijke invloed die niet in het proefopzet zit <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=11">DOE p. 11</a>.</li>
     </ul>
+    <figure class="fig"><img src="figures/08_papier_residuen.png" alt="Drie residuplots van de papierproef: normaal-kansplot met punten langs een rechte, residuen per hardhoutpercentage, en residuen tegen de groepsgemiddelden">
+    <figcaption>Figuur: papierproef. Links de normaal-kansplot van de residuen (Figure 4.13): de punten volgen een rechte.
+    Midden de residuen per percentage hardhout (Figure 4.14) en rechts tegen de groepsgemiddelden ȳ<sub>i</sub> (Figure 4.15):
+    in elke groep ongeveer dezelfde spreiding rond 0, zonder patroon.
+    <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=11">DOE p. 11</a></figcaption></figure>
+    <figure class="fig"><img src="figures/08_vezel_normaalplot.png" alt="Normaal-kansplot van de residuen van de vezelproef: de punten liggen dicht bij een rechte">
+    <figcaption>Figuur: vezelproef, normaal-kansplot van de residuen (Design-Expert): de punten liggen dicht bij de rechte, met
+    alleen het laagste residu wat verder ervan. <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=18">DOE p. 18</a></figcaption></figure>
     <p><b>Welke gemiddelden verschillen?</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=12">DOE p. 12</a> Een significante F zegt alleen "niet alle gemiddelden zijn
     gelijk". Om te zien <i>welke</i> verschillen, vergelijk je ze grafisch of met een formele methode zoals Fisher's LSD
-    (de slide noemt die, zonder formule). Papiervoorbeeld: 20 % hardhout geeft de hoogste sterkte, 5 % de laagste, en 10 %
+    (de cursus noemt die, zonder formule). Papiervoorbeeld: 20 % hardhout geeft de hoogste sterkte, 5 % de laagste, en 10 %
     en 15 % verschillen niet van elkaar maar liggen onder 20 %.</p>
+    <figure class="fig"><img src="figures/08_papier_vergelijking.png" alt="As van 0 tot 30 met vier punten voor de gemiddelden van de vier hardhoutgroepen en daarboven een smalle normale curve rond de middelste punten">
+    <figcaption>Figuur: papierproef. De vier groepsgemiddelden (1 = 5 %, 2 = 10 %, 3 = 15 %, 4 = 20 % hardhout) op één as, met
+    erboven een normale curve met standaardafwijking √(MS<sub>E</sub>/n) = √(6,51/6) = 1,04. Gemiddelden 2 en 3 passen samen
+    onder de curve; 1 ligt er ver links van, 4 ver rechts. <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=12">DOE p. 12</a></figcaption></figure>
     <p><b>Grafische vergelijking</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=19">DOE p. 19</a>: zet de groepsgemiddelden uit op één as en schuif er een t-vormige curve
     over met schaalfactor √(<var data-s="ms_e">MS<sub>E</sub></var>/<var data-s="n_rep">n</var>). Voor de vezel: √(8,06/5) = 1,27. Gemiddelden die niet samen onder één
     curve passen, verschillen.</p>
+    <figure class="fig"><img src="figures/08_vezel_vergelijking.png" alt="As van 5 tot 25 met de vijf gemiddelden van de vezelproef, gelabeld 15, 35, 20, 25 en 30, en daarboven een t-vormige curve">
+    <figcaption>Figuur: vezelproef. De gemiddelden per katoengehalte op één as (15 en 35 % links, rond 10; 20 en 25 % in het
+    midden; 30 % rechts, boven 20), met een t-verdeling met schaalfactor √(MS<sub>E</sub>/n) = √(8,06/5) = 1,27 erboven (Figure
+    3-11). Schuif de curve in gedachten langs de as en kijk welke gemiddelden samen onder één curve passen.
+    <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=19">DOE p. 19</a></figcaption></figure>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"Een significante F zegt welke gemiddelden verschillen."</b> Fout: ze zegt alleen dat niet alle gemiddelden gelijk zijn. Welke verschillen, vind je met een grafische vergelijking of Fisher's LSD <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=12">DOE p. 12</a>. Vezel: of 30 % (21,6) echt beter is dan 25 % (17,6), zegt F niet.</li>
@@ -368,7 +408,7 @@
         <tr><td>47, 53, 49, 50, 46</td><td>55, 54, 58, 61, 52</td><td>54, 50, 51, 51, 49</td></tr>
         <tr><td>gemiddelde 49</td><td>gemiddelde 56</td><td>gemiddelde 51</td></tr>
       </table>
-      <p>De slide geeft al het grote gemiddelde 52 en Σ(<var data-s="ybar_i">X̄<sub>i</sub></var> − <var data-s="ybar_grand">X̄</var>)² = 9 + 16 + 1 = 26, maar geen oplossing.
+      <p>De cursus geeft al het grote gemiddelde 52 en Σ(<var data-s="ybar_i">X̄<sub>i</sub></var> − <var data-s="ybar_grand">X̄</var>)² = 9 + 16 + 1 = 26, maar geen oplossing.
       Toets met <var data-s="alpha">α</var> = 0,05.</p>
       <div class="q" data-answer="130" data-tol="0.01">
         <label><var data-s="ss_tr">SS<sub>Treatment</sub></var> =</label> <input type="text" inputmode="decimal">
@@ -394,7 +434,7 @@
       <details class="hint"><summary>Hint</summary><p><var data-s="ss_tr">SS<sub>Treatment</sub></var> = <var data-s="n_rep">n</var> · Σ(<var data-s="ybar_i">X̄<sub>i</sub></var> − <var data-s="ybar_grand">X̄</var>)². Voor SS<sub>Error</sub>:
       kwadrateer de afwijking van elke waarde tot het gemiddelde van haar eigen machine.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
-        <p>De slide geeft geen oplossing; alles hieronder is <span class="computed">zelf berekend</span>.</p>
+        <p>De cursus geeft geen oplossing; alles hieronder is <span class="computed">zelf berekend</span>.</p>
         <ol class="steps">
           <li><var data-s="ss_tr">SS<sub>Treatment</sub></var> = 5 · 26 = <b>130</b>, <var data-s="df">df</var> = 2, <var data-s="ms_tr">MS</var> = 65.</li>
           <li><var data-s="ss_e">SS<sub>Error</sub></var>: machine 1: 4 + 16 + 0 + 1 + 9 = 30; machine 2: 1 + 4 + 4 + 25 + 16 = 50; machine 3: 9 + 1 + 0 + 0 + 4
@@ -408,12 +448,11 @@
 
   <section class="unit" id="d08-tweeweg" data-kw="tweewegs-ANOVA; two-way ANOVA; twee factoren; two factors; interactie; interaction; zonder replicatie; without replication; met replicatie; with replication; Anova: Two-Factor; Sample; Columns; Within; 2ANOVA; 2ANOVArep; machines operatoren; watering sunlight; GRR">
     <h3>8.9 Tweewegs-ANOVA (two-way ANOVA) <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=36">MSA p. 36</a></h3>
-    <p>De titel van de DOE-reeks zegt "1-way and 2-way ANOVA", maar geen enkele slide legt de tweewegs-ANOVA apart uit.
-    Het idee: twee factoren tegelijk, met in elke combinatie (cel) evenveel metingen. Je splitst
+    <p>Bij tweewegs-ANOVA bestudeer je twee factoren tegelijk, met in elke combinatie (cel) evenveel metingen. Je splitst
     de variatie dan in een deel voor A, een deel voor B, eventueel een deel voor hun <b>interactie</b> (het effect van de ene
     factor hangt af van het niveau van de andere; zie <a href="#d08-interactie">8.16</a>) en de rest. De tabel staat in de cursus bij
-    meetsysteemanalyse (Ottoy, Les 5; <a href="#d11">Deel 11</a>): factoren "appraiser" en "part".</p>
-    <p>Notatie van de MSA-slide: k appraisers (niveaus van de ene factor), n parts (niveaus van de andere factor) en
+    meetsysteemanalyse (<a href="#d11">Deel 11</a>), met de factoren "appraiser" en "part".</p>
+    <p>Notatie van de MSA-tabel: k appraisers (niveaus van de ene factor), n parts (niveaus van de andere factor) en
     r metingen per cel. Let op: n is hier het aantal parts, niet het aantal replicaties zoals elders in dit deel.</p>
     <p><b>Zonder interactieterm</b> (additief model) <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=36">MSA p. 36</a>:</p>
     <table>
@@ -437,7 +476,7 @@
     296,67 <span class="computed">zelf berekend</span>).</p>
     <div class="box warn"><span class="t">Zonder replicatie geen interactietoets</span>
       <p>Met één meting per cel (<var data-s="r_rep">r</var> = 1) is er geen "Within": de interactie is dan zelf de restterm en kan niet getoetst
-      worden. De MSA-slide zegt het zo: een model met interacties "explicitly requires measurement replications"
+      worden. De cursus over meetsysteemanalyse zegt het zo: een model met interacties "explicitly requires measurement replications"
       <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=36">MSA p. 36</a>. Excel heeft daarvoor de aparte optie "Anova: Two-Factor Without Replication".</p>
     </div>
     <div class="box tool"><span class="t">Rekentool</span>
@@ -574,8 +613,12 @@
     oncontroleerbare factoren z minimaal zijn. <b>Doelen van experimenteren</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=22">DOE p. 22</a>: nieuwe processen ontwerpen
     tegen minimale kost; prestaties, betrouwbaarheid en robuustheid van bestaande processen verbeteren; alternatieven
     evalueren.</p>
+    <figure class="fig"><img src="figures/08_proces_factoren.png" alt="Schema: een blok Process met links inputs en rechts output y, bovenaan pijlen van controleerbare factoren x1 tot xp, onderaan pijlen van oncontroleerbare factoren z1 tot zq">
+    <figcaption>Figuur: het proces als blok. Inputs gaan erin, de output y komt eruit. Van boven werken de controleerbare
+    factoren x<sub>1</sub>, …, x<sub>p</sub> in, van onder de oncontroleerbare factoren
+    z<sub>1</sub>, …, z<sub>q</sub>. <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=21">DOE p. 21</a></figcaption></figure>
     <table>
-      <tr><th>Slides (Nederlands)</th><th>English</th><th>Betekenis</th></tr>
+      <tr><th>Nederlands</th><th>English</th><th>Betekenis</th></tr>
       <tr><td>experimenteerpunt</td><td>design point</td><td>één combinatie van factorniveaus <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=40">DOE p. 40</a></td></tr>
       <tr><td>experimentele run</td><td>run</td><td>een experimenteerpunt waar je echt meet</td></tr>
       <tr><td>replicaties</td><td>replications</td><td>herhaalde waarnemingen van dezelfde run</td></tr>
@@ -606,15 +649,25 @@
     <div class="box ex"><span class="t">Het golfvoorbeeld</span> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=27">DOE p. 27, 41–42</a>
       <p>Mogelijke factoren voor een golfscore: type driver, type bal, wandelen of rijden, drank, tijdstip, weer, type
       golfspike <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=41">DOE p. 41</a>. Neem er twee: driver (O of R) en bal (B of T), met twee rondes per combinatie. Scores: O/B 88,
-      90; R/B 93, 91; O/T 88, 91; R/T 92, 94. Het vierkant van de figuur toont hoe je effecten leest <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=27">DOE p. 27</a> (dezelfde figuur op <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=42">DOE p. 42</a>):</p>
+      90; R/B 93, 91; O/T 88, 91; R/T 92, 94. Het vierkant in de figuur hieronder toont hoe je effecten leest <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=27">DOE p. 27</a> (dezelfde figuur op <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=42">DOE p. 42</a>):</p>
+      <figure class="fig"><img src="figures/08_golf_effecten.png" alt="Vierkant met de golfscores in de hoeken (driver O of R horizontaal, bal B of T verticaal) en drie kleinere vierkanten met pijlen voor het driver-effect, het bal-effect en de diagonalen van de interactie">
+      <figcaption>Figuur: (a) de scores van het golfexperiment in de hoeken van het vierkant: O/B 88, 90; R/B 93, 91; O/T 88, 91;
+      R/T 92, 94. (b) driver-effect: vergelijk de rechterkant (R) met de linkerkant (O); (c) bal-effect: bovenkant (T) tegen
+      onderkant (B); (d) interactie: de ene diagonaal tegen de andere.
+      <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=27">DOE p. 27</a></figcaption></figure>
       <ul>
         <li>(b) <b>driver-effect</b>: gemiddelde van de R-kant min dat van de O-kant;</li>
         <li>(c) <b>bal-effect</b>: T-kant min B-kant;</li>
         <li>(d) <b>interactie bal × driver</b>: de ene diagonaal min de andere.</li>
       </ul>
       <p>Met drie factoren (driver, bal, drank) wordt het vierkant een kubus; met vier (plus wandelen/rijden) twee kubussen
-      <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=43">DOE p. 43</a>. Een <b>fractioneel factorieel ontwerp</b> test maar een deel van de hoekpunten: in de figuur 8 van de 16
+      <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=43">DOE p. 43</a>. Een <b>fractioneel factorieel ontwerp</b> test maar een deel van de hoekpunten: in de figuur hieronder 8 van de 16
       (omcirkeld) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=44">DOE p. 44</a>; zie 8.21.</p>
+      <figure class="fig"><img src="figures/08_golf_kubussen.png" alt="Boven een kubus voor drie factoren, midden twee kubussen voor vier factoren (wandelen en rijden), onder dezelfde twee kubussen met 8 omcirkelde hoekpunten">
+      <figcaption>Figuur: boven een 2<sup>3</sup>-ontwerp in driver, bal en drank (beverage): de 8 runs zijn de hoekpunten van een
+      kubus (Figure 1-6). Midden het volledige 2<sup>4</sup>-ontwerp met ook de verplaatsingswijze (wandelen of rijden): twee
+      kubussen, 16 hoekpunten (Figure 1-7). Onder de fractie: alleen de 8 omcirkelde hoekpunten worden gespeeld, 4 in elke
+      kubus (Figure 1-8). <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=43">DOE p. 43–44</a></figcaption></figure>
     </div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
@@ -640,7 +693,7 @@
       <details class="hint"><summary>Hint</summary><p>Elke "kant" en elke diagonaal bevat 4 scores; neem telkens het
       gemiddelde.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
-        <p>De slides tonen alleen de figuur; de getallen zijn <span class="computed">zelf berekend</span>.</p>
+        <p>De cursus toont alleen de figuur (8.11); de getallen zijn <span class="computed">zelf berekend</span>.</p>
         <ul>
           <li>Driver: R-kant (93, 91, 92, 94) gemiddeld 92,5; O-kant (88, 90, 88, 91) 89,25; effect <b>3,25</b>.</li>
           <li>Bal: T-kant (88, 91, 92, 94) 91,25; B-kant (88, 90, 93, 91) 90,5; effect <b>0,75</b>.</li>
@@ -661,7 +714,7 @@
     zo klein mogelijk houden.</p>
     <table>
       <tr><th></th><th>bekend</th><th>onbekend</th></tr>
-      <tr><td>controleerbaar</td><td><b>BLOCKING</b></td><td>(zwart vlak op de slide)</td></tr>
+      <tr><td>controleerbaar</td><td><b>BLOCKING</b></td><td>—</td></tr>
       <tr><td>oncontroleerbaar</td><td colspan="2"><b>RANDOMISATION</b></td></tr>
     </table>
     <p>In woorden <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=29">DOE p. 29</a>: maak blokken (blocking) voor storende factoren die je kent en kunt controleren; randomiseer
@@ -671,6 +724,11 @@
     voer elke A/B-combinatie even vaak uit bij elk weertype (twee keer bij C, twee keer bij c) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=31">DOE p. 31</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=32">DOE p. 32</a>.
     Nog beter: <b>randomiseer ook de volgorde</b> van de runs, zodat onbekende, in de tijd verlopende factoren gelijk
     verdeeld raken over alle combinaties <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=33">DOE p. 33</a>.</p>
+    <figure class="fig"><img src="figures/08_blocking_randomisatie.png" alt="Vier vakken met runlabels: twee vakken met zon (runs met C) en twee met regen (runs met c); in de bovenste twee vakken staan de runs geordend, in de onderste twee in willekeurige volgorde">
+    <figcaption>Figuur: de 16 runs; A/a en B/b zijn de twee niveaus van de factoren A en B, C/c het weer (C = zon, c =
+    regen). Bovenste twee vakken: het blok "zon" bevat elke A/B-combinatie (AB, Ab, aB, ab) twee keer, het
+    blok "regen" ook. Onderste twee vakken: dezelfde blokken, maar met de runs in willekeurige volgorde (randomisatie).
+    <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=32">DOE p. 32–33</a></figcaption></figure>
     <p><b>Confounding (vermenging)</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=45">DOE p. 45</a>: twee factoren zijn confounded als het proefopzet hun effecten niet kan
     scheiden. Een uitdaging bij elk proefopzet is te voorkomen dat de bestudeerde factoren met elkaar of met storende
     factoren vermengd raken. Het is de experimentele versie van de confounding-waarschuwing bij regressie
@@ -695,6 +753,11 @@
       19, 21, 23. Beide factoren stijgen <i>samen</i> (correlatie 1): ze zijn <b>volledig confounded</b>. Je leert alleen
       dat "iets" de opbrengst verhoogt, een gezamenlijk effect, en je kunt de discussie niet beslechten <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=36">DOE p. 36</a>. Ook een
       regressie op beide x'en zou ze niet kunnen scheiden.</p>
+      <figure class="fig"><img src="figures/08_opbrengst_exp1.png" alt="Experiment 1: boven de vier runs in het vlak concentratie-duur op één stijgende rechte, onder de opbrengst tegen concentratie en tegen duur, telkens vier stijgende punten">
+      <figcaption>Figuur: experiment 1. Boven: de vier runs liggen in het vlak (concentratie, duur) op één stijgende rechte, met
+      de opbrengsten 17, 19, 21 en 23 erbij. Onder: de opbrengst stijgt even mooi tegen de concentratie als tegen de duur; uit
+      deze plots kun je niet afleiden welke factor het doet.
+      <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=35">DOE p. 35</a></figcaption></figure>
       <p><b>Experiment 2</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=37">DOE p. 37</a>: twee nieuwe runs, samen met twee runs van het eerste experiment, vormen een
       2 × 2-ontwerp met correlatie 0:</p>
       <table>
@@ -702,7 +765,13 @@
         <tr><td>concentratie 0 %</td><td class="n">17</td><td class="n">24</td></tr>
         <tr><td>concentratie 12 %</td><td class="n">16</td><td class="n">23</td></tr>
       </table>
-      <p>De <b>interactieplots (interaction plots)</b> beslechten het: de duur heeft een positief effect, de concentratie
+      <figure class="fig"><img src="figures/08_opbrengst_exp2.png" alt="Experiment 2: boven de vier runs in de hoeken van het vlak concentratie-duur, onder twee interactieplots met telkens twee bijna evenwijdige lijnen">
+      <figcaption>Figuur: experiment 2. Boven: de vier runs in de hoeken van het (concentratie, duur)-vlak, met opbrengsten 17
+      en 24 bij concentratie 0, 16 en 23 bij concentratie 12. Onder links: opbrengst tegen concentratie, één lijn per duur
+      (10 en 25 min): beide dalen licht en de lijn voor duur 25 ligt veel hoger. Onder rechts: opbrengst tegen duur, één lijn
+      per concentratie (0 en 12 %): beide stijgen sterk. De lijnen lopen telkens evenwijdig.
+      <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=37">DOE p. 37</a></figcaption></figure>
+      <p>De <b>interactieplots (interaction plots)</b> hierboven beslechten het: de duur heeft een positief effect, de concentratie
       een licht negatief, dus <b>Nathalie heeft gelijk</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=38">DOE p. 38</a>. Als effecten (<span class="computed">zelf berekend</span>): duur +7 (23,5 − 16,5),
       concentratie −1 (19,5 − 20,5), interactie 0 (de lijnen lopen evenwijdig).</p>
       <p>Beide experimenten kosten 4 runs. Het eerste is waardeloos omdat het niet leert wat we willen weten; het tweede
@@ -712,6 +781,10 @@
     -formulering; (2) keuze van factoren, levels en ranges; (3) selectie van de responsvariabelen; (4) ontwerp van het
     geschikte proefopzet; (5) uitvoeren van het experiment; (6) (statistische) analyse, eventueel het ontwerp aanpassen;
     (7) conclusies en aanbevelingen. Kort: concept, design, execution, analysis, report.</p>
+    <figure class="fig"><img src="figures/08_zeven_stappen.png" alt="Vijf blokken op een rij: concept, design, execution, analysis, report, met een terugkoppelpijl van analysis naar design">
+    <figcaption>Figuur: concept → design → execution → analysis → report, met een terugkoppeling van de analyse naar het
+    ontwerp (stap 6: eventueel het ontwerp aanpassen).
+    <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=39">DOE p. 39</a></figcaption></figure>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"Beide experimenten kosten 4 runs, dus ze zijn even goed."</b> Fout: experiment 1 is waardeloos omdat concentratie en duur volledig confounded zijn (correlatie 1); experiment 2, met correlatie 0, beslecht de vraag <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=38">DOE p. 38</a>.</li>
@@ -773,6 +846,15 @@
       <li>Een effect is "gemiddelde respons op het hoge niveau min gemiddelde respons op het lage niveau"; een groot effect
       wijst op een significante factor of interactie. "How large is large?" beantwoorden 8.18–8.19 <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=52">DOE p. 52</a>.</li>
     </ul>
+    <figure class="fig"><img src="figures/08_ontwerpmatrix.png" alt="Dezelfde 2x2-data twee keer: links unstacked met één rij per run en drie replicatiekolommen, rechts stacked met één rij per waarneming">
+    <figcaption>Figuur: dezelfde gegevens van een 2<sup>2</sup>-ontwerp met 3 replicaties in twee vormen. Links "unstacked": één
+    rij per run (A, B) met Rep1, Rep2, Rep3 naast elkaar. Rechts "stacked": één rij per waarneming, dus 12 rijen; de pijl toont
+    hoe de eerste run (−1, −1) drie rijen wordt.
+    <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=47">DOE p. 47</a></figcaption></figure>
+    <figure class="fig"><img src="figures/08_kubus_2tot3.png" alt="Kubus met de acht runs (1), a, b, ab, c, ac, bc, abc op de hoekpunten en daarnaast de ontwerpmatrix met plus- en mintekens voor A, B en C">
+    <figcaption>Figuur: het 2<sup>3</sup>-ontwerp. (a) Meetkundig: de 8 runs zijn de hoekpunten van een kubus met assen factor
+    A, B en C, van (1) (alles laag) tot abc (alles hoog). (b) De ontwerpmatrix in standaardvolgorde: A wisselt elke run, B om
+    de 2, C om de 4. <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=62">DOE p. 62</a></figcaption></figure>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"In de standaardvolgorde wisselt de laatste factor het snelst."</b> Fout: A wisselt elke run, B om de 2 runs, C om de 4 <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=62">DOE p. 62</a>. Het DOE-demowerkboek staat niet in standaardvolgorde (<a href="#d08-demo">8.24</a>).</li>
@@ -788,6 +870,11 @@
     <p>Dit werkt voor een factor (een <b>hoofdeffect, main effect</b>) en voor een interactie op dezelfde manier. Voor een
     interactie zoals AB maak je eerst de kolom <var data-s="col">AB</var> = <var data-s="col">A</var> × <var data-s="col">B</var> en pas je dan dezelfde regel toe <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=50">DOE p. 50</a>. Voor drie factoren
     geldt hetzelfde: <var data-s="effect">A</var> = <var data-s="ybar_plus">ȳ<sub>A+</sub></var> − <var data-s="ybar_minus">ȳ<sub>A−</sub></var>, enzovoort <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=63">DOE p. 63</a>.</p>
+    <figure class="fig"><img src="figures/08_contrasten_kubus.png" alt="Zeven kubussen: voor A, B en C een gearceerd vlak met plus- en minkant, voor AB, AC en BC een diagonaal vlak, en voor ABC een kubus met vier zwarte en vier witte hoekpunten">
+    <figcaption>Figuur: welke hoekpunten van de 2<sup>3</sup>-kubus tegen welke worden vergeleken (Figure 6-5). (a) Hoofdeffecten:
+    het gemiddelde van de vier hoekpunten aan de +kant van A, B of C min dat van de vier aan de −kant. (b) Tweefactorinteracties
+    AB, AC, BC: twee diagonale vlakken tegen elkaar. (c) ABC: de vier zwarte hoekpunten (+ runs) tegen de vier witte (− runs).
+    <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=63">DOE p. 63</a></figcaption></figure>
     <div class="box ex"><span class="t">Uitgewerkt voorbeeld (n = 3)</span> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=47">DOE p. 47–50</a>
       <table>
         <tr><th class="n">A</th><th class="n">B</th><th class="n">AB</th><th>Rep1, Rep2, Rep3</th></tr>
@@ -799,7 +886,7 @@
       <ul>
         <li><var data-s="effect">[A]</var> = 5,12 − 5,575 = <b>−0,455</b> (gemiddelde van de zes waarden met <var data-s="col">A</var> = +1 min de zes met <var data-s="col">A</var> = −1) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=48">DOE p. 48</a>.</li>
         <li><var data-s="effect">[B]</var> = 5,505 − 5,19 = <b>0,315</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=49">DOE p. 49</a>.</li>
-        <li><var data-s="effect">[AB]</var> = 5,78 − 4,92: exact 5,7767 − 4,9183 = <b>0,8583</b> <span class="computed">zelf berekend</span>. De slide drukt 0,857 <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=50">DOE p. 50</a>.</li>
+        <li><var data-s="effect">[AB]</var> = 5,78 − 4,92: exact 5,7767 − 4,9183 = <b>0,8583</b> <span class="computed">zelf berekend</span>. De cursus drukt 0,857 <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=50">DOE p. 50</a>.</li>
       </ul>
     </div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
@@ -807,7 +894,7 @@
       <li><b>"Het effect van A is het verschil tussen twee runs."</b> Fout: <var data-s="effect">[A]</var> is het gemiddelde van <i>alle</i> metingen met <var data-s="col">A</var> = +1 min dat van alle metingen met <var data-s="col">A</var> = −1; hier zes tegen zes waarden <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=48">DOE p. 48</a>.</li>
       <li><b>"In gecodeerde eenheden is de regressiecoëfficiënt van A gelijk aan het effect."</b> Fout: <var data-s="coef">coëfficiënt</var> = <var data-s="effect">effect</var>/2, want de gecodeerde x gaat over 2 eenheden, van −1 naar +1. Oefening 8.17: effect 0,2179, coëfficiënt 0,1090 <span class="computed">zelf berekend</span> <span class="gen">algemeen</span>.</li>
       <li><b>"Een interactie-effect bereken je met een andere formule dan een hoofdeffect."</b> Fout: maak de kolom <var data-s="col">AB</var> = <var data-s="col">A</var> × <var data-s="col">B</var> en pas dezelfde regel toe <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=50">DOE p. 50</a>.</li>
-      <li><b>Let op:</b> de slide drukt <var data-s="effect">[AB]</var> = 5,78 − 4,92 = 0,857; exact is het 0,858 (0,8583), en 5,78 − 4,92 zelf is 0,86 <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=50">DOE p. 50</a>. Reken het na in plaats van het gedrukte getal over te nemen.</li>
+      <li><b>Let op:</b> de cursus drukt <var data-s="effect">[AB]</var> = 5,78 − 4,92 = 0,857; exact is het 0,858 (0,8583), en 5,78 − 4,92 zelf is 0,86 <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=50">DOE p. 50</a>. Reken het na in plaats van het gedrukte getal over te nemen.</li>
     </ul></div>
     <div class="exercise" id="ex-08-9" data-kw="effect berekenen; compute effect; [A]; [B]; [AB]; hoofdeffect; interactie-effect; gecodeerd 2^2 voorbeeld; coded example">
       <h4>Oefening 8.9 — [A], [B] en [AB] <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=48">DOE p. 48–50</a></h4>
@@ -831,7 +918,7 @@
           5,575; <var data-s="effect">[A]</var> = <b>−0,455</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=48">DOE p. 48</a>.</li>
           <li><var data-s="col">B</var> = +1: 5,505; <var data-s="col">B</var> = −1: 5,19; <var data-s="effect">[B]</var> = <b>0,315</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=49">DOE p. 49</a>.</li>
           <li><var data-s="col">AB</var> = +1 (rijen 1 en 4): 34,66/6 = 5,7767; <var data-s="col">AB</var> = −1 (rijen 2 en 3): 29,51/6 = 4,9183; <var data-s="effect">[AB]</var> = <b>0,858</b>
-          (exact 0,8583) <span class="computed">zelf berekend</span>. De slide drukt "5,78 – 4,92 = 0,857"; 5,78 − 4,92 is 0,86, en exact is het 0,8583
+          (exact 0,8583) <span class="computed">zelf berekend</span>. De cursus drukt "5,78 – 4,92 = 0,857"; 5,78 − 4,92 is 0,86, en exact is het 0,8583
           <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=50">DOE p. 50</a>.</li>
         </ul>
       </details>
@@ -841,7 +928,16 @@
   <section class="unit" id="d08-interactie" data-kw="interactie; interaction; interactieplot; interaction plot; evenwijdige lijnen; parallel lines; hoofdeffect misleidend; hoekpunten; corners; factor effect definitie">
     <h3>8.16 Interactie <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=53">DOE p. 53–54</a></h3>
     <p>Twee factoren <b>interageren</b> als het effect van de ene afhangt van het niveau van de andere. In een
-    interactieplot lopen de lijnen dan niet evenwijdig.</p>
+    interactieplot lopen de lijnen dan niet evenwijdig. De twee figuren hieronder tonen beide gevallen, telkens met links de
+    responsen in de hoekpunten van het (A, B)-vierkant en rechts de interactieplot.</p>
+    <figure class="fig"><img src="figures/08_zonder_interactie.png" alt="Links een vierkant met responsen 20, 40, 30 en 52 in de hoeken; rechts een interactieplot met twee bijna evenwijdige stijgende lijnen voor B laag en B hoog">
+    <figcaption>Figuur: zonder interactie. Hoekpunten (A−, B−) = 20, (A+, B−) = 40, (A−, B+) = 30, (A+, B+) = 52 (Figure 5-1).
+    In de interactieplot (Figure 5-3) stijgen de lijnen voor B<sup>−</sup> en B<sup>+</sup> allebei van A laag naar A hoog en lopen
+    ze bijna evenwijdig. <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=53">DOE p. 53</a></figcaption></figure>
+    <figure class="fig"><img src="figures/08_met_interactie.png" alt="Links een vierkant met responsen 20, 50, 40 en 12 in de hoeken; rechts een interactieplot met twee kruisende lijnen">
+    <figcaption>Figuur: met interactie. Hoekpunten (A−, B−) = 20, (A+, B−) = 50, (A−, B+) = 40, (A+, B+) = 12 (Figure 5-2).
+    In de interactieplot (Figure 5-4) stijgt de lijn voor B<sup>−</sup> en daalt die voor B<sup>+</sup>: de lijnen kruisen.
+    <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=54">DOE p. 54</a></figcaption></figure>
     <table>
       <tr><th>Hoekpunten (A−B−, A+B−, A−B+, A+B+)</th><th class="n">A</th><th class="n">B</th><th class="n">AB</th><th>Lezing</th></tr>
       <tr><td>20, 40, 30, 52 <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=53">DOE p. 53</a></td><td class="n">21</td><td class="n">11</td><td class="n">+1</td><td>geen echte interactie: A helpt op beide niveaus van B (lijnen bijna evenwijdig)</td></tr>
@@ -857,12 +953,12 @@
       <li><b>"Het hoofdeffect van A is bijna nul (<var data-s="effect">A</var> = 1), dus A doet er niet toe."</b> Fout: <var data-s="effect">AB</var> = −29: A helpt als B laag is en schaadt als B hoog is <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=54">DOE p. 54</a>. Ook in oefening 8.16 zit de niet-significante A in drie significante interacties.</li>
       <li><b>"Bij een grote interactie lees je de hoofdeffecten gewoon apart."</b> Fout: het effect van A hangt dan af van het niveau van B <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=54">DOE p. 54</a>; beschrijf het effect van A per niveau van B, met een interactieplot <span class="gen">algemeen</span>.</li>
       <li><b>"Evenwijdige lijnen in de interactieplot betekenen dat geen van beide factoren werkt."</b> Fout: evenwijdig betekent alleen: geen interactie. In het opbrengstvoorbeeld lopen de lijnen evenwijdig en heeft de duur toch een duidelijk positief effect <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=38">DOE p. 38</a>.</li>
-      <li><b>Let op:</b> de slide drukt <var data-s="effect">AB</var> = (52 + 20)/2 − (30 + 40)/2 = −1, maar dat is +1 <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=53">DOE p. 53</a>. De interactie is (gemiddelde van de hoekpunten waar A en B hetzelfde teken hebben) − (gemiddelde van de andere twee); verwissel je de diagonalen, dan keert het teken om.</li>
+      <li><b>Let op:</b> de cursus drukt <var data-s="effect">AB</var> = (52 + 20)/2 − (30 + 40)/2 = −1, maar dat is +1 <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=53">DOE p. 53</a>. De interactie is (gemiddelde van de hoekpunten waar A en B hetzelfde teken hebben) − (gemiddelde van de andere twee); verwissel je de diagonalen, dan keert het teken om.</li>
     </ul></div>
     <div class="exercise" id="ex-08-10" data-kw="hoekpunten; corners; interactie; interaction; A B AB; figuur; 2^2 zonder replicatie; effect berekenen">
       <h4>Oefening 8.10 — Effecten uit de hoekpunten <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=53">DOE p. 53–54</a></h4>
       <p>Figuur 1: (<var data-s="col">A</var>−, <var data-s="col">B</var>−) = 20, (<var data-s="col">A</var>+, <var data-s="col">B</var>−) = 40, (<var data-s="col">A</var>−, <var data-s="col">B</var>+) = 30, (<var data-s="col">A</var>+, <var data-s="col">B</var>+) = 52. Figuur 2: (<var data-s="col">A</var>−, <var data-s="col">B</var>−) = 20, (<var data-s="col">A</var>+, <var data-s="col">B</var>−) = 50,
-      (<var data-s="col">A</var>−, <var data-s="col">B</var>+) = 40, (<var data-s="col">A</var>+, <var data-s="col">B</var>+) = 12.</p>
+      (<var data-s="col">A</var>−, <var data-s="col">B</var>+) = 40, (<var data-s="col">A</var>+, <var data-s="col">B</var>+) = 12. Dit zijn de twee situaties uit de figuren van <a href="#d08-interactie">8.16</a>.</p>
       <div class="q" data-answer="21" data-tol="0.01">
         <label>Figuur 1: <var data-s="effect">A</var> =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
@@ -897,7 +993,7 @@
       <details class="solution"><summary>Toon oplossing</summary>
         <ul>
           <li>Figuur 1: <var data-s="effect">A</var> = (40 + 52)/2 − (20 + 30)/2 = <b>21</b>; <var data-s="effect">B</var> = (30 + 52)/2 − (20 + 40)/2 = <b>11</b>; <var data-s="effect">AB</var> = (52 + 20)/2 −
-          (30 + 40)/2 = <b>+1</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=53">DOE p. 53</a> (de slide drukt −1: fout).</li>
+          (30 + 40)/2 = <b>+1</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=53">DOE p. 53</a> (de cursus drukt −1: fout).</li>
           <li>Figuur 2: <var data-s="effect">A</var> = (50 + 12)/2 − (20 + 40)/2 = <b>1</b>; <var data-s="effect">B</var> = (40 + 12)/2 − (20 + 50)/2 = <b>−9</b>; <var data-s="effect">AB</var> = (12 + 20)/2 −
           (40 + 50)/2 = <b>−29</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=54">DOE p. 54</a>.</li>
           <li>In <b>figuur 2</b> domineert de interactie: |<var data-s="effect">AB</var>| is veel groter dan de hoofdeffecten.</li>
@@ -920,6 +1016,11 @@
     voor AB, AC, BC en ABC staan op <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=65">DOE p. 65</a> en <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=66">DOE p. 66</a>. De tekens komen uit de tekentabel (sign table)
     <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=80">DOE p. 80</a>: de kolom van een interactie is het product van de kolommen van haar factoren. Elke SS van een effect is
     één regel in de ANOVA-tabel, precies zoals SS<sub>Treatment</sub> in 8.4.</p>
+    <figure class="fig"><img src="figures/08_tekentabel.png" alt="Tekentabel van het 2^3-ontwerp met de runs a, b, c, abc, ab, ac, bc, (1) en de kolommen I, A, B, C, AB, AC, BC, ABC vol plus- en mintekens">
+    <figcaption>Figuur: de volledige tekentabel van het 2<sup>3</sup>-ontwerp met de identiteitskolom I (overal +). Het contrast
+    van een effect is de som van de run-totalen met het teken uit zijn kolom; bv. kolom A geeft a + abc + ab + ac − b − c − bc −
+    (1). De runs staan hier gesorteerd op het teken van ABC (bovenste vier +, onderste vier −), zoals nodig in 8.21.
+    <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=80">DOE p. 80</a></figcaption></figure>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>Let op:</b> <var data-s="effect">effect</var> = <var data-s="contrast">Contrast</var>/(<var data-s="n_rep">n</var>·2<sup><var data-s="k_factors">k</var>−1</sup>), maar <var data-s="ss_eff">SS</var> = <var data-s="contrast">Contrast</var>²/(<var data-s="n_rep">n</var>·2<sup><var data-s="k_factors">k</var></sup>): twee verschillende noemers <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=66">DOE p. 66</a>. Chemisch proces: 50/6 = 8,33 en 2500/12 = 208,33 <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=60">DOE p. 60–61</a>.</li>
@@ -941,6 +1042,11 @@
         <tr><td>b</td><td class="n">−</td><td class="n">+</td><td>18, 19, 23</td><td class="n">60</td></tr>
         <tr><td>ab</td><td class="n">+</td><td class="n">+</td><td>31, 30, 29</td><td class="n">90</td></tr>
       </table>
+      <figure class="fig"><img src="figures/08_chemisch_vierkant.png" alt="Vierkant met reactantconcentratie horizontaal (15 en 25 %) en hoeveelheid katalysator verticaal (1 en 2 pound), met in elke hoek het runlabel, het totaal en de drie replicaties">
+      <figcaption>Figuur: de vier runs als hoeken van een vierkant (Figure 6-1): horizontaal de reactantconcentratie A (laag 15 %,
+      hoog 25 %), verticaal de katalysator B (laag 1 pound, hoog 2 pounds). (1) = 80 (28 + 25 + 27), a = 100 (36 + 32 + 32),
+      b = 60 (18 + 19 + 23), ab = 90 (31 + 30 + 29): rechts (A hoog) liggen de totalen hoger, boven (B hoog) lager.
+      <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=60">DOE p. 60</a></figcaption></figure>
       <ol class="steps">
         <li>Contrasten: <var data-s="contrast">C<sub>A</sub></var> = 100 + 90 − 60 − 80 = 50; <var data-s="contrast">C<sub>B</sub></var> = 60 + 90 − 100 − 80 = −30;
         <var data-s="contrast">C<sub>AB</sub></var> = 90 + 80 − 100 − 60 = 10 <span class="computed">zelf berekend</span>.</li>
@@ -966,7 +1072,7 @@
         <li>De regel <b>Model</b> toetst alle effecten samen, zoals de globale F-toets van een regressie (7.10): is A, B, AB
         of een combinatie belangrijk <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=61">DOE p. 61</a>?</li>
         <li><var data-s="r2">R²</var> = 291,67 / 323,00 = 0,9030 en <var data-s="r2_adj">Adj R-Squared</var> = 0,8666, met dezelfde betekenis als in regressie
-        (<a href="#d07-anova">7.5</a>, <a href="#d07-radj">7.11</a>); <var data-s="sigma_hat">Std. Dev.</var> 1,98 = √<var data-s="ms_e">MS<sub>E</sub></var>. De slides leggen de
+        (<a href="#d07-anova">7.5</a>, <a href="#d07-radj">7.11</a>); <var data-s="sigma_hat">Std. Dev.</var> 1,98 = √<var data-s="ms_e">MS<sub>E</sub></var>. De cursus legt de
         andere Design-Expert-regels (Pred R-Squared, PRESS, Adeq Precision, C.V.) niet uit.</li>
       </ul>
     </div>
@@ -1057,7 +1163,7 @@
         <tr><td>Error</td><td></td><td class="n">19,5000 (8 df)</td><td colspan="2"><var data-s="ms_e">MS<sub>E</sub></var> = 2,4375</td></tr>
         <tr><td>Totaal</td><td></td><td class="n">92,9375 (15 df)</td><td colspan="2"></td></tr>
       </table>
-      <p class="small">* De slide drukt 5,5625 voor ABC; de data geven 5,0625 (contrast 9). Ook de gedrukte P van A,
+      <p class="small">* De cursus drukt 5,5625 voor ABC; de data geven 5,0625 (contrast 9). Ook de gedrukte P van A,
       2,54 × 10<sup>−3</sup>, is 2,534 × 10<sup>−3</sup> = 0,0025 <span class="computed">zelf berekend</span>.</p>
       <p><b>Alleen de voedingssnelheid (A) is significant.</b> Via de standaardfout (<span class="computed">zelf berekend</span>): <var data-s="se_eff">s.e.</var> = √(2,4375 / (2 · 2)) =
       0,78, dus <var data-s="effect">A</var> = 3,375 ± 1,56 = [1,81; 4,94], en dat bevat 0 niet.</p>
@@ -1120,13 +1226,24 @@
     <p>Het volledige model met alle interacties zou alle vrijheidsgraden opgebruiken; zo'n model heet <b>verzadigd
     (saturated)</b>, en R drukt dan "NaN" in plaats van F-waarden <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=76">DOE p. 76</a>. Het is de regressiesituatie met evenveel
     parameters als datapunten: <var data-s="ss_e">SS<sub>E</sub></var> = 0 met 0 df.</p>
+    <figure class="fig"><img src="figures/08_ets_verzadigd.png" alt="R-output anova van het volledige model Y ~ A*B*C*D: elke term heeft 1 df en een Sum Sq, maar F value en Pr(&gt;F) zijn NaN en Residuals heeft 0 df">
+    <figcaption>Figuur: R-output van het volledige model voor het etsvoorbeeld hieronder, anova(lm(Y~A*B*C*D)). Alle 15 effecten
+    krijgen 1 df en een kwadratensom, maar Residuals heeft 0 df, dus F value en Pr(&gt;F) zijn NaN; R waarschuwt dat F-toetsen op
+    een "essentially perfect fit" onbetrouwbaar zijn. <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=76">DOE p. 76</a></figcaption></figure>
     <div class="box ex"><span class="t">Uitgewerkt voorbeeld: etssnelheid (etch rate)</span> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=73">DOE p. 73–77</a>
       <p>Een 2<sup>4</sup> met één replicatie op een plasma-etser (nitride etch): <var data-s="col">A</var> = gap (0,80 / 1,20 cm), <var data-s="col">B</var> = pressure
       (450 / 550 mTorr), <var data-s="col">C</var> = C<sub>2</sub>F<sub>6</sub>-flow (125 / 200 SCCM), <var data-s="col">D</var> = power (275 / 325 W); 16 runs <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=73">DOE p. 73</a>,
       <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=74">DOE p. 74</a>. De grootste geschatte effecten <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=75">DOE p. 75</a> zijn <var data-s="effect">D</var> = 306,125, <var data-s="effect">AD</var> = −153,625 en <var data-s="effect">A</var> = −101,625.</p>
+      <figure class="fig"><img src="figures/08_ets_data.png" alt="Tabel met de 16 runs van het etsexperiment: kolommen A Gap, B Pressure, C C2F6 Flow, D Power met -1 en 1, en de etssnelheid">
+      <figcaption>Figuur: de 16 runs in standaardvolgorde (A wisselt elke run, D om de 8) met de gemeten etssnelheid. De 8 runs
+      met D = 1 (hoog vermogen) geven allemaal een hogere etssnelheid (729 tot 1075) dan de 8 met D = −1 (550 tot 669).
+      <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=74">DOE p. 74</a></figcaption></figure>
       <p>Pool de drie- en vierfactorinteracties in de fout (5 df: <var data-s="ss_e">SS</var> = 10187, <var data-s="ms_e">MS</var> = 2037) en pas hoofdeffecten plus
       tweefactorinteracties toe <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=77">DOE p. 77</a>. Significant: <b>A</b> (<var data-s="f0">F</var> = 20,28; <var data-s="p_value">P</var> = 0,0064), <b>D</b> (<var data-s="f0">F</var> = 183,99;
       <var data-s="p_value">P</var> = 3,9 × 10<sup>−5</sup>) en <b>A:D</b> (<var data-s="f0">F</var> = 46,34; <var data-s="p_value">P</var> = 0,0010). De rest niet.</p>
+      <figure class="fig"><img src="figures/08_ets_gepoold.png" alt="R-output anova van het model met hoofdeffecten en tweefactorinteracties: F-waarden en p-waarden, met sterretjes bij A, D en A:D en Residuals met 5 df">
+      <figcaption>Figuur: R-output na het poolen, anova(lm(Y~(A+B+C+D)^2)): Residuals 5 df, Sum Sq 10187, Mean Sq 2037. Alleen A
+      (**), D (***) en A:D (**) krijgen een significantiecode. <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=77">DOE p. 77</a></figcaption></figure>
       <p>Conclusie: de gap, het vermogen en hun interactie bepalen de etssnelheid.</p>
     </div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
@@ -1195,7 +1312,7 @@
       <tr><td>c</td><td class="n">+</td><td class="n">−</td><td class="n">−</td><td class="n">+</td><td class="n">+</td><td class="n">−</td><td class="n">−</td><td class="n">+</td></tr>
       <tr><td>abc</td><td class="n">+</td><td class="n">+</td><td class="n">+</td><td class="n">+</td><td class="n">+</td><td class="n">+</td><td class="n">+</td><td class="n">+</td></tr>
     </table>
-    <p class="small">De bovenste helft van de tekentabel op <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=80">DOE p. 80</a>; de onderste helft (ab, ac, bc, (1)) heeft <var data-s="col">ABC</var> = −.</p>
+    <p class="small">De bovenste helft van de tekentabel op <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=80">DOE p. 80</a>; de onderste helft (ab, ac, bc, (1)) heeft <var data-s="col">ABC</var> = −. De volledige tabel staat als figuur in <a href="#d08-contrast">8.17</a>.</p>
     <p><b>Aliassen: de prijs die je betaalt</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=81">DOE p. 81–82</a>. Om te vinden waarmee een effect vermengd
     (aliased) is, vermenigvuldig je de definiërende relatie met dat effect, met de regel dat een letter maal zichzelf I
     geeft (<var data-s="col">A</var>·<var data-s="col">A</var> = <var data-s="i_col">I</var>):</p>
@@ -1249,7 +1366,7 @@
       <tr><td><b>IV</b></td><td>driefactorinteracties (niet met hoofdeffecten of tweefactorinteracties)</td><td>elkaar</td></tr>
       <tr><td><b>V</b></td><td>vierfactorinteracties</td><td>driefactorinteracties (niet met elkaar)</td></tr>
     </table>
-    <p class="small">De slides geven de delen over hoofdeffecten en tweefactorinteracties <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=85">DOE p. 85</a>; de vermelding "drie-"
+    <p class="small">De cursus geeft de delen over hoofdeffecten en tweefactorinteracties <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=85">DOE p. 85</a>; de vermelding "drie-"
     en "vierfactorinteracties" bij IV en V volgt uit de woordlengteregel hieronder.</p>
     <div class="f"><div><b>Resolutie = lengte van het kortste "woord" in de definiërende relatie</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=91">DOE p. 91</a>. Notatie:
     <var data-s="frac_notation">2<sup>3−1</sup><sub>III</sub></var> is een halve fractie van een 2<sup>3</sup> met resolutie III: <var data-s="i_col">I</var> = <var data-s="word">ABC</var> is een woord van 3
@@ -1280,9 +1397,17 @@
         <li>Volledige definiërende relatie: <b><var data-s="i_col">I</var> = <var data-s="word">ABCE</var> = <var data-s="word">BCDF</var> = <var data-s="word">ADEF</var></b>. Het kortste woord heeft 4 letters, dus de
         resolutie is <b>IV</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=91">DOE p. 91</a>.</li>
       </ol>
+      <figure class="fig"><img src="figures/08_ontwerp_2tot6min2.png" alt="Ontwerpmatrix met 16 runs en kolommen A tot F vol plus- en mintekens">
+      <figcaption>Figuur: de 2<sup>6−2</sup>: de kolommen A, B, C, D vormen het volledige 2<sup>4</sup> in standaardvolgorde, de
+      kolommen E en F zijn de producten ABC en BCD van die basiskolommen (bv. run 2: A = +, B = C = D = −, dus E = + en F = −).
+      <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=90">DOE p. 90</a></figcaption></figure>
       <p>Kies de generatoren die de <b>hoogst mogelijke resolutie</b> geven; een slechte keuze geeft een lagere dan nodig
       <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=92">DOE p. 92</a>. Montgomery's tabel (Table 13.23) op <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=93">DOE p. 93</a> geeft goede generatoren, bv. <var data-s="frac_notation">2<sup>5−1</sup><sub>V</sub></var>:
       <var data-s="col">E</var> = ±<var data-s="generator">ABCD</var>; <var data-s="frac_notation">2<sup>5−2</sup><sub>III</sub></var>: <var data-s="col">D</var> = ±<var data-s="generator">AB</var>, <var data-s="col">E</var> = ±<var data-s="generator">AC</var>; <var data-s="frac_notation">2<sup>6−2</sup><sub>IV</sub></var>: <var data-s="col">E</var> = ±<var data-s="generator">ABC</var>, <var data-s="col">F</var> = ±<var data-s="generator">BCD</var>.</p>
+      <figure class="fig"><img src="figures/08_generatoren_tabel.png" alt="Tabel 13.23 uit Montgomery: per aantal factoren k van 3 tot 10 de fracties met hun resolutie, het aantal runs en de ontwerpgeneratoren">
+      <figcaption>Figuur: Table 13.23 (Montgomery): geselecteerde 2<sup>k−p</sup>-ontwerpen. Per aantal factoren k: de fractie met
+      haar resolutie als Romeins subscript, het aantal runs en de ontwerpgeneratoren. Lees de rij van jouw k en jouw aantal
+      runs; bv. k = 6 in 16 runs: 2<sup>6−2</sup><sub>IV</sub> met E = ±ABC, F = ±BCD. <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=93">DOE p. 93</a></figcaption></figure>
     </div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
@@ -1449,7 +1574,7 @@
       </div>
       <details class="hint"><summary>Hint</summary><p>De kandidaat-generatoren zijn de interacties van de basisfactoren: AB, AC,
       BC, ABC. Bereken voor een keuze de volledige definiërende relatie (ook het product van de twee woorden) en neem het
-      kortste woord. Kijk ook in de tabel op <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=93">DOE p. 93</a>.</p></details>
+      kortste woord. Kijk ook in de tabel van Montgomery in <a href="#d08-generatoren">8.23</a> (<a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=93">DOE p. 93</a>).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>De tabel op <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=93">DOE p. 93</a> geeft voor 5 factoren in 8 runs <b><var data-s="col">D</var> = ±<var data-s="generator">AB</var>, <var data-s="col">E</var> = ±<var data-s="generator">AC</var></b>, een <var data-s="frac_notation">2<sup>5−2</sup><sub>III</sub></var>.</li>
