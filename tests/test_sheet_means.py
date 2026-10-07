@@ -73,7 +73,7 @@ def test_t_test_for_the_mean_s03_we04(oracle: dict[str, Any], printed: Printed, 
     assert agrees_at_printed_precision(at(ws, "B", row), printed("S03-WE04", stated, "test statistic (as printed on slide, rounded)", "-2.95"))
     assert agrees_at_printed_precision(at(ws, "C", row), printed("S03-WE04", stated, "critical value (as printed on slide)", "-2.20"))
     assert agrees_at_printed_precision(at(ws, "G", row) * 100, printed("S03-WE04", stated, "p-value (as printed on slide)", "0.4"))
-    assert at(ws, "H", row) == "reject H0"  # 'H0 cannot be accepted at 2% significance'
+    assert at(ws, "H", row) == "verwerp H0"  # 'H0 cannot be accepted at 2% significance'
 
 
 def test_z_test_with_known_sigma_s03_we10(printed: Printed, evaluate: Evaluate) -> None:
@@ -86,7 +86,7 @@ def test_z_test_with_known_sigma_s03_we10(printed: Printed, evaluate: Evaluate) 
     assert agrees_at_printed_precision(at(ws, "F", Z_TEST["two_sided"]), printed("S03-WE10", stated, "kritische waarden (dubbelzijdig, alpha=1%)", "1277"))
     assert agrees_at_printed_precision(at(ws, "G", Z_TEST["greater"]) * 100, printed("S03-WE10", stated, "p-waarde (eenzijdig) van 1265", "1.5"))
     assert agrees_at_printed_precision(at(ws, "G", Z_TEST["two_sided"]) * 100, printed("S03-WE10", stated, "p-waarde (dubbelzijdig)", "3.0"))
-    assert at(ws, "H", Z_TEST["greater"]) == "do not reject H0" and at(ws, "H", Z_TEST["two_sided"]) == "do not reject H0"
+    assert at(ws, "H", Z_TEST["greater"]) == "H0 niet verwerpen" and at(ws, "H", Z_TEST["two_sided"]) == "H0 niet verwerpen"
 
 
 def test_unpaired_shoe_sole_experiment_s03_we13(oracle: dict[str, Any], printed: Printed, evaluate: Evaluate) -> None:
@@ -101,7 +101,7 @@ def test_unpaired_shoe_sole_experiment_s03_we13(oracle: dict[str, Any], printed:
     assert agrees_at_printed_precision(at(ws, "E", row), printed("S03-WE13", stated, "t_18,0.025", "2.10"))
     assert agrees_at_printed_precision((at(ws, "B", row) + at(ws, "C", row)) / 2, printed("S03-WE13", stated, "BI95 voor mu1-mu2", "-5.6"))
     assert agrees_at_printed_precision(at(ws, "D", row), printed("S03-WE13", stated, "BI95 voor mu1-mu2", "6.19"))
-    assert at(ws, "H", UNPAIRED_TEST["two_sided"]) == "do not reject H0"  # '0 in BI95 => geen verschil'
+    assert at(ws, "H", UNPAIRED_TEST["two_sided"]) == "H0 niet verwerpen"  # '0 in BI95 => geen verschil'
 
 
 def test_paired_shoe_sole_experiment_s03_we14(oracle: dict[str, Any], printed: Printed, evaluate: Evaluate) -> None:

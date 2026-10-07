@@ -1,4 +1,5 @@
-"""Variance sheet: confidence intervals and tests for σ², σ (χ²) and for a ratio of two variances (F).
+"""Variance sheet ('Varianties BI & toetsen'): confidence intervals and tests for σ², σ (χ²) and for a ratio of two
+variances (F).
 
 Course: (n−1)s²/σ² ~ χ²(n−1) and the 95 % CI (n−1)s²/χ²_0.025 ≤ σ² ≤ (n−1)s²/χ²_0.975 (CI Further Reading
 (Dutch) p. 21); χ²-test for σ (Test Recipes p. 11; Testing of Hypotheses p. 13); (s1²/σ1²)/(s2²/σ2²) ~
@@ -30,38 +31,44 @@ from bbtools.xlsx_style import (
     write_header,
 )
 
-SHEET = "Variance CI & tests"
+SHEET = "Varianties BI & toetsen"
 
 HEADER = HeaderBlock(
-    tool="Variances: CI and test for σ² and σ (χ²), CI and test for a ratio of two variances (F)",
+    tool="Varianties: betrouwbaarheidsinterval (confidence interval, BI) en toets voor σ² en σ (χ²), BI en toets "
+         "voor een verhouding van twee varianties (F)",
     source="source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf p. 21; "
            "Confidence Intervals.pdf p. 16; Testing of Hypotheses.pdf p. 13; Test Recipes - Further Reading "
-           "(Dutch).pdf p. 11-14; Six Sigma For Dummies.pdf p. 192-196",
-    convention="Decisions 5-7: α input prefilled 0.05; two-sided, lower-only and upper-only side by side; "
-               "F from F.INV / F.INV.RT, both σ1²/σ2² and σ2²/σ1².",
+           "(Dutch).pdf p. 11-14",
+    convention="Conventiebeslissingen 5-7: invoer α vooraf ingevuld op 0,05; tweezijdig, alleen ondergrens en alleen "
+               "bovengrens naast elkaar; F uit F.INV / F.INV.RT, zowel σ1²/σ2² als σ2²/σ1².",
     status=Status.VERIFIED,
-    status_detail="tested against course worked examples S03-WE03, S03-WE05, S08-WE10 and the Dummies χ² and F "
-                  "tables (p. 194, 196); the Dummies F-interval example S08-WE11 disagrees (build/README.md)",
+    status_detail="getest tegen uitgewerkte cursusvoorbeelden (worked examples) S03-WE03, S03-WE05; ook tegen "
+                  "S08-WE10 en de χ²- en F-tabellen van Dummies (p. 194, 196) (extra, Dummies; niet te kennen); het "
+                  "F-intervalvoorbeeld S08-WE11 van Dummies klopt niet (build/README.md)",
 )
 
 DOC = SheetDoc(
     sheet=SHEET,
-    purpose="One sample: CI for σ² and σ, χ²-test of σ = σ0. Two samples: CI for σ1²/σ2² and σ2²/σ1², F-test of "
-            "σ1 = σ2 (e.g. 'is machine M1 more precise than M2?'). Every result two-sided, lower-only and upper-only.",
-    inputs="α; n and s per sample, or the raw values pasted in columns H (sample 1) and I (sample 2); σ0 for the "
-           "χ²-test.",
-    audit="stats-auditor PASS (2026-09-28) for the F part: all 28 values (CIs in both orientations, F-tests ≠, >, <) "
-          "for one input agree with an independent computation from Test Recipes p. 12-14, CI Further Reading "
-          "p. 21 and exam Q2's hint. Note: the course prints no explicit two-sample ratio CI; it follows from the "
-          "F pivot of p. 12 inverted as on p. 21.",
+    purpose="Eén steekproef: betrouwbaarheidsinterval (BI) voor σ² en σ, χ²-toets van σ = σ0. Twee steekproeven: "
+            "BI voor σ1²/σ2² en σ2²/σ1², F-toets van σ1 = σ2 (bv. examenvraag Q2: werkt machine M1 nauwkeuriger dan "
+            "M2?). Elk resultaat tweezijdig, alleen ondergrens en alleen bovengrens.",
+    inputs="α; n en s per steekproef, of de ruwe waarden geplakt in kolommen H (steekproef 1) en I (steekproef 2); "
+           "σ0 voor de χ²-toets.",
+    audit="stats-auditor PASS (2026-09-28) voor het F-deel: alle 28 waarden (BI's in beide richtingen, F-toetsen "
+          "≠, >, <) voor één invoer kloppen met een onafhankelijke berekening uit Test Recipes p. 12-14, CI Further "
+          "Reading p. 21 en de hint van examenvraag Q2. Opmerking: de cursus drukt geen expliciet BI voor de "
+          "verhouding van twee varianties; het volgt uit de F-pivot van p. 12, omgekeerd zoals op p. 21.",
     disagreements=(
-        "Dummies p. 196 (S08-WE11): CI for σA²/σB² printed [(1/3.633)(4/7.5), 5.999(4/7.5)] = [0.147, 3.199]. "
-        "With (sA²/σA²)/(sB²/σB²) ~ F(nA−1, nB−1) (Test Recipes p. 12, exam Q2 hint) the same 5 % tail values give "
-        "[0.0889, 1.938]: the book swaps the two F values. Its table values themselves (Table 8-3) are correct.",
-        "Dummies p. 192-196 call '95 %' what is ±2σ (95.45 %, 2.275 % per tail) for χ², and a 5 % upper tail for F. "
-        "Use α = 0.0455 to reproduce its χ² example (S08-WE10).",
-        "Dummies Table 8-3 p. 196: F for n1 = n2 = 2 printed 161.446 (definition 161.448). Table 8-2 p. 194: "
-        "99.7 % upper value for n = 5 printed 17.800 (definition 17.8006). All other entries agree.",
+        "Dummies p. 196 (S08-WE11): BI voor σA²/σB² gedrukt als '[(1/3.633)(4/7.5), 5.999(4/7.5)] = [0.147, 3.199]'. "
+        "Met (sA²/σA²)/(sB²/σB²) ~ F(nA−1, nB−1) (Test Recipes p. 12, hint van examenvraag Q2) geven dezelfde "
+        "staartwaarden van 5 % [0,0889; 1,938]: het boek verwisselt de twee F-waarden. De tabelwaarden zelf "
+        "(Table 8-3) kloppen wel (extra, Dummies; niet te kennen).",
+        "Dummies p. 192-196 noemt '95 %' wat ±2σ is (95,45 %, 2,275 % per staart) voor χ², en een rechterstaart van "
+        "5 % voor F. Gebruik α = 0,0455 om zijn χ²-voorbeeld (S08-WE10) na te rekenen (extra, Dummies; niet te "
+        "kennen).",
+        "Dummies Table 8-3 p. 196: F voor n1 = n2 = 2 gedrukt als '161.446' (definitie 161,448). Table 8-2 p. 194: "
+        "bovenwaarde bij 99,7 % voor n = 5 gedrukt als '17.800' (definitie 17,8006). Alle andere waarden kloppen "
+        "(extra, Dummies; niet te kennen).",
     ),
 )
 
@@ -77,13 +84,13 @@ CHI2_TEST_ROWS = {"two_sided": 27, "greater": 28, "less": 29}           # B stat
 F_CI_ROWS = {"two_sided": 44, "ratio_at_least": 45, "ratio_at_most": 46}  # B,C = σ1²/σ2²; D,E = σ2²/σ1²
 F_TEST_ROWS = {"two_sided": 49, "greater": 50, "less": 51}              # B stat, C/D critical, E p, F decision
 NUMBER = "0.000000"
-DECISION = '=IF(ISNUMBER(E{r}),IF(E{r}<' + ALPHA + ',"reject H0","do not reject H0"),"")'
+DECISION = '=IF(ISNUMBER(E{r}),IF(E{r}<' + ALPHA + ',"verwerp H0","H0 niet verwerpen"),"")'
 
 
 def _data_columns(ws: Worksheet) -> None:
     """Columns H and I: optional raw data for sample 1 and sample 2 (500 values each)."""
-    label(ws, 8, 8, "Optional: paste raw values below; n and s are then computed from them", italic=True)
-    for column, text in (("H", "Sample 1 data"), ("I", "Sample 2 data")):
+    label(ws, 8, 8, "Optioneel: plak hieronder ruwe waarden; n en s worden er dan uit berekend", italic=True)
+    for column, text in (("H", "Data steekproef 1"), ("I", "Data steekproef 2")):
         ws[f"{column}9"] = text
         ws[f"{column}9"].font = font(bold=True)
         for row in range(10, 510):
@@ -96,7 +103,7 @@ def _used(ws: Worksheet, row: int, text: str, data: str, typed: str, is_n: bool)
         formula, fmt = f'=IF(COUNT({data})>1,COUNT({data}),IF(ISNUMBER({typed}),{typed},""))', "0"
     else:
         formula, fmt = f'=IF(COUNT({data})>1,_xlfn.STDEV.S({data}),IF(ISNUMBER({typed}),{typed},""))', NUMBER
-    result_row(ws, row, text, formula, fmt, f"from column {data[0]} if it holds 2+ values, else the typed value")
+    result_row(ws, row, text, formula, fmt, f"uit kolom {data[0]} als die 2+ waarden bevat, anders de getypte waarde")
 
 
 def _test_rows(ws: Worksheet, rows: dict[int, tuple[str, str, str | None, str]], have: str, stat: str) -> None:
@@ -112,29 +119,31 @@ def _test_rows(ws: Worksheet, rows: dict[int, tuple[str, str, str | None, str]],
 
 def _one_sample(ws: Worksheet) -> None:
     """Sections 1-2: α and one sample (CI for σ², σ and the χ²-test)."""
-    section_title(ws, 8, "1. Settings")
-    input_row(ws, 9, "Significance α (confidence = 1 − α)",
-              "course has no default; most course examples use 5 %; use the value the question gives", "0.0000")
+    section_title(ws, 8, "1. Instellingen")
+    input_row(ws, 9, "Significantieniveau α (betrouwbaarheid = 1 − α)",
+              "de cursus geeft geen standaardwaarde; de meeste cursusvoorbeelden gebruiken 5 %; gebruik de waarde uit "
+              "de vraag", "0.0000")
     ws[ALPHA] = 0.05
 
-    section_title(ws, 11, "2. One sample: σ² and σ")
-    input_row(ws, 12, "n (sample size)", "or paste the data in column H")
-    input_row(ws, 13, "s (sample standard deviation, STDEV.S)", "", NUMBER)
-    input_row(ws, 14, "σ0 for the test (the claimed σ)", "e.g. 0.01", NUMBER)
-    _used(ws, 15, "n used", DATA_1, "B12", is_n=True)
-    _used(ws, 16, "s used", DATA_1, "B13", is_n=False)
-    result_row(ws, 17, "s² used", '=IF(ISNUMBER(B16),B16^2,"")', "0.0000000000")
-    result_row(ws, 18, "degrees of freedom n − 1", '=IF(ISNUMBER(B15),B15-1,"")', "0")
+    section_title(ws, 11, "2. Eén steekproef: σ² en σ")
+    input_row(ws, 12, "n (steekproefgrootte, sample size)", "of plak de data in kolom H")
+    input_row(ws, 13, "s (steekproefstandaardafwijking, STDEV.S)", "", NUMBER)
+    input_row(ws, 14, "σ0 voor de toets (de beweerde σ)", "bv. 0,01", NUMBER)
+    _used(ws, 15, "n gebruikt", DATA_1, "B12", is_n=True)
+    _used(ws, 16, "s gebruikt", DATA_1, "B13", is_n=False)
+    result_row(ws, 17, "s² gebruikt", '=IF(ISNUMBER(B16),B16^2,"")', "0.0000000000")
+    result_row(ws, 18, "vrijheidsgraden (degrees of freedom, df) n − 1", '=IF(ISNUMBER(B15),B15-1,"")', "0")
 
-    column_titles(ws, 20, ["Confidence interval (1 − α)", "σ² from", "σ² to", "σ from", "σ to", "Course source"])
+    column_titles(ws, 20, ["Betrouwbaarheidsinterval (confidence interval, BI) (1 − α)", "σ² van", "σ² tot", "σ van",
+                           "σ tot", "Bron in de cursus"])
     ok = f"AND(ISNUMBER(B17),ISNUMBER(B18),B18>0,ISNUMBER({ALPHA}))"
     q = "B18*B17"  # (n−1) s²
     intervals = {
-        21: ("two-sided", f"{q}/_xlfn.CHISQ.INV.RT({ALPHA}/2,B18)", f"{q}/_xlfn.CHISQ.INV({ALPHA}/2,B18)",
+        21: ("tweezijdig (two-sided)", f"{q}/_xlfn.CHISQ.INV.RT({ALPHA}/2,B18)", f"{q}/_xlfn.CHISQ.INV({ALPHA}/2,B18)",
              "CI Further Reading (Dutch) p. 21"),
-        22: ("lower bound only (σ at least …; goes with HA: σ > σ0)", f"{q}/_xlfn.CHISQ.INV.RT({ALPHA},B18)", None,
+        22: ("alleen ondergrens (σ minstens …; hoort bij HA: σ > σ0)", f"{q}/_xlfn.CHISQ.INV.RT({ALPHA},B18)", None,
              "Confidence Intervals.pdf p. 16 ('one-sided 98 %-CI ]0.0088, +∞[')"),
-        23: ("upper bound only (σ at most …; goes with HA: σ < σ0)", None, f"{q}/_xlfn.CHISQ.INV({ALPHA},B18)", ""),
+        23: ("alleen bovengrens (σ hoogstens …; hoort bij HA: σ < σ0)", None, f"{q}/_xlfn.CHISQ.INV({ALPHA},B18)", ""),
     }
     for row, (text, low, high, source) in intervals.items():
         label(ws, row, 1, text)
@@ -144,45 +153,47 @@ def _one_sample(ws: Worksheet) -> None:
         output_cell(ws, f"E{row}", f'=IF(ISNUMBER(C{row}),SQRT(C{row}),C{row})', NUMBER)
         label(ws, row, 6, source, italic=True)
 
-    column_titles(ws, 26, ["χ²-test of H0: σ = σ0", "Statistic (n−1)s²/σ0²", "Critical value", "2nd critical value",
-                           "p-value", "Decision at α"])
+    column_titles(ws, 26, ["χ²-toets van H0: σ = σ0", "Toetsgrootheid (test statistic) (n−1)s²/σ0²",
+                           "Kritieke waarde (critical value)", "2de kritieke waarde", "p-waarde (p-value)",
+                           "Besluit bij α"])
     _test_rows(ws, {
-        27: ("HA: σ ≠ σ0 (two-sided)", f"_xlfn.CHISQ.INV({ALPHA}/2,B18)", f"_xlfn.CHISQ.INV.RT({ALPHA}/2,B18)",
+        27: ("HA: σ ≠ σ0 (tweezijdig)", f"_xlfn.CHISQ.INV({ALPHA}/2,B18)", f"_xlfn.CHISQ.INV.RT({ALPHA}/2,B18)",
              "2*MIN(_xlfn.CHISQ.DIST(B27,B18,TRUE),_xlfn.CHISQ.DIST.RT(B27,B18))"),
-        28: ("HA: σ > σ0 (e.g. 'more erratic')", f"_xlfn.CHISQ.INV.RT({ALPHA},B18)", None, "_xlfn.CHISQ.DIST.RT(B28,B18)"),
+        28: ("HA: σ > σ0 (bv. 'more erratic')", f"_xlfn.CHISQ.INV.RT({ALPHA},B18)", None, "_xlfn.CHISQ.DIST.RT(B28,B18)"),
         29: ("HA: σ < σ0", f"_xlfn.CHISQ.INV({ALPHA},B18)", None, "_xlfn.CHISQ.DIST(B29,B18,TRUE)"),
     }, f"AND({ok},ISNUMBER(B14),B14>0)", "B18*B17/B14^2")
-    label(ws, 30, 1, "Source: Test Recipes - Further Reading (Dutch) p. 11; Testing of Hypotheses.pdf p. 13", italic=True)
+    label(ws, 30, 1, "Bron: Test Recipes - Further Reading (Dutch) p. 11; Testing of Hypotheses.pdf p. 13", italic=True)
 
 
 def _two_samples(ws: Worksheet) -> None:
     """Section 3: two samples (CI for the variance ratio in both orientations, and the F-test)."""
-    section_title(ws, 31, "3. Two samples: ratio of variances (F)   e.g. exam Q2: is machine M1 more precise than M2?")
-    input_row(ws, 32, "n1 (sample 1)", "or paste sample 1 in column H")
+    section_title(ws, 31, "3. Twee steekproeven: verhouding van varianties (F)   bv. examenvraag Q2: werkt machine M1 "
+                          "nauwkeuriger dan M2?")
+    input_row(ws, 32, "n1 (steekproef 1)", "of plak steekproef 1 in kolom H")
     input_row(ws, 33, "s1", "", NUMBER)
-    input_row(ws, 34, "n2 (sample 2)", "or paste sample 2 in column I")
+    input_row(ws, 34, "n2 (steekproef 2)", "of plak steekproef 2 in kolom I")
     input_row(ws, 35, "s2", "", NUMBER)
-    _used(ws, 36, "n1 used", DATA_1, "B32", is_n=True)
-    _used(ws, 37, "s1 used", DATA_1, "B33", is_n=False)
-    _used(ws, 38, "n2 used", DATA_2, "B34", is_n=True)
-    _used(ws, 39, "s2 used", DATA_2, "B35", is_n=False)
+    _used(ws, 36, "n1 gebruikt", DATA_1, "B32", is_n=True)
+    _used(ws, 37, "s1 gebruikt", DATA_1, "B33", is_n=False)
+    _used(ws, 38, "n2 gebruikt", DATA_2, "B34", is_n=True)
+    _used(ws, 39, "s2 gebruikt", DATA_2, "B35", is_n=False)
     have = f"AND(ISNUMBER(B36),ISNUMBER(B37),ISNUMBER(B38),ISNUMBER(B39),B36>1,B38>1,B39>0,ISNUMBER({ALPHA}))"
     result_row(ws, 40, "F = s1² / s2²", f'=IF({have},B37^2/B39^2,"")', "0.0000",
                "Test Recipes p. 12-13: (s1²/σ1²)/(s2²/σ2²) ~ F(n1 − 1, n2 − 1)")
-    label(ws, 41, 1, "degrees of freedom (numerator n1 − 1, denominator n2 − 1)")
+    label(ws, 41, 1, "vrijheidsgraden (teller n1 − 1, noemer n2 − 1)")
     output_cell(ws, "B41", '=IF(ISNUMBER(B36),B36-1,"")', "0")
     output_cell(ws, "C41", '=IF(ISNUMBER(B38),B38-1,"")', "0")
 
-    column_titles(ws, 43, ["Confidence interval (1 − α)", "σ1²/σ2² from", "σ1²/σ2² to", "σ2²/σ1² from", "σ2²/σ1² to",
-                           "Course source"])
+    column_titles(ws, 43, ["Betrouwbaarheidsinterval (1 − α)", "σ1²/σ2² van", "σ1²/σ2² tot", "σ2²/σ1² van",
+                           "σ2²/σ1² tot", "Bron in de cursus"])
     f, v1, v2 = "B40", "B41", "C41"
     intervals = {
-        44: ("two-sided", f"{f}/_xlfn.F.INV.RT({ALPHA}/2,{v1},{v2})", f"{f}/_xlfn.F.INV({ALPHA}/2,{v1},{v2})",
-             "exam Q2 hint; Test Recipes p. 12"),
-        45: ("one-sided: σ1²/σ2² at least … (σ2²/σ1² at most …)", f"{f}/_xlfn.F.INV.RT({ALPHA},{v1},{v2})", None,
-             "goes with HA: σ1 > σ2"),
-        46: ("one-sided: σ1²/σ2² at most … (σ2²/σ1² at least …)", None, f"{f}/_xlfn.F.INV({ALPHA},{v1},{v2})",
-             "goes with HA: σ1 < σ2 (e.g. M1 more precise)"),
+        44: ("tweezijdig (two-sided)", f"{f}/_xlfn.F.INV.RT({ALPHA}/2,{v1},{v2})",
+             f"{f}/_xlfn.F.INV({ALPHA}/2,{v1},{v2})", "hint van examenvraag Q2; Test Recipes p. 12"),
+        45: ("eenzijdig: σ1²/σ2² minstens … (σ2²/σ1² hoogstens …)", f"{f}/_xlfn.F.INV.RT({ALPHA},{v1},{v2})", None,
+             "hoort bij HA: σ1 > σ2"),
+        46: ("eenzijdig: σ1²/σ2² hoogstens … (σ2²/σ1² minstens …)", None, f"{f}/_xlfn.F.INV({ALPHA},{v1},{v2})",
+             "hoort bij HA: σ1 < σ2 (bv. M1 nauwkeuriger)"),
     }
     for row, (text, low, high, source) in intervals.items():
         label(ws, row, 1, text)
@@ -193,16 +204,15 @@ def _two_samples(ws: Worksheet) -> None:
         output_cell(ws, f"E{row}", f'=IF(ISNUMBER(B{row}),IF(B{row}=0,"+∞",1/B{row}),"")', NUMBER)
         label(ws, row, 6, source, italic=True)
 
-    column_titles(ws, 48, ["F-test of H0: σ1 = σ2", "Statistic F = s1²/s2²", "Critical value", "2nd critical value",
-                           "p-value", "Decision at α"])
+    column_titles(ws, 48, ["F-toets van H0: σ1 = σ2", "Toetsgrootheid F = s1²/s2²", "Kritieke waarde",
+                           "2de kritieke waarde", "p-waarde", "Besluit bij α"])
     _test_rows(ws, {
-        49: ("HA: σ1 ≠ σ2 (two-sided)", f"_xlfn.F.INV({ALPHA}/2,{v1},{v2})", f"_xlfn.F.INV.RT({ALPHA}/2,{v1},{v2})",
+        49: ("HA: σ1 ≠ σ2 (tweezijdig)", f"_xlfn.F.INV({ALPHA}/2,{v1},{v2})", f"_xlfn.F.INV.RT({ALPHA}/2,{v1},{v2})",
              f"2*MIN(_xlfn.F.DIST(B49,{v1},{v2},TRUE),_xlfn.F.DIST.RT(B49,{v1},{v2}))"),
         50: ("HA: σ1 > σ2", f"_xlfn.F.INV.RT({ALPHA},{v1},{v2})", None, f"_xlfn.F.DIST.RT(B50,{v1},{v2})"),
         51: ("HA: σ1 < σ2", f"_xlfn.F.INV({ALPHA},{v1},{v2})", None, f"_xlfn.F.DIST(B51,{v1},{v2},TRUE)"),
     }, have, f)
-    label(ws, 52, 1, "Source: Test Recipes - Further Reading (Dutch) p. 13-14; Dummies Table 8-3 p. 196 "
-                     "(5 % upper-tail F values)", italic=True)
+    label(ws, 52, 1, "Bron: Test Recipes - Further Reading (Dutch) p. 13-14", italic=True)
 
 
 def build_sheet(ws: Worksheet) -> None:
@@ -212,9 +222,10 @@ def build_sheet(ws: Worksheet) -> None:
     _one_sample(ws)
     _two_samples(ws)
     fraction = DataValidation(type="decimal", operator="between", formula1="0.0000001", formula2="0.9999999",
-                              allow_blank=True, showErrorMessage=True, errorTitle="α", error="α is a fraction, e.g. 0.05.")
+                              allow_blank=True, showErrorMessage=True, errorTitle="α",
+                              error="α is een fractie, bv. 0,05.")
     positive = DataValidation(type="decimal", operator="greaterThan", formula1="0", allow_blank=True,
-                              showErrorMessage=True, errorTitle="Must be positive", error="Must be greater than 0.")
+                              showErrorMessage=True, errorTitle="Moet positief zijn", error="Moet groter zijn dan 0.")
     ws.add_data_validation(fraction)
     ws.add_data_validation(positive)
     fraction.add(ALPHA)
