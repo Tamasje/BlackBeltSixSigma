@@ -51,7 +51,7 @@ def test_study_size_is_derived_from_the_data(evaluate: Evaluate) -> None:
     # act
     ws = evaluate(SHEET, cells(course_study()))
     # assert -- 3 operators, 5 parts, 2 trials, 30 values
-    assert [value(ws, name) for name in ("k", "n", "r", "count", "complete")] == [3, 5, 2, 30, "yes"]
+    assert [value(ws, name) for name in ("k", "n", "r", "count", "complete")] == [3, 5, 2, 30, "ja"]
 
 
 def test_average_and_range_method_s10_we03(oracle: dict[str, Any], evaluate: Evaluate) -> None:
@@ -74,7 +74,7 @@ def test_anova_method_s10_we02(oracle: dict[str, Any], evaluate: Evaluate) -> No
                       ("pct_anova", "%GRR (formula sqrt((EV^2+AV^2)/TV^2))")):
         assert value(ws, name) == pytest.approx(float(answers[key]), rel=TYPED_ROUNDING), name
     assert answers["conclusion"].startswith("niet geschikt")
-    assert ws[f"D{69}"].value == "not acceptable (> 30 %)"
+    assert ws[f"D{69}"].value == "niet aanvaardbaar (not acceptable, > 30 %)"
 
 
 @pytest.mark.xfail(reason="GRR workbook '2way anova' K45 types '=412.5+296.667' (interaction SS 296.6667 rounded): "
@@ -144,7 +144,7 @@ def test_incomplete_study_is_refused(evaluate: Evaluate) -> None:
     del study[(2, 1, 4)]
     ws = evaluate(SHEET, cells(study))
     # act / assert
-    assert value(ws, "complete").startswith("NO")
+    assert value(ws, "complete").startswith("NEE")
     assert value(ws, "ev_ar") is None and value(ws, "ev_anova") is None
 
 

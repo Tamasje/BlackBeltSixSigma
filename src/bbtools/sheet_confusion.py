@@ -27,25 +27,26 @@ from bbtools.xlsx_style import (
 SHEET = "Confusion matrix"
 
 HEADER = HeaderBlock(
-    tool="Confusion matrix: accuracy, recall, precision, F1 (training vs test, up to three models)",
-    source="source/course/Les 2/20260529_naert.pdf p. 19-32 (train/test, under-/overfitting, bias-variance, "
-           "confusion matrix and its metrics)",
-    convention="Recall, precision and F1 shown with each class as the positive class (the course leaves that "
-               "choice to the domain); no automatic bias/variance label.",
+    tool="Confusion matrix: nauwkeurigheid (accuracy), sensitiviteit (recall), precisie (precision), F1 "
+         "(trainingsset vs testset, tot drie modellen)",
+    source="source/course/Les 2/20260529_naert.pdf p. 19-32 (train/test, underfitting/overfitting, bias-variance, "
+           "confusion matrix en haar maten)",
+    convention="Sensitiviteit (recall), precisie en F1 getoond met elke klasse als de positieve klasse (de cursus "
+               "laat die keuze aan het domein); geen automatisch bias/variance-label.",
     status=Status.UNVERIFIED,
-    status_detail="no course worked example prints these metrics; checked against an independent computation "
-                  "and by the stats-auditor (build/README.md)",
+    status_detail="geen uitgewerkt cursusvoorbeeld drukt deze maten af; gecontroleerd tegen een onafhankelijke "
+                  "berekening en door de stats-auditor (build/README.md)",
 )
 
 DOC = SheetDoc(
     sheet=SHEET,
-    purpose="Metrics of 2x2 confusion matrices for the training and the test set of up to three models, side by "
-            "side, to judge under- and overfitting as in exam Q5.",
-    inputs="optional class names; per model the four counts of the training matrix and of the test matrix "
-           "(rows = actual class, columns = predicted class).",
-    audit="stats-auditor PASS (2026-09-28): all 26 values for one input (model A, training and test) agree with "
-          "an independent computation from 20260529_naert.pdf p. 29-32. Note: 'error rate' is not printed on "
-          "those pages; the sheet shows it as 1 − accuracy.",
+    purpose="Maten van 2x2-confusion matrices voor de trainingsset en de testset van tot drie modellen, naast elkaar, "
+            "om underfitting en overfitting te beoordelen zoals in examenvraag Q5.",
+    inputs="optioneel de klassenamen; per model de vier aantallen van de matrix van de trainingsset en van de testset "
+           "(rijen = werkelijke klasse, kolommen = voorspelde klasse).",
+    audit="stats-auditor PASS (2026-09-28): alle 26 waarden voor één invoer (model A, trainingsset en testset) komen "
+          "overeen met een onafhankelijke berekening uit 20260529_naert.pdf p. 29-32. Opmerking: 'foutenpercentage' "
+          "(error rate) staat niet op die pagina's; het blad toont het als 1 − nauwkeurigheid.",
     disagreements=(),
 )
 
@@ -94,24 +95,25 @@ def _model(ws: Worksheet, index: int) -> None:
     """One model: training and test matrices, then their metrics and the test − training gap."""
     top = model_top(index)
     section_title(ws, top, f"{index + 2}. Model {MODEL_NAMES[index]}")
-    column_titles(ws, top + 1, ["counts (rows = actual)", "Training: predicted class 1", "predicted class 2", "",
-                                "Test: predicted class 1", "predicted class 2"])
-    for offset, text in ((2, "actual class 1"), (3, "actual class 2")):
+    column_titles(ws, top + 1, ["aantallen (rijen = werkelijk)", "Trainingsset: voorspeld klasse 1",
+                                "voorspeld klasse 2", "", "Testset: voorspeld klasse 1", "voorspeld klasse 2"])
+    for offset, text in ((2, "werkelijk klasse 1"), (3, "werkelijk klasse 2")):
         label(ws, top + offset, 1, text, bold=True)
     for dataset in ("train", "test"):
         for coordinate in matrix_cells(index, dataset).values():
             input_cell(ws, coordinate, "0")
-    column_titles(ws, top + 4, ["Metric", "Training", "Test", "Test − training", "Course source"])
+    column_titles(ws, top + 4, ["Maat (metric)", "Trainingsset", "Testset", "Testset − trainingsset",
+                                "Bron in de cursus"])
     texts = {
-        "accuracy": ("Accuracy = (correct) / (all)", "p. 31 (misleading with unequal classes)"),
-        "error_rate": ("Error rate = 1 − accuracy", ""),
-        "recall_1": ("Recall, class 1 positive = TP / (TP + FN)", "p. 31"),
-        "precision_1": ("Precision, class 1 positive = TP / (TP + FP)", "p. 31"),
-        "f1_1": ("F1, class 1 positive = 2·P·R / (P + R)", "p. 31"),
-        "recall_2": ("Recall, class 2 positive", "p. 31"),
-        "precision_2": ("Precision, class 2 positive", "p. 31"),
-        "f1_2": ("F1, class 2 positive", "p. 31"),
-        "total": ("Number of items", ""),
+        "accuracy": ("Nauwkeurigheid (accuracy) = (juist) / (alle)", "p. 31 ('Misleidend bij onevenwicht.')"),
+        "error_rate": ("Foutenpercentage (error rate) = 1 − nauwkeurigheid", ""),
+        "recall_1": ("Sensitiviteit (recall), klasse 1 positief = TP / (TP + FN)", "p. 31"),
+        "precision_1": ("Precisie (precision), klasse 1 positief = TP / (TP + FP)", "p. 31"),
+        "f1_1": ("F1, klasse 1 positief = 2·P·R / (P + R)", "p. 31"),
+        "recall_2": ("Sensitiviteit (recall), klasse 2 positief", "p. 31"),
+        "precision_2": ("Precisie, klasse 2 positief", "p. 31"),
+        "f1_2": ("F1, klasse 2 positief", "p. 31"),
+        "total": ("Aantal items", ""),
     }
     for dataset in ("train", "test"):
         cells = matrix_cells(index, dataset)
@@ -132,20 +134,23 @@ def _model(ws: Worksheet, index: int) -> None:
 def _comparison(ws: Worksheet) -> None:
     """Last section: the three models' accuracies side by side, with the course's reading of them."""
     top = model_top(len(MODEL_NAMES))
-    section_title(ws, top, f"{len(MODEL_NAMES) + 2}. Comparison and how the course reads it")
-    column_titles(ws, top + 1, ["Model", "Training accuracy", "Test accuracy", "Test − training"])
+    section_title(ws, top, f"{len(MODEL_NAMES) + 2}. Vergelijking en hoe de cursus ze leest")
+    column_titles(ws, top + 1, ["Model", "Nauwkeurigheid trainingsset", "Nauwkeurigheid testset",
+                                "Testset − trainingsset"])
     for index, name in enumerate(MODEL_NAMES):
         row = top + 2 + index
         label(ws, row, 1, f"Model {name}", bold=True)
         for column, dataset in (("B", "train"), ("C", "test"), ("D", "gap")):
             output_cell(ws, f"{column}{row}", f"={metric_cell(index, dataset, 'accuracy')}", PERCENT)
     notes = (
-        "Underfitted model (high bias, low variance): high training loss and high test loss, i.e. both accuracies low.",
-        "Overfitted model (low bias, high variance): low training loss, high test loss, i.e. training accuracy high "
-        "and test accuracy clearly lower.",
-        "Good fit (low bias, low variance): low training and test loss. Optimum at the minimum of bias² + variance.",
-        "Source: 20260529_naert.pdf p. 22-28 (underfitting, overfitting, bias-variance trade-off); "
-        "decision trees p. 43-46.",
+        "Underfitting: hoge bias, lage variantie (variance); hoog verlies (loss) op trainingsset en testset, dus beide "
+        "nauwkeurigheden laag.",
+        "Overfitting: lage bias, hoge variantie; laag verlies op de trainingsset, hoog op de testset, dus nauwkeurigheid "
+        "trainingsset hoog en nauwkeurigheid testset duidelijk lager.",
+        "Goede fit: lage bias, lage variantie; laag verlies op trainingsset en testset. Optimum bij het minimum van "
+        "bias² + variantie.",
+        "Bron: 20260529_naert.pdf p. 22-28 (underfitting, overfitting, bias-variance-afweging, trade-off); "
+        "beslissingsbomen (decision trees) p. 43-46.",
     )
     for offset, text in enumerate(notes):
         label(ws, top + 6 + offset, 1, text, italic=offset == 3)
@@ -154,11 +159,11 @@ def _comparison(ws: Worksheet) -> None:
 def build_sheet(ws: Worksheet) -> None:
     """Fill an empty worksheet with the confusion-matrix calculator."""
     write_header(ws, HEADER)
-    section_title(ws, 8, "1. Class names (optional, for your own reference)")
-    input_row(ws, 9, "Class 1", "e.g. Goed")
-    input_row(ws, 10, "Class 2", "e.g. Slecht")
+    section_title(ws, 8, "1. Klassenamen (optioneel, voor eigen gebruik)")
+    input_row(ws, 9, "Klasse 1", "bv. Goed")
+    input_row(ws, 10, "Klasse 2", "bv. Slecht")
     counts = DataValidation(type="whole", operator="greaterThanOrEqual", formula1="0", allow_blank=True,
-                            showErrorMessage=True, errorTitle="Count", error="A count is a whole number, 0 or more.")
+                            showErrorMessage=True, errorTitle="Aantal", error="Een aantal is een geheel getal, 0 of meer.")
     ws.add_data_validation(counts)
     for index in range(len(MODEL_NAMES)):
         _model(ws, index)

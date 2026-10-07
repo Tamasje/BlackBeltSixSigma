@@ -37,27 +37,30 @@ from bbtools.xlsx_style import (
 SHEET = "Gage R&R"
 
 HEADER = HeaderBlock(
-    tool="Gage R&R: average and range method and ANOVA method (EV, AV, PV, GRR, TV, %GRR)",
+    tool="Gage R&R: gemiddelde-en-spreidingsbreedtemethode (average and range method) en ANOVA-methode "
+         "(EV, AV, PV, GRR, TV, %GRR)",
     source="source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf p. 18, 24, 34-38; "
            "20260619_ottoy_tabel MSA.pdf; 20260619_ottoy_GRR - ANOVA - avegage and range - 2.xlsx",
-    convention="Decision 11: multiplier 6; %GRR against total variation and tolerance; course ANOVA = model without "
-               "interaction (interaction also shown); constants from tabel MSA.pdf; ndc not in the course.",
+    convention="Beslissing 11: vermenigvuldigingsfactor (multiplier) 6; %GRR t.o.v. totale variatie en tolerantie; "
+               "ANOVA van de cursus = model zonder interactie (interactie ook getoond); constanten uit tabel MSA.pdf; "
+               "ndc niet in de cursus.",
     status=Status.VERIFIED,
-    status_detail="tested against course worked examples S10-WE02 (ANOVA) and S10-WE03 (average and range) on the "
-                  "course's own study data",
+    status_detail="getest tegen de uitgewerkte cursusvoorbeelden (worked examples) S10-WE02 (ANOVA) en S10-WE03 "
+                  "(gemiddelde-en-spreidingsbreedtemethode) op de eigen studiedata van de cursus",
 )
 
 DOC = SheetDoc(
     sheet=SHEET,
-    purpose="Repeatability (EV), reproducibility (AV), part variation (PV), GRR, TV and %GRR by the average and range "
-            "method and by the ANOVA method, with the course's 10 % / 30 % verdict; the ANOVA with the interaction term.",
-    inputs="the measurements of a complete crossed study: up to 3 operators × 3 trials (rows) × 10 parts (columns); "
-           "optionally the tolerance USL − LSL and α for the F tests.",
-    audit="not needed (course worked examples exist)",
+    purpose="Herhaalbaarheid (repeatability, EV), reproduceerbaarheid (reproducibility, AV), variatie tussen de delen "
+            "(part variation, PV), GRR, TV en %GRR met de gemiddelde-en-spreidingsbreedtemethode (average and range "
+            "method) en met de ANOVA-methode, met het oordeel 10 % / 30 % van de cursus; de ANOVA met de interactieterm.",
+    inputs="de metingen van een volledige gekruiste studie (crossed study): tot 3 operators × 3 herhalingen (trials, "
+           "rijen) × 10 delen (parts, kolommen); optioneel de tolerantie USL − LSL en α voor de F-toetsen.",
+    audit="niet nodig (er bestaan uitgewerkte cursusvoorbeelden)",
     disagreements=(
-        "GRR workbook sheet '2way anova' K45 types '=412.5+296.667' (the interaction SS 296.6667 rounded), so its EV² is "
-        "30.8333478 instead of 30.8333333; its AV, PV, TV and %GRR shift in the 7th digit. The sheet computes from the "
-        "data; the tests compare at a tolerance that allows exactly this.",
+        "GRR-werkboek, blad '2way anova', K45 typt '=412.5+296.667' (de interactie-SS 296,6667 afgerond), dus is zijn "
+        "EV² 30,8333478 in plaats van 30,8333333; zijn AV, PV, TV en %GRR verschuiven in het 7e cijfer. Het blad rekent "
+        "vanuit de data; de tests vergelijken met een tolerantie die precies dit toelaat.",
     ),
 )
 
@@ -67,7 +70,7 @@ PART_COLUMNS = "BCDEFGHIJK"
 OPERATOR_NAMES = ("A", "B", "C")
 NUMBER = "0.000000"
 PERCENT = "0.00%"
-TOL, ALPHA, OK = "$B$9", "$B$10", '$B$39="yes"'
+TOL, ALPHA, OK = "$B$9", "$B$10", '$B$39="ja"'
 INPUTS = {"tolerance": "B9", "alpha": "B10"}
 RESULTS = {
     "k": "B35", "n": "B36", "r": "B37", "count": "B38", "complete": "B39",
@@ -93,73 +96,76 @@ def _block(operator: int) -> str:
 
 def _data(ws: Worksheet) -> None:
     """Section 1: the study data."""
-    section_title(ws, 8, "1. Study data: one row per operator and trial, one column per part (coded or real values)")
-    input_row(ws, 9, "Tolerance TOL = USL − LSL (optional)", "for %GRR against tolerance")
-    input_row(ws, 10, "α for the F tests", "course has no default; most course examples use 5 %", "0.00")
+    section_title(ws, 8, "1. Studiedata: één rij per operator en herhaling (trial), één kolom per deel (part) "
+                         "(gecodeerde of echte waarden)")
+    input_row(ws, 9, "Tolerantie (tolerance) TOL = USL − LSL (optioneel)", "voor %GRR t.o.v. de tolerantie")
+    input_row(ws, 10, "α voor de F-toetsen", "de cursus heeft geen standaardwaarde; de meeste cursusvoorbeelden "
+                                             "gebruiken 5 %", "0.00")
     ws[ALPHA.replace("$", "")] = 0.05
-    label(ws, 11, 1, "Fill a complete study: every operator used measures every part used in every trial. "
-                     "Up to 3 operators × 3 trials × 10 parts.", italic=True)
-    column_titles(ws, 12, ["Operator, trial"] + [f"Part {j + 1}" for j in range(PARTS)])
+    label(ws, 11, 1, "Vul een volledige studie in: elke gebruikte operator meet elk gebruikt deel in elke herhaling. "
+                     "Tot 3 operators × 3 herhalingen × 10 delen.", italic=True)
+    column_titles(ws, 12, ["Operator, herhaling"] + [f"Deel {j + 1}" for j in range(PARTS)])
     for operator in range(OPERATORS):
         for trial in range(TRIALS):
             row = FIRST_DATA_ROW + TRIALS * operator + trial
-            label(ws, row, 1, f"Operator {OPERATOR_NAMES[operator]}, trial {trial + 1}", bold=trial == 0)
+            label(ws, row, 1, f"Operator {OPERATOR_NAMES[operator]}, herhaling {trial + 1}", bold=trial == 0)
             for part in range(PARTS):
                 input_cell(ws, data_cell(operator, trial, part))
-    label(ws, 22, 1, "values per part")
+    label(ws, 22, 1, "waarden per deel")
     for part, letter in enumerate(PART_COLUMNS):
         output_cell(ws, f"{letter}22", f"=COUNT({letter}13:{letter}21)", "0")
 
 
 def _per_cell(ws: Worksheet) -> None:
     """Section 2: range and mean per operator and part, operator means and part means."""
-    section_title(ws, 24, "2. Per operator and part (computed)")
-    column_titles(ws, 25, ["", *[f"Part {j + 1}" for j in range(PARTS)], "Operator mean"])
+    section_title(ws, 24, "2. Per operator en deel (berekend)")
+    column_titles(ws, 25, ["", *[f"Deel {j + 1}" for j in range(PARTS)], "Gemiddelde operator"])
     for operator in range(OPERATORS):
         top = FIRST_DATA_ROW + TRIALS * operator
-        label(ws, 26 + operator, 1, f"Range over trials, operator {OPERATOR_NAMES[operator]}")
-        label(ws, 29 + operator, 1, f"Mean over trials, operator {OPERATOR_NAMES[operator]}")
+        label(ws, 26 + operator, 1, f"Spreidingsbreedte (range) over herhalingen, operator {OPERATOR_NAMES[operator]}")
+        label(ws, 29 + operator, 1, f"Gemiddelde over herhalingen, operator {OPERATOR_NAMES[operator]}")
         for letter in PART_COLUMNS:
             trials = f"{letter}{top}:{letter}{top + TRIALS - 1}"
             output_cell(ws, f"{letter}{26 + operator}", f'=IF(COUNT({trials})>1,MAX({trials})-MIN({trials}),"")', NUMBER)
             output_cell(ws, f"{letter}{29 + operator}", f'=IF(COUNT({trials})>0,AVERAGE({trials}),"")', NUMBER)
         output_cell(ws, f"L{29 + operator}", f'=IF(COUNT({_block(operator)})>0,AVERAGE({_block(operator)}),"")', NUMBER)
-    label(ws, 32, 1, "Part mean (all operators and trials)")
+    label(ws, 32, 1, "Gemiddelde per deel (alle operators en herhalingen)")
     for letter in PART_COLUMNS:
         output_cell(ws, f"{letter}32", f'=IF(COUNT({letter}13:{letter}21)>0,AVERAGE({letter}13:{letter}21),"")', NUMBER)
 
 
 def _size(ws: Worksheet) -> None:
     """Section 3: k, n, r and the completeness check."""
-    section_title(ws, 34, "3. Study size (derived from the data)")
+    section_title(ws, 34, "3. Omvang van de studie (afgeleid uit de data)")
     operators = "+".join(f"(COUNT({_block(i)})>0)" for i in range(OPERATORS))
     trials = "+".join(f"(COUNT(B{FIRST_DATA_ROW + t}:K{FIRST_DATA_ROW + t})>0)" for t in range(TRIALS))
-    result_row(ws, 35, "k = number of operators", f"={operators}", "0")
-    result_row(ws, 36, "n = number of parts", '=COUNTIF(B22:K22,">0")', "0")
-    result_row(ws, 37, "r = number of trials (of operator A)", f"={trials}", "0")
-    result_row(ws, 38, "number of measurements", "=COUNT(B13:K21)", "0")
-    result_row(ws, 39, "Complete study (k ≥ 2, n ≥ 2, r ≥ 2, k·n·r values)?",
-               '=IF(AND(B35>=2,B36>=2,B37>=2,B38=B35*B36*B37),"yes",IF(B38=0,"",'
-               '"NO: every operator must measure every part in every trial"))')
+    result_row(ws, 35, "k = aantal operators", f"={operators}", "0")
+    result_row(ws, 36, "n = aantal delen", '=COUNTIF(B22:K22,">0")', "0")
+    result_row(ws, 37, "r = aantal herhalingen (van operator A)", f"={trials}", "0")
+    result_row(ws, 38, "aantal metingen", "=COUNT(B13:K21)", "0")
+    result_row(ws, 39, "Volledige studie (k ≥ 2, n ≥ 2, r ≥ 2, k·n·r waarden)?",
+               '=IF(AND(B35>=2,B36>=2,B37>=2,B38=B35*B36*B37),"ja",IF(B38=0,"",'
+               '"NEE: elke operator moet elk deel in elke herhaling meten"))')
 
 
 def _verdict(value: str) -> str:
     """Course verdict for a %GRR (MSA p. 35), using the thresholds of section 7."""
-    return (f'=IF(ISNUMBER({value}),IF({value}<=$B$84,"acceptable (≤ 10 %)",IF({value}<=$B$85,'
-            f'"may be acceptable (10 - 30 %)","not acceptable (> 30 %)")),"")')
+    return (f'=IF(ISNUMBER({value}),IF({value}<=$B$84,"aanvaardbaar (acceptable, ≤ 10 %)",IF({value}<=$B$85,'
+            f'"mogelijk aanvaardbaar (may be acceptable, 10 - 30 %)","niet aanvaardbaar (not acceptable, > 30 %)")),"")')
 
 
 def _results(ws: Worksheet, first: int, ev: str, av: str, pv: str, source: str) -> None:
     """EV, AV, PV, GRR, TV, %GRR (TV and tolerance) and the two verdicts, from row `first`."""
     r = first
-    result_row(ws, r, "EV = repeatability", f'=IF({OK},{ev},"")', NUMBER, source)
-    result_row(ws, r + 1, "AV = reproducibility", f'=IF({OK},{av},"")', NUMBER)
-    result_row(ws, r + 2, "PV = part variation", f'=IF({OK},{pv},"")', NUMBER)
+    result_row(ws, r, "EV = herhaalbaarheid (repeatability)", f'=IF({OK},{ev},"")', NUMBER, source)
+    result_row(ws, r + 1, "AV = reproduceerbaarheid (reproducibility)", f'=IF({OK},{av},"")', NUMBER)
+    result_row(ws, r + 2, "PV = variatie tussen de delen (part variation)", f'=IF({OK},{pv},"")', NUMBER)
     result_row(ws, r + 3, "GRR = √(EV² + AV²)", f'=IF(ISNUMBER(B{r}),SQRT(B{r}^2+B{r + 1}^2),"")', NUMBER, "MSA p. 18, 35")
-    result_row(ws, r + 4, "TV = √(GRR² + PV²)", f'=IF(ISNUMBER(B{r + 3}),SQRT(B{r + 3}^2+B{r + 2}^2),"")', NUMBER)
-    result_row(ws, r + 5, "%GRR of total variation = GRR / TV", f'=IF(ISNUMBER(B{r + 4}),B{r + 3}/B{r + 4},"")', PERCENT,
-               "MSA p. 35")
-    result_row(ws, r + 6, "%GRR of tolerance = 6 · GRR / TOL",
+    result_row(ws, r + 4, "TV = totale variatie (total variation) = √(GRR² + PV²)",
+               f'=IF(ISNUMBER(B{r + 3}),SQRT(B{r + 3}^2+B{r + 2}^2),"")', NUMBER)
+    result_row(ws, r + 5, "%GRR t.o.v. totale variatie = GRR / TV", f'=IF(ISNUMBER(B{r + 4}),B{r + 3}/B{r + 4},"")',
+               PERCENT, "MSA p. 35")
+    result_row(ws, r + 6, "%GRR t.o.v. tolerantie = 6 · GRR / TOL",
                f'=IF(AND(ISNUMBER(B{r + 3}),ISNUMBER({TOL}),{TOL}>0),6*B{r + 3}/{TOL},"")', PERCENT, "MSA p. 24")
     # verdicts in column D: column C holds the course source of each row
     output_cell(ws, f"D{r + 5}", _verdict(f"B{r + 5}"))
@@ -168,16 +174,20 @@ def _results(ws: Worksheet, first: int, ev: str, av: str, pv: str, source: str) 
 
 def _average_range(ws: Worksheet) -> None:
     """Section 4: average and range method."""
-    section_title(ws, 41, "4. Average and range method (MSA p. 34-35)")
-    result_row(ws, 42, "R̿ = mean of all ranges", f'=IF({OK},AVERAGE(B26:K28),"")', NUMBER)
-    result_row(ws, 43, "X̄_DIFF = largest − smallest operator mean", f'=IF({OK},MAX(L29:L31)-MIN(L29:L31),"")', NUMBER)
-    result_row(ws, 44, "R_p = largest − smallest part mean", f'=IF({OK},MAX(B32:K32)-MIN(B32:K32),"")', NUMBER)
-    result_row(ws, 45, "d2 for m = r (g → ∞): K1 = 1/d2", f'=IF({OK},IFERROR({msa_d2_formula("$B$37")},"r not in table"),"")',
-               "0.00000", "tabel MSA.pdf, last row")
-    result_row(ws, 46, "d2* for m = k, g = 1: K2 = 1/d2*",
-               f'=IF({OK},IFERROR({d2_star_formula("1", "$B$35")},"k not in table"),"")', "0.00000", "tabel MSA.pdf, g = 1")
-    result_row(ws, 47, "d2* for m = n, g = 1: K3 = 1/d2*",
-               f'=IF({OK},IFERROR({d2_star_formula("1", "$B$36")},"n not in table"),"")', "0.00000", "tabel MSA.pdf, g = 1")
+    section_title(ws, 41, "4. Gemiddelde-en-spreidingsbreedtemethode (average and range method, MSA p. 34-35)")
+    result_row(ws, 42, "R̿ = gemiddelde van alle spreidingsbreedtes", f'=IF({OK},AVERAGE(B26:K28),"")', NUMBER)
+    result_row(ws, 43, "X̄_DIFF = grootste − kleinste operatorgemiddelde", f'=IF({OK},MAX(L29:L31)-MIN(L29:L31),"")',
+               NUMBER)
+    result_row(ws, 44, "R_p = grootste − kleinste deelgemiddelde", f'=IF({OK},MAX(B32:K32)-MIN(B32:K32),"")', NUMBER)
+    result_row(ws, 45, "d2 voor m = r (g → ∞): K1 = 1/d2",
+               f'=IF({OK},IFERROR({msa_d2_formula("$B$37")},"r niet in de tabel"),"")', "0.00000",
+               "tabel MSA.pdf, laatste rij")
+    result_row(ws, 46, "d2* voor m = k, g = 1: K2 = 1/d2*",
+               f'=IF({OK},IFERROR({d2_star_formula("1", "$B$35")},"k niet in de tabel"),"")', "0.00000",
+               "tabel MSA.pdf, g = 1")
+    result_row(ws, 47, "d2* voor m = n, g = 1: K3 = 1/d2*",
+               f'=IF({OK},IFERROR({d2_star_formula("1", "$B$36")},"n niet in de tabel"),"")', "0.00000",
+               "tabel MSA.pdf, g = 1")
     _results(ws, 48, "B42/B45", "SQRT(MAX(0,(B43/B46)^2-(B42/B45)^2/(B36*B37)))",
              "SQRT(MAX(0,(B44/B47)^2-(B42/B45)^2/(B35*B37)))", "MSA p. 35")
 
@@ -205,42 +215,47 @@ def _anova(ws: Worksheet) -> None:
     """Sections 5-6: ANOVA without interaction (the course's method) and with interaction (to judge it)."""
     ss_parts, ss_operators = "B35*B37*DEVSQ(B32:K32)", "B36*B37*DEVSQ(L29:L31)"
     ss_total, ss_cells = "DEVSQ(B13:K21)", "B37*DEVSQ(B29:K31)"
-    section_title(ws, 58, "5. ANOVA method (MSA p. 36-37): two-way model without interaction, as the course")
-    column_titles(ws, 59, ["Source", "SS", "df", "MS", "F", "p-value", "F crit at α"])
+    section_title(ws, 58, "5. ANOVA-methode (MSA p. 36-37): tweewegmodel zonder interactie, zoals de cursus")
+    titles = ["Variatiebron (source)", "SS", "df", "MS", "F", "p-waarde", "F krit. bij α"]
+    column_titles(ws, 59, titles)
     _anova_table(ws, ANOVA_ROWS, {
-        "parts": ("Parts", ss_parts, "B36-1", "factor"),
+        "parts": ("Delen (parts)", ss_parts, "B36-1", "factor"),
         "operators": ("Operators", ss_operators, "B35-1", "factor"),
-        "error": ("Error (repeatability + interaction)", f"{ss_total}-{ss_parts}-{ss_operators}",
+        "error": ("Fout (error): herhaalbaarheid + interactie", f"{ss_total}-{ss_parts}-{ss_operators}",
                   "B36*B35*(B37-1)+(B35-1)*(B36-1)", ""),
-        "total": ("Total", ss_total, "B36*B35*B37-1", ""),
+        "total": ("Totaal", ss_total, "B36*B35*B37-1", ""),
     }, "error")
     _results(ws, 64, "SQRT(D62)", "SQRT(MAX(0,(D61-D62)/(B36*B37)))", "SQRT(MAX(0,(D60-D62)/(B35*B37)))", "MSA p. 36")
 
-    section_title(ws, 74, "6. ANOVA with the operator × part interaction (as Excel 'Anova: two-factor with replication')")
-    column_titles(ws, 75, ["Source", "SS", "df", "MS", "F", "p-value", "F crit at α"])
+    section_title(ws, 74, "6. ANOVA met de interactie operator × deel (zoals Excel 'Anova: two-factor with replication')")
+    column_titles(ws, 75, titles)
     _anova_table(ws, INTERACTION_ROWS, {
-        "parts": ("Parts", ss_parts, "B36-1", "factor"),
+        "parts": ("Delen (parts)", ss_parts, "B36-1", "factor"),
         "operators": ("Operators", ss_operators, "B35-1", "factor"),
-        "interaction": ("Interaction operator × part", f"{ss_cells}-{ss_parts}-{ss_operators}", "(B36-1)*(B35-1)", "factor"),
-        "within": ("Within (repeatability)", f"{ss_total}-{ss_cells}", "B36*B35*(B37-1)", ""),
-        "total": ("Total", ss_total, "B36*B35*B37-1", ""),
+        "interaction": ("Interactie operator × deel", f"{ss_cells}-{ss_parts}-{ss_operators}", "(B36-1)*(B35-1)",
+                        "factor"),
+        "within": ("Binnen (within): herhaalbaarheid", f"{ss_total}-{ss_cells}", "B36*B35*(B37-1)", ""),
+        "total": ("Totaal", ss_total, "B36*B35*B37-1", ""),
     }, "within")
-    label(ws, 81, 1, "A large interaction p-value supports pooling it into the error, as section 5 does (the course "
-                     "workbook's 'afgeleide ANOVA-tabel zonder interactie'). The course gives EV, AV, PV only for section 5.",
-          italic=True)
+    label(ws, 81, 1, "Een grote p-waarde van de interactie steunt het poolen ervan in de fout, zoals sectie 5 doet (de "
+                     "'afgeleide ANOVA-tabel zonder interactie' van het cursuswerkboek). De cursus geeft EV, AV, PV alleen "
+                     "voor sectie 5.", italic=True)
 
 
 def _thresholds(ws: Worksheet) -> None:
     """Section 7: the course's acceptance rule and the other thresholds it mentions."""
-    section_title(ws, 83, "7. Acceptance of the measurement system")
-    constant_row(ws, 84, "%GRR ≤ this: acceptable", 0.10, "MSA p. 35 ('%GRR <= 10% : gauge generally considered to be acceptable')")
-    constant_row(ws, 85, "%GRR ≤ this: may be acceptable; above: not acceptable", 0.30,
-                 "MSA p. 35 (10 % - 30 %: depends on the application; > 30 %: not acceptable)")
+    section_title(ws, 83, "7. Aanvaarding van het meetsysteem")
+    constant_row(ws, 84, "%GRR ≤ dit: aanvaardbaar", 0.10,
+                 "MSA p. 35 ('%GRR <= 10% : gauge generally considered to be acceptable')")
+    constant_row(ws, 85, "%GRR ≤ dit: mogelijk aanvaardbaar; erboven: niet aanvaardbaar", 0.30,
+                 "MSA p. 35 (10 % - 30 %: hangt af van de toepassing; > 30 %: niet aanvaardbaar)")
     ws["B84"].number_format = ws["B85"].number_format = "0%"
-    label(ws, 86, 1, "Other course thresholds: 'Gauge R&R ≤ 20 % of tolerance' (deck Les 4 p. 61); σ²_measure / σ²_observed "
-                     "≤ 0.1 good, 0.1-0.3 marginal, ≥ 0.3 unacceptable (Dummies p. 178).", italic=True)
-    label(ws, 87, 1, "Multiplier 6 (99.73 %) as in the MSA formulas; historically 5.15 (99 %), MSA p. 24. "
-                     "ndc (number of distinct categories) is not in the course.", italic=True)
+    label(ws, 86, 1, "Andere drempels: 'Gauge R&R ≤ 20 % of tolerance' (deck Les 4 p. 61); σ²_measure / σ²_observed "
+                     "≤ 0,1 goed, 0,1-0,3 marginaal, ≥ 0,3 onaanvaardbaar: Dummies p. 178 (extra, Dummies; niet te "
+                     "kennen).", italic=True)
+    label(ws, 87, 1, "Vermenigvuldigingsfactor 6 (99,73 %) zoals in de MSA-formules; vroeger 5,15 (99 %), MSA p. 24. "
+                     "ndc (number of distinct categories, aantal onderscheiden categorieën) staat niet in de cursus.",
+          italic=True)
 
 
 def build_sheet(ws: Worksheet) -> None:
