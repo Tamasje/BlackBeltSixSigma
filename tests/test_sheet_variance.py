@@ -107,7 +107,7 @@ def test_chi_square_test_for_sigma_s03_we05(oracle: dict[str, Any], printed: Pri
     assert at(ws, "E", row) == pytest.approx(float(answers["p-value (Excel cached, exact, via 1-CHISQ.DIST)"]), rel=1e-9)
     assert agrees_at_printed_precision(at(ws, "C", row), printed("S03-WE05", "stated_answers", "critical value (as printed on slide)", "33.69"))
     assert agrees_at_printed_precision(at(ws, "E", row) * 100, printed("S03-WE05", "stated_answers", "p-value (as printed on slide)", "13.6"))
-    assert at(ws, "F", row) == "do not reject H0"
+    assert at(ws, "F", row) == "H0 niet verwerpen"
 
 
 @libreoffice
@@ -189,4 +189,4 @@ def test_every_interval_and_test_matches_scipy(seed: int, evaluate: Evaluate) ->
         assert at(ws, column, row) == pytest.approx(target, rel=1e-9), (column, row)
     for row in (*CHI2_TEST_ROWS.values(), *F_TEST_ROWS.values()):
         p = at(ws, "E", row)
-        assert at(ws, "F", row) == ("reject H0" if p < alpha else "do not reject H0")
+        assert at(ws, "F", row) == ("verwerp H0" if p < alpha else "H0 niet verwerpen")
