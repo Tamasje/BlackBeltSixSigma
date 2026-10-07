@@ -36,48 +36,54 @@ from bbtools.xlsx_style import (
     write_header,
 )
 
-SHEET = "ANOVA DOE regression"
+SHEET = "ANOVA DOE regressie"
 
 HEADER = HeaderBlock(
-    tool="One-way ANOVA, 2^k factorial effects and ANOVA (k = 2 to 5), simple linear regression",
+    tool="Eenwegs-ANOVA (one-way ANOVA), effecten en ANOVA van een 2^k-factoriële proefopzet (factorial design, "
+         "k = 2 tot 5), enkelvoudige lineaire regressie (simple linear regression)",
     source="source/course/Les 3/20260605_de vuyst_BB_DOE.pdf p. 3-15, 46-92; 20260605_de vuyst_BB_Regression.pdf "
-           "p. 16-38, 56-57; Les 4/Six Sigma For Dummies.pdf p. 222-233",
-    convention="α input prefilled 0.05 (decision 5); regression CIs and t-tests one- and two-sided side by side "
-               "(decision 6); factors coded −1/+1 in standard order (DOE p. 46, 70, 74); single replicate: pool "
-               "interactions of a chosen order and higher into the error (DOE p. 72, 77); R²_adj shown both ways.",
+           "p. 16-38, 56-57",
+    convention="Invoer α vooraf ingevuld op 0,05 (beslissing 5); BI's en t-toetsen van de regressie eenzijdig en "
+               "tweezijdig naast elkaar (beslissing 6); factoren gecodeerd −1/+1 in standaardvolgorde (standard order; "
+               "DOE p. 46, 70, 74); één herhaling (single replicate): interacties van een gekozen orde en hoger in de "
+               "fout poolen (DOE p. 72, 77); R²_adj op beide manieren getoond.",
     status=Status.VERIFIED,
-    status_detail="tested against course worked examples S05-WE01, S05-WE02, S05-WE05 to S05-WE09, S05-WE17, "
-                  "S05-WE18, S08-WE16; printed values that disagree are listed in build/README.md",
+    status_detail="getest tegen uitgewerkte voorbeelden van de cursus S05-WE01, S05-WE02, S05-WE05 tot S05-WE09, "
+                  "S05-WE17, S05-WE18, en tegen S08-WE16 (extra, Dummies; niet te kennen); gedrukte waarden die niet "
+                  "kloppen staan in build/README.md",
 )
 
 DOC = SheetDoc(
     sheet=SHEET,
-    purpose="One-way ANOVA table; effects, coefficients, sums of squares, F-tests and ±2 s.e. intervals of a 2^k "
-            "factorial with pure error from replicates and/or pooled higher-order interactions, its model ANOVA and "
-            "R²; simple linear regression with ANOVA, R², t-tests, CIs of β0 and β1, and the CI of the mean response "
-            "and prediction interval at x0.",
-    inputs="α; ANOVA: up to 8 groups of up to 30 values (one column per group); factorial: k, optional pooling order, "
-           "up to 4 replicate responses per run in standard order; regression: up to 200 (x, y) pairs, x0 and the H0 "
-           "values of β1 and β0.",
-    audit="not needed (course worked examples exist)",
+    purpose="Eenwegs-ANOVA-tabel; effecten, coëfficiënten (extra, Dummies; niet te kennen), kwadratensommen (SS), "
+            "F-toetsen en intervallen ±2 s.e. van een 2^k-factoriële proefopzet met zuivere fout (pure error) uit "
+            "herhalingen en/of gepoolde interacties van hogere orde, de ANOVA van het model en R²; enkelvoudige "
+            "lineaire regressie met ANOVA, R², t-toetsen, BI's van β0 en β1, en het BI van de gemiddelde respons en "
+            "het predictie-interval bij x0.",
+    inputs="α; ANOVA: tot 8 groepen van elk tot 30 waarden (één kolom per groep); factorieel: k, optioneel de orde "
+           "vanaf waar gepoold wordt, tot 4 herhalingen per run in standaardvolgorde; regressie: tot 200 paren (x, y), "
+           "x0 en de H0-waarden van β1 en β0.",
+    audit="niet nodig (er bestaan uitgewerkte voorbeelden in de cursus)",
     disagreements=(
-        "DOE p. 50 (S05-WE05): '[AB] = 5,78 – 4,92 = 0,857'; the exact effect is 0.8583 (means 5.7767 and 4.9183).",
-        "DOE p. 71 (S05-WE08): SS_ABC (and MS) printed 5.5625; the data on p. 70 give contrast 9 and SS 81/16 = "
-        "5.0625, which the printed F0 2.08, P 0.19 and total 92.9375 also imply. The printed P of A, 2.54 × 10^-3, is "
-        "2.534 × 10^-3 for F0 18.69 on F(1, 8).",
-        "DOE p. 53 (S05-WE06): 'AB = (52 + 20)/2 − (30 + 40)/2 = −1'; that expression equals +1, which the sheet "
-        "gives.",
-        "Regression p. 56 prints R²_adj = 1 − (1 − R²)(n − 1)/(n − k − 2); the course's own outputs use n − k − 1 "
-        "(Regression p. 22 Minitab R-Sq(adj) 87.1 %; DOE p. 61 Adj R-Squared 0.8666; σ̂ on Regression p. 57). The "
-        "sheet shows both, labelled.",
-        "Regression p. 21 (S05-WE17): the fitted line 'ŷ = 74.20 + 14.97x' of Figure 11-4 differs from the least "
-        "squares values 74.283 and 14.947 of the Minitab output on p. 22, which the sheet reproduces.",
+        "DOE p. 50 (S05-WE05): '[AB] = 5,78 – 4,92 = 0,857'; het exacte effect is 0,8583 (gemiddelden 5,7767 en "
+        "4,9183).",
+        "DOE p. 71 (S05-WE08): SS_ABC (en MS) gedrukt als 5,5625; de gegevens op p. 70 geven contrast 9 en SS 81/16 = "
+        "5,0625, wat ook de gedrukte F0 2,08, P 0,19 en het totaal 92,9375 impliceren. De gedrukte P van A, "
+        "2,54 × 10^-3, is 2,534 × 10^-3 voor F0 18,69 op F(1, 8).",
+        "DOE p. 53 (S05-WE06): 'AB = (52 + 20)/2 − (30 + 40)/2 = −1'; die uitdrukking is gelijk aan +1, wat het blad "
+        "geeft.",
+        "Regression p. 56 drukt R²_adj = 1 − (1 − R²)(n − 1)/(n − k − 2); de eigen outputs van de cursus gebruiken "
+        "n − k − 1 (Regression p. 22 Minitab R-Sq(adj) 87,1 %; DOE p. 61 Adj R-Squared 0,8666; σ̂ op Regression "
+        "p. 57). Het blad toont beide, met label.",
+        "Regression p. 21 (S05-WE17): de gefitte rechte 'ŷ = 74.20 + 14.97x' van Figure 11-4 verschilt van de "
+        "kleinste-kwadratenwaarden (least squares) 74,283 en 14,947 van de Minitab-output op p. 22, die het blad "
+        "reproduceert.",
     ),
 )
 
 ALPHA = "$B$9"
 NUMBER = "0.000000"
-DECISION = '=IF(ISNUMBER({p}),IF({p}<' + ALPHA + ',"reject H0","do not reject H0"),"")'
+DECISION = '=IF(ISNUMBER({p}),IF({p}<' + ALPHA + ',"verwerp H0","H0 niet verwerpen"),"")'
 
 GROUP_COLUMNS = "BCDEFGHI"
 FIRST_GROUP_ROW, LAST_GROUP_ROW = 14, 43
@@ -153,15 +159,16 @@ def pair_cells(i: int) -> tuple[str, str]:
 
 def _settings(ws: Worksheet) -> None:
     """Row 9: α (decision 5)."""
-    section_title(ws, 8, "Settings")
-    input_row(ws, 9, "Significance α (confidence = 1 − α)",
-              "course has no default; most course examples use 5 %; use the value the question gives", "0.0000")
+    section_title(ws, 8, "Instellingen")
+    input_row(ws, 9, "Significantieniveau α (significance level; betrouwbaarheid = 1 − α)",
+              "de cursus heeft geen standaardwaarde; de meeste cursusvoorbeelden gebruiken 5 %; gebruik de waarde uit "
+              "de vraag", "0.0000")
     ws["B9"] = 0.05
 
 
 def _group_statistics(ws: Worksheet) -> None:
     """Rows 45-49: per group n, mean, s and the two terms of SS_Treatment and SS_Error."""
-    for row, text in ((45, "n_i"), (46, "mean Ȳ_i"), (47, "standard deviation s_i"), (48, "n_i (Ȳ_i − Ȳ)²"),
+    for row, text in ((45, "n_i"), (46, "gemiddelde Ȳ_i"), (47, "standaardafwijking s_i"), (48, "n_i (Ȳ_i − Ȳ)²"),
                       (49, "Σ (Y_ij − Ȳ_i)²")):
         label(ws, row, 1, text)
     for letter in GROUP_COLUMNS:
@@ -175,9 +182,10 @@ def _group_statistics(ws: Worksheet) -> None:
 
 def _one_way(ws: Worksheet) -> None:
     """Section 1: one-way ANOVA from up to 8 groups of raw values (DOE p. 6-8)."""
-    section_title(ws, 11, "1. One-way ANOVA: one column per group (factor level), its values below (rows 14-43)")
-    label(ws, 12, 1, "Row 13: a name for each group if you like. Groups may have different sizes.", italic=True)
-    label(ws, 13, 1, "group name", bold=True)
+    section_title(ws, 11, "1. Eenwegs-ANOVA (one-way ANOVA): één kolom per groep (factorniveau, factor level), de "
+                          "waarden eronder (rijen 14-43)")
+    label(ws, 12, 1, "Rij 13: desgewenst een naam per groep. Groepen mogen verschillend groot zijn.", italic=True)
+    label(ws, 13, 1, "groepsnaam", bold=True)
     for letter in GROUP_COLUMNS:
         input_cell(ws, f"{letter}13")
         for row in range(FIRST_GROUP_ROW, LAST_GROUP_ROW + 1):
@@ -185,11 +193,11 @@ def _one_way(ws: Worksheet) -> None:
     _group_statistics(ws)
     everything = f"B{FIRST_GROUP_ROW}:I{LAST_GROUP_ROW}"
     ok = "AND(ISNUMBER($B$57),$B$57>=2,SUM(B45:I45)>$B$57)"  # at least 2 groups and error df > 0
-    column_titles(ws, 51, ["Source", "SS", "df", "MS", "F0", "p-value", "F crit at α", "Decision at α"])
+    column_titles(ws, 51, ["Bron (source)", "SS", "df", "MS", "F0", "p-waarde", "kritieke F bij α", "Besluit bij α"])
     rows = {
-        52: ("Treatments (between groups)", "SUM(B48:I48)", "$B$57-1"),
-        53: ("Error (within groups)", "SUM(B49:I49)", "SUM(B45:I45)-$B$57"),
-        54: ("Total", f"DEVSQ({everything})", "SUM(B45:I45)-1"),
+        52: ("Behandelingen (treatments, tussen de groepen)", "SUM(B48:I48)", "$B$57-1"),
+        53: ("Fout (error, binnen de groepen)", "SUM(B49:I49)", "SUM(B45:I45)-$B$57"),
+        54: ("Totaal", f"DEVSQ({everything})", "SUM(B45:I45)-1"),
     }
     for row, (text, ss, df) in rows.items():
         label(ws, row, 1, text)
@@ -201,16 +209,18 @@ def _one_way(ws: Worksheet) -> None:
     output_cell(ws, "F52", '=IF(ISNUMBER(E52),_xlfn.F.DIST.RT(E52,C52,C53),"")', "0.000000")
     output_cell(ws, "G52", f'=IF(ISNUMBER(E52),_xlfn.F.INV.RT({ALPHA},C52,C53),"")', "0.0000")
     output_cell(ws, "H52", DECISION.format(p="F52"))
-    label(ws, 53, 5, "H0: all group means equal (DOE p. 7-8, Table 4.6)", italic=True)
-    result_row(ws, 55, "grand mean Ȳ", f'=IF(COUNT({everything})>0,AVERAGE({everything}),"")', NUMBER)
-    result_row(ws, 56, "pooled standard deviation √MS_E", '=IF(ISNUMBER(D53),SQRT(D53),"")', NUMBER)
-    result_row(ws, 57, "a = number of groups", '=IF(COUNT(B45:I45)>0,COUNT(B45:I45),"")', "0")
+    label(ws, 53, 5, "H0: alle groepsgemiddelden gelijk (DOE p. 7-8, Table 4.6)", italic=True)
+    result_row(ws, 55, "totaal gemiddelde Ȳ (grand mean)", f'=IF(COUNT({everything})>0,AVERAGE({everything}),"")',
+               NUMBER)
+    result_row(ws, 56, "gepoolde standaardafwijking √MS_E", '=IF(ISNUMBER(D53),SQRT(D53),"")', NUMBER)
+    result_row(ws, 57, "a = aantal groepen", '=IF(COUNT(B45:I45)>0,COUNT(B45:I45),"")', "0")
 
 
 def _runs(ws: Worksheet) -> None:
     """Rows 64-96: the 32 standard-order runs, their replicate inputs and per-run summaries."""
-    column_titles(ws, 64, ["Run", *FACTORS, "y rep 1", "y rep 2", "y rep 3", "y rep 4", "n", "run mean", "run sum",
-                           "Σ (y − run mean)²", "in design (1/0)"])
+    column_titles(ws, 64, ["Run", *FACTORS, "y herhaling 1", "y herhaling 2", "y herhaling 3", "y herhaling 4", "n",
+                           "gemiddelde van de run", "som van de run", "Σ (y − gemiddelde van de run)²",
+                           "in de proefopzet (1/0)"])
     for run in range(RUNS):
         r = run_row(run)
         ws[f"A{r}"] = run + 1
@@ -225,7 +235,7 @@ def _runs(ws: Worksheet) -> None:
         output_cell(ws, f"L{r}", f'=IF(ISNUMBER(K{r}),AVERAGE({ys}),"")', NUMBER)
         output_cell(ws, f"M{r}", f"=IF(ISNUMBER(K{r}),SUM({ys}),0)", NUMBER)
         output_cell(ws, f"N{r}", f"=IF(ISNUMBER(K{r}),DEVSQ({ys}),0)", NUMBER)
-    label(ws, 63, SIGN_FIRST_COLUMN, "Sign (−1/+1) of every effect in every run: used by the contrast formulas",
+    label(ws, 63, SIGN_FIRST_COLUMN, "Teken (−1/+1) van elk effect in elke run: gebruikt door de contrastformules",
           italic=True)
     for mask in range(1, RUNS):
         column = SIGN_FIRST_COLUMN + mask - 1
@@ -238,24 +248,26 @@ def _error_estimate(ws: Worksheet) -> None:
     """Rows 98-107: n, completeness, β0, pure error, pooled interactions, MS_E and s.e.(effect)."""
     first, last = run_row(0), run_row(RUNS - 1)
     n_col, in_design = f"K{first}:K{last}", f"O{first}:O{last}"
-    result_row(ws, 98, "n = replicates per run", f'=IF(COUNT({n_col})>0,MAX({n_col}),"")', "0")
-    result_row(ws, 99, "Complete design (runs 1 … 2^k each have n responses)?",
-               f'=IF(COUNT({n_col})=0,"",IF(AND(COUNT({n_col})=SUM({in_design}),MIN({n_col})=MAX({n_col})),"yes",'
-               f'"NO: fill runs 1 … 2^k, each with the same number of replicates"))')
-    ok = '$B$99="yes"'
+    result_row(ws, 98, "n = herhalingen (replicates) per run", f'=IF(COUNT({n_col})>0,MAX({n_col}),"")', "0")
+    result_row(ws, 99, "Volledige proefopzet (runs 1 … 2^k hebben elk n responsen)?",
+               f'=IF(COUNT({n_col})=0,"",IF(AND(COUNT({n_col})=SUM({in_design}),MIN({n_col})=MAX({n_col})),"ja",'
+               f'"NEE: vul runs 1 … 2^k in, elk met hetzelfde aantal herhalingen"))')
+    ok = '$B$99="ja"'
     pooling = "AND(ISNUMBER($B$62),$B$62>=2)"
     ss, order = f"F{FIRST_EFFECT}:F{effect_row(RUNS - 1)}", f"B{FIRST_EFFECT}:B{effect_row(RUNS - 1)}"
-    result_row(ws, 100, "N = 2^k · n observations", f'=IF({ok},2^$B$61*$B$98,"")', "0")
-    result_row(ws, 101, "grand mean = β0", f'=IF({ok},SUM(M{first}:M{last})/$B$100,"")', NUMBER, "Dummies p. 233")
-    result_row(ws, 102, "SS pure error (between replicates)", f'=IF({ok},SUM(N{first}:N{last}),"")', "0.0000")
-    result_row(ws, 103, "df pure error = 2^k (n − 1)", f'=IF({ok},2^$B$61*($B$98-1),"")', "0")
-    result_row(ws, 104, "SS pooled interactions (order ≥ B62)",
+    result_row(ws, 100, "N = 2^k · n waarnemingen", f'=IF({ok},2^$B$61*$B$98,"")', "0")
+    result_row(ws, 101, "totaal gemiddelde (grand mean) = β0", f'=IF({ok},SUM(M{first}:M{last})/$B$100,"")', NUMBER,
+               "β0: Dummies p. 233 (extra, Dummies; niet te kennen)")
+    result_row(ws, 102, "SS zuivere fout (pure error, tussen de herhalingen)", f'=IF({ok},SUM(N{first}:N{last}),"")',
+               "0.0000")
+    result_row(ws, 103, "df zuivere fout = 2^k (n − 1)", f'=IF({ok},2^$B$61*($B$98-1),"")', "0")
+    result_row(ws, 104, "SS gepoolde interacties (orde ≥ B62)",
                f'=IF({ok},IF({pooling},SUMIFS({ss},{order},">="&$B$62),0),"")', "0.0000", "DOE p. 72, 77")
-    result_row(ws, 105, "df pooled interactions",
+    result_row(ws, 105, "df gepoolde interacties",
                f'=IF({ok},IF({pooling},COUNTIFS({order},">="&$B$62,{ss},">=0"),0),"")', "0")
-    result_row(ws, 106, "σ̂² = MS_E = (SS pure error + SS pooled) / (df + df)",
+    result_row(ws, 106, "σ̂² = MS_E = (SS zuivere fout + SS gepoold) / (df + df)",
                f'=IF(AND({ok},N($B$103)+N($B$105)>0),($B$102+$B$104)/($B$103+$B$105),"")', NUMBER)
-    result_row(ws, 107, "s.e.(effect) = √(σ̂² / (n 2^(k−2)))",
+    result_row(ws, 107, "standaardfout (standard error) s.e.(effect) = √(σ̂² / (n 2^(k−2)))",
                '=IF(ISNUMBER($B$106),SQRT($B$106/($B$98*2^($B$61-2))),"")', NUMBER, "DOE p. 67")
 
 
@@ -267,14 +279,14 @@ def _effect_row(ws: Worksheet, mask: int) -> None:
     ws[f"A{r}"].font = font(bold=True)
     ws[f"B{r}"] = bin(mask).count("1")
     ws[f"B{r}"].font = font()
-    in_design = f'AND($B$99="yes",{mask}<2^$B$61)'
+    in_design = f'AND($B$99="ja",{mask}<2^$B$61)'
     output_cell(ws, f"C{r}", f'=IF({in_design},SUMPRODUCT({signs}{first}:{signs}{last},M{first}:M{last}),"")', "0.0000")
     output_cell(ws, f"D{r}", f'=IF(ISNUMBER(C{r}),C{r}/($B$98*2^($B$61-1)),"")', "0.0000")
     output_cell(ws, f"E{r}", f'=IF(ISNUMBER(D{r}),D{r}/2,"")', "0.0000")
     output_cell(ws, f"F{r}", f'=IF(ISNUMBER(C{r}),C{r}^2/($B$98*2^$B$61),"")', "0.0000")
     output_cell(ws, f"G{r}", f'=IF(ISNUMBER(C{r}),IF(AND(ISNUMBER($B$62),$B$62>=2,B{r}>=$B$62),'
-                             f'"pooled into error","in model"),"")')
-    tested = f'AND(G{r}="in model",ISNUMBER($B$106),N($B$106)>0)'
+                             f'"gepoold in de fout","in het model"),"")')
+    tested = f'AND(G{r}="in het model",ISNUMBER($B$106),N($B$106)>0)'
     output_cell(ws, f"H{r}", f'=IF({tested},F{r}/$B$106,"")', "0.0000")
     output_cell(ws, f"I{r}", f'=IF(ISNUMBER(H{r}),_xlfn.F.DIST.RT(H{r},1,$B$103+$B$105),"")', "0.000000")
     output_cell(ws, f"J{r}", DECISION.format(p=f"I{r}"))
@@ -284,24 +296,26 @@ def _effect_row(ws: Worksheet, mask: int) -> None:
 
 def _effects(ws: Worksheet) -> None:
     """Rows 109-141: the table of all 31 effects (only those of the chosen k fill in)."""
-    column_titles(ws, 109, ["Effect", "order", "contrast", "effect = contrast / (n 2^(k−1))", "coefficient = effect / 2",
-                            "SS = contrast² / (n 2^k)", "in model or pooled", "F0 = SS / MS_E", "p-value",
-                            "Decision at α", "effect − 2 s.e.", "effect + 2 s.e."])
+    column_titles(ws, 109, ["Effect", "orde", "contrast", "effect = contrast / (n 2^(k−1))",
+                            "coëfficiënt = effect / 2 (extra, Dummies; niet te kennen)", "SS = contrast² / (n 2^k)",
+                            "in het model of gepoold (pooled)", "F0 = SS / MS_E", "p-waarde", "Besluit bij α",
+                            "effect − 2 s.e.", "effect + 2 s.e."])
     for mask in range(1, RUNS):
         _effect_row(ws, mask)
-    label(ws, 141, 1, "Effect = mean at +1 − mean at −1 (DOE p. 48, 66); coefficient = effect / 2 (Dummies p. 233); "
-                      "effect ± 2 s.e. ≈ 95 % CI: contains 0 = not significant at 5 % (DOE p. 68).", italic=True)
+    label(ws, 141, 1, "Effect = gemiddelde bij +1 − gemiddelde bij −1 (DOE p. 48, 66); effect ± 2 s.e. ≈ 95 %-BI: "
+                      "bevat het 0, dan niet significant bij 5 % (DOE p. 68). Coëfficiënt = effect / 2, Dummies p. 233 "
+                      "(extra, Dummies; niet te kennen).", italic=True)
 
 
 def _model_table(ws: Worksheet) -> None:
     """Rows 143-149: ANOVA of the model (effects in model) against the error, R² and both R²_adj."""
     ss = f"F{FIRST_EFFECT}:F{effect_row(RUNS - 1)}"
-    ok = '$B$99="yes"'
-    column_titles(ws, 143, ["Source", "SS", "df", "MS", "F0", "p-value", "Decision at α"])
+    ok = '$B$99="ja"'
+    column_titles(ws, 143, ["Bron (source)", "SS", "df", "MS", "F0", "p-waarde", "Besluit bij α"])
     rows = {
-        144: ("Model (all effects in model)", f"SUM({ss})-$B$104", "2^$B$61-1-$B$105"),
-        145: ("Error (pure error + pooled)", "$B$102+$B$104", "$B$103+$B$105"),
-        146: ("Total", f"SUM({ss})+$B$102", "$B$100-1"),
+        144: ("Model (alle effecten in het model)", f"SUM({ss})-$B$104", "2^$B$61-1-$B$105"),
+        145: ("Fout (error: zuivere fout + gepoold)", "$B$102+$B$104", "$B$103+$B$105"),
+        146: ("Totaal", f"SUM({ss})+$B$102", "$B$100-1"),
     }
     for row, (text, sum_sq, df) in rows.items():
         label(ws, row, 1, text)
@@ -312,27 +326,28 @@ def _model_table(ws: Worksheet) -> None:
     output_cell(ws, "E144", '=IF(AND(ISNUMBER(D144),ISNUMBER(D145),N(D145)>0),D144/D145,"")', "0.0000")
     output_cell(ws, "F144", '=IF(ISNUMBER(E144),_xlfn.F.DIST.RT(E144,C144,C145),"")', "0.000000")
     output_cell(ws, "G144", DECISION.format(p="F144"))
-    label(ws, 145, 5, "as the course's Design-Expert output, DOE p. 61", italic=True)
-    result_row(ws, 147, "R² = SS_model / SS_total", '=IF(AND(ISNUMBER(B146),N(B146)>0),B144/B146,"")', "0.0000",
+    label(ws, 145, 5, "zoals de Design-Expert-output van de cursus, DOE p. 61", italic=True)
+    result_row(ws, 147, "R² = SS_model / SS_totaal", '=IF(AND(ISNUMBER(B146),N(B146)>0),B144/B146,"")', "0.0000",
                "DOE p. 61")
-    result_row(ws, 148, "R²_adj = 1 − (1 − R²)(N − 1)/(N − p − 1), p = model df",
+    result_row(ws, 148, "R²_adj = 1 − (1 − R²)(N − 1)/(N − p − 1), p = df van het model",
                '=IF(AND(ISNUMBER(B147),N(C145)>0),1-(1-B147)*C146/C145,"")', "0.0000",
-               "as the course's outputs (DOE p. 61; Regression p. 22, 57)")
-    result_row(ws, 149, "R²_adj as printed on Regression p. 56: 1 − (1 − R²)(N − 1)/(N − p − 2)",
+               "zoals de outputs van de cursus (DOE p. 61; Regression p. 22, 57)")
+    result_row(ws, 149, "R²_adj zoals gedrukt op Regression p. 56: 1 − (1 − R²)(N − 1)/(N − p − 2)",
                '=IF(AND(ISNUMBER(B147),N(C145)>1),1-(1-B147)*C146/(C145-1),"")', "0.0000",
-               "Regression p. 56 (differs from the course's outputs)")
+               "Regression p. 56 (verschilt van de outputs van de cursus)")
 
 
 def _factorial(ws: Worksheet) -> None:
     """Section 2: 2^k factorial design, effects and ANOVA."""
-    section_title(ws, 60, "2. 2^k factorial design (standard order: A changes every run, B every 2 runs, C every 4, …)")
-    input_row(ws, 61, "k = number of factors (2 to 5)",
-              "a fraction 2^(k−p): enter it as the full design of its k − p base factors; each effect is then an "
-              "alias chain (DOE p. 81-82, 88-90)", "0")
-    input_row(ws, 62, "Pool interactions of this order and higher into the error (optional, 2 to 5)",
-              "single replicate: needed for F-tests, e.g. 3 as DOE p. 77", "0")
-    label(ws, 63, 1, "Type each response in the row whose A … E signs match your table (DOE p. 70, 74 use this order); "
-                     "one column per replicate.", italic=True)
+    section_title(ws, 60, "2. 2^k-factoriële proefopzet (factorial design); standaardvolgorde (standard order): A "
+                          "wisselt elke run, B om de 2 runs, C om de 4, …")
+    input_row(ws, 61, "k = aantal factoren (2 tot 5)",
+              "een fractie 2^(k−p) (fractional factorial): voer ze in als de volledige proefopzet van haar k − p "
+              "basisfactoren; elk effect is dan een aliasketen (alias chain) (DOE p. 81-82, 88-90)", "0")
+    input_row(ws, 62, "Interacties van deze orde en hoger in de fout poolen (optioneel, 2 tot 5)",
+              "één herhaling (single replicate): nodig voor F-toetsen, bv. 3 zoals DOE p. 77", "0")
+    label(ws, 63, 1, "Typ elke respons in de rij waarvan de tekens A … E overeenkomen met je tabel (DOE p. 70, 74 "
+                     "gebruiken deze volgorde); één kolom per herhaling (replicate).", italic=True)
     _runs(ws)
     _error_estimate(ws)
     _effects(ws)
@@ -341,17 +356,20 @@ def _factorial(ws: Worksheet) -> None:
 
 def _regression_inputs(ws: Worksheet) -> None:
     """Rows 152-156 and the data block: x0, H0 values, completeness of the pairs, 200 (x, y) rows."""
-    section_title(ws, 152, f"3. Simple linear regression y = b0 + b1 x (pairs from row {FIRST_PAIR}: x in B, y in C)")
-    input_row(ws, 153, "x0 for the fitted value, CI of the mean response and prediction interval", "", NUMBER)
-    input_row(ws, 154, "β1,0 = slope under H0", "0 = test of significance of regression (Regression p. 30, 33)", NUMBER)
-    input_row(ws, 155, "β0,0 = intercept under H0", "Regression p. 31", NUMBER)
+    section_title(ws, 152, f"3. Enkelvoudige lineaire regressie (simple linear regression) y = b0 + b1 x (paren vanaf "
+                           f"rij {FIRST_PAIR}: x in B, y in C)")
+    input_row(ws, 153, "x0 voor de gefitte waarde, het BI van de gemiddelde respons en het predictie-interval", "",
+              NUMBER)
+    input_row(ws, 154, "β1,0 = helling (slope) onder H0", "0 = toets op significantie van de regressie "
+                                                          "(Regression p. 30, 33)", NUMBER)
+    input_row(ws, 155, "β0,0 = intercept onder H0", "Regression p. 31", NUMBER)
     ws["B154"] = 0
     ws["B155"] = 0
     count = f"COUNT({X_DATA})"
     both = f"SUMPRODUCT(ISNUMBER({X_DATA})*ISNUMBER({Y_DATA}))"
-    result_row(ws, 156, "Pairs complete (every row has both x and y, at least 3 rows)?",
-               f'=IF({count}+COUNT({Y_DATA})=0,"",IF(AND({count}=COUNT({Y_DATA}),{both}={count},{count}>2),"yes",'
-               f'"NO: every row needs both x and y, at least 3 rows"))')
+    result_row(ws, 156, "Paren volledig (elke rij heeft x én y, minstens 3 rijen)?",
+               f'=IF({count}+COUNT({Y_DATA})=0,"",IF(AND({count}=COUNT({Y_DATA}),{both}={count},{count}>2),"ja",'
+               f'"NEE: elke rij heeft x én y nodig, minstens 3 rijen"))')
     column_titles(ws, FIRST_PAIR - 1, ["#", "x", "y"])
     for i in range(PAIRS):
         ws[f"A{FIRST_PAIR + i}"] = i + 1
@@ -362,29 +380,31 @@ def _regression_inputs(ws: Worksheet) -> None:
 
 def _regression_fit(ws: Worksheet) -> None:
     """Rows 157-178: estimates, ANOVA, R², F-test and standard errors."""
-    ok = '$B$156="yes"'
+    ok = '$B$156="ja"'
     rows = [
-        (157, "n = number of pairs", f'=IF({ok},COUNT({X_DATA}),"")', "0", ""),
+        (157, "n = aantal paren", f'=IF({ok},COUNT({X_DATA}),"")', "0", ""),
         (158, "x̄", f'=IF({ok},AVERAGE({X_DATA}),"")', NUMBER, ""),
         (159, "ȳ", f'=IF({ok},AVERAGE({Y_DATA}),"")', NUMBER, ""),
         (160, "S_xx = Σ (x − x̄)²", f'=IF({ok},DEVSQ({X_DATA}),"")', NUMBER, ""),
-        (161, "b1 = S_xy / S_xx (slope)", f'=IF(AND({ok},N(B160)>0),SLOPE({Y_DATA},{X_DATA}),"")', NUMBER,
+        (161, "b1 = S_xy / S_xx (helling, slope)", f'=IF(AND({ok},N(B160)>0),SLOPE({Y_DATA},{X_DATA}),"")', NUMBER,
          "Regression p. 17-19"),
         (162, "b0 = ȳ − b1 x̄ (intercept)", f'=IF(ISNUMBER(B161),INTERCEPT({Y_DATA},{X_DATA}),"")', NUMBER, ""),
-        (163, "SS_T = Σ (y − ȳ)², df n − 1", f'=IF(ISNUMBER(B161),DEVSQ({Y_DATA}),"")', NUMBER, "Regression p. 24-27"),
+        (163, "SS_T = Σ (y − ȳ)², totale kwadratensom (sum of squares), df n − 1",
+         f'=IF(ISNUMBER(B161),DEVSQ({Y_DATA}),"")', NUMBER, "Regression p. 24-27"),
         (164, "SS_R = Σ (ŷ − ȳ)² = b1² S_xx, df 1", '=IF(ISNUMBER(B161),B161^2*B160,"")', NUMBER, ""),
         (165, "SS_E = Σ (y − ŷ)² = SS_T − SS_R, df n − 2", '=IF(ISNUMBER(B161),B163-B164,"")', NUMBER, ""),
         (166, "σ̂² = MS_E = SS_E / (n − 2)", '=IF(ISNUMBER(B165),B165/(B157-2),"")', NUMBER, "Regression p. 28"),
         (167, "σ̂ = √MS_E (Minitab 'S')", '=IF(ISNUMBER(B166),SQRT(B166),"")', NUMBER, ""),
         (168, "R² = SS_R / SS_T", '=IF(AND(ISNUMBER(B164),N(B163)>0),B164/B163,"")', "0.0000", "Regression p. 27"),
         (169, "R²_adj = 1 − (1 − R²)(n − 1)/(n − 2)", '=IF(ISNUMBER(B168),1-(1-B168)*(B157-1)/(B157-2),"")', "0.0000",
-         "as the course's Minitab output (Regression p. 22)"),
-        (170, "R²_adj as printed on Regression p. 56: 1 − (1 − R²)(n − 1)/(n − 3)",
+         "zoals de Minitab-output van de cursus (Regression p. 22)"),
+        (170, "R²_adj zoals gedrukt op Regression p. 56: 1 − (1 − R²)(n − 1)/(n − 3)",
          '=IF(AND(ISNUMBER(B168),N(B157)>3),1-(1-B168)*(B157-1)/(B157-3),"")', "0.0000",
-         "Regression p. 56 with k = 1 (differs from the course's outputs)"),
+         "Regression p. 56 met k = 1 (verschilt van de outputs van de cursus)"),
         (171, "F0 = MS_R / MS_E, df (1, n − 2)", '=IF(AND(ISNUMBER(B166),N(B166)>0),B164/B166,"")', "0.0000",
          "Regression p. 33"),
-        (172, "p-value of F0 (H0: β1 = 0)", '=IF(ISNUMBER(B171),_xlfn.F.DIST.RT(B171,1,B157-2),"")', "0.000000", ""),
+        (172, "p-waarde van F0 (H0: β1 = 0)", '=IF(ISNUMBER(B171),_xlfn.F.DIST.RT(B171,1,B157-2),"")', "0.000000",
+         ""),
         (174, "s.e.(b1) = √(MS_E / S_xx)", '=IF(ISNUMBER(B166),SQRT(B166/B160),"")', NUMBER, "Regression p. 29-30"),
         (175, "s.e.(b0) = √(MS_E (1/n + x̄²/S_xx))", '=IF(ISNUMBER(B166),SQRT(B166*(1/B157+B158^2/B160)),"")', NUMBER,
          "Regression p. 29, 31"),
@@ -402,10 +422,10 @@ def _regression_fit(ws: Worksheet) -> None:
 
 def _regression_tests(ws: Worksheet) -> None:
     """Rows 180-182: t-tests of H0: β1 = β1,0 and H0: β0 = β0,0, all three alternatives (decision 6)."""
-    column_titles(ws, 180, ["t-test, df n − 2 (Regression p. 30-31)", "estimate", "H0 value", "t0",
-                            "p (HA: ≠)", "p (HA: >)", "p (HA: <)", "Decision (≠)", "Decision (>)", "Decision (<)"])
+    column_titles(ws, 180, ["t-toets (t-test), df n − 2 (Regression p. 30-31)", "schatting", "H0-waarde", "t0",
+                            "p (HA: ≠)", "p (HA: >)", "p (HA: <)", "Besluit (≠)", "Besluit (>)", "Besluit (<)"])
     df = "$B$157-2"
-    for key, (text, estimate, h0, se) in {"b1": ("slope β1", "B161", "$B$154", "B174"),
+    for key, (text, estimate, h0, se) in {"b1": ("helling β1", "B161", "$B$154", "B174"),
                                           "b0": ("intercept β0", "B162", "$B$155", "B175")}.items():
         r = T_TESTS[key]
         label(ws, r, 1, text)
@@ -421,14 +441,16 @@ def _regression_tests(ws: Worksheet) -> None:
 
 def _regression_intervals(ws: Worksheet) -> None:
     """Rows 184-188: CIs of β1, β0, the mean response at x0 and the prediction interval, one- and two-sided."""
-    column_titles(ws, 184, ["Interval (1 − α), t with n − 2 df", "centre", "s.e.", "two-sided: from", "to",
-                            "lower bound only (at least …)", "upper bound only (at most …)", "Course source"])
+    column_titles(ws, 184, ["Betrouwbaarheidsinterval (confidence interval, BI) 1 − α, t met n − 2 df", "centrum",
+                            "s.e.", "tweezijdig: van", "tot", "alleen ondergrens (minstens …)",
+                            "alleen bovengrens (hoogstens …)", "Bron in de cursus"])
     two, one = f"_xlfn.T.INV(1-{ALPHA}/2,$B$157-2)", f"_xlfn.T.INV(1-{ALPHA},$B$157-2)"
     spec = {
-        "b1": ("CI for the slope β1", "B161", "B174", "Regression p. 34"),
-        "b0": ("CI for the intercept β0", "B162", "B175", "Regression p. 34"),
-        "mean": ("CI for the mean response at x0", "B176", "B177", "Regression p. 36"),
-        "prediction": ("Prediction interval for a new y at x0", "B176", "B178", "Regression p. 38"),
+        "b1": ("BI voor de helling β1", "B161", "B174", "Regression p. 34"),
+        "b0": ("BI voor het intercept β0", "B162", "B175", "Regression p. 34"),
+        "mean": ("BI voor de gemiddelde respons (mean response) bij x0", "B176", "B177", "Regression p. 36"),
+        "prediction": ("Predictie-interval (prediction interval, PI) voor een nieuwe y bij x0", "B176", "B178",
+                       "Regression p. 38"),
     }
     for key, (text, centre, se, source) in spec.items():
         r = INTERVALS[key]
@@ -448,15 +470,17 @@ def _regression(ws: Worksheet) -> None:
     _regression_fit(ws)
     _regression_tests(ws)
     _regression_intervals(ws)
-    label(ws, 189, 1, "Multiple regression (Regression p. 46-61) is not on this sheet.", italic=True)
+    label(ws, 189, 1, "Meervoudige regressie (multiple regression, Regression p. 46-61) staat niet op dit blad.",
+          italic=True)
 
 
 def _validation(ws: Worksheet) -> None:
     """k and the pooling order: whole numbers 2 to 5; α a fraction."""
     whole = DataValidation(type="whole", operator="between", formula1="2", formula2="5", allow_blank=True,
-                           showErrorMessage=True, errorTitle="k or pooling order", error="A whole number from 2 to 5.")
+                           showErrorMessage=True, errorTitle="k of orde voor poolen",
+                           error="Een geheel getal van 2 tot 5.")
     fraction = DataValidation(type="decimal", operator="between", formula1="0.0000001", formula2="0.9999999",
-                              allow_blank=True, showErrorMessage=True, errorTitle="α", error="α is between 0 and 1.")
+                              allow_blank=True, showErrorMessage=True, errorTitle="α", error="α ligt tussen 0 en 1.")
     for rule, cells in ((whole, ("B61", "B62")), (fraction, ("B9",))):
         ws.add_data_validation(rule)
         for cell in cells:
