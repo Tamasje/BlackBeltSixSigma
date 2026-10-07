@@ -132,7 +132,7 @@ def test_one_way_anova_paper_strength_s05_we01(oracle: dict[str, Any], printed: 
         assert agrees_at_printed_precision(ws[cell].value, stated[key]), (key, ws[cell].value)
     assert [ws[f"C{r}"].value for r in (tr, err, tot)] == [3, 20, 23]
     assert agrees_scientific(ws[f"F{tr}"].value, printed("S05-WE01", "stated_answers", "P_value", "3.59 x 10^-6"))
-    assert stated["conclusion"].startswith("reject H0") and ws[f"H{tr}"].value == "reject H0"
+    assert stated["conclusion"].startswith("reject H0") and ws[f"H{tr}"].value == "verwerp H0"
 
 
 def test_one_way_group_statistics_s05_we01(oracle: dict[str, Any], evaluate: Evaluate) -> None:
@@ -295,7 +295,8 @@ def test_surface_finish_anova_s05_we08(oracle: dict[str, Any], evaluate: Evaluat
     assert agrees_at_printed_precision(ws[f"D{error}"].value, terms["Error"]["MS"])
     assert agrees_at_printed_precision(ws[f"B{total}"].value, terms["Total"]["SS"])
     assert [ws[f"C{error}"].value, ws[f"C{total}"].value] == [8, 15]
-    assert [effect(ws, name, "J") for name in ("A", "B", "C")] == ["reject H0", "do not reject H0", "do not reject H0"]
+    assert [effect(ws, name, "J") for name in ("A", "B", "C")] == ["verwerp H0", "H0 niet verwerpen",
+                                                                    "H0 niet verwerpen"]
 
 
 @pytest.mark.xfail(reason="DOE p. 71 prints SS_ABC 5.5625; the data of p. 70 give contrast 9, SS 81/16 = 5.0625, "
@@ -344,7 +345,7 @@ def test_etch_rate_pooled_anova_s05_we09(oracle: dict[str, Any], evaluate: Evalu
         if term == "Residuals":
             continue
         name = term.replace(":", "")
-        assert effect(ws, name, "G") == "in model"
+        assert effect(ws, name, "G") == "in het model"
         assert agrees_at_printed_precision(effect(ws, name, "H"), printed["F"]), term
         if term == "D":
             assert agrees_scientific(effect(ws, name, "I"), printed["P"])
@@ -353,7 +354,7 @@ def test_etch_rate_pooled_anova_s05_we09(oracle: dict[str, Any], evaluate: Evalu
     assert value(ws, "df_pool") == int(terms["Residuals"]["df"]) and value(ws, "df_pe") == 0
     assert agrees_at_printed_precision(value(ws, "ss_pool"), terms["Residuals"]["SS"])
     assert agrees_at_printed_precision(value(ws, "mse"), terms["Residuals"]["MS"])
-    assert effect(ws, "ABCD", "G") == "pooled into error" and effect(ws, "ABCD", "H") is None
+    assert effect(ws, "ABCD", "G") == "gepoold in de fout" and effect(ws, "ABCD", "H") is None
 
 
 def test_ice_cream_effects_and_coefficients_s08_we16(oracle: dict[str, Any], printed: Printed,
@@ -400,7 +401,7 @@ def test_factorial_matches_statsmodels(k: int, n: int, pool: int | None, evaluat
             assert effect(ws, effect_name(mask), "F") == pytest.approx(table.loc[term, "sum_sq"], rel=1e-9, abs=1e-12)
             assert effect(ws, effect_name(mask), "I") == pytest.approx(table.loc[term, "PR(>F)"], rel=1e-7)
         else:
-            assert effect(ws, effect_name(mask), "G") == "pooled into error"
+            assert effect(ws, effect_name(mask), "G") == "gepoold in de fout"
     assert value(ws, "mse") == pytest.approx(fit.mse_resid, rel=1e-9)
     assert value(ws, "beta0") == pytest.approx(fit.params["Intercept"], rel=1e-12)
     assert value(ws, "r2_doe") == pytest.approx(fit.rsquared, rel=1e-9)
@@ -416,7 +417,7 @@ def test_incomplete_design_is_refused(evaluate: Evaluate) -> None:
     runs[3] = runs[3][:2]
     ws = evaluate(SHEET, factorial_cells(2, runs))
     # act / assert
-    assert value(ws, "complete").startswith("NO")
+    assert value(ws, "complete").startswith("NEE")
     assert effect(ws, "A", "D") is None and value(ws, "mse") is None
 
 
@@ -533,5 +534,5 @@ def test_unpaired_rows_are_refused(evaluate: Evaluate) -> None:
     cells = regression_cells(xs[:-1], ys[:-1]) | {pair_cells(len(xs))[1]: ys[-1]}
     ws = evaluate(SHEET, cells)
     # act / assert
-    assert value(ws, "pairs").startswith("NO")
+    assert value(ws, "pairs").startswith("NEE")
     assert value(ws, "b1") is None
