@@ -227,6 +227,17 @@ Decisions 18-20 (2026-10-05) in inventory/conventions.md; oracle updated once wi
   translates Dutch ↔ English with it (checked in the browser). NN_errata.tsv files are no longer read by the build;
   not deleted (CLAUDE.md: ask before deleting outside build/).
 
+### Verification with source/ present (2026-10-07, cloud session; user pushed source/ to main)
+- main merged into the branch (49ed52b); main also carried an unfinished earlier copy of the solvers and of the
+  Deel 05/11 LaTeX conversion: this branch's finished versions kept. study/parts/extra/ (draft Deel 14 fragments, all
+  already in 14_extra_boeken.html, not read by the build) kept as pushed.
+- pytest (installed in the container, plus scipy, statsmodels, pandas, openpyxl, xlrd, matplotlib): 344 passed,
+  29 strict xfails (the printed course errors, unchanged); 2 failures only because tag oracle-approved is not on
+  GitHub (tags were not pushed); worked_examples.json unchanged since 93eccda. build_study.py with full link and
+  page-range validation: no problems.
+- Figure gaps closed: 11.x linearity exercise now shows the plot of linearity.txt (11_numbers.py --figures writes
+  study/figures/11_lineariteit_oefening.png); 09.x "de figuur op SPC p. 41" now points to the figure in 09.5.
+
 ## Answered questions (inventory-review STOP; decisions in inventory/conventions.md)
 Convention questions (details and sources in inventory/conventions.md, "Conflicts and gaps"):
 1. σ for capability from data: R̄/d2; s̄ directly (deck p. 46) or s̄/c4; overall STDEV.S for Pp/Ppk; MR̄/1.128 for individuals?

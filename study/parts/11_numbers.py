@@ -398,6 +398,52 @@ def linearity() -> None:
     show("one-way ANOVA bias by part (DOE p. 6-8): F, p", f"{f_parts:.4f} {p_parts:.3g}")
 
 
+LINEARITY_FIGURE = Path(__file__).resolve().parent.parent / "figures" / "11_lineariteit_oefening.png"
+
+
+def linearity_figure() -> None:
+    """Draw the linearity exercise (linearity.txt, MSA p. 33) for the guide: the 60 biases, the five mean biases, the
+    least squares line with its 95 % band for E(bias), and bias = 0. Only with --figures (needs matplotlib)."""
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    ref, meas = read_linearity()
+    bias = meas - ref
+    x, y = np.repeat(ref[None, :], meas.shape[0], axis=0).ravel(), bias.ravel()
+    fit = sm.OLS(y, sm.add_constant(x)).fit()
+    grid = np.linspace(ref.min(), ref.max(), 200)
+    band = fit.get_prediction(sm.add_constant(grid)).summary_frame(alpha=0.05)
+    blue, orange, ink, muted = "#2a78d6", "#eb6834", "#0b0b0b", "#52514e"   # dataviz reference palette, light surface
+    fig, ax = plt.subplots(figsize=(7.2, 4.2), dpi=150)
+    fig.patch.set_facecolor("#fcfcfb")
+    ax.set_facecolor("#fcfcfb")
+    ax.axhline(0, color=muted, linewidth=1, linestyle="--", label="bias = 0")
+    ax.fill_between(grid, band["mean_ci_lower"], band["mean_ci_upper"], color=orange, alpha=0.18, linewidth=0,
+                    label="95 %-band voor E(bias)")
+    ax.plot(grid, band["mean"], color=orange, linewidth=2, label=f"regressie: bias = {fit.params[0]:.4f} − {-fit.params[1]:.4f}·ref".replace(".", ","))
+    jitter = np.tile(np.linspace(-0.08, 0.08, meas.shape[0])[:, None], (1, ref.size)).ravel()   # overlapping repeats side by side
+    ax.scatter(x + jitter, y, s=14, color=blue, alpha=0.45, linewidths=0, label="60 metingen: meting − referentie")
+    ax.scatter(ref, bias.mean(axis=0), s=64, color=blue, edgecolors="#fcfcfb", linewidths=1.5, zorder=3,
+               label="gemiddelde bias per onderdeel")
+    for r, m in zip(ref, bias.mean(axis=0)):
+        ax.annotate(f"{m:+.2f}".replace(".", ","), (r, m), textcoords="offset points", xytext=(8, 4), fontsize=8, color=ink)
+    ax.set_xlabel("referentiewaarde", color=ink)
+    ax.set_ylabel("bias", color=ink)
+    ax.set_xticks(ref, [f"{r:.2f}".replace(".", ",") for r in ref])
+    ax.tick_params(colors=muted, labelsize=8)
+    ax.grid(axis="y", color="#e6e5e0", linewidth=0.8)
+    for side in ("top", "right"):
+        ax.spines[side].set_visible(False)
+    for side in ("left", "bottom"):
+        ax.spines[side].set_color("#c9c8c2")
+    ax.legend(fontsize=7.5, frameon=False, loc="upper center", ncol=2, bbox_to_anchor=(0.5, -0.17))
+    fig.tight_layout()
+    fig.savefig(LINEARITY_FIGURE, facecolor=fig.get_facecolor())
+    plt.close(fig)
+    show("figure written", str(LINEARITY_FIGURE.name))
+
+
 def bias_test() -> None:
     """MSA p. 32 applied to one part of linearity.txt (extra exercise): one subgroup (g = 1) of m = 12.
 
@@ -654,4 +700,8 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    import sys
+    if "--figures" in sys.argv:
+        linearity_figure()
+    else:
+        main()

@@ -1360,6 +1360,12 @@
           <tr><td>4</td><td class="n">7,99</td><td class="n">7,8083</td><td class="n">−0,1817</td><td class="n">0,30</td></tr>
           <tr><td>5</td><td class="n">9,80</td><td class="n">10,3000</td><td class="n">0,5000</td><td class="n">1,20</td></tr>
         </table>
+        <figure class="fig"><img src="figures/11_lineariteit_oefening.png" alt="Bias tegen referentiewaarde voor de 60 metingen van linearity.txt: de gemiddelde bias per onderdeel is +0,50, −0,06, +0,01, −0,18 en +0,50, een U-vorm; de regressielijn daalt licht van 0,19 naar 0,12 en haar 95 %-band ligt boven bias = 0, behalve bij 9,80">
+        <figcaption>Figuur: de lineariteitsoefening (linearity.txt) getekend. Lichtblauw de 60 metingen (meting − referentie,
+        de 12 herhalingen per onderdeel iets uit elkaar gezet), donkerblauw de gemiddelde bias per onderdeel, oranje de
+        regressielijn met haar 95 %-band voor E(bias), gestreept bias = 0. De rechte mist de U-vorm, en de band ligt bijna
+        overal boven 0. <span class="computed">zelf berekend</span> uit de cursusdata
+        (<code>study/parts/11_numbers.py --figures</code>).</figcaption></figure>
         <ol class="steps">
           <li><b>Regressie</b> (60 punten): \(\sym{bias}{\mathrm{bias}}=0{,}2033-0{,}0082\cdot\sym{x_r}{\text{referentie}}\); se(<var data-s="slope">helling</var>) = 0,0159, \(\sym{t_stat}{t}=-0{,}52\),
           \(\sym{p_value}{p}=0{,}61\ (\sym{t_crit}{t_{0{,}975;58}}=2{,}00)\); 95 %-BI helling [−0,040 ; 0,024]. \(H_{0}\): \(\sym{slope}{\text{helling}}=0\) wordt
