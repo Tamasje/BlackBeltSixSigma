@@ -16,28 +16,45 @@ from openpyxl.worksheet.worksheet import Worksheet
 from bbtools.constants import USED_TABLE, AverageRangeTable, ConstantTable, load_average_range_table
 from bbtools.printed import decimals_printed, parse_printed, rounding_consistent
 from bbtools.readme import SheetDoc
-from bbtools.xlsx_style import BOX, FLAG_FILL, HeaderBlock, Status, column_titles, font, label, write_header
+from bbtools.xlsx_style import (
+    BOX,
+    FLAG_FILL,
+    HeaderBlock,
+    Status,
+    column_titles,
+    font,
+    label,
+    section_title,
+    write_header,
+)
 
-SHEET = "Tables"
+SHEET = "Tabellen"
+
+# Tables whose only source is a book that is not examinable (Six Sigma For Dummies): kept for reference, but
+# written last under EXTRA_HEADING so they are not mistaken for course tables. Their disagreement flags stay.
+EXTRA_TABLES = frozenset({"DUM"})
+EXTRA_HEADING = "Extra (niet te kennen voor het examen): Six Sigma For Dummies, Table 10-2"
 
 HEADER = HeaderBlock(
-    tool="Tables: control-chart, capability and MSA constants",
+    tool="Tabellen: constanten voor regelkaarten (control charts), capabiliteit en MSA",
     source="source/course/Les 4/___4.1 tabellen SPC.pdf p. 1-2; Control charts - constants.pdf p. 1-2; "
-           "Six Sigma For Dummies.pdf p. 250; Les 5/20260619_ottoy_tabel MSA.pdf p. 1",
-    convention="Decision 4: calculators use Table 18; c4 and d3 from Table A; A3, E2, B5, B6 from Six Sigma "
-               "Demystified. Every source is shown in full, as printed.",
+           "Les 5/20260619_ottoy_tabel MSA.pdf p. 1; extra (niet te kennen): Six Sigma For Dummies.pdf p. 250",
+    convention="Beslissing 4: de rekenbladen gebruiken Table 18; c4 en d3 uit Table A; A3, E2, B5, B6 uit Six Sigma "
+               "Demystified. Elke bron staat er volledig, zoals gedrukt.",
     status=Status.VERIFIED,
-    status_detail="transcriptions of both scanned tables double-checked cell by cell; values compared with "
-                  "their mathematical definitions in tests/test_constants.py",
+    status_detail="transcripties van beide gescande tabellen cel per cel dubbel gecontroleerd; waarden vergeleken "
+                  "met hun wiskundige definities in tests/test_constants.py",
 )
 
 
 DOC = SheetDoc(
     sheet=SHEET,
-    purpose="Every control-chart constant table of the course, exactly as printed, with the lookup ranges the "
-            "calculators use. Orange cells differ beyond rounding from another printed source (hover for the values).",
-    inputs="none (reference sheet)",
-    audit="not needed (transcriptions double-checked; values compared with their definitions)",
+    purpose="Elke constantentabel voor regelkaarten uit de cursus, precies zoals gedrukt, met de opzoekbereiken "
+            "(lookup ranges) die de rekenbladen gebruiken. Oranje cellen verschillen meer dan afronding van een "
+            "andere gedrukte bron (beweeg erover voor de waarden). Six Sigma For Dummies Table 10-2 staat onderaan "
+            "als extra (niet te kennen voor het examen).",
+    inputs="geen (naslagblad)",
+    audit="niet nodig (transcripties dubbel gecontroleerd; waarden vergeleken met hun definities)",
     disagreements=(),
 )
 
@@ -106,7 +123,7 @@ def _write_table(ws: Worksheet, wb: Workbook, top: int, table: ConstantTable,
                  flagged: dict[tuple[str, str, str], list[str]]) -> int:
     """Write one table starting at row `top`, define its workbook names, return the next free row."""
     label(ws, top, 1, table.title, bold=True)
-    label(ws, top + 1, 1, f"Source: {table.source_file} p. {table.source_page}. Printed there as from: "
+    label(ws, top + 1, 1, f"Bron: {table.source_file} p. {table.source_page}. Volgens die pagina overgenomen uit: "
                           f"{table.source.origin}.", italic=True)
     label(ws, top + 2, 1, table.source.role, bold=True)
     column_titles(ws, top + 3, list(table.columns))
@@ -120,13 +137,13 @@ def _write_table(ws: Worksheet, wb: Workbook, top: int, table: ConstantTable,
         n = row[0].strip()
         if n == "0":  # Six Sigma Demystified p. 1 prints a stray row '0 | 2.606' (review_items.md)
             ws.cell(row=first + offset, column=1).comment = Comment(
-                "Printed like this in the source (a stray row after n = 2). Not a subgroup size; never used.", "bbtools")
+                "Zo gedrukt in de bron (een losse rij na n = 2). Geen subgroepgrootte; nooit gebruikt.", "bbtools")
         for column, symbol in symbols.items():
             others = flagged.get((table.source.key, symbol, n))
             if others:
                 cell = ws.cell(row=first + offset, column=column + 1)
                 cell.fill = FLAG_FILL
-                cell.comment = Comment("Other printed sources: " + "; ".join(others), "bbtools")
+                cell.comment = Comment("Andere gedrukte bronnen: " + "; ".join(others), "bbtools")
     _define(wb, f"{table.source.key}_n", 1, first, last)
     for column, symbol in symbols.items():
         _define(wb, excel_name(table.source.key, symbol), column + 1, first, last)
@@ -149,12 +166,12 @@ def _define_area(wb: Workbook, name: str, top_left: tuple[int, int], bottom_righ
 def _write_average_range(ws: Worksheet, wb: Workbook, top: int, table: AverageRangeTable) -> int:
     """The MSA d2* table as two grids (d2* and ν, rows g, columns m) plus the d2 and cd rows; returns the next row."""
     label(ws, top, 1, table.title, bold=True)
-    label(ws, top + 1, 1, f"Source: {table.source_file} p. {table.source_page}. Printed there as from: Measurement "
-                          f"Systems Analysis Reference Manual (DaimlerChrysler, Ford, GM), 2002.", italic=True)
-    label(ws, top + 2, 1, "USED by the Gage R&R sheet (K1 = 1/d2 with g → ∞; K2, K3 = 1/d2* with g = 1). Each printed "
-                          "cell 'ν / d2*' is split into the two grids below.", bold=True)
+    label(ws, top + 1, 1, f"Bron: {table.source_file} p. {table.source_page}. Volgens die pagina overgenomen uit: "
+                          f"Measurement Systems Analysis Reference Manual (DaimlerChrysler, Ford, GM), 2002.", italic=True)
+    label(ws, top + 2, 1, "GEBRUIKT door het blad Gage R&R (K1 = 1/d2 met g → ∞; K2, K3 = 1/d2* met g = 1). Elke "
+                          "gedrukte cel 'ν / d2*' is gesplitst in de twee rasters hieronder.", bold=True)
     row = top + 3
-    for grid_name, values, fmt_source in (("d2*", table.d2_star, "d2_star"), ("ν (degrees of freedom)", table.nu, "nu")):
+    for grid_name, values, fmt_source in (("d2*", table.d2_star, "d2_star"), ("ν (vrijheidsgraden, df)", table.nu, "nu")):
         column_titles(ws, row, [f"{grid_name}: g \\ m"] + [str(m) for m in table.m])
         for column, m in enumerate(table.m, start=2):
             ws.cell(row=row, column=column).value = m  # numeric, so MATCH finds it
@@ -178,18 +195,29 @@ def _write_average_range(ws: Worksheet, wb: Workbook, top: int, table: AverageRa
 
 
 def build_tables_sheet(wb: Workbook, tables: tuple[ConstantTable, ...]) -> Worksheet:
-    """Add the Tables sheet to `wb` and define the lookup names the calculators use."""
+    """Add the Tables sheet to `wb` and define the lookup names the calculators use.
+
+    Course tables first, then the MSA table, then the book-only tables (EXTRA_TABLES) under their own heading.
+    """
     ws = wb.create_sheet(SHEET)
     write_header(ws, HEADER)
-    label(ws, 8, 1, "How to read: each table below is exactly as printed in the course. Calculators take d2, "
-                    "A2, D3, D4 ... from Table 18; c4 and d3 from Table A; A3, E2, B5, B6 from Six Sigma "
-                    "Demystified. Orange = that value differs (beyond rounding) from another source for the same n; "
-                    "hover the cell to see the other values.")
+    label(ws, 8, 1, "Leeswijzer: elke tabel hieronder staat precies zoals gedrukt in de cursus. De rekenbladen nemen "
+                    "d2, A2, D3, D4 ... uit Table 18; c4 en d3 uit Table A; A3, E2, B5, B6 uit Six Sigma Demystified. "
+                    "Oranje = die waarde verschilt (meer dan afronding) van een andere bron voor dezelfde n; beweeg "
+                    "over de cel om de andere waarden te zien. Onderaan, als extra: Six Sigma For Dummies (niet te "
+                    "kennen voor het examen).")
+    # flags compare every printed source, the extra book included, so a course value that differs from it stays orange
     flagged = disagreeing_cells(tables)
     row = 10
     for table in tables:
-        row = _write_table(ws, wb, row, table, flagged)
-    _write_average_range(ws, wb, row, load_average_range_table())
+        if table.source.key not in EXTRA_TABLES:
+            row = _write_table(ws, wb, row, table, flagged)
+    row = _write_average_range(ws, wb, row, load_average_range_table())
+    section_title(ws, row, EXTRA_HEADING)
+    row += 2
+    for table in tables:
+        if table.source.key in EXTRA_TABLES:
+            row = _write_table(ws, wb, row, table, flagged)
     ws.column_dimensions["A"].width = 16
     for column in range(2, 20):
         ws.column_dimensions[get_column_letter(column)].width = 9

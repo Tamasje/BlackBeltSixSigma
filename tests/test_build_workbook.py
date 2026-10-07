@@ -8,6 +8,7 @@ from pathlib import Path
 import pytest
 from openpyxl import load_workbook
 
+from bbtools import sheet_tables
 from bbtools.build_workbook import build_workbook, save, verify
 from bbtools.xlsx_style import INPUT_FILL, OUTPUT_FILL
 
@@ -86,7 +87,7 @@ def test_calculator_sheets_use_distinct_input_and_output_colours(built: Path) ->
     # arrange
     wb = load_workbook(built)
     for ws in wb.worksheets:
-        if ws.title == "Tables":
+        if ws.title == sheet_tables.SHEET:
             continue
         # act
         fills = {c.fill.fgColor.rgb[-6:] for row in ws.iter_rows() for c in row if c.fill.fill_type == "solid"}

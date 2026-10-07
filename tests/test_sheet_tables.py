@@ -5,7 +5,15 @@ from openpyxl import Workbook
 
 from bbtools.constants import TABLE_SOURCES, load_all, load_average_range_table
 from bbtools.printed import decimals_printed, parse_printed
-from bbtools.sheet_tables import SHEET, build_tables_sheet, disagreeing_cells, excel_name, lookup_formula
+from bbtools.sheet_tables import (
+    EXTRA_HEADING,
+    EXTRA_TABLES,
+    SHEET,
+    build_tables_sheet,
+    disagreeing_cells,
+    excel_name,
+    lookup_formula,
+)
 from bbtools.xlsx_style import FLAG_FILL
 
 
@@ -80,6 +88,29 @@ def test_flagged_cells_are_orange_on_the_sheet() -> None:
     # assert
     assert cell.value == 2.115
     assert cell.fill.fgColor.rgb.endswith(FLAG_FILL.fgColor.rgb[-6:])
+
+
+def test_book_only_table_comes_last_under_the_extra_heading() -> None:
+    # arrange -- Six Sigma For Dummies is not examinable: its table goes below every course table
+    wb = build()
+    ws = wb[SHEET]
+
+    def first_row(name: str) -> int:
+        """First data row of a workbook name on the Tables sheet."""
+        return int(wb.defined_names[name].attr_text.split("$")[2].split(":")[0])
+
+    heading = next(c.row for c in ws["A"] if c.value == EXTRA_HEADING)
+    # act / assert -- heading after every course table and the MSA table, right above the Dummies table
+    assert EXTRA_TABLES == {"DUM"}
+    course = [first_row(f"{t.source.key}_n") for t in load_all() if t.source.key not in EXTRA_TABLES]
+    assert max(course) < first_row("MSA_g") < heading < first_row("DUM_n")
+    assert ws.cell(row=heading + 2, column=1).value == next(t.title for t in load_all() if t.source.key == "DUM")
+    # its disagreement colouring stays: D4(5) differs from Table 18
+    assert ("DUM", "D4", "5") in disagreeing_cells(load_all())
+    column = wb.defined_names["DUM_D4"].attr_text.split("$")[1]
+    n_column = wb.defined_names["DUM_n"].attr_text.split("$")[1]
+    row = next(r for r in range(first_row("DUM_n"), ws.max_row + 1) if ws[f"{n_column}{r}"].value == 5)
+    assert ws[f"{column}{row}"].fill.fgColor.rgb.endswith(FLAG_FILL.fgColor.rgb[-6:])
 
 
 def _is_number(text: str) -> bool:

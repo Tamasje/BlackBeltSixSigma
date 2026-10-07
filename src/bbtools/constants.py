@@ -38,19 +38,19 @@ class TableSource:
 
 TABLE_SOURCES: tuple[TableSource, ...] = (
     TableSource("T18", "S06_table_18_factors_for_computing_control_chart_lines",
-                "USED by the calculators (the lecturer's exercise workbooks use these values).",
+                "GEBRUIKT door de rekenbladen (de oefenwerkboeken van de docent gebruiken deze waarden).",
                 "E.L. Crow, F.A. Davis, M.W. Maxfield, Statistics Manual, 1960 (adapted from ASTM, 1951)"),
     TableSource("TA", "S06_table_a_bias_correction_factors_for_estimating_standard_devi",
-                "USED for c4 and d3 (Table 18 does not give them). Reference for d2 and c2.",
+                "GEBRUIKT voor c4 en d3 (Table 18 geeft ze niet). Ter referentie voor d2 en c2.",
                 "D.J. Wheeler, Understanding Industrial Experimentation, 1987"),
     TableSource("SSD1", "S06_control_chart_constants_chart_for_average_chart_for_standard",
-                "USED for A3, B5 and B6 (Table 18 and Table A do not give them). Reference otherwise.",
+                "GEBRUIKT voor A3, B5 en B6 (Table 18 en Table A geven ze niet). Verder ter referentie.",
                 "Six Sigma Demystified, 2nd edition"),
     TableSource("SSD2", "S06_control_chart_constants_chart_for_ranges_x_charts_six_sigma",
-                "USED for E2 (Table 18 and Table A do not give it). Reference otherwise.",
+                "GEBRUIKT voor E2 (Table 18 en Table A geven hem niet). Verder ter referentie.",
                 "Six Sigma Demystified, 2nd edition"),
     TableSource("DUM", "S08_table_10_2_continuous_data_control_chart_constants_a2_a3_b3",
-                "Reference only.",
+                "Alleen ter referentie.",
                 "Six Sigma For Dummies, Table 10-2"),
 )
 
