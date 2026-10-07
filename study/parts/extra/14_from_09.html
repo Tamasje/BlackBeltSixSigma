@@ -1,0 +1,83 @@
+  <!-- ============================================================ uit 09.1 -->
+  <section class="unit" id="d14-09-termijn" data-kw="korte termijn; lange termijn; short term; long term; korte-termijnvariatie; lange-termijnvariatie; short-term variation; long-term variation; σST; σLT; common cause; special cause; entitlement; Dummies">
+    <h3>Dummies: korte- en lange-termijnvariatie en entitlement <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=114">Dummies p. 114–119</a></h3>
+    <p>Hoort bij <a href="#d09-stabiliteit">09.1 Eerst stabiliteit: gewone en speciale oorzaken</a>.</p>
+    <p>Dummies <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=114">Dummies p. 114–119</a>: korte-termijnvariatie is hetzelfde als common-cause-variatie,
+    lange-termijnvariatie bevat de special causes; de korte-termijnvariatie moet altijd kleiner dan of gelijk aan de
+    lange-termijnvariatie zijn <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=119">Dummies p. 119</a>, en de variatie die overblijft als alle speciale oorzaken weg zijn, heet
+    "entitlement" <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=119">Dummies p. 119</a>.</p>
+    <p class="small">De cursus zelf koppelt gewone oorzaken aan de korte en speciale oorzaken aan de lange termijn
+    (<a href="#d09-stabiliteit">09.1</a>) en toont de lange-termijncurve breder dan die van de afzonderlijke groepen
+    (<a href="#d09-ppk">09.4</a>). Het begrip entitlement en de regel dat <var data-s="09:sigma_st">σ<sub>ST</sub></var> altijd ≤ <var data-s="09:sigma_lt">σ<sub>LT</sub></var> moet zijn,
+    komen uit Dummies.</p>
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>"Entitlement betekent: er is geen variatie meer."</b> Fout: entitlement is de variatie die van nature in het proces zit, ook als alle speciale oorzaken weg zijn; Dummies noemt het een andere naam voor de korte-termijnvariatie <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=119">Dummies p. 119</a>.</li>
+      <li><b>"Een berekende <var data-s="09:sigma_st">σ<sub>ST</sub></var> mag gerust groter zijn dan <var data-s="09:sigma_lt">σ<sub>LT</sub></var>."</b> Fout volgens Dummies: de korte-termijnvariatie hoort altijd kleiner dan of gelijk aan de lange-termijnvariatie te zijn <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=119">Dummies p. 119</a>. Kom je toch σ(within) &gt; σ(overall) uit, zoek dan een verklaring, zoals de systematische bron binnen de subgroepen in het Minitab-rapport (<a href="#d09-minitab">09.10</a>).</li>
+      <li><b>"Zijn de speciale oorzaken weg, dan is de spreiding verder makkelijk te verkleinen."</b> Fout: volgens Dummies wordt verder krimpen dan zeer moeilijk, omdat je de vele gewone oorzaken in het proces moet leren kennen <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=119">Dummies p. 119</a>.</li>
+    </ul></div>
+  </section>
+
+  <!-- ============================================================ uit 09.3 -->
+  <section class="unit" id="d14-09-cpk" data-kw="Cpk; CPU; CPL; Cpu; Cpl; σST; korte-termijn-σ; short-term sigma; negatieve Cpk; negative Cpk; absolute waarde; absolute value; vuistregel; rule of thumb; 1,33; korte termijn; short term; Dummies">
+    <h3>Dummies: CPU en CPL met σ<sub>ST</sub>, negatieve Cpk en de vuistregel Cpk &gt; 1,33 <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=163">Dummies p. 163–164</a></h3>
+    <p>Hoort bij <a href="#d09-cpk">09.3 Cpk: ligt het proces ook goed?</a></p>
+    <p>Dummies geeft de twee termen van Cpk een naam (de namen CPU en CPL gebruikt ook Deel 09) en schrijft de
+    korte-termijn-σ er uitdrukkelijk in:</p>
+    <div class="f">
+      <div>Dummies <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=163">Dummies p. 163–164</a>: <var data-s="09:cpu">CPU</var> = (<var data-s="09:ul">USL</var> − <var data-s="09:xbar">x̄</var>)/(3<var data-s="09:sigma_st">σ<sub>ST</sub></var>),  <var data-s="09:cpl">CPL</var> = (<var data-s="09:xbar">x̄</var> − <var data-s="09:ll">LSL</var>)/(3<var data-s="09:sigma_st">σ<sub>ST</sub></var>),  <var data-s="09:cpk">Cpk</var> = min(<var data-s="09:cpu">CPU</var>, <var data-s="09:cpl">CPL</var>)</div>
+    </div>
+    <p class="small">De slide zet absolute-waardestrepen in de formule, Dummies niet. Zolang het gemiddelde tussen de
+    grenzen ligt, geven beide hetzelfde. Ligt het gemiddelde buiten een grens, dan geeft de Dummies-vorm een negatieve
+    Cpk (meer dan de helft van het product is uitval), wat de absolute-waardestrepen zouden verbergen.</p>
+    <p>Vuistregel van Dummies: <b><var data-s="09:cpk">Cpk</var> &gt; 1,33</b> betekent capabel op korte termijn <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=164">Dummies p. 164</a>.
+    Een lagere waarde betekent dat de spreiding te breed is, dat de ligging naast het midden van de specificatie zit,
+    of beide; alleen een grafiek van de data toont welk van de twee. De cursus beoordeelt Cpk met de figuur op
+    <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=41">SPC p. 41</a> (<var data-s="09:cpk">Cpk</var> = 1,33 "good", zie <a href="#d09-cpk">09.3</a>).</p>
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>"<var data-s="09:cpk">Cpk</var> &gt; 1,33, dus het proces is ook op lange termijn capabel."</b> Fout: de vuistregel geldt voor de korte termijn <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=164">Dummies p. 164</a>. Voor de lange termijn kijk je naar Ppk (<a href="#d09-ppk">09.4</a>).</li>
+      <li><b>Let op:</b> ligt het gemiddelde buiten een grens, dan wordt Cpk met de formules van Dummies negatief <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=163">Dummies p. 163–164</a>: meer dan de helft van het product valt dan buiten die grens. De absolute-waardestrepen op <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=35">SPC p. 35</a> verbergen dat. <span class="gen">algemeen</span></li>
+    </ul></div>
+  </section>
+
+  <!-- ============================================================ uit 09.4 -->
+  <section class="unit" id="d14-09-mr" data-kw="MR̄; MR̄/1,128; moving range; bewegend bereik; individuele waarden; individual values; korte-termijn-σ; short-term standard deviation; σST; σLT; d2; 1,128; volgorde; sequential; Table 5-3; Dummies">
+    <h3>Dummies: σ<sub>ST</sub> uit individuele waarden, MR̄/1,128 <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=116">Dummies p. 116–118</a></h3>
+    <p>Hoort bij <a href="#d09-ppk">09.4 Korte en lange termijn: Cp/Cpk tegenover Pp/Ppk, en welke σ</a>.</p>
+    <p>Heb je alleen individuele waarden (<var data-s="09:n_sub">n</var> = 1, geen subgroepen), dan haalt Dummies de
+    korte-termijnvariatie uit de verschillen tussen opeenvolgende metingen <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=116">Dummies p. 116</a>. Table 5-3
+    <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=118">Dummies p. 118</a> zet de korte- en de lange-termijn-σ naast elkaar:</p>
+    <div class="f">
+      <div><var data-s="09:sigma_st">σ<sub>ST</sub></var> = <var data-s="09:mrbar">MR̄</var> / <var data-s="09:d2_n2">1,128</var>, met <var data-s="09:mrbar">MR̄</var> het gemiddelde van |<var data-s="09:xi">x<sub>i</sub></var> − <var data-s="09:xi">x<sub>i+1</sub></var>| over de <var data-s="09:n_total">n</var> − 1 opeenvolgende paren   <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=116">Dummies p. 116</a></div>
+      <div><var data-s="09:sigma_lt">σ<sub>LT</sub></var> = √( Σ(<var data-s="09:xi">x<sub>i</sub></var> − <var data-s="09:xbar">x̄</var>)² / (<var data-s="09:n_total">n</var> − 1) )   <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=118">Dummies p. 118</a></div>
+    </div>
+    <p><var data-s="09:sigma_st">σ<sub>ST</sub></var> = <var data-s="09:mrbar">MR̄</var>/<var data-s="09:d2_n2">1,128</var> geeft Cp en Cpk (korte termijn); de s van alle waarden geeft Pp en Ppk.
+    1,128 is de <var data-s="09:d2">d<sub>2</sub></var> voor <var data-s="09:n_sub">n</var> = 2 uit Table A <a class="p" href="../source/course/Les%204/___4.1%20tabellen%20SPC.pdf#page=1">Tabellen SPC p. 1</a>: een moving range
+    overspant twee opeenvolgende metingen.</p>
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>Let op:</b> bij individuele waarden is <var data-s="09:sigma_st">σ<sub>ST</sub></var> = <var data-s="09:mrbar">MR̄</var>/<var data-s="09:d2_n2">1,128</var>, met <var data-s="09:d2_n2">1,128</var> = <var data-s="09:d2">d<sub>2</sub></var> voor <var data-s="09:n_sub">n</var> = 2. Reken de moving ranges op de metingen in de volgorde waarin ze genomen zijn; sorteer ze niet <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=116">Dummies p. 116</a>.</li>
+      <li><b>"<var data-s="09:mrbar">MR̄</var> is de som van de moving ranges gedeeld door <var data-s="09:n_total">n</var>."</b> Fout: <var data-s="09:n_total">n</var> metingen geven <var data-s="09:n_total">n</var> − 1 moving ranges; deel door <var data-s="09:n_total">n</var> − 1 <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=116">Dummies p. 116</a>.</li>
+      <li><b>"Met <var data-s="09:mrbar">MR̄</var>/<var data-s="09:d2_n2">1,128</var> bereken je Pp en Ppk."</b> Fout: <var data-s="09:mrbar">MR̄</var>/<var data-s="09:d2_n2">1,128</var> is de korte-termijn-σ, voor Cp en Cpk. Voor Pp en Ppk neem je de s van alle waarden (Table 5-3, <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=118">Dummies p. 118</a>).</li>
+    </ul></div>
+  </section>
+
+  <!-- ============================================================ uit 09.7 -->
+  <section class="unit" id="d14-09-verbeterplan" data-kw="verbeterplan; improvement plan; capability improvement plan; capabiliteitsverbeterplan; Table 6-5; Cp; Cpk; Pp; Ppk; diagnose; diagnosis; instelpunt; set point; entitlement; herontwerp; redesign; Dummies">
+    <h3>Dummies: een verbeterplan uit Cp, Cpk, Pp en Ppk <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=165">Dummies p. 165–166</a></h3>
+    <p>Hoort bij <a href="#d09-verbeteren">09.7 Wat hebben we nodig: centreren en spreiding verkleinen</a>.</p>
+    <p>Dummies <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=165">Dummies p. 165–166</a> (Table 6-5) leidt een verbeterplan af uit de vier indices:</p>
+    <table>
+      <tr><th>Symptoom</th><th>Diagnose</th><th>Voorschrift</th></tr>
+      <tr><td><var data-s="09:cp">Cp</var> = <var data-s="09:cpk">Cpk</var> en <var data-s="09:pp">Pp</var> = <var data-s="09:ppk">Ppk</var></td><td>het proces is gecentreerd</td><td>verminder de lange-termijnvariatie en blijf gecentreerd</td></tr>
+      <tr><td><var data-s="09:cp">Cp</var> = <var data-s="09:pp">Pp</var> en <var data-s="09:cpk">Cpk</var> = <var data-s="09:ppk">Ppk</var></td><td>er is een constante verschuiving van het centrum</td><td>corrigeer het instelpunt tot het proces gecentreerd is</td></tr>
+      <tr><td><var data-s="09:cp">Cp</var> = <var data-s="09:ppk">Ppk</var></td><td>het proces draait op zijn "entitlement"-niveau (<a href="#d14-09-termijn">entitlement</a>)</td><td>blijf de capabiliteit opvolgen; herontwerp het proces</td></tr>
+    </table>
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>"<var data-s="09:cp">Cp</var> = <var data-s="09:cpk">Cpk</var> en <var data-s="09:pp">Pp</var> = <var data-s="09:ppk">Ppk</var>: centreer het proces."</b> Fout: gelijke indices betekenen dat het proces al gecentreerd is; Table 6-5 zegt: verminder de lange-termijnvariatie en blijf gecentreerd <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=165">Dummies p. 165</a>.</li>
+      <li><b>"<var data-s="09:cp">Cp</var> = <var data-s="09:pp">Pp</var> en <var data-s="09:cpk">Cpk</var> = <var data-s="09:ppk">Ppk</var>, maar Cpk &lt; Cp: verklein de spreiding."</b> Fout: volgens Table 6-5 is er dan een constante verschuiving van het centrum; corrigeer het instelpunt tot het proces gecentreerd is <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=166">Dummies p. 166</a>.</li>
+      <li><b>"<var data-s="09:cp">Cp</var> = <var data-s="09:ppk">Ppk</var>: het instelpunt bijsturen volstaat."</b> Fout: dan draait het proces op zijn entitlement-niveau; volgens Table 6-5 blijf je de capabiliteit opvolgen en moet het proces herontworpen worden om beter te doen <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=166">Dummies p. 166</a>.</li>
+    </ul></div>
+  </section>
