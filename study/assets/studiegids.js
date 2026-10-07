@@ -167,7 +167,7 @@
   // what the search ranks on: the title, the author keywords (data-kw) and the body of every unit, exercise, tool and table row
   var KIND = { unit: 1, tool: 0.9, exercise: 0.85, row: 0.5 };
   var blocks = [];
-  document.querySelectorAll('section.unit, div.exercise, details.tool, table.gloss tr[data-kw], #formuleblad tr[data-kw], #fouten tr[data-kw]')
+  document.querySelectorAll('section.unit, div.exercise, details.tool, #formuleblad tr[data-kw]')
     .forEach(function (el) {
       var anchor = el.id ? el : el.closest('[id]');
       var kind = el.tagName === 'TR' ? 'row' : (el.tagName === 'DETAILS' ? 'tool' : (el.classList.contains('exercise') ? 'exercise' : 'unit'));
@@ -331,7 +331,7 @@
         var div = document.createElement('div');
         div.className = 'grp';
         var b = document.createElement('b');
-        b.textContent = (part || 'Woordenlijst, formuleblad, fouten') + ': ';
+        b.textContent = (part || 'Formuleblad') + ': ';
         div.appendChild(b);
         groups[part].forEach(function (f, i) {
           if (i) div.appendChild(document.createTextNode(' · '));

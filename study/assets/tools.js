@@ -636,7 +636,7 @@
       form: ALPHA + inp('beta', 'β (staartfractie)', '', '0,10') + inp('n', 'n') + inp('m', 'Ȳ') + inp('s', 'σ'),
       run: function (v) {
         var r = Calc.tolerance(v.n, v.m, v.s, v.alpha, v.beta, true);
-        return r ? out([['k (eenzijdig)', f(r.k1)], ['LTL = Ȳ − kσ', f(r.ltl)], ['UTL = Ȳ + kσ', f(r.utl), 'CI FR p. 22 drukt 5,55: drukfout, zie Fouten'],
+        return r ? out([['k (eenzijdig)', f(r.k1)], ['LTL = Ȳ − kσ', f(r.ltl)], ['UTL = Ȳ + kσ', f(r.utl), 'CI FR p. 22 drukt 5,55: een drukfout (Ȳ + kσ geeft dit)'],
                         ['k* (tweezijdig)', f(r.k2)], ['tweezijdig interval', iv(r.two)]]) +
           '<p class="xl">Ligt de eis (bv. ln 240) binnen [LTL; +∞[, dan is ze niet aangetoond (CI FR p. 22).</p>' : '';
       }, pct: ['beta'] },
@@ -768,7 +768,7 @@
       run: function (v) { var p = Calc.inverseOC(v.n, v.c, v.t); return num(p) ? out([['p met OC(p) = ' + pc(v.t), fp(p)]]) : ''; }, pct: ['t'] });
   TOOLS.planontwerp = [
     { title: 'Plan (n, c) zoeken voor (AQL; 1 − α) en (LQL; β)',
-      help: 'De cursus ontwerpt met de tabel van Peach (R<sub>0</sub> = LQL/AQL, AS FR p. 4), maar die tabel zit niet in de cursusbestanden. Deze zoektocht (zoals de gids): de kleinste c waarvoor de kleinste n met OC(LQL) ≤ β ook OC(AQL) ≥ 1 − α haalt, binomiaal. Peach geeft bv. (164, 2) voor (0,5 %; 95 %), (3,5 %; 5 %), met β = 7,1 % (zie Fouten).',
+      help: 'De cursus ontwerpt met de tabel van Peach (R<sub>0</sub> = LQL/AQL, AS FR p. 4), maar die tabel zit niet in de cursusbestanden. Deze zoektocht (zoals de gids): de kleinste c waarvoor de kleinste n met OC(LQL) ≤ β ook OC(AQL) ≥ 1 − α haalt, binomiaal. Peach geeft bv. (164, 2) voor (0,5 %; 95 %), (3,5 %; 5 %), met β = 7,1 %, dus niet β ≤ 5 %.',
       form: inp('aql', 'AQL') + inp('lql', 'LQL') + inp('a', 'α', '', '0,05') + inp('b', 'β', '', '0,10'),
       run: function (v) {
         var r = Calc.planSearch(v.aql, v.lql, v.a, v.b);

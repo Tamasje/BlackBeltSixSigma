@@ -52,8 +52,7 @@
       <tr><td class="n">4</td><td>[1,1 %; 9,9 %]</td></tr>
     </table>
     <p class="small">Bron: notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=5">CI p. 5</a>. Een exacte herberekening (04.3) geeft voor 2 defectieven een ondergrens
-    van 0,24 % <span class="computed">zelf berekend</span>; de cursus geeft 0,3 % (afgelezen op een rooster van 0,1 %, zie
-    <a href="#fouten">Fouten in de slides</a>).</p>
+    van 0,24 % <span class="computed">zelf berekend</span>; de cursus geeft 0,3 % (afgelezen op een rooster van 0,1 %).</p>
     <p><b>Definitie</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=3">CI FR p. 3</a>. Voor het gemiddelde \(\mu\) met gekende \(\sigma\) zegt de verdeling van \(\bar{X}\) hoe betrouwbaar de
     schatting is. Omgekeerd: kies een kans (bv. 95 %) en bepaal een interval rond de schatting \(\bar{x}\) dat \(\mu\) met die kans
     bevat:</p>
@@ -411,8 +410,7 @@
         <li>\(10\notin\mathrm{BI}\): \(H_{0}\) "cannot be accepted" bij 2 % significantie; het proces moet bijgeregeld worden.</li>
       </ol>
       <p class="small">Twee details. (1) CI.xlsx deelt in cel F13 door \(\sqrt{19}\) in plaats van \(\sqrt{20}\) en toont 9,9833; met \(\sqrt{20}\)
-      krijg je 9,9819. Beide ronden af op 9,98, dus het besluit blijft (beslissing 9 in <code>inventory/conventions.md</code>;
-      zie <a href="#fouten">Fouten in de slides</a>). (2) CI p. 15 drukt de data afgerond op 2 decimalen af; met die
+      krijg je 9,9819. Beide ronden af op 9,98, dus het besluit blijft (beslissing 9 in <code>inventory/conventions.md</code>). (2) CI p. 15 drukt de data afgerond op 2 decimalen af; met die
       afgeronde waarden is \(\bar{x}=9{,}928\), \(s=0{,}10788\) en de bovengrens 9,9812 <span class="computed">zelf berekend</span>.
       Dezelfde data worden in <a href="#d05-ttoets">05.7</a> klassiek getoetst.</p>
     </div>
@@ -940,7 +938,7 @@
     eenzijdige 90%-BI ]\(\sym{pi_l}{\pi_{L}}\); 100 %], dan bevat het de AQL precies voor \(P=0\ \%\ \ldots\ 4\ \%\), en dat zijn juist de
     uitkomsten \((\sym{d}{d}\le4)\) waarvoor het plan de partij aanvaardt. De tabel in de figuur hieronder: \(P=1\ \%\to\) ]0,30 %; 100 %], 2 % →
     ]0,85 %], 3 % → ]1,45 %], 4 % → ]2,10 %], 5 % → ]2,85 %], 6 % → ]3,60 %] (afgelezen uit de grafiek, normale
-    benadering; zie <a href="#fouten">Fouten in de slides</a>). OC-curven zelf: <a href="#d06">Deel 06</a>.</p>
+    benadering). OC-curven zelf: <a href="#d06">Deel 06</a>.</p>
     <figure class="fig"><img src="figures/04_oc_bi_equivalentie.png" alt="OC-curve van het plan (100, 4) met drie gemarkeerde punten, tabel van eenzijdige 90%-BI's en uitvergrote BI-krommen">
     <figcaption>Figuur: links de OC-curve van het plan (100, 4) met de punten (1,30 %; 99 %), (2,45 %; 90 %) en (7,85 %; 10 %); in het
     midden de eenzijdige 90%-BI's voor \(P=0\ \%\) tot 6 %; rechts een uitvergroting van de BI-krommen met de horizontale
@@ -1057,7 +1055,7 @@
         <span class="computed">zelf berekend</span>.</li>
         <li>\(\mathrm{UTL}=5{,}55\) volgt niet uit \(\sym{utl}{\mathrm{UTL}}=\sym{ybar}{\bar{Y}}+\sym{k_tol}{k}\sym{sigma}{\sigma}\) (dat geeft 6,06 <span class="computed">zelf berekend</span>). 5,55 is
         \(\sym{ybar}{\bar{Y}}-\left(\sym{z_1mb}{z_{1-\beta}}-\frac{\sym{z_1ma}{z_{1-\alpha}}}{\sqrt{\sym{n}{n}}}\right)\sym{sigma}{\sigma}\), de bovengrens voor het 10%-percentiel zelf
-        <span class="computed">zelf berekend</span>. Zie <a href="#fouten">Fouten in de slides</a>.</li>
+        <span class="computed">zelf berekend</span>.</li>
       </ul>
     </div>
     <p><b>Distributievrije tolerantie-intervallen</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=23">CI FR p. 23</a>. Welke continue verdeling X ook heeft:
@@ -1077,7 +1075,7 @@
       <li><b>"De grenswaarde 5,48 ligt in [LTL; +∞[, dus aan de eis is voldaan."</b> Fout, omgekeerd: ligt de grens in het tolerantie-interval, dan kan het 10%-percentiel zo laag zijn als de grens of lager; de eis is niet aangetoond <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=22">CI FR p. 22</a>.</li>
       <li><b>"Het gemiddelde 5,8 ligt ruim boven \(\ln240=5{,}48\), dus minstens 90 % van de blokken is sterk genoeg."</b> Fout: de eis gaat over het 10%-percentiel. Met \(\sigma\) geschat is \(\sym{ltl}{\mathrm{LTL}}=\sym{ybar}{\bar{Y}}-\sym{k_tol}{k}\sym{s}{s}=5{,}461\lt5{,}48\) <span class="computed">zelf berekend</span>: niet aangetoond (<a href="#ex-04-18">oefening 04.18</a>).</li>
       <li><b>Let op:</b> \(\beta\) is hier niet het \(\beta\)-risico van een toets: \(1-\beta\) is de fractie van de verdeling die het percentielpunt afbakent (\(\beta=10\ \%\) voor "90 % van de blokken") <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=22">CI FR p. 22</a>.</li>
-      <li><b>Let op:</b> de tekst geeft \(\mathrm{UTL}=5{,}55\), maar \(\sym{ybar}{\bar{Y}}+\sym{k_tol}{k}\sym{sigma}{\sigma}\) geeft 6,06 <span class="computed">zelf berekend</span>; 5,55 is de bovengrens voor het 10%-percentiel zelf <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=22">CI FR p. 22</a>. Zie <a href="#fouten">Fouten in de slides</a>.</li>
+      <li><b>Let op:</b> de tekst geeft \(\mathrm{UTL}=5{,}55\), maar \(\sym{ybar}{\bar{Y}}+\sym{k_tol}{k}\sym{sigma}{\sigma}\) geeft 6,06 <span class="computed">zelf berekend</span>; 5,55 is de bovengrens voor het 10%-percentiel zelf <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=22">CI FR p. 22</a>.</li>
       <li><b>"Een grotere steekproef maakt het distributievrije interval \([x_{(1)};x_{(n)}]\) smaller."</b> Fout: het wordt breder (de kleinste waarde daalt, de grootste stijgt); je wint betrouwbaarheid, geen nauwkeurigheid (<a href="#ex-04-19">oefening 04.19</a>). <span class="gen">algemeen</span></li>
     </ul></div>
 

@@ -1,12 +1,12 @@
 """Assemble study/studiegids.html: the offline study guide for the open-book exam.
 
-Input: one fragment per part in study/parts/NN_slug.html plus NN_glossary.tsv, NN_formulas.tsv, NN_errata.tsv.
+Input: one fragment per part in study/parts/NN_slug.html plus NN_glossary.tsv (search translations), NN_formulas.tsv.
 Output: a single self-contained HTML file (inline CSS and JavaScript, no external resources) with
 - a table of contents grouped by part,
 - a search box that matches Dutch and English: every query word is expanded with its translations from the glossary,
   results are listed and highlighted,
 - interactive exercises (answer check with tolerance, hint and solution hidden in <details>),
-- a Dutch↔English glossary, a formula sheet and a list of errors in the slides, all generated from the TSV files,
+- a formula sheet generated from the TSV files,
 - clickable variables: every <var data-s="key"> in a formula opens a short explanation (what it is, how to get it)
   with a link to the section that explains it; the explanations come from NN_symbols.tsv,
 - a collected list of the "Valkuilen en strikvragen" boxes (<div class="box pit">) of all parts.
@@ -515,33 +515,21 @@ def toc(parts: list[Part]) -> str:
             items.append(f'<a class="l2" href="#{unit_id}">{html.escape(html.unescape(label))}</a>')
         lines.append(f'<details class="toc-part"><summary><a class="l1" href="#d{part.number}">{html.escape(part.title)}</a>'
                      f'</summary>{"".join(items)}</details>')
-    for anchor, title in (("woordenlijst", "Woordenlijst NL ↔ EN"), ("formuleblad", "Formuleblad"),
-                          ("valkuilen", "Valkuilen en strikvragen"),
-                          ("fouten", "Fouten in de slides")):
+    for anchor, title in (("formuleblad", "Formuleblad"), ("valkuilen", "Valkuilen en strikvragen")):
         lines.append(f'<a class="l1" href="#{anchor}">{title}</a>')
     return "\n".join(lines)
 
 
-def glossary(parts: list[Part]) -> tuple[str, list[list[str]]]:
-    """Glossary section (sorted by Dutch term) and the NL/EN pairs used for search expansion."""
-    rows, seen = [], set()
+def search_pairs(parts: list[Part]) -> list[list[str]]:
+    """The Dutch/English term pairs of every part's NN_glossary.tsv: the search translates a query with them."""
+    pairs, seen = [], set()
     for part in parts:
         for row in read_tsv(PARTS / f"{part.number}_glossary.tsv", ["nl", "en", "anchor"]):
             key = (row["nl"].lower(), row["en"].lower())
-            if key in seen:
-                continue
-            seen.add(key)
-            rows.append(row)
-    rows.sort(key=lambda r: r["nl"].lower())
-    body = "".join(
-        f'<tr data-kw="{html.escape(r["nl"])}; {html.escape(r["en"])}"><td>{html.escape(r["nl"])}</td>'
-        f'<td>{html.escape(r["en"])}</td><td><a href="#{html.escape(r["anchor"])}">uitleg</a></td></tr>'
-        for r in rows)
-    section = ('<section class="part" id="woordenlijst"><h2>Woordenlijst Nederlands ↔ English</h2>'
-               '<p class="intro">Elke term met de uitleg in de gids. De zoekfunctie gebruikt deze lijst om in beide '
-               'talen te zoeken.</p><table class="gloss"><tr><th>Nederlands</th><th>English</th><th></th></tr>'
-               f"{body}</table></section>")
-    return section, [[r["nl"], r["en"]] for r in rows]
+            if key not in seen:
+                seen.add(key)
+                pairs.append([row["nl"], row["en"]])
+    return sorted(pairs, key=lambda pair: pair[0].lower())
 
 
 SYMBOL_HEADER = ["key", "symbool", "betekenis", "hoe", "anchor"]
@@ -737,21 +725,6 @@ def formula_sheet(parts: list[Part]) -> str:
     return '<section class="part" id="formuleblad"><h2>Formuleblad</h2>' + "".join(blocks) + "</section>"
 
 
-def errata(parts: list[Part]) -> str:
-    """Printed course values that disagree with a computation, per part."""
-    body = []
-    for part in parts:
-        for r in read_tsv(PARTS / f"{part.number}_errata.tsv", ["bron", "href", "gedrukt", "correct", "toelichting"]):
-            body.append(f'<tr data-kw="fout; erratum; error; {html.escape(r["bron"])}"><td>{html.escape(part.title)}</td>'
-                        f'<td><a class="p" href="{html.escape(r["href"])}">{html.escape(r["bron"])}</a></td>'
-                        f'<td>{html.escape(r["gedrukt"])}</td><td>{html.escape(r["correct"])}</td>'
-                        f'<td>{html.escape(r["toelichting"])}</td></tr>')
-    return ('<section class="part" id="fouten"><h2>Fouten in de slides</h2><p class="intro">Gedrukte waarden die niet '
-            'kloppen met een herberekening van de eigen gegevens van de cursus. Gebruik de correcte waarde.</p>'
-            '<table><tr><th>Deel</th><th>Bron</th><th>Gedrukt</th><th>Correct</th><th>Toelichting</th></tr>'
-            + "".join(body) + "</table></section>")
-
-
 @lru_cache(maxsize=None)
 def pdf_pages(path: Path) -> int:
     """Number of pages of a PDF (pdfinfo)."""
@@ -870,7 +843,7 @@ def coverage(page: str) -> dict[str, int]:
 
 def render(parts: list[Part], table: dict[str, dict[str, str]]) -> tuple[str, list[str]]:
     """The complete page, with its formulas typeset, and the formulas that could not be typeset."""
-    gloss_html, pairs = glossary(parts)
+    pairs = search_pairs(parts)
     css = (STUDY / "assets" / "studiegids.css").read_text(encoding="utf-8")
     js = "\n".join((STUDY / "assets" / name).read_text(encoding="utf-8")
                    for name in ("stats.js", "calc.js", "studiegids.js", "tools.js"))
@@ -899,10 +872,8 @@ def render(parts: list[Part], table: dict[str, dict[str, str]]) -> tuple[str, li
 <main>
 <section id="zoek-resultaten" hidden><h2>Zoekresultaten</h2><ol id="results"></ol></section>
 {body}
-{gloss_html}
 {formula_sheet(parts)}
 {pitfalls(parts)}
-{errata(parts)}
 </main>
 </div>
 {templates()}

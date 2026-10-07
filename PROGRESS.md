@@ -221,6 +221,12 @@ Decisions 18-20 (2026-10-05) in inventory/conventions.md; oracle updated once wi
   n = 195 → 1300, merged tables keep every printed number, scipy cross-checks). Not run here (no pytest/scipy); the
   same assertions were replayed in node with stdlib expected values: all pass. Browser check: panels compute, no errors.
 
+### Study guide: "Fouten in de slides" and the NL ↔ EN glossary removed (2026-10-07, user request step 3)
+- Both end sections and their contents entries are gone; the 13 links to #fouten in the parts and two tool notes were
+  rewritten (each erratum is still explained where the text discusses it). NN_glossary.tsv stays: the search still
+  translates Dutch ↔ English with it (checked in the browser). NN_errata.tsv files are no longer read by the build;
+  not deleted (CLAUDE.md: ask before deleting outside build/).
+
 ## Answered questions (inventory-review STOP; decisions in inventory/conventions.md)
 Convention questions (details and sources in inventory/conventions.md, "Conflicts and gaps"):
 1. σ for capability from data: R̄/d2; s̄ directly (deck p. 46) or s̄/c4; overall STDEV.S for Pp/Ppk; MR̄/1.128 for individuals?
