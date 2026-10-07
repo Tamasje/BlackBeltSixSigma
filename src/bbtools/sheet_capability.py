@@ -174,7 +174,7 @@ def _result_row(ws: Worksheet, spec: SigmaRow) -> None:
     output_cell(ws, f"F{r}", f"=IF(AND(ISNUMBER(B{r}),ISNUMBER($B$9),ISNUMBER($B$11)),($B$11-$B$9)/(3*B{r}),\"\")", "0.000")
     output_cell(ws, f"G{r}", f"=IF(AND(ISNUMBER(E{r}),ISNUMBER(F{r})),MIN(E{r},F{r}),IF(ISNUMBER(E{r}),E{r},"
                              f"IF(ISNUMBER(F{r}),F{r},\"\")))", "0.000")
-    output_cell(ws, f"H{r}", f"=IF(ISNUMBER(G{r}),IF(G{r}>$B$45,\"ja\",\"nee\"),\"\")")
+    output_cell(ws, f"H{r}", f"=IF(ISNUMBER(G{r}),IF(G{r}>=$B$45,\"ja\",\"nee\"),\"\")")
     output_cell(ws, f"I{r}", f"=IF(AND(ISNUMBER(B{r}),ISNUMBER($B$9),ISNUMBER($B$11)),($B$11-$B$9)/B{r},\"\")", "0.000")
     output_cell(ws, f"J{r}", f"=IF(AND(ISNUMBER(B{r}),ISNUMBER($B$10),ISNUMBER($B$11)),($B$10-$B$11)/B{r},\"\")", "0.000")
     # NORM.S.DIST(-z) rather than 1 - NORM.S.DIST(z): same value, no loss of digits in the far tail.
@@ -195,7 +195,7 @@ def _results(ws: Worksheet) -> None:
     column_titles(ws, 22, [
         "Spreidingsschatting", "Gebruikte σ", "Cp  (laatste rij: Pp)", "Cp-niveau (deck p. 40)",
         "Cpu = (USL − gemiddelde) / 3σ", "Cpl = (gemiddelde − LSL) / 3σ", "Cpk = min(Cpu, Cpl)  (laatste rij: Ppk)",
-        "Cpk > 1,33? (deck p. 41; oefening 2)", "Z: LSL ligt … σ onder het gemiddelde",
+        "Cpk ≥ 1,33, goed (good)? (deck p. 41; oefening 2)", "Z: LSL ligt … σ onder het gemiddelde",
         "Z: USL ligt … σ boven het gemiddelde", "% onder LSL", "% boven USL", "% buiten specificatie, totaal",
         "ppm buiten specificatie, totaal", "", "", "Gebruikte constante", "Welke constante", "Bron in de cursus",
     ])
@@ -234,7 +234,7 @@ def _levels(ws: Worksheet) -> None:
     _constant(ws, 42, "Cp ≥ dit: goed (good)", 1.67, "deck p. 40 ('CP >= 1.67 The capability of the process is good')")
     _constant(ws, 43, "Cp ≥ dit: 6 Sigma-kwaliteitsniveau (6 Sigma quality level)", 2,
               "deck p. 40 ('CP = 2 6 Sigma quality level')")
-    _constant(ws, 45, "Cpk groter dan dit: goed (good)", 1.33,
+    _constant(ws, 45, "Cpk ≥ dit: goed (good)", 1.33,
               "deck p. 41 (figuur: Cpk 1,33 'Good'); __Xbar R kaart data - berekeningen oefening 2.xlsx "
               "('Cpk: 1,33 = good')")
     section_title(ws, 47, "6. Capabiliteit verbeteren (cursus)")

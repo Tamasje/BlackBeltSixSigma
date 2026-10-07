@@ -8,146 +8,156 @@ Offline rekenbladen (calculators) voor het Black Belt-examen. Gemaakt door `src/
 
 **Cursusindex:** `index.html` naast dit bestand linkt elk onderwerp, elke formule en elke vraag van het voorbeeldexamen naar de pagina in de cursus (`PYTHONPATH=src python3 -m bbtools.build_index`). Houd `source/` naast `build/`.
 
-## Capability: Process capability: Cp, Cpk (Pp, Ppk) and % out of specification
+## Capabiliteit: Procescapabiliteit (process capability): Cp, Cpk (Pp, Ppk) en % buiten specificatie (out of spec)
 
-- **Doel:** Cp, Cpk (or Pp, Ppk), Z distances and % / ppm out of specification from LSL, USL, mean and a spread; the two course readings of the '6 sigma' criterion; the Cp levels of deck p. 40.
-- **Invoer:** LSL and/or USL, mean; then any of: σ given, R̄ (+ n), s̄ (+ n), MR̄, overall s. Each spread gets its own result row, labelled with the course page that uses it.
-- **Bron in de cursus:** source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 18-21, 32-47, 50, 64, 83; Six Sigma For Dummies.pdf p. 114-116, 159-165; ___4.1 tabellen SPC.pdf p. 1-2
-- **Conventie:** Decisions 1-2: one result row per σ estimate the course uses (none chosen for you); '6 sigma criterion' shown in both course readings.
-- **Status:** GEVERIFIEERD (VERIFIED): tested against course worked examples S06-WE01, S06-WE02, S06-WE04, S06-WE07, S06-WE08, S06-WE12, S06-WE13; a few printed values on deck p. 46 and 50 disagree with the computation (listed in build/README.md)
-- **Audit:** not needed (course worked examples exist)
+- **Doel:** Cp, Cpk (of Pp, Ppk), Z-afstanden en % / ppm buiten specificatie uit LSL, USL, gemiddelde en een spreiding; de twee lezingen van het '6 sigma'-criterium in de cursus; de Cp-niveaus van deck p. 40.
+- **Invoer:** LSL en/of USL, gemiddelde; dan eender welke van: σ gegeven, R̄ (+ n), s̄ (+ n), totale s. Elke spreiding krijgt haar eigen resultaatrij, met de cursuspagina die ze gebruikt. MR̄ / 1,128 (alleen in Six Sigma For Dummies) staat op blad Extra (boeken).
+- **Bron in de cursus:** source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 18-21, 32-47, 50, 64, 83; ___4.1 tabellen SPC.pdf p. 1-2; __Xbar R kaart data - berekeningen oefening 2.xlsx
+- **Conventie:** Beslissingen 1-2: één resultaatrij per σ-schatting die de cursus gebruikt (er wordt niet voor je gekozen); het '6 sigma'-criterium in beide lezingen van de cursus.
+- **Status:** GEVERIFIEERD (VERIFIED): getest tegen de uitgewerkte voorbeelden S06-WE01, S06-WE02, S06-WE04, S06-WE07, S06-WE08, S06-WE12, S06-WE13 uit de cursus; enkele gedrukte waarden op deck p. 46 en 50 wijken af van de berekening (zie build/README.md)
+- **Audit:** niet nodig (er bestaan uitgewerkte voorbeelden in de cursus)
 - **Gedrukte cursuswaarden die niet kloppen met de berekening** (zoals gedrukt bewaard in het orakel; getest als strikte verwachte mislukkingen, strict xfail):
-  - deck p. 46 (S06-WE01): Cp printed '1,166' (1,4/1,2 = 1.1667 rounds to 1,167); centred Cpk likewise.
-  - deck p. 46 notes (S06-WE01): '5 % totaal' and '2,5 % per zijde' for mean 71,8, σ 0,2, specs 71,4-72,8; the normal distribution gives 2.275 % below LSL and 0.00003 % above USL (2.275 % total).
-  - deck p. 46 notes (S06-WE01, centred): '0,04 % / 400 ppm' two-sided doubles the rounded 0,02 % / 200 ppm; computed 0.0465 % / 465 ppm.
-  - deck p. 50 (S06-WE12, Minitab): '% out of spec' 8,74 and 9,33 vs 8.731 and 9.315 computed from the printed mean 0,14852; Minitab used unrounded data. Pp, Ppk, Cp and Cpk agree.
+  - deck p. 46 (S06-WE01): Cp gedrukt als '1,166' (1,4/1,2 = 1,1667 rondt af op 1,167); gecentreerde Cpk idem.
+  - deck p. 46 notities (S06-WE01): '5 % totaal' en '2,5 % per zijde' voor gemiddelde 71,8, σ 0,2, specificatie 71,4-72,8; de normale verdeling geeft 2,275 % onder LSL en 0,00003 % boven USL (2,275 % totaal).
+  - deck p. 46 notities (S06-WE01, gecentreerd): '0,04 % / 400 ppm' tweezijdig verdubbelt de afgeronde 0,02 % / 200 ppm; berekend 0,0465 % / 465 ppm.
+  - deck p. 50 (S06-WE12, Minitab): '% out of spec' 8,74 en 9,33 tegenover 8,731 en 9,315 berekend uit het gedrukte gemiddelde 0,14852; Minitab rekende met niet-afgeronde data. Pp, Ppk, Cp en Cpk kloppen.
 
-## Normal: Normal distribution: probabilities, values, μ ± kσ, σ or mean from a tail fraction
+## Normaal: Normale verdeling (normal distribution): kansen, waarden, μ ± kσ, σ of gemiddelde uit een staartfractie
 
-- **Doel:** P(X < x), P(X > x), P(a < X < b); the value x for a probability; μ ± kσ and its coverage; σ (and variance) or the mean from a known tail fraction, e.g. '2 in 40 below 720 with mean 820'.
-- **Invoer:** mean μ and σ, then per block: x; a and b; a probability p; k; a limit L with the fraction f beyond it.
+- **Doel:** P(X < x), P(X > x), P(a < X < b); de waarde x bij een kans; μ ± kσ en het aandeel daarbinnen; σ (en variantie) of het gemiddelde uit een bekende staartfractie (tail fraction), bv. '2 op 40 onder 720 bij gemiddelde 820'.
+- **Invoer:** gemiddelde μ en σ, dan per blok: x; a en b; een kans p; k; een grens L met de fractie f voorbij L.
 - **Bron in de cursus:** source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 16-19, 27; ___1.1 Ztable.pdf; ___1.2 statistische functionaliteit in excel.pdf p. 1-3; __NormVerdeling Excel functies.xlsx
-- **Conventie:** Excel's normal functions as the course uses them (NORM.DIST = NORM.VERD, NORM.INV); probabilities are fractions shown as %.
-- **Status:** GEVERIFIEERD (VERIFIED): tested against course worked examples S06-WE09 (NORM.INV / NORM.VERD workbook) and S06-WE10 (deck p. 19 notes), the 68-95-99.7 rule (deck p. 19) and the course Z table
-- **Audit:** not needed (course worked examples exist)
+- **Conventie:** De normale functies van Excel zoals de cursus ze gebruikt (NORM.DIST = NORM.VERD, NORM.INV); kansen zijn fracties, weergegeven als %.
+- **Status:** GEVERIFIEERD (VERIFIED): getest tegen de uitgewerkte cursusvoorbeelden (worked examples) S06-WE09 (werkmap NORM.INV / NORM.VERD) en S06-WE10 (notities bij deck p. 19), de 68-95-99,7-regel (deck p. 19) en de Z-tabel van de cursus
+- **Audit:** niet nodig (er zijn uitgewerkte cursusvoorbeelden)
 
-## Sigma & DPMO: Sigma level, DPMO and yield: DPU, DPO, DPMO, Z with and without 1.5σ shift, Y, FTY, RTY
+## Sigma & DPMO: Sigmaniveau, DPMO en yield: DPO, DPMO, Z met en zonder 1,5σ-verschuiving (1.5σ shift)
 
-- **Doel:** Discrete-data capability: DPU, DPO, DPMO and yield; sigma level from DPMO and DPMO from a sigma level (both course readings); traditional yield, first-time yield, hidden factory; RTY, normalized yield and units needed per good unit; average yield per defect opportunity.
-- **Invoer:** per block: defects, units, opportunities per unit; a DPMO; a sigma level; units in, out, scrapped, reworked; up to 10 step yields; an RTY and number of steps; one step yield and k; a final yield and number of opportunities. Yields as fractions (0.95 = 95 %).
-- **Bron in de cursus:** source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 20-21, 37-40; Six Sigma For Dummies.pdf p. 41, 147-161; Six-Sigma Mikel Harry - Richard Schroeder.pdf p. 3-5; 20260521_van volsem.pdf p. 7
-- **Conventie:** Decision 3: sigma level ↔ DPMO shown both with the 1.5σ shift (as in every course table) and without.
-- **Status:** GEVERIFIEERD (VERIFIED): tested against course worked examples S07-WE01, S08-WE01 to S08-WE08, S09-WE01, S09-WE03 to S09-WE06 and the course sigma tables; a few printed values disagree (listed in build/README.md)
-- **Audit:** not needed (course worked examples exist)
+- **Doel:** Discrete data: DPO, DPMO en yield per kans (opportunity); sigmaniveau uit een DPMO en DPMO uit een sigmaniveau, in beide lezingen van de cursus.
+- **Invoer:** per blok: defecten, eenheden en kansen per eenheid; een DPMO; een sigmaniveau. De rekenblokken die alleen uit de boeken komen (DPU, throughput yield, FTY, RTY, genormaliseerde yield) staan op blad Extra (boeken).
+- **Bron in de cursus:** source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 19-21, 37-40; Les 1/20260521_van volsem.pdf p. 7
+- **Conventie:** Beslissing 3: sigmaniveau ↔ DPMO getoond met de 1,5σ-verschuiving (zoals in elke cursustabel) en zonder.
+- **Status:** GEVERIFIEERD (VERIFIED): getest tegen de uitgewerkte voorbeelden S08-WE05 tot S08-WE08 en S09-WE03 en tegen de sigmatabellen van de cursus (deck p. 21, Van Volsem p. 7); één gedrukte waarde wijkt af (zie build/README.md)
+- **Audit:** niet nodig (er bestaan uitgewerkte voorbeelden in de cursus)
 - **Gedrukte cursuswaarden die niet kloppen met de berekening** (zoals gedrukt bewaard in het orakel; getest als strikte verwachte mislukkingen, strict xfail):
-  - Dummies p. 148 (S08-WE02): hidden factory '98.6% - 70.7% = 27.9%' subtracts rounded values; 27.84 % unrounded.
-  - Harry & Schroeder p. 3 (S09-WE01): product B '(0.968)**(1/48) = 99.97%'; computed 99.932 %, and 'about 3.5 sigma' (no shift) gives 3.20.
-  - Harry & Schroeder p. 5 (S09-WE05): normalized yield printed '(0.368)**(-10) = 0.9051'; the kth root the text defines gives 0.368^(1/10) = 0.9049.
-  - deck p. 21 and Harry & Schroeder (summary p. 2, outline p. 1): 2σ = '308,537' DPMO; 308,537.5 rounds to 308,538 (as Dummies prints). Van Volsem p. 7: '308,000' (308,538 to thousands is 309,000).
+  - deck p. 21 en Harry & Schroeder (samenvatting p. 2, outline p. 1): 2σ = '308,537' DPMO; 308 537,5 rondt af op 308 538 (zoals Dummies drukt). Van Volsem p. 7: '308,000' (308 538 op duizendtallen is 309 000).
 
-## Variance CI & tests: Variances: CI and test for σ² and σ (χ²), CI and test for a ratio of two variances (F)
+## Varianties BI & toetsen: Varianties: betrouwbaarheidsinterval (confidence interval, BI) en toets voor σ² en σ (χ²), BI en toets voor een verhouding van twee varianties (F)
 
-- **Doel:** One sample: CI for σ² and σ, χ²-test of σ = σ0. Two samples: CI for σ1²/σ2² and σ2²/σ1², F-test of σ1 = σ2 (e.g. 'is machine M1 more precise than M2?'). Every result two-sided, lower-only and upper-only.
-- **Invoer:** α; n and s per sample, or the raw values pasted in columns H (sample 1) and I (sample 2); σ0 for the χ²-test.
-- **Bron in de cursus:** source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf p. 21; Confidence Intervals.pdf p. 16; Testing of Hypotheses.pdf p. 13; Test Recipes - Further Reading (Dutch).pdf p. 11-14; Six Sigma For Dummies.pdf p. 192-196
-- **Conventie:** Decisions 5-7: α input prefilled 0.05; two-sided, lower-only and upper-only side by side; F from F.INV / F.INV.RT, both σ1²/σ2² and σ2²/σ1².
-- **Status:** GEVERIFIEERD (VERIFIED): tested against course worked examples S03-WE03, S03-WE05, S08-WE10 and the Dummies χ² and F tables (p. 194, 196); the Dummies F-interval example S08-WE11 disagrees (build/README.md)
-- **Audit:** stats-auditor PASS (2026-09-28) for the F part: all 28 values (CIs in both orientations, F-tests ≠, >, <) for one input agree with an independent computation from Test Recipes p. 12-14, CI Further Reading p. 21 and exam Q2's hint. Note: the course prints no explicit two-sample ratio CI; it follows from the F pivot of p. 12 inverted as on p. 21.
+- **Doel:** Eén steekproef: betrouwbaarheidsinterval (BI) voor σ² en σ, χ²-toets van σ = σ0. Twee steekproeven: BI voor σ1²/σ2² en σ2²/σ1², F-toets van σ1 = σ2 (bv. examenvraag Q2: werkt machine M1 nauwkeuriger dan M2?). Elk resultaat tweezijdig, alleen ondergrens en alleen bovengrens.
+- **Invoer:** α; n en s per steekproef, of de ruwe waarden geplakt in kolommen H (steekproef 1) en I (steekproef 2); σ0 voor de χ²-toets.
+- **Bron in de cursus:** source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf p. 21; Confidence Intervals.pdf p. 16; Testing of Hypotheses.pdf p. 13; Test Recipes - Further Reading (Dutch).pdf p. 11-14
+- **Conventie:** Conventiebeslissingen 5-7: invoer α vooraf ingevuld op 0,05; tweezijdig, alleen ondergrens en alleen bovengrens naast elkaar; F uit F.INV / F.INV.RT, zowel σ1²/σ2² als σ2²/σ1².
+- **Status:** GEVERIFIEERD (VERIFIED): getest tegen uitgewerkte cursusvoorbeelden (worked examples) S03-WE03, S03-WE05; ook tegen S08-WE10 en de χ²- en F-tabellen van Dummies (p. 194, 196) (extra, Dummies; niet te kennen); het F-intervalvoorbeeld S08-WE11 van Dummies klopt niet (build/README.md)
+- **Audit:** stats-auditor PASS (2026-09-28) voor het F-deel: alle 28 waarden (BI's in beide richtingen, F-toetsen ≠, >, <) voor één invoer kloppen met een onafhankelijke berekening uit Test Recipes p. 12-14, CI Further Reading p. 21 en de hint van examenvraag Q2. Opmerking: de cursus drukt geen expliciet BI voor de verhouding van twee varianties; het volgt uit de F-pivot van p. 12, omgekeerd zoals op p. 21.
 - **Gedrukte cursuswaarden die niet kloppen met de berekening** (zoals gedrukt bewaard in het orakel; getest als strikte verwachte mislukkingen, strict xfail):
-  - Dummies p. 196 (S08-WE11): CI for σA²/σB² printed [(1/3.633)(4/7.5), 5.999(4/7.5)] = [0.147, 3.199]. With (sA²/σA²)/(sB²/σB²) ~ F(nA−1, nB−1) (Test Recipes p. 12, exam Q2 hint) the same 5 % tail values give [0.0889, 1.938]: the book swaps the two F values. Its table values themselves (Table 8-3) are correct.
-  - Dummies p. 192-196 call '95 %' what is ±2σ (95.45 %, 2.275 % per tail) for χ², and a 5 % upper tail for F. Use α = 0.0455 to reproduce its χ² example (S08-WE10).
-  - Dummies Table 8-3 p. 196: F for n1 = n2 = 2 printed 161.446 (definition 161.448). Table 8-2 p. 194: 99.7 % upper value for n = 5 printed 17.800 (definition 17.8006). All other entries agree.
+  - Dummies p. 196 (S08-WE11): BI voor σA²/σB² gedrukt als '[(1/3.633)(4/7.5), 5.999(4/7.5)] = [0.147, 3.199]'. Met (sA²/σA²)/(sB²/σB²) ~ F(nA−1, nB−1) (Test Recipes p. 12, hint van examenvraag Q2) geven dezelfde staartwaarden van 5 % [0,0889; 1,938]: het boek verwisselt de twee F-waarden. De tabelwaarden zelf (Table 8-3) kloppen wel (extra, Dummies; niet te kennen).
+  - Dummies p. 192-196 noemt '95 %' wat ±2σ is (95,45 %, 2,275 % per staart) voor χ², en een rechterstaart van 5 % voor F. Gebruik α = 0,0455 om zijn χ²-voorbeeld (S08-WE10) na te rekenen (extra, Dummies; niet te kennen).
+  - Dummies Table 8-3 p. 196: F voor n1 = n2 = 2 gedrukt als '161.446' (definitie 161,448). Table 8-2 p. 194: bovenwaarde bij 99,7 % voor n = 5 gedrukt als '17.800' (definitie 17,8006). Alle andere waarden kloppen (extra, Dummies; niet te kennen).
 
-## Confusion matrix: Confusion matrix: accuracy, recall, precision, F1 (training vs test, up to three models)
+## Confusion matrix: Confusion matrix: nauwkeurigheid (accuracy), sensitiviteit (recall), precisie (precision), F1 (trainingsset vs testset, tot drie modellen)
 
-- **Doel:** Metrics of 2x2 confusion matrices for the training and the test set of up to three models, side by side, to judge under- and overfitting as in exam Q5.
-- **Invoer:** optional class names; per model the four counts of the training matrix and of the test matrix (rows = actual class, columns = predicted class).
-- **Bron in de cursus:** source/course/Les 2/20260529_naert.pdf p. 19-32 (train/test, under-/overfitting, bias-variance, confusion matrix and its metrics)
-- **Conventie:** Recall, precision and F1 shown with each class as the positive class (the course leaves that choice to the domain); no automatic bias/variance label.
-- **Status:** NIET GEVERIFIEERD (UNVERIFIED): no course worked example prints these metrics; checked against an independent computation and by the stats-auditor (build/README.md)
-- **Audit:** stats-auditor PASS (2026-09-28): all 26 values for one input (model A, training and test) agree with an independent computation from 20260529_naert.pdf p. 29-32. Note: 'error rate' is not printed on those pages; the sheet shows it as 1 − accuracy.
+- **Doel:** Maten van 2x2-confusion matrices voor de trainingsset en de testset van tot drie modellen, naast elkaar, om underfitting en overfitting te beoordelen zoals in examenvraag Q5.
+- **Invoer:** optioneel de klassenamen; per model de vier aantallen van de matrix van de trainingsset en van de testset (rijen = werkelijke klasse, kolommen = voorspelde klasse).
+- **Bron in de cursus:** source/course/Les 2/20260529_naert.pdf p. 19-32 (train/test, underfitting/overfitting, bias-variance, confusion matrix en haar maten)
+- **Conventie:** Sensitiviteit (recall), precisie en F1 getoond met elke klasse als de positieve klasse (de cursus laat die keuze aan het domein); geen automatisch bias/variance-label.
+- **Status:** NIET GEVERIFIEERD (UNVERIFIED): geen uitgewerkt cursusvoorbeeld drukt deze maten af; gecontroleerd tegen een onafhankelijke berekening en door de stats-auditor (build/README.md)
+- **Audit:** stats-auditor PASS (2026-09-28): alle 26 waarden voor één invoer (model A, trainingsset en testset) komen overeen met een onafhankelijke berekening uit 20260529_naert.pdf p. 29-32. Opmerking: 'foutenpercentage' (error rate) staat niet op die pagina's; het blad toont het als 1 − nauwkeurigheid.
 
-## Distributions: Distributions: E[X], Var[X] and probabilities (Bernoulli, binomial, hypergeometric, Poisson, exponential, uniform)
+## Verdelingen: Verdelingen (distributions): E[X], Var[X] en kansen (Bernoulli, binomiaal, hypergeometrisch, Poisson, exponentieel, uniform)
 
-- **Doel:** Mean, variance and point / cumulative probabilities of the distribution families of the course and of exam Q6 (Bernoulli, binomial, hypergeometric, Poisson, exponential, uniform).
-- **Invoer:** per block: p; n, p, k; N, D, n, k; λ, k; rate, t; a, b, x.
+- **Doel:** Gemiddelde, variantie en punt- en cumulatieve kansen van de verdelingsfamilies uit de cursus en uit examenvraag Q6 (Bernoulli, binomiaal, hypergeometrisch, Poisson, exponentieel, uniform).
+- **Invoer:** per blok: p; n, p, k; N, D, n, k; λ, k; intensiteit (rate) λ, t; a, b, x.
 - **Bron in de cursus:** source/course/Les 2/20260529_ottoy_Acceptance Sampling.pdf p. 12, 16, 20; Acceptance Sampling.xlsm; Testing of Hypotheses.xlsx; Les 1/20260522_naert_big data.pdf p. 5-10
-- **Conventie:** Excel's distribution functions as used in the course workbooks; k counts are whole numbers; P(X ≥ k) = 1 − P(X ≤ k − 1).
-- **Status:** GEVERIFIEERD (VERIFIED): binomial and hypergeometric blocks tested against course worked examples S04-WE02, S03-WE19, S03-WE21, the Poisson block against S02-WE09; Bernoulli, Poisson, exponential and uniform use standard definitions not printed in the course (decision 20; audited)
-- **Audit:** stats-auditor PASS (2026-09-28) for the Bernoulli, Poisson, exponential and uniform blocks: all 14 values for one input agree with an independent computation. But the cited pages print no general formula for these four families (Naert Les 1 p. 7-9 only names Poisson for counts and exponential for waiting times; Acceptance Sampling.xlsm 'distributions' evaluates EXPON.DIST with a rate and a uniform density on [1, 2]); the sheet uses the standard definitions, labelled as such (decision 20).
+- **Conventie:** De verdelingsfuncties van Excel zoals de werkmappen van de cursus ze gebruiken; aantallen k zijn gehele getallen; P(X ≥ k) = 1 − P(X ≤ k − 1).
+- **Status:** GEVERIFIEERD (VERIFIED): binomiaal en hypergeometrisch blok getest tegen de uitgewerkte cursusvoorbeelden (worked examples) S04-WE02, S03-WE19, S03-WE21, het Poisson-blok tegen S02-WE09; Bernoulli, Poisson, exponentieel en uniform gebruiken standaarddefinities die niet in de cursus gedrukt staan (beslissing 20; geaudit)
+- **Audit:** stats-auditor PASS (2026-09-28) voor de blokken Bernoulli, Poisson, exponentieel en uniform: alle 14 waarden voor één invoer kloppen met een onafhankelijke berekening. De geciteerde pagina's drukken echter geen algemene formule voor deze vier families (Naert Les 1 p. 7-9 noemt alleen Poisson voor tellingen en exponentieel voor wachttijden; Acceptance Sampling.xlsm 'distributions' berekent EXPON.DIST met een intensiteit (rate) en een uniforme dichtheid op [1, 2]); het blad gebruikt de standaarddefinities, als zodanig aangeduid (beslissing 20).
 
-## Mean & proportion: Means and proportions: CI and tests (z, t, unpaired and paired t, proportion exact and approximate, Z-test)
+## Gemiddelde & proportie: Gemiddelden en proporties: betrouwbaarheidsintervallen (confidence intervals, BI) en toetsen (z, t, ongepaarde en gepaarde t, proportie exact en benaderd, Z-toets)
 
-- **Doel:** CI and tests for one mean (σ known: z; σ unknown: t), the difference of two means (unpaired pooled t, paired t), one proportion (normal approximation, exact binomial, Z-test) and two proportions.
-- **Invoer:** α; per block n, mean, s or σ, μ0 / d0 / π0; or raw data pasted in columns L and M (paired: L and M row by row). Proportions: n and the number of successes x.
-- **Bron in de cursus:** source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf p. 4, 9-15; Confidence Intervals - Further Reading (Dutch).pdf p. 5-20; Testing of Hypotheses.pdf p. 12; Testing of Hypotheses - Further Reading (Dutch).pdf p. 10-14; Test Recipes - Further Reading (Dutch).pdf p. 4-10; Six Sigma For Dummies.pdf p. 189-198
-- **Conventie:** Decisions 5, 6, 8: α input prefilled 0.05; two-sided, lower-only and upper-only side by side; pooled variance with n1 + n2 − 2.
-- **Status:** GEVERIFIEERD (VERIFIED): tested against course worked examples S03-WE01, S03-WE02, S03-WE04, S03-WE10, S03-WE13, S03-WE14, S03-WE15, S08-WE12, S08-WE13
-- **Audit:** not needed (course worked examples exist)
+- **Doel:** Betrouwbaarheidsintervallen (BI) en toetsen voor één gemiddelde (σ gekend: z; σ ongekend: t), het verschil van twee gemiddelden (ongepaarde gepoolde t, gepaarde t), één proportie (normale benadering, exact binomiaal, Z-toets) en twee proporties.
+- **Invoer:** α; per blok n, gemiddelde, s of σ, μ0 / d0 / π0; of ruwe data geplakt in kolommen L en M (gepaard: L en M rij per rij). Proporties: n en het aantal successen x.
+- **Bron in de cursus:** source/course/Les 2/20260529_ottoy_Confidence Intervals.pdf p. 4, 9-15; Confidence Intervals - Further Reading (Dutch).pdf p. 5-20; Testing of Hypotheses.pdf p. 12; Testing of Hypotheses - Further Reading (Dutch).pdf p. 10-14; Test Recipes - Further Reading (Dutch).pdf p. 4-10
+- **Conventie:** Conventiebeslissingen 5, 6, 8: invoer α vooraf ingevuld op 0,05; tweezijdig, alleen ondergrens en alleen bovengrens naast elkaar; gepoolde variantie (pooled variance) met n1 + n2 − 2.
+- **Status:** GEVERIFIEERD (VERIFIED): getest tegen uitgewerkte cursusvoorbeelden (worked examples) S03-WE01, S03-WE02, S03-WE04, S03-WE10, S03-WE13, S03-WE14, S03-WE15; ook tegen S08-WE12, S08-WE13 uit Dummies p. 197 (extra, Dummies; niet te kennen)
+- **Audit:** niet nodig (er bestaan uitgewerkte cursusvoorbeelden)
 - **Gedrukte cursuswaarden die niet kloppen met de berekening** (zoals gedrukt bewaard in het orakel; getest als strikte verwachte mislukkingen, strict xfail):
-  - CI Further Reading (Dutch) p. 15 prints the pooled variance with denominator n1 + n2 − 1; the sheet uses n1 + n2 − 2 as Test Recipes p. 5 and the t(n1 + n2 − 2) of the same slide (decision 8). The course's worked example S03-WE13 (s_p = 6.59) agrees with n1 + n2 − 2.
-  - Confidence Intervals.xlsx 'example t-test' F13 divides by SQRT(19) with n = 20 (decision 9); not a test target.
-  - Dummies p. 197 (S08-WE13): '0.08 ± 0.076 = [0.004, 0.156]' truncates the half-width 0.0765; unrounded [0.0035, 0.1565].
+  - CI Further Reading (Dutch) p. 15 drukt de gepoolde variantie met noemer n1 + n2 − 1; het blad gebruikt n1 + n2 − 2 zoals Test Recipes p. 5 en de t(n1 + n2 − 2) van dezelfde slide (conventiebeslissing 8). Het uitgewerkte cursusvoorbeeld S03-WE13 (s_p = 6,59) klopt met n1 + n2 − 2.
+  - Confidence Intervals.xlsx 'example t-test' F13 deelt door SQRT(19) met n = 20 (conventiebeslissing 9); geen testdoel.
+  - Dummies p. 197 (S08-WE13): '0.08 ± 0.076 = [0.004, 0.156]' kapt de halve breedte 0,0765 af; onafgerond [0,0035; 0,1565] (extra, Dummies; niet te kennen).
 
-## Control charts: Control charts: X̄-R and X̄-s (subgroups), I-MR (individuals), p chart and u chart, with out-of-limit flags
+## Regelkaarten: Regelkaarten (control charts): X̄-R- en X̄-s-kaart uit subgroepen, met markering van punten buiten de grenzen
 
-- **Doel:** Control limits and centre lines for X̄-R, X̄-s, I-MR, p and u charts, the σ estimates R̄/d2 and s̄/c4, and a flag for every subgroup or point outside its limits.
-- **Invoer:** subgroups as raw values (up to 10 per row) or as typed x̄ and R (and s) with n; individual values; subgroup sizes with defectives (p) or defects (u).
-- **Bron in de cursus:** source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 54-58, 62-74; ___4.1 tabellen SPC.pdf p. 1-2; Six Sigma For Dummies.pdf p. 239-256; Les 5/20260619_ottoy_Rheostat Knob Data.xls
-- **Conventie:** Decision 4: constants from Table 18 (A2, D3, D4, B3, B4, d2), Table A (c4), Six Sigma Demystified (A3, E2); 3σ limits; a negative lower limit is shown as 0.
-- **Status:** GEVERIFIEERD (VERIFIED): tested against course worked examples S06-WE03, S06-WE05, S06-WE06, S08-WE18, S08-WE21, S10-WE04a, S10-WE04b; a few printed values disagree (build/README.md)
-- **Audit:** not needed (course worked examples exist)
+- **Doel:** Controlegrenzen (control limits) en centrale lijnen van de X̄-R- en X̄-s-kaart, de σ-schattingen R̄/d2 en s̄/c4, en een markering voor elke subgroep buiten de grenzen; de Western Electric-regels om de kaart te lezen.
+- **Invoer:** subgroepen als ruwe waarden (tot 10 per rij) of als getypte x̄ en R (en s) met n.
+- **Bron in de cursus:** source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 54-58, 62-74; ___4.1 tabellen SPC.pdf p. 1-2; Les 5/20260619_ottoy_Rheostat Knob Data.xls
+- **Conventie:** Beslissing 4: constanten uit Table 18 (A2, D3, D4, B3, B4, d2), Table A (c4), Six Sigma Demystified (A3); 3σ-grenzen. I-MR-, p- en u-kaart: blad Extra (boeken), niet te kennen.
+- **Status:** GEVERIFIEERD (VERIFIED): getest tegen de uitgewerkte voorbeelden van de cursus S06-WE03, S06-WE05, S06-WE06, S10-WE04a, S10-WE04b (en S08-WE18 uit Dummies; extra, niet te kennen); enkele gedrukte waarden wijken af (build/README.md)
+- **Audit:** niet nodig (er bestaan uitgewerkte voorbeelden in de cursus)
 - **Gedrukte cursuswaarden die niet kloppen met de berekening** (zoals gedrukt bewaard in het orakel; getest als strikte verwachte mislukkingen, strict xfail):
-  - Rheostat Knob Data.xls (Les 5, S10-WE04a/b) computes UCL_R with D4 = 2.114 (Six Sigma Demystified); the Les 4 exercise workbooks use 2.115 (Table 18), which the sheet uses (decision 4). The X̄ limits agree.
-  - Dummies p. 256 (S08-WE21): u-chart upper limit printed '2379' without a decimal point; computed 2.379 for the last subgroup (n = 65). Centre line and lower limit agree.
-  - Dummies p. 251 and 255 (S08-WE19, S08-WE20): chart readouts without the data or subgroup size behind them; not used as test targets.
+  - Rheostat Knob Data.xls (Les 5, S10-WE04a/b) rekent UCL_R met D4 = 2,114 (Six Sigma Demystified); de oefenwerkboeken van Les 4 gebruiken 2,115 (Table 18), wat het blad gebruikt (beslissing 4). De X̄-grenzen komen overeen.
 
-## Gage R&R: Gage R&R: average and range method and ANOVA method (EV, AV, PV, GRR, TV, %GRR)
+## Gage R&R: Gage R&R: gemiddelde-en-spreidingsbreedtemethode (average and range method) en ANOVA-methode (EV, AV, PV, GRR, TV, %GRR)
 
-- **Doel:** Repeatability (EV), reproducibility (AV), part variation (PV), GRR, TV and %GRR by the average and range method and by the ANOVA method, with the course's 10 % / 30 % verdict; the ANOVA with the interaction term.
-- **Invoer:** the measurements of a complete crossed study: up to 3 operators × 3 trials (rows) × 10 parts (columns); optionally the tolerance USL − LSL and α for the F tests.
+- **Doel:** Herhaalbaarheid (repeatability, EV), reproduceerbaarheid (reproducibility, AV), variatie tussen de delen (part variation, PV), GRR, TV en %GRR met de gemiddelde-en-spreidingsbreedtemethode (average and range method) en met de ANOVA-methode, met het oordeel 10 % / 30 % van de cursus; de ANOVA met de interactieterm.
+- **Invoer:** de metingen van een volledige gekruiste studie (crossed study): tot 3 operators × 3 herhalingen (trials, rijen) × 10 delen (parts, kolommen); optioneel de tolerantie USL − LSL en α voor de F-toetsen.
 - **Bron in de cursus:** source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf p. 18, 24, 34-38; 20260619_ottoy_tabel MSA.pdf; 20260619_ottoy_GRR - ANOVA - avegage and range - 2.xlsx
-- **Conventie:** Decision 11: multiplier 6; %GRR against total variation and tolerance; course ANOVA = model without interaction (interaction also shown); constants from tabel MSA.pdf; ndc not in the course.
-- **Status:** GEVERIFIEERD (VERIFIED): tested against course worked examples S10-WE02 (ANOVA) and S10-WE03 (average and range) on the course's own study data
-- **Audit:** not needed (course worked examples exist)
+- **Conventie:** Beslissing 11: vermenigvuldigingsfactor (multiplier) 6; %GRR t.o.v. totale variatie en tolerantie; ANOVA van de cursus = model zonder interactie (interactie ook getoond); constanten uit tabel MSA.pdf; ndc niet in de cursus.
+- **Status:** GEVERIFIEERD (VERIFIED): getest tegen de uitgewerkte cursusvoorbeelden (worked examples) S10-WE02 (ANOVA) en S10-WE03 (gemiddelde-en-spreidingsbreedtemethode) op de eigen studiedata van de cursus
+- **Audit:** niet nodig (er bestaan uitgewerkte cursusvoorbeelden)
 - **Gedrukte cursuswaarden die niet kloppen met de berekening** (zoals gedrukt bewaard in het orakel; getest als strikte verwachte mislukkingen, strict xfail):
-  - GRR workbook sheet '2way anova' K45 types '=412.5+296.667' (the interaction SS 296.6667 rounded), so its EV² is 30.8333478 instead of 30.8333333; its AV, PV, TV and %GRR shift in the 7th digit. The sheet computes from the data; the tests compare at a tolerance that allows exactly this.
+  - GRR-werkboek, blad '2way anova', K45 typt '=412.5+296.667' (de interactie-SS 296,6667 afgerond), dus is zijn EV² 30,8333478 in plaats van 30,8333333; zijn AV, PV, TV en %GRR verschuiven in het 7e cijfer. Het blad rekent vanuit de data; de tests vergelijken met een tolerantie die precies dit toelaat.
 
-## Acceptance sampling: Acceptance sampling: OC curve of a plan (n, c), producer's / consumer's risk, AOQ, AOQL, ATI, variables plan
+## Aanvaardingssteekproeven: Aanvaardingssteekproeven (acceptance sampling): OC-curve van een plan (n, c), producenten-/consumentenrisico, AOQ, AOQL, ATI, plan voor variabelen
 
-- **Doel:** Acceptance probability OC(p) of a single-stage plan (n, c), α at AQL and β at LQL, AOQ, AOQL and ATI for rectifying inspection, an OC/AOQ/ATI table, and the variables plan (k, n) from AQL and LQL.
-- **Invoer:** n, c, lot size N (optional: exact hypergeometric OC, AOQ, ATI), AQL, LQL, α, β, a fraction p, the table step.
+- **Doel:** Aanvaardingskans OC(p) van een enkelvoudig steekproefplan (single-stage plan) (n, c), α bij AQL en β bij LQL, AOQ, AOQL en ATI bij rectificerende inspectie (rectifying inspection), een OC/AOQ/ATI-tabel, en het plan voor variabelen (variables plan) (k, n) uit AQL en LQL.
+- **Invoer:** n, c, lotgrootte N (optioneel: exacte hypergeometrische OC, AOQ, ATI), AQL, LQL, α, β, een fractie p, de stapgrootte van de tabel.
 - **Bron in de cursus:** source/course/Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf p. 2-10; Acceptance Sampling.pdf p. 23-27; Testing of Hypotheses.pdf p. 5-11; Testing of Hypotheses.xlsx
-- **Conventie:** Decision 12: α and β inputs prefilled 5 % and 10 % (p. 4; its worked examples use β = 5 %); hypergeometric OC with M = [Np] when N is given, binomial always shown.
-- **Status:** GEVERIFIEERD (VERIFIED): tested against course worked examples S03-WE06, S03-WE07, S03-WE20, S03-WE21, S04-WE12, S04-WE16, S04-WE18
-- **Audit:** not needed (course worked examples exist)
+- **Conventie:** Beslissing 12: invoer α en β vooraf ingevuld op 5 % en 10 % (p. 4; de uitgewerkte voorbeelden daar gebruiken β = 5 %); hypergeometrische OC met M = [Np] als N gegeven is, binomiale OC altijd getoond.
+- **Status:** GEVERIFIEERD (VERIFIED): getest tegen uitgewerkte voorbeelden van de cursus S03-WE06, S03-WE07, S03-WE20, S03-WE21, S04-WE12, S04-WE16, S04-WE18
+- **Audit:** niet nodig (er bestaan uitgewerkte voorbeelden in de cursus)
 - **Gedrukte cursuswaarden die niet kloppen met de berekening** (zoals gedrukt bewaard in het orakel; getest als strikte verwachte mislukkingen, strict xfail):
-  - Further Reading p. 4 designs (n, c) with the table of Peach ('tabellen AS.pdf'), which is not in the course files; the sheet checks a plan instead. Its example plan (164, 2) for (0.5 %, 95 %) and (3.5 %, 5 %) has OC(0.5 %) = 95 % but OC(3.5 %) = 7.1 % (binomial): Peach's method is approximate, as the page says.
-  - Further Reading p. 10: 'AOQL approximately 1.3 %, at about 1.8 %' for (250, 5), N = 1000 matches the approximation p·OC(p) (1.30 % at 1.7 %), not the exact formula on the same slide (1.03 % at 1.7 %), although n/N = 0.25 is not small.
+  - Further Reading p. 4 ontwerpt (n, c) met de tabel van Peach ('tabellen AS.pdf'), die niet in de cursusbestanden zit; het blad controleert daarom een plan. Het voorbeeldplan (164, 2) voor (0,5 %, 95 %) en (3,5 %, 5 %) heeft OC(0,5 %) = 95 % maar OC(3,5 %) = 7,1 % (binomiaal): de methode van Peach is benaderend, zoals de pagina zegt.
+  - Further Reading p. 10: 'AOQL approximately 1.3 %, at about 1.8 %' voor (250, 5), N = 1000 klopt met de benadering p·OC(p) (1,30 % bij 1,7 %), niet met de exacte formule op dezelfde slide (1,03 % bij 1,7 %), hoewel n/N = 0,25 niet klein is.
 
-## ANOVA DOE regression: One-way ANOVA, 2^k factorial effects and ANOVA (k = 2 to 5), simple linear regression
+## ANOVA DOE regressie: Eenwegs-ANOVA (one-way ANOVA), effecten en ANOVA van een 2^k-factoriële proefopzet (factorial design, k = 2 tot 5), enkelvoudige lineaire regressie (simple linear regression)
 
-- **Doel:** One-way ANOVA table; effects, coefficients, sums of squares, F-tests and ±2 s.e. intervals of a 2^k factorial with pure error from replicates and/or pooled higher-order interactions, its model ANOVA and R²; simple linear regression with ANOVA, R², t-tests, CIs of β0 and β1, and the CI of the mean response and prediction interval at x0.
-- **Invoer:** α; ANOVA: up to 8 groups of up to 30 values (one column per group); factorial: k, optional pooling order, up to 4 replicate responses per run in standard order; regression: up to 200 (x, y) pairs, x0 and the H0 values of β1 and β0.
-- **Bron in de cursus:** source/course/Les 3/20260605_de vuyst_BB_DOE.pdf p. 3-15, 46-92; 20260605_de vuyst_BB_Regression.pdf p. 16-38, 56-57; Les 4/Six Sigma For Dummies.pdf p. 222-233
-- **Conventie:** α input prefilled 0.05 (decision 5); regression CIs and t-tests one- and two-sided side by side (decision 6); factors coded −1/+1 in standard order (DOE p. 46, 70, 74); single replicate: pool interactions of a chosen order and higher into the error (DOE p. 72, 77); R²_adj shown both ways.
-- **Status:** GEVERIFIEERD (VERIFIED): tested against course worked examples S05-WE01, S05-WE02, S05-WE05 to S05-WE09, S05-WE17, S05-WE18, S08-WE16; printed values that disagree are listed in build/README.md
-- **Audit:** not needed (course worked examples exist)
+- **Doel:** Eenwegs-ANOVA-tabel; effecten, coëfficiënten (extra, Dummies; niet te kennen), kwadratensommen (SS), F-toetsen en intervallen ±2 s.e. van een 2^k-factoriële proefopzet met zuivere fout (pure error) uit herhalingen en/of gepoolde interacties van hogere orde, de ANOVA van het model en R²; enkelvoudige lineaire regressie met ANOVA, R², t-toetsen, BI's van β0 en β1, en het BI van de gemiddelde respons en het predictie-interval bij x0.
+- **Invoer:** α; ANOVA: tot 8 groepen van elk tot 30 waarden (één kolom per groep); factorieel: k, optioneel de orde vanaf waar gepoold wordt, tot 4 herhalingen per run in standaardvolgorde; regressie: tot 200 paren (x, y), x0 en de H0-waarden van β1 en β0.
+- **Bron in de cursus:** source/course/Les 3/20260605_de vuyst_BB_DOE.pdf p. 3-15, 46-92; 20260605_de vuyst_BB_Regression.pdf p. 16-38, 56-57
+- **Conventie:** Invoer α vooraf ingevuld op 0,05 (beslissing 5); BI's en t-toetsen van de regressie eenzijdig en tweezijdig naast elkaar (beslissing 6); factoren gecodeerd −1/+1 in standaardvolgorde (standard order; DOE p. 46, 70, 74); één herhaling (single replicate): interacties van een gekozen orde en hoger in de fout poolen (DOE p. 72, 77); R²_adj op beide manieren getoond.
+- **Status:** GEVERIFIEERD (VERIFIED): getest tegen uitgewerkte voorbeelden van de cursus S05-WE01, S05-WE02, S05-WE05 tot S05-WE09, S05-WE17, S05-WE18, en tegen S08-WE16 (extra, Dummies; niet te kennen); gedrukte waarden die niet kloppen staan in build/README.md
+- **Audit:** niet nodig (er bestaan uitgewerkte voorbeelden in de cursus)
 - **Gedrukte cursuswaarden die niet kloppen met de berekening** (zoals gedrukt bewaard in het orakel; getest als strikte verwachte mislukkingen, strict xfail):
-  - DOE p. 50 (S05-WE05): '[AB] = 5,78 – 4,92 = 0,857'; the exact effect is 0.8583 (means 5.7767 and 4.9183).
-  - DOE p. 71 (S05-WE08): SS_ABC (and MS) printed 5.5625; the data on p. 70 give contrast 9 and SS 81/16 = 5.0625, which the printed F0 2.08, P 0.19 and total 92.9375 also imply. The printed P of A, 2.54 × 10^-3, is 2.534 × 10^-3 for F0 18.69 on F(1, 8).
-  - DOE p. 53 (S05-WE06): 'AB = (52 + 20)/2 − (30 + 40)/2 = −1'; that expression equals +1, which the sheet gives.
-  - Regression p. 56 prints R²_adj = 1 − (1 − R²)(n − 1)/(n − k − 2); the course's own outputs use n − k − 1 (Regression p. 22 Minitab R-Sq(adj) 87.1 %; DOE p. 61 Adj R-Squared 0.8666; σ̂ on Regression p. 57). The sheet shows both, labelled.
-  - Regression p. 21 (S05-WE17): the fitted line 'ŷ = 74.20 + 14.97x' of Figure 11-4 differs from the least squares values 74.283 and 14.947 of the Minitab output on p. 22, which the sheet reproduces.
+  - DOE p. 50 (S05-WE05): '[AB] = 5,78 – 4,92 = 0,857'; het exacte effect is 0,8583 (gemiddelden 5,7767 en 4,9183).
+  - DOE p. 71 (S05-WE08): SS_ABC (en MS) gedrukt als 5,5625; de gegevens op p. 70 geven contrast 9 en SS 81/16 = 5,0625, wat ook de gedrukte F0 2,08, P 0,19 en het totaal 92,9375 impliceren. De gedrukte P van A, 2,54 × 10^-3, is 2,534 × 10^-3 voor F0 18,69 op F(1, 8).
+  - DOE p. 53 (S05-WE06): 'AB = (52 + 20)/2 − (30 + 40)/2 = −1'; die uitdrukking is gelijk aan +1, wat het blad geeft.
+  - Regression p. 56 drukt R²_adj = 1 − (1 − R²)(n − 1)/(n − k − 2); de eigen outputs van de cursus gebruiken n − k − 1 (Regression p. 22 Minitab R-Sq(adj) 87,1 %; DOE p. 61 Adj R-Squared 0,8666; σ̂ op Regression p. 57). Het blad toont beide, met label.
+  - Regression p. 21 (S05-WE17): de gefitte rechte 'ŷ = 74.20 + 14.97x' van Figure 11-4 verschilt van de kleinste-kwadratenwaarden (least squares) 74,283 en 14,947 van de Minitab-output op p. 22, die het blad reproduceert.
 
-## Tables: Tables: control-chart, capability and MSA constants
+## Extra (boeken): Extra: rekenblokken uit Six Sigma For Dummies en Harry & Schroeder (niet te kennen voor het examen)
 
-- **Doel:** Every control-chart constant table of the course, exactly as printed, with the lookup ranges the calculators use. Orange cells differ beyond rounding from another printed source (hover for the values).
-- **Invoer:** none (reference sheet)
-- **Bron in de cursus:** source/course/Les 4/___4.1 tabellen SPC.pdf p. 1-2; Control charts - constants.pdf p. 1-2; Six Sigma For Dummies.pdf p. 250; Les 5/20260619_ottoy_tabel MSA.pdf p. 1
-- **Conventie:** Decision 4: calculators use Table 18; c4 and d3 from Table A; A3, E2, B5, B6 from Six Sigma Demystified. Every source is shown in full, as printed.
-- **Status:** GEVERIFIEERD (VERIFIED): transcriptions of both scanned tables double-checked cell by cell; values compared with their mathematical definitions in tests/test_constants.py
-- **Audit:** not needed (transcriptions double-checked; values compared with their definitions)
+- **Doel:** Rekenblokken die alleen uit Six Sigma For Dummies en Harry & Schroeder komen (niet te kennen voor het examen): DPU, throughput yield, RTY ≈ e^(−DPU); traditionele yield, first-time yield, verborgen fabriek (hidden factory); RTY uit stapyields, genormaliseerde yield en eenheden nodig per goede eenheid; RTY van k gelijke stappen (dobbelstenen); gemiddelde yield per defectkans; Cp, Cpk en % buiten specificatie met σ̂ = MR̄ / 1,128; regelkaarten voor individuele waarden (I-MR), p-kaart en u-kaart.
+- **Invoer:** per blok: defecten en eenheden; eenheden in, uit, afgekeurd, herwerkt; tot 10 stapyields; een RTY en het aantal stappen; één stapyield en k; een eindyield en het aantal kansen; LSL, USL, gemiddelde en MR̄; individuele waarden; subgroepgroottes met defecte stuks (p) of defecten (u). Yields als fracties (0,95 = 95 %).
+- **Bron in de cursus:** source/course/Les 4/Six Sigma For Dummies.pdf p. 38-39, 114-116, 147-156, 249-256; source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf p. 3-5
+- **Conventie:** Formules zoals in het boek; yields als fracties (0,95 = 95 %). Sigmaniveau met de 1,5σ-verschuiving (1.5σ shift) van de cursus (deck p. 37, beslissing 3); d2, D3, D4 voor n = 2 uit Tabel 18, E2 uit Six Sigma Demystified (beslissing 4); een negatieve ondergrens wordt 0.
+- **Status:** GEVERIFIEERD (VERIFIED): getest tegen de uitgewerkte voorbeelden uit de boeken S07-WE01, S08-WE01 tot S08-WE04, S08-WE21, S09-WE01, S09-WE03 tot S09-WE06; enkele gedrukte waarden wijken af (zie build/README.md)
+- **Audit:** niet nodig (er bestaan uitgewerkte voorbeelden in de boeken)
+- **Gedrukte cursuswaarden die niet kloppen met de berekening** (zoals gedrukt bewaard in het orakel; getest als strikte verwachte mislukkingen, strict xfail):
+  - Dummies p. 148 (S08-WE02): verborgen fabriek '98.6% - 70.7% = 27.9%' trekt afgeronde waarden af; niet afgerond 27,84 %.
+  - Harry & Schroeder p. 3 (S09-WE01): product B '(0.968)**(1/48) = 99.97%'; berekend 99,932 %, en 'about 3.5 sigma' (zonder verschuiving) geeft 3,20.
+  - Dummies p. 256 (S08-WE21): bovengrens van de u-kaart gedrukt als '2379' zonder decimaalteken; berekend 2,379 voor de laatste subgroep (n = 65). Centrale lijn en ondergrens komen overeen.
+  - Dummies p. 251 en 255 (S08-WE19, S08-WE20): afgelezen kaarten zonder de gegevens of subgroepgrootte erachter; niet gebruikt als testdoel.
+  - Harry & Schroeder p. 5 (S09-WE05): genormaliseerde yield gedrukt als '(0.368)**(-10) = 0.9051'; de k-de machtswortel die de tekst definieert geeft 0,368^(1/10) = 0,9049.
+
+## Tabellen: Tabellen: constanten voor regelkaarten (control charts), capabiliteit en MSA
+
+- **Doel:** Elke constantentabel voor regelkaarten uit de cursus, precies zoals gedrukt, met de opzoekbereiken (lookup ranges) die de rekenbladen gebruiken. Oranje cellen verschillen meer dan afronding van een andere gedrukte bron (beweeg erover voor de waarden). Six Sigma For Dummies Table 10-2 staat onderaan als extra (niet te kennen voor het examen).
+- **Invoer:** geen (naslagblad)
+- **Bron in de cursus:** source/course/Les 4/___4.1 tabellen SPC.pdf p. 1-2; Control charts - constants.pdf p. 1-2; Les 5/20260619_ottoy_tabel MSA.pdf p. 1; extra (niet te kennen): Six Sigma For Dummies.pdf p. 250
+- **Conventie:** Beslissing 4: de rekenbladen gebruiken Table 18; c4 en d3 uit Table A; A3, E2, B5, B6 uit Six Sigma Demystified. Elke bron staat er volledig, zoals gedrukt.
+- **Status:** GEVERIFIEERD (VERIFIED): transcripties van beide gescande tabellen cel per cel dubbel gecontroleerd; waarden vergeleken met hun wiskundige definities in tests/test_constants.py
+- **Audit:** niet nodig (transcripties dubbel gecontroleerd; waarden vergeleken met hun definities)
 
 ## Constanten die afwijken van hun wiskundige definitie
 

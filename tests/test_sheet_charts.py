@@ -2,8 +2,9 @@
 
 Expected values: course worked examples from the lecturers' exercise workbooks (S06-WE03, S06-WE05, S06-WE06,
 S10-WE04a/b; Excel cached floats at rel=1e-9) with their input data read from the course files named by the
-oracle's data_ref (read-only), and Dummies examples S08-WE18 / S08-WE21 at printed precision. An independent
-Python computation for random subgroups. Printed values that disagree are strict xfails naming the source.
+oracle's data_ref (read-only), and the Dummies example S08-WE18 at printed precision. An independent Python
+computation for random subgroups. Printed values that disagree are strict xfails naming the source. The I-MR, p and
+u charts (book-only) moved to the Extra (boeken) sheet; their tests are in tests/test_sheet_extra.py.
 """
 from __future__ import annotations
 
@@ -19,15 +20,10 @@ import xlrd
 from bbtools.constants import ROOT
 from bbtools.printed import agrees_at_printed_precision
 from bbtools.sheet_charts import (
-    FIRST_INDIVIDUAL,
-    FIRST_P,
-    FIRST_U,
-    IMR,
     INPUTS,
     LIMITS,
     SHEET,
     SUMMARY,
-    U_CHART,
     X_COLUMNS,
     subgroup_row,
 )
@@ -151,57 +147,18 @@ def test_dummies_xbar_r_chart_s08_we18(oracle: dict[str, Any], evaluate: Evaluat
     assert agrees_at_printed_precision(limit(ws, "r", "ucl"), str(answers["UCL_R"]))
 
 
-def u_chart_cells(oracle: dict[str, Any]) -> dict[str, float]:
-    """Dummies p. 256 data table: subgroup sizes and defects of 20 subgroups."""
-    rows = oracle["S08-WE21"]["given"]["data_table"]["rows"]
-    return {**{f"B{FIRST_U + i}": size for i, (_, size, _) in enumerate(rows)},
-            **{f"C{FIRST_U + i}": defects for i, (_, _, defects) in enumerate(rows)}}
-
-
-def test_dummies_u_chart_s08_we21(oracle: dict[str, Any], evaluate: Evaluate) -> None:
-    # arrange -- insurance claim forms, 20 subgroups; the chart shows the limits of the last subgroup (n = 65)
-    answers = oracle["S08-WE21"]["stated_answers"]
-    ws = evaluate(SHEET, u_chart_cells(oracle))
-    last = FIRST_U + 19
-    # act / assert -- printed 'ubar = 1.870' and '-3.0SL = 1.361'
-    assert agrees_at_printed_precision(ws[U_CHART["ubar"]].value, str(answers["ubar"]))
-    assert agrees_at_printed_precision(ws[f"E{last}"].value, str(answers["LCL_neg3.0SL"]))
-
-
-@pytest.mark.xfail(reason="Dummies p. 256 prints the upper limit as '2379' (no decimal point); computed 2.379")
-def test_dummies_u_chart_upper_limit_s08_we21(oracle: dict[str, Any], evaluate: Evaluate) -> None:
-    # arrange
-    ws = evaluate(SHEET, u_chart_cells(oracle))
-    # act / assert
-    assert agrees_at_printed_precision(ws[f"F{FIRST_U + 19}"].value, "2379")
-
-
 @pytest.mark.parametrize("seed", [1, 2])
-def test_all_charts_match_an_independent_computation(seed: int, evaluate: Evaluate) -> None:
+def test_xbar_r_and_xbar_s_charts_match_an_independent_computation(seed: int, evaluate: Evaluate) -> None:
     # arrange -- constants as printed in Table 18 / Table A / Six Sigma Demystified for the chosen n
     rng = random.Random(seed)
     n = rng.choice([2, 3, 4, 5, 6, 8, 10])
     subgroups = [[rng.gauss(50, 3) for _ in range(n)] for _ in range(rng.randint(5, 30))]
-    individuals = [rng.gauss(10, 1) for _ in range(rng.randint(5, 60))]
-    p_rows = [(rng.randint(50, 200), rng.randint(0, 20)) for _ in range(rng.randint(5, 30))]
-    u_rows = [(rng.randint(20, 80), rng.randint(20, 150)) for _ in range(rng.randint(5, 30))]
-    cells = raw_subgroups(subgroups)
-    cells |= {f"B{FIRST_INDIVIDUAL + i}": x for i, x in enumerate(individuals)}
-    cells |= {f"B{FIRST_P + i}": size for i, (size, _) in enumerate(p_rows)}
-    cells |= {f"C{FIRST_P + i}": d for i, (_, d) in enumerate(p_rows)}
-    cells |= {f"B{FIRST_U + i}": size for i, (size, _) in enumerate(u_rows)}
-    cells |= {f"C{FIRST_U + i}": c for i, (_, c) in enumerate(u_rows)}
-    ws = evaluate(SHEET, cells)
+    ws = evaluate(SHEET, raw_subgroups(subgroups))
     a2, d3, d4 = (ws[f"F{LIMITS['xbar_r']}"].value, ws[f"F{LIMITS['r']}"].value, ws[f"G{LIMITS['r']}"].value)
     xbb = statistics.mean(statistics.mean(g) for g in subgroups)
     rbar = statistics.mean(max(g) - min(g) for g in subgroups)
     sbar = statistics.mean(statistics.stdev(g) for g in subgroups)
     a3, b3, b4 = ws[f"F{LIMITS['xbar_s']}"].value, ws[f"F{LIMITS['s']}"].value, ws[f"G{LIMITS['s']}"].value
-    mrs = [abs(b - a) for a, b in zip(individuals, individuals[1:])]
-    xbar_i, mrbar = statistics.mean(individuals), statistics.mean(mrs)
-    e2 = ws[f"F{IMR['x_row']}"].value
-    pbar = sum(d for _, d in p_rows) / sum(size for size, _ in p_rows)
-    ubar = sum(c for _, c in u_rows) / sum(size for size, _ in u_rows)
     # act / assert -- same arithmetic in Python; rel=1e-9 covers summation order
     expected = {
         (None, "xbar_r", "ucl"): xbb + a2 * rbar, (None, "xbar_r", "lcl"): xbb - a2 * rbar,
@@ -210,15 +167,7 @@ def test_all_charts_match_an_independent_computation(seed: int, evaluate: Evalua
     }
     for (_, chart, which), target in expected.items():
         assert limit(ws, chart, which) == pytest.approx(target, rel=1e-9, abs=1e-12), (chart, which)
-    assert ws[f"D{IMR['x_row']}"].value == pytest.approx(xbar_i + e2 * mrbar, rel=1e-9)
-    assert ws[f"D{IMR['mr_row']}"].value == pytest.approx(ws[f"G{IMR['mr_row']}"].value * mrbar, rel=1e-9)
-    for i, (size, d) in enumerate(p_rows):
-        half = 3 * (pbar * (1 - pbar) / size) ** 0.5
-        assert ws[f"F{FIRST_P + i}"].value == pytest.approx(pbar + half, rel=1e-9)
-        assert ws[f"E{FIRST_P + i}"].value == pytest.approx(max(0.0, pbar - half), rel=1e-9, abs=1e-12)
-    for i, (size, c) in enumerate(u_rows):
-        assert ws[f"F{FIRST_U + i}"].value == pytest.approx(ubar + 3 * (ubar / size) ** 0.5, rel=1e-9)
     for i, g in enumerate(subgroups):  # every flag says what the limits say
         m, flag = statistics.mean(g), ws[f"S{subgroup_row(i)}"].value
         high, low = limit(ws, "xbar_r", "ucl"), limit(ws, "xbar_r", "lcl")
-        assert (flag or "") == ("above UCL" if m > high else "below LCL" if m < low else "")
+        assert (flag or "") == ("boven UCL" if m > high else "onder LCL" if m < low else "")
