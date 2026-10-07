@@ -1,0 +1,179 @@
+<!-- Staging for Deel 14 (extra, niet te kennen): book material moved out of Deel 04 (Betrouwbaarheidsintervallen). -->
+  <section class="unit" id="d14-04-mu" data-kw="Dummies; extra; z of t; z or t; n &gt; 30; 95 % is 2 sigma; ±2σ; 95,45 %; tabel 8-1; table 8-1; tabel 8-2; table 8-2; t-tabel; t table; chi-kwadraattabel; chi-square table; 68 %; 99,7 %">
+    <h3>Dummies: z of t, en "95 %" = ±2σ in de tabellen <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=190">Dummies p. 190–195</a></h3>
+    <p>Hoort bij <a href="#d04-mu">04.4 BI voor het gemiddelde µ: z of t</a> en <a href="#d04-sigma">04.7 BI voor de variantie σ² en de standaardafwijking σ</a>.</p>
+    <p>Dummies gebruikt Z voor n &gt; 30 en t voor kleinere steekproeven, en noemt ±2<var data-s="04:sigma">σ</var> "95 %" (in werkelijkheid
+    95,45 % <span class="computed">zelf berekend</span>) <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=190">Dummies p. 190–192</a>.</p>
+    <p>Dummies noemt in Tabel 8-1 (t) en Tabel 8-2 (χ²) "68 %", "95 %" en "99,7 %"
+    wat in werkelijkheid ±1<var data-s="04:sigma">σ</var>, ±2<var data-s="04:sigma">σ</var> en ±3<var data-s="04:sigma">σ</var> is (68,27 %, 95,45 %, 99,73 % <span class="computed">zelf berekend</span>)
+    <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=192">Dummies p. 192</a> <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=194">Dummies p. 194–195</a>. Rekentool en deze gids gebruiken het echte α.</p>
+
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>Let op:</b> Dummies noemt ±2<var data-s="04:sigma">σ</var> "95 %" in Tabel 8-1 en 8-2, terwijl dat 95,45 % is <span class="computed">zelf berekend</span> <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=192">Dummies p. 192</a>; reken met het echte α (de opmerking hierboven).</li>
+      <li><b>"n &gt; 30, dus Z."</b> Dat is de vuistregel van Dummies. In de cursus hangt de keuze af van of σ gekend is: met s volgt (<var data-s="04:xbar">X̄</var> − <var data-s="04:mu">µ</var>)/(<var data-s="04:s">s</var>/√<var data-s="04:n">n</var>) een t-verdeling met n − 1 vrijheidsgraden; Z gebruik je alleen als σ echt gekend is <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=5">CI FR p. 5</a> (<a href="#d04-mu">04.4</a>).</li>
+    </ul></div>
+  </section>
+
+  <section class="unit" id="d14-04-proporties" data-kw="Dummies; extra; proportie; proportion; verschil proporties; difference of proportions; tandartsen; dentists; Toledo; Buffalo; natuurlijke grens; natural limit; y/n">
+    <h3>Dummies: BI voor een proportie en voor het verschil van twee proporties <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=196">Dummies p. 196–198</a></h3>
+    <p>Hoort bij <a href="#d04-pi">04.5 BI voor een proportie π (fractie defectieven)</a>.</p>
+    <p>Dummies schrijft de steekproeffractie als <var data-s="04:y_count">y</var>/<var data-s="04:n">n</var> en rekent met de normale benadering, zoals
+    in <a href="#d04-pi">04.5</a>; bij het verschil van twee proporties gebruikt het Z = 2 voor wat het "95 %" noemt
+    (<a href="#d14-04-mu">"95 %" = ±2σ</a>).</p>
+
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>"Het benaderde interval komt boven 1 uit, dus kap het af op 1."</b> Zo doet Dummies het (de natuurlijke grens). Volgens de cursus is het een teken dat de normale benadering niet geldt: minder dan 5 waarnemingen in de getelde categorie (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=10">CI p. 10</a>); gebruik dan het exacte binomiale BI (<a href="#d04-inversie">04.3</a>).</li>
+      <li><b>Let op:</b> Dummies' Z = 2 is ±2<var data-s="04:sigma">σ</var> (95,45 %), niet 1,96; en de afgedrukte halve breedte 0,076 bij Toledo–Buffalo is afgekapt, afgerond is ze 0,0765 <span class="computed">zelf berekend</span>.</li>
+    </ul></div>
+
+    <div class="exercise" id="ex-14-04-1" data-kw="tandartsen; dentists; 4 op 5; 90 %; 1,645; Dummies; extra; proportie; natuurlijke grens; natural limit; S08-WE12">
+      <h4>Oefening — "Four out of five dentists" <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=196">Dummies p. 196–197</a></h4>
+      <p>Dummies: 4 van 5 tandartsen bevelen suikervrije kauwgom aan. Bereken het
+      90%-BI <var data-s="04:y_count">y</var>/<var data-s="04:n">n</var> ± <var data-s="04:z_1ma2">Z</var>·√((<var data-s="04:y_count">y</var>/<var data-s="04:n">n</var>)(1 − <var data-s="04:y_count">y</var>/<var data-s="04:n">n</var>)/<var data-s="04:n">n</var>) met <var data-s="04:z_1ma2">Z</var> = 1,645.</p>
+      <div class="q" data-answer="0.294" data-tol="0.002">
+        <label>a. Halve breedte (3 decimalen):</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="nee">
+        <label>b. Is de normale benadering hier betrouwbaar volgens de vuistregel van de cursus?</label>
+        <select><option value="">kies…</option><option value="ja">ja</option><option value="nee">nee</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <details class="solution"><summary>Toon oplossing</summary>
+        <ol class="steps">
+          <li>a. 1,645·√(0,8·0,2/5) = 1,645·0,1789 = <b>0,294</b> (<a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=197">Dummies p. 197</a>: 4/5 ± 0,294). Het interval
+          [0,506; 1,094] gaat boven 1; Dummies raadt aan het dan af te kappen op de natuurlijke grens: [0,506; 1]
+          <span class="computed">zelf berekend</span>.</li>
+          <li>b. <b>Nee</b>. Ottoy vraagt minstens 5 defectieven, dus minstens 5 waarnemingen in de categorie die je telt
+          <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=10">CI p. 10</a>; hier zijn er 4 "ja" en 1 "nee" op n = 5. Dat het interval boven 1 uitkomt, is een symptoom. Gebruik bij zo'n
+          kleine steekproef het exacte binomiale BI (<a href="#d04-inversie">04.3</a>).</li>
+        </ol>
+      </details>
+    </div>
+
+    <div class="exercise" id="ex-14-04-2" data-kw="verschil proporties; difference of proportions; Toledo; Buffalo; twee fabrieken; two plants; yield; Dummies; extra; S08-WE13">
+      <h4>Oefening — Toledo versus Buffalo <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=197">Dummies p. 197–198</a></h4>
+      <p>Dummies: van n<sub>1</sub> = 300 stuks uit Toledo zijn er 213 goed, van n<sub>2</sub> = 300 uit Buffalo
+      189. Bereken het BI voor het verschil met Z = 2 (Dummies' "95 %").</p>
+      <div class="q" data-answer="0.0765" data-tol="0.0005">
+        <label>a. Halve breedte (4 decimalen):</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="toledo">
+        <label>b. Besluit:</label>
+        <select><option value="">kies…</option><option value="toledo">0 ligt niet in het BI: Toledo heeft een hogere yield</option><option value="geen">0 ligt in het BI: geen verschil aangetoond</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <details class="solution"><summary>Toon oplossing</summary>
+        <ol class="steps">
+          <li><var data-s="04:p1">p<sub>1</sub></var> = 0,71, <var data-s="04:p2">p<sub>2</sub></var> = 0,63, verschil 0,08.
+          √(0,71·0,29/300 + 0,63·0,37/300) = 0,03825; ×2 = <b>0,0765</b> <span class="computed">zelf berekend</span>.</li>
+          <li>BI = [0,0035; 0,1565] <span class="computed">zelf berekend</span>. Dummies drukt 0,08 ± 0,076 = [0,004; 0,156]
+          af: de halve breedte is afgekapt in plaats van afgerond (zie <a href="#fouten">Fouten in de slides</a>).</li>
+          <li>b. 0 ligt niet in het interval: met (ongeveer) 95 % betrouwbaarheid levert Toledo een hogere fractie goede
+          stuks dan Buffalo.</li>
+        </ol>
+      </details>
+    </div>
+  </section>
+
+  <section class="unit" id="d14-04-sigma" data-kw="Dummies; extra; BI standaardafwijking; CI standard deviation; BI variantie; tabel 8-2; table 8-2; chi-kwadraat; chi-square; breed interval; wide interval; n = 5; 3,7">
+    <h3>Dummies: BI voor σ met Tabel 8-2 <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=195">Dummies p. 195</a></h3>
+    <p>Hoort bij <a href="#d04-sigma">04.7 BI voor de variantie σ² en de standaardafwijking σ</a>.</p>
+    <p>Een BI voor een spreiding is meestal breed, tenzij je veel data hebt: een spreiding schatten is minder
+    nauwkeurig dan een gemiddelde schatten <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=195">Dummies p. 195</a>.</p>
+
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>Let op:</b> Dummies' "95 %"-BI voor σ met n = 5, s = 3,7, [2,195; 10,907], is een 95,45%-interval: de χ²-waarden 11,365 en 0,460 van Tabel 8-2 horen bij ±2<var data-s="04:sigma">σ</var>, dus bij staarten van 2,275 %. Het echte 95%-BI is [2,217; 10,63] <span class="computed">zelf berekend</span> (oefening hieronder).</li>
+    </ul></div>
+
+    <div class="exercise" id="ex-14-04-3" data-kw="Dummies; extra; BI standaardafwijking; CI standard deviation; tabel 8-2; table 8-2; 95 % is 2 sigma; chi-kwadraat; 3,7; S08-WE10">
+      <h4>Oefening — Dummies: n = 5, s = 3,7 <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=195">Dummies p. 195</a></h4>
+      <p>Dummies berekent een "95 %"-BI voor σ met n = 5, s = 3,7 en de χ²-waarden 11,365 en 0,460 uit zijn
+      Tabel 8-2: [2,195; 10,907]. Die tabelwaarden horen echter bij ±2<var data-s="04:sigma">σ</var>, dus bij staarten van 2,275 % (95,45 %; <span class="computed">zelf berekend</span>), niet bij
+      2,5 % (zie <a href="#d14-04-mu">"95 %" = ±2σ in de tabellen</a>). Bereken het echte 95%-BI (2,5 % per staart).</p>
+      <div class="q" data-answer="2.217" data-tol="0.005">
+        <label>a. Ondergrens (3 decimalen):</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="10.63" data-tol="0.02">
+        <label>b. Bovengrens (2 decimalen):</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <details class="hint"><summary>Hint</summary><p>CHISQ.INV(0,975; 4) en CHISQ.INV(0,025; 4); BI =
+      [√(4·3,7²/bovenste); √(4·3,7²/onderste)].</p></details>
+      <details class="solution"><summary>Toon oplossing</summary>
+        <ol class="steps">
+          <li>CHISQ.INV(0,975; 4) = 11,143 en CHISQ.INV(0,025; 4) = 0,4844 <span class="computed">zelf berekend</span>.</li>
+          <li>BI = [√(54,76/11,143); √(54,76/0,4844)] = [<b>2,217</b>; <b>10,63</b>] <span class="computed">zelf berekend</span>.</li>
+          <li>Dummies' [2,195; 10,907] is iets breder omdat het eigenlijk een 95,45%-interval is. (Met de afgeronde 0,460
+          vind je 10,911; het boek rekende met de onafgeronde tabelwaarde.) Merk op hoe breed het interval is bij n = 5.</li>
+        </ol>
+      </details>
+    </div>
+  </section>
+
+  <section class="unit" id="d14-04-f" data-kw="Dummies; extra; F-interval; F interval; verhouding varianties; ratio of variances; tabel 8-3; table 8-3; verwisselde F-waarden; swapped F values; 90 %; F.INV; nauwkeuriger; more precise">
+    <h3>Dummies: BI voor σ<sub>A</sub>²/σ<sub>B</sub>² met Tabel 8-3 <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=195">Dummies p. 195–196</a></h3>
+    <p>Hoort bij <a href="#d04-f">04.8 BI voor de verhouding van twee varianties σ<sub>1</sub>²/σ<sub>2</sub>² (F)</a>.</p>
+    <div class="box warn"><span class="t">Verwisselde F-waarden</span>
+      <p>Dummies <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=195">Dummies p. 195–196</a> geeft het BI voor <var data-s="04:sigma1_sq">σ<sub>A</sub>²</var>/<var data-s="04:sigma2_sq">σ<sub>B</sub>²</var> als [ (1/F(<var data-s="04:n2">n<sub>2</sub></var>, <var data-s="04:n1">n<sub>1</sub></var>))·<var data-s="04:s1_sq">s<sub>A</sub>²</var>/<var data-s="04:s2_sq">s<sub>B</sub>²</var> ; F(<var data-s="04:n1">n<sub>1</sub></var>, <var data-s="04:n2">n<sub>2</sub></var>)·<var data-s="04:s1_sq">s<sub>A</sub>²</var>/<var data-s="04:s2_sq">s<sub>B</sub>²</var> ],
+      met in Tabel 8-3 "F values for 95% confidence" die in werkelijkheid elk 5 % bovenstaart hebben (het interval is dus
+      een 90%-BI). In het voorbeeld (A: 10 punten, s<sub>A</sub>² = 4; B: 5 punten, s<sub>B</sub>² = 7,5) staat
+      [(1/3,633)(4,0/7,5); 5,999(4,0/7,5)] = [0,147; 3,199]. Met de stelling van <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=12">Recepten p. 12</a> horen de twee F-waarden
+      omgekeerd: [0,0889; 1,938] <span class="computed">zelf berekend</span>. Het besluit (1 ligt in het interval: geen
+      bewijs van verschillende spreidingen) blijft hetzelfde. De tabelwaarden zelf kloppen.</p>
+    </div>
+
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>Let op:</b> Dummies verwisselt de twee F-waarden en noemt "95 %" wat met 5 % per staart een 90%-BI is: [0,147; 3,199] in plaats van [0,0889; 1,938] <span class="computed">zelf berekend</span> <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=196">Dummies p. 196</a>.</li>
+      <li><b>Let op:</b> Tabel 8-3 staat per steekproefgrootte n, niet per vrijheidsgraden: F(<var data-s="04:n1">n<sub>1</sub></var> = 5, <var data-s="04:n2">n<sub>2</sub></var> = 10) = 3,633 = F.INV.RT(0,05; 4; 9) <span class="computed">zelf berekend</span>.</li>
+    </ul></div>
+
+    <div class="exercise" id="ex-14-04-4" data-kw="F-interval; F interval; verhouding varianties; ratio of variances; Dummies; extra; F.INV; nauwkeuriger; more precise; S08-WE11">
+      <h4>Oefening — Heeft verdeling A een kleinere spreiding dan B? <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=196">Dummies p. 196</a></h4>
+      <p>Gegevens van Dummies: verdeling A, n<sub>A</sub> = 10 punten, s<sub>A</sub>² = 4; verdeling B, n<sub>B</sub> = 5
+      punten, s<sub>B</sub>² = 7,5. Gebruik (<var data-s="04:s1_sq">s<sub>A</sub>²</var>/<var data-s="04:s2_sq">s<sub>B</sub>²</var>)(<var data-s="04:sigma2_sq">σ<sub>B</sub>²</var>/<var data-s="04:sigma1_sq">σ<sub>A</sub>²</var>) ~ F(9; 4).</p>
+      <div class="q" data-answer="0.2752" data-tol="0.001">
+        <label>a. F.INV(0,05; 9; 4) = (4 decimalen)</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="0.0889" data-tol="0.001">
+        <label>b. Juiste ondergrens van het BI voor <var data-s="04:sigma1_sq">σ<sub>A</sub>²</var>/<var data-s="04:sigma2_sq">σ<sub>B</sub>²</var> met 5 % in elke staart (4 decimalen):</label>
+        <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="1.938" data-tol="0.005">
+        <label>c. Bijbehorende bovengrens (3 decimalen):</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="0.516" data-tol="0.003">
+        <label>d. Eenzijdige 95%-ondergrens voor <var data-s="04:sigma2_sq">σ<sub>B</sub>²</var>/<var data-s="04:sigma1_sq">σ<sub>A</sub>²</var> (3 decimalen):</label> <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="nee">
+        <label>e. Kun je met 95 % betrouwbaarheid besluiten dat A een kleinere spreiding heeft?</label>
+        <select><option value="">kies…</option><option value="ja">ja, de ondergrens ligt boven 1</option><option value="nee">nee, de ondergrens ligt onder 1</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <details class="hint"><summary>Hint</summary><p>F.INV(0,05; 9; 4) = 1/F.INV(0,95; 4; 9) = 1/3,633. Voor b en c:
+      (<var data-s="04:s1_sq">s<sub>A</sub>²</var>/<var data-s="04:s2_sq">s<sub>B</sub>²</var>)/F.INV(0,95; 9; 4) en (<var data-s="04:s1_sq">s<sub>A</sub>²</var>/<var data-s="04:s2_sq">s<sub>B</sub>²</var>)/F.INV(0,05; 9; 4).</p></details>
+      <details class="solution"><summary>Toon oplossing</summary>
+        <ol class="steps">
+          <li>a. F.INV(0,05; 9; 4) = <b>0,2752</b> = 1/3,633 (Tabel 8-3 van Dummies: F(<var data-s="04:n1">n<sub>1</sub></var> = 5, <var data-s="04:n2">n<sub>2</sub></var> = 10)
+          = 3,633 = F.INV.RT(0,05; 4; 9); F(10, 5) = 5,999 = F.INV.RT(0,05; 9; 4)) <span class="computed">zelf berekend</span>.</li>
+          <li>b–c. <var data-s="04:s1_sq">s<sub>A</sub>²</var>/<var data-s="04:s2_sq">s<sub>B</sub>²</var> = 4/7,5 = 0,5333. BI = [0,5333/5,999; 0,5333·3,633] = [<b>0,0889</b>;
+          <b>1,938</b>] <span class="computed">zelf berekend</span>. Dummies drukt [0,147; 3,199] af, met de twee F-waarden
+          verwisseld.</li>
+          <li>d. <var data-s="04:sigma2_sq">σ<sub>B</sub>²</var>/<var data-s="04:sigma1_sq">σ<sub>A</sub>²</var> ≥ (<var data-s="04:s2_sq">s<sub>B</sub>²</var>/<var data-s="04:s1_sq">s<sub>A</sub>²</var>)·F.INV(0,05; 9; 4) = 1,875·0,2752 = <b>0,516</b>
+          <span class="computed">zelf berekend</span> (= 1/1,938: hetzelfde getal als in c, omgekeerd).</li>
+          <li>e. <b>Nee</b>: de ondergrens 0,516 ligt onder 1; een verhouding 1 (gelijke spreidingen) is plausibel. Met zo
+          weinig data (4 en 9 vrijheidsgraden) is een BI voor een verhouding van varianties erg breed.</li>
+        </ol>
+      </details>
+    </div>
+  </section>

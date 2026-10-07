@@ -54,6 +54,29 @@ var Calc = (function () {
     var z = S.normInv(1 - (1 - coverage) / 2);
     return { z: z, lo: mu - z * s, hi: mu + z * s };
   }
+  // Symmetric interval µ ± kσ: any one of {k, fraction inside, fraction outside, µ − kσ, µ + kσ} → all of them
+  // (the bounds need µ and σ). Same relation as normalKSigma and normalCentral, solvable in every direction.
+  function normalSymmetric(q) {
+    var mu = q.mu, s = num(q.sigma) && q.sigma > 0 ? q.sigma : null, k = num(q.k) ? Math.abs(q.k) : null, notes = [];
+    var fromP = num(q.inside) && q.inside > 0 && q.inside < 1 ? S.normInv(1 - (1 - q.inside) / 2)
+      : (num(q.outside) && q.outside > 0 && q.outside < 1 ? -S.normInv(q.outside / 2) : null);
+    var fromBound = all(mu, s) ? (num(q.hi) ? (q.hi - mu) / s : (num(q.lo) ? (mu - q.lo) / s : null)) : null;
+    if (num(k) && num(fromP) && Math.abs(k - fromP) > 1e-6) notes.push('k en de kans spreken elkaar tegen; k gebruikt');
+    if (!num(k)) k = num(fromP) ? fromP : fromBound;
+    if (num(k) && k < 0) { notes.push('de grens ligt aan de verkeerde kant van µ'); k = null; }
+    if (!num(k)) return notes.length ? { notes: notes } : null;
+    var outside = 2 * S.normCdf(-k);
+    return { k: k, inside: 1 - outside, outside: outside, lo: all(mu, s) ? mu - k * s : null, hi: all(mu, s) ? mu + k * s : null,
+             notes: notes };
+  }
+  // Standard error of a mean, σ(x̄) = σ/√n: any two of σ, n and σ(x̄) give the third.
+  function standardError(sigma, n, se) {
+    if (all(sigma, n) && sigma > 0 && n > 0) return { sigma: sigma, n: n, se: sigma / Math.sqrt(n) };
+    if (all(se, n) && se > 0 && n > 0) return { sigma: se * Math.sqrt(n), n: n, se: se };
+    if (all(sigma, se) && sigma > 0 && se > 0) return { sigma: sigma, n: Math.pow(sigma / se, 2), se: se };
+    return null;
+  }
+
 
   /* ---------- quantiles and p-values (z, t, χ², F) ---------- */
   function quantiles(dist, d1, d2, alpha) {
@@ -215,6 +238,21 @@ var Calc = (function () {
     return out;
   }
   function bernoulli(p) { return num(p) && p >= 0 && p <= 1 ? { mean: p, variance: p * (1 - p) } : null; }
+  // Inverse of a discrete cdf: the smallest k with P(X ≤ k) ≥ q (like Excel BINOM.INV).
+  function discreteQuantile(cdf, q, kMax) {
+    if (!num(q) || q <= 0 || q >= 1) return null;
+    for (var k = 0; k <= kMax; k++) if (cdf(k) >= q - 1e-12) return k;
+    return null;
+  }
+  function distributionQuantile(kind, q, a, b, c) {
+    if (kind === 'binomial' && all(a, b)) return discreteQuantile(function (k) { return S.binomCdf(k, a, b); }, q, a);
+    if (kind === 'poisson' && num(a)) return discreteQuantile(function (k) { return S.poissonCdf(k, a); }, q, Math.ceil(a + 40 * Math.sqrt(a) + 50));
+    if (kind === 'hypergeometric' && all(a, b, c)) return discreteQuantile(function (k) { return S.hypergeomCdf(k, a, b, c); }, q, Math.min(b, c));
+    if (!num(q) || q <= 0 || q >= 1) return null;
+    if (kind === 'exponential' && num(a) && a > 0) return -Math.log(1 - q) / a;
+    if (kind === 'uniform' && all(a, b) && b > a) return a + q * (b - a);
+    return null;
+  }
 
   /* ---------- contingency table: joint, marginal, conditional (Naert Les 1 p. 22-23) ---------- */
   function contingency(rows) {
@@ -251,6 +289,31 @@ var Calc = (function () {
     return { shifted: shifted, oneTail: MILLION * S.normCdf(-Z), twoTails: 2 * MILLION * S.normCdf(-Z),
              yieldShifted: 1 - shifted / MILLION };
   }
+  // Any one of: D, N and O; DPO; DPMO; yield per opportunity; Z (one tail, no shift); sigma level (Z + 1,5) → all of them.
+  // The course tables pair a level with the one-tail fraction beyond level − 1,5 (decision 3, SPC p. 20-21).
+  function sigmaSolve(q) {
+    var given = [], notes = [];
+    if (all(q.D, q.N, q.O) && q.N > 0 && q.O > 0) given.push(['D/(N·O)', q.D / (q.N * q.O)]);
+    if (num(q.dpo)) given.push(['DPO', q.dpo]);
+    if (num(q.dpmo)) given.push(['DPMO', q.dpmo / MILLION]);
+    if (num(q.ypo)) given.push(['yield', 1 - q.ypo]);
+    if (num(q.z)) given.push(['Z', S.normCdf(-q.z)]);
+    if (num(q.level)) given.push(['sigmaniveau', S.normCdf(-(q.level - SHIFT))]);
+    if (!given.length) return null;
+    var p = given[0][1];
+    given.slice(1).forEach(function (g) {
+      if (Math.abs(g[1] - p) > 1e-9 + 1e-6 * p) notes.push(g[0] + ' spreekt ' + given[0][0] + ' tegen; ' + given[0][0] + ' gebruikt');
+    });
+    if (!(p > 0 && p < 1)) return { notes: notes.concat(['de fractie defect per kans moet tussen 0 en 1 liggen']) };
+    var z = -S.normInv(p), out = { dpo: p, dpmo: p * MILLION, ypo: 1 - p, z: z, level: z + SHIFT, notes: notes };
+    if (all(q.N, q.O) && !num(q.D)) out.D = p * q.N * q.O;           // expected number of defects
+    if (all(q.D, q.N) && q.N > 0) out.dpu = q.D / q.N;
+    // the level read without the shift (SPC p. 40): one tail beyond Z = level, and both tails for a centred process (Cp = level/3)
+    out.unshiftedOne = MILLION * S.normCdf(-out.level);
+    out.unshiftedTwo = 2 * out.unshiftedOne;
+    return out;
+  }
+
   function yields(inU, outU, scrap, rework) {
     if (!num(inU) || inU <= 0) return null;
     var out = {};
@@ -322,6 +385,16 @@ var Calc = (function () {
     }
     return out;
   }
+  // Cpk ↔ fraction beyond the nearest limit (z = 3·Cpk), and Cp ↔ fraction outside for a centred process (z = 3·Cp).
+  function capabilityTails(cpk, ppmOne, cp, ppmTwo) {
+    var out = {};
+    if (num(cpk)) out.ppmOne = MILLION * S.normCdf(-3 * cpk);
+    else if (num(ppmOne) && ppmOne > 0 && ppmOne < MILLION) out.cpk = -S.normInv(ppmOne / MILLION) / 3;
+    if (num(cp)) out.ppmTwo = 2 * MILLION * S.normCdf(-3 * cp);
+    else if (num(ppmTwo) && ppmTwo > 0 && ppmTwo < MILLION) out.cp = -S.normInv(ppmTwo / (2 * MILLION)) / 3;
+    return out;
+  }
+
 
   /* ---------- control charts (sheet_charts.py; SPC p. 74, Dummies p. 249-254) ---------- */
   function limitsSummary(n, xbarbar, rbar, sbar, K) {
@@ -336,6 +409,23 @@ var Calc = (function () {
     if (all(sbar, out.c4)) out.sigmaS = sbar / out.c4;
     return out;
   }
+  // The other way round: from printed limits back to X̿, R̄ or s̄ and σ̂ (SPC p. 74: UCL = X̿ + A2·R̄, UCL_R = D4·R̄, …).
+  function limitsInverse(n, uclX, lclX, uclR, uclS, K) {
+    if (!num(n)) return null;
+    var c = {}, out = { n: n };
+    ['A2', 'A3', 'D4', 'B4', 'd2', 'c4'].forEach(function (s) { c[s] = K.get(s, n); out[s] = c[s]; });
+    if (all(uclX, lclX)) { out.xbb = (uclX + lclX) / 2; out.half = (uclX - lclX) / 2; }
+    if (num(out.half) && num(c.A2)) out.rbarFromX = out.half / c.A2;
+    if (num(out.half) && num(c.A3)) out.sbarFromX = out.half / c.A3;
+    if (num(uclR) && num(c.D4)) out.rbarFromR = uclR / c.D4;
+    if (num(uclS) && num(c.B4) && c.B4 > 0) out.sbarFromS = uclS / c.B4;
+    var rbar = num(out.rbarFromR) ? out.rbarFromR : out.rbarFromX, sbar = num(out.sbarFromS) ? out.sbarFromS : out.sbarFromX;
+    if (num(rbar) && num(c.d2)) out.sigmaR = rbar / c.d2;
+    if (num(sbar) && num(c.c4)) out.sigmaS = sbar / c.c4;
+    if (num(out.half)) out.sigmaXbar = out.half / 3;                    // limits are CL ± 3σ(x̄)
+    return out;
+  }
+
   function flag(v, lim) { return !lim || !num(v) ? '' : (v > lim[2] ? 'boven UCL' : (v < lim[0] ? 'onder LCL' : '')); }
   function subgroupChart(groups, K) {
     if (!groups || !groups.length) return null;
@@ -620,6 +710,23 @@ var Calc = (function () {
 
   /* ---------- Les 2 (Ottoy): sample size, tolerance intervals, β/power, χ² frequency tests, rank tests ---------- */
   // sample size from the CI formulas (CI p. 10, CI FR p. 3) solved for n; W = FULL width (CI p. 7 footnote)
+  // Width W of a CI ↔ sample size n ↔ confidence 1 − α: any two give the third (proportion: W = 2z√(p(1 − p)/n);
+  // mean with σ known: W = 2zσ/√n).
+  function sampleSizeSolve(alpha, W, n, p, sigma) {
+    var pp = num(p) ? p : 0.5, out = { p: pp };
+    var spreads = { prop: pp > 0 && pp < 1 ? Math.sqrt(pp * (1 - pp)) : null, mean: num(sigma) && sigma > 0 ? sigma : null };
+    if (num(alpha) && alpha > 0 && alpha < 1) out.z = S.normInv(1 - alpha / 2);
+    ['prop', 'mean'].forEach(function (key) {
+      var sd = spreads[key];
+      if (!num(sd)) return;
+      var r = {};
+      if (num(n) && n > 0 && num(out.z)) r.W = 2 * out.z * sd / Math.sqrt(n);
+      if (num(n) && n > 0 && num(W) && W > 0 && !num(alpha)) { r.z = W * Math.sqrt(n) / (2 * sd); r.confidence = 2 * S.normCdf(r.z) - 1; }
+      if (num(W) && W > 0 && num(out.z) && !num(n)) { r.n = Math.pow(2 * out.z * sd / W, 2); r.nUp = Math.ceil(r.n - 1e-9); }
+      out[key] = r;
+    });
+    return out;
+  }
   function sampleSize(alpha, W, p, sigma) {
     if (!all(alpha, W) || W <= 0 || alpha <= 0 || alpha >= 1) return null;
     var z = S.normInv(1 - alpha / 2), out = { z: z };
@@ -671,6 +778,12 @@ var Calc = (function () {
       out.nOneSidedUp = Math.ceil(out.nOneSided - 1e-9);
     }
     return out;
+  }
+  // The smallest shift |µ1 − µ0| a one-sided Z-test with n observations detects with risk β: (z₁₋α + z₁₋β)·σ/√n (TH FR p. 9 solved
+  // for the difference).
+  function detectableShift(sigma, n, alpha, targetBeta) {
+    if (!all(sigma, n, alpha, targetBeta) || sigma <= 0 || n <= 0 || targetBeta <= 0 || targetBeta >= 1) return null;
+    return (S.normInv(1 - alpha) + S.normInv(1 - targetBeta)) * sigma / Math.sqrt(n);
   }
   // β of the Z-test for π (guide ex-05-12: π0 under the root for the critical value, π1 for the true distribution)
   function powerProportion(pi0, pi1, n, alpha, targetBeta) {
@@ -1178,7 +1291,9 @@ var Calc = (function () {
     };
   }
 
-  return { tables: tables, normalSolve: normalSolve, normalBetween: normalBetween, normalKSigma: normalKSigma, normalCentral: normalCentral,
+  return { tables: tables, normalSolve: normalSolve, normalSymmetric: normalSymmetric, standardError: standardError,
+           sigmaSolve: sigmaSolve, capabilityTails: capabilityTails, limitsInverse: limitsInverse, sampleSizeSolve: sampleSizeSolve,
+           detectableShift: detectableShift, distributionQuantile: distributionQuantile, normalBetween: normalBetween, normalKSigma: normalKSigma, normalCentral: normalCentral,
            quantiles: quantiles, pValues: pValues, describe: describe, oneMean: oneMean, twoMeansPooled: twoMeansPooled,
            paired: paired, oneProportion: oneProportion, twoProportions: twoProportions, oneVariance: oneVariance,
            twoVariances: twoVariances, bernoulli: bernoulli, binomial: binomial, hypergeometric: hypergeometric,

@@ -1,0 +1,8 @@
+wat	formule_html	bron	href
+Defecten per eenheid	<var data-s="03:dpu">DPU</var> = <var data-s="03:d_defects">D</var> / <var data-s="03:n_units">N</var>	Dummies p. 152	../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=152
+Traditionele yield	<var data-s="03:y_trad">Y</var> = <var data-s="03:out_units">out</var> / <var data-s="03:in_units">in</var> = 1 − <var data-s="03:scrap">scrap</var> / <var data-s="03:in_units">in</var>	Dummies p. 147	../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=147
+First time yield	<var data-s="03:fty">FTY</var> = (<var data-s="03:in_units">in</var> − <var data-s="03:scrap">scrap</var> − <var data-s="03:rework">rework</var>) / <var data-s="03:in_units">in</var>	Dummies p. 148	../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=148
+Rolled throughput yield	<var data-s="03:rty">RTY</var> = <var data-s="03:fty">FTY<sub>1</sub></var> × <var data-s="03:fty">FTY<sub>2</sub></var> × … × <var data-s="03:fty">FTY<sub>n</sub></var>	Dummies p. 149	../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=149
+Normalized yield	<var data-s="03:ny">NY</var> = <var data-s="03:rty">RTY</var><sup>1/<var data-s="03:k_steps">k</var></sup> (<var data-s="03:k_steps">k</var> = aantal stappen)	H&S p. 5	../source/course/Les%204/Six-Sigma%20Mikel%20Harry%20-%20%20Richard%20Schroeder.pdf#page=5
+Eenheden per foutloze eenheid	1 + (1 − <var data-s="03:rty">RTY</var>) (herstelbaar); 1 / <var data-s="03:rty">RTY</var> (afgekeurd)	H&S p. 5	../source/course/Les%204/Six-Sigma%20Mikel%20Harry%20-%20%20Richard%20Schroeder.pdf#page=5
+1,5σ-verschuiving	<var data-s="03:z_lt">Z<sub>LT</sub></var> = <var data-s="03:z_st">Z<sub>ST</sub></var> − 1,5	Dummies p. 160	../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=160

@@ -108,28 +108,31 @@
         return r ? out([['z van a / z van b', f(r.za) + ' / ' + f(r.zb)], ['P(X < a)', fp(r.below)], ['P(a < X < b)', fp(r.between)],
                         ['P(X > b)', fp(r.above)], ['buiten [a ; b]', fp(r.outside), f(r.outside * 1e6) + ' ppm']]) : '';
       } },
-    { title: 'µ ± k·σ en de bijhorende fractie (68-95-99,7)',
-      form: inp('mu', 'µ') + inp('sigma', 'σ') + inp('k', 'k (aantal σ)'),
+    { title: 'Symmetrisch interval µ ± k·σ: k, fractie binnen en buiten, grenzen (68-95-99,7)',
+      help: 'Vul één van k, de fractie binnen, de fractie buiten of een grens in (een grens vraagt µ en σ); de rest volgt. ' +
+            'k = 1, 2, 3 geeft 68,27 %, 95,45 %, 99,73 % binnen; 95 % binnen geeft k = 1,96.',
+      form: inp('mu', 'µ') + inp('sigma', 'σ') + inp('k', 'k (aantal σ)') + inp('inside', 'fractie binnen µ ± kσ') +
+            inp('outside', 'fractie buiten (beide staarten)') + inp('lo', 'ondergrens µ − kσ') + inp('hi', 'bovengrens µ + kσ'),
       run: function (v) {
-        var r = Calc.normalKSigma(v.mu, v.sigma, v.k);
-        return r ? out([['µ − kσ … µ + kσ', iv([r.lo, r.hi])], ['binnen', fp(r.inside)], ['buiten (beide staarten)', fp(r.outside), f(r.outside * 1e6) + ' ppm']]) : '';
-      } },
-    { title: 'Centraal interval met een gegeven kans',
-      form: inp('mu', 'µ') + inp('sigma', 'σ') + inp('c', 'kans in het midden (bv. 0,95)'),
-      run: function (v) {
-        var r = Calc.normalCentral(v.mu, v.sigma, v.c);
-        return r ? out([['z', f(r.z)], ['interval', iv([r.lo, r.hi])]]) : '';
-      }, pct: ['c'] },
-    { title: 'Gemiddelde van n waarnemingen: σ<sub>x̄</sub> = σ / √n',
+        var r = Calc.normalSymmetric(v);
+        if (!r) return '';
+        return out([['k', f(r.k)], ['binnen', fp(r.inside)], ['buiten (beide staarten)', fp(r.outside), num(r.outside) ? f(r.outside * 1e6) + ' ppm' : ''],
+                    ['per staart', fp(num(r.outside) ? r.outside / 2 : null)], ['µ − kσ … µ + kσ', num(r.lo) ? iv([r.lo, r.hi]) : '–', num(r.lo) ? '' : 'vul µ en σ in']]) +
+          (r.notes && r.notes.length ? warn(r.notes.join('; ')) : '');
+      }, pct: ['inside', 'outside'] },
+    { title: 'Gemiddelde van n waarnemingen: σ<sub>x̄</sub> = σ / √n (twee van de drie geven de derde)',
       help: 'Gebruik σ/√n daarna als σ in het blok "alles uit alles" voor kansen op x̄ (centrale limietstelling, SPC p. 62–63).',
-      form: inp('sigma', 'σ (van één waarneming)') + inp('n', 'n'),
-      run: function (v) { return num(v.sigma) && num(v.n) && v.n > 0 ? out([['σ / √n', f(v.sigma / Math.sqrt(v.n))]]) : ''; } }
+      form: inp('sigma', 'σ (van één waarneming)') + inp('n', 'n') + inp('se', 'σ<sub>x̄</sub> = σ/√n'),
+      run: function (v) {
+        var r = Calc.standardError(v.sigma, v.n, v.se);
+        return r ? out([['σ', f(r.sigma)], ['n', f(r.n), Number.isInteger(r.n) ? '' : 'naar boven afgerond: ' + Math.ceil(r.n - 1e-9)], ['σ<sub>x̄</sub> = σ/√n', f(r.se)]]) : '';
+      } },
+    { title: 'Zoek in de Z-tabel van de cursus', help: 'Geef z (2 decimalen) of een kans: de cel wordt gemarkeerd in de tabel hieronder (Ztable.pdf p. 1–2).',
+      form: inp('z', 'z') + inp('p', 'kans links van z'),
+      run: function (v, box) { return zLookup(v, box); }, pct: ['p'] }
   ];
 
-  TOOLS.ztabel = [
-    { title: 'Zoek in de Z-tabel', help: 'Geef z (2 decimalen) of een kans: de cel wordt gemarkeerd in de tabel hieronder.',
-      form: inp('z', 'z') + inp('p', 'kans links van z'),
-      run: function (v, box) {
+  function zLookup(v, box) {
         var cells = box.querySelectorAll('td[data-z]'), best = null, bestd = Infinity;
         cells.forEach(function (c) { c.classList.remove('hit'); });
         if (num(v.z)) {
@@ -143,32 +146,26 @@
           if (best) best.classList.add('hit');
           return out([['dichtste cel', best ? best.textContent + ' bij z = ' + f(+best.dataset.z) : '–'], ['exact z', f(Stats.normInv(v.p))]]);
         }
-        return '';
-      }, pct: ['p'] }
-  ];
+        return ''
+  }
 
   TOOLS.sigma = [
-    { title: 'Defecten: DPO en DPMO', help: 'SPC p. 20: DPO = defecten per kans (defects per opportunity), DPMO = DPO · 10⁶, yield = 1 − DPO.',
-      form: inp('D', 'D = aantal defecten') + inp('N', 'N = aantal eenheden') + inp('O', 'O = kansen (opportunities) per eenheid'),
+    { title: 'Alles uit alles: defecten, DPO, DPMO, yield, Z en sigmaniveau',
+      help: 'Vul één gegeven in (of D, N en O samen) en laat de rest leeg. DPO = D/(N·O), DPMO = DPO·10⁶, yield per kans = 1 − DPO (SPC p. 20). ' +
+            'Z = de z-waarde met DPO als rechterstaart; sigmaniveau = Z + 1,5 (de 1,5σ-verschuiving van de cursustabellen, SPC p. 21 en beslissing 3).',
+      form: inp('D', 'D = aantal defecten') + inp('N', 'N = aantal eenheden') + inp('O', 'O = kansen (opportunities) per eenheid') +
+            inp('dpo', 'DPO') + inp('dpmo', 'DPMO') + inp('ypo', 'yield per kans (fractie of %)') + inp('z', 'Z zonder verschuiving') + inp('level', 'sigmaniveau (met 1,5σ-verschuiving)'),
       run: function (v) {
-        var r = Calc.defects(v.D, v.N, v.O);
-        return r ? out([['DPO = D / (N·O)', f(r.dpo)], ['DPMO = DPO · 10⁶', f(r.dpmo)], ['yield per kans = 1 − DPO', fp(r.ypo)]]) : '';
-      } },
-    { title: 'Van DPMO naar sigmaniveau (beide lezingen)',
-      form: inp('dpmo', 'DPMO'),
-      run: function (v) {
-        var r = Calc.sigmaFromDpmo(v.dpmo);
-        return r ? out([['yield = 1 − DPMO/10⁶', fp(r.yield)], ['Z zonder verschuiving (één staart)', f(r.z)],
-                        ['sigmaniveau met 1,5σ-verschuiving = Z + 1,5', f(r.level), 'zoals de tabellen van de cursus (SPC p. 21)']]) : '';
-      } },
-    { title: 'Van sigmaniveau naar DPMO (beide lezingen)',
-      form: inp('Z', 'sigmaniveau Z (bv. 6)'),
-      run: function (v) {
-        var r = Calc.dpmoFromSigma(v.Z);
-        return r ? out([['DPMO met 1,5σ-verschuiving (staart voorbij Z − 1,5)', f(r.shifted), 'cursustabellen: 6σ → 3,4'],
-                        ['yield met verschuiving', fp(r.yieldShifted)], ['DPMO zonder verschuiving, één staart', f(r.oneTail)],
-                        ['DPMO zonder verschuiving, beide staarten (gecentreerd, Cp = Z/3)', f(r.twoTails), 'SPC p. 40: Cp = 2 → 2 per miljard']]) : '';
-      } }
+        var r = Calc.sigmaSolve(v);
+        if (!r) return '';
+        if (!num(r.dpo)) return warn(r.notes.join('; '));
+        return out([num(r.D) ? ['verwacht aantal defecten D = DPO·N·O', f(r.D)] : null, num(r.dpu) ? ['DPU = D/N (defecten per eenheid)', f(r.dpu)] : null,
+                    ['DPO', f(r.dpo)], ['DPMO = DPO · 10⁶', f(r.dpmo)], ['yield per kans = 1 − DPO', fp(r.ypo)],
+                    ['Z zonder verschuiving (één staart)', f(r.z)], ['sigmaniveau = Z + 1,5', f(r.level), 'zoals de sigmatabel hieronder'],
+                    'het sigmaniveau gelezen zonder verschuiving (SPC p. 40)',
+                    ['DPMO voorbij Z = sigmaniveau, één staart', f(r.unshiftedOne)], ['DPMO beide staarten (gecentreerd, Cp = niveau/3)', f(r.unshiftedTwo), 'SPC p. 40: Cp = 2 → 2 per miljard']]) +
+          (r.notes.length ? warn(r.notes.join('; ')) : '');
+      }, pct: ['ypo'] }
   ];
 
   TOOLS.kwantielen = [
@@ -483,6 +480,14 @@
         var r = Calc.capabilityInverse(v.lsl, v.usl, v.cp, v.sigma, v.cpk);
         return out([['σ nodig voor die Cp = (USL − LSL)/(6·Cp)', f(r.sigmaForCp)],
                     ['gemiddelde minstens LSL + 3·Cpk·σ', f(r.meanMin)], ['gemiddelde hoogstens USL − 3·Cpk·σ', f(r.meanMax)]]);
+      } },
+    { title: 'Cpk ↔ ppm voorbij de dichtste grens, Cp ↔ ppm buiten (gecentreerd proces)',
+      help: 'De dichtste grens ligt 3·Cpk standaardafwijkingen van het gemiddelde: ppm = 10⁶·P(Z > 3·Cpk). Een gecentreerd proces heeft beide grenzen op 3·Cp: ppm = 2·10⁶·P(Z > 3·Cp). Vul Cpk of ppm in (en/of Cp of ppm).',
+      form: inp('cpk', 'Cpk') + inp('ppmOne', 'ppm voorbij de dichtste grens') + inp('cp', 'Cp (gecentreerd)') + inp('ppmTwo', 'ppm buiten beide grenzen'),
+      run: function (v) {
+        var r = Calc.capabilityTails(v.cpk, v.ppmOne, v.cp, v.ppmTwo);
+        return out([num(r.ppmOne) ? ['ppm voorbij de dichtste grens', f(r.ppmOne)] : null, num(r.cpk) ? ['Cpk = −NORM.S.INV(ppm/10⁶)/3', f(r.cpk)] : null,
+                    num(r.ppmTwo) ? ['ppm buiten beide grenzen', f(r.ppmTwo)] : null, num(r.cp) ? ['Cp = −NORM.S.INV(ppm/(2·10⁶))/3', f(r.cp)] : null]);
       } }
   ];
 
@@ -503,6 +508,17 @@
         return out([['k subgroepen van n', f(r.k) + ' × ' + f(r.n)], ['X̿', f(r.xbarbar)], ['R̄', f(r.rbar)], ['s̄', f(r.sbar)]]) + limitsTable(r) +
           grid(['#', 'x̄', 'R', 's', 'x̄ (R-grenzen)', 'R', 'x̄ (s-grenzen)', 's'], r.groups.map(function (g, i) {
             return [String(i + 1), f(g.mean), f(g.range), f(g.s), flagged(g.fxR), flagged(g.fR), flagged(g.fxS), flagged(g.fS)]; }));
+      } },
+    { title: 'Omgekeerd: uit de grenzen X̿, R̄, s̄ en σ̂ terugrekenen', help: 'SPC p. 74 opgelost naar R̄ en s̄: CL = (UCL + LCL)/2, R̄ = (UCL − CL)/A2, s̄ = (UCL − CL)/A3, R̄ = UCL<sub>R</sub>/D4, s̄ = UCL<sub>s</sub>/B4; σ̂ = R̄/d2 of s̄/c4; de grenzen liggen op CL ± 3σ<sub>x̄</sub>.',
+      form: inp('n', 'n (subgroepgrootte)') + inp('uclX', 'UCL van de X̄-kaart') + inp('lclX', 'LCL van de X̄-kaart') + inp('uclR', 'UCL van de R-kaart') + inp('uclS', 'UCL van de s-kaart'),
+      run: function (v) {
+        var r = Calc.limitsInverse(v.n, v.uclX, v.lclX, v.uclR, v.uclS, K);
+        if (!r) return '';
+        if (!num(r.A2)) return warn('n = ' + f(v.n) + ' staat niet in de tabel');
+        return out([['X̿ = (UCL + LCL)/2', f(r.xbb)], ['σ<sub>x̄</sub> = (UCL − LCL)/6', f(r.sigmaXbar)],
+                    ['R̄ uit de X̄-grenzen = (UCL − X̿)/A2', f(r.rbarFromX), 'A2 = ' + f(r.A2)], ['R̄ uit de R-kaart = UCL<sub>R</sub>/D4', f(r.rbarFromR), 'D4 = ' + f(r.D4)],
+                    ['s̄ uit de X̄-grenzen = (UCL − X̿)/A3', f(r.sbarFromX), 'A3 = ' + f(r.A3)], ['s̄ uit de s-kaart = UCL<sub>s</sub>/B4', f(r.sbarFromS), 'B4 = ' + f(r.B4)],
+                    ['σ̂ = R̄/d2', f(r.sigmaR), 'd2 = ' + f(r.d2)], ['σ̂ = s̄/c4', f(r.sigmaS), 'c4 = ' + f(r.c4)]]);
       } }
   ];
   function flagged(s) { return s ? '<b class="flag">' + s + '</b>' : ''; }

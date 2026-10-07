@@ -17,15 +17,15 @@
     <p>Een <b>hypothese</b> is een uitspraak over een populatiegrootheid (een parameter van een verdeling). Of ze plausibel
     is, onderzoek je met een aselecte steekproef (RS, met of zonder teruglegging) en een daaruit berekende statistiek,
     volgens een geijkt recept: "het testen (toetsen) van hypothesen" <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=2">TH FR p. 2</a>.</p>
-    <p><b>Het tegelvoorbeeld als toets</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=3">TH p. 3</a>. Partij van <var data-s="n_lot">N</var> = 10 000 dure keramische tegels, <var data-s="aql">AQL</var> = 2 % (dus hoogstens
-    200 defecte tegels), aanvaardingsplan (<var data-s="n">n</var> = 100, <var data-s="c">c</var>): tel het aantal defectieven d in de steekproef; <var data-s="d_def">d</var> ≤ <var data-s="c">c</var>: aanvaarden,
+    <p><b>Het tegelvoorbeeld als toets</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=3">TH p. 3</a>. Partij van \(\sym{n_lot}{N} = 10\,000\) dure keramische tegels, \(\sym{aql}{\mathrm{AQL}} = 2\,\%\) (dus hoogstens
+    200 defecte tegels), aanvaardingsplan (\(\sym{n}{n} = 100\), <var data-s="c">c</var>): tel het aantal defectieven d in de steekproef; \(\sym{d_def}{d} \le \sym{c}{c}\): aanvaarden,
     anders afkeuren. Zolang niet de hele partij gecontroleerd is, blijft elke uitspraak over de partij een hypothese. Men
     stelt twee elkaar uitsluitende hypothesen op:</p>
     <div class="f">
-      <div><var data-s="h0">H<sub>0</sub></var>: de partij is aanvaardbaar, <var data-s="p_lot">P</var> = <var data-s="d_lot">D</var>/<var data-s="n_lot">N</var> ≤ <var data-s="aql">AQL</var>  (nulhypothese, null hypothesis)</div>
-      <div><var data-s="ha">H<sub>A</sub></var>: de partij is niet aanvaardbaar, <var data-s="p_lot">P</var> &gt; <var data-s="aql">AQL</var>  (alternatieve hypothese; ook H<sub>1</sub> genoemd)</div>
+      <div>\(\sym{h0}{H_0}\): de partij is aanvaardbaar, \(\sym{p_lot}{P} = \sym{d_lot}{D}/\sym{n_lot}{N} \le \sym{aql}{\mathrm{AQL}}\)  (nulhypothese, null hypothesis)</div>
+      <div>\(\sym{ha}{H_A}\): de partij is niet aanvaardbaar, \(\sym{p_lot}{P} \gt \sym{aql}{\mathrm{AQL}}\)  (alternatieve hypothese; ook \(H_1\) genoemd)</div>
     </div>
-    <p>Stel dat <var data-s="d_def">d</var> = 4 (<var data-s="p_sample">p</var> = 4 %, het dubbele van de AQL). De producent zegt: "bij 2 % mogen er 200 defecten in de partij
+    <p>Stel dat \(\sym{d_def}{d} = 4\) (\(\sym{p_sample}{p} = 4\,\%\), het dubbele van de AQL). De producent zegt: "bij 2 % mogen er 200 defecten in de partij
     zitten, dus 4 op 100 kan perfect uit een goede partij komen". De klant zegt: "jullie zitten op 4 %, het dubbele van de
     AQL" (notities bij TH p. 3). De toets beslist objectief, met vooraf afgesproken risico's.</p>
     <div class="box key"><span class="t">Kernidee: H<sub>0</sub> is de status quo</span>
@@ -45,7 +45,7 @@
     <p><b>Het tweede voorbeeld: beeldbuizen</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=3">TH FR p. 3</a>. Een nieuwe productiemethode zou beeldbuizen met een langere
     levensduur opleveren; tegenstanders betwijfelen dat. Onder het beproefde procedé is de levensduur normaal verdeeld met
     gemiddelde 1200 tijdseenheden en spreiding 300. Men test 100 buizen van het nieuwe procedé. De populatiegrootheid is
-    µ, de statistiek het steekproefgemiddelde (<var data-s="sigma">σ</var> = 300 gekend): <var data-s="h0">H<sub>0</sub></var>: <var data-s="mu">µ</var> = 1200, <var data-s="ha">H<sub>A</sub></var>: <var data-s="mu">µ</var> &gt; 1200. Dit
+    µ, de statistiek het steekproefgemiddelde (\(\sym{sigma}{\sigma} = 300\) gekend): \(\sym{h0}{H_0}\colon \sym{mu}{\mu} = 1200\), \(\sym{ha}{H_A}\colon \sym{mu}{\mu} \gt 1200\). Dit
     voorbeeld loopt door de hele Further Reading.</p>
     <figure class="fig"><img src="figures/05_beeldbuizen_h0_ha.png" alt="Twee normale verdelingen van het steekproefgemiddelde: rond 1200 als H0 geldt en rond 1300 als HA geldt">
     <figcaption>Figuur: de twee standpunten vertaald naar de verdeling van X̄: links als H<sub>0</sub> geldt (rond 1200), rechts als
@@ -55,9 +55,9 @@
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"In H<sub>0</sub> zet je wat je wil aantonen."</b> Fout: H<sub>0</sub> is de status quo, het "do-nothing scenario"; wat speciale actie vraagt (bijregelen, investeren, afkeuren) is H<sub>A</sub>. Je mag ze niet omwisselen: H<sub>0</sub> kan niet uitdrukken dat de partij slecht is (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=4">TH p. 4</a>).</li>
-      <li><b>"<var data-s="h0">H<sub>0</sub></var>: <var data-s="xbar">x̄</var> = 1200."</b> Fout: een hypothese is een uitspraak over een populatiegrootheid (µ, π, σ), niet over de statistiek uit de steekproef <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=2">TH FR p. 2</a>. Juist: <var data-s="h0">H<sub>0</sub></var>: <var data-s="mu">µ</var> = 1200; x̄ gebruik je om te beslissen.</li>
-      <li><b>Let op:</b> de grenswaarde (=, ≤) staat in H<sub>0</sub>, H<sub>A</sub> is de strikte ongelijkheid (&gt;, &lt; of ≠): <var data-s="p_lot">P</var> ≤ <var data-s="aql">AQL</var> tegenover <var data-s="p_lot">P</var> &gt; <var data-s="aql">AQL</var> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=3">TH p. 3</a>; <var data-s="mu">µ</var> = <var data-s="mu0">µ<sub>0</sub></var> tegenover <var data-s="mu">µ</var> ≠, &gt; of &lt; <var data-s="mu0">µ<sub>0</sub></var> <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=4">Recepten p. 4</a>. H<sub>1</sub> is een andere naam voor H<sub>A</sub>.</li>
-      <li><b>"<var data-s="d_def">d</var> = 4 op 100 is 4 %, het dubbele van de AQL, dus de partij is slecht."</b> Fout: dat is de redenering van de klant. Een partij met precies 2 % defectieven levert in bijna 10 % van de steekproeven van 100 er precies 4 (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=5">TH p. 5</a>). Een schatting aan de kant van H<sub>A</sub> is nog geen bewijs; alleen de toets met vooraf afgesproken risico's beslist.</li>
+      <li><b>"\(\sym{h0}{H_0}\colon \sym{xbar}{\bar{x}} = 1200\)."</b> Fout: een hypothese is een uitspraak over een populatiegrootheid (µ, π, σ), niet over de statistiek uit de steekproef <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=2">TH FR p. 2</a>. Juist: \(\sym{h0}{H_0}\colon \sym{mu}{\mu} = 1200\); x̄ gebruik je om te beslissen.</li>
+      <li><b>Let op:</b> de grenswaarde (=, ≤) staat in H<sub>0</sub>, H<sub>A</sub> is de strikte ongelijkheid (&gt;, &lt; of ≠): \(\sym{p_lot}{P} \le \sym{aql}{\mathrm{AQL}}\) tegenover \(\sym{p_lot}{P} \gt \sym{aql}{\mathrm{AQL}}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=3">TH p. 3</a>; \(\sym{mu}{\mu} = \sym{mu0}{\mu_0}\) tegenover \(\sym{mu}{\mu} \ne, \gt \text{ of } \lt \sym{mu0}{\mu_0}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=4">Recepten p. 4</a>. H<sub>1</sub> is een andere naam voor H<sub>A</sub>.</li>
+      <li><b>"\(\sym{d_def}{d} = 4\) op 100 is 4 %, het dubbele van de AQL, dus de partij is slecht."</b> Fout: dat is de redenering van de klant. Een partij met precies 2 % defectieven levert in bijna 10 % van de steekproeven van 100 er precies 4 (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=5">TH p. 5</a>). Een schatting aan de kant van H<sub>A</sub> is nog geen bewijs; alleen de toets met vooraf afgesproken risico's beslist.</li>
     </ul></div>
 
     <div class="exercise" id="ex-05-1" data-kw="nulhypothese kiezen; choose null hypothesis; H0; HA; status quo; investering; investment; rechtszaak; lawsuit">
@@ -102,30 +102,30 @@
     significantie α".</p>
     <div class="box ex"><span class="t">Uitgewerkt voorbeeld: de tegels <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=5">TH p. 5–8</a></span>
       <ul>
-        <li>Steekproevenverdeling van d (<var data-s="n">n</var> = 100): bij <var data-s="p_lot">P</var> = 2 % (H<sub>0</sub> geldt) is P[<var data-s="d_def">d</var> ≤ 4] ≅ 95 %; bij <var data-s="p_lot">P</var> = 8 %
-        (H<sub>A</sub> geldt) is P[<var data-s="d_def">d</var> ≤ 4] ≅ 10 % <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=5">TH p. 5</a>. Lage d wijst naar H<sub>0</sub>, hoge d naar H<sub>A</sub>.
+        <li>Steekproevenverdeling van d (\(\sym{n}{n} = 100\)): bij \(\sym{p_lot}{P} = 2\,\%\) (H<sub>0</sub> geldt) is \(P[\sym{d_def}{d} \le 4] \cong 95\,\%\); bij \(\sym{p_lot}{P} = 8\,\%\)
+        (H<sub>A</sub> geldt) is \(P[\sym{d_def}{d} \le 4] \cong 10\,\%\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=5">TH p. 5</a>. Lage d wijst naar H<sub>0</sub>, hoge d naar H<sub>A</sub>.
         <figure class="fig"><img src="figures/05_tegels_h0_ha.png" alt="Staafdiagrammen van het aantal defectieven d bij n = 100 voor partijen met 2 % en met 8 % defectieven">
-        <figcaption>Figuur: verdeling van het aantal defectieven d in een steekproef van 100 uit een partij met P = 2 % (links,
-        H<sub>0</sub> geldt) en met P = 8 % (rechts, H<sub>A</sub> geldt). Links is P[d ≤ 4] ≅ 95 %, rechts ≅ 10 %.
+        <figcaption>Figuur: verdeling van het aantal defectieven d in een steekproef van 100 uit een partij met \(P = 2\,\%\) (links,
+        H<sub>0</sub> geldt) en met \(P = 8\,\%\) (rechts, H<sub>A</sub> geldt). Links is \(P[d \le 4] \cong 95\,\%\), rechts \(\cong 10\,\%\).
         <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=5">TH p. 5</a></figcaption></figure>
         </li>
-        <li>Wil je dat een partij met precies <var data-s="aql">AQL</var> = 2 % defectieven met ongeveer 95 % kans aanvaard wordt, dan leg je
-        <var data-s="c">c</var> = 4: <var data-s="alpha">α</var> = P[afkeuren] = P[<var data-s="d_def">d</var> &gt; 4] = P[<var data-s="d_def">d</var> ≥ 5] = 5 % (5,08 % <span class="computed">zelf berekend</span>). Kleinere
-        α vraagt een grotere c: <var data-s="c">c</var> = 5 ⇒ <var data-s="alpha">α</var> = 1,5 % <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=6">TH p. 6</a>.
+        <li>Wil je dat een partij met precies \(\sym{aql}{\mathrm{AQL}} = 2\,\%\) defectieven met ongeveer 95 % kans aanvaard wordt, dan leg je
+        \(\sym{c}{c} = 4\): \(\sym{alpha}{\alpha} = P[\text{afkeuren}] = P[\sym{d_def}{d} \gt 4] = P[\sym{d_def}{d} \ge 5] = 5\,\%\) (5,08 % <span class="computed">zelf berekend</span>). Kleinere
+        α vraagt een grotere c: \(\sym{c}{c} = 5 \Rightarrow \sym{alpha}{\alpha} = 1{,}5\,\%\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=6">TH p. 6</a>.
         <figure class="fig"><img src="figures/05_tegels_alfa.png" alt="Verdeling van d bij P = 2 % met de kritische waarde c = 4; de staart rechts ervan is alfa = 5 %">
-        <figcaption>Figuur: de verdeling van d bij P = 2 % (= AQL) met de kritische waarde c = 4. De staafjes rechts van c (d ≥ 5)
-        vormen samen α = 5 %.
+        <figcaption>Figuur: de verdeling van d bij \(P = 2\,\%\) (\(= \mathrm{AQL}\)) met de kritische waarde \(c = 4\). De staafjes rechts van c (\(d \ge 5\))
+        vormen samen \(\alpha = 5\,\%\).
         <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=6">TH p. 6</a></figcaption></figure>
         </li>
-        <li>α is 5 % in het grensgeval <var data-s="p_lot">P</var> = <var data-s="aql">AQL</var>; voor betere partijen is het risico kleiner <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=6">TH p. 6</a>.</li>
+        <li>α is 5 % in het grensgeval \(\sym{p_lot}{P} = \sym{aql}{\mathrm{AQL}}\); voor betere partijen is het risico kleiner <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=6">TH p. 6</a>.</li>
         <li>De kritische waarde wordt gelegd op de referentieverdeling onder H<sub>0</sub> (de verdeling bij
-        <var data-s="p_lot">P</var> = 2 %). Is in werkelijkheid <var data-s="p_lot">P</var> = 8 %, dan volgt daaruit <var data-s="beta">β</var> = 9 % <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=7">TH p. 7</a> (figuur hieronder). Meer over de OC-curve in 05.3 en
+        \(\sym{p_lot}{P} = 2\,\%\)). Is in werkelijkheid \(\sym{p_lot}{P} = 8\,\%\), dan volgt daaruit \(\sym{beta}{\beta} = 9\,\%\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=7">TH p. 7</a> (figuur hieronder). Meer over de OC-curve in 05.3 en
         <a href="#d06">Deel 06</a>.
         <figure class="fig"><img src="figures/05_tegels_oc_curve.png" alt="Links de verdelingen van d onder H0 en HA met c = 4, beta = 9 % en alfa = 5 %; rechts de OC-curve met AQL = 2 %">
-        <figcaption>Figuur: links de verdelingen van d onder H<sub>0</sub> en onder H<sub>A</sub> (P = 8 %) met c = 4: rechts van c ligt
-        α = 5 % van de H<sub>0</sub>-verdeling, links van c (d ≤ 4) β = 9 % van de H<sub>A</sub>-verdeling. Rechts de
-        OC-curve: de aanvaardingskans tegen de partijfractie defectieven P, met P ≤ AQL = 2 % → α ≤ 5 % en
-        P = 8 % → β = 9 %.
+        <figcaption>Figuur: links de verdelingen van d onder H<sub>0</sub> en onder H<sub>A</sub> (\(P = 8\,\%\)) met \(c = 4\): rechts van c ligt
+        \(\alpha = 5\,\%\) van de H<sub>0</sub>-verdeling, links van c (\(d \le 4\)) \(\beta = 9\,\%\) van de H<sub>A</sub>-verdeling. Rechts de
+        OC-curve: de aanvaardingskans tegen de partijfractie defectieven P, met \(P \le \mathrm{AQL} = 2\,\% \to \alpha \le 5\,\%\) en
+        \(P = 8\,\% \to \beta = 9\,\%\).
         <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=7">TH p. 7</a></figcaption></figure>
         </li>
       </ul>
@@ -138,23 +138,22 @@
     <p><b>De procedure in een notendop</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=9">TH p. 9</a>:</p>
     <table>
       <tr><th class="n">stap</th><th>wat</th><th>tegels (TH p. 9)</th><th>beeldbuizen (TH FR p. 10)</th></tr>
-      <tr><td class="n">1</td><td>beschrijf het probleem als H<sub>0</sub> en H<sub>A</sub> (eenzijdig of tweezijdig)</td><td><var data-s="h0">H<sub>0</sub></var>: % defectieven ≤ 2 %; <var data-s="ha">H<sub>A</sub></var>: &gt; 2 %</td><td><var data-s="h0">H<sub>0</sub></var>: <var data-s="mu">µ</var> = 1200; <var data-s="ha">H<sub>A</sub></var>: <var data-s="mu">µ</var> &gt; 1200</td></tr>
-      <tr><td class="n">2</td><td>kies de significantie <var data-s="alpha">α</var> = kans om H<sub>0</sub> ten onrechte te verwerpen</td><td><var data-s="alpha">α</var> = 5 %: een goede partij wordt met 5 % kans als slecht gezien</td><td><var data-s="alpha">α</var> = 1 %</td></tr>
-      <tr><td class="n">3</td><td>kies een toetsingsgrootheid (test statistic) en bepaal haar steekproevenverdeling</td><td>aantal defectieven; hypergeometrisch (benaderd binomiaal)</td><td><var data-s="xbar">X̄</var> met <var data-s="sigma">σ</var> = 300 gekend</td></tr>
-      <tr><td class="n">4</td><td>kies de steekproefgrootte, rekening houdend met de foutrisico's en de praktijk</td><td><var data-s="n">n</var> = 130 (1,3 % van de partij) om ook <var data-s="beta">β</var> = 5 % te halen bij 8 %</td><td><var data-s="n">n</var> = 100</td></tr>
-      <tr><td class="n">5</td><td>bepaal de referentieverdeling en de kritische waarde (α afpassen op de juiste kant)</td><td>binomiaal(130; 2 %); kritische waarde 5</td><td>rechter staart: 1200 + <var data-s="z_099">2,3</var>·30 = 1270</td></tr>
-      <tr><td class="n">6</td><td>trek de steekproef en bereken de toetsingsgrootheid</td><td>130 tegels, 4 defect</td><td><var data-s="xbar">x̄</var> = 1265</td></tr>
-      <tr><td class="n">7</td><td>vergelijk met de kritische waarde en besluit</td><td>4 is niet hoger dan 5: H<sub>0</sub> niet verwerpen bij 5 %, partij aanvaard</td><td>1265 &lt; 1270: aanvaard H<sub>0</sub></td></tr>
+      <tr><td class="n">1</td><td>beschrijf het probleem als H<sub>0</sub> en H<sub>A</sub> (eenzijdig of tweezijdig)</td><td>\(\sym{h0}{H_0}\): % defectieven \(\le 2\,\%\); \(\sym{ha}{H_A}\): \(\gt 2\,\%\)</td><td>\(\sym{h0}{H_0}\colon \sym{mu}{\mu} = 1200\); \(\sym{ha}{H_A}\colon \sym{mu}{\mu} \gt 1200\)</td></tr>
+      <tr><td class="n">2</td><td>kies de significantie <var data-s="alpha">α</var> = kans om H<sub>0</sub> ten onrechte te verwerpen</td><td>\(\sym{alpha}{\alpha} = 5\,\%\): een goede partij wordt met 5 % kans als slecht gezien</td><td>\(\sym{alpha}{\alpha} = 1\,\%\)</td></tr>
+      <tr><td class="n">3</td><td>kies een toetsingsgrootheid (test statistic) en bepaal haar steekproevenverdeling</td><td>aantal defectieven; hypergeometrisch (benaderd binomiaal)</td><td><var data-s="xbar">X̄</var> met \(\sym{sigma}{\sigma} = 300\) gekend</td></tr>
+      <tr><td class="n">4</td><td>kies de steekproefgrootte, rekening houdend met de foutrisico's en de praktijk</td><td>\(\sym{n}{n} = 130\) (1,3 % van de partij) om ook \(\sym{beta}{\beta} = 5\,\%\) te halen bij 8 %</td><td>\(\sym{n}{n} = 100\)</td></tr>
+      <tr><td class="n">5</td><td>bepaal de referentieverdeling en de kritische waarde (α afpassen op de juiste kant)</td><td>binomiaal(130; 2 %); kritische waarde 5</td><td>rechter staart: \(1200 + \sym{z_099}{2{,}3} \cdot 30 = 1270\)</td></tr>
+      <tr><td class="n">6</td><td>trek de steekproef en bereken de toetsingsgrootheid</td><td>130 tegels, 4 defect</td><td>\(\sym{xbar}{\bar{x}} = 1265\)</td></tr>
+      <tr><td class="n">7</td><td>vergelijk met de kritische waarde en besluit</td><td>4 is niet hoger dan 5: H<sub>0</sub> niet verwerpen bij 5 %, partij aanvaard</td><td>\(1265 \lt 1270\): aanvaard H<sub>0</sub></td></tr>
     </table>
     <p>Dit recept is universeel voor elke enkelvoudige procedure. Toetsen verschillen alleen in de toetsingsgrootheid, haar
     steekproevenverdeling en dus de kritische waarde (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=9">TH p. 9</a>). De catalogus van veelgebruikte toetsen staat
     in <a href="#d05-recepten">05.9</a>.</p>
     <p class="small">"2,3" is een afgeronde Z-waarde: Z voor 1 % in de rechter staart is 2,326 (NORM.S.INV(0,99)), en
-    1200 + <var data-s="z_099">2,326</var>·30 = 1269,8 ≈ 1270 <span class="computed">zelf berekend</span>. Met 2,3 zelf vind je 1269. Z-waarden: zie
+    \(1200 + \sym{z_099}{2{,}326} \cdot 30 = 1269{,}8 \approx 1270\) <span class="computed">zelf berekend</span>. Met 2,3 zelf vind je 1269. Z-waarden: zie
     <a href="#d03">Deel 03</a>.</p>
     <div class="box tool"><span class="t">Rekentool</span>
-      <p>Werkblad <b>"Mean &amp; proportion"</b>, sectie 2: rijen "z-test (σ known)" voor <var data-s="ha">H<sub>A</sub></var>: <var data-s="mu">µ</var> ≠, &gt; of &lt;
-      <var data-s="mu0">µ<sub>0</sub></var>, met statistiek, kritische waarde en p-waarde. Vul α zelf in (beslissing 5: de cursus kent geen
+      <p>Werkblad <b>"Mean &amp; proportion"</b>, sectie 2: rijen "z-test (σ known)" voor \(\sym{ha}{H_A}\colon \sym{mu}{\mu} \ne, \gt \text{ of } \lt \sym{mu0}{\mu_0}\), met statistiek, kritische waarde en p-waarde. Vul α zelf in (beslissing 5: de cursus kent geen
       standaard-α).</p>
     </div>
 
@@ -162,15 +161,15 @@
     <ul>
       <li><b>"α is de kans dat H<sub>0</sub> waar is."</b> Fout: α is de kans om H<sub>0</sub> te verwerpen <i>als</i> H<sub>0</sub> waar is: de oppervlakte onder de referentieverdeling voorbij de kritische waarde <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=6">TH FR p. 6</a>. Je legt α vooraf vast; het is geen uitkomst van de data.</li>
       <li><b>"De kritische waarde leg je op de verdeling die hoort bij H<sub>A</sub>."</b> Fout: altijd op de referentieverdeling onder H<sub>0</sub>; de ware verdeling ken je niet. β volgt pas daarna uit die kritische waarde (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=7">TH p. 7</a>).</li>
-      <li><b>"Bij de tegels wordt elke goede partij met 5 % kans afgekeurd."</b> Fout: <var data-s="alpha">α</var> = 5 % geldt in het grensgeval <var data-s="p_lot">P</var> = <var data-s="aql">AQL</var>; voor betere partijen is het risico kleiner <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=6">TH p. 6</a>.</li>
-      <li><b>Let op de kant:</b> bij <var data-s="ha">H<sub>A</sub></var>: <var data-s="mu">µ</var> &gt; <var data-s="mu0">µ<sub>0</sub></var> ligt de kritische waarde in de rechterstaart, bij <var data-s="ha">H<sub>A</sub></var>: <var data-s="mu">µ</var> &lt; <var data-s="mu0">µ<sub>0</sub></var> in de linkerstaart; het recept zegt "afpassen α op distributie statistiek onder H0 (juiste kant !)" <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=10">TH FR p. 10</a>.</li>
-      <li><b>Let op:</b> TH FR p. 10 rekent met de afgeronde 2,3, maar 1200 + <var data-s="z_099">2,3</var>·30 = 1269 <span class="computed">zelf berekend</span>, niet de afgedrukte 1270. Reken met NORM.S.INV(0,99) = <var data-s="z_099">2,326</var>: 1269,8 ≈ 1270 <span class="computed">zelf berekend</span> (<a href="#fouten">Fouten in de slides</a>).</li>
+      <li><b>"Bij de tegels wordt elke goede partij met 5 % kans afgekeurd."</b> Fout: \(\sym{alpha}{\alpha} = 5\,\%\) geldt in het grensgeval \(\sym{p_lot}{P} = \sym{aql}{\mathrm{AQL}}\); voor betere partijen is het risico kleiner <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=6">TH p. 6</a>.</li>
+      <li><b>Let op de kant:</b> bij \(\sym{ha}{H_A}\colon \sym{mu}{\mu} \gt \sym{mu0}{\mu_0}\) ligt de kritische waarde in de rechterstaart, bij \(\sym{ha}{H_A}\colon \sym{mu}{\mu} \lt \sym{mu0}{\mu_0}\) in de linkerstaart; het recept zegt "afpassen α op distributie statistiek onder H0 (juiste kant !)" <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=10">TH FR p. 10</a>.</li>
+      <li><b>Let op:</b> TH FR p. 10 rekent met de afgeronde 2,3, maar \(1200 + \sym{z_099}{2{,}3} \cdot 30 = 1269\) <span class="computed">zelf berekend</span>, niet de afgedrukte 1270. Reken met NORM.S.INV(0,99) = <var data-s="z_099">2,326</var>: \(1269{,}8 \approx 1270\) <span class="computed">zelf berekend</span> (<a href="#fouten">Fouten in de slides</a>).</li>
       <li><b>"Een significant verschil is een belangrijk verschil."</b> Fout: "significant" is een technisch woord voor het risico op een type-I-fout, onnodige of zelfs schadelijke actie (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=6">TH p. 6</a>). Of het verschil ertoe doet, lees je in <a href="#d05-valkuilen">05.6</a>.</li>
     </ul></div>
 
     <div class="exercise" id="ex-05-2" data-kw="beeldbuizen; picture tubes; Z-toets; z-test; eenzijdig; one-sided; kritische waarde; critical value; 1270; sigma gekend; S03-WE10">
       <h4>Oefening 05.2 — Beeldbuizen, eenzijdig recept <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=10">TH FR p. 10</a></h4>
-      <p><var data-s="h0">H<sub>0</sub></var>: <var data-s="mu">µ</var> = 1200, <var data-s="ha">H<sub>A</sub></var>: <var data-s="mu">µ</var> &gt; 1200, <var data-s="sigma">σ</var> = 300 gekend, <var data-s="n">n</var> = 100, <var data-s="alpha">α</var> = 1 %. Het steekproefgemiddelde is 1265.</p>
+      <p>\(\sym{h0}{H_0}\colon \sym{mu}{\mu} = 1200\), \(\sym{ha}{H_A}\colon \sym{mu}{\mu} \gt 1200\), \(\sym{sigma}{\sigma} = 300\) gekend, \(\sym{n}{n} = 100\), \(\sym{alpha}{\alpha} = 1\,\%\). Het steekproefgemiddelde is 1265.</p>
       <div class="q" data-answer="1270" data-tol="1">
         <label>a. Kritische waarde voor x̄ (geheel getal):</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
@@ -180,13 +179,13 @@
         <select><option value="">kies…</option><option value="verwerp">H0 verwerpen: het nieuwe procedé is beter</option><option value="aanvaard">H0 aanvaarden (niet verwerpen)</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
-      <details class="hint"><summary>Hint</summary><p>Onder H<sub>0</sub>: <var data-s="xbar">X̄</var> ~ <var data-s="normal_dist">N</var>(1200; 300/√100). Leg 1 % in de rechter
+      <details class="hint"><summary>Hint</summary><p>Onder H<sub>0</sub>: \(\sym{xbar}{\bar{X}} \sim \sym{normal_dist}{N}(1200;\ 300/\sqrt{100})\). Leg 1 % in de rechter
       staart.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
-          <li><var data-s="sigma">σ</var>/√<var data-s="n">n</var> = 300/10 = 30. <var data-s="z_crit">Z</var> voor 1 % rechts = 2,326 (de cursus: 2,3).</li>
-          <li>a. <var data-s="k_crit">Kritische waarde</var> = 1200 + <var data-s="z_099">2,326</var>·30 = 1269,8 ≈ <b>1270</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=10">TH FR p. 10</a>.</li>
-          <li>b. 1265 &lt; 1270: <b>aanvaard H<sub>0</sub></b>. Het nieuwe procedé is bij 1 % significantie niet aantoonbaar
+          <li>\(\sym{sigma}{\sigma}/\sqrt{ \sym{n}{n} } = 300/10 = 30\). <var data-s="z_crit">Z</var> voor 1 % rechts = 2,326 (de cursus: 2,3).</li>
+          <li>a. <var data-s="k_crit">Kritische waarde</var> \(= 1200 + \sym{z_099}{2{,}326} \cdot 30 = 1269{,}8 \approx \mathbf{1270}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=10">TH FR p. 10</a>.</li>
+          <li>b. \(1265 \lt 1270\): <b>aanvaard H<sub>0</sub></b>. Het nieuwe procedé is bij 1 % significantie niet aantoonbaar
           beter; je investeert (nog) niet.</li>
         </ol>
       </details>
@@ -214,37 +213,37 @@
       type-II-fout is een mogelijk interessante investering missen.</li>
     </ul>
     <p><b>Waarom niet gewoon α = 0?</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=7">TH FR p. 7</a> Omdat β dan onaanvaardbaar groot wordt: er is een
-    <b>trade-off <var data-s="alpha">α</var>↓ ⇔ <var data-s="beta">β</var>↑</b>. In de figuur hieronder legt <var data-s="alpha">α</var> = 5 % de kritische waarde bij ongeveer 1250; als het ware gemiddelde 1270
-    is, wordt H<sub>0</sub> toch nog in <var data-s="beta">β</var> = 25 % van de gevallen aanvaard. Als grap: een rechter die nooit een onschuldige
+    <b>trade-off \(\sym{alpha}{\alpha}\downarrow\ \Leftrightarrow\ \sym{beta}{\beta}\uparrow\)</b>. In de figuur hieronder legt \(\sym{alpha}{\alpha} = 5\,\%\) de kritische waarde bij ongeveer 1250; als het ware gemiddelde 1270
+    is, wordt H<sub>0</sub> toch nog in \(\sym{beta}{\beta} = 25\,\%\) van de gevallen aanvaard. Als grap: een rechter die nooit een onschuldige
     veroordeelt, moet alle verdachten vrijlaten, ook de schuldige (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=8">TH p. 8</a>).</p>
     <figure class="fig"><img src="figures/05_alfa_beta_afweging.png" alt="Referentieverdeling rond 1200 en werkelijke verdeling rond 1270 met kritische waarde 1250, alfa = 5 % en beta = 25 %">
     <figcaption>Figuur: de referentieverdeling (H<sub>0</sub>, rond 1200) en de werkelijke, onbekende verdeling (H<sub>A</sub> geldt,
-    rond 1270). De kritische waarde 1250 laat α = 5 % in de rechterstaart van de referentieverdeling; het deel van
-    de werkelijke verdeling links van 1250 is β = 25 %.
+    rond 1270). De kritische waarde 1250 laat \(\alpha = 5\,\%\) in de rechterstaart van de referentieverdeling; het deel van
+    de werkelijke verdeling links van 1250 is \(\beta = 25\,\%\).
     <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=7">TH FR p. 7</a></figcaption></figure>
     <p><b>Waar hangt β van af?</b></p>
     <ol class="steps">
       <li>van <b>α</b> (bij gegeven n): kleinere α, grotere β;</li>
       <li>van de <b>afstand tussen H<sub>0</sub> en de realiteit</b>: hoe slechter de partij of hoe verder het ware µ van
       µ<sub>0</sub>, hoe kleiner β. Het verloop van β als functie van die afstand is de <b>OC-curve</b> (operating
-      characteristic curve) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=8">TH FR p. 8</a>; de figuur hieronder toont OC-curven tegen <var data-s="lambda_dist">λ</var> = (<var data-s="mu">µ</var> − <var data-s="mu0">µ<sub>0</sub></var>)/<var data-s="sigma">σ</var> voor <var data-s="n">n</var> = 100 en <var data-s="alpha">α</var> = 5 %,
+      characteristic curve) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=8">TH FR p. 8</a>; de figuur hieronder toont OC-curven tegen \(\sym{lambda_dist}{\lambda} = (\sym{mu}{\mu} - \sym{mu0}{\mu_0})/\sym{sigma}{\sigma}\) voor \(\sym{n}{n} = 100\) en \(\sym{alpha}{\alpha} = 5\,\%\),
       1 % en 0,1 %;
       <figure class="fig"><img src="figures/05_oc_curven_lambda.png" alt="OC-curven tegen lambda voor n = 100 en alfa = 5 %, 1 % en 0,1 %">
-      <figcaption>Figuur: OC-curven (kans om H<sub>0</sub> te aanvaarden) tegen λ = (µ − µ<sub>0</sub>)/σ, voor n = 100 en α = 5 %, 1 %
-      en 0,1 %. Bij λ = 0 begint de curve voor α = 5 % op 0,95; hoe kleiner α, hoe verder naar rechts de curve ligt,
+      <figcaption>Figuur: OC-curven (kans om H<sub>0</sub> te aanvaarden) tegen \(\lambda = (\mu - \mu_0)/\sigma\), voor \(n = 100\) en \(\alpha = 5\,\%\), 1 %
+      en 0,1 %. Bij \(\lambda = 0\) begint de curve voor α = 5 % op 0,95; hoe kleiner α, hoe verder naar rechts de curve ligt,
       dus hoe groter β bij een gegeven afstand.
       <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=8">TH FR p. 8</a></figcaption></figure>
       </li>
-      <li>van de <b>steekproefgrootte</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=9">TH FR p. 9</a>: bij <var data-s="alpha">α</var> = 1 % en een ware <var data-s="mu">µ</var> = 1300 is <var data-s="beta">β</var> = 16 % met <var data-s="n">n</var> = 100, maar 1 % met
-      <var data-s="n">n</var> = 195 (de kritische waarde schuift dan naar ongeveer 1250; figuur hieronder).
+      <li>van de <b>steekproefgrootte</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=9">TH FR p. 9</a>: bij \(\sym{alpha}{\alpha} = 1\,\%\) en een ware \(\sym{mu}{\mu} = 1300\) is \(\sym{beta}{\beta} = 16\,\%\) met \(\sym{n}{n} = 100\), maar 1 % met
+      \(\sym{n}{n} = 195\) (de kritische waarde schuift dan naar ongeveer 1250; figuur hieronder).
       <figure class="fig"><img src="figures/05_beta_steekproefgrootte.png" alt="Referentieverdeling rond 1200 en ware verdeling rond 1300 bij n = 100 en bij n = 195, telkens met alfa = 1 %">
-      <figcaption>Figuur: boven n = 100, onder n = 195: telkens de referentieverdeling (rond 1200) en de ware verdeling (rond 1300) bij
-      α = 1 %. Met n = 100 ligt de kritische waarde bij 1270 en is β = 16 %; met n = 195 zijn beide verdelingen
+      <figcaption>Figuur: boven \(n = 100\), onder \(n = 195\): telkens de referentieverdeling (rond 1200) en de ware verdeling (rond 1300) bij
+      \(\alpha = 1\,\%\). Met \(n = 100\) ligt de kritische waarde bij 1270 en is \(\beta = 16\,\%\); met \(n = 195\) zijn beide verdelingen
       smaller, schuift de kritische waarde naar 1250 en daalt β tot 1 %.
       <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=9">TH FR p. 9</a></figcaption></figure>
       </li>
     </ol>
-    <p>Hetzelfde bij de tegels <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=7">TH p. 7–8</a>. De functie <var data-s="p_lot">P</var> → P[<var data-s="d_def">d</var> ≤ <var data-s="c">c</var>] = P[aanvaard H<sub>0</sub>] is de OC-curve van het plan
+    <p>Hetzelfde bij de tegels <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=7">TH p. 7–8</a>. De functie \(\sym{p_lot}{P} \mapsto P[\sym{d_def}{d} \le \sym{c}{c}] = P[\text{aanvaard } H_0]\) is de OC-curve van het plan
     (figuur in 05.2). Ze laat zich samenvatten in vier zinnen:</p>
     <ul>
       <li>β wordt vanzelf kleiner als P groter wordt: "this we get for free";</li>
