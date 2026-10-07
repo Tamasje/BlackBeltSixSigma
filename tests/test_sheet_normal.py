@@ -114,7 +114,7 @@ def test_every_block_matches_scipy_for_random_inputs(seed: int, evaluate: Evalua
     for name, target in expected.items():
         assert value(ws, name) == pytest.approx(target, rel=1e-9), name
     # the limit lies below the mean, so 'f above L' cannot give a positive sigma
-    assert value(ws, "sigma_if_above") == "not possible: L is on the other side"
+    assert value(ws, "sigma_if_above") == "niet mogelijk: L ligt aan de andere kant"
 
 
 def test_sigma_from_tail_fraction_like_exam_q6(evaluate: Evaluate) -> None:
