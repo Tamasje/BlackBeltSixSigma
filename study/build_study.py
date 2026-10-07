@@ -440,16 +440,18 @@ def load_parts() -> list[Part]:
 
 
 def toc(parts: list[Part]) -> str:
-    """Navigation: parts with their units."""
+    """Navigation: one foldable group per part (the part link in its summary, the unit links inside)."""
     lines = ['<a href="#zoek-resultaten" class="l1" id="toc-top">Zoeken ↑</a>']
     for part in parts:
-        lines.append(f'<a class="l1" href="#d{part.number}">{html.escape(part.title)}</a>')
+        items = []
         if PART_TOOLS.get(part.number):
-            lines.append(f'<a class="l2 tools" href="#tools-d{part.number}">Hulpmiddelen: rekenmachines en tabellen</a>')
+            items.append(f'<a class="l2 tools" href="#tools-d{part.number}">Hulpmiddelen: rekenmachines en tabellen</a>')
         for unit_id, title in re.findall(r'<section class="unit" id="([^"]+)"[^>]*>\s*<h3>(.*?)</h3>', part.html, re.S):
             label = re.sub(r"<a class=\"p\".*?</a>", "", title, flags=re.S)
             label = re.sub(r"<[^>]+>", "", label).strip()
-            lines.append(f'<a class="l2" href="#{unit_id}">{html.escape(html.unescape(label))}</a>')
+            items.append(f'<a class="l2" href="#{unit_id}">{html.escape(html.unescape(label))}</a>')
+        lines.append(f'<details class="toc-part"><summary><a class="l1" href="#d{part.number}">{html.escape(part.title)}</a>'
+                     f'</summary>{"".join(items)}</details>')
     for anchor, title in (("woordenlijst", "Woordenlijst NL ↔ EN"), ("formuleblad", "Formuleblad"),
                           ("valkuilen", "Valkuilen en strikvragen"),
                           ("fouten", "Fouten in de slides")):
@@ -683,6 +685,8 @@ def render(parts: list[Part], table: dict[str, dict[str, str]]) -> str:
   <input id="q" type="search" placeholder="Zoek (NL of EN): betrouwbaarheidsinterval, confidence interval, Cpk, regelkaart…" autocomplete="off">
   <span id="hits"></span>
   <button type="button" id="clear">Wis</button>
+  <button type="button" id="fold-all" title="Alle delen, onderdelen en oefeningen inklappen">Alles in</button>
+  <button type="button" id="unfold-all" title="Alles uitklappen">Alles uit</button>
 </header>
 <div class="wrap">
 <nav id="toc">

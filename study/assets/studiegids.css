@@ -126,3 +126,30 @@ var[data-s]:hover, var[data-s]:focus, var[data-s].on { background: #efe6fa; outl
 #valkuilen h4 { margin-top: 14px; }
 @media print { #sympop { display: none; } var[data-s] { border-bottom: 0; } }
 .fld.row { flex-direction: row; flex-wrap: wrap; gap: 6px 14px; align-items: flex-end; }
+/* collapsible parts, units and exercises */
+.fold-head { cursor: pointer; position: relative; }
+.fold-head::before { content: "▾"; display: inline-block; width: 1.1em; color: var(--muted); font-size: .85em;
+                     transition: transform .12s; }
+.folded > .fold-head::before { transform: rotate(-90deg); }
+.folded > .sec-body { display: none; }
+.fold-head:hover::before, .fold-head:focus::before { color: var(--accent); }
+.fold-head:focus { outline: 2px solid #c9b6e0; outline-offset: 2px; }
+section.unit.folded { margin-bottom: 4px; }
+section.unit.folded > h3 { margin: 10px 0 2px; }
+div.exercise.folded { padding-bottom: 6px; }
+#topbar #fold-all, #topbar #unfold-all { background: #dfe8f3; }
+/* search results: best hits, then the rest per part */
+#results li.more { list-style: none; margin-left: -20px; }
+#results details.more > summary, #results li.more > details > summary { font-size: 13.5px; }
+#results .grp { margin: 4px 0 4px 6px; font: 13px/1.5 Arial, Helvetica, sans-serif; }
+#results .grp b { color: var(--muted); font-weight: bold; }
+@media print { .folded > .sec-body { display: block; } .fold-head::before { content: none; } }
+/* table of contents: one foldable group per part */
+nav#toc details.toc-part { margin: 0; border: 0; padding: 0; background: none; }
+nav#toc details.toc-part[open] { border: 0; padding: 0; background: none; }
+nav#toc details.toc-part > summary { list-style: none; display: flex; align-items: baseline; gap: 4px; margin-top: 9px;
+                                     font: 13px/1.4 Arial, Helvetica, sans-serif; color: var(--muted); }
+nav#toc details.toc-part > summary::-webkit-details-marker { display: none; }
+nav#toc details.toc-part > summary::before { content: "▸"; flex: 0 0 auto; width: 1em; cursor: pointer; }
+nav#toc details.toc-part[open] > summary::before { content: "▾"; }
+nav#toc details.toc-part > summary a.l1 { margin-top: 0; }

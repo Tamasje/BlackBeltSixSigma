@@ -182,6 +182,15 @@ Decisions 18-20 (2026-10-05) in inventory/conventions.md; oracle updated once wi
   The four guide-only calculators of the earlier question are kept (user: include all calculators needed).
 - tests/test_study_tools.py: 62 tests (course printed values, course workbook cells, scipy/statsmodels).
 
+### Study guide: folding and ranked search (2026-10-07, user request)
+- Every part, unit and exercise folds by clicking its heading; "Alles in" / "Alles uit" in the top bar; links, search
+  results, symbol pop-ups and the contents unfold what they point to. The contents is foldable per part.
+- Search ranks by relevance: phrase or words in the title (10/4), in the author keywords (6/2), occurrences in the body
+  (capped), +4 when the part title contains it; the query and its exact translation weigh 1, in-place translations 0.9,
+  longer glossary terms containing the query 0.6; units 1, calculators 0.9, exercises 0.85, table rows 0.5. Shows at
+  most 8 best hits (>= half of the top score, no table rows, each calculator once with "ook in"), the rest folded per
+  part. One- and two-letter words (t, z, F) must stand alone. Example: "t-test" -> 8 best of 44.
+
 ## Answered questions (inventory-review STOP; decisions in inventory/conventions.md)
 Convention questions (details and sources in inventory/conventions.md, "Conflicts and gaps"):
 1. σ for capability from data: R̄/d2; s̄ directly (deck p. 46) or s̄/c4; overall STDEV.S for Pp/Ppk; MR̄/1.128 for individuals?

@@ -31,6 +31,69 @@
     field.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); check(); } });
   });
 
+  /* ---------- collapsible parts, units and exercises: click a heading to fold or unfold it ---------- */
+  var foldables = [];
+  function makeFoldable(el, headSel) {
+    var h = null;
+    for (var c = el.firstElementChild; c; c = c.nextElementSibling) if (c.matches(headSel)) { h = c; break; }
+    if (!h || !h.nextSibling) return;
+    var body = document.createElement('div');
+    body.className = 'sec-body';
+    while (h.nextSibling) body.appendChild(h.nextSibling);
+    el.appendChild(body);
+    el.classList.add('foldable');
+    h.classList.add('fold-head');
+    h.tabIndex = 0;
+    h.setAttribute('aria-expanded', 'true');
+    h.title = 'Klik om in of uit te klappen';
+    foldables.push(el);
+  }
+  function setFolded(el, folded) {
+    el.classList.toggle('folded', folded);
+    var h = el.querySelector(':scope > .fold-head');
+    if (h) h.setAttribute('aria-expanded', folded ? 'false' : 'true');
+  }
+  document.querySelectorAll('section.part').forEach(function (el) { makeFoldable(el, 'h2'); });
+  document.querySelectorAll('section.unit').forEach(function (el) { makeFoldable(el, 'h3'); });
+  document.querySelectorAll('div.exercise').forEach(function (el) { makeFoldable(el, 'h4'); });
+  document.addEventListener('click', function (e) {
+    var h = e.target.closest && e.target.closest('.fold-head');
+    if (!h || e.target.closest('a, button, input, select, textarea, var')) return;
+    setFolded(h.parentElement, !h.parentElement.classList.contains('folded'));
+  });
+  document.addEventListener('keydown', function (e) {
+    var h = document.activeElement;
+    if ((e.key === 'Enter' || e.key === ' ') && h && h.classList && h.classList.contains('fold-head')) {
+      e.preventDefault(); setFolded(h.parentElement, !h.parentElement.classList.contains('folded'));
+    }
+  });
+  var foldAll = document.getElementById('fold-all'), unfoldAll = document.getElementById('unfold-all');
+  if (foldAll) foldAll.addEventListener('click', function () { foldables.forEach(function (el) { setFolded(el, true); }); });
+  if (unfoldAll) unfoldAll.addEventListener('click', function () { foldables.forEach(function (el) { setFolded(el, false); }); });
+  // a link to something inside a folded section or a closed <details> unfolds everything around it (and the target)
+  function reveal(id) {
+    var el = id && document.getElementById(id);
+    if (!el) return;
+    if (el.classList.contains('folded')) setFolded(el, false);
+    for (var p = el.parentElement; p; p = p.parentElement) {
+      if (p.classList && p.classList.contains('folded')) setFolded(p, false);
+      if (p.tagName === 'DETAILS') p.open = true;
+    }
+    // open the matching group in the table of contents and keep the link in view
+    var tocLink = document.querySelector('#toc a[href="#' + id + '"]');
+    if (tocLink) {
+      var group = tocLink.closest('details.toc-part');
+      if (group) group.open = true;
+      tocLink.scrollIntoView({ block: 'nearest' });
+    }
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#"]');
+    if (a) reveal(decodeURIComponent(a.getAttribute('href').slice(1)));
+  }, true);
+  window.addEventListener('hashchange', function () { reveal(decodeURIComponent(location.hash.slice(1))); });
+  if (location.hash) reveal(decodeURIComponent(location.hash.slice(1)));
+
   /* ---------- clickable variables: <var data-s="NN:key"> opens a short explanation (NN_symbols.tsv) ---------- */
   var symbols = {};
   try { symbols = JSON.parse(document.getElementById('symbols-data').textContent); } catch (e) { symbols = {}; }
@@ -86,39 +149,65 @@
     var td = el.querySelector('td');
     return td ? td.textContent.trim() : '';
   }
+  // what the search ranks on: the title, the author keywords (data-kw) and the body of every unit, exercise, tool and table row
+  var KIND = { unit: 1, tool: 0.9, exercise: 0.85, row: 0.5 };
   var blocks = [];
   document.querySelectorAll('section.unit, div.exercise, details.tool, table.gloss tr[data-kw], #formuleblad tr[data-kw], #fouten tr[data-kw]')
     .forEach(function (el) {
       var anchor = el.id ? el : el.closest('[id]');
-      blocks.push({ el: el, id: anchor ? anchor.id : '', title: blockTitle(el), part: partTitle(el),
-                    text: norm(el.textContent + ' ' + (el.dataset.kw || '')) });
+      var kind = el.tagName === 'TR' ? 'row' : (el.tagName === 'DETAILS' ? 'tool' : (el.classList.contains('exercise') ? 'exercise' : 'unit'));
+      var head = el.tagName === 'DETAILS' ? el.querySelector('summary') : (el.tagName === 'TR' ? el.querySelector('td') : el.querySelector('h3, h4'));
+      blocks.push({ el: el, id: anchor ? anchor.id : '', title: blockTitle(el), part: partTitle(el), kind: kind,
+                    head: norm(head ? head.textContent : ''), kw: norm(el.dataset.kw || ''), text: norm(el.textContent),
+                    partHead: kind === 'row' ? '' : norm(partTitle(el)) });
     });
 
-  // the query, its glossary translations, and the query with every glossary term in it translated in place
-  // ("pitfall p-value" -> "valkuil p-value", "pitfall p-waarde", "valkuil p-waarde")
+  // the query and its glossary translations (weight 1), the query with glossary terms translated in place (0.9),
+  // and longer glossary terms that contain the query (0.6: more specific, e.g. "gepaarde t-toets" for "t-test")
   function alternatives(q) {
-    var alts = [q];
+    var alts = [{ t: q, w: 1 }];
     if (q.length < 3) return alts;
-    function add(x) { if (x && alts.indexOf(x) < 0 && alts.length < 16) alts.push(x); }
+    function add(x, w) {
+      if (!x || alts.length >= 16) return;
+      for (var i = 0; i < alts.length; i++) if (alts[i].t === x) { alts[i].w = Math.max(alts[i].w, w); return; }
+      alts.push({ t: x, w: w });
+    }
     function pairs(fn) { gloss.forEach(function (p) { fn(p[0], p[1]); fn(p[1], p[0]); }); }
-    pairs(function (a, b) { if (a && b && (a === q || (a.indexOf(q) >= 0 && q.length >= 4))) { add(b); add(a); } });
-    var single = q.indexOf(' ') < 0;   // one (compound) word: also search the glossary terms it contains, as before
+    pairs(function (a, b) { if (a && b && a === q) add(b, 1); });
+    pairs(function (a, b) { if (a && b && a !== q && a.indexOf(q) >= 0 && q.length >= 4) { add(a, 0.6); add(b, 0.6); } });
+    var single = q.indexOf(' ') < 0;   // one (compound) word: also search the glossary terms it contains
     for (var i = 0; i < alts.length; i++) {
       var cur = alts[i];
       pairs(function (a, b) {
-        if (!a || !b || a.length < 4 || a === cur || cur.indexOf(a) < 0) return;
-        if (single && cur === q) { add(b); add(a); } else add(cur.replace(a, b));
+        if (!a || !b || a.length < 4 || a === cur.t || cur.t.indexOf(a) < 0) return;
+        if (single && cur.t === q) { add(b, 0.5); add(a, 0.5); } else add(cur.t.replace(a, b), 0.9 * cur.w);
       });
     }
     return alts;
   }
-  function matches(text, alts) {
-    for (var i = 0; i < alts.length; i++) {
-      var words = alts[i].split(' ');
-      var all = words.every(function (w) { return text.indexOf(w) >= 0; });
-      if (all) return alts[i];
-    }
-    return null;
+  // a word of one or two characters (t, z, F, Cp) must stand on its own; longer words may sit inside a word
+  function finder(w) {
+    if (w.length > 2) return { has: function (h) { return h.indexOf(w) >= 0; }, count: function (h) {
+      var c = 0, k = 0; while ((k = h.indexOf(w, k)) >= 0 && c < 9) { c++; k += w.length; } return c; } };
+    var re = new RegExp('(^|[^a-z0-9])' + w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(?=[^a-z0-9]|$)', 'g');
+    return { has: function (h) { re.lastIndex = 0; return re.test(h); },
+             count: function (h) { var c = 0; re.lastIndex = 0; while (re.exec(h) && c < 9) c++; return c; } };
+  }
+  // relevance of one block for one alternative; 0 when a word is missing
+  function score(b, alt) {
+    var words = alt.t.split(' ').filter(Boolean), finders = words.map(finder), phrase = finder(alt.t);
+    var all = b.head + ' ' + b.kw + ' ' + b.text;
+    if (!finders.every(function (f) { return f.has(all); })) return 0;
+    var frac = function (h) { return finders.filter(function (f) { return f.has(h); }).length / finders.length; };
+    var s = (phrase.has(b.head) ? 10 : 0) + 4 * frac(b.head) + (phrase.has(b.kw) ? 6 : 0) + 2 * frac(b.kw) +
+            2 * Math.min(5, phrase.count(b.text)) + Math.min.apply(null, finders.map(function (f) { return Math.min(3, f.count(b.text)); })) +
+            (phrase.has(b.partHead) ? 4 : 0);   // the part is about it (e.g. "regelkaart" in Deel 10)
+    return s * alt.w * KIND[b.kind];
+  }
+  function best(b, alts) {
+    var top = null;
+    alts.forEach(function (a) { var v = score(b, a); if (v > 0 && (!top || v > top.score)) top = { score: v, hit: a.t }; });
+    return top;
   }
 
   var marked = [];
@@ -169,40 +258,76 @@
   var box = document.getElementById('q'), hits = document.getElementById('hits');
   var panel = document.getElementById('zoek-resultaten'), list = document.getElementById('results');
   var timer = null;
+  function link(f) {
+    var a = document.createElement('a');
+    a.href = '#' + f.b.id;
+    a.textContent = f.b.title || f.b.id;
+    return a;
+  }
   function run() {
     clearMarks();
     list.innerHTML = '';
     var q = norm(box.value);
     if (q.length < 2) { panel.hidden = true; hits.textContent = ''; return; }
     var alts = alternatives(q), found = [];
-    blocks.forEach(function (b) {
-      var hit = matches(b.text, alts);
-      if (hit) found.push({ b: b, hit: hit });
+    blocks.forEach(function (b, i) { var r = best(b, alts); if (r) found.push({ b: b, hit: r.hit, score: r.score, order: i }); });
+    found.sort(function (x, y) { return y.score - x.score || x.order - y.order; });
+    // the best hits: units, exercises and calculators only (table rows stay under "more"), each title once (a calculator
+    // sits in several parts), at most 8, and only those that score at least half of the top hit
+    var top = 0, shown = [], seen = {};
+    found.forEach(function (f) {
+      if (f.b.kind === 'row') return;
+      if (!top) top = f.score;
+      if (seen[f.b.title]) { seen[f.b.title].also.push(f.b.part); f.dup = true; return; }
+      if (shown.length < 8 && f.score >= 0.5 * top) { f.also = []; seen[f.b.title] = f; shown.push(f); }
     });
-    // units and exercises first, then glossary/formula/errata rows; keep document order within each group
-    found.sort(function (x, y) {
-      var gx = x.b.el.tagName === 'TR' ? 1 : 0, gy = y.b.el.tagName === 'TR' ? 1 : 0;
-      return gx - gy;
-    });
-    hits.textContent = found.length + ' treffer' + (found.length === 1 ? '' : 's');
+    var rest = found.filter(function (f) { return shown.indexOf(f) < 0 && !f.dup; });
+    hits.textContent = found.length ? shown.length + ' beste van ' + found.length : 'geen treffers';
     var note = document.createElement('li');
     note.className = 'where';
-    note.textContent = 'Gezocht op: ' + alts.join(' · ');
+    note.textContent = 'Gezocht op: ' + alts.slice(0, 6).map(function (a) { return a.t; }).join(' · ') + (alts.length > 6 ? ' …' : '');
     list.appendChild(note);
-    found.slice(0, 80).forEach(function (f) {
-      var li = document.createElement('li'), a = document.createElement('a');
-      a.href = '#' + f.b.id;
-      a.textContent = f.b.title || f.b.id;
-      li.appendChild(a);
+    shown.forEach(function (f) {
+      var li = document.createElement('li');
+      li.appendChild(link(f));
       var where = document.createElement('span');
       where.className = 'where';
-      where.textContent = '  — ' + f.b.part;
+      where.textContent = '  — ' + f.b.part + (f.also.length ? ' (ook in ' + f.also.map(function (p) { return p.split(' — ')[0]; }).join(', ') + ')' : '');
       li.appendChild(where);
       var sn = document.createElement('span');
       sn.className = 'snip';
       sn.textContent = snippet(f.b.text, f.hit);
       li.appendChild(sn);
       list.appendChild(li);
+    });
+    if (rest.length) {   // the other hits, folded, grouped per part in document order
+      var li = document.createElement('li'), more = document.createElement('details'), sum = document.createElement('summary');
+      li.className = 'more';
+      sum.textContent = 'Meer treffers (' + rest.length + '), per deel';
+      more.appendChild(sum);
+      var groups = {}, order = [];
+      rest.slice().sort(function (x, y) { return x.order - y.order; }).forEach(function (f) {
+        if (!groups[f.b.part]) { groups[f.b.part] = []; order.push(f.b.part); }
+        groups[f.b.part].push(f);
+      });
+      order.forEach(function (part) {
+        var div = document.createElement('div');
+        div.className = 'grp';
+        var b = document.createElement('b');
+        b.textContent = (part || 'Woordenlijst, formuleblad, fouten') + ': ';
+        div.appendChild(b);
+        groups[part].forEach(function (f, i) {
+          if (i) div.appendChild(document.createTextNode(' · '));
+          var a = link(f);
+          a.title = snippet(f.b.text, f.hit);
+          div.appendChild(a);
+        });
+        more.appendChild(div);
+      });
+      li.appendChild(more);
+      list.appendChild(li);
+    }
+    found.slice(0, 120).forEach(function (f) {
       highlight(f.b.el, f.hit.split(' ').filter(function (w) { return w.length >= 2; }));
     });
     panel.hidden = false;

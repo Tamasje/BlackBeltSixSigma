@@ -132,6 +132,33 @@ var[data-s]:hover, var[data-s]:focus, var[data-s].on { background: #efe6fa; outl
 #valkuilen h4 { margin-top: 14px; }
 @media print { #sympop { display: none; } var[data-s] { border-bottom: 0; } }
 .fld.row { flex-direction: row; flex-wrap: wrap; gap: 6px 14px; align-items: flex-end; }
+/* collapsible parts, units and exercises */
+.fold-head { cursor: pointer; position: relative; }
+.fold-head::before { content: "▾"; display: inline-block; width: 1.1em; color: var(--muted); font-size: .85em;
+                     transition: transform .12s; }
+.folded > .fold-head::before { transform: rotate(-90deg); }
+.folded > .sec-body { display: none; }
+.fold-head:hover::before, .fold-head:focus::before { color: var(--accent); }
+.fold-head:focus { outline: 2px solid #c9b6e0; outline-offset: 2px; }
+section.unit.folded { margin-bottom: 4px; }
+section.unit.folded > h3 { margin: 10px 0 2px; }
+div.exercise.folded { padding-bottom: 6px; }
+#topbar #fold-all, #topbar #unfold-all { background: #dfe8f3; }
+/* search results: best hits, then the rest per part */
+#results li.more { list-style: none; margin-left: -20px; }
+#results details.more > summary, #results li.more > details > summary { font-size: 13.5px; }
+#results .grp { margin: 4px 0 4px 6px; font: 13px/1.5 Arial, Helvetica, sans-serif; }
+#results .grp b { color: var(--muted); font-weight: bold; }
+@media print { .folded > .sec-body { display: block; } .fold-head::before { content: none; } }
+/* table of contents: one foldable group per part */
+nav#toc details.toc-part { margin: 0; border: 0; padding: 0; background: none; }
+nav#toc details.toc-part[open] { border: 0; padding: 0; background: none; }
+nav#toc details.toc-part > summary { list-style: none; display: flex; align-items: baseline; gap: 4px; margin-top: 9px;
+                                     font: 13px/1.4 Arial, Helvetica, sans-serif; color: var(--muted); }
+nav#toc details.toc-part > summary::-webkit-details-marker { display: none; }
+nav#toc details.toc-part > summary::before { content: "▸"; flex: 0 0 auto; width: 1em; cursor: pointer; }
+nav#toc details.toc-part[open] > summary::before { content: "▾"; }
+nav#toc details.toc-part > summary a.l1 { margin-top: 0; }
 </style>
 </head>
 <body>
@@ -140,225 +167,26 @@ var[data-s]:hover, var[data-s]:focus, var[data-s].on { background: #efe6fa; outl
   <input id="q" type="search" placeholder="Zoek (NL of EN): betrouwbaarheidsinterval, confidence interval, Cpk, regelkaart…" autocomplete="off">
   <span id="hits"></span>
   <button type="button" id="clear">Wis</button>
+  <button type="button" id="fold-all" title="Alle delen, onderdelen en oefeningen inklappen">Alles in</button>
+  <button type="button" id="unfold-all" title="Alles uitklappen">Alles uit</button>
 </header>
 <div class="wrap">
 <nav id="toc">
 <a href="#zoek-resultaten" class="l1" id="toc-top">Zoeken ↑</a>
-<a class="l1" href="#d00">Deel 00 — Start</a>
-<a class="l2" href="#d00-gebruik">0.1 Zo gebruik je deze gids</a>
-<a class="l2" href="#d00-opbouw">0.2 Opbouw: van kader naar technieken</a>
-<a class="l2" href="#d00-rekentool">0.3 De rekentool bij deze gids</a>
-<a class="l1" href="#d01">Deel 01 — Lean Six Sigma: kader, DMAIC, Define en het team</a>
-<a class="l2 tools" href="#tools-d01">Hulpmiddelen: rekenmachines en tabellen</a>
-<a class="l2" href="#d01-sixsigma">01.1 Wat is Six Sigma?</a>
-<a class="l2" href="#d01-lean">01.2 Lean en Six Sigma: verspilling en variatie</a>
-<a class="l2" href="#d01-dmaic">01.3 De vijf DMAIC-fasen</a>
-<a class="l2" href="#d01-dfss">01.4 Design for Six Sigma: DMADV versus DMAIC</a>
-<a class="l2" href="#d01-define">01.5 Define: de nood aan verandering begrijpen</a>
-<a class="l2" href="#d01-smart">01.6 Doelen formuleren: SMART en ondersteunende doelen</a>
-<a class="l2" href="#d01-strategie">01.7 Strategie en de juiste projecten kiezen</a>
-<a class="l2" href="#d01-voc">01.8 Voice of the Customer en de CTQ-boom</a>
-<a class="l2" href="#d01-sponsor">01.9 De sponsor</a>
-<a class="l2" href="#d01-business">01.10 De business case</a>
-<a class="l2" href="#d01-stakeholders">01.11 Stakeholders en communicatie</a>
-<a class="l2" href="#d01-team">01.12 Het team en de teamrollen van Belbin</a>
-<a class="l2" href="#d01-verandering">01.13 Teamontwikkeling en verandering leiden</a>
-<a class="l1" href="#d02">Deel 02 — Data, kansen, verdelingen, EDA en causaliteit</a>
-<a class="l2 tools" href="#tools-d02">Hulpmiddelen: rekenmachines en tabellen</a>
-<a class="l2" href="#d02-data">02.1 Data en de Measure-fase</a>
-<a class="l2" href="#d02-meetschalen">02.2 Soorten data en meetschalen</a>
-<a class="l2" href="#d02-statkans">02.3 Statistiek versus kansrekening: sampling en inference</a>
-<a class="l2" href="#d02-verdelingen">02.4 Kansverdelingen: pdf, cdf, normaal en niet-normaal</a>
-<a class="l2" href="#d02-poisson">02.5 Inference als voorspelling: klanten aan de kassa</a>
-<a class="l2" href="#d02-model">02.6 Variabiliteit, het probabilistisch model en industriële statistiek</a>
-<a class="l2" href="#d02-eda">02.7 Verkennende data-analyse (EDA) en het kwartet van Anscombe</a>
-<a class="l2" href="#d02-4plot">02.8 De 4-plot, de vier assumpties en hun gevolgen</a>
-<a class="l2" href="#d02-associatie">02.9 Meerdimensionale data en associatie</a>
-<a class="l2" href="#d02-kansen">02.10 Marginale en voorwaardelijke kansen, onafhankelijkheid</a>
-<a class="l2" href="#d02-regressielijn">02.11 De voorwaardelijke verwachtingswaarde is de regressielijn</a>
-<a class="l2" href="#d02-ladder">02.12 Van zien naar doen: de ladder van causaliteit en het PINO-principe</a>
-<a class="l2" href="#d02-simpson">02.13 Simpson&#x27;s paradox en de confounder</a>
-<a class="l2" href="#d02-dag">02.14 Causale diagrammen en wat een interventie doet</a>
-<a class="l2" href="#d02-rct">02.15 Randomisatie, RCT, A/B-testen en andere causale methoden</a>
-<a class="l2" href="#d02-staal">02.16 Praktijkvoorbeeld: koelt warm staal sneller af?</a>
-<a class="l2" href="#d02-misleiding">02.17 Extra: wanneer data misleidt</a>
-<a class="l2" href="#d02-studiewijzer">02.18 Studiewijzer van Naert: wat moet je kunnen?</a>
-<a class="l1" href="#d03">Deel 03 — Normale verdeling, sigmaniveau en DPMO</a>
-<a class="l2 tools" href="#tools-d03">Hulpmiddelen: rekenmachines en tabellen</a>
-<a class="l2" href="#d03-intro">03.1 Waarom statistiek: data als basis</a>
-<a class="l2" href="#d03-populatie">03.2 Populatie, steekproef en de Galton-plank</a>
-<a class="l2" href="#d03-normaal">03.3 De normale verdeling</a>
-<a class="l2" href="#d03-z">03.4 De standaardnormale verdeling en de Z-waarde</a>
-<a class="l2" href="#d03-ztabel">03.5 De Z-tabel lezen</a>
-<a class="l2" href="#d03-excel">03.6 Normale kansen in Excel</a>
-<a class="l2" href="#d03-voc">03.7 Stem van de klant en stem van het proces</a>
-<a class="l2" href="#d03-dpmo">03.8 Discrete data: defecten, DPO, DPMO en yield</a>
-<a class="l2" href="#d03-yield">03.9 Extra: yield-maten en de verborgen fabriek</a>
-<a class="l2" href="#d03-sigma">03.10 Sigmaniveau ↔ DPMO en de 1,5σ-verschuiving</a>
-<a class="l1" href="#d04">Deel 04 — Betrouwbaarheidsintervallen</a>
-<a class="l2 tools" href="#tools-d04">Hulpmiddelen: rekenmachines en tabellen</a>
-<a class="l2" href="#d04-waarom">04.1 Waarom een interval en geen puntschatting?</a>
-<a class="l2" href="#d04-nauwkeurigheid">04.2 Betrouwbaarheid, nauwkeurigheid en steekproefgrootte</a>
-<a class="l2" href="#d04-inversie">04.3 Hoe wordt een BI berekend? Functie-inversie, tweezijdig en eenzijdig</a>
-<a class="l2" href="#d04-mu">04.4 BI voor het gemiddelde µ: z of t</a>
-<a class="l2" href="#d04-pi">04.5 BI voor een proportie π (fractie defectieven)</a>
-<a class="l2" href="#d04-verschil">04.6 BI voor het verschil van twee gemiddelden: niet-gepaard en gepaard</a>
-<a class="l2" href="#d04-sigma">04.7 BI voor de variantie σ² en de standaardafwijking σ</a>
-<a class="l2" href="#d04-f">04.8 BI voor de verhouding van twee varianties σ1²/σ2² (F)</a>
-<a class="l2" href="#d04-dualiteit">04.9 Toetsen met een BI: de dualiteit tussen toetsen en intervallen</a>
-<a class="l2" href="#d04-tolerantie">04.10 Tolerantie-intervallen (Further Reading)</a>
-<a class="l2" href="#d04-overzicht">04.11 Overzicht: welk interval gebruik je?</a>
-<a class="l1" href="#d05">Deel 05 — Hypothesetoetsen en toetsrecepten</a>
-<a class="l2 tools" href="#tools-d05">Hulpmiddelen: rekenmachines en tabellen</a>
-<a class="l2" href="#d05-idee">05.1 Waarom toetsen? H0 en HA</a>
-<a class="l2" href="#d05-recept">05.2 Het toetsrecept in zeven stappen</a>
-<a class="l2" href="#d05-fouten">05.3 Twee soorten fouten: α, β, de OC-curve en de kracht</a>
-<a class="l2" href="#d05-pwaarde">05.4 De p-waarde</a>
-<a class="l2" href="#d05-zijdig">05.5 Eenzijdig of tweezijdig?</a>
-<a class="l2" href="#d05-valkuilen">05.6 Valkuilen, en statistische versus praktische significantie</a>
-<a class="l2" href="#d05-ttoets">05.7 Voorbeeld: t-toets voor het gemiddelde</a>
-<a class="l2" href="#d05-chi2toets">05.8 Voorbeeld: χ²-toets voor de standaardafwijking</a>
-<a class="l2" href="#d05-recepten">05.9 De toetsrecepten: welke toets wanneer?</a>
-<a class="l2" href="#d05-t-recepten">05.10 De t-toetsen: één steekproef, niet-gepaard en gepaard</a>
-<a class="l2" href="#d05-z-pi">05.11 De Z-toets voor een proportie π</a>
-<a class="l2" href="#d05-chi2-f">05.12 De χ²-toets voor σ en de F-toets voor σ1/σ2</a>
-<a class="l2" href="#d05-frequenties">05.13 χ²-toetsen voor frequenties: goodness of fit en kruistabellen</a>
-<a class="l2" href="#d05-nietparam">05.14 Niet-parametrische toetsen: Wilcoxon en runs</a>
-<a class="l1" href="#d06">Deel 06 — Aanvaardingssteekproeven en steekproefmethoden</a>
-<a class="l2 tools" href="#tools-d06">Hulpmiddelen: rekenmachines en tabellen</a>
-<a class="l2" href="#d06-kwaliteit">06.1 Kwaliteit, variatie en de kwaliteitsladder</a>
-<a class="l2" href="#d06-lotdefecten">06.2 Procesvariatie, capabiliteit en defecten in een lot</a>
-<a class="l2" href="#d06-waarom">06.3 Waarom een steekproef? Lot, populatie en representativiteit</a>
-<a class="l2" href="#d06-srs">06.4 Enkelvoudige aselecte steekproef (SRS) en de steekproevenverdeling</a>
-<a class="l2" href="#d06-strat">06.5 Gestratificeerde steekproef (stratified sampling)</a>
-<a class="l2" href="#d06-cluster">06.6 Clustersteekproef (cluster sampling)</a>
-<a class="l2" href="#d06-bias">06.7 Systematische steekproef, non-response bias en representativiteit</a>
-<a class="l2" href="#d06-procedure">06.8 De aanvaardingsprocedure: AQL, LQL en twee risico&#x27;s</a>
-<a class="l2" href="#d06-oc">06.9 Het enkelvoudige plan (n, c) en de OC-curve</a>
-<a class="l2" href="#d06-peach">06.10 Een plan ontwerpen uit AQL en LQL: de methode van Peach</a>
-<a class="l2" href="#d06-dubbel">06.11 Dubbele, meervoudige en sequentiële plannen</a>
-<a class="l2" href="#d06-variabelen">06.12 Steekproefplannen voor variabelen (n, k)</a>
-<a class="l2" href="#d06-aoq">06.13 Rectificerende inspectie: AOQ, AOQL en ATI</a>
-<a class="l2" href="#d06-skiplot">06.14 Skip-lot, ISO 2859 en gecertificeerde leveranciers</a>
-<a class="l2" href="#d06-deming">06.15 Het inspectiecriterium van Deming: alles of niets</a>
-<a class="l2" href="#d06-oefeningen">06.16 Oefeningen uit de Further Reading en checklist</a>
-<a class="l1" href="#d07">Deel 07 — Regressie (regression)</a>
-<a class="l2 tools" href="#tools-d07">Hulpmiddelen: rekenmachines en tabellen</a>
-<a class="l2" href="#d07-start">7.1 Start: het ene idee achter Les 3</a>
-<a class="l2" href="#d07-model">7.2 Wat is een regressiemodel?</a>
-<a class="l2" href="#d07-kk">7.3 De kleinste-kwadratenmethode (least squares)</a>
-<a class="l2" href="#d07-zuurstof">7.4 Uitgewerkt voorbeeld: zuurstofzuiverheid (oxygen purity)</a>
-<a class="l2" href="#d07-anova">7.5 Variantieanalyse (ANOVA) en R²</a>
-<a class="l2" href="#d07-toetsen">7.6 Toetsen en betrouwbaarheidsintervallen voor β0 en β1</a>
-<a class="l2" href="#d07-bi-pi">7.7 Gemiddelde respons of één nieuwe meting? BI en PI</a>
-<a class="l2" href="#d07-residuen">7.8 Het model controleren: residuen en uitschieters</a>
-<a class="l2" href="#d07-meervoudig">7.9 Meervoudige lineaire regressie (multiple linear regression)</a>
-<a class="l2" href="#d07-stookolie">7.10 Uitgewerkt voorbeeld: stookolie (heating oil)</a>
-<a class="l2" href="#d07-radj">7.11 R² en aangepaste R² (adjusted R²)</a>
-<a class="l2" href="#d07-polynoom">7.12 Polynoommodellen en de partiële F-toets</a>
-<a class="l2" href="#d07-selectie">7.13 Welke variabelen houd je?</a>
-<a class="l2" href="#d07-demo">7.14 Oefeningen met het regressie-demowerkboek</a>
-<a class="l1" href="#d08">Deel 08 — ANOVA en proefopzet (design of experiments)</a>
-<a class="l2 tools" href="#tools-d08">Hulpmiddelen: rekenmachines en tabellen</a>
-<a class="l2" href="#d08-brug">8.1 Van regressie naar ANOVA: factoren</a>
-<a class="l2" href="#d08-model">8.2 De vraag en het model</a>
-<a class="l2" href="#d08-opsplitsing">8.3 De variatie opsplitsen</a>
-<a class="l2" href="#d08-ftoets">8.4 De F-toets en de ANOVA-tabel</a>
-<a class="l2" href="#d08-papier">8.5 Uitgewerkt voorbeeld: treksterkte van papier</a>
-<a class="l2" href="#d08-vezel">8.6 Excel-output lezen: synthetische vezel</a>
-<a class="l2" href="#d08-residuen">8.7 Aannames controleren en gemiddelden vergelijken</a>
-<a class="l2" href="#d08-machines">8.8 Oefening: drie machines</a>
-<a class="l2" href="#d08-tweeweg">8.9 Tweewegs-ANOVA (two-way ANOVA)</a>
-<a class="l2" href="#d08-doelen">8.10 Waarom experimenten plannen? Doelen en begrippen</a>
-<a class="l2" href="#d08-factorieel">8.11 Het factoriële proefopzet en het golfvoorbeeld</a>
-<a class="l2" href="#d08-blocking">8.12 Storende factoren: blocking en randomisatie</a>
-<a class="l2" href="#d08-opbrengst">8.13 Een slecht en een goed proefopzet met dezelfde kost</a>
-<a class="l2" href="#d08-coderen">8.14 2k-ontwerpen: coderen, ontwerpmatrix en standaardvolgorde</a>
-<a class="l2" href="#d08-effect">8.15 De grootte van een effect</a>
-<a class="l2" href="#d08-interactie">8.16 Interactie</a>
-<a class="l2" href="#d08-contrast">8.17 Contrasten en kwadratensommen</a>
-<a class="l2" href="#d08-chemisch">8.18 Uitgewerkt voorbeeld: chemisch proces</a>
-<a class="l2" href="#d08-significant">8.19 Welke effecten zijn echt?</a>
-<a class="l2" href="#d08-enkel">8.20 Eén replicatie: hogere interacties poolen</a>
-<a class="l2" href="#d08-fractie">8.21 De halve fractie en aliassen</a>
-<a class="l2" href="#d08-resolutie">8.22 Resolutie (resolution)</a>
-<a class="l2" href="#d08-generatoren">8.23 Kleinere fracties: 2k−p en generatoren</a>
-<a class="l2" href="#d08-demo">8.24 Oefeningen met het DOE-demowerkboek</a>
-<a class="l1" href="#d09">Deel 09 — Procescapabiliteit</a>
-<a class="l2 tools" href="#tools-d09">Hulpmiddelen: rekenmachines en tabellen</a>
-<a class="l2" href="#d09-stabiliteit">09.1 Eerst stabiliteit: gewone en speciale oorzaken</a>
-<a class="l2" href="#d09-cp">09.2 Cp: past de spreiding binnen de specificatie?</a>
-<a class="l2" href="#d09-cpk">09.3 Cpk: ligt het proces ook goed?</a>
-<a class="l2" href="#d09-ppk">09.4 Korte en lange termijn: Cp/Cpk tegenover Pp/Ppk, en welke σ</a>
-<a class="l2" href="#d09-uitval">09.5 Van Cp en Cpk naar % uitval</a>
-<a class="l2" href="#d09-sixsigma">09.6 Technische definitie van Six Sigma: 3,4 DPMO of 2 per miljard</a>
-<a class="l2" href="#d09-verbeteren">09.7 Wat hebben we nodig: centreren en spreiding verkleinen</a>
-<a class="l2" href="#d09-matrix">09.8 Stabiliteit × capabiliteit: de gidstabellen</a>
-<a class="l2" href="#d09-as">09.9 Oefening: de as van een automatische transmissie</a>
-<a class="l2" href="#d09-minitab">09.10 Extra (verborgen dia&#x27;s): het Minitab-capabiliteitsrapport</a>
-<a class="l2" href="#d09-stappen">09.11 Stappenplan voor een capabiliteitsvraag</a>
-<a class="l1" href="#d10">Deel 10 — SPC en regelkaarten</a>
-<a class="l2 tools" href="#tools-d10">Hulpmiddelen: rekenmachines en tabellen</a>
-<a class="l2" href="#d10-wat">10.1 Wat is SPC?</a>
-<a class="l2" href="#d10-grenzen">10.2 Regelgrenzen zijn geen specificatiegrenzen</a>
-<a class="l2" href="#d10-opzet">10.3 SPC opzetten: stappen, PDCA-cirkel en OCAP</a>
-<a class="l2" href="#d10-xbar">10.4 De X̄-kaart: waarom gemiddelden?</a>
-<a class="l2" href="#d10-formules">10.5 X̄-R- en X̄-s-kaart: formules en constanten</a>
-<a class="l2" href="#d10-regels">10.6 Een regelkaart lezen: Western Electric-regels</a>
-<a class="l2" href="#d10-oefeningen">10.7 Oefeningen SPC 2–6, met de rekenbladen van de docent</a>
-<a class="l2" href="#d10-imr">10.8 Individuele waarden: de I-MR-kaart (extra)</a>
-<a class="l2" href="#d10-attribuut">10.9 Attributen: p-kaart en u-kaart (extra)</a>
-<a class="l1" href="#d11">Deel 11 — Meetsysteemanalyse (MSA) en Gage R&amp;R</a>
-<a class="l2 tools" href="#tools-d11">Hulpmiddelen: rekenmachines en tabellen</a>
-<a class="l2" href="#d11-meten">11.1 Wat is meten? Het meetproces</a>
-<a class="l2" href="#d11-standaard">11.2 Standaarden, SI-eenheden, herleidbaarheid en referentiewaarde</a>
-<a class="l2" href="#d11-discriminatie">11.3 Discriminatie en resolutie</a>
-<a class="l2" href="#d11-bias">11.4 Bias, stabiliteit en lineariteit: fouten in de locatie</a>
-<a class="l2" href="#d11-rr">11.5 Herhaalbaarheid, reproduceerbaarheid, consistentie, uniformiteit en GRR</a>
-<a class="l2" href="#d11-indeling">11.6 Soorten meetfouten; capability en performance van een meetsysteem</a>
-<a class="l2" href="#d11-resolutie">11.7 Meetfout en effectieve resolutie</a>
-<a class="l2" href="#d11-product">11.8 Productbeslissingen: verkeerd aanvaarden of afkeuren</a>
-<a class="l2" href="#d11-proces">11.9 Procesbeslissingen: waargenomen versus werkelijke Cp</a>
-<a class="l2" href="#d11-gpc">11.10 De gauge performance curve (GPC)</a>
-<a class="l2" href="#d11-onzekerheid">11.11 Meetonzekerheid</a>
-<a class="l2" href="#d11-rheostat">11.12 Onvoldoende discriminatie in procesbeheersing: de Rheostat-data</a>
-<a class="l2" href="#d11-stabiliteit">11.13 Stabiliteit en consistentie bepalen</a>
-<a class="l2" href="#d11-biastoets">11.14 Bias bepalen: is de bias significant?</a>
-<a class="l2" href="#d11-lineariteit">11.15 Lineariteit bepalen</a>
-<a class="l2" href="#d11-d2ster">11.16 d2, d2* en de tabel MSA</a>
-<a class="l2" href="#d11-avgrange">11.17 GRR met de gemiddelde-en-spreidingsbreedte-methode (average and range method)</a>
-<a class="l2" href="#d11-anova">11.18 GRR met de ANOVA-methode</a>
-<a class="l2" href="#d11-studie">11.19 Oefening: de GRR-studie van slide 38</a>
-<a class="l1" href="#d12">Deel 12 — Machine learning en big data</a>
-<a class="l2 tools" href="#tools-d12">Hulpmiddelen: rekenmachines en tabellen</a>
-<a class="l2" href="#d12-overzicht">12.1 Overzicht, bronnen en studiewijzer</a>
-<a class="l2" href="#d12-terminologie">12.2 Terminologie: AI, ML, deep learning, data science, big data</a>
-<a class="l2" href="#d12-paradigmas">12.3 Drie leerparadigma&#x27;s; regressie versus classificatie</a>
-<a class="l2" href="#d12-loss">12.4 Loss-functies: hoe slecht doet het model het?</a>
-<a class="l2" href="#d12-modellen">12.5 Modellen en gewichten; trainen = optimaliseren</a>
-<a class="l2" href="#d12-hyperparameters">12.6 Parameters versus hyperparameters</a>
-<a class="l2" href="#d12-crossvalidatie">12.7 Train-testsplitsing, validatieset en k-voudige cross-validatie</a>
-<a class="l2" href="#d12-overfitting">12.8 Underfitting en overfitting; de U-vormige curve</a>
-<a class="l2" href="#d12-bias-variance">12.9 De bias-variance afweging en de analogie met SPC</a>
-<a class="l2" href="#d12-confusion">12.10 De confusion matrix en vier metrics</a>
-<a class="l2" href="#d12-metric-keuze">12.11 Welke metric kies je?</a>
-<a class="l2" href="#d12-linreg">12.12 Lineaire regressie en haar uitbreidingen</a>
-<a class="l2" href="#d12-neuraal">12.13 Neurale netwerken</a>
-<a class="l2" href="#d12-bomen">12.14 Beslissingsbomen en ensemble-methoden</a>
-<a class="l2" href="#d12-diagnose">12.15 Diagnose: hoge bias of hoge variance? (train- en testmatrices lezen)</a>
-<a class="l2" href="#d12-unsupervised">12.16 Unsupervised methoden: clustering, dimensiereductie, anomaliedetectie</a>
-<a class="l2" href="#d12-bayes">12.17 Bayesiaanse methoden</a>
-<a class="l2" href="#d12-oefeningen">12.18 Oefeningen: methode kiezen en zelftest</a>
-<a class="l2" href="#d12-les6">12.19 Les 6: hands-on machine learning met Python</a>
-<a class="l1" href="#d13">Deel 13 — Voorbeeldexamen (interactief)</a>
-<a class="l2 tools" href="#tools-d13">Hulpmiddelen: rekenmachines en tabellen</a>
-<a class="l2" href="#d13-v1">13.1 Vraag 1 — Juist of niet juist? (2,5 punten)</a>
-<a class="l2" href="#d13-v2">13.2 Vraag 2 — Is machine M1 nauwkeuriger dan M2? (3 punten)</a>
-<a class="l2" href="#d13-v3">13.3 Vraag 3 — Capabiliteit van een rol plaatstaal (2 punten)</a>
-<a class="l2" href="#d13-v4">13.4 Vraag 4 — Regelkaarten (1,5 punten)</a>
-<a class="l2" href="#d13-v5">13.5 Vraag 5 — Drie beslissingsbomen (4 punten)</a>
-<a class="l2" href="#d13-v6">13.6 Vraag 6 — Elco&#x27;s: welke verdeling? (4 punten)</a>
-<a class="l2" href="#d13-v7">13.7 Vraag 7 — Regressielijn en interventie (3 punten)</a>
+<details class="toc-part"><summary><a class="l1" href="#d00">Deel 00 — Start</a></summary><a class="l2" href="#d00-gebruik">0.1 Zo gebruik je deze gids</a><a class="l2" href="#d00-opbouw">0.2 Opbouw: van kader naar technieken</a><a class="l2" href="#d00-rekentool">0.3 De rekentool bij deze gids</a></details>
+<details class="toc-part"><summary><a class="l1" href="#d01">Deel 01 — Lean Six Sigma: kader, DMAIC, Define en het team</a></summary><a class="l2 tools" href="#tools-d01">Hulpmiddelen: rekenmachines en tabellen</a><a class="l2" href="#d01-sixsigma">01.1 Wat is Six Sigma?</a><a class="l2" href="#d01-lean">01.2 Lean en Six Sigma: verspilling en variatie</a><a class="l2" href="#d01-dmaic">01.3 De vijf DMAIC-fasen</a><a class="l2" href="#d01-dfss">01.4 Design for Six Sigma: DMADV versus DMAIC</a><a class="l2" href="#d01-define">01.5 Define: de nood aan verandering begrijpen</a><a class="l2" href="#d01-smart">01.6 Doelen formuleren: SMART en ondersteunende doelen</a><a class="l2" href="#d01-strategie">01.7 Strategie en de juiste projecten kiezen</a><a class="l2" href="#d01-voc">01.8 Voice of the Customer en de CTQ-boom</a><a class="l2" href="#d01-sponsor">01.9 De sponsor</a><a class="l2" href="#d01-business">01.10 De business case</a><a class="l2" href="#d01-stakeholders">01.11 Stakeholders en communicatie</a><a class="l2" href="#d01-team">01.12 Het team en de teamrollen van Belbin</a><a class="l2" href="#d01-verandering">01.13 Teamontwikkeling en verandering leiden</a></details>
+<details class="toc-part"><summary><a class="l1" href="#d02">Deel 02 — Data, kansen, verdelingen, EDA en causaliteit</a></summary><a class="l2 tools" href="#tools-d02">Hulpmiddelen: rekenmachines en tabellen</a><a class="l2" href="#d02-data">02.1 Data en de Measure-fase</a><a class="l2" href="#d02-meetschalen">02.2 Soorten data en meetschalen</a><a class="l2" href="#d02-statkans">02.3 Statistiek versus kansrekening: sampling en inference</a><a class="l2" href="#d02-verdelingen">02.4 Kansverdelingen: pdf, cdf, normaal en niet-normaal</a><a class="l2" href="#d02-poisson">02.5 Inference als voorspelling: klanten aan de kassa</a><a class="l2" href="#d02-model">02.6 Variabiliteit, het probabilistisch model en industriële statistiek</a><a class="l2" href="#d02-eda">02.7 Verkennende data-analyse (EDA) en het kwartet van Anscombe</a><a class="l2" href="#d02-4plot">02.8 De 4-plot, de vier assumpties en hun gevolgen</a><a class="l2" href="#d02-associatie">02.9 Meerdimensionale data en associatie</a><a class="l2" href="#d02-kansen">02.10 Marginale en voorwaardelijke kansen, onafhankelijkheid</a><a class="l2" href="#d02-regressielijn">02.11 De voorwaardelijke verwachtingswaarde is de regressielijn</a><a class="l2" href="#d02-ladder">02.12 Van zien naar doen: de ladder van causaliteit en het PINO-principe</a><a class="l2" href="#d02-simpson">02.13 Simpson&#x27;s paradox en de confounder</a><a class="l2" href="#d02-dag">02.14 Causale diagrammen en wat een interventie doet</a><a class="l2" href="#d02-rct">02.15 Randomisatie, RCT, A/B-testen en andere causale methoden</a><a class="l2" href="#d02-staal">02.16 Praktijkvoorbeeld: koelt warm staal sneller af?</a><a class="l2" href="#d02-misleiding">02.17 Extra: wanneer data misleidt</a><a class="l2" href="#d02-studiewijzer">02.18 Studiewijzer van Naert: wat moet je kunnen?</a></details>
+<details class="toc-part"><summary><a class="l1" href="#d03">Deel 03 — Normale verdeling, sigmaniveau en DPMO</a></summary><a class="l2 tools" href="#tools-d03">Hulpmiddelen: rekenmachines en tabellen</a><a class="l2" href="#d03-intro">03.1 Waarom statistiek: data als basis</a><a class="l2" href="#d03-populatie">03.2 Populatie, steekproef en de Galton-plank</a><a class="l2" href="#d03-normaal">03.3 De normale verdeling</a><a class="l2" href="#d03-z">03.4 De standaardnormale verdeling en de Z-waarde</a><a class="l2" href="#d03-ztabel">03.5 De Z-tabel lezen</a><a class="l2" href="#d03-excel">03.6 Normale kansen in Excel</a><a class="l2" href="#d03-voc">03.7 Stem van de klant en stem van het proces</a><a class="l2" href="#d03-dpmo">03.8 Discrete data: defecten, DPO, DPMO en yield</a><a class="l2" href="#d03-yield">03.9 Extra: yield-maten en de verborgen fabriek</a><a class="l2" href="#d03-sigma">03.10 Sigmaniveau ↔ DPMO en de 1,5σ-verschuiving</a></details>
+<details class="toc-part"><summary><a class="l1" href="#d04">Deel 04 — Betrouwbaarheidsintervallen</a></summary><a class="l2 tools" href="#tools-d04">Hulpmiddelen: rekenmachines en tabellen</a><a class="l2" href="#d04-waarom">04.1 Waarom een interval en geen puntschatting?</a><a class="l2" href="#d04-nauwkeurigheid">04.2 Betrouwbaarheid, nauwkeurigheid en steekproefgrootte</a><a class="l2" href="#d04-inversie">04.3 Hoe wordt een BI berekend? Functie-inversie, tweezijdig en eenzijdig</a><a class="l2" href="#d04-mu">04.4 BI voor het gemiddelde µ: z of t</a><a class="l2" href="#d04-pi">04.5 BI voor een proportie π (fractie defectieven)</a><a class="l2" href="#d04-verschil">04.6 BI voor het verschil van twee gemiddelden: niet-gepaard en gepaard</a><a class="l2" href="#d04-sigma">04.7 BI voor de variantie σ² en de standaardafwijking σ</a><a class="l2" href="#d04-f">04.8 BI voor de verhouding van twee varianties σ1²/σ2² (F)</a><a class="l2" href="#d04-dualiteit">04.9 Toetsen met een BI: de dualiteit tussen toetsen en intervallen</a><a class="l2" href="#d04-tolerantie">04.10 Tolerantie-intervallen (Further Reading)</a><a class="l2" href="#d04-overzicht">04.11 Overzicht: welk interval gebruik je?</a></details>
+<details class="toc-part"><summary><a class="l1" href="#d05">Deel 05 — Hypothesetoetsen en toetsrecepten</a></summary><a class="l2 tools" href="#tools-d05">Hulpmiddelen: rekenmachines en tabellen</a><a class="l2" href="#d05-idee">05.1 Waarom toetsen? H0 en HA</a><a class="l2" href="#d05-recept">05.2 Het toetsrecept in zeven stappen</a><a class="l2" href="#d05-fouten">05.3 Twee soorten fouten: α, β, de OC-curve en de kracht</a><a class="l2" href="#d05-pwaarde">05.4 De p-waarde</a><a class="l2" href="#d05-zijdig">05.5 Eenzijdig of tweezijdig?</a><a class="l2" href="#d05-valkuilen">05.6 Valkuilen, en statistische versus praktische significantie</a><a class="l2" href="#d05-ttoets">05.7 Voorbeeld: t-toets voor het gemiddelde</a><a class="l2" href="#d05-chi2toets">05.8 Voorbeeld: χ²-toets voor de standaardafwijking</a><a class="l2" href="#d05-recepten">05.9 De toetsrecepten: welke toets wanneer?</a><a class="l2" href="#d05-t-recepten">05.10 De t-toetsen: één steekproef, niet-gepaard en gepaard</a><a class="l2" href="#d05-z-pi">05.11 De Z-toets voor een proportie π</a><a class="l2" href="#d05-chi2-f">05.12 De χ²-toets voor σ en de F-toets voor σ1/σ2</a><a class="l2" href="#d05-frequenties">05.13 χ²-toetsen voor frequenties: goodness of fit en kruistabellen</a><a class="l2" href="#d05-nietparam">05.14 Niet-parametrische toetsen: Wilcoxon en runs</a></details>
+<details class="toc-part"><summary><a class="l1" href="#d06">Deel 06 — Aanvaardingssteekproeven en steekproefmethoden</a></summary><a class="l2 tools" href="#tools-d06">Hulpmiddelen: rekenmachines en tabellen</a><a class="l2" href="#d06-kwaliteit">06.1 Kwaliteit, variatie en de kwaliteitsladder</a><a class="l2" href="#d06-lotdefecten">06.2 Procesvariatie, capabiliteit en defecten in een lot</a><a class="l2" href="#d06-waarom">06.3 Waarom een steekproef? Lot, populatie en representativiteit</a><a class="l2" href="#d06-srs">06.4 Enkelvoudige aselecte steekproef (SRS) en de steekproevenverdeling</a><a class="l2" href="#d06-strat">06.5 Gestratificeerde steekproef (stratified sampling)</a><a class="l2" href="#d06-cluster">06.6 Clustersteekproef (cluster sampling)</a><a class="l2" href="#d06-bias">06.7 Systematische steekproef, non-response bias en representativiteit</a><a class="l2" href="#d06-procedure">06.8 De aanvaardingsprocedure: AQL, LQL en twee risico&#x27;s</a><a class="l2" href="#d06-oc">06.9 Het enkelvoudige plan (n, c) en de OC-curve</a><a class="l2" href="#d06-peach">06.10 Een plan ontwerpen uit AQL en LQL: de methode van Peach</a><a class="l2" href="#d06-dubbel">06.11 Dubbele, meervoudige en sequentiële plannen</a><a class="l2" href="#d06-variabelen">06.12 Steekproefplannen voor variabelen (n, k)</a><a class="l2" href="#d06-aoq">06.13 Rectificerende inspectie: AOQ, AOQL en ATI</a><a class="l2" href="#d06-skiplot">06.14 Skip-lot, ISO 2859 en gecertificeerde leveranciers</a><a class="l2" href="#d06-deming">06.15 Het inspectiecriterium van Deming: alles of niets</a><a class="l2" href="#d06-oefeningen">06.16 Oefeningen uit de Further Reading en checklist</a></details>
+<details class="toc-part"><summary><a class="l1" href="#d07">Deel 07 — Regressie (regression)</a></summary><a class="l2 tools" href="#tools-d07">Hulpmiddelen: rekenmachines en tabellen</a><a class="l2" href="#d07-start">7.1 Start: het ene idee achter Les 3</a><a class="l2" href="#d07-model">7.2 Wat is een regressiemodel?</a><a class="l2" href="#d07-kk">7.3 De kleinste-kwadratenmethode (least squares)</a><a class="l2" href="#d07-zuurstof">7.4 Uitgewerkt voorbeeld: zuurstofzuiverheid (oxygen purity)</a><a class="l2" href="#d07-anova">7.5 Variantieanalyse (ANOVA) en R²</a><a class="l2" href="#d07-toetsen">7.6 Toetsen en betrouwbaarheidsintervallen voor β0 en β1</a><a class="l2" href="#d07-bi-pi">7.7 Gemiddelde respons of één nieuwe meting? BI en PI</a><a class="l2" href="#d07-residuen">7.8 Het model controleren: residuen en uitschieters</a><a class="l2" href="#d07-meervoudig">7.9 Meervoudige lineaire regressie (multiple linear regression)</a><a class="l2" href="#d07-stookolie">7.10 Uitgewerkt voorbeeld: stookolie (heating oil)</a><a class="l2" href="#d07-radj">7.11 R² en aangepaste R² (adjusted R²)</a><a class="l2" href="#d07-polynoom">7.12 Polynoommodellen en de partiële F-toets</a><a class="l2" href="#d07-selectie">7.13 Welke variabelen houd je?</a><a class="l2" href="#d07-demo">7.14 Oefeningen met het regressie-demowerkboek</a></details>
+<details class="toc-part"><summary><a class="l1" href="#d08">Deel 08 — ANOVA en proefopzet (design of experiments)</a></summary><a class="l2 tools" href="#tools-d08">Hulpmiddelen: rekenmachines en tabellen</a><a class="l2" href="#d08-brug">8.1 Van regressie naar ANOVA: factoren</a><a class="l2" href="#d08-model">8.2 De vraag en het model</a><a class="l2" href="#d08-opsplitsing">8.3 De variatie opsplitsen</a><a class="l2" href="#d08-ftoets">8.4 De F-toets en de ANOVA-tabel</a><a class="l2" href="#d08-papier">8.5 Uitgewerkt voorbeeld: treksterkte van papier</a><a class="l2" href="#d08-vezel">8.6 Excel-output lezen: synthetische vezel</a><a class="l2" href="#d08-residuen">8.7 Aannames controleren en gemiddelden vergelijken</a><a class="l2" href="#d08-machines">8.8 Oefening: drie machines</a><a class="l2" href="#d08-tweeweg">8.9 Tweewegs-ANOVA (two-way ANOVA)</a><a class="l2" href="#d08-doelen">8.10 Waarom experimenten plannen? Doelen en begrippen</a><a class="l2" href="#d08-factorieel">8.11 Het factoriële proefopzet en het golfvoorbeeld</a><a class="l2" href="#d08-blocking">8.12 Storende factoren: blocking en randomisatie</a><a class="l2" href="#d08-opbrengst">8.13 Een slecht en een goed proefopzet met dezelfde kost</a><a class="l2" href="#d08-coderen">8.14 2k-ontwerpen: coderen, ontwerpmatrix en standaardvolgorde</a><a class="l2" href="#d08-effect">8.15 De grootte van een effect</a><a class="l2" href="#d08-interactie">8.16 Interactie</a><a class="l2" href="#d08-contrast">8.17 Contrasten en kwadratensommen</a><a class="l2" href="#d08-chemisch">8.18 Uitgewerkt voorbeeld: chemisch proces</a><a class="l2" href="#d08-significant">8.19 Welke effecten zijn echt?</a><a class="l2" href="#d08-enkel">8.20 Eén replicatie: hogere interacties poolen</a><a class="l2" href="#d08-fractie">8.21 De halve fractie en aliassen</a><a class="l2" href="#d08-resolutie">8.22 Resolutie (resolution)</a><a class="l2" href="#d08-generatoren">8.23 Kleinere fracties: 2k−p en generatoren</a><a class="l2" href="#d08-demo">8.24 Oefeningen met het DOE-demowerkboek</a></details>
+<details class="toc-part"><summary><a class="l1" href="#d09">Deel 09 — Procescapabiliteit</a></summary><a class="l2 tools" href="#tools-d09">Hulpmiddelen: rekenmachines en tabellen</a><a class="l2" href="#d09-stabiliteit">09.1 Eerst stabiliteit: gewone en speciale oorzaken</a><a class="l2" href="#d09-cp">09.2 Cp: past de spreiding binnen de specificatie?</a><a class="l2" href="#d09-cpk">09.3 Cpk: ligt het proces ook goed?</a><a class="l2" href="#d09-ppk">09.4 Korte en lange termijn: Cp/Cpk tegenover Pp/Ppk, en welke σ</a><a class="l2" href="#d09-uitval">09.5 Van Cp en Cpk naar % uitval</a><a class="l2" href="#d09-sixsigma">09.6 Technische definitie van Six Sigma: 3,4 DPMO of 2 per miljard</a><a class="l2" href="#d09-verbeteren">09.7 Wat hebben we nodig: centreren en spreiding verkleinen</a><a class="l2" href="#d09-matrix">09.8 Stabiliteit × capabiliteit: de gidstabellen</a><a class="l2" href="#d09-as">09.9 Oefening: de as van een automatische transmissie</a><a class="l2" href="#d09-minitab">09.10 Extra (verborgen dia&#x27;s): het Minitab-capabiliteitsrapport</a><a class="l2" href="#d09-stappen">09.11 Stappenplan voor een capabiliteitsvraag</a></details>
+<details class="toc-part"><summary><a class="l1" href="#d10">Deel 10 — SPC en regelkaarten</a></summary><a class="l2 tools" href="#tools-d10">Hulpmiddelen: rekenmachines en tabellen</a><a class="l2" href="#d10-wat">10.1 Wat is SPC?</a><a class="l2" href="#d10-grenzen">10.2 Regelgrenzen zijn geen specificatiegrenzen</a><a class="l2" href="#d10-opzet">10.3 SPC opzetten: stappen, PDCA-cirkel en OCAP</a><a class="l2" href="#d10-xbar">10.4 De X̄-kaart: waarom gemiddelden?</a><a class="l2" href="#d10-formules">10.5 X̄-R- en X̄-s-kaart: formules en constanten</a><a class="l2" href="#d10-regels">10.6 Een regelkaart lezen: Western Electric-regels</a><a class="l2" href="#d10-oefeningen">10.7 Oefeningen SPC 2–6, met de rekenbladen van de docent</a><a class="l2" href="#d10-imr">10.8 Individuele waarden: de I-MR-kaart (extra)</a><a class="l2" href="#d10-attribuut">10.9 Attributen: p-kaart en u-kaart (extra)</a></details>
+<details class="toc-part"><summary><a class="l1" href="#d11">Deel 11 — Meetsysteemanalyse (MSA) en Gage R&amp;R</a></summary><a class="l2 tools" href="#tools-d11">Hulpmiddelen: rekenmachines en tabellen</a><a class="l2" href="#d11-meten">11.1 Wat is meten? Het meetproces</a><a class="l2" href="#d11-standaard">11.2 Standaarden, SI-eenheden, herleidbaarheid en referentiewaarde</a><a class="l2" href="#d11-discriminatie">11.3 Discriminatie en resolutie</a><a class="l2" href="#d11-bias">11.4 Bias, stabiliteit en lineariteit: fouten in de locatie</a><a class="l2" href="#d11-rr">11.5 Herhaalbaarheid, reproduceerbaarheid, consistentie, uniformiteit en GRR</a><a class="l2" href="#d11-indeling">11.6 Soorten meetfouten; capability en performance van een meetsysteem</a><a class="l2" href="#d11-resolutie">11.7 Meetfout en effectieve resolutie</a><a class="l2" href="#d11-product">11.8 Productbeslissingen: verkeerd aanvaarden of afkeuren</a><a class="l2" href="#d11-proces">11.9 Procesbeslissingen: waargenomen versus werkelijke Cp</a><a class="l2" href="#d11-gpc">11.10 De gauge performance curve (GPC)</a><a class="l2" href="#d11-onzekerheid">11.11 Meetonzekerheid</a><a class="l2" href="#d11-rheostat">11.12 Onvoldoende discriminatie in procesbeheersing: de Rheostat-data</a><a class="l2" href="#d11-stabiliteit">11.13 Stabiliteit en consistentie bepalen</a><a class="l2" href="#d11-biastoets">11.14 Bias bepalen: is de bias significant?</a><a class="l2" href="#d11-lineariteit">11.15 Lineariteit bepalen</a><a class="l2" href="#d11-d2ster">11.16 d2, d2* en de tabel MSA</a><a class="l2" href="#d11-avgrange">11.17 GRR met de gemiddelde-en-spreidingsbreedte-methode (average and range method)</a><a class="l2" href="#d11-anova">11.18 GRR met de ANOVA-methode</a><a class="l2" href="#d11-studie">11.19 Oefening: de GRR-studie van slide 38</a></details>
+<details class="toc-part"><summary><a class="l1" href="#d12">Deel 12 — Machine learning en big data</a></summary><a class="l2 tools" href="#tools-d12">Hulpmiddelen: rekenmachines en tabellen</a><a class="l2" href="#d12-overzicht">12.1 Overzicht, bronnen en studiewijzer</a><a class="l2" href="#d12-terminologie">12.2 Terminologie: AI, ML, deep learning, data science, big data</a><a class="l2" href="#d12-paradigmas">12.3 Drie leerparadigma&#x27;s; regressie versus classificatie</a><a class="l2" href="#d12-loss">12.4 Loss-functies: hoe slecht doet het model het?</a><a class="l2" href="#d12-modellen">12.5 Modellen en gewichten; trainen = optimaliseren</a><a class="l2" href="#d12-hyperparameters">12.6 Parameters versus hyperparameters</a><a class="l2" href="#d12-crossvalidatie">12.7 Train-testsplitsing, validatieset en k-voudige cross-validatie</a><a class="l2" href="#d12-overfitting">12.8 Underfitting en overfitting; de U-vormige curve</a><a class="l2" href="#d12-bias-variance">12.9 De bias-variance afweging en de analogie met SPC</a><a class="l2" href="#d12-confusion">12.10 De confusion matrix en vier metrics</a><a class="l2" href="#d12-metric-keuze">12.11 Welke metric kies je?</a><a class="l2" href="#d12-linreg">12.12 Lineaire regressie en haar uitbreidingen</a><a class="l2" href="#d12-neuraal">12.13 Neurale netwerken</a><a class="l2" href="#d12-bomen">12.14 Beslissingsbomen en ensemble-methoden</a><a class="l2" href="#d12-diagnose">12.15 Diagnose: hoge bias of hoge variance? (train- en testmatrices lezen)</a><a class="l2" href="#d12-unsupervised">12.16 Unsupervised methoden: clustering, dimensiereductie, anomaliedetectie</a><a class="l2" href="#d12-bayes">12.17 Bayesiaanse methoden</a><a class="l2" href="#d12-oefeningen">12.18 Oefeningen: methode kiezen en zelftest</a><a class="l2" href="#d12-les6">12.19 Les 6: hands-on machine learning met Python</a></details>
+<details class="toc-part"><summary><a class="l1" href="#d13">Deel 13 — Voorbeeldexamen (interactief)</a></summary><a class="l2 tools" href="#tools-d13">Hulpmiddelen: rekenmachines en tabellen</a><a class="l2" href="#d13-v1">13.1 Vraag 1 — Juist of niet juist? (2,5 punten)</a><a class="l2" href="#d13-v2">13.2 Vraag 2 — Is machine M1 nauwkeuriger dan M2? (3 punten)</a><a class="l2" href="#d13-v3">13.3 Vraag 3 — Capabiliteit van een rol plaatstaal (2 punten)</a><a class="l2" href="#d13-v4">13.4 Vraag 4 — Regelkaarten (1,5 punten)</a><a class="l2" href="#d13-v5">13.5 Vraag 5 — Drie beslissingsbomen (4 punten)</a><a class="l2" href="#d13-v6">13.6 Vraag 6 — Elco&#x27;s: welke verdeling? (4 punten)</a><a class="l2" href="#d13-v7">13.7 Vraag 7 — Regressielijn en interventie (3 punten)</a></details>
 <a class="l1" href="#woordenlijst">Woordenlijst NL ↔ EN</a>
 <a class="l1" href="#formuleblad">Formuleblad</a>
 <a class="l1" href="#valkuilen">Valkuilen en strikvragen</a>
@@ -376,9 +204,15 @@ var[data-s]:hover, var[data-s]:focus, var[data-s].on { background: #efe6fa; outl
     <h3>0.1 Zo gebruik je deze gids</h3>
     <ul>
       <li><b>Zoeken (search)</b>: typ in het vak bovenaan, in het Nederlands of het Engels. De gids zoekt ook de
-      vertaling: "betrouwbaarheidsinterval" vindt ook "confidence interval", en omgekeerd. De resultaten verschijnen
-      bovenaan met een stukje tekst. Klik een resultaat aan om ernaartoe te springen; de treffers zijn geel gemarkeerd.
+      vertaling: "betrouwbaarheidsinterval" vindt ook "confidence interval", en omgekeerd. Bovenaan staan de
+      <b>beste treffers</b>: onderdelen, oefeningen en rekenmachines met de term in hun titel of trefwoorden; een
+      rekenmachine die in meerdere delen staat, verschijnt één keer. De rest staat ingeklapt onder "Meer treffers",
+      per deel. Klik een resultaat aan om ernaartoe te springen; de treffers zijn geel gemarkeerd.
       Sneltoetsen: <b>/</b> springt naar het zoekvak, <b>Enter</b> toont de resultaten, <b>Esc</b> wist de zoekopdracht.</li>
+      <li><b>In- en uitklappen</b>: klik op de titel van een deel, een onderdeel of een oefening om het in of uit te
+      klappen. <b>Alles in</b> bovenaan klapt alles in (handig als overzicht), <b>Alles uit</b> klapt alles weer open.
+      Een link, een zoekresultaat of de inhoudstafel klapt automatisch open wat nodig is. In de inhoudstafel links
+      open je de onderdelen van een deel met het pijltje.</li>
       <li><b>Oefeningen</b> staan in een blauwgrijs kader. Vul je antwoord in (komma of punt mag) en klik
       <b>Controleer</b>. "Hint" en "Toon oplossing" klappen open wanneer je erop klikt, dus de oplossing blijft verborgen
       tot je ze zelf opent.</li>
@@ -18643,6 +18477,69 @@ if (typeof module !== 'undefined') module.exports = Calc;
     field.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); check(); } });
   });
 
+  /* ---------- collapsible parts, units and exercises: click a heading to fold or unfold it ---------- */
+  var foldables = [];
+  function makeFoldable(el, headSel) {
+    var h = null;
+    for (var c = el.firstElementChild; c; c = c.nextElementSibling) if (c.matches(headSel)) { h = c; break; }
+    if (!h || !h.nextSibling) return;
+    var body = document.createElement('div');
+    body.className = 'sec-body';
+    while (h.nextSibling) body.appendChild(h.nextSibling);
+    el.appendChild(body);
+    el.classList.add('foldable');
+    h.classList.add('fold-head');
+    h.tabIndex = 0;
+    h.setAttribute('aria-expanded', 'true');
+    h.title = 'Klik om in of uit te klappen';
+    foldables.push(el);
+  }
+  function setFolded(el, folded) {
+    el.classList.toggle('folded', folded);
+    var h = el.querySelector(':scope > .fold-head');
+    if (h) h.setAttribute('aria-expanded', folded ? 'false' : 'true');
+  }
+  document.querySelectorAll('section.part').forEach(function (el) { makeFoldable(el, 'h2'); });
+  document.querySelectorAll('section.unit').forEach(function (el) { makeFoldable(el, 'h3'); });
+  document.querySelectorAll('div.exercise').forEach(function (el) { makeFoldable(el, 'h4'); });
+  document.addEventListener('click', function (e) {
+    var h = e.target.closest && e.target.closest('.fold-head');
+    if (!h || e.target.closest('a, button, input, select, textarea, var')) return;
+    setFolded(h.parentElement, !h.parentElement.classList.contains('folded'));
+  });
+  document.addEventListener('keydown', function (e) {
+    var h = document.activeElement;
+    if ((e.key === 'Enter' || e.key === ' ') && h && h.classList && h.classList.contains('fold-head')) {
+      e.preventDefault(); setFolded(h.parentElement, !h.parentElement.classList.contains('folded'));
+    }
+  });
+  var foldAll = document.getElementById('fold-all'), unfoldAll = document.getElementById('unfold-all');
+  if (foldAll) foldAll.addEventListener('click', function () { foldables.forEach(function (el) { setFolded(el, true); }); });
+  if (unfoldAll) unfoldAll.addEventListener('click', function () { foldables.forEach(function (el) { setFolded(el, false); }); });
+  // a link to something inside a folded section or a closed <details> unfolds everything around it (and the target)
+  function reveal(id) {
+    var el = id && document.getElementById(id);
+    if (!el) return;
+    if (el.classList.contains('folded')) setFolded(el, false);
+    for (var p = el.parentElement; p; p = p.parentElement) {
+      if (p.classList && p.classList.contains('folded')) setFolded(p, false);
+      if (p.tagName === 'DETAILS') p.open = true;
+    }
+    // open the matching group in the table of contents and keep the link in view
+    var tocLink = document.querySelector('#toc a[href="#' + id + '"]');
+    if (tocLink) {
+      var group = tocLink.closest('details.toc-part');
+      if (group) group.open = true;
+      tocLink.scrollIntoView({ block: 'nearest' });
+    }
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#"]');
+    if (a) reveal(decodeURIComponent(a.getAttribute('href').slice(1)));
+  }, true);
+  window.addEventListener('hashchange', function () { reveal(decodeURIComponent(location.hash.slice(1))); });
+  if (location.hash) reveal(decodeURIComponent(location.hash.slice(1)));
+
   /* ---------- clickable variables: <var data-s="NN:key"> opens a short explanation (NN_symbols.tsv) ---------- */
   var symbols = {};
   try { symbols = JSON.parse(document.getElementById('symbols-data').textContent); } catch (e) { symbols = {}; }
@@ -18698,39 +18595,65 @@ if (typeof module !== 'undefined') module.exports = Calc;
     var td = el.querySelector('td');
     return td ? td.textContent.trim() : '';
   }
+  // what the search ranks on: the title, the author keywords (data-kw) and the body of every unit, exercise, tool and table row
+  var KIND = { unit: 1, tool: 0.9, exercise: 0.85, row: 0.5 };
   var blocks = [];
   document.querySelectorAll('section.unit, div.exercise, details.tool, table.gloss tr[data-kw], #formuleblad tr[data-kw], #fouten tr[data-kw]')
     .forEach(function (el) {
       var anchor = el.id ? el : el.closest('[id]');
-      blocks.push({ el: el, id: anchor ? anchor.id : '', title: blockTitle(el), part: partTitle(el),
-                    text: norm(el.textContent + ' ' + (el.dataset.kw || '')) });
+      var kind = el.tagName === 'TR' ? 'row' : (el.tagName === 'DETAILS' ? 'tool' : (el.classList.contains('exercise') ? 'exercise' : 'unit'));
+      var head = el.tagName === 'DETAILS' ? el.querySelector('summary') : (el.tagName === 'TR' ? el.querySelector('td') : el.querySelector('h3, h4'));
+      blocks.push({ el: el, id: anchor ? anchor.id : '', title: blockTitle(el), part: partTitle(el), kind: kind,
+                    head: norm(head ? head.textContent : ''), kw: norm(el.dataset.kw || ''), text: norm(el.textContent),
+                    partHead: kind === 'row' ? '' : norm(partTitle(el)) });
     });
 
-  // the query, its glossary translations, and the query with every glossary term in it translated in place
-  // ("pitfall p-value" -> "valkuil p-value", "pitfall p-waarde", "valkuil p-waarde")
+  // the query and its glossary translations (weight 1), the query with glossary terms translated in place (0.9),
+  // and longer glossary terms that contain the query (0.6: more specific, e.g. "gepaarde t-toets" for "t-test")
   function alternatives(q) {
-    var alts = [q];
+    var alts = [{ t: q, w: 1 }];
     if (q.length < 3) return alts;
-    function add(x) { if (x && alts.indexOf(x) < 0 && alts.length < 16) alts.push(x); }
+    function add(x, w) {
+      if (!x || alts.length >= 16) return;
+      for (var i = 0; i < alts.length; i++) if (alts[i].t === x) { alts[i].w = Math.max(alts[i].w, w); return; }
+      alts.push({ t: x, w: w });
+    }
     function pairs(fn) { gloss.forEach(function (p) { fn(p[0], p[1]); fn(p[1], p[0]); }); }
-    pairs(function (a, b) { if (a && b && (a === q || (a.indexOf(q) >= 0 && q.length >= 4))) { add(b); add(a); } });
-    var single = q.indexOf(' ') < 0;   // one (compound) word: also search the glossary terms it contains, as before
+    pairs(function (a, b) { if (a && b && a === q) add(b, 1); });
+    pairs(function (a, b) { if (a && b && a !== q && a.indexOf(q) >= 0 && q.length >= 4) { add(a, 0.6); add(b, 0.6); } });
+    var single = q.indexOf(' ') < 0;   // one (compound) word: also search the glossary terms it contains
     for (var i = 0; i < alts.length; i++) {
       var cur = alts[i];
       pairs(function (a, b) {
-        if (!a || !b || a.length < 4 || a === cur || cur.indexOf(a) < 0) return;
-        if (single && cur === q) { add(b); add(a); } else add(cur.replace(a, b));
+        if (!a || !b || a.length < 4 || a === cur.t || cur.t.indexOf(a) < 0) return;
+        if (single && cur.t === q) { add(b, 0.5); add(a, 0.5); } else add(cur.t.replace(a, b), 0.9 * cur.w);
       });
     }
     return alts;
   }
-  function matches(text, alts) {
-    for (var i = 0; i < alts.length; i++) {
-      var words = alts[i].split(' ');
-      var all = words.every(function (w) { return text.indexOf(w) >= 0; });
-      if (all) return alts[i];
-    }
-    return null;
+  // a word of one or two characters (t, z, F, Cp) must stand on its own; longer words may sit inside a word
+  function finder(w) {
+    if (w.length > 2) return { has: function (h) { return h.indexOf(w) >= 0; }, count: function (h) {
+      var c = 0, k = 0; while ((k = h.indexOf(w, k)) >= 0 && c < 9) { c++; k += w.length; } return c; } };
+    var re = new RegExp('(^|[^a-z0-9])' + w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(?=[^a-z0-9]|$)', 'g');
+    return { has: function (h) { re.lastIndex = 0; return re.test(h); },
+             count: function (h) { var c = 0; re.lastIndex = 0; while (re.exec(h) && c < 9) c++; return c; } };
+  }
+  // relevance of one block for one alternative; 0 when a word is missing
+  function score(b, alt) {
+    var words = alt.t.split(' ').filter(Boolean), finders = words.map(finder), phrase = finder(alt.t);
+    var all = b.head + ' ' + b.kw + ' ' + b.text;
+    if (!finders.every(function (f) { return f.has(all); })) return 0;
+    var frac = function (h) { return finders.filter(function (f) { return f.has(h); }).length / finders.length; };
+    var s = (phrase.has(b.head) ? 10 : 0) + 4 * frac(b.head) + (phrase.has(b.kw) ? 6 : 0) + 2 * frac(b.kw) +
+            2 * Math.min(5, phrase.count(b.text)) + Math.min.apply(null, finders.map(function (f) { return Math.min(3, f.count(b.text)); })) +
+            (phrase.has(b.partHead) ? 4 : 0);   // the part is about it (e.g. "regelkaart" in Deel 10)
+    return s * alt.w * KIND[b.kind];
+  }
+  function best(b, alts) {
+    var top = null;
+    alts.forEach(function (a) { var v = score(b, a); if (v > 0 && (!top || v > top.score)) top = { score: v, hit: a.t }; });
+    return top;
   }
 
   var marked = [];
@@ -18781,40 +18704,76 @@ if (typeof module !== 'undefined') module.exports = Calc;
   var box = document.getElementById('q'), hits = document.getElementById('hits');
   var panel = document.getElementById('zoek-resultaten'), list = document.getElementById('results');
   var timer = null;
+  function link(f) {
+    var a = document.createElement('a');
+    a.href = '#' + f.b.id;
+    a.textContent = f.b.title || f.b.id;
+    return a;
+  }
   function run() {
     clearMarks();
     list.innerHTML = '';
     var q = norm(box.value);
     if (q.length < 2) { panel.hidden = true; hits.textContent = ''; return; }
     var alts = alternatives(q), found = [];
-    blocks.forEach(function (b) {
-      var hit = matches(b.text, alts);
-      if (hit) found.push({ b: b, hit: hit });
+    blocks.forEach(function (b, i) { var r = best(b, alts); if (r) found.push({ b: b, hit: r.hit, score: r.score, order: i }); });
+    found.sort(function (x, y) { return y.score - x.score || x.order - y.order; });
+    // the best hits: units, exercises and calculators only (table rows stay under "more"), each title once (a calculator
+    // sits in several parts), at most 8, and only those that score at least half of the top hit
+    var top = 0, shown = [], seen = {};
+    found.forEach(function (f) {
+      if (f.b.kind === 'row') return;
+      if (!top) top = f.score;
+      if (seen[f.b.title]) { seen[f.b.title].also.push(f.b.part); f.dup = true; return; }
+      if (shown.length < 8 && f.score >= 0.5 * top) { f.also = []; seen[f.b.title] = f; shown.push(f); }
     });
-    // units and exercises first, then glossary/formula/errata rows; keep document order within each group
-    found.sort(function (x, y) {
-      var gx = x.b.el.tagName === 'TR' ? 1 : 0, gy = y.b.el.tagName === 'TR' ? 1 : 0;
-      return gx - gy;
-    });
-    hits.textContent = found.length + ' treffer' + (found.length === 1 ? '' : 's');
+    var rest = found.filter(function (f) { return shown.indexOf(f) < 0 && !f.dup; });
+    hits.textContent = found.length ? shown.length + ' beste van ' + found.length : 'geen treffers';
     var note = document.createElement('li');
     note.className = 'where';
-    note.textContent = 'Gezocht op: ' + alts.join(' · ');
+    note.textContent = 'Gezocht op: ' + alts.slice(0, 6).map(function (a) { return a.t; }).join(' · ') + (alts.length > 6 ? ' …' : '');
     list.appendChild(note);
-    found.slice(0, 80).forEach(function (f) {
-      var li = document.createElement('li'), a = document.createElement('a');
-      a.href = '#' + f.b.id;
-      a.textContent = f.b.title || f.b.id;
-      li.appendChild(a);
+    shown.forEach(function (f) {
+      var li = document.createElement('li');
+      li.appendChild(link(f));
       var where = document.createElement('span');
       where.className = 'where';
-      where.textContent = '  — ' + f.b.part;
+      where.textContent = '  — ' + f.b.part + (f.also.length ? ' (ook in ' + f.also.map(function (p) { return p.split(' — ')[0]; }).join(', ') + ')' : '');
       li.appendChild(where);
       var sn = document.createElement('span');
       sn.className = 'snip';
       sn.textContent = snippet(f.b.text, f.hit);
       li.appendChild(sn);
       list.appendChild(li);
+    });
+    if (rest.length) {   // the other hits, folded, grouped per part in document order
+      var li = document.createElement('li'), more = document.createElement('details'), sum = document.createElement('summary');
+      li.className = 'more';
+      sum.textContent = 'Meer treffers (' + rest.length + '), per deel';
+      more.appendChild(sum);
+      var groups = {}, order = [];
+      rest.slice().sort(function (x, y) { return x.order - y.order; }).forEach(function (f) {
+        if (!groups[f.b.part]) { groups[f.b.part] = []; order.push(f.b.part); }
+        groups[f.b.part].push(f);
+      });
+      order.forEach(function (part) {
+        var div = document.createElement('div');
+        div.className = 'grp';
+        var b = document.createElement('b');
+        b.textContent = (part || 'Woordenlijst, formuleblad, fouten') + ': ';
+        div.appendChild(b);
+        groups[part].forEach(function (f, i) {
+          if (i) div.appendChild(document.createTextNode(' · '));
+          var a = link(f);
+          a.title = snippet(f.b.text, f.hit);
+          div.appendChild(a);
+        });
+        more.appendChild(div);
+      });
+      li.appendChild(more);
+      list.appendChild(li);
+    }
+    found.slice(0, 120).forEach(function (f) {
       highlight(f.b.el, f.hit.split(' ').filter(function (w) { return w.length >= 2; }));
     });
     panel.hidden = false;
