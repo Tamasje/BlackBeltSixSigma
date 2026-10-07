@@ -1,98 +1,98 @@
 key	symbool	betekenis	hoe	anchor
-h0	H<sub>0</sub>	Nulhypothese (null hypothesis): de status quo, het do-nothing scenario.	Formuleer als 'alles normaal'; bevat de grenswaarde (=, ≤). Je verwerpt H<sub>0</sub> of niet; 'aanvaard' betekent niet verworpen, nooit bewezen.	d05-idee
-ha	H<sub>A</sub>	Alternatieve hypothese (alternative hypothesis, ook H<sub>1</sub>): de situatie die speciale actie vraagt.	Wat je wil aantonen, als strikte ongelijkheid: &gt; of &lt; (eenzijdig), ≠ (tweezijdig). De richting volgt uit de vraag, niet uit de data.	d05-idee
-n	n	Steekproefgrootte (sample size): aantal waarnemingen, of aantal paren.	Gegeven of tel de data. Vrijheidsgraden t- en χ²-toets: n − 1. Signed ranks: verschillen 0 tel je niet mee. Niet de partijgrootte N.	d05-recept
+h0	\(H_{0}\)	Nulhypothese (null hypothesis): de status quo, het do-nothing scenario.	Formuleer als 'alles normaal'; bevat de grenswaarde (=, ≤). Je verwerpt \(H_{0}\) of niet; 'aanvaard' betekent niet verworpen, nooit bewezen.	d05-idee
+ha	\(H_{A}\)	Alternatieve hypothese (alternative hypothesis, ook \(H_{1}\)): de situatie die speciale actie vraagt.	Wat je wil aantonen, als strikte ongelijkheid: &gt; of &lt; (eenzijdig), ≠ (tweezijdig). De richting volgt uit de vraag, niet uit de data.	d05-idee
+n	n	Steekproefgrootte (sample size): aantal waarnemingen, of aantal paren.	Gegeven of tel de data. Vrijheidsgraden t- en \(\chi^{2}\)-toets: n − 1. Signed ranks: verschillen 0 tel je niet mee. Niet de partijgrootte N.	d05-recept
 n_lot	N	Partijgrootte (lot size): aantal stuks in de partij.	Gegeven in de opgave (tegels: 10 000). Niet de steekproefgrootte n.	d05-idee
-d_lot	D	Aantal defecten in de hele partij (lot).	Onbekend zolang niet de hele partij gecontroleerd is. AQL = 2 % van 10 000 tegels betekent D ≤ 200.	d05-idee
-p_lot	P	Fractie defectieven in de partij (lot fraction defective): P = D/N.	Onbekend; daar gaat de hypothese over (H<sub>0</sub>: P ≤ AQL). Niet de steekproeffractie p = d/n.	d05-idee
-aql	AQL	Aanvaardbaar kwaliteitsniveau (acceptable quality level): grens voor een goede partij.	Gegeven in de opgave (tegels: 2 %). Bij P = AQL is het risico α het grootst.	d06-procedure
-d_def	d	Aantal defectieven in de steekproef (number of defectives); toetsingsgrootheid bij de tegels.	Tel in de steekproef. Onder H<sub>0</sub> binomiaal: P[d ≤ c] = BINOM.DIST(c; n; AQL; TRUE).	d05-recept
-c	c	Aanvaardingsgetal (acceptance number): de kritische waarde bij de tegels.	Zo gekozen dat P[d &gt; c] bij P = AQL ongeveer α is (n = 100, c = 4: α ≅ 5 %). Besluit: d ≤ c aanvaarden.	d05-recept
-p_sample	p (P)	Steekproefproportie (sample proportion) p = d/n; als toevalsgrootheid P.	Aantal defectieven gedeeld door n (10/400 = 0,025). Als fractie, niet in %. Niet de p-waarde en niet π.	d05-z-pi
-pi	π	Populatieproportie (population proportion), bv. de ware fractie defectieven.	Onbekend; daar gaat de hypothese over. Geschat door p. In BINOM.DIST is het de kansparameter.	d05-z-pi
-pi0	π<sub>0</sub>	Waarde van π onder H<sub>0</sub> (hypothesized proportion).	Uit de opgave (H<sub>0</sub>: π = 0,02). Onder de wortel: √(π<sub>0</sub>(1 − π<sub>0</sub>)/n), niet p. Voorwaarde nπ<sub>0</sub> &gt; 5.	d05-z-pi
-mu	µ	Populatiegemiddelde (population mean), het procesgemiddelde.	Onbekend; daar gaat de hypothese over. Geschat door x̄. Bij β: de ware µ die je veronderstelt.	d05-ttoets
-mu0	µ<sub>0</sub>	Waarde van µ onder H<sub>0</sub> (hypothesized mean).	Uit de opgave (beeldbuizen 1200, machine 10). Staat in H<sub>0</sub> en in de teller x̄ − µ<sub>0</sub>.	d05-recept
-mu1	µ<sub>1</sub>	Populatiegemiddelde van groep 1 (bv. materiaal 1).	Onbekend; geschat door x̄<sub>1</sub>. H<sub>0</sub>: µ<sub>1</sub> = µ<sub>2</sub>, of µ<sub>1</sub> − µ<sub>2</sub> = d.	d05-t-recepten
-mu2	µ<sub>2</sub>	Populatiegemiddelde van groep 2 (bv. materiaal 2).	Onbekend; geschat door x̄<sub>2</sub>. Let op de volgorde: groep 1 min groep 2.	d05-t-recepten
-sigma	σ	Standaardafwijking van populatie of proces (population standard deviation).	Gegeven (σ gekend: Z-toets) of onbekend (schat met s: t-toets). Beeldbuizen: σ = 300.	d05-recepten
-sigma0	σ<sub>0</sub>	Waarde van σ onder H<sub>0</sub> (hypothesized standard deviation).	Uit de opgave (0,01). In de χ²-grootheid gekwadrateerd: σ<sub>0</sub>² = 0,0001.	d05-chi2toets
-sigma1	σ<sub>1</sub>	Standaardafwijking van populatie 1 (bv. machine 1).	Onbekend; geschat door s<sub>1</sub>. 'Machine 1 nauwkeuriger' betekent σ<sub>1</sub> &lt; σ<sub>2</sub>.	d05-chi2-f
-sigma2	σ<sub>2</sub>	Standaardafwijking van populatie 2 (bv. machine 2).	Onbekend; geschat door s<sub>2</sub>. σ<sub>1</sub> = σ<sub>2</sub> is een voorwaarde van de niet-gepaarde t-toets.	d05-chi2-f
-sigma_a	σ<sub>A</sub>	Standaardafwijking van verdeling A (Dummies-voorbeeld).	Onbekend; geschat door s<sub>A</sub>.	ex-14-05-1
-sigma_b	σ<sub>B</sub>	Standaardafwijking van verdeling B (Dummies-voorbeeld).	Onbekend; geschat door s<sub>B</sub>.	ex-14-05-1
-xbar	x̄ (X̄)	Steekproefgemiddelde (sample mean); X̄ als toevalsgrootheid.	AVERAGE van de data. Onder H<sub>0</sub>, σ gekend: X̄ ~ N(µ<sub>0</sub>; σ/√n).	d05-recept
-xbar1	x̄<sub>1</sub>	Gemiddelde van steekproef 1.	AVERAGE van groep 1 (schoenzolen: 28,7).	d05-t-recepten
-xbar2	x̄<sub>2</sub>	Gemiddelde van steekproef 2.	AVERAGE van groep 2 (schoenzolen: 34,3).	d05-t-recepten
-s	s	Steekproefstandaardafwijking (sample standard deviation).	STDEV.S (deler n − 1), niet STDEV.P. In de t-grootheid deel je door s/√n, niet door s.	d05-ttoets
-s_sq	s²	Steekproefvariantie (sample variance).	VAR.S van de data, of s in het kwadraat. De χ²-grootheid gebruikt s², niet s.	d05-chi2toets
-s1	s<sub>1</sub>	Standaardafwijking van steekproef 1.	STDEV.S van groep 1 (schoenzolen: 5,50).	d05-t-recepten
-s2	s<sub>2</sub>	Standaardafwijking van steekproef 2.	STDEV.S van groep 2 (schoenzolen: 7,53).	d05-t-recepten
-s1_sq	s<sub>1</sub>²	Variantie van steekproef 1.	VAR.S van groep 1, of s<sub>1</sub> in het kwadraat. In F en in s<sub>p</sub>² staan varianties, geen s.	d05-chi2-f
-s2_sq	s<sub>2</sub>²	Variantie van steekproef 2.	VAR.S van groep 2, of s<sub>2</sub> in het kwadraat. In F en in s<sub>p</sub>² staan varianties, geen s.	d05-chi2-f
-sa_sq	s<sub>A</sub>²	Steekproefvariantie van A (Dummies-voorbeeld).	Gegeven in de opgave (4).	ex-14-05-1
-sb_sq	s<sub>B</sub>²	Steekproefvariantie van B (Dummies-voorbeeld).	Gegeven in de opgave (7,5).	ex-14-05-1
-n_a	n<sub>A</sub>	Steekproefgrootte van A (Dummies-voorbeeld).	Gegeven (10); vrijheidsgraden n<sub>A</sub> − 1 = 9.	ex-14-05-1
-n_b	n<sub>B</sub>	Steekproefgrootte van B (Dummies-voorbeeld).	Gegeven (5); vrijheidsgraden n<sub>B</sub> − 1 = 4.	ex-14-05-1
-sp	s<sub>p</sub>	Gepoolde standaardafwijking (pooled standard deviation) van twee steekproeven.	Vierkantswortel van s<sub>p</sub>² (schoenzolen: 6,59).	d05-t-recepten
-sp_sq	s<sub>p</sub>²	Gepoolde variantie (pooled variance).	[(n<sub>1</sub> − 1)s<sub>1</sub>² + (n<sub>2</sub> − 1)s<sub>2</sub>²]/(n<sub>1</sub> + n<sub>2</sub> − 2). Noemer − 2, niet − 1 (beslissing 8).	d05-t-recepten
-n1	n<sub>1</sub>	Steekproefgrootte van groep 1.	Gegeven of tel de data. Vrijheidsgraden niet-gepaard: n<sub>1</sub> + n<sub>2</sub> − 2; F: n<sub>1</sub> − 1.	d05-t-recepten
-n2	n<sub>2</sub>	Steekproefgrootte van groep 2.	Gegeven of tel de data. Vrijheidsgraden niet-gepaard: n<sub>1</sub> + n<sub>2</sub> − 2; F: n<sub>2</sub> − 1.	d05-t-recepten
-d_diff	d	Verschil µ<sub>1</sub> − µ<sub>2</sub> onder H<sub>0</sub> (hypothesized difference).	Uit de opgave; meestal 0. Let op de volgorde: groep 1 min groep 2.	d05-t-recepten
-v_i	v<sub>i</sub> (v)	Verschil binnen paar i (paired difference).	v<sub>i</sub> = x<sub>1i</sub> − x<sub>2i</sub>, voor elk paar in dezelfde volgorde.	d05-t-recepten
-x1i	x<sub>1i</sub>	Eerste meting van paar i.	Uit de data (kolom van groep 1).	d05-t-recepten
-x2i	x<sub>2i</sub>	Tweede meting van paar i.	Uit de data (kolom van groep 2).	d05-t-recepten
-vbar	v̄	Gemiddelde van de verschillen v<sub>i</sub>.	AVERAGE van de verschillen (schoenzolen: −3,3).	d05-t-recepten
-s_v	s<sub>v</sub>	Standaardafwijking van de verschillen v<sub>i</sub>.	STDEV.S van de verschillen zelf, niet te halen uit s<sub>1</sub> en s<sub>2</sub> (schoenzolen: 2,41).	d05-t-recepten
-t_stat	t	t-toetsingsgrootheid (t statistic).	(x̄ − µ<sub>0</sub>)/(s/√n); vergelijk met de kritische waarde (T.INV) of bereken de p-waarde (T.DIST).	d05-ttoets
-t_dist	t(…)	t-verdeling (Student) met het aantal vrijheidsgraden tussen haakjes.	Linkerkwantiel T.INV(kans; df), linkerstaart T.DIST(x; df; TRUE). df: n − 1 (één steekproef, gepaard), n<sub>1</sub> + n<sub>2</sub> − 2 (niet-gepaard).	d05-ttoets
-z_stat	z	z-toetsingsgrootheid: standaardnormaal verdeeld onder H<sub>0</sub>.	(x̄ − µ<sub>0</sub>)/(σ/√n) of (p − π<sub>0</sub>)/√(π<sub>0</sub>(1 − π<sub>0</sub>)/n). Rechterstaart: 1 − NORM.S.DIST(z; TRUE).	d05-z-pi
-z_crit	z<sub>1−α</sub> (Z)	Kritische z-waarde: kwantiel van de standaardnormale verdeling.	NORM.S.INV(1 − α) eenzijdig, NORM.S.INV(1 − α/2) tweezijdig. Bij α = 1 %: 2,326 eenzijdig, 2,576 tweezijdig.	d05-zijdig
-normal_dist	N(…)	Normale verdeling N(gemiddelde; standaardafwijking); N(0; 1) is de standaardnormale.	De cursus zet de standaardafwijking als tweede parameter: X̄ ~ N(µ<sub>0</sub>; σ/√n). Excel: NORM.S.DIST, NORM.S.INV.	d03-normaal
-chi2_dist	χ²(…)	χ²-verdeling met het aantal vrijheidsgraden tussen haakjes; asymmetrisch, alleen positief.	CHISQ.INV(kans; df) is het linkerkwantiel; rechts: CHISQ.INV(1 − α; df). df: n − 1 voor σ; r − g − 1 of (r − 1)(s − 1) voor frequenties.	d05-chi2toets
-f_dist	F(…)	F-verdeling met (teller; noemer) vrijheidsgraden.	Volgorde van de df = volgorde van de varianties. Bovenste kritische waarde F.INV.RT(α; df1; df2), onderste F.INV(α; df1; df2).	d05-chi2-f
-f_stat	F	F-toetsingsgrootheid: verhouding van twee steekproefvarianties.	s<sub>1</sub>²/s<sub>2</sub>² of omgekeerd; zet de variantie die volgens H<sub>A</sub> groter is in de teller. Varianties, geen standaardafwijkingen.	d05-chi2-f
-f_crit	F<sub>α</sub>	Kritische waarde van F(n, m) met kans α rechts ervan.	F.INV.RT(α; n; m). Omrekenen: F<sub>α</sub>(n, m) = 1/F<sub>1−α</sub>(m, n).	d04-f
+d_lot	D	Aantal defecten in de hele partij (lot).	Onbekend zolang niet de hele partij gecontroleerd is. \(\mathrm{AQL}=2\ \%\) van 10 000 tegels betekent \(D\le200\).	d05-idee
+p_lot	P	Fractie defectieven in de partij (lot fraction defective): \(P=\frac{D}{N}\).	Onbekend; daar gaat de hypothese over (\(H_{0}\): \(P\le\mathrm{AQL}\)). Niet de steekproeffractie \(p=\frac{d}{n}\).	d05-idee
+aql	AQL	Aanvaardbaar kwaliteitsniveau (acceptable quality level): grens voor een goede partij.	Gegeven in de opgave (tegels: 2 %). Bij \(P=\mathrm{AQL}\) is het risico \(\alpha\) het grootst.	d06-procedure
+d_def	d	Aantal defectieven in de steekproef (number of defectives); toetsingsgrootheid bij de tegels.	Tel in de steekproef. Onder \(H_{0}\) binomiaal: \(P[d\le c]=\operatorname{BINOM.DIST}(c;n;\mathrm{AQL};\mathrm{TRUE})\).	d05-recept
+c	c	Aanvaardingsgetal (acceptance number): de kritische waarde bij de tegels.	Zo gekozen dat \(P[d\gt c]\) bij \(P=\mathrm{AQL}\) ongeveer \(\alpha\) is (\(n=100\), \(c=4\): \(\alpha\cong5\ \%\)). Besluit: \(d\le c\) aanvaarden.	d05-recept
+p_sample	p (P)	Steekproefproportie (sample proportion) \(p=\frac{d}{n}\); als toevalsgrootheid P.	Aantal defectieven gedeeld door n \(\left(\frac{10}{400}=0{,}025\right)\). Als fractie, niet in %. Niet de p-waarde en niet \(\pi\).	d05-z-pi
+pi	\(\pi\)	Populatieproportie (population proportion), bv. de ware fractie defectieven.	Onbekend; daar gaat de hypothese over. Geschat door p. In BINOM.DIST is het de kansparameter.	d05-z-pi
+pi0	\(\pi_{0}\)	Waarde van \(\pi\) onder \(H_{0}\) (hypothesized proportion).	Uit de opgave (\(H_{0}\): \(\pi=0{,}02\)). Onder de wortel: \(\sqrt{\frac{\pi_{0}(1-\pi_{0})}{n}}\), niet p. Voorwaarde n\(\pi_{0}\gt5\).	d05-z-pi
+mu	\(\mu\)	Populatiegemiddelde (population mean), het procesgemiddelde.	Onbekend; daar gaat de hypothese over. Geschat door \(\bar{x}\). Bij \(\beta\): de ware \(\mu\) die je veronderstelt.	d05-ttoets
+mu0	\(\mu_{0}\)	Waarde van \(\mu\) onder \(H_{0}\) (hypothesized mean).	Uit de opgave (beeldbuizen 1200, machine 10). Staat in \(H_{0}\) en in de teller \(\bar{x}-\mu_{0}\).	d05-recept
+mu1	\(\mu_{1}\)	Populatiegemiddelde van groep 1 (bv. materiaal 1).	Onbekend; geschat door \(\bar{x}_{1}\). \(H_{0}\): \(\mu_{1}=\mu_{2}\), of \(\mu_{1}-\mu_{2}=d\).	d05-t-recepten
+mu2	\(\mu_{2}\)	Populatiegemiddelde van groep 2 (bv. materiaal 2).	Onbekend; geschat door \(\bar{x}_{2}\). Let op de volgorde: groep 1 min groep 2.	d05-t-recepten
+sigma	\(\sigma\)	Standaardafwijking van populatie of proces (population standard deviation).	Gegeven (\(\sigma\) gekend: Z-toets) of onbekend (schat met s: t-toets). Beeldbuizen: \(\sigma=300\).	d05-recepten
+sigma0	\(\sigma_{0}\)	Waarde van \(\sigma\) onder \(H_{0}\) (hypothesized standard deviation).	Uit de opgave (0,01). In de \(\chi^{2}\)-grootheid gekwadrateerd: \(\sigma_{0}^{2}=0{,}0001\).	d05-chi2toets
+sigma1	\(\sigma_{1}\)	Standaardafwijking van populatie 1 (bv. machine 1).	Onbekend; geschat door \(s_{1}\). 'Machine 1 nauwkeuriger' betekent \(\sigma_{1}\lt\sigma_{2}\).	d05-chi2-f
+sigma2	\(\sigma_{2}\)	Standaardafwijking van populatie 2 (bv. machine 2).	Onbekend; geschat door \(s_{2}\). \(\sigma_{1}=\sigma_{2}\) is een voorwaarde van de niet-gepaarde t-toets.	d05-chi2-f
+sigma_a	\(\sigma_{A}\)	Standaardafwijking van verdeling A (Dummies-voorbeeld).	Onbekend; geschat door \(s_{A}\).	ex-14-05-1
+sigma_b	\(\sigma_{B}\)	Standaardafwijking van verdeling B (Dummies-voorbeeld).	Onbekend; geschat door \(s_{B}\).	ex-14-05-1
+xbar	\(\bar{x}\ (\bar{X})\)	Steekproefgemiddelde (sample mean); \(\bar{X}\) als toevalsgrootheid.	AVERAGE van de data. Onder \(H_{0}\), \(\sigma\) gekend: \(\bar{X}\sim N\left(\mu_{0};\frac{\sigma}{\sqrt{n}}\right)\).	d05-recept
+xbar1	\(\bar{x}_{1}\)	Gemiddelde van steekproef 1.	AVERAGE van groep 1 (schoenzolen: 28,7).	d05-t-recepten
+xbar2	\(\bar{x}_{2}\)	Gemiddelde van steekproef 2.	AVERAGE van groep 2 (schoenzolen: 34,3).	d05-t-recepten
+s	s	Steekproefstandaardafwijking (sample standard deviation).	STDEV.S (deler n − 1), niet STDEV.P. In de t-grootheid deel je door \(\frac{s}{\sqrt{n}}\), niet door s.	d05-ttoets
+s_sq	\(s^{2}\)	Steekproefvariantie (sample variance).	VAR.S van de data, of s in het kwadraat. De \(\chi^{2}\)-grootheid gebruikt \(s^{2}\), niet s.	d05-chi2toets
+s1	\(s_{1}\)	Standaardafwijking van steekproef 1.	STDEV.S van groep 1 (schoenzolen: 5,50).	d05-t-recepten
+s2	\(s_{2}\)	Standaardafwijking van steekproef 2.	STDEV.S van groep 2 (schoenzolen: 7,53).	d05-t-recepten
+s1_sq	\(s_{1}^{2}\)	Variantie van steekproef 1.	VAR.S van groep 1, of \(s_{1}\) in het kwadraat. In F en in \(s_{p}^{2}\) staan varianties, geen s.	d05-chi2-f
+s2_sq	\(s_{2}^{2}\)	Variantie van steekproef 2.	VAR.S van groep 2, of \(s_{2}\) in het kwadraat. In F en in \(s_{p}^{2}\) staan varianties, geen s.	d05-chi2-f
+sa_sq	\(s_{A}^{2}\)	Steekproefvariantie van A (Dummies-voorbeeld).	Gegeven in de opgave (4).	ex-14-05-1
+sb_sq	\(s_{B}^{2}\)	Steekproefvariantie van B (Dummies-voorbeeld).	Gegeven in de opgave (7,5).	ex-14-05-1
+n_a	\(n_{A}\)	Steekproefgrootte van A (Dummies-voorbeeld).	Gegeven (10); vrijheidsgraden \(n_{A}-1=9\).	ex-14-05-1
+n_b	\(n_{B}\)	Steekproefgrootte van B (Dummies-voorbeeld).	Gegeven (5); vrijheidsgraden \(n_{B}-1=4\).	ex-14-05-1
+sp	\(s_{p}\)	Gepoolde standaardafwijking (pooled standard deviation) van twee steekproeven.	Vierkantswortel van \(s_{p}^{2}\) (schoenzolen: 6,59).	d05-t-recepten
+sp_sq	\(s_{p}^{2}\)	Gepoolde variantie (pooled variance).	\(\frac{(n_{1}-1)s_{1}^{2}+(n_{2}-1)s_{2}^{2}}{n_{1}+n_{2}-2}\). Noemer − 2, niet − 1 (beslissing 8).	d05-t-recepten
+n1	\(n_{1}\)	Steekproefgrootte van groep 1.	Gegeven of tel de data. Vrijheidsgraden niet-gepaard: \(n_{1}+n_{2}-2\); F: \(n_{1}-1\).	d05-t-recepten
+n2	\(n_{2}\)	Steekproefgrootte van groep 2.	Gegeven of tel de data. Vrijheidsgraden niet-gepaard: \(n_{1}+n_{2}-2\); F: \(n_{2}-1\).	d05-t-recepten
+d_diff	d	Verschil \(\mu_{1}-\mu_{2}\) onder \(H_{0}\) (hypothesized difference).	Uit de opgave; meestal 0. Let op de volgorde: groep 1 min groep 2.	d05-t-recepten
+v_i	\(v_{i}\) (v)	Verschil binnen paar i (paired difference).	\(v_{i}=x_{1i}-x_{2i}\), voor elk paar in dezelfde volgorde.	d05-t-recepten
+x1i	\(x_{1i}\)	Eerste meting van paar i.	Uit de data (kolom van groep 1).	d05-t-recepten
+x2i	\(x_{2i}\)	Tweede meting van paar i.	Uit de data (kolom van groep 2).	d05-t-recepten
+vbar	\(\bar{v}\)	Gemiddelde van de verschillen \(v_{i}\).	AVERAGE van de verschillen (schoenzolen: −3,3).	d05-t-recepten
+s_v	\(s_{v}\)	Standaardafwijking van de verschillen \(v_{i}\).	STDEV.S van de verschillen zelf, niet te halen uit \(s_{1}\) en \(s_{2}\) (schoenzolen: 2,41).	d05-t-recepten
+t_stat	t	t-toetsingsgrootheid (t statistic).	\(\frac{\bar{x}-\mu_{0}}{\frac{s}{\sqrt{n}}}\); vergelijk met de kritische waarde (T.INV) of bereken de p-waarde (T.DIST).	d05-ttoets
+t_dist	t(…)	t-verdeling (Student) met het aantal vrijheidsgraden tussen haakjes.	Linkerkwantiel T.INV(kans; df), linkerstaart T.DIST(x; df; TRUE). df: n − 1 (één steekproef, gepaard), \(n_{1}+n_{2}-2\) (niet-gepaard).	d05-ttoets
+z_stat	z	z-toetsingsgrootheid: standaardnormaal verdeeld onder \(H_{0}\).	\(\frac{\bar{x}-\mu_{0}}{\frac{\sigma}{\sqrt{n}}}\) of \(\frac{p-\pi_{0}}{\sqrt{\frac{\pi_{0}(1-\pi_{0})}{n}}}\). Rechterstaart: 1 − NORM.S.DIST(z; TRUE).	d05-z-pi
+z_crit	\(z_{1-\alpha}\) (Z)	Kritische z-waarde: kwantiel van de standaardnormale verdeling.	\(\operatorname{NORM.S.INV}(1-\alpha)\) eenzijdig, \(\operatorname{NORM.S.INV}\left(1-\frac{\alpha}{2}\right)\) tweezijdig. Bij \(\alpha=1\ \%\): 2,326 eenzijdig, 2,576 tweezijdig.	d05-zijdig
+normal_dist	N(…)	Normale verdeling N(gemiddelde; standaardafwijking); N(0; 1) is de standaardnormale.	De cursus zet de standaardafwijking als tweede parameter: \(\bar{X}\sim N\left(\mu_{0};\frac{\sigma}{\sqrt{n}}\right)\). Excel: NORM.S.DIST, NORM.S.INV.	d03-normaal
+chi2_dist	\(\chi^{2}(\ldots)\)	\(\chi^{2}\)-verdeling met het aantal vrijheidsgraden tussen haakjes; asymmetrisch, alleen positief.	CHISQ.INV(kans; df) is het linkerkwantiel; rechts: \(\operatorname{CHISQ.INV}(1-\alpha;\mathrm{df})\). df: n − 1 voor \(\sigma\); r − g − 1 of (r − 1)(s − 1) voor frequenties.	d05-chi2toets
+f_dist	F(…)	F-verdeling met (teller; noemer) vrijheidsgraden.	Volgorde van de df = volgorde van de varianties. Bovenste kritische waarde \(\operatorname{F.INV.RT}(\alpha;\mathrm{df}1;\mathrm{df}2)\), onderste \(\operatorname{F.INV}(\alpha;\mathrm{df}1;\mathrm{df}2)\).	d05-chi2-f
+f_stat	F	F-toetsingsgrootheid: verhouding van twee steekproefvarianties.	\(\frac{s_{1}^{2}}{s_{2}^{2}}\) of omgekeerd; zet de variantie die volgens \(H_{A}\) groter is in de teller. Varianties, geen standaardafwijkingen.	d05-chi2-f
+f_crit	\(F_{\alpha}\)	Kritische waarde van F(n, m) met kans \(\alpha\) rechts ervan.	\(\operatorname{F.INV.RT}(\alpha;n;m)\). Omrekenen: \(F_{\alpha}(n,m)=\frac{1}{F_{1-\alpha}(m,n)}\).	d04-f
 df_n	n in F(n, m)	Vrijheidsgraden van de teller van de F-verdeling.	Steekproefgrootte min 1 van de variantie in de teller.	d04-f
 df_m	m in F(n, m)	Vrijheidsgraden van de noemer van de F-verdeling.	Steekproefgrootte min 1 van de variantie in de noemer.	d04-f
-alpha	α	Significantie (significance): risico op een type-I-fout, H<sub>0</sub> ten onrechte verwerpen.	Vooraf vastgelegd, meestal gegeven in de opgave; de cursus kent geen standaard (meeste voorbeelden 5 %). Tweezijdig: α/2 per staart.	d05-recept
-beta	β	Risico op een type-II-fout: H<sub>0</sub> aanvaarden terwijl H<sub>A</sub> waar is.	P[aanvaard H<sub>0</sub>] onder de ware verdeling, met de kritische waarde uit H<sub>0</sub>. Hangt af van α, n en de afstand; niet 1 − α.	d05-fouten
-oc	OC	Operating characteristic: kans om H<sub>0</sub> te aanvaarden, als functie van de ware waarde.	Per ware waarde P[aanvaard H<sub>0</sub>]; tegels: BINOM.DIST(c; n; P; TRUE). Waar H<sub>A</sub> geldt, is dat β.	d05-fouten
-psi	ψ	Kracht (power, sensitiviteit): kans om H<sub>0</sub> terecht te verwerpen.	ψ = 1 − OC = 1 − β bij een gegeven ware waarde; niet 1 − α.	d05-fouten
-lambda_dist	λ	Gestandaardiseerde afstand tussen de ware µ en µ<sub>0</sub>.	λ = (µ − µ<sub>0</sub>)/σ; de horizontale as van de OC-curven in TH FR p. 8.	d05-fouten
+alpha	\(\alpha\)	Significantie (significance): risico op een type-I-fout, \(H_{0}\) ten onrechte verwerpen.	Vooraf vastgelegd, meestal gegeven in de opgave; de cursus kent geen standaard (meeste voorbeelden 5 %). Tweezijdig: \(\frac{\alpha}{2}\) per staart.	d05-recept
+beta	\(\beta\)	Risico op een type-II-fout: \(H_{0}\) aanvaarden terwijl \(H_{A}\) waar is.	P[aanvaard \(H_{0}\)] onder de ware verdeling, met de kritische waarde uit \(H_{0}\). Hangt af van \(\alpha\), n en de afstand; niet \(1-\alpha\).	d05-fouten
+oc	OC	Operating characteristic: kans om \(H_{0}\) te aanvaarden, als functie van de ware waarde.	Per ware waarde P[aanvaard \(H_{0}\)]; tegels: BINOM.DIST(c; n; P; TRUE). Waar \(H_{A}\) geldt, is dat \(\beta\).	d05-fouten
+psi	\(\psi\)	Kracht (power, sensitiviteit): kans om \(H_{0}\) terecht te verwerpen.	\(\psi=1-\mathrm{OC}=1-\beta\) bij een gegeven ware waarde; niet \(1-\alpha\).	d05-fouten
+lambda_dist	\(\lambda\)	Gestandaardiseerde afstand tussen de ware \(\mu\) en \(\mu_{0}\).	\(\lambda=\frac{\mu-\mu_{0}}{\sigma}\); de horizontale as van de OC-curven in TH FR p. 8.	d05-fouten
 m_eff	m	Kleinere steekproefgrootte waarmee de krachtigere toets dezelfde kracht haalt.	Zoek m zodat beide toetsen even krachtig zijn; n/m is de relatieve efficiëntie.	d05-fouten
-k_crit	k (kritische waarde)	Kritische waarde (critical value): grens tussen aanvaarden en verwerpen van H<sub>0</sub>.	Op de referentieverdeling onder H<sub>0</sub>: µ<sub>0</sub> + z·σ/√n, of T.INV, CHISQ.INV, F.INV.RT. Niet op de ware verdeling.	d05-recept
-p_value	p-waarde (p)	p-waarde (p-value): kans op een minstens even extreme waarde als H<sub>0</sub> waar is.	Staart van de referentieverdeling: T.DIST(t; df; TRUE) links, 1 − NORM.S.DIST(z; TRUE) rechts; tweezijdig × 2. Verwerp als p-waarde &lt; α.	d05-pwaarde
-p_c	p<sub>c</sub>	Kritische fractie bij de Z-toets voor π.	Rechterstaart: π<sub>0</sub> + z<sub>1−α</sub>·√(π<sub>0</sub>(1 − π<sub>0</sub>)/n). Oefening 05.12: 0,0315.	ex-05-12
-se_p0	σ<sub>0</sub> (oefening 05.12)	Standaardfout van p onder H<sub>0</sub>.	√(π<sub>0</sub>(1 − π<sub>0</sub>)/n) = √(0,02·0,98/400) = 0,0070. Niet de σ<sub>0</sub> van de χ²-toets.	ex-05-12
-se_p1	σ<sub>1</sub> (oefening 05.12)	Standaardfout van p als de ware π = 3 %.	√(0,03·0,97/n); bij n = 400: 0,00853. Nodig om β te berekenen.	ex-05-12
-z_099	2,326 (2,3)	z met 1 % in de rechterstaart (eenzijdig, α = 1 %).	NORM.S.INV(0,99) = 2,326. De slide rondt af tot 2,3; daarmee vind je 1269 in plaats van 1270.	d05-recept
-z_0995	2,576 (2,6)	z met 0,5 % per staart (tweezijdig, α = 1 %).	NORM.S.INV(0,995) = 2,576. De slide rondt af tot 2,6; daarmee vind je 1122 en 1278 in plaats van 1123 en 1277.	d05-zijdig
-z_095	1,645	z met 5 % in de rechterstaart (eenzijdig, α = 5 %).	NORM.S.INV(0,95) = 1,645. Tweezijdig bij 5 % is het 1,96.	d05-zijdig
-z_0975	1,96	z met 2,5 % per staart (tweezijdig, α = 5 %).	NORM.S.INV(0,975) = 1,960. Eenzijdig bij 5 % is het 1,645.	d05-zijdig
-z_090	1,282	z met 10 % in de staart (hier: β = 10 %).	NORM.S.INV(0,90) = 1,282.	ex-05-12
-e_k	e<sub>k</sub>	Verwachte frequentie (expected frequency) in klasse k als H<sub>0</sub> waar is.	e<sub>k</sub> = n·π<sub>k</sub>. Voorwaarde e<sub>k</sub> &gt; 5, anders klassen samenvoegen. Bij de Z-toets voor π speelt nπ<sub>0</sub> die rol.	d05-frequenties
-n_k	n<sub>k</sub>	Waargenomen frequentie (observed frequency) in klasse k.	Tel de waarnemingen per klasse (het histogram).	d05-frequenties
-pi_k	π<sub>k</sub>	Kans op klasse k volgens de verdeling onder H<sub>0</sub>.	P[X in klasse k] uit de vooropgestelde verdeling: het verschil van de cdf aan de klassegrenzen.	d05-frequenties
+k_crit	k (kritische waarde)	Kritische waarde (critical value): grens tussen aanvaarden en verwerpen van \(H_{0}\).	Op de referentieverdeling onder \(H_{0}\): \(\mu_{0}+\frac{z\cdot\sigma}{\sqrt{n}}\), of T.INV, CHISQ.INV, F.INV.RT. Niet op de ware verdeling.	d05-recept
+p_value	p-waarde (p)	p-waarde (p-value): kans op een minstens even extreme waarde als \(H_{0}\) waar is.	Staart van de referentieverdeling: T.DIST(t; df; TRUE) links, 1 − NORM.S.DIST(z; TRUE) rechts; tweezijdig × 2. Verwerp als p-waarde &lt; \(\alpha\).	d05-pwaarde
+p_c	\(p_{c}\)	Kritische fractie bij de Z-toets voor \(\pi\).	Rechterstaart: \(\pi_{0}+z_{1-\alpha}\cdot\sqrt{\frac{\pi_{0}(1-\pi_{0})}{n}}\). Oefening 05.12: 0,0315.	ex-05-12
+se_p0	\(\sigma_{0}\) (oefening 05.12)	Standaardfout van p onder \(H_{0}\).	\(\sqrt{\frac{\pi_{0}(1-\pi_{0})}{n}}=\sqrt{\frac{0{,}02\cdot0{,}98}{400}}=0{,}0070\). Niet de \(\sigma_{0}\) van de \(\chi^{2}\)-toets.	ex-05-12
+se_p1	\(\sigma_{1}\) (oefening 05.12)	Standaardfout van p als de ware \(\pi=3\ \%\).	\(\sqrt{\frac{0{,}03\cdot0{,}97}{n}}\); bij \(n=400\): 0,00853. Nodig om \(\beta\) te berekenen.	ex-05-12
+z_099	2,326 (2,3)	z met 1 % in de rechterstaart (eenzijdig, \(\alpha=1\ \%\)).	NORM.S.INV(0,99) = 2,326. De slide rondt af tot 2,3; daarmee vind je 1269 in plaats van 1270.	d05-recept
+z_0995	2,576 (2,6)	z met 0,5 % per staart (tweezijdig, \(\alpha=1\ \%\)).	NORM.S.INV(0,995) = 2,576. De slide rondt af tot 2,6; daarmee vind je 1122 en 1278 in plaats van 1123 en 1277.	d05-zijdig
+z_095	1,645	z met 5 % in de rechterstaart (eenzijdig, \(\alpha=5\ \%\)).	NORM.S.INV(0,95) = 1,645. Tweezijdig bij 5 % is het 1,96.	d05-zijdig
+z_0975	1,96	z met 2,5 % per staart (tweezijdig, \(\alpha=5\ \%\)).	NORM.S.INV(0,975) = 1,960. Eenzijdig bij 5 % is het 1,645.	d05-zijdig
+z_090	1,282	z met 10 % in de staart (hier: \(\beta=10\ \%\)).	NORM.S.INV(0,90) = 1,282.	ex-05-12
+e_k	\(e_{k}\)	Verwachte frequentie (expected frequency) in klasse k als \(H_{0}\) waar is.	\(e_{k}=n\cdot\pi_{k}\). Voorwaarde \(e_{k}\gt5\), anders klassen samenvoegen. Bij de Z-toets voor \(\pi\) speelt n\(\pi_{0}\) die rol.	d05-frequenties
+n_k	\(n_{k}\)	Waargenomen frequentie (observed frequency) in klasse k.	Tel de waarnemingen per klasse (het histogram).	d05-frequenties
+pi_k	\(\pi_{k}\)	Kans op klasse k volgens de verdeling onder \(H_{0}\).	P[X in klasse k] uit de vooropgestelde verdeling: het verschil van de cdf aan de klassegrenzen.	d05-frequenties
 r	r	Aantal klassen (van X).	Tel na het samenvoegen. df goodness of fit: r − g − 1; kruistabel: (r − 1)(s − 1).	d05-frequenties
-g	g	Aantal geschatte parameters (momentenmethode).	Normaal met µ en σ geschat: g = 2; volledig gespecificeerde verdeling: g = 0. Kruistabel: (r − 1) + (s − 1).	d05-frequenties
+g	g	Aantal geschatte parameters (momentenmethode).	Normaal met \(\mu\) en \(\sigma\) geschat: \(g=2\); volledig gespecificeerde verdeling: \(g=0\). Kruistabel: (r − 1) + (s − 1).	d05-frequenties
 s_y	s (kruistabel)	Aantal klassen van Y in een kruistabel (de kolommen).	Tel de kolommen. Niet de standaardafwijking s.	d05-frequenties
-n_kl	n<sub>kl</sub> (n<sub>ij</sub>)	Waargenomen frequentie in cel (k, l) van de kruistabel.	Tel de paren in die cel.	d05-frequenties
-e_kl	e<sub>kl</sub> (e<sub>ij</sub>)	Verwachte frequentie in cel (k, l) als X en Y onafhankelijk zijn.	Rijtotaal × kolomtotaal / n: n<sub>k·</sub>·n<sub>·l</sub>/n. Voorwaarde e<sub>kl</sub> &gt; 5.	d05-frequenties
-n_kdot	n<sub>k·</sub>	Rijtotaal: aantal paren met X in klasse k.	Som van rij k van de kruistabel.	d05-frequenties
-n_dotl	n<sub>·l</sub>	Kolomtotaal: aantal paren met Y in klasse l.	Som van kolom l van de kruistabel.	d05-frequenties
+n_kl	\(n_{kl}\ (n_{ij})\)	Waargenomen frequentie in cel (k, l) van de kruistabel.	Tel de paren in die cel.	d05-frequenties
+e_kl	\(e_{kl}\ (e_{ij})\)	Verwachte frequentie in cel (k, l) als X en Y onafhankelijk zijn.	Rijtotaal × kolomtotaal / n: \(\frac{n_{k\cdot}\cdot n_{\cdot l}}{n}\). Voorwaarde \(e_{kl}\gt5\).	d05-frequenties
+n_kdot	\(n_{k\cdot}\)	Rijtotaal: aantal paren met X in klasse k.	Som van rij k van de kruistabel.	d05-frequenties
+n_dotl	\(n_{\cdot l}\)	Kolomtotaal: aantal paren met Y in klasse l.	Som van kolom l van de kruistabel.	d05-frequenties
 x_rv	X	Het kenmerk (toevalsveranderlijke) waarvan je de verdeling toetst.	De gemeten grootheid uit de opgave.	d05-frequenties
-unif_a	a	Ondergrens van de uniforme verdeling U(a, b).	Gegeven in H<sub>0</sub>.	d05-frequenties
-unif_b	b	Bovengrens van de uniforme verdeling U(a, b).	Gegeven in H<sub>0</sub>.	d05-frequenties
-pois_m	m	Parameter van de Poissonverdeling: gemiddelde = variantie = m.	Gegeven in H<sub>0</sub>, of geschat (dan telt hij mee in g).	d05-frequenties
-nu1	ν<sub>1</sub>	Mediaan van X<sub>1</sub> (populatie 1).	Onbekend; H<sub>0</sub>: ν<sub>1</sub> = ν<sub>2</sub>.	d05-nietparam
-nu2	ν<sub>2</sub>	Mediaan van X<sub>2</sub> (populatie 2).	Onbekend; H<sub>0</sub>: ν<sub>1</sub> = ν<sub>2</sub>.	d05-nietparam
-n_total	N	Totaal aantal waarnemingen bij Mann-Whitney: N = n<sub>1</sub> + n<sub>2</sub>.	Tel beide steekproeven samen; de grootste waarde krijgt rang N.	d05-nietparam
-w_x1	W<sub>X1</sub>	Rangsom van steekproef 1 (Wilcoxon-Mann-Whitney).	Rangschik alle N waarden samen (RANK.AVG geeft ties de gemiddelde rang) en tel de rangen van X<sub>1</sub>. E = n<sub>1</sub>(N + 1)/2.	d05-nietparam
-t_plus	T<sup>+</sup>	Som van de rangen van de positieve verschillen (Wilcoxon signed ranks).	Rangschik de verschillen naar absolute waarde, laat nullen weg (n aanpassen) en tel de rangen van de positieve.	d05-nietparam
-runs_r	R	Aantal runs: reeksen opeenvolgende waarden aan dezelfde kant van de mediaan.	Zet + boven en − onder de mediaan en tel de reeksen. E(R) ≈ (n + 2)/2.	d05-nietparam
-wmw_m	m (tabel Mann-Whitney)	Tabelnotatie voor n<sub>1</sub>, met de conventie m ≤ n.	Lees de tabel met m = n<sub>1</sub>.	d05-nietparam
-wmw_n	n (tabel Mann-Whitney)	Tabelnotatie voor n<sub>2</sub>.	Lees de tabel met n = n<sub>2</sub>.	d05-nietparam
-sr_ntab	N (tabel signed ranks)	Tabelnotatie voor n, het aantal verschillen ≠ 0.	Lees de tabel met N = n.	d05-nietparam
-ld1	LD<sub>1</sub>	Meting met zoolmateriaal 1 (schoenzolen, CI FR p. 17–18).	Gegeven: data van oefening 04.10 en 04.11.	d04-verschil
-ld2	LD<sub>2</sub>	Meting met zoolmateriaal 2 (schoenzolen, CI FR p. 17–18).	Gegeven: data van oefening 04.10 en 04.11.	d04-verschil
+unif_a	a	Ondergrens van de uniforme verdeling U(a, b).	Gegeven in \(H_{0}\).	d05-frequenties
+unif_b	b	Bovengrens van de uniforme verdeling U(a, b).	Gegeven in \(H_{0}\).	d05-frequenties
+pois_m	m	Parameter van de Poissonverdeling: gemiddelde = variantie = m.	Gegeven in \(H_{0}\), of geschat (dan telt hij mee in g).	d05-frequenties
+nu1	\(\nu_{1}\)	Mediaan van \(X_{1}\) (populatie 1).	Onbekend; \(H_{0}\): \(\nu_{1}=\nu_{2}\).	d05-nietparam
+nu2	\(\nu_{2}\)	Mediaan van \(X_{2}\) (populatie 2).	Onbekend; \(H_{0}\): \(\nu_{1}=\nu_{2}\).	d05-nietparam
+n_total	N	Totaal aantal waarnemingen bij Mann-Whitney: \(N=n_{1}+n_{2}\).	Tel beide steekproeven samen; de grootste waarde krijgt rang N.	d05-nietparam
+w_x1	\(W_{X1}\)	Rangsom van steekproef 1 (Wilcoxon-Mann-Whitney).	Rangschik alle N waarden samen (RANK.AVG geeft ties de gemiddelde rang) en tel de rangen van \(X_{1}\). \(E=\frac{n_{1}(N+1)}{2}\).	d05-nietparam
+t_plus	\(T^{+}\)	Som van de rangen van de positieve verschillen (Wilcoxon signed ranks).	Rangschik de verschillen naar absolute waarde, laat nullen weg (n aanpassen) en tel de rangen van de positieve.	d05-nietparam
+runs_r	R	Aantal runs: reeksen opeenvolgende waarden aan dezelfde kant van de mediaan.	Zet + boven en − onder de mediaan en tel de reeksen. \(E(R)\approx\) (n + 2)/2.	d05-nietparam
+wmw_m	m (tabel Mann-Whitney)	Tabelnotatie voor \(n_{1}\), met de conventie \(m\le n\).	Lees de tabel met \(m=n_{1}\).	d05-nietparam
+wmw_n	n (tabel Mann-Whitney)	Tabelnotatie voor \(n_{2}\).	Lees de tabel met \(n=n_{2}\).	d05-nietparam
+sr_ntab	N (tabel signed ranks)	Tabelnotatie voor n, het aantal verschillen ≠ 0.	Lees de tabel met \(N=n\).	d05-nietparam
+ld1	\(\mathrm{LD}_{1}\)	Meting met zoolmateriaal 1 (schoenzolen, CI FR p. 17–18).	Gegeven: data van oefening 04.10 en 04.11.	d04-verschil
+ld2	\(\mathrm{LD}_{2}\)	Meting met zoolmateriaal 2 (schoenzolen, CI FR p. 17–18).	Gegeven: data van oefening 04.10 en 04.11.	d04-verschil

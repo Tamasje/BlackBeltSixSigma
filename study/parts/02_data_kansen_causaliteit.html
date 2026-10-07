@@ -41,7 +41,7 @@
     <p><b>Kwalitatieve en kwantitatieve data</b> <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=80">LSS p. 80</a>.
     Er zijn twee soorten data. <b>Kwalitatieve</b> data (<i>qualitative data</i>) zijn woorden en meningen, zoals
     "It's too expensive", "Unclear roles" of "Lack of motivation". <b>Kwantitatieve</b> data (<i>quantitative
-    data</i>) zijn meetwaarden waarmee je kunt rekenen: losse getallen, een verdeling met µ en σ, een spreadsheet. Beide zijn nuttig; de criteria voor een goed project vragen "qualitative or quantitative
+    data</i>) zijn meetwaarden waarmee je kunt rekenen: losse getallen, een verdeling met \(\mu\) en \(\sigma\), een spreadsheet. Beide zijn nuttig; de criteria voor een goed project vragen "qualitative or quantitative
     data" (zie Deel 1).</p>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
@@ -267,12 +267,12 @@
       <p>Gaat de redenering van model naar data (kansrekening, sampling) of van data naar model (statistiek, inference)?
       De voorbeelden komen uit het klantenvoorbeeld van 02.5 (Data p. 9–10) en uit Deel 6.</p>
       <div class="q" data-type="choice" data-answer="statistiek">
-        <label>a. Uit 1000 tellingen van klanten per minuut de parameter λ schatten:</label>
+        <label>a. Uit 1000 tellingen van klanten per minuut de parameter \(\lambda\) schatten:</label>
         <select><option value="">kies…</option><option value="kans">kansrekening (model → data)</option><option value="statistiek">statistiek (data → model)</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-type="choice" data-answer="kans">
-        <label>b. Met <var data-s="lambda">λ</var> = 2.959 de kans berekenen op meer dan 7 klanten in een minuut:</label>
+        <label>b. Met \(\sym{lambda}{\lambda}=2.959\) de kans berekenen op meer dan 7 klanten in een minuut:</label>
         <select><option value="">kies…</option><option value="kans">kansrekening (model → data)</option><option value="statistiek">statistiek (data → model)</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
@@ -296,25 +296,25 @@
     dat de waarde van een random variabele koppelt aan de kans dat die waarde in de populatie voorkomt. Er zijn
     <b>discrete</b> en <b>continue</b> verdelingen <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=112">LSS p. 112</a>.</p>
     <figure class="fig"><img src="figures/02_discreet_continu.png" alt="Links staafjes p(x1) tot p(x5) van een discrete verdeling, rechts een continue dichtheid f(x) met de oppervlakte tussen a en b gearceerd">
-    <figcaption>Figuur: (a) een discrete verdeling geeft een kans p(x<sub>i</sub>) per mogelijke waarde; (b) een continue verdeling is een dichtheid f(x), en de kans op een interval [a, b] is de gearceerde oppervlakte onder de curve.
+    <figcaption>Figuur: (a) een discrete verdeling geeft een kans \(p(x_{i})\) per mogelijke waarde; (b) een continue verdeling is een dichtheid f(x), en de kans op een interval [a, b] is de gearceerde oppervlakte onder de curve.
     <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=112">LSS p. 112</a></figcaption></figure>
     <p>Je kunt een verdeling op twee manieren tekenen <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=5">Data p. 5</a>:</p>
     <div class="f">
-      <div>pdf (<i>probability density function</i>): <var data-s="pdf">f</var>(<var data-s="x_val">x</var>) = P(<var data-s="x_var">X</var> = <var data-s="x_val">x</var>) — de <b>vorm</b> van de verdeling</div>
-      <div>cdf (<i>cumulative distribution function</i>): <var data-s="cdf">F</var>(<var data-s="x_val">x</var>) = P(<var data-s="x_var">X</var> ≤ <var data-s="x_val">x</var>) — de <b>gecumuleerde</b> kans</div>
-      <div><var data-s="cdf">F</var>(<var data-s="x_val">x</var>) = ∫<sub>−∞</sub><sup><var data-s="x_val">x</var></sup> <var data-s="pdf">f</var>(<var data-s="t_int">t</var>) dt: de cdf is de integraal van de pdf, de pdf de afgeleide van de cdf</div>
+      <div>pdf (<i>probability density function</i>): \[\sym{pdf}{f}(\sym{x_val}{x})=P(\sym{x_var}{X}=\sym{x_val}{x})\] — de <b>vorm</b> van de verdeling</div>
+      <div>cdf (<i>cumulative distribution function</i>): \[\sym{cdf}{F}(\sym{x_val}{x})=P(\sym{x_var}{X}\le\sym{x_val}{x})\] — de <b>gecumuleerde</b> kans</div>
+      <div>\[\sym{cdf}{F}(\sym{x_val}{x})=\int_{-\infty}^{\sym{x_val}{x}}\ \sym{pdf}{f}(\sym{t_int}{t})\] dt: de cdf is de integraal van de pdf, de pdf de afgeleide van de cdf</div>
     </div>
     <figure class="fig"><img src="figures/02_normaal_pdf_cdf.png" alt="Boven de klokvormige pdf, onder de S-vormige cdf van een normale verdeling met gemiddelde 100 en standaardafwijking 20">
-    <figcaption>Figuur: pdf (boven) en cdf (onder) van een normale verdeling met µ = 100 en σ = 20. De pdf toont de vorm met de piek bij het gemiddelde; de cdf stijgt van 0 naar 1 en passeert 0,5 bij 100, waar mediaan en gemiddelde samenvallen.
+    <figcaption>Figuur: pdf (boven) en cdf (onder) van een normale verdeling met \(\mu=100\) en \(\sigma=20\). De pdf toont de vorm met de piek bij het gemiddelde; de cdf stijgt van 0 naar 1 en passeert 0,5 bij 100, waar mediaan en gemiddelde samenvallen.
     <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=6">Data p. 6</a></figcaption></figure>
     <div class="box warn"><span class="t">Opgelet bij continue variabelen</span>
-      <p>Voor een continue variabele is de kans op één exacte waarde altijd nul; <var data-s="pdf">f</var>(<var data-s="x_val">x</var>) is dan een <b>kansdichtheid</b>
+      <p>Voor een continue variabele is de kans op één exacte waarde altijd nul; \(\sym{pdf}{f}(\sym{x_val}{x})\) is dan een <b>kansdichtheid</b>
       (<i>density</i>), geen kans. Zinvol zijn kansen op een interval
       <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=2">Data-notities p. 2</a>:</p>
-      <div class="f"><div>P(<var data-s="x_bound">x<sub>1</sub></var> ≤ <var data-s="x_var">X</var> ≤ <var data-s="x_bound">x<sub>2</sub></var>) = ∫<sub><var data-s="x_bound">x<sub>1</sub></var></sub><sup><var data-s="x_bound">x<sub>2</sub></var></sup> <var data-s="pdf">f</var>(<var data-s="x_val">x</var>) dx = <var data-s="cdf">F</var>(<var data-s="x_bound">x<sub>2</sub></var>) − <var data-s="cdf">F</var>(<var data-s="x_bound">x<sub>1</sub></var>)</div></div>
+      <div class="f"><div>\[P(\sym{x_bound}{x_{1}}\le\sym{x_var}{X}\le\sym{x_bound}{x_{2}})=\int_{\sym{x_bound}{x_{1}}}^{\sym{x_bound}{x_{2}}}\ \sym{pdf}{f}(\sym{x_val}{x})\] dx = \[\sym{cdf}{F}(\sym{x_bound}{x_{2}})-\sym{cdf}{F}(\sym{x_bound}{x_{1}})\]</div></div>
     </div>
     <p><b>Normaal en niet-normaal.</b> De bekendste verdeling is de normale (Gaussische) verdeling met twee parameters:
-    µ (gemiddelde, plaats van de piek) en σ (standaarddeviatie, breedte)
+    \(\mu\) (gemiddelde, plaats van de piek) en \(\sigma\) (standaarddeviatie, breedte)
     <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=6">Data p. 6</a>
     <span class="small">extra</span>. Die wordt volledig uitgewerkt in Deel 3. Maar niet alles is normaal
     <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=7">Data p. 7</a>
@@ -342,9 +342,9 @@
     </div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"<var data-s="pdf">f</var>(<var data-s="x_val">x</var>) is de kans dat <var data-s="x_var">X</var> precies <var data-s="x_val">x</var> is."</b> Juist voor een discrete variabele, fout voor een continue: daar is de kans op één exacte waarde nul en is <var data-s="pdf">f</var>(<var data-s="x_val">x</var>) een kansdichtheid. Zinvol is een kans op een interval, <var data-s="cdf">F</var>(<var data-s="x_bound">x<sub>2</sub></var>) − <var data-s="cdf">F</var>(<var data-s="x_bound">x<sub>1</sub></var>) <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=2">Data-notities p. 2</a>.</li>
+      <li><b>"\(\sym{pdf}{f}(\sym{x_val}{x})\) is de kans dat \(\sym{x_var}{X}\) precies \(\sym{x_val}{x}\) is."</b> Juist voor een discrete variabele, fout voor een continue: daar is de kans op één exacte waarde nul en is \(\sym{pdf}{f}(\sym{x_val}{x})\) een kansdichtheid. Zinvol is een kans op een interval, \(\sym{cdf}{F}(\sym{x_bound}{x_{2}})-\sym{cdf}{F}(\sym{x_bound}{x_{1}})\) <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=2">Data-notities p. 2</a>.</li>
       <li><b>"pdf en cdf zijn twee verschillende verdelingen."</b> Fout: het zijn twee voorstellingen van dezelfde verdeling; de cdf is de integraal van de pdf, de pdf de afgeleide van de cdf <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=5">Data p. 5</a>.</li>
-      <li><b>Let op ≤ of &lt;:</b> bij een continue variabele is P(<var data-s="x_var">X</var> ≤ <var data-s="x_val">x</var>) = P(<var data-s="x_var">X</var> &lt; <var data-s="x_val">x</var>), want één punt heeft kans nul <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=2">Data-notities p. 2</a>. Bij een discrete variabele (Poisson, binomiaal) telt de grens wel mee, zie <a href="#d02-poisson">02.5</a> <span class="gen">algemeen</span>.</li>
+      <li><b>Let op ≤ of &lt;:</b> bij een continue variabele is \(P(\sym{x_var}{X}\le\sym{x_val}{x})=P(\sym{x_var}{X}\lt\sym{x_val}{x})\), want één punt heeft kans nul <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=2">Data-notities p. 2</a>. Bij een discrete variabele (Poisson, binomiaal) telt de grens wel mee, zie <a href="#d02-poisson">02.5</a> <span class="gen">algemeen</span>.</li>
       <li><b>"Modus, mediaan en gemiddelde vallen altijd samen."</b> Fout: bij de normale verdeling wel <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=3">Data-notities p. 3</a>, bij een scheve niet: Beta(2, 8) heeft modus 0.125, mediaan 0.180 en gemiddelde 0.200 <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=4">Data-notities p. 4</a>.</li>
       <li><b>"Procesdata zijn normaal verdeeld."</b> Fout: niet alles is normaal. Wachttijden zijn exponentieel, afkeurcijfers tussen 0 en 100 % beta, tellingen per tijdseenheid Poisson <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=7">Data p. 7</a>, <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=3">Data-notities p. 3</a>.</li>
     </ul></div>
@@ -357,14 +357,14 @@
     <p>Een winkel telt voor elke minuut hoeveel klanten aan de kassa komen
     <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=9">Data p. 9</a>.
     De figuur hieronder toont het histogram van 1000 zulke tellingen ("Number of observations: 1000") met daarover een
-    Poisson-verdeling. De data zijn gesimuleerd met <var data-s="lambda">λ</var> = 3 ("True <var data-s="lambda">λ</var>: 3"); uit de data wordt <var data-s="lambda">λ</var> = 2.9590 geschat.
-    <b>Inference</b>: de data volgen een Poisson-verdeling met <var data-s="lambda">λ</var> = 2.959 klanten per minuut.</p>
+    Poisson-verdeling. De data zijn gesimuleerd met \(\sym{lambda}{\lambda}=3\) ("True \(\sym{lambda}{\lambda}\): 3"); uit de data wordt \(\sym{lambda}{\lambda}=2.9590\) geschat.
+    <b>Inference</b>: de data volgen een Poisson-verdeling met \(\sym{lambda}{\lambda}=2.959\) klanten per minuut.</p>
     <figure class="fig"><img src="figures/02_poisson.png" alt="Histogram van het aantal aangekomen klanten per minuut (0 tot 9) uit 1000 waarnemingen, met een Poisson-kansfunctie met lambda 2.959 erover">
-    <figcaption>Figuur: histogram van 1000 tellingen van het aantal klanten per minuut (<i>Observed Data</i>), met de Poisson-verdeling met de geschatte λ = 2.959 erover (ware λ = 3). Meer dan 7 klanten in één minuut komt bijna nooit voor.
+    <figcaption>Figuur: histogram van 1000 tellingen van het aantal klanten per minuut (<i>Observed Data</i>), met de Poisson-verdeling met de geschatte \(\lambda=2.959\) erover (ware \(\lambda=3\)). Meer dan 7 klanten in één minuut komt bijna nooit voor.
     <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=9">Data p. 9</a></figcaption></figure>
     <p>"En wat zijn we daar dan mee?" Het doel van inference is niet het verleden beschrijven maar <b>uitspraken over
     de toekomst</b> onderbouwen <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=10">Data p. 10</a>:
-    data → inference → P(<var data-s="x_val">x</var>) → voorspelling → toekomstige data. Toepassingen: processen optimaliseren om verliezen te
+    data → inference → \(P(\sym{x_val}{x})\to\) voorspelling → toekomstige data. Toepassingen: processen optimaliseren om verliezen te
     beperken, grote investeringen onderbouwen, kost-batenanalyses van leveranciers maken
     <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=5">Data-notities p. 5</a>.
     De voorspelling: <b>"er is minder dan 2 % kans dat er meer dan 7 klanten per minuut arriveren"</b>.</p>
@@ -372,44 +372,44 @@
       <p>De cursus geeft geen formule voor de Poisson-verdeling. Reken met Excel. "Meer dan 7" betekent 8 of meer, dus
       het complement van "hoogstens 7" (cdf, Data p. 5):</p>
       <div class="f">
-        <div>P(<var data-s="x_var">X</var> &gt; 7) = 1 − P(<var data-s="x_var">X</var> ≤ 7) = 1 − <var data-s="cdf">F</var>(7)</div>
+        <div>\(P(\sym{x_var}{X}\gt7)=1-P(\sym{x_var}{X}\le7)=1-\sym{cdf}{F}(7)\)</div>
         <div>Nederlandstalige Excel: <code>=1-POISSON.VERD(7;2,959;WAAR)</code>; Engelstalige Excel: <code>=1-POISSON.DIST(7,2.959,TRUE)</code></div>
       </div>
-      <p>Uitkomst: P(<var data-s="x_var">X</var> ≤ 7) = 0.9890 en P(<var data-s="x_var">X</var> &gt; 7) = 0.0110, dus 1.1 % <span class="computed">zelf berekend</span>.
+      <p>Uitkomst: \(P(\sym{x_var}{X}\le7)=0.9890\) en \(P(\sym{x_var}{X}\gt7)=0.0110\), dus 1.1 % <span class="computed">zelf berekend</span>.
       Dat is inderdaad minder dan 2 %.</p>
     </div>
     <div class="box tool"><span class="t">Rekentool</span>
-      <p>Blad <b>Distributions</b>, blok 4 (Poisson): vul λ in (B36) en k (B37). Voor "meer dan 7" vul je <var data-s="k_count">k</var> = 8 in en lees
-      je P(<var data-s="x_var">X</var> ≥ <var data-s="k_count">k</var>) (B42); of <var data-s="k_count">k</var> = 7 en neem je 1 − P(<var data-s="x_var">X</var> ≤ <var data-s="k_count">k</var>) (B41).</p>
+      <p>Blad <b>Distributions</b>, blok 4 (Poisson): vul \(\lambda\) in (B36) en k (B37). Voor "meer dan 7" vul je \(\sym{k_count}{k}=8\) in en lees
+      je \(P(\sym{x_var}{X}\ge\sym{k_count}{k})\) (B42); of \(\sym{k_count}{k}=7\) en neem je \(1-P(\sym{x_var}{X}\le\sym{k_count}{k})\) (B41).</p>
     </div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>Let op: "meer dan 7" is 8 of meer.</b> P(<var data-s="x_var">X</var> &gt; 7) = 1 − <var data-s="cdf">F</var>(7) = 0.0110 <span class="computed">zelf berekend</span>. "7 of meer" is 1 − <var data-s="cdf">F</var>(6) = 0.0315 <span class="computed">zelf berekend</span>, en dat is méér dan de 2 % van de voorspelling <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=10">Data p. 10</a>. Lees "meer dan", "minstens", "hoogstens" en "minder dan" dus nauwkeurig.</li>
-      <li><b>Let op:</b> POISSON.DIST (POISSON.VERD) met TRUE/WAAR geeft de cumulatieve kans P(<var data-s="x_var">X</var> ≤ <var data-s="k_count">k</var>), met FALSE/ONWAAR de kans op precies <var data-s="k_count">k</var> <span class="gen">algemeen</span>.</li>
-      <li><b>"De data zijn gesimuleerd met <var data-s="lambda">λ</var> = 3, dus inference geeft <var data-s="lambda">λ</var> = 3."</b> Fout: uit 1000 tellingen schat inference <var data-s="lambda">λ</var> = 2.959; een schatting ligt dicht bij de ware waarde, maar is ze niet <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=9">Data p. 9</a>.</li>
-      <li><b>"Inference dient om het verleden te beschrijven."</b> Fout: het doel is uitspraken over de toekomst onderbouwen: data → inference → P(<var data-s="x_val">x</var>) → voorspelling <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=10">Data p. 10</a>.</li>
-      <li><b>Let op:</b> <var data-s="lambda">λ</var> geldt per tijdseenheid van de data (hier per minuut); voor een andere periode schaal je <var data-s="lambda">λ</var> mee <span class="gen">algemeen</span>.</li>
+      <li><b>Let op: "meer dan 7" is 8 of meer.</b> \(P(\sym{x_var}{X}\gt7)=1-\sym{cdf}{F}(7)=0.0110\) <span class="computed">zelf berekend</span>. "7 of meer" is \(1-\sym{cdf}{F}(6)=0.0315\) <span class="computed">zelf berekend</span>, en dat is méér dan de 2 % van de voorspelling <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=10">Data p. 10</a>. Lees "meer dan", "minstens", "hoogstens" en "minder dan" dus nauwkeurig.</li>
+      <li><b>Let op:</b> POISSON.DIST (POISSON.VERD) met TRUE/WAAR geeft de cumulatieve kans \(P(\sym{x_var}{X}\le\sym{k_count}{k})\), met FALSE/ONWAAR de kans op precies \(\sym{k_count}{k}\) <span class="gen">algemeen</span>.</li>
+      <li><b>"De data zijn gesimuleerd met \(\sym{lambda}{\lambda}=3\), dus inference geeft \(\sym{lambda}{\lambda}=3\)."</b> Fout: uit 1000 tellingen schat inference \(\sym{lambda}{\lambda}=2.959\); een schatting ligt dicht bij de ware waarde, maar is ze niet <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=9">Data p. 9</a>.</li>
+      <li><b>"Inference dient om het verleden te beschrijven."</b> Fout: het doel is uitspraken over de toekomst onderbouwen: data → inference → \(P(\sym{x_val}{x})\to\) voorspelling <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=10">Data p. 10</a>.</li>
+      <li><b>Let op:</b> \(\sym{lambda}{\lambda}\) geldt per tijdseenheid van de data (hier per minuut); voor een andere periode schaal je \(\sym{lambda}{\lambda}\) mee <span class="gen">algemeen</span>.</li>
     </ul></div>
 
     <div class="exercise" id="ex-02-4" data-kw="Poisson; lambda; λ = 2.959; klanten per minuut; customers per minute; meer dan 7; P(X>7); cdf; POISSON.DIST; POISSON.VERD; voorspelling">
       <h4>Oefening 02.4 — Meer dan 7 klanten per minuut <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=10">Data p. 10</a></h4>
-      <p>Het aantal klanten per minuut aan de kassa volgt een Poisson-verdeling met <var data-s="lambda">λ</var> = 2.959 klanten per minuut
+      <p>Het aantal klanten per minuut aan de kassa volgt een Poisson-verdeling met \(\sym{lambda}{\lambda}=2.959\) klanten per minuut
       (Data p. 9). Bereken de kansen.</p>
       <div class="q" data-answer="0.9890" data-tol="0.0005">
-        <label>P(<var data-s="x_var">X</var> ≤ 7) (als kans, 4 decimalen) =</label> <input type="text" inputmode="decimal">
+        <label>\(P(\sym{x_var}{X}\le7)\) (als kans, 4 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="0.0110" data-tol="0.0005">
-        <label>P(<var data-s="x_var">X</var> &gt; 7) (als kans, 4 decimalen) =</label> <input type="text" inputmode="decimal">
+        <label>\(P(\sym{x_var}{X}\gt7)\) (als kans, 4 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <details class="hint"><summary>Hint</summary><p>"Meer dan 7" = "niet hoogstens 7". Excel POISSON.VERD (Engels: POISSON.DIST)
-      met WAAR geeft de cumulatieve kans P(<var data-s="x_var">X</var> ≤ <var data-s="k_count">k</var>).</p></details>
+      met WAAR geeft de cumulatieve kans \(P(\sym{x_var}{X}\le\sym{k_count}{k})\).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
-          <li>P(<var data-s="x_var">X</var> ≤ 7) = POISSON.VERD(7;2,959;WAAR) (Engels: POISSON.DIST) = 0.9890 <span class="computed">zelf berekend</span>.</li>
-          <li>P(<var data-s="x_var">X</var> &gt; 7) = 1 − 0.9890 = 0.0110, ongeveer 1.1 % <span class="computed">zelf berekend</span>.</li>
+          <li>\(P(\sym{x_var}{X}\le7)=\operatorname{POISSON.VERD}(7;2{,}959;\mathrm{WAAR})\) (Engels: POISSON.DIST) = 0.9890 <span class="computed">zelf berekend</span>.</li>
+          <li>\(P(\sym{x_var}{X}\gt7)=1-0.9890=0.0110\), ongeveer 1.1 % <span class="computed">zelf berekend</span>.</li>
           <li>Vergelijk met de voorspelling in de cursus (Data p. 10; Data-notities p. 5): "minder dan 2 % kans". Klopt: 1.1 % &lt; 2 %.</li>
         </ol>
       </details>
@@ -419,13 +419,13 @@
   <!-- ============================================================ 02.6 -->
   <section class="unit" id="d02-model" data-kw="probabilistisch model; deterministisch model; probabilistic model; deterministic model; wet van Ohm; meetfout; experimentele fout; measurement error; random component; ingenieursmethode; engineering method; industriële statistiek; industrial statistics; SPC; DOE; MSA; acceptance sampling">
     <h3>02.6 Variabiliteit, het probabilistisch model en industriële statistiek <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=113">LSS p. 113–121</a></h3>
-    <p><b>Waarom heb je statistiek nodig?</b> Omdat metingen variëren. De wet van Ohm, <var data-s="u">U</var> = <var data-s="r_ohm">R</var><var data-s="i_ohm">I</var>, is een
+    <p><b>Waarom heb je statistiek nodig?</b> Omdat metingen variëren. De wet van Ohm, \(\sym{u}{U}=\sym{r_ohm}{R}\sym{i_ohm}{I}\), is een
     <b>deterministisch model</b>: ken je I en R, dan ken je U exact. Laat nu 20 studenten elk hetzelfde circuit bouwen,
     met dezelfde stroom en dezelfde weerstand, en elk de spanning meten. Hoeveel verschillende spanningen worden er
     gemeten, en hoe komt dat? <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=113">LSS p. 113</a></p>
     <p>Het antwoord is een <b>probabilistisch model</b> <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=114">LSS p. 114</a>:</p>
     <div class="f">
-      <div><var data-s="u">U</var> = <var data-s="r_ohm">R</var><var data-s="i_ohm">I</var> + <var data-s="eps">ε</var>, met <var data-s="eps">ε</var> de meetfout of experimentele fout</div>
+      <div>\[\sym{u}{U}=\sym{r_ohm}{R}\sym{i_ohm}{I}+\sym{eps}{\varepsilon}\], met \[\sym{eps}{\varepsilon}\] de meetfout of experimentele fout</div>
       <div>Algemeen: respons = deterministische component + random component</div>
     </div>
     <p>Waar komt die random component vandaan? Een systeem zet input om in output, gestuurd door gecontroleerde
@@ -465,7 +465,7 @@
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"Twintig studenten meten twintig verschillende spanningen, dus de wet van Ohm klopt niet."</b> Fout: <var data-s="u">U</var> = <var data-s="r_ohm">R</var><var data-s="i_ohm">I</var> is het deterministische deel; de verschillen zijn de random component: <var data-s="u">U</var> = <var data-s="r_ohm">R</var><var data-s="i_ohm">I</var> + <var data-s="eps">ε</var>, met <var data-s="eps">ε</var> de meetfout <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=113">LSS p. 113</a>, <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=114">LSS p. 114</a>.</li>
+      <li><b>"Twintig studenten meten twintig verschillende spanningen, dus de wet van Ohm klopt niet."</b> Fout: \(\sym{u}{U}=\sym{r_ohm}{R}\sym{i_ohm}{I}\) is het deterministische deel; de verschillen zijn de random component: \(\sym{u}{U}=\sym{r_ohm}{R}\sym{i_ohm}{I}+\sym{eps}{\varepsilon}\), met \(\sym{eps}{\varepsilon}\) de meetfout <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=113">LSS p. 113</a>, <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=114">LSS p. 114</a>.</li>
       <li><b>"Statistiek heb je pas nodig bij de beslissing."</b> Fout: data variëren altijd, dus statistische methoden ondersteunen de dataverzameling, de analyse én het beslissingsproces <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=120">LSS p. 120</a>.</li>
       <li><b>"Industriële statistiek staat los van de gewone statistiek."</b> Fout: SPC, acceptance sampling, DOE en MSA steunen op de algemene statistiek: distributies, schattingen en betrouwbaarheidsintervallen, toetsen, regressie en ANOVA <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=121">LSS p. 121</a>.</li>
       <li><b>Let op: welk instrument?</b> Een lot doorlaten of niet: acceptance sampling <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=123">LSS p. 123</a>. Een reactie optimaliseren met meerdere factoren: DOE <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=124">LSS p. 124</a>. Haalt een beheerst proces de specificaties: capabiliteit en SPC <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=127">LSS p. 127</a>.</li>
@@ -476,9 +476,9 @@
       <p>Twintig studenten bouwen elk hetzelfde circuit (zelfde stroom, zelfde weerstand) en meten de spanning. Hoeveel
       verschillende spanningen verwacht je, en hoe verklaar je dat met een model?</p>
       <details class="solution"><summary>Toon oplossing</summary>
-        <p>Modelantwoord: je verwacht (bijna) 20 verschillende waarden, ook al zegt <var data-s="u">U</var> = <var data-s="r_ohm">R</var><var data-s="i_ohm">I</var> dat ze gelijk moeten zijn. Het
-        deterministische model mist de <b>random component</b>. Het betere model is <var data-s="u">U</var> = <var data-s="r_ohm">R</var><var data-s="i_ohm">I</var> + <var data-s="eps">ε</var>, met <var data-s="eps">ε</var> de meetfout of
-        experimentele fout (LSS p. 114): respons = deterministische component + random component. Om met die ε te kunnen
+        <p>Modelantwoord: je verwacht (bijna) 20 verschillende waarden, ook al zegt \(\sym{u}{U}=\sym{r_ohm}{R}\sym{i_ohm}{I}\) dat ze gelijk moeten zijn. Het
+        deterministische model mist de <b>random component</b>. Het betere model is \(\sym{u}{U}=\sym{r_ohm}{R}\sym{i_ohm}{I}+\sym{eps}{\varepsilon}\), met \(\sym{eps}{\varepsilon}\) de meetfout of
+        experimentele fout (LSS p. 114): respons = deterministische component + random component. Om met die \(\varepsilon\) te kunnen
         rekenen, neem je aan dat de metingen onafhankelijke trekkingen zijn uit een vaste verdeling met vaste locatie en
         constante spreiding; die assumpties controleer je met een 4-plot (02.8).</p>
       </details>
@@ -501,8 +501,8 @@
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-type="choice" data-answer="SPC">
-        <label>c. Een as moet tussen 71.4 mm en 72.8 mm lang zijn. Het proces wordt gevolgd met een X̄-s-kaart met
-        steekproeven van 5; het is beheerst, met <var data-s="xbarbar">X̿</var> = 71.8 mm en <var data-s="sbar">s̄</var> = 0.2 mm. Is het proces geschikt om aan de
+        <label>c. Een as moet tussen 71.4 mm en 72.8 mm lang zijn. Het proces wordt gevolgd met een \(\bar{X}\)-s-kaart met
+        steekproeven van 5; het is beheerst, met \(\sym{xbarbar}{\bar{\bar{X}}}=71.8\) mm en \(\sym{sbar}{\bar{s}}=0.2\) mm. Is het proces geschikt om aan de
         specificaties te voldoen? (p. 127)</label>
         <select><option value="">kies…</option><option value="AS">acceptance sampling (AS)</option><option value="DOE">proefopzet (DOE)</option><option value="SPC">capabiliteit en SPC</option><option value="MSA">meetsysteemanalyse (MSA)</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
@@ -521,7 +521,7 @@
         <p>a. Acceptance sampling: de cursus schrijft zelf "→ Acceptance sampling (AS)" (p. 123); zie Deel 6.
         b. Design of experiments: "→ Design of experiments (DOE)" (p. 124); zie Deel 8.
         c. Capabiliteit en SPC: "→ Capabiliteitsstudies en statistische procescontrole (SPC)" (p. 127); de berekening
-        van Cp en Cpk staat in Deel 9 (blad <b>Capability</b>), de X̄-s-kaart in Deel 10.</p>
+        van Cp en Cpk staat in Deel 9 (blad <b>Capability</b>), de \(\bar{X}\)-s-kaart in Deel 10.</p>
         <p>d en e: de cursus schrijft hier geen instrument bij. Modelantwoord: d vergelijkt twee gemiddelden, dus een
         hypothesetest (Deel 5; de data staan alleen als grafiek op p. 125). e is ook een beslissing over een gemiddelde
         ("is de levensduur minstens 100 uur?"), maar let op: de waarden 120 in de tabel van p. 126 zijn componenten die bij het
@@ -547,8 +547,8 @@
     <p>EDA is meer dan "statistical graphics".</p>
 
     <div class="box ex"><span class="t">Uitgewerkt voorbeeld: het kwartet van Anscombe</span>
-      <p>Dataset 1 van Anscombe (1973) heeft 11 punten (<var data-s="x_val">x</var>, <var data-s="y_val">y</var>) <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=134">LSS p. 134</a>.
-      De kwantitatieve analyse geeft: <var data-s="n">N</var> = 11, gemiddelde van <var data-s="x_var">X</var> = 9.0, gemiddelde van <var data-s="y_var">Y</var> = 7.5, intercept = 3, helling
+      <p>Dataset 1 van Anscombe (1973) heeft 11 punten \((\sym{x_val}{x},\sym{y_val}{y})\) <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=134">LSS p. 134</a>.
+      De kwantitatieve analyse geeft: \(\sym{n}{N}=11\), gemiddelde van \(\sym{x_var}{X}=9.0\), gemiddelde van \(\sym{y_var}{Y}=7.5\), intercept = 3, helling
       (<i>slope</i>) = 0.5, residuele standaardafwijking = 1.237, correlatie = 0.816. "Inzichten???"</p>
       <p>Het spreidingsdiagram (<i>scatter plot</i>) van dataset 1 <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=135">LSS p. 135</a>
       toont: het verband is lineair, er is geen reden voor een complexer (bv. kwadratisch) model, er zijn geen
@@ -561,11 +561,11 @@
         <tr><th>Dataset</th><th>Wat het spreidingsdiagram toont (p. 137)</th></tr>
         <tr><td>1</td><td>lineair verband met gewone spreiding rond de rechte</td></tr>
         <tr><td>2</td><td>een gladde kromme (stijgt en daalt weer): het verband is niet lineair</td></tr>
-        <tr><td>3</td><td>bijna perfect op een rechte, behalve één uitschieter (<var data-s="x_val">x</var> = 13, <var data-s="y_val">y</var> = 12.74) die de rechte omhoog trekt</td></tr>
-        <tr><td>4</td><td>alle x gelijk aan 8, op één punt na (<var data-s="x_val">x</var> = 19, <var data-s="y_val">y</var> = 12.50); dat ene punt bepaalt de hele helling</td></tr>
+        <tr><td>3</td><td>bijna perfect op een rechte, behalve één uitschieter \((\sym{x_val}{x}=13,\sym{y_val}{y}=12.74)\) die de rechte omhoog trekt</td></tr>
+        <tr><td>4</td><td>alle x gelijk aan 8, op één punt na \((\sym{x_val}{x}=19,\sym{y_val}{y}=12.50)\); dat ene punt bepaalt de hele helling</td></tr>
       </table>
       <figure class="fig"><img src="figures/02_anscombe4.png" alt="Vier spreidingsdiagrammen van Anscombe met elk dezelfde regressierechte: lineair, gekromd, rechte met één uitschieter, en alle x gelijk aan 8 op één punt bij x = 19 na">
-      <figcaption>Figuur: de vier datasets van Anscombe, elk met dezelfde kleinste-kwadratenrechte. Dataset 1: lineair met gewone spreiding; 2: een gladde kromme; 3: punten op een rechte op één uitschieter na bij x = 13; 4: alle x gelijk aan 8 op één punt bij x = 19 na, dat de helling bepaalt.
+      <figcaption>Figuur: de vier datasets van Anscombe, elk met dezelfde kleinste-kwadratenrechte. Dataset 1: lineair met gewone spreiding; 2: een gladde kromme; 3: punten op een rechte op één uitschieter na bij \(x=13\); 4: alle x gelijk aan 8 op één punt bij \(x=19\) na, dat de helling bepaalt.
       <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=137">LSS p. 137</a></figcaption></figure>
       <p><b>Les:</b> getallen alleen verliezen informatie; kijk altijd eerst naar een grafiek.</p>
     </div>
@@ -591,18 +591,18 @@
 
     <div class="box tool"><span class="t">Rekentool</span>
       <p>Blad <b>ANOVA DOE regression</b>, blok 3 (simple linear regression): plak x in kolom B en y in kolom C vanaf
-      rij 191. Je leest b<sub>1</sub> (helling, B161), b<sub>0</sub> (intercept, B162), <var data-s="sigma_hat">σ̂</var> = √<var data-s="mse">MS<sub>E</sub></var> (de
-      residuele standaardafwijking, B167) en R² (B168). De correlatie is <var data-s="r_corr">r</var> = √<var data-s="r2">R²</var>, met het teken van de helling.
+      rij 191. Je leest \(b_{1}\) (helling, B161), \(b_{0}\) (intercept, B162), \(\sym{sigma_hat}{\hat{\sigma}}=\sqrt{\sym{mse}{\mathrm{MS}_{E}}}\) (de
+      residuele standaardafwijking, B167) en \(R^{2}\) (B168). De correlatie is \(\sym{r_corr}{r}=\sqrt{\sym{r2}{R^{2}}}\), met het teken van de helling.
       Regressie zelf: Deel 7.</p>
     </div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"Zelfde gemiddelden, helling en correlatie, dus dezelfde soort data."</b> Fout: de vier datasets van Anscombe delen die statistieken en zien er totaal anders uit: lineair, gekromd, één uitschieter, één punt dat de helling bepaalt <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=136">LSS p. 136</a>, <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=137">LSS p. 137</a>. Teken eerst.</li>
-      <li><b>"<var data-s="r_corr">r</var> = 0.816, dus het verband is lineair."</b> Fout: dataset 2 heeft dezelfde correlatie en is een kromme <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=137">LSS p. 137</a>. Een hoge correlatie bewijst geen lineair verband, en ook geen oorzaak (<a href="#d02-ladder">02.12</a>).</li>
-      <li><b>"Eén punt verandert weinig aan de rechte."</b> Fout: in dataset 4 bepaalt één punt (<var data-s="x_val">x</var> = 19) de hele helling; in dataset 3 trekt één uitschieter de rechte omhoog <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=137">LSS p. 137</a>.</li>
+      <li><b>"\(\sym{r_corr}{r}=0.816\), dus het verband is lineair."</b> Fout: dataset 2 heeft dezelfde correlatie en is een kromme <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=137">LSS p. 137</a>. Een hoge correlatie bewijst geen lineair verband, en ook geen oorzaak (<a href="#d02-ladder">02.12</a>).</li>
+      <li><b>"Eén punt verandert weinig aan de rechte."</b> Fout: in dataset 4 bepaalt één punt \((\sym{x_val}{x}=19)\) de hele helling; in dataset 3 trekt één uitschieter de rechte omhoog <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=137">LSS p. 137</a>.</li>
       <li><b>"EDA is klassieke analyse met meer grafieken."</b> Fout: het verschil is de volgorde. Klassiek postuleer je eerst een model en analyseer je dan; in EDA analyseer je eerst en kies je daarna het model <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=138">LSS p. 138</a>. EDA is meer dan "statistical graphics" <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=133">LSS p. 133</a>.</li>
-      <li><b>Let op:</b> de residuele standaardafwijking is √(<var data-s="sse">SS<sub>E</sub></var>/(<var data-s="n">n</var> − 2)), niet gedeeld door <var data-s="n">n</var>; en <var data-s="r_corr">r</var> = √<var data-s="r2">R²</var> krijgt het teken van de helling.</li>
+      <li><b>Let op:</b> de residuele standaardafwijking is \(\sqrt{\frac{\sym{sse}{\mathrm{SS}_{E}}}{\sym{n}{n}-2}}\), niet gedeeld door \(\sym{n}{n}\); en \(\sym{r_corr}{r}=\sqrt{\sym{r2}{R^{2}}}\) krijgt het teken van de helling.</li>
     </ul></div>
 
     <div class="exercise" id="ex-02-7" data-kw="Anscombe; dataset 3; helling; slope; intercept; residuele standaardafwijking; residual standard deviation; correlatie; correlation; EDA; scatter plot; uitschieter; outlier">
@@ -614,19 +614,19 @@
       </table>
       <p>Bereken de kleinste-kwadratenrechte en vergelijk met de cursus (p. 134 en 136).</p>
       <div class="q" data-answer="0.4997" data-tol="0.001">
-        <label>helling <var data-s="b1">b<sub>1</sub></var> (4 decimalen) =</label> <input type="text" inputmode="decimal">
+        <label>helling \(\sym{b1}{b_{1}}\) (4 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="3.0025" data-tol="0.003">
-        <label>intercept <var data-s="b0">b<sub>0</sub></var> (4 decimalen) =</label> <input type="text" inputmode="decimal">
+        <label>intercept \(\sym{b0}{b_{0}}\) (4 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="1.2363" data-tol="0.001">
-        <label>residuele standaardafwijking √(<var data-s="sse">SS<sub>E</sub></var>/(<var data-s="n">n</var> − 2)) (4 decimalen) =</label> <input type="text" inputmode="decimal">
+        <label>residuele standaardafwijking \(\sqrt{\frac{\sym{sse}{\mathrm{SS}_{E}}}{\sym{n}{n}-2}}\) (4 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="0.8163" data-tol="0.001">
-        <label>correlatie <var data-s="r_corr">r</var> (4 decimalen) =</label> <input type="text" inputmode="decimal">
+        <label>correlatie \(\sym{r_corr}{r}\) (4 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-type="choice" data-answer="3">
@@ -643,11 +643,11 @@
       <code>SNIJPUNT</code>/<code>INTERCEPT</code>, <code>CORRELATIE</code>/<code>CORREL</code>, en
       <code>STAND.FOUT.YX</code>/<code>STEYX</code> voor de residuele standaardafwijking; of het blad ANOVA DOE regression.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
-        <p>Met de 11 punten: <var data-s="b1">b<sub>1</sub></var> = 0.4997, <var data-s="b0">b<sub>0</sub></var> = 3.0025, residuele standaardafwijking = 1.2363,
-        <var data-s="r_corr">r</var> = 0.8163 (<var data-s="r2">R²</var> = 0.6663) <span class="computed">zelf berekend</span>. Afgerond: helling 0.5, intercept 3,
+        <p>Met de 11 punten: \(\sym{b1}{b_{1}}=0.4997\), \(\sym{b0}{b_{0}}=3.0025\), residuele standaardafwijking = 1.2363,
+        \(\sym{r_corr}{r}=0.8163\ (\sym{r2}{R^{2}}=0.6663)\) <span class="computed">zelf berekend</span>. Afgerond: helling 0.5, intercept 3,
         correlatie 0.816, zoals op p. 134 en 136; de residuele standaardafwijking rondt af op 1.236, niet op de gedrukte
         1.237 (een afrondingsverschil, zie het kader hierboven).</p>
-        <p>Grafisch (p. 137): dataset 3 ligt op een rechte, op één uitschieter na (<var data-s="x_val">x</var> = 13, <var data-s="y_val">y</var> = 12.74); dataset 2 is een
+        <p>Grafisch (p. 137): dataset 3 ligt op een rechte, op één uitschieter na \((\sym{x_val}{x}=13,\sym{y_val}{y}=12.74)\); dataset 2 is een
         kromme. De les: dezelfde samenvattende statistieken, totaal verschillende data. Teken altijd eerst.</p>
       </details>
     </div>
@@ -659,8 +659,8 @@
     <p>De vier assumpties van het probabilistisch model (02.6) controleer je met één figuur, de <b>4-plot</b>
     <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=140">LSS p. 140</a>:</p>
     <ol>
-      <li><b>run sequence plot</b>: <var data-s="y_i">Y<sub>i</sub></var> tegen het volgnummer i;</li>
-      <li><b>lag plot</b>: <var data-s="y_i">Y<sub>i</sub></var> tegen <var data-s="y_i">Y<sub>i−1</sub></var> (elke waarde tegen de vorige);</li>
+      <li><b>run sequence plot</b>: \(\sym{y_i}{Y_{i}}\) tegen het volgnummer i;</li>
+      <li><b>lag plot</b>: \(\sym{y_i}{Y_{i}}\) tegen \(\sym{y_i}{Y_{i-1}}\) (elke waarde tegen de vorige);</li>
       <li><b>histogram</b>: tellingen per klasse van Y;</li>
       <li><b>(normal) probability plot</b>: Y tegen de theoretische verdeling.</li>
     </ol>
@@ -694,7 +694,7 @@
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>Let op: welke grafiek voor welke assumptie?</b> Onafhankelijkheid: lag plot (structuurloze wolk). Vaste verdeling: histogram en probability plot. Vaste locatie: run sequence plot zonder drift. Constante spreiding: overal even brede band in de run sequence plot <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=141">LSS p. 141</a>.</li>
-      <li><b>"Het histogram toont of de metingen onafhankelijk zijn."</b> Fout: het histogram negeert de volgorde; onafhankelijkheid lees je in de lag plot, <var data-s="y_i">Y<sub>i</sub></var> tegen <var data-s="y_i">Y<sub>i−1</sub></var> <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=140">LSS p. 140</a>, <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=141">LSS p. 141</a>.</li>
+      <li><b>"Het histogram toont of de metingen onafhankelijk zijn."</b> Fout: het histogram negeert de volgorde; onafhankelijkheid lees je in de lag plot, \(\sym{y_i}{Y_{i}}\) tegen \(\sym{y_i}{Y_{i-1}}\) <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=140">LSS p. 140</a>, <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=141">LSS p. 141</a>.</li>
       <li><b>"De vier assumpties eisen normaliteit."</b> Fout: assumptie 2 eist een <i>vaste</i> verdeling; de probability plot vergelijkt met de vooropgestelde verdeling <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=141">LSS p. 141</a>.</li>
       <li><b>"Zonder onafhankelijkheid blijven de tests geldig, alleen minder nauwkeurig."</b> Fout: alle gebruikelijke statistische tests zijn dan ongeldig, parameterschattingen onbetrouwbaar en berekende betrouwbaarheden zinloos <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=143">LSS p. 143</a>.</li>
       <li><b>Let op:</b> gebruik je de 4-plot voor modelvalidatie, dan maak je hem van de residuen, en die moeten rond een vaste locatie <b>0</b> liggen <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=142">LSS p. 142</a>.</li>
@@ -739,12 +739,12 @@
     <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=6">Data-notities p. 6</a>.
     Juist de samenhang tussen die kenmerken laat voorspellingen toe.</p>
     <p>Kanstheorie werkt ook in meer dimensies: de <b>gezamenlijke kansverdeling</b> (<i>joint distribution</i>)
-    P(<var data-s="x_feat">X<sub>1</sub></var>, <var data-s="x_feat">X<sub>2</sub></var>, …, <var data-s="x_feat">X<sub>n</sub></var>). Sommige variabelen mogen discreet zijn en andere continu. Voorbeelden:</p>
+    \(P(\sym{x_feat}{X_{1}},\sym{x_feat}{X_{2}},\ldots,\sym{x_feat}{X_{n}})\). Sommige variabelen mogen discreet zijn en andere continu. Voorbeelden:</p>
     <ul>
-      <li>geslacht G (discreet) en gewicht M (continu): P(<var data-s="g">G</var>, <var data-s="m_gewicht">M</var>); P(<var data-s="g">G</var> = man, <var data-s="m_gewicht">M</var> = 100 kg) is strikt genomen een
+      <li>geslacht G (discreet) en gewicht M (continu): \(P(\sym{g}{G},\sym{m_gewicht}{M})\); P(\(\sym{g}{G}=\) man, \(\sym{m_gewicht}{M}=100\) kg) is strikt genomen een
       kansdichtheid <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=15">Data p. 15</a>
       <span class="small">extra</span>;</li>
-      <li>productiekwaliteit P(<var data-s="l">L</var>, <var data-s="b_breedte">B</var>, <var data-s="s_snelheid">S</var>): productielijn L, gerealiseerde breedte B en lijnsnelheid S; de gezamenlijke
+      <li>productiekwaliteit \(P(\sym{l}{L},\sym{b_breedte}{B},\sym{s_snelheid}{S})\): productielijn L, gerealiseerde breedte B en lijnsnelheid S; de gezamenlijke
       verdeling toont welke combinaties een kwaliteitsproduct geven
       <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=8">Data-notities p. 8</a>;</li>
       <li>in twee dimensies ziet de multivariate normale verdeling eruit als een heuvel boven het vlak
@@ -752,13 +752,13 @@
       <span class="small">extra</span>.</li>
     </ul>
     <figure class="fig"><img src="figures/02_gewicht_geslacht.png" alt="Twee normale verdelingen van massa in kg, voor mannen met gemiddelde 82 kg en voor vrouwen met gemiddelde 68 kg, naast een tabel met geslacht en massa per persoon">
-    <figcaption>Figuur: de gezamenlijke verdeling van geslacht G (discreet) en massa M (continu). Per geslacht is de massa normaal verdeeld, met µ = 82 kg voor mannen en µ = 68 kg voor vrouwen; rechts het begin van de dataset, één rij per persoon.
+    <figcaption>Figuur: de gezamenlijke verdeling van geslacht G (discreet) en massa M (continu). Per geslacht is de massa normaal verdeeld, met \(\mu=82\) kg voor mannen en \(\mu=68\) kg voor vrouwen; rechts het begin van de dataset, één rij per persoon.
     <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=15">Data p. 15</a></figcaption></figure>
     <figure class="fig"><img src="figures/02_multivariaat.png" alt="Driedimensionale heuvel van een tweedimensionale normale verdeling boven het X-Y-vlak, met hoogtelijnen erboven">
     <figcaption>Figuur: een tweedimensionale normale verdeling als heuvel boven het (X, Y)-vlak. De hoogte Z is de kansdichtheid; de ringen erboven zijn hoogtelijnen.
     <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=14">Data p. 14</a></figcaption></figure>
     <div class="box key"><span class="t">Associatie</span>
-      <p>Twee variabelen die samen bewegen, zijn <b>geassocieerd</b>. Preciezer: de gecombineerde dataset (<var data-s="x_var">X</var>, <var data-s="y_var">Y</var>) bevat
+      <p>Twee variabelen die samen bewegen, zijn <b>geassocieerd</b>. Preciezer: de gecombineerde dataset \((\sym{x_var}{X},\sym{y_var}{Y})\) bevat
       informatie die je <i>niet</i> kunt achterhalen door X en Y apart te bestuderen
       <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=13">Data p. 13</a>. Je kunt de
       kolommen van de dataset dus niet los van elkaar onderzoeken
@@ -774,8 +774,8 @@
     (notities p. 8).</p>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"Ken je X en Y elk apart, dan ken je ook hun samenhang."</b> Fout: de gecombineerde dataset (<var data-s="x_var">X</var>, <var data-s="y_var">Y</var>) bevat informatie die je niet achterhaalt door X en Y apart te bestuderen <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=13">Data p. 13</a>; je kunt de kolommen niet los van elkaar onderzoeken <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=9">Data-notities p. 9</a>.</li>
-      <li><b>"In een gezamenlijke verdeling zijn alle variabelen van hetzelfde type."</b> Fout: sommige mogen discreet zijn en andere continu, zoals in P(<var data-s="g">G</var>, <var data-s="m_gewicht">M</var>); P(<var data-s="g">G</var> = man, <var data-s="m_gewicht">M</var> = 100 kg) is dan strikt genomen een kansdichtheid <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=15">Data p. 15</a>.</li>
+      <li><b>"Ken je X en Y elk apart, dan ken je ook hun samenhang."</b> Fout: de gecombineerde dataset \((\sym{x_var}{X},\sym{y_var}{Y})\) bevat informatie die je niet achterhaalt door X en Y apart te bestuderen <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=13">Data p. 13</a>; je kunt de kolommen niet los van elkaar onderzoeken <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=9">Data-notities p. 9</a>.</li>
+      <li><b>"In een gezamenlijke verdeling zijn alle variabelen van hetzelfde type."</b> Fout: sommige mogen discreet zijn en andere continu, zoals in \(P(\sym{g}{G},\sym{m_gewicht}{M})\); P(\(\sym{g}{G}=\) man, \(\sym{m_gewicht}{M}=100\) kg) is dan strikt genomen een kansdichtheid <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=15">Data p. 15</a>.</li>
       <li><b>"Big data betekent vooral veel rijen."</b> Fout: in de eerste plaats veel kolommen (dimensies); een foto met duizenden pixels leeft in een ruimte met duizenden dimensies <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=16">Data p. 16</a>, <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=8">Data-notities p. 8</a>.</li>
     </ul></div>
   </section>
@@ -786,29 +786,29 @@
     <p>Denk aan je data als een tabel: elke rij is een waarneming, elke kolom een variabele. Elke kansbewerking
     wordt dan een bewerking op die tabel.</p>
     <div class="f">
-      <div><b>Marginale verdeling</b> (<i>marginal distribution</i>): P(<var data-s="x_var">X</var>) = ∫<sub><var data-s="y_val">y</var></sub> P(<var data-s="x_var">X</var>, <var data-s="y_var">Y</var> = <var data-s="y_val">y</var>) dy — "kolom(men) Y wegfilteren uit de data" <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=18">Data p. 18</a></div>
-      <div><b>Onafhankelijkheid</b> (<i>independence</i>): P(<var data-s="x_var">X</var>, <var data-s="y_var">Y</var>) = P(<var data-s="x_var">X</var>) · P(<var data-s="y_var">Y</var>) — kennis van X geeft geen extra informatie over Y <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=19">Data p. 19</a></div>
-      <div><b>Voorwaardelijke verdeling</b> (<i>conditional distribution</i>): P(<var data-s="y_var">Y</var> | <var data-s="x_var">X</var>) = P(<var data-s="x_var">X</var>, <var data-s="y_var">Y</var>) / P(<var data-s="x_var">X</var>) — "rijen filteren waar <var data-s="x_var">X</var> ≈ <var data-s="x_val">x</var>" <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=20">Data p. 20</a></div>
+      <div><b>Marginale verdeling</b> (<i>marginal distribution</i>): \(P(\sym{x_var}{X})=\int_{\sym{y_val}{y}}\ P(\sym{x_var}{X},\sym{y_var}{Y}=\sym{y_val}{y})\) dy — "kolom(men) Y wegfilteren uit de data" <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=18">Data p. 18</a></div>
+      <div><b>Onafhankelijkheid</b> (<i>independence</i>): \(P(\sym{x_var}{X},\sym{y_var}{Y})=P(\sym{x_var}{X})\cdot P(\sym{y_var}{Y})\) — kennis van X geeft geen extra informatie over Y <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=19">Data p. 19</a></div>
+      <div><b>Voorwaardelijke verdeling</b> (<i>conditional distribution</i>): \(P(\sym{y_var}{Y}\mid\sym{x_var}{X})=\frac{P(\sym{x_var}{X},\sym{y_var}{Y})}{P(\sym{x_var}{X})}\) — "rijen filteren waar \(\sym{x_var}{X}\approx\sym{x_val}{x}\)" <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=20">Data p. 20</a></div>
     </div>
     <p><b>Marginaal</b>: bij een discrete tabel wordt de integraal een som. Tel je in een kruistabel over de rijen op, dan
     krijg je de kolomtotalen; delen door het totaal geeft de marginale verdeling. Je "vergeet" de andere variabele.</p>
     <p><b>Voorwaardelijk</b>: je houdt alleen de rijen over waar X (ongeveer) gelijk is aan x, en kijkt hoe Y zich daar
     verdeelt. De figuur hieronder doet dat met een tabel van geslacht en massa: de rijen met "man" worden geschrapt
     (<a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=20">Data p. 20</a>, het resultaat heet daar
-    P(<var data-s="m_gewicht">M</var>, <var data-s="g">G</var> = vrouw)). Deel je die rijen nog door P(<var data-s="g">G</var> = vrouw), zodat de kansen weer optellen tot 1, dan heb je de
-    voorwaardelijke verdeling P(<var data-s="m_gewicht">M</var> | <var data-s="g">G</var> = vrouw); dat is precies de formule.
+    P(\(\sym{m_gewicht}{M}\), \(\sym{g}{G}=\) vrouw)). Deel je die rijen nog door P(\(\sym{g}{G}=\) vrouw), zodat de kansen weer optellen tot 1, dan heb je de
+    voorwaardelijke verdeling P(\(\sym{m_gewicht}{M}\mid\sym{g}{G}=\) vrouw); dat is precies de formule.
     Bij twee continue variabelen werkt het net zo, met een smalle strook in plaats van exact gelijke waarden (tweede
     figuur).</p>
     <figure class="fig"><img src="figures/02_rijen_filteren.png" alt="Twee kopieën van een tabel met geslacht en massa; in de rechtse zijn alle rijen met man doorgestreept">
-    <figcaption>Figuur: links de dataset met geslacht en massa, P(G, M); rechts zijn de rijen met "man" doorgestreept. Wat overblijft, heet P(M, G = vrouw).
+    <figcaption>Figuur: links de dataset met geslacht en massa, P(G, M); rechts zijn de rijen met "man" doorgestreept. Wat overblijft, heet P(M, \(G=\) vrouw).
     <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=20">Data p. 20</a></figcaption></figure>
     <figure class="fig"><img src="figures/02_voorwaardelijk.png" alt="Contourplot van twee afhankelijke variabelen met een verticale lijn bij X = 1 en een horizontale bij Y = -1; rechts het histogram van Y bij X = 1, onder het histogram van X bij Y = -1">
-    <figcaption>Figuur: voorwaardelijke verdelingen bij twee afhankelijke variabelen. De verticale lijn X = 1 snijdt een strook uit de wolk; hoe Y in die strook verdeeld is, is P(Y | X = 1) (rechts, rond Y ≈ 1). De horizontale lijn Y = −1 geeft P(X | Y = −1) (onder, rond X ≈ −1).
+    <figcaption>Figuur: voorwaardelijke verdelingen bij twee afhankelijke variabelen. De verticale lijn \(X=1\) snijdt een strook uit de wolk; hoe Y in die strook verdeeld is, is \(P(Y\mid X=1)\) (rechts, rond \(Y\approx1\)). De horizontale lijn \(Y=-1\) geeft \(P(X\mid Y=-1)\) (onder, rond \(X\approx-1\)).
     <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=21">Data p. 21</a></figcaption></figure>
     <p><b>Onafhankelijkheid</b>, drie gelijkwaardige vormen <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=22">Data p. 22</a>:</p>
     <div class="f">
-      <div>P(<var data-s="x_var">X</var>, <var data-s="y_var">Y</var>) = P(<var data-s="x_var">X</var>) · P(<var data-s="y_var">Y</var>)  ⇔  P(<var data-s="y_var">Y</var> | <var data-s="x_var">X</var>) = P(<var data-s="y_var">Y</var>)  ⇔  P(<var data-s="x_var">X</var> | <var data-s="y_var">Y</var>) = P(<var data-s="x_var">X</var>)</div>
-      <div>Altijd geldig (definitie): P(<var data-s="x_var">X</var>, <var data-s="y_var">Y</var>) = P(<var data-s="x_var">X</var>) · P(<var data-s="y_var">Y</var> | <var data-s="x_var">X</var>) <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=11">Data-notities p. 11</a></div>
+      <div>\(P(\sym{x_var}{X},\sym{y_var}{Y})=P(\sym{x_var}{X})\cdot P(\sym{y_var}{Y})\Leftrightarrow P(\sym{y_var}{Y}\mid\sym{x_var}{X})=P(\sym{y_var}{Y})\Leftrightarrow P(\sym{x_var}{X}\mid\sym{y_var}{Y})=P(\sym{x_var}{X})\)</div>
+      <div>Altijd geldig (definitie): \(P(\sym{x_var}{X},\sym{y_var}{Y})=P(\sym{x_var}{X})\cdot P(\sym{y_var}{Y}\mid\sym{x_var}{X})\) <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=11">Data-notities p. 11</a></div>
     </div>
     <p>De figuur hieronder zet twee gevallen naast elkaar: onafhankelijke variabelen (covariantie 0, een ronde
     puntenwolk) en afhankelijke variabelen (covariantie 0.8, een schuine ellips: als X stijgt, stijgt Y ook). In de
@@ -819,37 +819,37 @@
     <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=19">Data p. 19</a></figcaption></figure>
     <div class="box key"><span class="t">Zo controleer je onafhankelijkheid in een tabel</span>
       <ol class="steps">
-        <li>Bereken de voorwaardelijke verdeling P(<var data-s="y_var">Y</var> | <var data-s="x_var">X</var> = <var data-s="x_val">x</var>) voor elke rij (deel de rij door haar rijtotaal).</li>
-        <li>Bereken de marginale verdeling P(<var data-s="y_var">Y</var>) (kolomtotalen gedeeld door het totaal).</li>
+        <li>Bereken de voorwaardelijke verdeling \(P(\sym{y_var}{Y}\mid\sym{x_var}{X}=\sym{x_val}{x})\) voor elke rij (deel de rij door haar rijtotaal).</li>
+        <li>Bereken de marginale verdeling \(P(\sym{y_var}{Y})\) (kolomtotalen gedeeld door het totaal).</li>
         <li>Zijn ze voor elke rij gelijk, dan zijn X en Y onafhankelijk. Eén duidelijk verschil volstaat om
-        afhankelijkheid te besluiten. Gelijkwaardig: vergelijk een cel P(<var data-s="x_var">X</var> = <var data-s="x_val">x</var>, <var data-s="y_var">Y</var> = <var data-s="y_val">y</var>) met het product
-        P(<var data-s="x_var">X</var> = <var data-s="x_val">x</var>) · P(<var data-s="y_var">Y</var> = <var data-s="y_val">y</var>).</li>
+        afhankelijkheid te besluiten. Gelijkwaardig: vergelijk een cel \(P(\sym{x_var}{X}=\sym{x_val}{x},\sym{y_var}{Y}=\sym{y_val}{y})\) met het product
+        \(P(\sym{x_var}{X}=\sym{x_val}{x})\cdot P(\sym{y_var}{Y}=\sym{y_val}{y})\).</li>
       </ol>
     </div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"P(<var data-s="y_var">Y</var> | <var data-s="x_var">X</var>) en P(<var data-s="x_var">X</var> | <var data-s="y_var">Y</var>) zijn hetzelfde."</b> Fout: de noemer verschilt, P(<var data-s="y_var">Y</var> | <var data-s="x_var">X</var>) = P(<var data-s="x_var">X</var>, <var data-s="y_var">Y</var>) / P(<var data-s="x_var">X</var>) <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=20">Data p. 20</a>. In de tabel van oefening 02.10 is P(<var data-s="k">K</var> = Rejected | <var data-s="l">L</var> = lijn 2) = 40/230 = 0.174, maar P(<var data-s="l">L</var> = lijn 2 | <var data-s="k">K</var> = Rejected) = 40/60 = 0.667 <span class="computed">zelf berekend</span>.</li>
-      <li><b>Let op de noemer:</b> gezamenlijke kans = cel / eindtotaal (500); marginale kans = rij- of kolomtotaal / eindtotaal; voorwaardelijke kans = cel / totaal van de voorwaarde (bij <var data-s="l">L</var> = lijn 1 het rijtotaal 270) <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=25">Data p. 25</a>.</li>
-      <li><b>"P(<var data-s="l">L</var> = lijn 2, <var data-s="k">K</var> = Accepted) = 0.30 is de kans dat een product van lijn 2 goedgekeurd wordt."</b> Fout: 0.30 is de gezamenlijke kans (150/500). De voorwaardelijke kans is P(<var data-s="k">K</var> = Accepted | <var data-s="l">L</var> = lijn 2) = 150/230 = 0.652 <span class="computed">zelf berekend</span>.</li>
-      <li><b>"Onafhankelijk betekent: ze kunnen niet samen voorkomen."</b> Fout: dat is "elkaar uitsluiten". Onafhankelijk betekent dat kennis van X geen extra informatie over Y geeft, P(<var data-s="y_var">Y</var> | <var data-s="x_var">X</var>) = P(<var data-s="y_var">Y</var>) <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=19">Data p. 19</a>, <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=22">Data p. 22</a>. Twee gebeurtenissen die elkaar uitsluiten (elk met kans &gt; 0) zijn juist afhankelijk <span class="gen">algemeen</span>.</li>
-      <li><b>Let op:</b> P(<var data-s="x_var">X</var>, <var data-s="y_var">Y</var>) = P(<var data-s="x_var">X</var>) · P(<var data-s="y_var">Y</var>) geldt alleen bij onafhankelijkheid; de productregel P(<var data-s="x_var">X</var>, <var data-s="y_var">Y</var>) = P(<var data-s="x_var">X</var>) · P(<var data-s="y_var">Y</var> | <var data-s="x_var">X</var>) geldt altijd <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=11">Data-notities p. 11</a>.</li>
-      <li><b>Let op:</b> de notities besluiten "niet onafhankelijk" uit de verdeling zelf (0.40 ≠ 0.378) <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=12">Data-notities p. 12</a>. Gaat het om een steekproef, dan toets je of zo'n verschil toeval kan zijn met een χ²-toets voor kruistabellen (<a href="#d05-frequenties">05.13</a>).</li>
+      <li><b>"\(P(\sym{y_var}{Y}\mid\sym{x_var}{X})\) en \(P(\sym{x_var}{X}\mid\sym{y_var}{Y})\) zijn hetzelfde."</b> Fout: de noemer verschilt, \(P(\sym{y_var}{Y}\mid\sym{x_var}{X})=\frac{P(\sym{x_var}{X},\sym{y_var}{Y})}{P(\sym{x_var}{X})}\) <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=20">Data p. 20</a>. In de tabel van oefening 02.10 is P(\(\sym{k}{K}=\) Rejected \(\mid\sym{l}{L}=\) lijn 2) = \(\frac{40}{230}=0.174\), maar P(\(\sym{l}{L}=\) lijn \(2\mid\sym{k}{K}=\) Rejected) = \(\frac{40}{60}=0.667\) <span class="computed">zelf berekend</span>.</li>
+      <li><b>Let op de noemer:</b> gezamenlijke kans = cel / eindtotaal (500); marginale kans = rij- of kolomtotaal / eindtotaal; voorwaardelijke kans = cel / totaal van de voorwaarde (bij \(\sym{l}{L}=\) lijn 1 het rijtotaal 270) <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=25">Data p. 25</a>.</li>
+      <li><b>"P(\(\sym{l}{L}=\) lijn 2, \(\sym{k}{K}=\) Accepted) = 0.30 is de kans dat een product van lijn 2 goedgekeurd wordt."</b> Fout: 0.30 is de gezamenlijke kans (150/500). De voorwaardelijke kans is P(\(\sym{k}{K}=\) Accepted \(\mid\sym{l}{L}=\) lijn 2) = \(\frac{150}{230}=0.652\) <span class="computed">zelf berekend</span>.</li>
+      <li><b>"Onafhankelijk betekent: ze kunnen niet samen voorkomen."</b> Fout: dat is "elkaar uitsluiten". Onafhankelijk betekent dat kennis van X geen extra informatie over Y geeft, \(P(\sym{y_var}{Y}\mid\sym{x_var}{X})=P(\sym{y_var}{Y})\) <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=19">Data p. 19</a>, <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=22">Data p. 22</a>. Twee gebeurtenissen die elkaar uitsluiten (elk met kans &gt; 0) zijn juist afhankelijk <span class="gen">algemeen</span>.</li>
+      <li><b>Let op:</b> \(P(\sym{x_var}{X},\sym{y_var}{Y})=P(\sym{x_var}{X})\cdot P(\sym{y_var}{Y})\) geldt alleen bij onafhankelijkheid; de productregel \(P(\sym{x_var}{X},\sym{y_var}{Y})=P(\sym{x_var}{X})\cdot P(\sym{y_var}{Y}\mid\sym{x_var}{X})\) geldt altijd <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=11">Data-notities p. 11</a>.</li>
+      <li><b>Let op:</b> de notities besluiten "niet onafhankelijk" uit de verdeling zelf (0.40 ≠ 0.378) <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=12">Data-notities p. 12</a>. Gaat het om een steekproef, dan toets je of zo'n verschil toeval kan zijn met een \(\chi^{2}\)-toets voor kruistabellen (<a href="#d05-frequenties">05.13</a>).</li>
     </ul></div>
 
     <div class="exercise" id="ex-02-9" data-kw="onafhankelijkheid; independence; geslacht; gewicht; gender; weight; P(M|G); voorwaardelijke verdeling; mannen en vrouwen">
       <h4>Oefening 02.9 — Zijn geslacht en gewicht onafhankelijk? <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=22">Data p. 22–23</a></h4>
-      <p>In de gezamenlijke verdeling P(<var data-s="g">G</var>, <var data-s="m_gewicht">M</var>) van geslacht G en gewicht M van mannen en vrouwen: zijn G en M
+      <p>In de gezamenlijke verdeling \(P(\sym{g}{G},\sym{m_gewicht}{M})\) van geslacht G en gewicht M van mannen en vrouwen: zijn G en M
       onafhankelijke variabelen?</p>
       <div class="q" data-type="choice" data-answer="nee">
         <label>G en M zijn:</label>
         <select><option value="">kies…</option><option value="ja">onafhankelijk</option><option value="nee">niet onafhankelijk</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
-      <details class="hint"><summary>Hint</summary><p>Gebruik de vorm P(<var data-s="m_gewicht">M</var> | <var data-s="g">G</var>) = P(<var data-s="m_gewicht">M</var>). Wat zou dat betekenen voor het
+      <details class="hint"><summary>Hint</summary><p>Gebruik de vorm \(P(\sym{m_gewicht}{M}\mid\sym{g}{G})=P(\sym{m_gewicht}{M})\). Wat zou dat betekenen voor het
       gemiddelde gewicht van mannen en van vrouwen?</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
-        <p>Als G en M onafhankelijk waren, dan was P(<var data-s="m_gewicht">M</var> | <var data-s="g">G</var> = man) = P(<var data-s="m_gewicht">M</var>) = P(<var data-s="m_gewicht">M</var> | <var data-s="g">G</var> = vrouw). Mannen en vrouwen zouden dan
+        <p>Als G en M onafhankelijk waren, dan was P(\(\sym{m_gewicht}{M}\mid\sym{g}{G}=\) man) = \(P(\sym{m_gewicht}{M})=P\)(\(\sym{m_gewicht}{M}\mid\sym{g}{G}=\) vrouw). Mannen en vrouwen zouden dan
         gemiddeld even zwaar zijn, en dat is zeker niet zo (<a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=23">Data p. 23</a>; notities p. 11). Dus zijn G en M niet
         onafhankelijk.</p>
       </details>
@@ -866,35 +866,35 @@
         <tr><th>Totaal</th><td class="n">350</td><td class="n">90</td><td class="n">60</td><td class="n">500</td></tr>
       </table>
       <div class="q" data-answer="0.30" data-tol="0.005">
-        <label>1. P(<var data-s="l">L</var> = lijn 2, <var data-s="k">K</var> = Accepted) (2 decimalen) =</label> <input type="text" inputmode="decimal">
+        <label>1. P(\(\sym{l}{L}=\) lijn 2, \(\sym{k}{K}=\) Accepted) (2 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="0.70" data-tol="0.005">
-        <label>2a. P(<var data-s="k">K</var> = Accepted) =</label> <input type="text" inputmode="decimal">
+        <label>2a. P(\(\sym{k}{K}=\) Accepted) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="0.18" data-tol="0.005">
-        <label>2b. P(<var data-s="k">K</var> = Downgraded) =</label> <input type="text" inputmode="decimal">
+        <label>2b. P(\(\sym{k}{K}=\) Downgraded) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="0.12" data-tol="0.005">
-        <label>2c. P(<var data-s="k">K</var> = Rejected) =</label> <input type="text" inputmode="decimal">
+        <label>2c. P(\(\sym{k}{K}=\) Rejected) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="0.741" data-tol="0.005">
-        <label>3a. P(<var data-s="k">K</var> = Accepted | <var data-s="l">L</var> = lijn 1) =</label> <input type="text" inputmode="decimal">
+        <label>3a. P(\(\sym{k}{K}=\) Accepted \(\mid\sym{l}{L}=\) lijn 1) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="0.185" data-tol="0.005">
-        <label>3b. P(<var data-s="k">K</var> = Downgraded | <var data-s="l">L</var> = lijn 1) =</label> <input type="text" inputmode="decimal">
+        <label>3b. P(\(\sym{k}{K}=\) Downgraded \(\mid\sym{l}{L}=\) lijn 1) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="0.074" data-tol="0.005">
-        <label>3c. P(<var data-s="k">K</var> = Rejected | <var data-s="l">L</var> = lijn 1) =</label> <input type="text" inputmode="decimal">
+        <label>3c. P(\(\sym{k}{K}=\) Rejected \(\mid\sym{l}{L}=\) lijn 1) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="0.378" data-tol="0.002">
-        <label>4a. P(<var data-s="l">L</var> = lijn 1) · P(<var data-s="k">K</var> = Accepted) (3 decimalen) =</label> <input type="text" inputmode="decimal">
+        <label>4a. P(\(\sym{l}{L}=\) lijn 1) · P(\(\sym{k}{K}=\) Accepted) (3 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-type="choice" data-answer="nee">
@@ -907,17 +907,17 @@
       <details class="solution"><summary>Toon oplossing</summary>
         <p>Uitwerking uit de cursus <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=25">Data p. 25</a> en de notities (p. 12):</p>
         <ol>
-          <li>Gezamenlijke kans: 150 / 500 = 0.30.</li>
-          <li>Marginale verdeling P(<var data-s="k">K</var>): 350/500 = 0.70; 90/500 = 0.18; 60/500 = 0.12.</li>
-          <li>Voorwaardelijke verdeling P(<var data-s="k">K</var> | lijn 1): 200/270 ≈ 0.74; 50/270 ≈ 0.19; 20/270 ≈ 0.07 (op 3 decimalen
+          <li>Gezamenlijke kans: \(\frac{150}{500}=0.30\).</li>
+          <li>Marginale verdeling \(P(\sym{k}{K})\): \(\frac{350}{500}=0.70\); \(\frac{90}{500}=0.18\); \(\frac{60}{500}=0.12\).</li>
+          <li>Voorwaardelijke verdeling P(\(\sym{k}{K}\mid\) lijn 1): 200/270 ≈ 0.74; 50/270 ≈ 0.19; 20/270 ≈ 0.07 (op 3 decimalen
           0.741, 0.185 en 0.074).</li>
-          <li>Niet onafhankelijk: P(<var data-s="k">K</var> | lijn 1) ≠ P(<var data-s="k">K</var>). Lijn 1 levert verhoudingsgewijs meer Accepted (74 % tegen 70 %)
+          <li>Niet onafhankelijk: P(\(\sym{k}{K}\mid\) lijn 1) ≠ \(P(\sym{k}{K})\). Lijn 1 levert verhoudingsgewijs meer Accepted (74 % tegen 70 %)
           en minder Rejected (7 % tegen 12 %) (p. 25). De notities rekenen ook met de productvorm:
-          P(<var data-s="l">L</var> = lijn 1, <var data-s="k">K</var> = Goedgekeurd) = 200/500 = 0.40, terwijl P(<var data-s="l">L</var> = lijn 1) · P(<var data-s="k">K</var> = Goedgekeurd) = 270/500 · 350/500
+          P(\(\sym{l}{L}=\) lijn 1, \(\sym{k}{K}=\) Goedgekeurd) = \(\frac{200}{500}=0.40\), terwijl P(\(\sym{l}{L}=\) lijn 1) · P(\(\sym{k}{K}=\) Goedgekeurd) = 270/500 · 350/500
           ≈ 0.378; en lijn 1 heeft ≈ 7 % afkeur tegen ≈ 17 % voor lijn 2 (notities p. 12).</li>
         </ol>
-        <p>Ter controle: P(<var data-s="k">K</var> | lijn 2) = 0.652 / 0.174 / 0.174, en onder onafhankelijkheid zou je in de cel
-        lijn 1 &amp; Accepted 0.378 · 500 = 189 producten verwachten in plaats van 200
+        <p>Ter controle: P(\(\sym{k}{K}\mid\) lijn 2) = 0.652 / 0.174 / 0.174, en onder onafhankelijkheid zou je in de cel
+        lijn 1 &amp; Accepted \(0.378\cdot500=189\) producten verwachten in plaats van 200
         <span class="computed">zelf berekend</span>.</p>
       </details>
     </div>
@@ -927,38 +927,38 @@
   <section class="unit" id="d02-regressielijn" data-kw="voorwaardelijke verwachtingswaarde; conditional expectation; E[Y|X]; E[Y|X=x]; regressielijn; regression line; regressie; regression; supervised learning; machine learning; voorspelling; gemiddelde per x">
     <h3>02.11 De voorwaardelijke verwachtingswaarde is de regressielijn <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=26">Data p. 26–27</a></h3>
     <p>De <b>voorwaardelijke verwachtingswaarde</b> (<i>conditional expectation</i>) is het gemiddelde van de
-    voorwaardelijke verdeling P(<var data-s="y_var">Y</var> | <var data-s="x_var">X</var> = <var data-s="x_val">x</var>) <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=26">Data p. 26</a>:</p>
+    voorwaardelijke verdeling \(P(\sym{y_var}{Y}\mid\sym{x_var}{X}=\sym{x_val}{x})\) <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=26">Data p. 26</a>:</p>
     <div class="f">
-      <div>E[<var data-s="y_var">Y</var> | <var data-s="x_var">X</var> = <var data-s="x_val">x</var>] = ∫<sub><var data-s="y_val">y</var></sub> <var data-s="y_val">y</var> · P(<var data-s="y_var">Y</var> = <var data-s="y_val">y</var> | <var data-s="x_var">X</var> = <var data-s="x_val">x</var>) dy</div>
+      <div>\[E[\sym{y_var}{Y}\mid\sym{x_var}{X}=\sym{x_val}{x}]=\int_{\sym{y_val}{y}}\ \sym{y_val}{y}\cdot P(\sym{y_var}{Y}=\sym{y_val}{y}\mid\sym{x_var}{X}=\sym{x_val}{x})\] dy</div>
       <div>Een functie die enkel van x afhangt: de <b>regressielijn</b> (<i>regression line</i>)</div>
     </div>
-    <p>In woorden: filter de rijen waar <var data-s="x_var">X</var> ≈ <var data-s="x_val">x</var> (02.10) en neem het gemiddelde van hun Y. Doe dat voor elke x en je krijgt
+    <p>In woorden: filter de rijen waar \(\sym{x_var}{X}\approx\sym{x_val}{x}\ (02.10)\) en neem het gemiddelde van hun Y. Doe dat voor elke x en je krijgt
     een kromme, de regressielijn. Die hoeft niet recht te zijn: de figuur hieronder
     (<a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=27">Data p. 27</a>) toont een
-    U-vormige gezamenlijke verdeling, met E[<var data-s="y_var">Y</var> | <var data-s="x_var">X</var>] als kromme door het midden van de wolk.</p>
+    U-vormige gezamenlijke verdeling, met \(E[\sym{y_var}{Y}\mid\sym{x_var}{X}]\) als kromme door het midden van de wolk.</p>
     <figure class="fig"><img src="figures/02_regressielijn_u.png" alt="Dichtheidsplot van een U-vormige gezamenlijke verdeling van X en Y met een rode stippellijn E[Y | X] door het midden">
     <figcaption>Figuur: een U-vormige gezamenlijke verdeling van X en Y, met de voorwaardelijke verwachtingswaarde E[Y | X] als stippellijn door het midden van de wolk. De regressielijn is hier een parabool, geen rechte.
     <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=27">Data p. 27</a></figcaption></figure>
-    <div class="box key"><span class="t">Zo teken je E[<var data-s="y_var">Y</var> | <var data-s="x_var">X</var> = <var data-s="x_val">x</var>] in een spreidingsdiagram</span>
+    <div class="box key"><span class="t">Zo teken je \(E[\sym{y_var}{Y}\mid\sym{x_var}{X}=\sym{x_val}{x}]\) in een spreidingsdiagram</span>
       <ol class="steps">
-        <li>Kies een x en kijk naar een smalle <b>verticale strook</b> punten rond die x ("rijen filteren waar <var data-s="x_var">X</var> ≈ <var data-s="x_val">x</var>").</li>
+        <li>Kies een x en kijk naar een smalle <b>verticale strook</b> punten rond die x ("rijen filteren waar \(\sym{x_var}{X}\approx\sym{x_val}{x}\)").</li>
         <li>Zet een merkteken op de <b>gemiddelde hoogte</b> van de punten in die strook.</li>
         <li>Herhaal voor x-waarden over het hele bereik en verbind de merktekens.</li>
       </ol>
       <p>Tip: neem echt het midden van elke verticale strook. Dat is niet hetzelfde als de "lange as" van een schuine,
       brede puntenwolk; die helt sterker dan de lijn door het midden van de stroken.</p>
     </div>
-    <p>Waarom is dit belangrijk? <b>Vrijwel alle supervised machine learning is een schatting van E[<var data-s="y_var">Y</var> | <var data-s="x_var">X</var>]</b>, van
+    <p>Waarom is dit belangrijk? <b>Vrijwel alle supervised machine learning is een schatting van \(E[\sym{y_var}{Y}\mid\sym{x_var}{X}]\)</b>, van
     lineaire regressie tot diepe neurale netwerken (p. 27; notities p. 13). Lineaire regressie (Deel 7) schat dezelfde
-    grootheid met een rechte, <var data-s="mu_yx">µ<sub>Y|x</sub></var> = <var data-s="beta0">β<sub>0</sub></var> + <var data-s="beta1">β<sub>1</sub></var><var data-s="x_val">x</var>; machine learning komt aan bod in Deel 12.
-    En: E[<var data-s="y_var">Y</var> | <var data-s="x_var">X</var> = <var data-s="x_val">x</var>] beschrijft wat je <i>ziet</i> als X toevallig x is. Wat er gebeurt als je X zelf op x zet, is een
+    grootheid met een rechte, \(\sym{mu_yx}{\mu_{Y\mid x}}=\sym{beta0}{\beta_{0}}+\sym{beta1}{\beta_{1}}\sym{x_val}{x}\); machine learning komt aan bod in Deel 12.
+    En: \(E[\sym{y_var}{Y}\mid\sym{x_var}{X}=\sym{x_val}{x}]\) beschrijft wat je <i>ziet</i> als X toevallig x is. Wat er gebeurt als je X zelf op x zet, is een
     andere vraag (02.12–02.14).</p>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"De regressielijn is altijd een rechte."</b> Fout: E[<var data-s="y_var">Y</var> | <var data-s="x_var">X</var> = <var data-s="x_val">x</var>] is het gemiddelde van Y per x en mag krom zijn, zoals de U-vorm op <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=27">Data p. 27</a>; lineaire regressie (Deel 7) benadert ze met een rechte.</li>
-      <li><b>"De regressielijn volgt de lange as van de puntenwolk."</b> Fout: ze loopt door het midden van elke verticale strook ("rijen filteren waar <var data-s="x_var">X</var> ≈ <var data-s="x_val">x</var>") <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=20">Data p. 20</a>, <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=26">Data p. 26</a>; bij een schuine, brede wolk helt de lange as sterker <span class="gen">algemeen</span>.</li>
-      <li><b>Let op:</b> E[<var data-s="y_var">Y</var> | <var data-s="x_var">X</var>] (Y voorspellen uit X) is een andere lijn dan E[<var data-s="x_var">X</var> | <var data-s="y_var">Y</var>] (X voorspellen uit Y): andere stroken, andere gemiddelden <span class="gen">algemeen</span>.</li>
-      <li><b>"Machine learning schat iets anders dan regressie."</b> Fout: vrijwel alle supervised machine learning, van lineaire regressie tot diepe neurale netwerken, is een schatting van E[<var data-s="y_var">Y</var> | <var data-s="x_var">X</var>] <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=27">Data p. 27</a>. Ook dat is associatie, geen effect van ingrijpen (<a href="#d02-ladder">02.12</a>).</li>
+      <li><b>"De regressielijn is altijd een rechte."</b> Fout: \(E[\sym{y_var}{Y}\mid\sym{x_var}{X}=\sym{x_val}{x}]\) is het gemiddelde van Y per x en mag krom zijn, zoals de U-vorm op <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=27">Data p. 27</a>; lineaire regressie (Deel 7) benadert ze met een rechte.</li>
+      <li><b>"De regressielijn volgt de lange as van de puntenwolk."</b> Fout: ze loopt door het midden van elke verticale strook ("rijen filteren waar \(\sym{x_var}{X}\approx\sym{x_val}{x}\)") <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=20">Data p. 20</a>, <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=26">Data p. 26</a>; bij een schuine, brede wolk helt de lange as sterker <span class="gen">algemeen</span>.</li>
+      <li><b>Let op:</b> \(E[\sym{y_var}{Y}\mid\sym{x_var}{X}]\) (Y voorspellen uit X) is een andere lijn dan \(E[\sym{x_var}{X}\mid\sym{y_var}{Y}]\) (X voorspellen uit Y): andere stroken, andere gemiddelden <span class="gen">algemeen</span>.</li>
+      <li><b>"Machine learning schat iets anders dan regressie."</b> Fout: vrijwel alle supervised machine learning, van lineaire regressie tot diepe neurale netwerken, is een schatting van \(E[\sym{y_var}{Y}\mid\sym{x_var}{X}]\) <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=27">Data p. 27</a>. Ook dat is associatie, geen effect van ingrijpen (<a href="#d02-ladder">02.12</a>).</li>
     </ul></div>
   </section>
 
@@ -972,8 +972,8 @@
     <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=29">Data p. 29</a>:</p>
     <table>
       <tr><th>Trede</th><th>Werkwoord</th><th>Vraag</th><th>Notatie</th></tr>
-      <tr><td>1. associatie (<i>association</i>)</td><td>zien (<i>seeing</i>)</td><td>"Wat gaat er samen?" / "What if I see…?"</td><td>P(<var data-s="y_var">Y</var> | <var data-s="x_var">X</var>)</td></tr>
-      <tr><td>2. interventie (<i>intervention</i>)</td><td>doen (<i>doing</i>)</td><td>"Wat als ik dit verander?" / "What if I do…? How can I…?"</td><td>P(<var data-s="y_var">Y</var> | do(<var data-s="x_var">X</var>))</td></tr>
+      <tr><td>1. associatie (<i>association</i>)</td><td>zien (<i>seeing</i>)</td><td>"Wat gaat er samen?" / "What if I see…?"</td><td>\(P(\sym{y_var}{Y}\mid\sym{x_var}{X})\)</td></tr>
+      <tr><td>2. interventie (<i>intervention</i>)</td><td>doen (<i>doing</i>)</td><td>"Wat als ik dit verander?" / "What if I do…? How can I…?"</td><td>\(P(\sym{y_var}{Y}\mid\mathrm{do}(\sym{x_var}{X}))\)</td></tr>
       <tr><td>3. counterfactueel (<i>counterfactual</i>)</td><td>verbeelden (<i>imagining</i>)</td><td>"Wat als het anders was gegaan?" / "What if I had done…? Why?"</td><td>—</td></tr>
     </table>
     <figure class="fig"><img src="figures/02_ladder.png" alt="Drie treden: 1. Association (seeing), 2. Intervention (doing), 3. Counterfactuals (imagining), met een pijl naar toenemend causaal inzicht">
@@ -1006,7 +1006,7 @@
     <span class="small">extra</span>. Een kustgemeente ziet: op dagen met veel ijsverkoop zijn er meer reddingsacties.
     Wat gebeurt er als ze de ijsverkoop verbiedt? Voor de verdrinkingen: niets. Een derde factor, warm weer, drijft
     beide (notities p. 17). Zelfs een neuraal netwerk met 1000 lagen kan dit onderscheid niet maken: het modelleert
-    hooguit P(<var data-s="x_var">X</var>, <var data-s="y_var">Y</var>), en die is dezelfde of X nu Y veroorzaakt, Y X veroorzaakt, of beide een gevolg zijn van een derde
+    hooguit \(P(\sym{x_var}{X},\sym{y_var}{Y})\), en die is dezelfde of X nu Y veroorzaakt, Y X veroorzaakt, of beide een gevolg zijn van een derde
     variabele Z (notities p. 18).</p>
     <figure class="fig"><img src="figures/02_ijsverkoop.png" alt="Stijgende langgerekte puntenwolk van ijsverkoop tegen reddingsoperaties op zee">
     <figcaption>Figuur: ijsverkoop tegen het aantal reddingsoperaties op zee: een sterk stijgend verband, zonder dat het ene het andere veroorzaakt.
@@ -1020,14 +1020,14 @@
     </div>
     <p><b>Twee fundamenteel verschillende vragen</b> <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=40">Data p. 40</a>:</p>
     <div class="f">
-      <div>Associatie: P(<var data-s="y_var">Y</var> | <var data-s="x_var">X</var> = <var data-s="x_val">x</var>) — gegeven dat we <b>observeren</b> dat <var data-s="x_var">X</var> = <var data-s="x_val">x</var></div>
-      <div>Interventie: P(<var data-s="y_var">Y</var> | do(<var data-s="x_var">X</var> = <var data-s="x_val">x</var>)) — gegeven dat we <var data-s="x_var">X</var> = <var data-s="x_val">x</var> <b>forceren</b></div>
-      <div>In het algemeen: P(<var data-s="y_var">Y</var> | <var data-s="x_var">X</var> = <var data-s="x_val">x</var>) ≠ P(<var data-s="y_var">Y</var> | do(<var data-s="x_var">X</var> = <var data-s="x_val">x</var>))</div>
+      <div>Associatie: \[P(\sym{y_var}{Y}\mid\sym{x_var}{X}=\sym{x_val}{x})\] — gegeven dat we <b>observeren</b> dat \[\sym{x_var}{X}=\sym{x_val}{x}\]</div>
+      <div>Interventie: \[P(\sym{y_var}{Y}\mid\mathrm{do}(\sym{x_var}{X}=\sym{x_val}{x}))\] — gegeven dat we \[\sym{x_var}{X}=\sym{x_val}{x}\] <b>forceren</b></div>
+      <div>In het algemeen: \[P(\sym{y_var}{Y}\mid\sym{x_var}{X}=\sym{x_val}{x})\ne P(\sym{y_var}{Y}\mid\mathrm{do}(\sym{x_var}{X}=\sym{x_val}{x}))\]</div>
     </div>
     <p>Bedrijfsvoorbeeld <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=21">Data-notities p. 21</a>:
-    stel dat lijn 1 vaker afkeur geeft dan lijn 2. De <b>associatievraag</b> is P(<var data-s="k">K</var> = afgekeurd | <var data-s="l">L</var> = lijn 1): de kans op
+    stel dat lijn 1 vaker afkeur geeft dan lijn 2. De <b>associatievraag</b> is P(\(\sym{k}{K}=\) afgekeurd \(\mid\sym{l}{L}=\) lijn 1): de kans op
     afkeur voor een product dat toevallig op lijn 1 gemaakt werd. De <b>interventievraag</b> is
-    P(<var data-s="k">K</var> = afgekeurd | do(<var data-s="l">L</var> = lijn 2)): de kans op afkeur als we beslissen alle productie naar lijn 2 te verplaatsen. Het
+    P(\(\sym{k}{K}=\) afgekeurd | do(\(\sym{l}{L}=\) lijn 2)): de kans op afkeur als we beslissen alle productie naar lijn 2 te verplaatsen. Het
     eerste antwoord garandeert het tweede niet. Lijn 1 kan meer afkeur tonen omdat er systematisch moeilijkere
     producten op gemaakt worden, of omdat de detectiegrenzen er scherper staan, niet omdat de lijn slechter is.
     (In de oefening van 02.10 is het overigens net lijn 2 die meer afkeur heeft; het notitievoorbeeld is
@@ -1035,9 +1035,9 @@
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"X en Y zijn sterk gecorreleerd, dus X verlagen verlaagt Y."</b> Fout ("cum hoc ergo propter hoc"): de associatie P(<var data-s="y_var">Y</var> | <var data-s="x_var">X</var> = <var data-s="x_val">x</var>) is in het algemeen niet het interventie-effect P(<var data-s="y_var">Y</var> | do(<var data-s="x_var">X</var> = <var data-s="x_val">x</var>)) <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=40">Data p. 40</a>. In het fabrieksvoorbeeld daalde Y niet, en beide uitkomsten passen bij dezelfde data <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=33">Data p. 33</a>, <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=34">Data p. 34</a>.</li>
+      <li><b>"X en Y zijn sterk gecorreleerd, dus X verlagen verlaagt Y."</b> Fout ("cum hoc ergo propter hoc"): de associatie \(P(\sym{y_var}{Y}\mid\sym{x_var}{X}=\sym{x_val}{x})\) is in het algemeen niet het interventie-effect \(P(\sym{y_var}{Y}\mid\mathrm{do}(\sym{x_var}{X}=\sym{x_val}{x}))\) <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=40">Data p. 40</a>. In het fabrieksvoorbeeld daalde Y niet, en beide uitkomsten passen bij dezelfde data <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=33">Data p. 33</a>, <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=34">Data p. 34</a>.</li>
       <li><b>"Een model dat Y goed voorspelt, zegt ook welke actie Y verbetert."</b> Fout: PINO, Prediction Is Not Optimization <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=36">Data p. 36</a>, <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=21">Data-notities p. 21</a>.</li>
-      <li><b>"Met genoeg data en een groot neuraal netwerk vind je de oorzaak vanzelf."</b> Fout: elk model leert hooguit P(<var data-s="x_var">X</var>, <var data-s="y_var">Y</var>), en die is dezelfde of X Y veroorzaakt, Y X, of een derde variabele beide <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=18">Data-notities p. 18</a>.</li>
+      <li><b>"Met genoeg data en een groot neuraal netwerk vind je de oorzaak vanzelf."</b> Fout: elk model leert hooguit \(P(\sym{x_var}{X},\sym{y_var}{Y})\), en die is dezelfde of X Y veroorzaakt, Y X, of een derde variabele beide <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=18">Data-notities p. 18</a>.</li>
       <li><b>"Een verbod op ijsverkoop vermindert de reddingsacties."</b> Fout: warm weer drijft beide; ijsverkoop is geassocieerd met reddingsacties, maar geen oorzaak <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=35">Data p. 35</a>, <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=17">Data-notities p. 17</a>.</li>
       <li><b>Let op de treden:</b> "kans op afkeur, gegeven dat het product op lijn 1 gemaakt werd" is associatie (trede 1); "kans op afkeur als we alles naar lijn 2 verplaatsen" is interventie (trede 2); "was dit lot goed geweest op lijn 2?" is counterfactueel (trede 3) <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=29">Data p. 29</a>, <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=21">Data-notities p. 21</a>.</li>
     </ul></div>
@@ -1101,7 +1101,7 @@
     beïnvloedt <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=39">Data p. 39</a>. Hier
     is dat de ernst van de aandoening: ernstiger zieke patiënten krijgen meer medicijn én hebben sowieso een slechtere
     uitkomst (notities p. 20). Het causale diagram:</p>
-    <div class="f"><div><var data-s="ernst">Ernst</var> → <var data-s="medicijn">Hoeveelheid medicijn</var> → <var data-s="uitkomst">Gezondheidsuitkomst</var>, en <var data-s="ernst">Ernst</var> → <var data-s="uitkomst">Gezondheidsuitkomst</var></div></div>
+    <div class="f"><div>\[\sym{ernst}{\text{Ernst}}\to\sym{medicijn}{\text{Hoeveelheid medicijn}}\to\sym{uitkomst}{\text{Gezondheidsuitkomst}}\], en \[\sym{ernst}{\text{Ernst}}\to\sym{uitkomst}{\text{Gezondheidsuitkomst}}\]</div></div>
     <p>Wie de confounder negeert, ziet het omgekeerde teken.</p>
     <div class="box warn"><span class="t">Fout in de cursus: niet "in elke" subgroep</span>
       <p>De legende van de tweede figuur hierboven (p. 38; ook notities p. 20) geeft zes hellingen: −0.23 (zeer lage ernst), 0.39,
@@ -1144,66 +1144,66 @@
         <li>Een causaal diagram is een <b>aanname</b> over het fysische proces dat de data genereert. Je kunt het niet
         uit de data zelf afleiden.</li>
         <li>Een <b>interventie</b> forceert een variabele op een waarde en <b>verwijdert alle inkomende pijlen</b> naar
-        die variabele. P(<var data-s="y_var">Y</var> | do(<var data-s="x_var">X</var>)) lees je af in dat aangepaste diagram (notities p. 23).</li>
+        die variabele. \(P(\sym{y_var}{Y}\mid\mathrm{do}(\sym{x_var}{X}))\) lees je af in dat aangepaste diagram (notities p. 23).</li>
       </ol>
     </div>
     <p><b>Terug naar X en Y</b> <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=45">Data p. 45</a>.
     Hetzelfde patroon in de data (X en Y stijgen samen) past bij vier fundamenteel verschillende structuren:</p>
     <table>
       <tr><th>Structuur</th><th>Diagram</th><th>Veroorzaakt X Y?</th><th>Bij het fabrieksvoorbeeld</th></tr>
-      <tr><td>direct</td><td><var data-s="x_var">X</var> → <var data-s="y_var">Y</var></td><td>ja</td><td rowspan="2">"verwacht effect" (p. 32)</td></tr>
-      <tr><td>mediator</td><td><var data-s="x_var">X</var> → <var data-s="m_med">M</var> → <var data-s="y_var">Y</var></td><td>ja, via M</td></tr>
-      <tr><td>omgekeerd (<i>reverse</i>)</td><td><var data-s="y_var">Y</var> → <var data-s="x_var">X</var></td><td>nee</td><td rowspan="2">"werkelijkheid" (p. 33)</td></tr>
-      <tr><td>confounder</td><td><var data-s="x_var">X</var> ← <var data-s="confounder">Z</var> → <var data-s="y_var">Y</var></td><td>nee</td></tr>
+      <tr><td>direct</td><td>\(\sym{x_var}{X}\to\sym{y_var}{Y}\)</td><td>ja</td><td rowspan="2">"verwacht effect" (p. 32)</td></tr>
+      <tr><td>mediator</td><td>\(\sym{x_var}{X}\to\sym{m_med}{M}\to\sym{y_var}{Y}\)</td><td>ja, via M</td></tr>
+      <tr><td>omgekeerd (<i>reverse</i>)</td><td>\(\sym{y_var}{Y}\to\sym{x_var}{X}\)</td><td>nee</td><td rowspan="2">"werkelijkheid" (p. 33)</td></tr>
+      <tr><td>confounder</td><td>\(\sym{x_var}{X}\leftarrow\sym{confounder}{Z}\to\sym{y_var}{Y}\)</td><td>nee</td></tr>
     </table>
     <figure class="fig"><img src="figures/02_vier_structuren.png" alt="Links het verwachte effect met diagrammen direct en mediator, rechts de werkelijkheid met diagrammen omgekeerd en confounder, telkens met de puntenwolk na de interventie">
-    <figcaption>Figuur: hetzelfde patroon in de data past bij vier causale structuren. Links "X veroorzaakt Y" (direct X → Y, mediator X → M → Y): na de interventie liggen de punten laag in X én laag in Y. Rechts "X veroorzaakt Y niet" (omgekeerd Y → X, confounder X ← Z → Y): de punten liggen laag in X, maar over de hele hoogte in Y.
+    <figcaption>Figuur: hetzelfde patroon in de data past bij vier causale structuren. Links "X veroorzaakt Y" (direct \(X\to Y\), mediator \(X\to M\to Y\)): na de interventie liggen de punten laag in X én laag in Y. Rechts "X veroorzaakt Y niet" (omgekeerd \(Y\to X\), confounder \(X\leftarrow Z\to Y\)): de punten liggen laag in X, maar over de hele hoogte in Y.
     <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=45">Data p. 45</a></figcaption></figure>
 
-    <div class="box key"><span class="t">Recept: wat zie je na een interventie do(<var data-s="x_var">X</var> = <var data-s="x0">x<sub>0</sub></var>)?</span>
+    <div class="box key"><span class="t">Recept: wat zie je na een interventie do(\(\sym{x_var}{X}=\sym{x0}{x_{0}}\))?</span>
       <ol class="steps">
         <li>Teken het diagram en <b>schrap alle pijlen die in X aankomen</b>.</li>
         <li>Kijk of er in het aangepaste diagram nog een <b>causaal pad van X naar Y</b> loopt (pijlen in de richting
-        <var data-s="x_var">X</var> → … → <var data-s="y_var">Y</var>).</li>
+        \(\sym{x_var}{X}\to\ldots\to\sym{y_var}{Y}\)).</li>
         <li><b>X had geen inkomende pijlen</b> (direct of mediator): het schrappen verandert niets, dus
-        P(<var data-s="y_var">Y</var> | do(<var data-s="x_var">X</var> = <var data-s="x0">x<sub>0</sub></var>)) = P(<var data-s="y_var">Y</var> | <var data-s="x_var">X</var> = <var data-s="x0">x<sub>0</sub></var>). Nieuwe waarnemingen vallen in de verticale strook bij
-        x<sub>0</sub>, rond de regressielijn E[<var data-s="y_var">Y</var> | <var data-s="x_var">X</var> = <var data-s="x0">x<sub>0</sub></var>], met dezelfde spreiding als die strook. Dit is
+        \(P(\sym{y_var}{Y}\mid\mathrm{do}(\sym{x_var}{X}=\sym{x0}{x_{0}}))=P(\sym{y_var}{Y}\mid\sym{x_var}{X}=\sym{x0}{x_{0}})\). Nieuwe waarnemingen vallen in de verticale strook bij
+        \(x_{0}\), rond de regressielijn \(E[\sym{y_var}{Y}\mid\sym{x_var}{X}=\sym{x0}{x_{0}}]\), met dezelfde spreiding als die strook. Dit is
         het groene "verwacht effect" van p. 32.</li>
         <li><b>Er is geen causaal pad van X naar Y</b> (omgekeerd of confounder): Y reageert niet op X, dus
-        P(<var data-s="y_var">Y</var> | do(<var data-s="x_var">X</var> = <var data-s="x0">x<sub>0</sub></var>)) = P(<var data-s="y_var">Y</var>), de <b>marginale</b> verdeling van Y. Nieuwe waarnemingen staan allemaal bij
-        <var data-s="x_val">x</var> = <var data-s="x0">x<sub>0</sub></var>, maar hun Y is over het hele verticale bereik van de oorspronkelijke wolk verspreid, rond het
+        \(P(\sym{y_var}{Y}\mid\mathrm{do}(\sym{x_var}{X}=\sym{x0}{x_{0}}))=P(\sym{y_var}{Y})\), de <b>marginale</b> verdeling van Y. Nieuwe waarnemingen staan allemaal bij
+        \(\sym{x_val}{x}=\sym{x0}{x_{0}}\), maar hun Y is over het hele verticale bereik van de oorspronkelijke wolk verspreid, rond het
         algemene gemiddelde van Y, niet rond de regressielijn. Dit is het rode "werkelijkheid" van p. 33.</li>
         <li>Beide tegelijk (een causaal pad én een achterdeur, zoals bij het koper hieronder): het effect is het zuivere
         causale effect, niet de helling van de regressielijn; zonder extra gegevens kun je het niet tekenen.</li>
       </ol>
-      <p>Vuistregel: kies bij een interventie tussen <b>"de strook bij x<sub>0</sub>"</b> (X oorzaak van Y) en
+      <p>Vuistregel: kies bij een interventie tussen <b>"de strook bij \(x_{0}\)"</b> (X oorzaak van Y) en
       <b>"de hele hoogte van de wolk"</b> (X geen oorzaak van Y).</p>
     </div>
     <p>Dit beantwoordt ook de vraag van het fabrieksvoorbeeld (02.12): de redenering "verlaag X, dan daalt Y" gebruikt de
-    regressielijn, dus P(<var data-s="y_var">Y</var> | <var data-s="x_var">X</var> = <var data-s="x_val">x</var>), terwijl je P(<var data-s="y_var">Y</var> | do(<var data-s="x_var">X</var> = <var data-s="x_val">x</var>)) nodig hebt. Dat zijn alleen dezelfde als X een oorzaak
+    regressielijn, dus \(P(\sym{y_var}{Y}\mid\sym{x_var}{X}=\sym{x_val}{x})\), terwijl je \(P(\sym{y_var}{Y}\mid\mathrm{do}(\sym{x_var}{X}=\sym{x_val}{x}))\) nodig hebt. Dat zijn alleen dezelfde als X een oorzaak
     van Y is zonder confounding.</p>
 
     <div class="box ex"><span class="t">Voorbeeld: koper legeren in staal</span>
       <p><a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=46">Data p. 46</a>
       <span class="small">extra</span>; <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=22">Data-notities p. 22–24</a>.
       Staal wordt gemaakt door schroot te hersmelten. De sterkte hangt af van Cu, Ni en Cr, en die komen alle drie uit
-      de schrootmix: <var data-s="schroot">schroot</var> → <var data-s="cu">Cu</var>, <var data-s="schroot">schroot</var> → <var data-s="ni">Ni</var>, <var data-s="schroot">schroot</var> → <var data-s="cr">Cr</var>, en <var data-s="cu">Cu</var>, <var data-s="ni">Ni</var>, <var data-s="cr">Cr</var> → <var data-s="sterkte">Sterkte</var>.</p>
+      de schrootmix: \(\sym{schroot}{\text{schroot}}\to\sym{cu}{\mathrm{Cu}}\), \(\sym{schroot}{\text{schroot}}\to\sym{ni}{\mathrm{Ni}}\), \(\sym{schroot}{\text{schroot}}\to\sym{cr}{\mathrm{Cr}}\), en <var data-s="cu">Cu</var>, <var data-s="ni">Ni</var>, \(\sym{cr}{\mathrm{Cr}}\to\sym{sterkte}{\text{Sterkte}}\).</p>
       <ul>
         <li><b>Observatie</b>: staal met veel koper heeft waarschijnlijk een andere schrootmix gehad, dus ook andere
         waarden van de andere elementen (bv. meer nikkel). Er is een <b>achterdeur</b> (<i>backdoor</i>), een tweede,
-        niet-causale weg van koper naar sterkte: <var data-s="cu">Cu</var> ← <var data-s="schroot">schroot</var> → <var data-s="ni">Ni</var> → <var data-s="sterkte">Sterkte</var>.</li>
-        <li><b>Interventie do(<var data-s="cu">Cu</var> = <var data-s="x_val">x</var>)</b>: je legeert zelf koper bij. De pijl <var data-s="schroot">schroot</var> → <var data-s="cu">Cu</var> verdwijnt. Cu hangt dan niet
+        niet-causale weg van koper naar sterkte: \(\sym{cu}{\mathrm{Cu}}\leftarrow\sym{schroot}{\text{schroot}}\to\sym{ni}{\mathrm{Ni}}\to\sym{sterkte}{\text{Sterkte}}\).</li>
+        <li><b>Interventie do(\(\sym{cu}{\mathrm{Cu}}=\sym{x_val}{x}\))</b>: je legeert zelf koper bij. De pijl \(\sym{schroot}{\text{schroot}}\to\sym{cu}{\mathrm{Cu}}\) verdwijnt. Cu hangt dan niet
         meer samen met de schrootmix, de achterdeur is gesloten, en wat je meet is het zuivere causale effect
-        P(<var data-s="sterkte">Sterkte</var> | do(<var data-s="cu">Cu</var> = <var data-s="x_val">x</var>)).</li>
+        \(P(\sym{sterkte}{\text{Sterkte}}\mid\mathrm{do}(\sym{cu}{\mathrm{Cu}}=\sym{x_val}{x}))\).</li>
       </ul>
       <figure class="fig"><img src="figures/02_koper_staal.png" alt="Twee causale diagrammen: bij observatie wijst schroot naar Ni, Cu en Cr, die alle drie naar Sterkte wijzen; bij do(Cu = x) staat Cu los, zonder pijl vanuit schroot">
       <figcaption>Figuur: links het causale diagram bij observatie: schroot → Ni, Cu, Cr → Sterkte. Rechts bij de interventie do(Cu = x): de pijl schroot → Cu is verdwenen, Cu wordt van buitenaf vastgelegd. De achterdeur via schroot is gesloten.
       <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=46">Data p. 46</a></figcaption></figure>
     </div>
     <div class="box warn"><span class="t">Fout in de notities: richting van de pijl</span>
-      <p>Het antwoord op notities p. 23 schrijft de achterdeur als "<var data-s="cu">Cu</var> → <var data-s="schroot">schroot</var> → <var data-s="ni">Ni</var> → <var data-s="sterkte">Sterkte</var>". Volgens het diagram
-      (p. 22) en de tekst op p. 23 zelf ("<var data-s="schroot">schroot</var> → <var data-s="cu">Cu</var>") loopt de eerste pijl van schroot naar koper:
-      <b><var data-s="cu">Cu</var> ← <var data-s="schroot">schroot</var> → <var data-s="ni">Ni</var> → <var data-s="sterkte">Sterkte</var></b>. Een achterdeurpad begint juist met een pijl die <i>in</i> de behandelde
+      <p>Het antwoord op notities p. 23 schrijft de achterdeur als "\(\sym{cu}{\mathrm{Cu}}\to\sym{schroot}{\text{schroot}}\to\sym{ni}{\mathrm{Ni}}\to\sym{sterkte}{\text{Sterkte}}\)". Volgens het diagram
+      (p. 22) en de tekst op p. 23 zelf ("\(\sym{schroot}{\text{schroot}}\to\sym{cu}{\mathrm{Cu}}\)") loopt de eerste pijl van schroot naar koper:
+      <b>\(\sym{cu}{\mathrm{Cu}}\leftarrow\sym{schroot}{\text{schroot}}\to\sym{ni}{\mathrm{Ni}}\to\sym{sterkte}{\text{Sterkte}}\)</b>. Een achterdeurpad begint juist met een pijl die <i>in</i> de behandelde
       variabele aankomt.</p>
     </div>
 
@@ -1211,14 +1211,14 @@
     <ul>
       <li><b>"Het causale diagram leid je af uit de data."</b> Fout: het is een aanname over het fysische proces dat de data genereert <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=44">Data p. 44</a>; dezelfde data passen bij direct, mediator, omgekeerd en confounder <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=45">Data p. 45</a>.</li>
       <li><b>"Een interventie op X schrapt de pijlen die uit X vertrekken."</b> Fout: ze schrapt alle <b>inkomende</b> pijlen naar X <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=44">Data p. 44</a>.</li>
-      <li><b>Let op na do(<var data-s="x_var">X</var> = <var data-s="x0">x<sub>0</sub></var>):</b> bij omgekeerd of confounder is P(<var data-s="y_var">Y</var> | do(<var data-s="x_var">X</var> = <var data-s="x0">x<sub>0</sub></var>)) = P(<var data-s="y_var">Y</var>): de nieuwe punten liggen over de hele hoogte van de wolk, niet op de regressielijn. Alleen bij direct of mediator is het P(<var data-s="y_var">Y</var> | <var data-s="x_var">X</var> = <var data-s="x0">x<sub>0</sub></var>) <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=32">Data p. 32</a>, <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=33">Data p. 33</a>.</li>
-      <li><b>"De achterdeur loopt <var data-s="cu">Cu</var> → <var data-s="schroot">schroot</var> → <var data-s="ni">Ni</var> → <var data-s="sterkte">Sterkte</var>."</b> Fout, al staat het zo in de notities: een achterdeur begint met een pijl die <i>in</i> de behandelde variabele aankomt, <var data-s="cu">Cu</var> ← <var data-s="schroot">schroot</var> → <var data-s="ni">Ni</var> → <var data-s="sterkte">Sterkte</var> <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=22">Data-notities p. 22</a>, <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=23">Data-notities p. 23</a>.</li>
-      <li><b>"Mediator en confounder komen op hetzelfde neer."</b> Fout: bij een mediator (<var data-s="x_var">X</var> → <var data-s="m_med">M</var> → <var data-s="y_var">Y</var>) veroorzaakt X Y via M en werkt ingrijpen op X; bij een confounder (<var data-s="x_var">X</var> ← <var data-s="confounder">Z</var> → <var data-s="y_var">Y</var>) veroorzaakt X Y niet <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=45">Data p. 45</a>.</li>
+      <li><b>Let op na do(\(\sym{x_var}{X}=\sym{x0}{x_{0}}\)):</b> bij omgekeerd of confounder is \(P(\sym{y_var}{Y}\mid\mathrm{do}(\sym{x_var}{X}=\sym{x0}{x_{0}}))=P(\sym{y_var}{Y})\): de nieuwe punten liggen over de hele hoogte van de wolk, niet op de regressielijn. Alleen bij direct of mediator is het \(P(\sym{y_var}{Y}\mid\sym{x_var}{X}=\sym{x0}{x_{0}})\) <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=32">Data p. 32</a>, <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=33">Data p. 33</a>.</li>
+      <li><b>"De achterdeur loopt \(\sym{cu}{\mathrm{Cu}}\to\sym{schroot}{\text{schroot}}\to\sym{ni}{\mathrm{Ni}}\to\sym{sterkte}{\text{Sterkte}}\)."</b> Fout, al staat het zo in de notities: een achterdeur begint met een pijl die <i>in</i> de behandelde variabele aankomt, \(\sym{cu}{\mathrm{Cu}}\leftarrow\sym{schroot}{\text{schroot}}\to\sym{ni}{\mathrm{Ni}}\to\sym{sterkte}{\text{Sterkte}}\) <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=22">Data-notities p. 22</a>, <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=23">Data-notities p. 23</a>.</li>
+      <li><b>"Mediator en confounder komen op hetzelfde neer."</b> Fout: bij een mediator \((\sym{x_var}{X}\to\sym{m_med}{M}\to\sym{y_var}{Y})\) veroorzaakt X Y via M en werkt ingrijpen op X; bij een confounder \((\sym{x_var}{X}\leftarrow\sym{confounder}{Z}\to\sym{y_var}{Y})\) veroorzaakt X Y niet <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=45">Data p. 45</a>.</li>
     </ul></div>
 
     <div class="exercise" id="ex-02-12" data-kw="koper; staal; schroot; nikkel; chroom; copper; steel; scrap; achterdeur; backdoor; causaal diagram; interventie; do(Cu)">
       <h4>Oefening 02.12 — Werkt extra koper legeren? <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=22">Data-notities p. 22–23</a></h4>
-      <p>Het causale diagram: <var data-s="schroot">schroot</var> → <var data-s="ni">Ni</var>, <var data-s="schroot">schroot</var> → <var data-s="cu">Cu</var>, <var data-s="schroot">schroot</var> → <var data-s="cr">Cr</var>; <var data-s="ni">Ni</var> → <var data-s="sterkte">Sterkte</var>, <var data-s="cu">Cu</var> → <var data-s="sterkte">Sterkte</var>, <var data-s="cr">Cr</var> → <var data-s="sterkte">Sterkte</var>. Uit
+      <p>Het causale diagram: \(\sym{schroot}{\text{schroot}}\to\sym{ni}{\mathrm{Ni}}\), \(\sym{schroot}{\text{schroot}}\to\sym{cu}{\mathrm{Cu}}\), \(\sym{schroot}{\text{schroot}}\to\sym{cr}{\mathrm{Cr}}\); \(\sym{ni}{\mathrm{Ni}}\to\sym{sterkte}{\text{Sterkte}}\), \(\sym{cu}{\mathrm{Cu}}\to\sym{sterkte}{\text{Sterkte}}\), \(\sym{cr}{\mathrm{Cr}}\to\sym{sterkte}{\text{Sterkte}}\). Uit
       observationele data weten we dat 100 ppm meer koper samengaat met 10 MPa meer sterkte. Leg in woorden uit waarom
       extra koper legeren misschien zal werken, en misschien niet.</p>
       <div class="q" data-type="choice" data-answer="achterdeur">
@@ -1227,45 +1227,45 @@
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-type="choice" data-answer="schroot-cu">
-        <label>Welke pijl verdwijnt bij de interventie do(<var data-s="cu">Cu</var> = <var data-s="x_val">x</var>)?</label>
+        <label>Welke pijl verdwijnt bij de interventie do(\(\sym{cu}{\mathrm{Cu}}=\sym{x_val}{x}\))?</label>
         <select><option value="">kies…</option><option value="schroot-cu">schroot → Cu</option><option value="cu-sterkte">Cu → Sterkte</option><option value="schroot-ni">schroot → Ni</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <details class="solution"><summary>Toon oplossing</summary>
         <p>Modelantwoord (notities p. 23): als we staal met veel koper observeren, heeft dat vermoedelijk ook een andere
         schrootmix gehad, dus ook andere waarden van de andere elementen; schroot met veel koper heeft typisch ook meer
-        nikkel. De 10 MPa per 100 ppm is dus deels het effect van koper zelf (<var data-s="cu">Cu</var> → <var data-s="sterkte">Sterkte</var>) en deels het effect van het
-        nikkel dat met dat schroot meekomt, via de achterdeur <var data-s="cu">Cu</var> ← <var data-s="schroot">schroot</var> → <var data-s="ni">Ni</var> → <var data-s="sterkte">Sterkte</var> (de notities schrijven de eerste
+        nikkel. De 10 MPa per 100 ppm is dus deels het effect van koper zelf \((\sym{cu}{\mathrm{Cu}}\to\sym{sterkte}{\text{Sterkte}})\) en deels het effect van het
+        nikkel dat met dat schroot meekomt, via de achterdeur \(\sym{cu}{\mathrm{Cu}}\leftarrow\sym{schroot}{\text{schroot}}\to\sym{ni}{\mathrm{Ni}}\to\sym{sterkte}{\text{Sterkte}}\) (de notities schrijven de eerste
         pijl verkeerd om, zie het kader hierboven).</p>
         <p><b>Werkt misschien</b>: als koper zelf de sterkte verhoogt, geeft bijlegeren een deel van de winst.
         <b>Werkt misschien niet</b>: als de winst vooral via nikkel liep, dan verandert bijlegeren het nikkel niet en
-        blijft de sterkte nagenoeg gelijk. Bij do(<var data-s="cu">Cu</var> = <var data-s="x_val">x</var>) verdwijnt de pijl <var data-s="schroot">schroot</var> → <var data-s="cu">Cu</var>; de achterdeur is dicht en je
-        meet het zuivere causale effect P(<var data-s="sterkte">Sterkte</var> | do(<var data-s="cu">Cu</var> = <var data-s="x_val">x</var>)) (notities p. 23–24).</p>
+        blijft de sterkte nagenoeg gelijk. Bij do(\(\sym{cu}{\mathrm{Cu}}=\sym{x_val}{x}\)) verdwijnt de pijl \(\sym{schroot}{\text{schroot}}\to\sym{cu}{\mathrm{Cu}}\); de achterdeur is dicht en je
+        meet het zuivere causale effect \(P(\sym{sterkte}{\text{Sterkte}}\mid\mathrm{do}(\sym{cu}{\mathrm{Cu}}=\sym{x_val}{x}))\) (notities p. 23–24).</p>
       </details>
     </div>
 
     <div class="exercise" id="ex-02-13" data-kw="interventie; intervention; do(X); causaal diagram; direct; mediator; omgekeerd; reverse; confounder; marginale verdeling; regressielijn; schetsen; sketch; verbinding X; gas Y">
       <h4>Oefening 02.13 — Waar komen de punten na de interventie? <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=45">Data p. 45</a></h4>
       <p>Het fabrieksvoorbeeld: X (Verbinding X) en Y (gas Y) vormen een langgerekte, stijgende puntenwolk. Je grijpt in
-      en zet X vast op een lage waarde x<sub>0</sub>: do(<var data-s="x_var">X</var> = <var data-s="x0">x<sub>0</sub></var>). Waar liggen de nieuwe waarnemingen, voor elk
+      en zet X vast op een lage waarde \(x_{0}\): do(\(\sym{x_var}{X}=\sym{x0}{x_{0}}\)). Waar liggen de nieuwe waarnemingen, voor elk
       causaal diagram?</p>
       <div class="q" data-type="choice" data-answer="strook">
-        <label>a. Direct: <var data-s="x_var">X</var> → <var data-s="y_var">Y</var></label>
+        <label>a. Direct: \(\sym{x_var}{X}\to\sym{y_var}{Y}\)</label>
         <select><option value="">kies…</option><option value="strook">in de strook bij x₀, rond de regressielijn</option><option value="marginaal">bij x₀, maar over de hele hoogte van de wolk (P(Y))</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-type="choice" data-answer="strook">
-        <label>b. Mediator: <var data-s="x_var">X</var> → <var data-s="m_med">M</var> → <var data-s="y_var">Y</var></label>
+        <label>b. Mediator: \(\sym{x_var}{X}\to\sym{m_med}{M}\to\sym{y_var}{Y}\)</label>
         <select><option value="">kies…</option><option value="strook">in de strook bij x₀, rond de regressielijn</option><option value="marginaal">bij x₀, maar over de hele hoogte van de wolk (P(Y))</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-type="choice" data-answer="marginaal">
-        <label>c. Omgekeerd: <var data-s="y_var">Y</var> → <var data-s="x_var">X</var></label>
+        <label>c. Omgekeerd: \(\sym{y_var}{Y}\to\sym{x_var}{X}\)</label>
         <select><option value="">kies…</option><option value="strook">in de strook bij x₀, rond de regressielijn</option><option value="marginaal">bij x₀, maar over de hele hoogte van de wolk (P(Y))</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-type="choice" data-answer="marginaal">
-        <label>d. Confounder: <var data-s="x_var">X</var> ← <var data-s="confounder">Z</var> → <var data-s="y_var">Y</var></label>
+        <label>d. Confounder: \(\sym{x_var}{X}\leftarrow\sym{confounder}{Z}\to\sym{y_var}{Y}\)</label>
         <select><option value="">kies…</option><option value="strook">in de strook bij x₀, rond de regressielijn</option><option value="marginaal">bij x₀, maar over de hele hoogte van de wolk (P(Y))</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
@@ -1273,11 +1273,11 @@
       van X naar Y?</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <p>a en b: X heeft geen inkomende pijlen, dus de interventie verandert het diagram niet en
-        P(<var data-s="y_var">Y</var> | do(<var data-s="x_var">X</var> = <var data-s="x0">x<sub>0</sub></var>)) = P(<var data-s="y_var">Y</var> | <var data-s="x_var">X</var> = <var data-s="x0">x<sub>0</sub></var>). De nieuwe punten liggen laag in X én laag in Y, in de strook
-        bij x<sub>0</sub> rond E[<var data-s="y_var">Y</var> | <var data-s="x_var">X</var> = <var data-s="x0">x<sub>0</sub></var>]: het "verwacht effect" (p. 32).</p>
-        <p>c: de pijl <var data-s="y_var">Y</var> → <var data-s="x_var">X</var> wordt geschrapt; er loopt geen pad van X naar Y. d: de pijl <var data-s="confounder">Z</var> → <var data-s="x_var">X</var> wordt geschrapt; Y hangt
-        alleen nog van Z af, en Z verandert niet. In beide gevallen is P(<var data-s="y_var">Y</var> | do(<var data-s="x_var">X</var> = <var data-s="x0">x<sub>0</sub></var>)) = P(<var data-s="y_var">Y</var>): de punten
-        staan bij x<sub>0</sub> maar hun Y is verspreid over het hele bereik van Y, rond het algemene gemiddelde: de
+        \(P(\sym{y_var}{Y}\mid\mathrm{do}(\sym{x_var}{X}=\sym{x0}{x_{0}}))=P(\sym{y_var}{Y}\mid\sym{x_var}{X}=\sym{x0}{x_{0}})\). De nieuwe punten liggen laag in X én laag in Y, in de strook
+        bij \(x_{0}\) rond \(E[\sym{y_var}{Y}\mid\sym{x_var}{X}=\sym{x0}{x_{0}}]\): het "verwacht effect" (p. 32).</p>
+        <p>c: de pijl \(\sym{y_var}{Y}\to\sym{x_var}{X}\) wordt geschrapt; er loopt geen pad van X naar Y. d: de pijl \(\sym{confounder}{Z}\to\sym{x_var}{X}\) wordt geschrapt; Y hangt
+        alleen nog van Z af, en Z verandert niet. In beide gevallen is \(P(\sym{y_var}{Y}\mid\mathrm{do}(\sym{x_var}{X}=\sym{x0}{x_{0}}))=P(\sym{y_var}{Y})\): de punten
+        staan bij \(x_{0}\) maar hun Y is verspreid over het hele bereik van Y, rond het algemene gemiddelde: de
         "werkelijkheid" van p. 33 (de uitstoot daalt niet).</p>
         <p>Omdat alle vier de structuren dezelfde observationele data kunnen geven (p. 45), kun je uit de data alleen niet
         kiezen; dat is een causale aanname (p. 39, 44).</p>
@@ -1297,14 +1297,14 @@
     <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=26">Data-notities p. 26</a>:</p>
     <ul>
       <li><b>Zonder randomisatie</b> bepalen confounders C (leeftijd, ernst, …) mee wie behandeld wordt (T) en wie
-      geneest (Y). Het achterdeurpad <var data-s="t_beh">T</var> ← <var data-s="confounder">C</var> → <var data-s="y_var">Y</var> vervuilt de geobserveerde associatie P(<var data-s="y_var">Y</var> | <var data-s="t_beh">T</var>): die mengt het causale effect
+      geneest (Y). Het achterdeurpad \(\sym{t_beh}{T}\leftarrow\sym{confounder}{C}\to\sym{y_var}{Y}\) vervuilt de geobserveerde associatie \(P(\sym{y_var}{Y}\mid\sym{t_beh}{T})\): die mengt het causale effect
       met de invloed van de confounders.</li>
-      <li><b>Met randomisatie</b> bepaalt een toevalsmechanisme R de behandeling: <var data-s="r_toeval">R</var> → <var data-s="t_beh">T</var>, en er loopt geen pijl meer van C
+      <li><b>Met randomisatie</b> bepaalt een toevalsmechanisme R de behandeling: \(\sym{r_toeval}{R}\to\sym{t_beh}{T}\), en er loopt geen pijl meer van C
       naar T. Dat is precies "alle inkomende pijlen naar T verwijderen", dus wat een interventie doet. Daarom:</li>
     </ul>
-    <div class="f"><div>In een RCT: P(<var data-s="y_var">Y</var> | do(<var data-s="t_beh">T</var> = <var data-s="t_val">t</var>)) = P(<var data-s="y_var">Y</var> | <var data-s="t_beh">T</var> = <var data-s="t_val">t</var>)</div></div>
+    <div class="f"><div>In een RCT: \[P(\sym{y_var}{Y}\mid\mathrm{do}(\sym{t_beh}{T}=\sym{t_val}{t}))=P(\sym{y_var}{Y}\mid\sym{t_beh}{T}=\sym{t_val}{t})\]</div></div>
     <figure class="fig"><img src="figures/02_rct.png" alt="Twee causale diagrammen: zonder randomisatie wijzen confounders naar behandeling en uitkomst; met randomisatie wijst alleen randomisatie naar behandeling">
-    <figcaption>Figuur: zonder randomisatie wijzen de confounders (leeftijd, ernst, …) naar de behandeling én naar de uitkomst; het achterdeurpad T ← C → Y vervuilt de geobserveerde associatie. Met randomisatie bepaalt alleen het toeval de behandeling, zodat P(Y | do(T = t)) = P(Y | T = t).
+    <figcaption>Figuur: zonder randomisatie wijzen de confounders (leeftijd, ernst, …) naar de behandeling én naar de uitkomst; het achterdeurpad \(T\leftarrow C\to Y\) vervuilt de geobserveerde associatie. Met randomisatie bepaalt alleen het toeval de behandeling, zodat \(P(Y\mid\mathrm{do}(T=t))=P(Y\mid T=t)\).
     <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=49">Data p. 49</a></figcaption></figure>
     <p>Het gemeten verschil tussen behandel- en controlegroep is dan een zuivere schatting van het causale effect, vrij
     van confounding door welke variabele ook. Hetzelfde idee zit achter randomisatie in een proefopzet (Deel 8).</p>
@@ -1321,7 +1321,7 @@
       <tr><td>praktisch</td><td>het klimaat kun je niet willekeurig aanpassen</td></tr>
       <tr><td>financieel</td><td>weken lang willekeurige productieregimes draaien is duur en riskant</td></tr>
     </table>
-    <p>Dan moet je met observationele data werken. <b>Do-calculus</b> (Judea Pearl) drukt P(<var data-s="y_var">Y</var> | do(<var data-s="x_var">X</var>)) uit in
+    <p>Dan moet je met observationele data werken. <b>Do-calculus</b> (Judea Pearl) drukt \(P(\sym{y_var}{Y}\mid\mathrm{do}(\sym{x_var}{X}))\) uit in
     geobserveerde associaties, als dat effect identificeerbaar is; niet elk effect is dat
     <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=52">Data p. 52</a>,
     <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=27">Data-notities p. 27</a>.
@@ -1338,7 +1338,7 @@
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"Matching op alle gemeten variabelen is even goed als randomiseren."</b> Fout: willekeurige toewijzing breekt alle achterdeurpaden, ook via variabelen die niemand gemeten heeft <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=48">Data p. 48</a>; matching maakt groepen alleen zo gelijk mogelijk op wat gemeten is <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=52">Data p. 52</a>.</li>
-      <li><b>"Ook in een RCT is P(<var data-s="y_var">Y</var> | <var data-s="t_beh">T</var> = <var data-s="t_val">t</var>) maar een associatie."</b> Fout: randomisatie (<var data-s="r_toeval">R</var> → <var data-s="t_beh">T</var>) verwijdert de pijlen van de confounders naar T, zoals een interventie; dus P(<var data-s="y_var">Y</var> | do(<var data-s="t_beh">T</var> = <var data-s="t_val">t</var>)) = P(<var data-s="y_var">Y</var> | <var data-s="t_beh">T</var> = <var data-s="t_val">t</var>) <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=49">Data p. 49</a>.</li>
+      <li><b>"Ook in een RCT is \(P(\sym{y_var}{Y}\mid\sym{t_beh}{T}=\sym{t_val}{t})\) maar een associatie."</b> Fout: randomisatie \((\sym{r_toeval}{R}\to\sym{t_beh}{T})\) verwijdert de pijlen van de confounders naar T, zoals een interventie; dus \(P(\sym{y_var}{Y}\mid\mathrm{do}(\sym{t_beh}{T}=\sym{t_val}{t}))=P(\sym{y_var}{Y}\mid\sym{t_beh}{T}=\sym{t_val}{t})\) <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=49">Data p. 49</a>.</li>
       <li><b>"Met do-calculus haal je elk causaal effect uit observationele data."</b> Fout: alleen als het effect identificeerbaar is; alle observationele methoden steunen op causale aannames <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=52">Data p. 52</a>, <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=27">Data-notities p. 27</a>.</li>
       <li><b>"Een A/B-test is altijd zuiver willekeurig."</b> Fout: de notities vermelden een studie die beweert dat veel A/B-testen in de praktijk niet zo willekeurig zijn <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=25">Data-notities p. 25</a>.</li>
       <li><b>Let op:</b> willekeurig <i>toewijzen</i> (randomisatie: wie krijgt de behandeling) is iets anders dan willekeurig <i>selecteren</i> (random steekproef: wie bestudeer je). Het eerste maakt causale uitspraken mogelijk, het tweede veralgemening naar de populatie <span class="gen">algemeen</span>.</li>
@@ -1367,7 +1367,7 @@
         <select><option value="">kies…</option><option value="matching">matching / propensity scores</option><option value="iv">instrumentele variabelen</option><option value="did">difference-in-differences</option><option value="rd">regression discontinuity</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
-      <p>e. Leg in twee zinnen uit waarom in een RCT P(<var data-s="y_var">Y</var> | do(<var data-s="t_beh">T</var> = <var data-s="t_val">t</var>)) = P(<var data-s="y_var">Y</var> | <var data-s="t_beh">T</var> = <var data-s="t_val">t</var>).</p>
+      <p>e. Leg in twee zinnen uit waarom in een RCT \(P(\sym{y_var}{Y}\mid\mathrm{do}(\sym{t_beh}{T}=\sym{t_val}{t}))=P(\sym{y_var}{Y}\mid\sym{t_beh}{T}=\sym{t_val}{t})\).</p>
       <details class="solution"><summary>Toon oplossing</summary>
         <p>a. Financieel (p. 51: "geen willekeurige productieregimes voor weken"). b. Ethisch (p. 51). c. Regression
         discontinuity. d. Difference-in-differences (p. 52).</p>
@@ -1383,32 +1383,30 @@
   <section class="unit" id="d02-staal" data-kw="regression dilution; attenuation bias; verdunning; meetfout; measurement error; staal; afkoeling; afkoelcoëfficiënt; staalpan; ladle; causaal model; OLS; covariantie; variantie; errors in variables">
     <h3>02.16 Praktijkvoorbeeld: koelt warm staal sneller af? <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=53">Data p. 53–57</a></h3>
     <p class="small">Extra (niet in de getoonde slides), wel uitgewerkt in de notities.</p>
-    <p>Een staalpan koelt een tijd af. De temperatuur wordt gemeten vóór (M<sub>1</sub>) en na (M<sub>2</sub>) de
+    <p>Een staalpan koelt een tijd af. De temperatuur wordt gemeten vóór \((M_{1})\) en na \((M_{2})\) de
     afkoelperiode, maar met <b>meetfout</b> <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=54">Data p. 54</a>.
-    Koelt warm staal sneller af dan koud staal? Intuïtief zou de regressielijn E[<var data-s="m2">M<sub>2</sub></var> | <var data-s="m1">M<sub>1</sub></var> = <var data-s="m_val">m</var>] dat
+    Koelt warm staal sneller af dan koud staal? Intuïtief zou de regressielijn \(E[\sym{m2}{M_{2}}\mid\sym{m1}{M_{1}}=\sym{m_val}{m}]\) dat
     moeten vertellen (notities p. 27).</p>
     <p>Een zinnig causaal model bevat zowel de werkelijke als de gemeten temperaturen
-    <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=55">Data p. 55</a>: <var data-s="t1">werkelijke
-    T<sub>1</sub></var> → <var data-s="t2">werkelijke T<sub>2</sub></var> ← <var data-s="w">wachtduur</var>; <var data-s="t1">werkelijke T<sub>1</sub></var> → <var data-s="m1">gemeten T<sub>1</sub></var>; <var data-s="t2">werkelijke
-    T<sub>2</sub></var> → <var data-s="m2">gemeten T<sub>2</sub></var>. De werkelijke temperatuur is een zinnig begrip, maar zit zelf niet in de dataset
+    <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=55">Data p. 55</a>: \(\sym{t1}{\text{werkelijke}\ T_{1}}\to\sym{t2}{\text{werkelijke}\ T_{2}}\leftarrow\sym{w}{\text{wachtduur}}\); \(\sym{t1}{\text{werkelijke}\ T_{1}}\to\sym{m1}{\text{gemeten}\ T_{1}}\); \(\sym{t2}{\text{werkelijke}\ T_{2}}\to\sym{m2}{\text{gemeten}\ T_{2}}\). De werkelijke temperatuur is een zinnig begrip, maar zit zelf niet in de dataset
     (notities p. 28).</p>
     <figure class="fig"><img src="figures/02_staal_model.png" alt="Causaal diagram met knopen wachtduur, werkelijke T1, werkelijke T2, gemeten T1 en gemeten T2">
-    <figcaption>Figuur: het causale model van de staalpan: werkelijke T<sub>1</sub> en de wachtduur bepalen werkelijke T<sub>2</sub>; in de dataset zitten alleen gemeten T<sub>1</sub> en gemeten T<sub>2</sub>.
+    <figcaption>Figuur: het causale model van de staalpan: werkelijke \(T_{1}\) en de wachtduur bepalen werkelijke \(T_{2}\); in de dataset zitten alleen gemeten \(T_{1}\) en gemeten \(T_{2}\).
     <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=55">Data p. 55</a></figcaption></figure>
     <p>In formules <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=56">Data p. 56</a>:</p>
     <div class="f">
-      <div><var data-s="m1">M<sub>1</sub></var> = <var data-s="t1">T<sub>1</sub></var> + <var data-s="eps1">ε<sub>1</sub></var>    <var data-s="m2">M<sub>2</sub></var> = <var data-s="t2">T<sub>2</sub></var> + <var data-s="eps2">ε<sub>2</sub></var></div>
-      <div><var data-s="t2">T<sub>2</sub></var> = <var data-s="alpha">α</var> <var data-s="t1">T<sub>1</sub></var> + <var data-s="beta_w">β</var> <var data-s="w">W</var> + <var data-s="eps0">ε<sub>0</sub></var>  (<var data-s="w">W</var> = wachtduur; <var data-s="alpha">α</var> = de afkoelcoëfficiënt die we willen schatten)</div>
+      <div>\[\sym{m1}{M_{1}}=\sym{t1}{T_{1}}+\sym{eps1}{\varepsilon_{1}}\ \sym{m2}{M_{2}}=\sym{t2}{T_{2}}+\sym{eps2}{\varepsilon_{2}}\]</div>
+      <div>\[\sym{t2}{T_{2}}=\sym{alpha}{\alpha}\ \sym{t1}{T_{1}}+\sym{beta_w}{\beta}\ \sym{w}{W}+\sym{eps0}{\varepsilon_{0}}\]  (\[\sym{w}{W}=\] wachtduur; \[\sym{alpha}{\alpha}=\] de afkoelcoëfficiënt die we willen schatten)</div>
     </div>
-    <p>Lees α zo: met <var data-s="alpha">α</var> = 1 daalt de temperatuur van warm en koud staal evenveel; met <var data-s="alpha">α</var> &lt; 1 is de daling
-    <var data-s="t1">T<sub>1</sub></var> − <var data-s="t2">T<sub>2</sub></var> groter naarmate T<sub>1</sub> hoger is, dus warm staal koelt sneller af.</p>
+    <p>Lees \(\alpha\) zo: met \(\sym{alpha}{\alpha}=1\) daalt de temperatuur van warm en koud staal evenveel; met \(\sym{alpha}{\alpha}\lt1\) is de daling
+    \(\sym{t1}{T_{1}}-\sym{t2}{T_{2}}\) groter naarmate \(T_{1}\) hoger is, dus warm staal koelt sneller af.</p>
     <p>Twee schatters <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=57">Data p. 57</a>:</p>
     <div class="f">
-      <div>Met het correcte model: <var data-s="alpha">α</var> = Cov(<var data-s="m1">M<sub>1</sub></var>, <var data-s="m2">M<sub>2</sub></var>) / Var(<var data-s="t1">T<sub>1</sub></var>)</div>
-      <div>Naïef (klassieke OLS-regressie van M<sub>2</sub> op M<sub>1</sub>): <var data-s="alpha_n">α′</var> = Cov(<var data-s="m1">M<sub>1</sub></var>, <var data-s="m2">M<sub>2</sub></var>) / Var(<var data-s="m1">M<sub>1</sub></var>)</div>
-      <div>Var(<var data-s="m1">M<sub>1</sub></var>) = Var(<var data-s="t1">T<sub>1</sub></var>) + Var(<var data-s="eps1">ε<sub>1</sub></var>) &gt; Var(<var data-s="t1">T<sub>1</sub></var>), dus <var data-s="alpha_n">α′</var> &lt; <var data-s="alpha">α</var></div>
+      <div>Met het correcte model: \[\sym{alpha}{\alpha}=\frac{\operatorname{Cov}(\sym{m1}{M_{1}},\sym{m2}{M_{2}})}{\operatorname{Var}(\sym{t1}{T_{1}})}\]</div>
+      <div>Naïef (klassieke OLS-regressie van \[M_{2}\] op \[M_{1}\]): \[\sym{alpha_n}{\alpha'}=\frac{\operatorname{Cov}(\sym{m1}{M_{1}},\sym{m2}{M_{2}})}{\operatorname{Var}(\sym{m1}{M_{1}})}\]</div>
+      <div>\[\operatorname{Var}(\sym{m1}{M_{1}})=\operatorname{Var}(\sym{t1}{T_{1}})+\operatorname{Var}(\sym{eps1}{\varepsilon_{1}})\gt\operatorname{Var}(\sym{t1}{T_{1}})\], dus \[\sym{alpha_n}{\alpha'}\lt\sym{alpha}{\alpha}\]</div>
     </div>
-    <p>Zelfs als in werkelijkheid <var data-s="alpha">α</var> = 1 (warm en koud staal koelen even snel af), schat het naïeve model <var data-s="alpha_n">α′</var> ≈ 0.94,
+    <p>Zelfs als in werkelijkheid \(\sym{alpha}{\alpha}=1\) (warm en koud staal koelen even snel af), schat het naïeve model \(\sym{alpha_n}{\alpha'}\approx0.94\),
     alsof warm staal significant sneller afkoelt. Dat is een artefact van de meetfout, geen fysisch effect. Dit heet
     <b>regression dilution</b> of <b>attenuation bias</b>: meetfouten in de onafhankelijke variabele leiden
     systematisch tot een onderschatting van de werkelijke relatie
@@ -1420,38 +1418,38 @@
     </div>
     <div class="box warn"><span class="t">Wat de cursus niet geeft</span>
       <p>De waarde 0.94 staat er zonder de varianties die erachter zitten; het getal zelf kun je dus niet narekenen.
-      Wel volgt uit de twee formules van p. 57 dat <var data-s="alpha_n">α′</var> / <var data-s="alpha">α</var> = Var(<var data-s="t1">T<sub>1</sub></var>) / Var(<var data-s="m1">M<sub>1</sub></var>); dat gebruik je in
+      Wel volgt uit de twee formules van p. 57 dat \(\frac{\sym{alpha_n}{\alpha'}}{\sym{alpha}{\alpha}}=\frac{\operatorname{Var}(\sym{t1}{T_{1}})}{\operatorname{Var}(\sym{m1}{M_{1}})}\); dat gebruik je in
       de oefening.</p>
     </div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"Meetfout is ruis die uitmiddelt; de helling blijft zuiver."</b> Fout: meetfout in de verklarende variabele maakt de helling systematisch kleiner: <var data-s="alpha_n">α′</var> = Cov(<var data-s="m1">M<sub>1</sub></var>, <var data-s="m2">M<sub>2</sub></var>) / Var(<var data-s="m1">M<sub>1</sub></var>) &lt; <var data-s="alpha">α</var>, want Var(<var data-s="m1">M<sub>1</sub></var>) = Var(<var data-s="t1">T<sub>1</sub></var>) + Var(<var data-s="eps1">ε<sub>1</sub></var>) <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=57">Data p. 57</a>. Dit heet regression dilution of attenuation bias.</li>
-      <li><b>"De regressie geeft <var data-s="alpha_n">α′</var> ≈ 0.94 &lt; 1, dus warm staal koelt sneller af."</b> Fout: zelfs met <var data-s="alpha">α</var> = 1 geeft de naïeve regressie ≈ 0.94, een artefact van meetfout en geen fysisch effect <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=57">Data p. 57</a>. Een meetfoutvariantie van 0.0638 keer Var(<var data-s="t1">T<sub>1</sub></var>) volstaat daarvoor (oefening 02.15) <span class="computed">zelf berekend</span>.</li>
-      <li><b>Let op:</b> <var data-s="alpha">α</var> is hier de afkoelcoëfficiënt <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=56">Data p. 56</a>, niet het significantieniveau α van de toetsen (<a href="#d05-fouten">05.3</a>).</li>
+      <li><b>"Meetfout is ruis die uitmiddelt; de helling blijft zuiver."</b> Fout: meetfout in de verklarende variabele maakt de helling systematisch kleiner: \(\sym{alpha_n}{\alpha'}=\frac{\operatorname{Cov}(\sym{m1}{M_{1}},\sym{m2}{M_{2}})}{\operatorname{Var}(\sym{m1}{M_{1}})}\lt\sym{alpha}{\alpha}\), want \(\operatorname{Var}(\sym{m1}{M_{1}})=\operatorname{Var}(\sym{t1}{T_{1}})+\operatorname{Var}(\sym{eps1}{\varepsilon_{1}})\) <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=57">Data p. 57</a>. Dit heet regression dilution of attenuation bias.</li>
+      <li><b>"De regressie geeft \(\sym{alpha_n}{\alpha'}\approx0.94\lt1\), dus warm staal koelt sneller af."</b> Fout: zelfs met \(\sym{alpha}{\alpha}=1\) geeft de naïeve regressie ≈ 0.94, een artefact van meetfout en geen fysisch effect <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=57">Data p. 57</a>. Een meetfoutvariantie van 0.0638 keer \(\operatorname{Var}(\sym{t1}{T_{1}})\) volstaat daarvoor (oefening 02.15) <span class="computed">zelf berekend</span>.</li>
+      <li><b>Let op:</b> \(\sym{alpha}{\alpha}\) is hier de afkoelcoëfficiënt <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=56">Data p. 56</a>, niet het significantieniveau \(\alpha\) van de toetsen (<a href="#d05-fouten">05.3</a>).</li>
       <li><b>Let op:</b> de cursus spreekt over meetfout in de <b>onafhankelijke</b> variabele <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=29">Data-notities p. 29</a>. Meetfout alleen in de uitkomst maakt de helling niet systematisch kleiner, wel onzekerder <span class="gen">algemeen</span>.</li>
     </ul></div>
 
     <div class="exercise" id="ex-02-15" data-kw="regression dilution; attenuation bias; meetfout; measurement error; staal; afkoelcoëfficiënt; alpha; variantie; Var(T1); Var(ε1)">
       <h4>Oefening 02.15 — Hoe groot moet de meetfout zijn? <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=57">Data p. 57</a></h4>
-      <p>In werkelijkheid is <var data-s="alpha">α</var> = 1, en de naïeve regressie geeft <var data-s="alpha_n">α′</var> = 0.94 (notities p. 29). Hoe groot is de variantie van
-      de meetfout ε<sub>1</sub>, uitgedrukt als fractie van de variantie van de werkelijke temperatuur T<sub>1</sub>?</p>
+      <p>In werkelijkheid is \(\sym{alpha}{\alpha}=1\), en de naïeve regressie geeft \(\sym{alpha_n}{\alpha'}=0.94\) (notities p. 29). Hoe groot is de variantie van
+      de meetfout \(\varepsilon_{1}\), uitgedrukt als fractie van de variantie van de werkelijke temperatuur \(T_{1}\)?</p>
       <div class="q" data-answer="0.0638" data-tol="0.002">
-        <label>Var(<var data-s="eps1">ε<sub>1</sub></var>) / Var(<var data-s="t1">T<sub>1</sub></var>) (als fractie, 4 decimalen) =</label> <input type="text" inputmode="decimal">
+        <label>\(\frac{\operatorname{Var}(\sym{eps1}{\varepsilon_{1}})}{\operatorname{Var}(\sym{t1}{T_{1}})}\) (als fractie, 4 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
-      <p>Leg daarna uit waarom de naïeve schatter α′ altijd kleiner is dan α als er meetfout op M<sub>1</sub> zit.</p>
-      <details class="hint"><summary>Hint</summary><p>Deel α′ door α: de covariantie valt weg.</p></details>
+      <p>Leg daarna uit waarom de naïeve schatter \(\alpha'\) altijd kleiner is dan \(\alpha\) als er meetfout op \(M_{1}\) zit.</p>
+      <details class="hint"><summary>Hint</summary><p>Deel \(\alpha'\) door \(\alpha\): de covariantie valt weg.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
-          <li>Uit p. 57: <var data-s="alpha_n">α′</var> / <var data-s="alpha">α</var> = Var(<var data-s="t1">T<sub>1</sub></var>) / Var(<var data-s="m1">M<sub>1</sub></var>) = Var(<var data-s="t1">T<sub>1</sub></var>) / (Var(<var data-s="t1">T<sub>1</sub></var>) + Var(<var data-s="eps1">ε<sub>1</sub></var>)).</li>
-          <li>Met <var data-s="alpha">α</var> = 1 en <var data-s="alpha_n">α′</var> = 0.94: 0.94 = 1 / (1 + Var(<var data-s="eps1">ε<sub>1</sub></var>)/Var(<var data-s="t1">T<sub>1</sub></var>)), dus
-          Var(<var data-s="eps1">ε<sub>1</sub></var>)/Var(<var data-s="t1">T<sub>1</sub></var>) = 1/0.94 − 1 = 0.0638 <span class="computed">zelf berekend</span>.</li>
+          <li>Uit p. 57: \(\frac{\sym{alpha_n}{\alpha'}}{\sym{alpha}{\alpha}}=\frac{\operatorname{Var}(\sym{t1}{T_{1}})}{\operatorname{Var}(\sym{m1}{M_{1}})}=\frac{\operatorname{Var}(\sym{t1}{T_{1}})}{\operatorname{Var}(\sym{t1}{T_{1}})+\operatorname{Var}(\sym{eps1}{\varepsilon_{1}})}\).</li>
+          <li>Met \(\sym{alpha}{\alpha}=1\) en \(\sym{alpha_n}{\alpha'}=0.94\): \(0.94=\frac{1}{1+\frac{\operatorname{Var}(\sym{eps1}{\varepsilon_{1}})}{\operatorname{Var}(\sym{t1}{T_{1}})}}\), dus
+          \(\frac{\operatorname{Var}(\sym{eps1}{\varepsilon_{1}})}{\operatorname{Var}(\sym{t1}{T_{1}})}=\frac{1}{0.94}-1=0.0638\) <span class="computed">zelf berekend</span>.</li>
           <li>Een meetfoutvariantie van ongeveer 6 % van de echte temperatuurvariantie volstaat dus om een "effect" te
           verzinnen dat er niet is.</li>
         </ol>
-        <p>Waarom altijd kleiner: de noemer van <var data-s="alpha_n">α′</var> is Var(<var data-s="m1">M<sub>1</sub></var>) = Var(<var data-s="t1">T<sub>1</sub></var>) + Var(<var data-s="eps1">ε<sub>1</sub></var>), die groter is
-        dan Var(<var data-s="t1">T<sub>1</sub></var>) zodra Var(<var data-s="eps1">ε<sub>1</sub></var>) &gt; 0; de teller is dezelfde (p. 57). De meetfout in x "verdunt" de
+        <p>Waarom altijd kleiner: de noemer van \(\sym{alpha_n}{\alpha'}\) is \(\operatorname{Var}(\sym{m1}{M_{1}})=\operatorname{Var}(\sym{t1}{T_{1}})+\operatorname{Var}(\sym{eps1}{\varepsilon_{1}})\), die groter is
+        dan \(\operatorname{Var}(\sym{t1}{T_{1}})\) zodra \(\operatorname{Var}(\sym{eps1}{\varepsilon_{1}})\gt0\); de teller is dezelfde (p. 57). De meetfout in x "verdunt" de
         helling naar nul toe.</p>
       </details>
     </div>
@@ -1472,7 +1470,7 @@
       0.6 procentpunt enorm lijken. Laat de as bij 0 beginnen.</li>
       <li><b>Survivorship bias</b> (p. 88): je telt alleen de overlevenden, zoals de bommenwerpers die terugkwamen; de
       kwetsbare plekken zaten op de vliegtuigen die niet terugkwamen.</li>
-      <li><b>Correlatie ≠ causaliteit</b> (p. 90): ijsverkoop en verdrinkingen correleren sterk (de cursus noemt <var data-s="r_corr">r</var> = 0.97)
+      <li><b>Correlatie ≠ causaliteit</b> (p. 90): ijsverkoop en verdrinkingen correleren sterk (de cursus noemt \(\sym{r_corr}{r}=0.97\))
       omdat beide in de zomer stijgen (confounder: warme temperaturen). Zie 02.12.</li>
       <li><b>Simpson's paradox</b> (p. 91): het totaal verbergt wat in de subgroepen gebeurt. Zie oefening 02.18.</li>
       <li><b>Cherry-picking en framing</b> (p. 92): de keuze van het startpunt bepaalt het verhaal; en een daling van 2 %
@@ -1502,7 +1500,7 @@
 
     <div class="exercise" id="ex-02-16" data-kw="dorpen; villages; Abora; Bladir; Curo; liefdadigheid; charity; gemiddelde; mediaan; modus; median; mean; inkomen; income; armoede; fact based decision making">
       <h4>Oefening 02.16 — Welk dorp krijgt het liefdadigheidsgeld? <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=95">LSS p. 95–100</a></h4>
-      <p>De inkomens van de inwoners van drie dorpen (m = man, v = vrouw), LSS p. 100:</p>
+      <p>De inkomens van de inwoners van drie dorpen (\(m=\) man, \(v=\) vrouw), LSS p. 100:</p>
       <table>
         <tr><th>Abora</th><td>m: 90, 88, 95, 87, 90; v: 90, 85, 92, 88, 95, 89, 91, 90, 90, 92, 88</td></tr>
         <tr><th>Bladir</th><td>m: 820, 20, 20, 20, 20; v: 20, 20, 20, 20, 20</td></tr>
@@ -1550,9 +1548,9 @@
         <figure class="fig"><img src="figures/02_dorpen_maten.png" alt="Vier staafdiagrammen voor Abora, Bladir en Curo: totaal inkomen, gemiddeld inkomen, percentage inkomens onder 50 en onder 100">
         <figcaption>Figuur: dezelfde drie dorpen (Abora / Bladir / Curo) volgens vier maten: totaal inkomen 1440 / 1000 / 1300, gemiddeld inkomen 90 / 100 / 130, % inkomens onder 50: 0 / 90 / 50, % inkomens onder 100: 100 / 90 / 50. Elke maat zet een ander dorp bovenaan.
         <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=97">LSS p. 97–98</a></figcaption></figure>
-        <p>(Aantal inwoners zelf geteld.) a. 1000/10 = 100. b. Gesorteerd staan negen keer 20 en één keer 820: de mediaan
+        <p>(Aantal inwoners zelf geteld.) a. \(\frac{1000}{10}=100\). b. Gesorteerd staan negen keer 20 en één keer 820: de mediaan
         is 20. c. 9 van de 10: 90 %. d. Gesorteerd: 8, 9, 10, 11, 12, 241, 243, 250, 258, 258; de mediaan is
-        (12 + 241)/2 = 126.5. e. (9 + 10 + 12 + 8 + 11)/5 = 10.</p>
+        \(\frac{12+241}{2}=126.5\). e. \(\frac{9+10+12+8+11}{5}=10\).</p>
         <p>f. De cursus geeft geen "juist" antwoord; het punt is dat elke maat een ander dorp aanwijst. Het totaal
         hangt af van het aantal inwoners (Abora heeft er 16). Het gemiddelde van Bladir wordt opgetrokken door één
         inkomen van 820; de mediaan (20) en "90 % onder 50" tonen dat bijna iedereen er arm is. In Curo verbergt een
@@ -1592,12 +1590,12 @@
       <details class="solution"><summary>Toon oplossing</summary>
         <p>De cursus markeert geen juist antwoord; de uitwerking is <span class="computed">zelf berekend</span>.</p>
         <ol class="steps">
-          <li>2019: 0.43 × 1 092 979 = 469 981. 2023: 0.39 × 1 136 495 = 443 233.</li>
-          <li>Daling: 469 981 − 443 233 = 26 748, of 26 748 / 469 981 = 5.69 % ≈ 5.7 %. Conclusie 5 klopt.</li>
+          <li>2019: \(0.43\times1\ 092\ 979=469\ 981\). 2023: \(0.39\times1\ 136\ 495=443\ 233\).</li>
+          <li>Daling: 469 981 − 443 233 = 26 748, of \(26\ \frac{748}{469}\ 981=5.69\ \%\approx5.7\ \%\). Conclusie 5 klopt.</li>
           <li>Conclusie 4 drukt 27 748: dat is 1000 te veel (mogelijk een tikfout, mogelijk een bewuste valstrik; de cursus
           zegt het niet).</li>
           <li>Conclusies 1–3 gaan over het <b>aandeel</b>, niet over het aantal: het aandeel daalt met 4 procentpunt (niet
-          "4 %"), dat is 1 procentpunt per jaar over 2019–2023, en relatief 4/43 = 9.3 %. Omdat de populatie tegelijk
+          "4 %"), dat is 1 procentpunt per jaar over 2019–2023, en relatief \(\frac{4}{43}=9.3\ \%\). Omdat de populatie tegelijk
           groeide, daalt het aantal minder sterk dan het aandeel.</li>
         </ol>
       </details>

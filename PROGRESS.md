@@ -191,6 +191,19 @@ Decisions 18-20 (2026-10-05) in inventory/conventions.md; oracle updated once wi
   most 8 best hits (>= half of the top score, no table rows, each calculator once with "ook in"), the rest folded per
   part. One- and two-letter words (t, z, F) must stand alone. Example: "t-test" -> 8 best of 44.
 
+### Study guide: standalone text and figures (2026-10-07, commit 446b13b)
+- No lecturer names or slide-dependent phrasing; 270 course figures placed where the text discusses them.
+
+### Study guide: formulas in LaTeX (2026-10-07, user request step 2; cloud session without source/)
+- Every typed formula in study/parts (HTML fragments, NN_formulas.tsv formule_html, NN_symbols.tsv symbool/betekenis/hoe)
+  is now LaTeX: \( … \) inline, \[ … \] in formula blocks and the formula sheet; the build turns it into MathML (pandoc).
+  a / b → \frac, √ → \sqrt, accents → \bar/\hat, Excel calls → \operatorname{T.INV}; every <var data-s="key"> became
+  \sym{key}{…}, so variables stay clickable. 9,424 formulas converted by a one-off script; a checker rendered each one
+  with pandoc and proved every letter and digit and every variable key survives in order (0 problems). The "Wat"
+  column of the formula sheet stays plain text (it is also a search attribute).
+- Build validated with links into source/ not checkable (source/ absent in the cloud container); all other checks pass.
+  pytest, scipy and openpyxl are not installed there, so tests/ was not run; rerun `pytest` locally.
+
 ## Answered questions (inventory-review STOP; decisions in inventory/conventions.md)
 Convention questions (details and sources in inventory/conventions.md, "Conflicts and gaps"):
 1. σ for capability from data: R̄/d2; s̄ directly (deck p. 46) or s̄/c4; overall STDEV.S for Pp/Ppk; MR̄/1.128 for individuals?

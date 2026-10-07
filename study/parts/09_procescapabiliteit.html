@@ -67,19 +67,19 @@
   <!-- ============================================================ 09.2 -->
   <section class="unit" id="d09-cp" data-kw="Cp; procescapabiliteit; process capability; capabiliteitsindex; capability index; spreiding; tolerantie; tolerance; specificatiegrenzen; specification limits; USL; LSL; UL; LL; 6σ; eenzijdige specificatie; one-sided specification">
     <h3>09.2 Cp: past de spreiding binnen de specificatie? <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=33">SPC p. 33–34</a></h3>
-    <p>De naam <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=33">SPC p. 33</a>: C = capability, p = process, pk = process + een Japans woord voor "off-center". Cp vergelijkt
+    <p>De naam <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=33">SPC p. 33</a>: \(C=\) capability, \(p=\) process, pk = process + een Japans woord voor "off-center". Cp vergelijkt
     de <b>breedte</b> van de verdeling (de spreiding) met het toegelaten interval van de klant:</p>
     <div class="f">
-      <div><var data-s="cp">Cp</var> = (<var data-s="ul">UL</var> − <var data-s="ll">LL</var>) / (6<var data-s="sigma">σ</var>)   <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=34">SPC p. 34</a></div>
-      <div><var data-s="ul">UL</var> = upper limit (USL), <var data-s="ll">LL</var> = lower limit (LSL); 6<var data-s="sigma">σ</var> = de "breedte" van het proces (<var data-s="mu">µ</var> ± 3<var data-s="sigma">σ</var> bevat 99,73 %)</div>
+      <div>\(\sym{cp}{C_{p}}=\frac{\sym{ul}{\mathrm{UL}}-\sym{ll}{\mathrm{LL}}}{6\sym{sigma}{\sigma}}\)   <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=34">SPC p. 34</a></div>
+      <div>\(\sym{ul}{\mathrm{UL}}=\) upper limit (USL), \(\sym{ll}{\mathrm{LL}}=\) lower limit (LSL); \(6\sym{sigma}{\sigma}=\) de "breedte" van het proces (\(\sym{mu}{\mu}\pm3\sym{sigma}{\sigma}\) bevat 99,73 %)</div>
     </div>
-    <p>Waarom 6σ? Tussen µ − 3σ en µ + 3σ ligt 99,7 % (virtueel alles) van een normale verdeling <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=19">SPC p. 19</a>.
-    Cp = 1 betekent dan: de specificatie is precies 6σ breed (99,73 %), de stem van de klant is even breed als de stem
+    <p>Waarom \(6\sigma\)? Tussen \(\mu-3\sigma\) en \(\mu+3\sigma\) ligt 99,7 % (virtueel alles) van een normale verdeling <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=19">SPC p. 19</a>.
+    Cp = 1 betekent dan: de specificatie is precies \(6\sigma\) breed (99,73 %), de stem van de klant is even breed als de stem
     van het proces (VOC tegenover VOP, <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=21">SPC p. 21</a>) en het proces is "just capable". Cp &lt; 1: het proces is breder dan de
     specificatie en dus niet capabel; Cp &gt; 1: het proces is smaller <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a>.</p>
 
     <figure class="fig"><img src="figures/09_cp_twee_processen.png" alt="Formule Cp = (UL − LL)/(6σ) met een normale curve tussen ondergrens en bovengrens; daaronder twee processen met Cp = 2: links gecentreerd, rechts zo verschoven dat de curve over de bovengrens UL loopt">
-    <figcaption>Figuur: Cp vergelijkt de breedte van de curve met de afstand tussen L<sub>L</sub> en U<sub>L</sub>. Onderaan twee processen met dezelfde Cp = 2: links gecentreerd (in orde), rechts naar U<sub>L</sub> verschoven zodat een stuk van de curve buiten de grens valt ("Cp is however not sufficient"). <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=34">SPC p. 34</a></figcaption></figure>
+    <figcaption>Figuur: Cp vergelijkt de breedte van de curve met de afstand tussen \(L_{L}\) en \(U_{L}\). Onderaan twee processen met dezelfde Cp = 2: links gecentreerd (in orde), rechts naar \(U_{L}\) verschoven zodat een stuk van de curve buiten de grens valt ("Cp is however not sufficient"). <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=34">SPC p. 34</a></figcaption></figure>
 
     <div class="box warn"><span class="t">Cp alleen is niet voldoende</span>
     <p>Cp kijkt niet waar het gemiddelde ligt. In de figuur hierboven hebben twee processen allebei Cp = 2 <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=34">SPC p. 34</a>: het ene ligt mooi
@@ -91,7 +91,7 @@
     <p><b>Eenzijdige specificatie</b> (one-sided specification) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=33">SPC p. 33</a>: Cp vraagt twee grenzen. Is er maar één
     grens, zoals een minimale zinklaagdikte, dan kun je alleen Cpk berekenen (met de ene grens die er is).</p>
     <p class="small">Cp is een korte-termijnmaat: Cp en Cpk reken je met de
-    korte-termijn-σ (σ<sub>ST</sub>, "white noise") <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=33">SPC p. 33</a>. Met een lange-termijn-σ krijg je Pp (<a href="#d09-ppk">09.4</a>).</p>
+    korte-termijn-\(\sigma\) (\(\sigma_{\mathrm{ST}}\), "white noise") <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=33">SPC p. 33</a>. Met een lange-termijn-\(\sigma\) krijg je Pp (<a href="#d09-ppk">09.4</a>).</p>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"Cp = 2, dus het proces maakt (bijna) geen uitval."</b> Fout: Cp kijkt niet naar de ligging van het
@@ -100,7 +100,7 @@
       <li><b>"Er is alleen een minimumspecificatie; bereken Cp."</b> Fout: Cp vraagt twee grenzen. Met één grens bestaat
       alleen Cpk, met die ene grens <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=33">SPC p. 33</a>.</li>
       <li><b>"Cp met de totale (lange-termijn) standaardafwijking."</b> Fout: dat is Pp. Cp gebruikt de
-      korte-termijnspreiding σ<sub>ST</sub> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=33">SPC p. 33</a>; zie <a href="#d09-ppk">09.4</a>.</li>
+      korte-termijnspreiding \(\sigma_{\mathrm{ST}}\) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=33">SPC p. 33</a>; zie <a href="#d09-ppk">09.4</a>.</li>
       <li><b>"De specificatiegrenzen zijn de grenzen van de regelkaart."</b> Fout: specificaties zijn de stem van de
       klant (VOC); regelkaartgrenzen komen uit het proces zelf (VOP), zie <a href="#d03-voc">03.7</a>.</li>
     </ul></div>
@@ -110,38 +110,38 @@
   <section class="unit" id="d09-cpk" data-kw="Cpk; CPU; CPL; Cpu; Cpl; off-center; gecentreerd; centered; ligging; gemiddelde; dichtste specificatiegrens; nearest limit; D1/D2; 1,33; adjusted capability index">
     <h3>09.3 Cpk: ligt het proces ook goed? <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=35">SPC p. 35</a></h3>
     <p>Cpk kijkt naar de afstand van het gemiddelde tot de <b>dichtste</b> grens, uitgedrukt in halve procesbreedtes
-    (3σ):</p>
+    \((3\sigma)\):</p>
     <div class="f">
-      <div><var data-s="cpk">Cpk</var> = MIN{ |<var data-s="ul">UL</var> − <var data-s="xbar">X̄</var>| / (3<var data-s="sigma">σ</var>) ; |<var data-s="xbar">X̄</var> − <var data-s="ll">LL</var>| / (3<var data-s="sigma">σ</var>) }   <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=35">SPC p. 35</a></div>
-      <div>De twee termen: <var data-s="cpu">CPU</var> = (<var data-s="ul">UL</var> − <var data-s="xbar">X̄</var>)/(3<var data-s="sigma">σ</var>),  <var data-s="cpl">CPL</var> = (<var data-s="xbar">X̄</var> − <var data-s="ll">LL</var>)/(3<var data-s="sigma">σ</var>),  <var data-s="cpk">Cpk</var> = min(<var data-s="cpu">CPU</var>, <var data-s="cpl">CPL</var>) (de cursus geeft de twee termen geen naam)   <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=35">SPC p. 35</a></div>
-      <div><var data-s="cpk">Cpk</var> = <var data-s="d1_dist">D<sub>1</sub></var> / <var data-s="d2_dist">D<sub>2</sub></var>   <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=35">SPC p. 35</a></div>
+      <div>\(\sym{cpk}{C_{pk}}=\mathrm{MIN}\){ \(\frac{|\sym{ul}{\mathrm{UL}}-\sym{xbar}{\bar{X}}|}{3\sym{sigma}{\sigma}}\) ; \(\frac{|\sym{xbar}{\bar{X}}-\sym{ll}{\mathrm{LL}}|}{3\sym{sigma}{\sigma}}\) }   <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=35">SPC p. 35</a></div>
+      <div>De twee termen: \(\sym{cpu}{\mathrm{CPU}}=\frac{\sym{ul}{\mathrm{UL}}-\sym{xbar}{\bar{X}}}{3\sym{sigma}{\sigma}}\),  \(\sym{cpl}{\mathrm{CPL}}=\frac{\sym{xbar}{\bar{X}}-\sym{ll}{\mathrm{LL}}}{3\sym{sigma}{\sigma}}\),  \(\sym{cpk}{C_{pk}}=\min(\sym{cpu}{\mathrm{CPU}},\sym{cpl}{\mathrm{CPL}})\) (de cursus geeft de twee termen geen naam)   <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=35">SPC p. 35</a></div>
+      <div>\(\sym{cpk}{C_{pk}}=\frac{\sym{d1_dist}{D_{1}}}{\sym{d2_dist}{D_{2}}}\)   <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=35">SPC p. 35</a></div>
     </div>
     <figure class="fig"><img src="figures/09_cpk_d1_d2.png" alt="Formule Cpk = MIN{|UL − X̄|/(3σ) ; |X̄ − LL|/(3σ)} en een curve dicht bij de bovengrens UL, met D1 van het gemiddelde tot UL, D2 van het gemiddelde tot het einde van de curve en het stuk voorbij UL gemarkeerd als Waste">
-    <figcaption>Figuur: Cpk = D<sub>1</sub>/D<sub>2</sub>: D<sub>1</sub> is de afstand van het gemiddelde ("Average") tot de dichtste grens U<sub>L</sub>, D<sub>2</sub> de afstand tot het einde van de curve (3σ). Het stuk van de curve voorbij U<sub>L</sub> is "Waste". <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=35">SPC p. 35</a></figcaption></figure>
-    <p>De figuur hierboven <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=35">SPC p. 35</a> toont het: D<sub>1</sub> is de afstand van het gemiddelde ("Average") tot de dichtste
-    grens U<sub>L</sub>; D<sub>2</sub> is de afstand van het gemiddelde tot het einde van de curve (3σ). Het stuk van de
-    curve voorbij U<sub>L</sub> heet "Waste". Is D<sub>1</sub> kleiner dan D<sub>2</sub>, dan is <var data-s="cpk">Cpk</var> &lt; 1 en valt er
+    <figcaption>Figuur: Cpk = \(\frac{D_{1}}{D_{2}}\): \(D_{1}\) is de afstand van het gemiddelde ("Average") tot de dichtste grens \(U_{L}\), \(D_{2}\) de afstand tot het einde van de curve \((3\sigma)\). Het stuk van de curve voorbij \(U_{L}\) is "Waste". <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=35">SPC p. 35</a></figcaption></figure>
+    <p>De figuur hierboven <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=35">SPC p. 35</a> toont het: \(D_{1}\) is de afstand van het gemiddelde ("Average") tot de dichtste
+    grens \(U_{L}\); \(D_{2}\) is de afstand van het gemiddelde tot het einde van de curve \((3\sigma)\). Het stuk van de
+    curve voorbij \(U_{L}\) heet "Waste". Is \(D_{1}\) kleiner dan \(D_{2}\), dan is \(\sym{cpk}{C_{pk}}\lt1\) en valt er
     product buiten de grens.</p>
     <ul>
-      <li>Ligt het proces precies in het midden, dan is <b><var data-s="cpk">Cpk</var> = <var data-s="cp">Cp</var></b> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a>. Hoe verder het gemiddelde uit het midden, hoe
+      <li>Ligt het proces precies in het midden, dan is <b>\(\sym{cpk}{C_{pk}}=\sym{cp}{C_{p}}\)</b> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a>. Hoe verder het gemiddelde uit het midden, hoe
       lager Cpk. Cpk kan dus nooit groter zijn dan Cp.</li>
       <li>Cpk hoort bij de speciale oorzaken (special cause): de ligging bijsturen is werk voor de operator <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=33">SPC p. 33</a>.</li>
-      <li>De figuur in <a href="#d09-uitval">09.5</a> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=41">SPC p. 41</a> beoordeelt de ligging: <var data-s="cpk">Cpk</var> = 0,66 "scrap", <var data-s="cpk">Cpk</var> = 1 "risky",
-      <b><var data-s="cpk">Cpk</var> = 1,33 "good"</b> (<a href="#d09-uitval">09.5</a>).</li>
+      <li>De figuur in <a href="#d09-uitval">09.5</a> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=41">SPC p. 41</a> beoordeelt de ligging: \(\sym{cpk}{C_{pk}}=0{,}66\) "scrap", \(\sym{cpk}{C_{pk}}=1\) "risky",
+      <b>\(\sym{cpk}{C_{pk}}=1{,}33\) "good"</b> (<a href="#d09-uitval">09.5</a>).</li>
     </ul>
     <div class="box key"><span class="t">Cpk en de Z-waarde</span>
-    <p>3 × <var data-s="cpl">CPL</var> = (<var data-s="xbar">x̄</var> − <var data-s="ll">LSL</var>)/<var data-s="sigma">σ</var> is precies de Z-waarde van de ondergrens, en 3 × <var data-s="cpu">CPU</var> die van de bovengrens
-    (<a href="#d03-z">03.4</a>). Uit Cpk volgt dus meteen de uitval aan de slechtste kant: <var data-s="z">z</var> = 3 × <var data-s="cpk">Cpk</var> en de staart is
-    P(<var data-s="z_rv">Z</var> &gt; <var data-s="z">z</var>). Zo rekent de uitwerking van de as-oefening (<a href="#d09-as">09.9</a>) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=46">SPC p. 46</a>: (72,1 − 71,4)/0,2 = 3,5<var data-s="sigma">σ</var>.</p>
+    <p>\(3\times\sym{cpl}{\mathrm{CPL}}=\frac{\sym{xbar}{\bar{x}}-\sym{ll}{\mathrm{LSL}}}{\sym{sigma}{\sigma}}\) is precies de Z-waarde van de ondergrens, en \(3\times\sym{cpu}{\mathrm{CPU}}\) die van de bovengrens
+    (<a href="#d03-z">03.4</a>). Uit Cpk volgt dus meteen de uitval aan de slechtste kant: \(\sym{z}{z}=3\times\sym{cpk}{C_{pk}}\) en de staart is
+    \(P(\sym{z_rv}{Z}\gt\sym{z}{z})\). Zo rekent de uitwerking van de as-oefening (<a href="#d09-as">09.9</a>) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=46">SPC p. 46</a>: \(\frac{72{,}1-71{,}4}{0{,}2}=3{,}5\sym{sigma}{\sigma}\).</p>
     </div>
     <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-09-cpk">14 Dummies: CPU en CPL met σ<sub>ST</sub>, negatieve Cpk en de vuistregel Cpk &gt; 1,33</a>.</p>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"Cpk kan groter zijn dan Cp."</b> Fout: de afstand tot de dichtste grens is hoogstens de halve tolerantie, dus <var data-s="cpk">Cpk</var> ≤ <var data-s="cp">Cp</var>, met gelijkheid alleen als het proces gecentreerd is <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a>. De gidstabel noemt "Cp slecht, Cpk goed" daarom "impossible" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=44">SPC p. 44</a>.</li>
+      <li><b>"Cpk kan groter zijn dan Cp."</b> Fout: de afstand tot de dichtste grens is hoogstens de halve tolerantie, dus \(\sym{cpk}{C_{pk}}\le\sym{cp}{C_{p}}\), met gelijkheid alleen als het proces gecentreerd is <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a>. De gidstabel noemt "Cp slecht, Cpk goed" daarom "impossible" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=44">SPC p. 44</a>.</li>
       <li><b>"Cpk is het gemiddelde van CPU en CPL."</b> Fout: Cpk is het minimum, de kant van de dichtste grens <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=35">SPC p. 35</a>.</li>
-      <li><b>Let op:</b> in Cpk deel je door 3<var data-s="sigma">σ</var>, niet door 6<var data-s="sigma">σ</var> zoals in Cp: het gaat om de afstand tot één grens, niet om de hele tolerantie <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=35">SPC p. 35</a>.</li>
-      <li><b>Let op:</b> D<sub>1</sub> en D<sub>2</sub> in <var data-s="cpk">Cpk</var> = <var data-s="d1_dist">D<sub>1</sub></var>/<var data-s="d2_dist">D<sub>2</sub></var> zijn afstanden uit de figuur. Het zijn niet de regelkaartconstanten D<sub>1</sub> en D<sub>2</sub> uit Table 18 <a class="p" href="../source/course/Les%204/___4.1%20tabellen%20SPC.pdf#page=2">Tabellen SPC p. 2</a>, en ook niet de d<sub>2</sub> uit <var data-s="sigma">σ</var> = <var data-s="rbar">R̄</var>/<var data-s="d2">d<sub>2</sub></var>.</li>
+      <li><b>Let op:</b> in Cpk deel je door \(3\sym{sigma}{\sigma}\), niet door \(6\sym{sigma}{\sigma}\) zoals in Cp: het gaat om de afstand tot één grens, niet om de hele tolerantie <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=35">SPC p. 35</a>.</li>
+      <li><b>Let op:</b> \(D_{1}\) en \(D_{2}\) in \(\sym{cpk}{C_{pk}}=\frac{\sym{d1_dist}{D_{1}}}{\sym{d2_dist}{D_{2}}}\) zijn afstanden uit de figuur. Het zijn niet de regelkaartconstanten \(D_{1}\) en \(D_{2}\) uit Table 18 <a class="p" href="../source/course/Les%204/___4.1%20tabellen%20SPC.pdf#page=2">Tabellen SPC p. 2</a>, en ook niet de \(d_{2}\) uit \(\sym{sigma}{\sigma}=\frac{\sym{rbar}{\bar{R}}}{\sym{d2}{d_{2}}}\).</li>
     </ul></div>
 
     <div class="exercise" id="ex-09-1" data-kw="Cp; Cpk; begrip; concept; eenzijdige specificatie; one-sided; gecentreerd; centered; zinklaag; Zn layer">
@@ -157,7 +157,7 @@
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-type="choice" data-answer="neen">
-        <label>c. Kan een proces <var data-s="cp">Cp</var> = 0,8 en <var data-s="cpk">Cpk</var> = 1,2 hebben?</label>
+        <label>c. Kan een proces \(\sym{cp}{C_{p}}=0{,}8\) en \(\sym{cpk}{C_{pk}}=1{,}2\) hebben?</label>
         <select><option value="">kies…</option><option value="ja">ja</option><option value="neen">neen</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
@@ -166,10 +166,10 @@
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>a. <b>Alleen Cpk</b>: "one side: only Cpk can be calculated (example Zn layer thickness)" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=33">SPC p. 33</a>.
-          Je rekent (<var data-s="xbar">x̄</var> − <var data-s="ll">LSL</var>)/(3<var data-s="sigma">σ</var>).</li>
-          <li>b. <b>Gelijk</b>: gecentreerd zijn beide afstanden de halve tolerantie, dus <var data-s="cpk">Cpk</var> = (<var data-s="ul">USL</var> − <var data-s="ll">LSL</var>)/2/(3<var data-s="sigma">σ</var>) = <var data-s="cp">Cp</var>
+          Je rekent \(\frac{\sym{xbar}{\bar{x}}-\sym{ll}{\mathrm{LSL}}}{3\sym{sigma}{\sigma}}\).</li>
+          <li>b. <b>Gelijk</b>: gecentreerd zijn beide afstanden de halve tolerantie, dus \(\sym{cpk}{C_{pk}}=\frac{\frac{\sym{ul}{\mathrm{USL}}-\sym{ll}{\mathrm{LSL}}}{2}}{3\sym{sigma}{\sigma}}=\sym{cp}{C_{p}}\)
           <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a>.</li>
-          <li>c. <b>Neen</b>: de afstand tot de dichtste grens is hoogstens de halve tolerantie, dus <var data-s="cpk">Cpk</var> ≤ <var data-s="cp">Cp</var>. Daarom
+          <li>c. <b>Neen</b>: de afstand tot de dichtste grens is hoogstens de halve tolerantie, dus \(\sym{cpk}{C_{pk}}\le\sym{cp}{C_{p}}\). Daarom
           noemt de gidstabel op <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=44">SPC p. 44</a> "Cp slecht, Cpk goed" onmogelijk.</li>
         </ol>
       </details>
@@ -181,57 +181,57 @@
     <h3>09.4 Korte en lange termijn: Cp/Cpk tegenover Pp/Ppk, en welke σ <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=33">SPC p. 33</a></h3>
     <p>Het onderscheid <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=33">SPC p. 33</a>: <b>korte termijn: Cp / Cpk</b>; <b>lange termijn</b> (waarin de klant
     geïnteresseerd is): <b>Pp / Ppk</b>, met P van performance. Cp/Cpk reken je met de
-    korte-termijn-σ, de "white noise" (within variation); Pp/Ppk met de lange-termijn-σ, de "black noise" over de tijd.
+    korte-termijn-\(\sigma\), de "white noise" (within variation); Pp/Ppk met de lange-termijn-\(\sigma\), de "black noise" over de tijd.
     Pp/Ppk is belangrijk voor de klant: "the real parameter".</p>
     <figure class="fig"><img src="figures/09_korte_lange_termijn.png" alt="Vier groepen met elk een smalle verdeling op een andere plaats tussen LSL en USL (short term performance), en daaronder één brede verdeling van alle groepen samen (long term performance) met staarten buiten LSL en USL">
-    <figcaption>Figuur: elke groep (dagen, weken, batches, klanten, sites, …) heeft een smalle verdeling ("short term performance"), maar de groepen liggen niet op dezelfde plaats. Alle groepen samen geven een bredere verdeling ("long term performance") met meer staart buiten LSL en USL: σ<sub>LT</sub> is groter dan σ<sub>ST</sub>. <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=25">SPC p. 25</a></figcaption></figure>
+    <figcaption>Figuur: elke groep (dagen, weken, batches, klanten, sites, …) heeft een smalle verdeling ("short term performance"), maar de groepen liggen niet op dezelfde plaats. Alle groepen samen geven een bredere verdeling ("long term performance") met meer staart buiten LSL en USL: \(\sigma_{\mathrm{LT}}\) is groter dan \(\sigma_{\mathrm{ST}}\). <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=25">SPC p. 25</a></figcaption></figure>
     <div class="f">
-      <div><var data-s="pp">Pp</var> = (<var data-s="ul">USL</var> − <var data-s="ll">LSL</var>) / (6<var data-s="sigma_lt">σ<sub>LT</sub></var>),  <var data-s="ppk">Ppk</var> = min{ (<var data-s="ul">USL</var> − <var data-s="xbar">x̄</var>)/(3<var data-s="sigma_lt">σ<sub>LT</sub></var>) ; (<var data-s="xbar">x̄</var> − <var data-s="ll">LSL</var>)/(3<var data-s="sigma_lt">σ<sub>LT</sub></var>) }   <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=33">SPC p. 33</a></div>
-      <div>Zelfde formules als Cp en Cpk; alleen de σ verschilt (<var data-s="sigma_lt">σ<sub>LT</sub></var> in plaats van <var data-s="sigma_st">σ<sub>ST</sub></var>).</div>
+      <div>\(\sym{pp}{P_{p}}=\frac{\sym{ul}{\mathrm{USL}}-\sym{ll}{\mathrm{LSL}}}{6\sym{sigma_lt}{\sigma_{\mathrm{LT}}}}\),  \(\sym{ppk}{P_{pk}}=\) min{ \(\frac{\sym{ul}{\mathrm{USL}}-\sym{xbar}{\bar{x}}}{3\sym{sigma_lt}{\sigma_{\mathrm{LT}}}}\) ; \(\frac{\sym{xbar}{\bar{x}}-\sym{ll}{\mathrm{LSL}}}{3\sym{sigma_lt}{\sigma_{\mathrm{LT}}}}\) }   <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=33">SPC p. 33</a></div>
+      <div>Zelfde formules als Cp en Cpk; alleen de \(\sigma\) verschilt (\(\sym{sigma_lt}{\sigma_{\mathrm{LT}}}\) in plaats van \(\sym{sigma_st}{\sigma_{\mathrm{ST}}}\)).</div>
     </div>
     <p>In een Minitab-rapport heten ze "Potential (within) capability" (Cp, Cpk: wat haalbaar is als verschuivingen en
     drift weg zijn) en "Actual (overall) capability" (Pp, Ppk: wat de klant ervaart) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=51">SPC p. 51</a>.</p>
 
     <h4>Welke σ? De cursus gebruikt er meerdere</h4>
-    <p>De cursus zegt niet met één regel welke σ je voor capabiliteit neemt. Daarom staan alle versies die de cursus
+    <p>De cursus zegt niet met één regel welke \(\sigma\) je voor capabiliteit neemt. Daarom staan alle versies die de cursus
     gebruikt naast elkaar (beslissing 1 in <code>inventory/conventions.md</code>); de rekentool geeft per versie een
     aparte resultaatrij.</p>
     <table>
-      <tr><th>σ-schatting</th><th>Wanneer</th><th>Waar in de cursus</th><th>Geeft</th></tr>
-      <tr><td>σ gegeven</td><td>de vraag geeft σ (of "sd")</td><td>examenvragen</td><td>Cp, Cpk</td></tr>
-      <tr><td><var data-s="rbar">R̄</var> / <var data-s="d2">d<sub>2</sub></var></td><td>subgroepen met ranges (X̄-R-kaart)</td><td>notities bij <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=64">SPC p. 64</a>; SPC-oefeningen (<a href="#d10-oefeningen">10.7</a>)</td><td>Cp, Cpk (within)</td></tr>
-      <tr><td>s̄ rechtstreeks</td><td>subgroepen met s (X̄-s-kaart), zoals de oefening doet</td><td><a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=46">SPC p. 46</a></td><td>Cp, Cpk</td></tr>
-      <tr><td><var data-s="sbar">s̄</var> / <var data-s="c4">c<sub>4</sub></var></td><td>idem, zuivere schatting</td><td>Table A <a class="p" href="../source/course/Les%204/___4.1%20tabellen%20SPC.pdf#page=1">Tabellen SPC p. 1</a></td><td>Cp, Cpk (within)</td></tr>
-      <tr><td>s van alle waarden (STDEV, <var data-s="n_total">n</var> − 1)</td><td>alle data samen</td><td><a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=33">SPC p. 33</a></td><td>Pp, Ppk (lange termijn)</td></tr>
+      <tr><th>\(\sigma\)-schatting</th><th>Wanneer</th><th>Waar in de cursus</th><th>Geeft</th></tr>
+      <tr><td>\(\sigma\) gegeven</td><td>de vraag geeft \(\sigma\) (of "sd")</td><td>examenvragen</td><td>Cp, Cpk</td></tr>
+      <tr><td>\(\frac{\sym{rbar}{\bar{R}}}{\sym{d2}{d_{2}}}\)</td><td>subgroepen met ranges (\(\bar{X}\)-R-kaart)</td><td>notities bij <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=64">SPC p. 64</a>; SPC-oefeningen (<a href="#d10-oefeningen">10.7</a>)</td><td>Cp, Cpk (within)</td></tr>
+      <tr><td>\(\bar{s}\) rechtstreeks</td><td>subgroepen met s (\(\bar{X}\)-s-kaart), zoals de oefening doet</td><td><a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=46">SPC p. 46</a></td><td>Cp, Cpk</td></tr>
+      <tr><td>\(\frac{\sym{sbar}{\bar{s}}}{\sym{c4}{c_{4}}}\)</td><td>idem, zuivere schatting</td><td>Table A <a class="p" href="../source/course/Les%204/___4.1%20tabellen%20SPC.pdf#page=1">Tabellen SPC p. 1</a></td><td>Cp, Cpk (within)</td></tr>
+      <tr><td>s van alle waarden (STDEV, \(\sym{n_total}{n}-1\))</td><td>alle data samen</td><td><a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=33">SPC p. 33</a></td><td>Pp, Ppk (lange termijn)</td></tr>
     </table>
-    <p>De constanten d<sub>2</sub> en c<sub>4</sub> hangen af van de subgroepgrootte n. Table A van Wheeler
-    <a class="p" href="../source/course/Les%204/___4.1%20tabellen%20SPC.pdf#page=1">Tabellen SPC p. 1</a> (d<sub>2</sub> staat ook in Table 18 op p. 2, met dezelfde waarden):</p>
+    <p>De constanten \(d_{2}\) en \(c_{4}\) hangen af van de subgroepgrootte n. Table A van Wheeler
+    <a class="p" href="../source/course/Les%204/___4.1%20tabellen%20SPC.pdf#page=1">Tabellen SPC p. 1</a> (\(d_{2}\) staat ook in Table 18 op p. 2, met dezelfde waarden):</p>
     <table>
       <tr><th>n</th><td class="n">2</td><td class="n">3</td><td class="n">4</td><td class="n">5</td><td class="n">6</td><td class="n">7</td><td class="n">8</td><td class="n">9</td><td class="n">10</td></tr>
-      <tr><th>d<sub>2</sub></th><td class="n">1,128</td><td class="n">1,693</td><td class="n">2,059</td><td class="n">2,326</td><td class="n">2,534</td><td class="n">2,704</td><td class="n">2,847</td><td class="n">2,970</td><td class="n">3,078</td></tr>
-      <tr><th>c<sub>4</sub></th><td class="n">0,7979</td><td class="n">0,8862</td><td class="n">0,9213</td><td class="n">0,9400</td><td class="n">0,9515</td><td class="n">0,9594</td><td class="n">0,9650</td><td class="n">0,9693</td><td class="n">0,9727</td></tr>
+      <tr><th>\(d_{2}\)</th><td class="n">1,128</td><td class="n">1,693</td><td class="n">2,059</td><td class="n">2,326</td><td class="n">2,534</td><td class="n">2,704</td><td class="n">2,847</td><td class="n">2,970</td><td class="n">3,078</td></tr>
+      <tr><th>\(c_{4}\)</th><td class="n">0,7979</td><td class="n">0,8862</td><td class="n">0,9213</td><td class="n">0,9400</td><td class="n">0,9515</td><td class="n">0,9594</td><td class="n">0,9650</td><td class="n">0,9693</td><td class="n">0,9727</td></tr>
     </table>
-    <p class="small">Meer constanten (A<sub>2</sub>, D<sub>3</sub>, D<sub>4</sub>, …) en de verschillen tussen de
+    <p class="small">Meer constanten \((A_{2},D_{3},D_{4},\ldots)\) en de verschillen tussen de
     gedrukte tabellen: <a href="#d10-formules">10.5</a> en werkblad <b>Tables</b>.</p>
     <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-09-mr">14 Dummies: σ<sub>ST</sub> uit individuele waarden, MR̄/1,128</a>.</p>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"Pp en Ppk liggen hoger dan Cp en Cpk, want ze gebruiken meer data."</b> Fout: normaal is <var data-s="sigma_lt">σ<sub>LT</sub></var> ≥ <var data-s="sigma_st">σ<sub>ST</sub></var>: de lange termijn bevat ook de verschuivingen tussen de groepen, zodat de lange-termijncurve breder is dan die van elke groep (figuur hierboven, <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=25">SPC p. 25</a>). Dus <var data-s="pp">Pp</var> ≤ <var data-s="cp">Cp</var> en <var data-s="ppk">Ppk</var> ≤ <var data-s="cpk">Cpk</var>. Een uitzondering staat in <a href="#d09-minitab">09.10</a>.</li>
+      <li><b>"Pp en Ppk liggen hoger dan Cp en Cpk, want ze gebruiken meer data."</b> Fout: normaal is \(\sym{sigma_lt}{\sigma_{\mathrm{LT}}}\ge\sym{sigma_st}{\sigma_{\mathrm{ST}}}\): de lange termijn bevat ook de verschuivingen tussen de groepen, zodat de lange-termijncurve breder is dan die van elke groep (figuur hierboven, <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=25">SPC p. 25</a>). Dus \(\sym{pp}{P_{p}}\le\sym{cp}{C_{p}}\) en \(\sym{ppk}{P_{pk}}\le\sym{cpk}{C_{pk}}\). Een uitzondering staat in <a href="#d09-minitab">09.10</a>.</li>
       <li><b>"Potential (within) capability is wat de klant ervaart."</b> Fout: wat de klant ervaart is Actual (overall), met Pp en Ppk <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=51">SPC p. 51</a>. Potential (Cp, Cpk) is wat haalbaar is als verschuivingen en drift weg zijn.</li>
-      <li><b>Let op:</b> <var data-s="sigma">σ</var> = <var data-s="rbar">R̄</var>/<var data-s="d2">d<sub>2</sub></var>, niet R̄ zelf. De constante hangt af van de subgroepgrootte, niet van het aantal subgroepen: <var data-s="n_sub">n</var> = 5 geeft <var data-s="d2">d<sub>2</sub></var> = 2,326 <a class="p" href="../source/course/Les%204/___4.1%20tabellen%20SPC.pdf#page=1">Tabellen SPC p. 1</a>.</li>
-      <li><b>"De cursus schrijft voor welke σ je gebruikt."</b> Fout: de cursus gebruikt er meerdere (beslissing 1). Het maakt uit: in de as-oefening geeft <var data-s="sigma">σ</var> = <var data-s="sbar">s̄</var> als resultaat <var data-s="cp">Cp</var> = 1,1667, en <var data-s="sigma">σ</var> = <var data-s="sbar">s̄</var>/<var data-s="c4">c<sub>4</sub></var> geeft <var data-s="cp">Cp</var> = 1,097 <span class="computed">zelf berekend</span> (<a href="#d09-as">09.9</a>). Vermeld welke σ je neemt.</li>
+      <li><b>Let op:</b> \(\sym{sigma}{\sigma}=\frac{\sym{rbar}{\bar{R}}}{\sym{d2}{d_{2}}}\), niet \(\bar{R}\) zelf. De constante hangt af van de subgroepgrootte, niet van het aantal subgroepen: \(\sym{n_sub}{n}=5\) geeft \(\sym{d2}{d_{2}}=2{,}326\) <a class="p" href="../source/course/Les%204/___4.1%20tabellen%20SPC.pdf#page=1">Tabellen SPC p. 1</a>.</li>
+      <li><b>"De cursus schrijft voor welke \(\sigma\) je gebruikt."</b> Fout: de cursus gebruikt er meerdere (beslissing 1). Het maakt uit: in de as-oefening geeft \(\sym{sigma}{\sigma}=\sym{sbar}{\bar{s}}\) als resultaat \(\sym{cp}{C_{p}}=1{,}1667\), en \(\sym{sigma}{\sigma}=\frac{\sym{sbar}{\bar{s}}}{\sym{c4}{c_{4}}}\) geeft \(\sym{cp}{C_{p}}=1{,}097\) <span class="computed">zelf berekend</span> (<a href="#d09-as">09.9</a>). Vermeld welke \(\sigma\) je neemt.</li>
     </ul></div>
 
     <div class="exercise" id="ex-09-2" data-kw="Pp; Ppk; Cp; Cpk; within; overall; potential; actual; σ-schatting; sigma estimate; STDEV; R̄/d2; korte termijn; lange termijn">
       <h4>Oefening 09.2 — Korte of lange termijn? <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=33">SPC p. 33</a> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=51">SPC p. 51</a></h4>
       <div class="q" data-type="choice" data-answer="ppk">
-        <label>a. Je berekent σ met STDEV over alle 100 metingen van 20 subgroepen. Welke indices krijg je?</label>
+        <label>a. Je berekent \(\sigma\) met STDEV over alle 100 metingen van 20 subgroepen. Welke indices krijg je?</label>
         <select><option value="">kies…</option><option value="cpk">Cp en Cpk</option><option value="ppk">Pp en Ppk</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-type="choice" data-answer="cpk">
-        <label>b. Je berekent <var data-s="sigma">σ</var> = <var data-s="rbar">R̄</var>/<var data-s="d2">d<sub>2</sub></var> uit de ranges binnen de subgroepen. Welke indices krijg je?</label>
+        <label>b. Je berekent \(\sym{sigma}{\sigma}=\frac{\sym{rbar}{\bar{R}}}{\sym{d2}{d_{2}}}\) uit de ranges binnen de subgroepen. Welke indices krijg je?</label>
         <select><option value="">kies…</option><option value="cpk">Cp en Cpk</option><option value="ppk">Pp en Ppk</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
@@ -245,15 +245,15 @@
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>a. <b>Pp en Ppk</b>: de totale spreiding bevat ook de verschuivingen tussen de subgroepen (lange termijn).</li>
-          <li>b. <b>Cp en Cpk</b>: <var data-s="rbar">R̄</var>/<var data-s="d2">d<sub>2</sub></var> meet alleen de spreiding binnen de subgroepen (korte termijn).</li>
+          <li>b. <b>Cp en Cpk</b>: \(\frac{\sym{rbar}{\bar{R}}}{\sym{d2}{d_{2}}}\) meet alleen de spreiding binnen de subgroepen (korte termijn).</li>
           <li>c. <b>Actual (overall)</b>: "Actual (overall) capability is what the customer experiences" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=51">SPC p. 51</a>.</li>
         </ol>
       </details>
     </div>
 
     <div class="box tool"><span class="t">Rekentool</span>
-    <p>Werkblad <b>Capability</b>, blok 2: vul alleen in wat de vraag geeft (σ, R̄ met n, s̄ met n, MR̄ of de totale s).
-    Blok 3 geeft per σ-schatting een eigen rij met Cp, Cpk (of Pp, Ppk voor de totale s) en het % buiten specificatie.
+    <p>Werkblad <b>Capability</b>, blok 2: vul alleen in wat de vraag geeft (\(\sigma\), \(\bar{R}\) met n, \(\bar{s}\) met n, MR̄ of de totale s).
+    Blok 3 geeft per \(\sigma\)-schatting een eigen rij met Cp, Cpk (of Pp, Ppk voor de totale s) en het % buiten specificatie.
     De constanten komen uit werkblad <b>Tables</b>.</p>
     </div>
   </section>
@@ -261,42 +261,42 @@
   <!-- ============================================================ 09.5 -->
   <section class="unit" id="d09-uitval" data-kw="uitval; defect rate; % buiten specificatie; % out of spec; ppm; DPMO; Cp-niveaus; capable; capabel; net capabel; acceptabel; 1,33; 1,67; 2700 ppm; 64 ppm; staartkans; tail; tweezijdig; two-sided">
     <h3>09.5 Van Cp en Cpk naar % uitval <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40–41</a></h3>
-    <p>Omdat Cp en Cpk zeggen hoeveel σ er tot de grenzen past, voorspellen ze de uitval (met een normale verdeling).
-    Voor een <b>gecentreerd</b> proces gelden deze niveaus <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a> (<var data-s="cp">Cp</var> = <var data-s="cpk">Cpk</var>):</p>
+    <p>Omdat Cp en Cpk zeggen hoeveel \(\sigma\) er tot de grenzen past, voorspellen ze de uitval (met een normale verdeling).
+    Voor een <b>gecentreerd</b> proces gelden deze niveaus <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a> \((\sym{cp}{C_{p}}=\sym{cpk}{C_{pk}})\):</p>
     <table>
-      <tr><th>Cp</th><th>Oordeel <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a></th><th>Volgens de cursus</th><th>Exact, ±3·<var data-s="cp">Cp</var> <var data-s="sigma">σ</var> <span class="computed">zelf berekend</span></th></tr>
+      <tr><th>Cp</th><th>Oordeel <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a></th><th>Volgens de cursus</th><th>Exact, ±\(3\cdot\sym{cp}{C_{p}}\ \sym{sigma}{\sigma}\) <span class="computed">zelf berekend</span></th></tr>
       <tr><td>&lt; 1</td><td>niet capabel</td><td>—</td><td>—</td></tr>
-      <tr><td>= 1</td><td>net capabel</td><td><var data-s="ul">UL</var> − <var data-s="ll">LL</var> = 6<var data-s="sigma">σ</var> → 99,73 %; ongeveer 2700 op 10<sup>6</sup> buiten tolerantie</td><td class="n">99,73 %; 2700 ppm</td></tr>
-      <tr><td>≥ 1,33</td><td>acceptabel</td><td>8<var data-s="sigma">σ</var> → 99,9936 %; ongeveer 60 op 10<sup>6</sup> (64 ppm)</td><td class="n">99,99367 %; 63,3 ppm</td></tr>
-      <tr><td>≥ 1,67</td><td>goed</td><td>10<var data-s="sigma">σ</var> → 99,999943 %; ongeveer 0,57 op 10<sup>6</sup></td><td class="n">99,999943 %; 0,573 ppm</td></tr>
+      <tr><td>= 1</td><td>net capabel</td><td>\(\sym{ul}{\mathrm{UL}}-\sym{ll}{\mathrm{LL}}=6\sym{sigma}{\sigma}\to99{,}73\ \%\); ongeveer 2700 op \(10^{6}\) buiten tolerantie</td><td class="n">99,73 %; 2700 ppm</td></tr>
+      <tr><td>≥ 1,33</td><td>acceptabel</td><td>\(8\sym{sigma}{\sigma}\to99{,}9936\ \%\); ongeveer 60 op \(10^{6}\) (64 ppm)</td><td class="n">99,99367 %; 63,3 ppm</td></tr>
+      <tr><td>≥ 1,67</td><td>goed</td><td>\(10\sym{sigma}{\sigma}\to99{,}999943\ \%\); ongeveer 0,57 op \(10^{6}\)</td><td class="n">99,999943 %; 0,573 ppm</td></tr>
       <tr><td>= 2</td><td>6 Sigma-kwaliteitsniveau</td><td>2 defecten per miljard opportuniteiten (korte termijn)</td><td class="n">0,00197 ppm = 1,97 per miljard</td></tr>
     </table>
     <div class="box warn"><span class="t">Kleine fout op SPC p. 40</span>
-    <p>Bij <var data-s="cp">Cp</var> = 1,33 (8<var data-s="sigma">σ</var>) staat er 99,9936 % en 64 ppm <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a>. Exact is het 99,99367 % (afgerond 99,9937 %, zoals
+    <p>Bij \(\sym{cp}{C_{p}}=1{,}33\ (8\sym{sigma}{\sigma})\) staat er 99,9936 % en 64 ppm <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a>. Exact is het 99,99367 % (afgerond 99,9937 %, zoals
     elders in de cursus <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=7">LSS p. 7</a>) en <b>63,3 ppm</b> <span class="computed">zelf berekend</span>. De 64 ppm volgt uit
     de afgekapte 99,9936 %.</p>
     </div>
     <figure class="fig"><img src="figures/09_cp_cpk_niveaus.png" alt="Links vier curves tussen de toleranties Ti en Ts, van breed naar smal: Cp kleiner dan 1 not capable, Cp = 1 just capable, Cp = 1,33 acceptable, Cp = 1,66 good; rechts drie curves die steeds verder van de grens liggen: Cpk = 0,66 scrap, Cpk = 1 risky, Cpk = 1,33 good">
-    <figcaption>Figuur: links de spreiding: hoe smaller de curve tussen T<sub>i</sub> en T<sub>s</sub>, hoe hoger Cp (van "Not capable" bij Cp &lt; 1 tot "Good" bij Cp = 1,66); rechts de ligging: hoe verder het gemiddelde x̄ van de dichtste grens, hoe hoger Cpk (0,66 "Scrap", 1 "Risky", 1,33 "Good"). <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=41">SPC p. 41</a></figcaption></figure>
-    <p>De figuur hierboven <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=41">SPC p. 41</a> toont het met curves tussen de toleranties T<sub>i</sub> en T<sub>s</sub>: links <var data-s="cp">Cp</var> &lt; 1
-    "not capable", <var data-s="cp">Cp</var> = 1 "just capable", <var data-s="cp">Cp</var> = 1,33 "acceptable", <var data-s="cp">Cp</var> = 1,66 "good"; rechts voor de ligging <var data-s="cpk">Cpk</var> = 0,66
-    "scrap", <var data-s="cpk">Cpk</var> = 1 "risky", <var data-s="cpk">Cpk</var> = 1,33 "good".</p>
+    <figcaption>Figuur: links de spreiding: hoe smaller de curve tussen \(T_{i}\) en \(T_{s}\), hoe hoger Cp (van "Not capable" bij Cp &lt; 1 tot "Good" bij Cp = 1,66); rechts de ligging: hoe verder het gemiddelde \(\bar{x}\) van de dichtste grens, hoe hoger Cpk (0,66 "Scrap", 1 "Risky", 1,33 "Good"). <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=41">SPC p. 41</a></figcaption></figure>
+    <p>De figuur hierboven <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=41">SPC p. 41</a> toont het met curves tussen de toleranties \(T_{i}\) en \(T_{s}\): links \(\sym{cp}{C_{p}}\lt1\)
+    "not capable", \(\sym{cp}{C_{p}}=1\) "just capable", \(\sym{cp}{C_{p}}=1{,}33\) "acceptable", \(\sym{cp}{C_{p}}=1{,}66\) "good"; rechts voor de ligging \(\sym{cpk}{C_{pk}}=0{,}66\)
+    "scrap", \(\sym{cpk}{C_{pk}}=1\) "risky", \(\sym{cpk}{C_{pk}}=1{,}33\) "good".</p>
 
     <h4>Algemeen: een proces dat niet gecentreerd is</h4>
     <p>Dan heeft elke grens haar eigen staart. Reken ze <b>allebei</b> uit en tel op; de uitwerking van de as-oefening
     zegt het expliciet: "je moet hier 2 zijdig rekenen" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=46">SPC p. 46</a>.</p>
     <div class="f">
-      <div><var data-s="zl">z<sub>L</sub></var> = (<var data-s="xbar">x̄</var> − <var data-s="ll">LSL</var>)/<var data-s="sigma">σ</var> = 3·<var data-s="cpl">CPL</var>,   <var data-s="zu">z<sub>U</sub></var> = (<var data-s="ul">USL</var> − <var data-s="xbar">x̄</var>)/<var data-s="sigma">σ</var> = 3·<var data-s="cpu">CPU</var></div>
-      <div>% onder <var data-s="ll">LSL</var> = P(<var data-s="z_rv">Z</var> &lt; −<var data-s="zl">z<sub>L</sub></var>),   % boven <var data-s="ul">USL</var> = P(<var data-s="z_rv">Z</var> &gt; <var data-s="zu">z<sub>U</sub></var>),   totaal = som van beide</div>
+      <div>\(\sym{zl}{z_{L}}=\frac{\sym{xbar}{\bar{x}}-\sym{ll}{\mathrm{LSL}}}{\sym{sigma}{\sigma}}=3\cdot\sym{cpl}{\mathrm{CPL}}\),   \(\sym{zu}{z_{U}}=\frac{\sym{ul}{\mathrm{USL}}-\sym{xbar}{\bar{x}}}{\sym{sigma}{\sigma}}=3\cdot\sym{cpu}{\mathrm{CPU}}\)</div>
+      <div>% onder \(\sym{ll}{\mathrm{LSL}}=P(\sym{z_rv}{Z}\lt-\sym{zl}{z_{L}})\),   % boven \(\sym{ul}{\mathrm{USL}}=P(\sym{z_rv}{Z}\gt\sym{zu}{z_{U}})\),   totaal = som van beide</div>
       <div>Excel: <code>NORM.VERD(<var data-s="ll">LSL</var>;<var data-s="xbar">x̄</var>;<var data-s="sigma">σ</var>;WAAR)</code> + <code>1 − NORM.VERD(<var data-s="ul">USL</var>;<var data-s="xbar">x̄</var>;<var data-s="sigma">σ</var>;WAAR)</code></div>
     </div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"De uitval is P(<var data-s="z_rv">Z</var> &gt; 3·<var data-s="cpk">Cpk</var>)."</b> Fout: dat is alleen de staart aan de slechtste kant. Reken elke grens apart en tel op: "je moet hier 2 zijdig rekenen" (uitwerking van de as-oefening, <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=46">SPC p. 46</a>). Gecentreerd is de uitval 2 · P(<var data-s="z_rv">Z</var> &gt; 3·<var data-s="cp">Cp</var>).</li>
-      <li><b>"<var data-s="cpk">Cpk</var> = 0,67, dus 0,67 × 6 = 4<var data-s="sigma">σ</var>: 95 % binnen, 5 % uitval."</b> Fout: zo rekent de uitwerking in de cursus, maar <var data-s="cpk">Cpk</var> × 6 is geen procesbreedte <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=46">SPC p. 46</a>. Juist: <var data-s="zl">z<sub>L</sub></var> = (71,8 − 71,4)/0,2 = 2 geeft 2,275 % onder LSL, en boven USL ligt bijna niets: samen 2,28 % <span class="computed">zelf berekend</span> (<a href="#d09-as">09.9</a>).</li>
-      <li><b>"Bij <var data-s="cp">Cp</var> = 1,33 ligt 64 ppm buiten de specificatie."</b> Fout: dat getal komt uit de afgekapte 99,9936 % <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a>. Exact geeft ±4<var data-s="sigma">σ</var> (<var data-s="cp">Cp</var> = 4/3) 63,3 ppm, en <var data-s="cp">Cp</var> = 1,33 precies 66 ppm <span class="computed">zelf berekend</span>.</li>
-      <li><b>"De niveaus van SPC p. 40 (2700 ppm bij <var data-s="cp">Cp</var> = 1) gelden voor elk proces."</b> Fout: ze gelden voor een gecentreerd proces (<var data-s="cp">Cp</var> = <var data-s="cpk">Cpk</var>) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a>. Ligt het proces scheef, reken dan elke grens apart met z<sub>L</sub> en z<sub>U</sub>.</li>
+      <li><b>"De uitval is \(P(\sym{z_rv}{Z}\gt3\cdot\sym{cpk}{C_{pk}})\)."</b> Fout: dat is alleen de staart aan de slechtste kant. Reken elke grens apart en tel op: "je moet hier 2 zijdig rekenen" (uitwerking van de as-oefening, <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=46">SPC p. 46</a>). Gecentreerd is de uitval \(2\cdot P(\sym{z_rv}{Z}\gt3\cdot\sym{cp}{C_{p}})\).</li>
+      <li><b>"\(\sym{cpk}{C_{pk}}=0{,}67\), dus \(0{,}67\times6=4\sym{sigma}{\sigma}\): 95 % binnen, 5 % uitval."</b> Fout: zo rekent de uitwerking in de cursus, maar \(\sym{cpk}{C_{pk}}\times6\) is geen procesbreedte <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=46">SPC p. 46</a>. Juist: \(\sym{zl}{z_{L}}=\frac{71{,}8-71{,}4}{0{,}2}=2\) geeft 2,275 % onder LSL, en boven USL ligt bijna niets: samen 2,28 % <span class="computed">zelf berekend</span> (<a href="#d09-as">09.9</a>).</li>
+      <li><b>"Bij \(\sym{cp}{C_{p}}=1{,}33\) ligt 64 ppm buiten de specificatie."</b> Fout: dat getal komt uit de afgekapte 99,9936 % <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a>. Exact geeft ±\(4\sym{sigma}{\sigma}\ \left(\sym{cp}{C_{p}}=\frac{4}{3}\right)\ 63{,}3\) ppm, en \(\sym{cp}{C_{p}}=1{,}33\) precies 66 ppm <span class="computed">zelf berekend</span>.</li>
+      <li><b>"De niveaus van SPC p. 40 (2700 ppm bij \(\sym{cp}{C_{p}}=1\)) gelden voor elk proces."</b> Fout: ze gelden voor een gecentreerd proces \((\sym{cp}{C_{p}}=\sym{cpk}{C_{pk}})\) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a>. Ligt het proces scheef, reken dan elke grens apart met \(z_{L}\) en \(z_{U}\).</li>
       <li><b>Let op:</b> % en ppm (<a href="#d03-dpmo">03.8</a>): 1 % = 10 000 ppm. Zo is 2,275 % gelijk aan 22 750 ppm, 0,0465 % aan 465 ppm en 3,4 ppm aan 0,00034 % <span class="computed">zelf berekend</span>.</li>
     </ul></div>
 
@@ -305,39 +305,39 @@
       <p>Een proces is gecentreerd en normaal verdeeld. Bereken het aantal ppm buiten de specificatie (beide staarten
       samen).</p>
       <div class="q" data-answer="2700" data-tol="1">
-        <label>a. <var data-s="cp">Cp</var> = 1 (ppm, geheel getal) =</label> <input type="text" inputmode="decimal">
+        <label>a. \(\sym{cp}{C_{p}}=1\) (ppm, geheel getal) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="63.3" data-tol="0.1">
-        <label>b. <var data-s="cp">Cp</var> = 4/3, dus ±4<var data-s="sigma">σ</var> (ppm, 1 decimaal) =</label> <input type="text" inputmode="decimal">
+        <label>b. \(\sym{cp}{C_{p}}=\frac{4}{3}\), dus ±\(4\sym{sigma}{\sigma}\) (ppm, 1 decimaal) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="0.573" data-tol="0.005">
-        <label>c. <var data-s="cp">Cp</var> = 5/3, dus ±5<var data-s="sigma">σ</var> (ppm, 3 decimalen) =</label> <input type="text" inputmode="decimal">
+        <label>c. \(\sym{cp}{C_{p}}=\frac{5}{3}\), dus ±\(5\sym{sigma}{\sigma}\) (ppm, 3 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="0.00197" data-tol="0.0001">
-        <label>d. <var data-s="cp">Cp</var> = 2, dus ±6<var data-s="sigma">σ</var> (ppm) =</label> <input type="text" inputmode="decimal">
+        <label>d. \(\sym{cp}{C_{p}}=2\), dus ±\(6\sym{sigma}{\sigma}\) (ppm) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
-      <details class="hint"><summary>Hint</summary><p>Gecentreerd: elke grens ligt 3·<var data-s="cp">Cp</var> <var data-s="sigma">σ</var> van het gemiddelde. Eén staart
-      is 1 − NORM.VERD(3·<var data-s="cp">Cp</var>;0;1;WAAR); verdubbel en vermenigvuldig met 10<sup>6</sup>.</p></details>
+      <details class="hint"><summary>Hint</summary><p>Gecentreerd: elke grens ligt \(3\cdot\sym{cp}{C_{p}}\ \sym{sigma}{\sigma}\) van het gemiddelde. Eén staart
+      is \(1-\operatorname{NORM.VERD}(3\cdot\sym{cp}{C_{p}};0;1;\mathrm{WAAR})\); verdubbel en vermenigvuldig met \(10^{6}\).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
-          <li>a. <var data-s="z">z</var> = 3: één staart 0,00135; twee staarten 0,0027 = <b>2700 ppm</b> (cursus: "about 2700").</li>
-          <li>b. <var data-s="z">z</var> = 4: 2 × 0,0000317 = <b>63,3 ppm</b> <span class="computed">zelf berekend</span> (cursus: "about 60"
+          <li>a. \(\sym{z}{z}=3\): één staart 0,00135; twee staarten 0,0027 = <b>2700 ppm</b> (cursus: "about 2700").</li>
+          <li>b. \(\sym{z}{z}=4\): \(2\times0{,}0000317=\) <b>63,3 ppm</b> <span class="computed">zelf berekend</span> (cursus: "about 60"
           en "64ppm", zie de waarschuwing hierboven).</li>
-          <li>c. <var data-s="z">z</var> = 5: <b>0,573 ppm</b> <span class="computed">zelf berekend</span> (cursus: "about 0,57").</li>
-          <li>d. <var data-s="z">z</var> = 6: <b>0,00197 ppm</b>, dus 1,97 per miljard <span class="computed">zelf berekend</span> (cursus:
+          <li>c. \(\sym{z}{z}=5\): <b>0,573 ppm</b> <span class="computed">zelf berekend</span> (cursus: "about 0,57").</li>
+          <li>d. \(\sym{z}{z}=6\): <b>0,00197 ppm</b>, dus 1,97 per miljard <span class="computed">zelf berekend</span> (cursus:
           "2 defect per billion").</li>
         </ol>
-        <p>Let op: de cursus zegt "<var data-s="cp">Cp</var> ≥ 1,33" en "<var data-s="cp">Cp</var> ≥ 1,67"; de exacte ±4<var data-s="sigma">σ</var> en ±5<var data-s="sigma">σ</var> horen bij 4/3 en 5/3. Met <var data-s="cp">Cp</var> = 1,33
-        precies (<var data-s="z">z</var> = 3,99) krijg je 66 ppm <span class="computed">zelf berekend</span>.</p>
+        <p>Let op: de cursus zegt "\(\sym{cp}{C_{p}}\ge1{,}33\)" en "\(\sym{cp}{C_{p}}\ge1{,}67\)"; de exacte ±\(4\sym{sigma}{\sigma}\) en ±\(5\sym{sigma}{\sigma}\) horen bij 4/3 en 5/3. Met \(\sym{cp}{C_{p}}=1{,}33\)
+        precies \((\sym{z}{z}=3{,}99)\) krijg je 66 ppm <span class="computed">zelf berekend</span>.</p>
       </details>
     </div>
 
     <div class="box tool"><span class="t">Rekentool</span>
-    <p>Werkblad <b>Capability</b>: blok 3 geeft per σ-schatting ook z, % onder LSL, % boven USL en het totaal; blok 5
+    <p>Werkblad <b>Capability</b>: blok 3 geeft per \(\sigma\)-schatting ook z, % onder LSL, % boven USL en het totaal; blok 5
     toont de oordeelsgrenzen van <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a> en de Cpk-vuistregel 1,33.</p>
     </div>
   </section>
@@ -345,57 +345,57 @@
   <!-- ============================================================ 09.6 -->
   <section class="unit" id="d09-sixsigma" data-kw="technische definitie Six Sigma; technical definition; 6 sigma criterium; six sigma criterion; 3,4 DPMO; 3.4 ppm; 2 per miljard; 2 per billion; Cp = 2; Cpk = 1,5; 1,5 sigma verschuiving; 1.5 sigma shift; korte termijn; lange termijn">
     <h3>09.6 Technische definitie van Six Sigma: 3,4 DPMO of 2 per miljard <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a></h3>
-    <p>De figuur hieronder ("Technical Definition of Six Sigma", <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a>) toont een gecentreerd proces met <b>6σ tot LSL en
-    6σ tot USL</b>: <var data-s="cp">Cp</var> = <var data-s="cpk">Cpk</var> = 2. Daarnaast staan twee verschoven curves, ±1,5σ naar links of naar rechts. Een
-    verschoven curve houdt <var data-s="cp">Cp</var> = 2 (de breedte verandert niet), maar heeft nog maar 4,5σ tot de dichtste grens:
-    <b><var data-s="cpk">Cpk</var> = 1,5</b>. Voorbij die grens ligt dan <b>3,4 DPMO</b>. De figuur toont daarnaast de getallen "75 %" en
+    <p>De figuur hieronder ("Technical Definition of Six Sigma", <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a>) toont een gecentreerd proces met <b>\(6\sigma\) tot LSL en
+    \(6\sigma\) tot USL</b>: \(\sym{cp}{C_{p}}=\sym{cpk}{C_{pk}}=2\). Daarnaast staan twee verschoven curves, ±\(1{,}5\sigma\) naar links of naar rechts. Een
+    verschoven curve houdt \(\sym{cp}{C_{p}}=2\) (de breedte verandert niet), maar heeft nog maar \(4{,}5\sigma\) tot de dichtste grens:
+    <b>\(\sym{cpk}{C_{pk}}=1{,}5\)</b>. Voorbij die grens ligt dan <b>3,4 DPMO</b>. De figuur toont daarnaast de getallen "75 %" en
     "12,5 %"; de cursus legt niet uit wat die betekenen. Six Sigma evolueerde daarna naar "a
     management driven, scientific methodology for product and process improvement which creates breakthroughs in
     financial performance and customer satisfaction".</p>
     <figure class="fig"><img src="figures/09_technische_definitie.png" alt="Gecentreerde normale curve met Cp = Cpk = 2 en 6σ tot LSL en tot USL, plus twee curves die 1,5σ naar links en naar rechts verschoven zijn met Cp = 2, Cpk = 1,5; voorbij elke grens 3.4 DPMO">
-    <figcaption>Figuur: de gecentreerde curve heeft 6σ tot LSL en 6σ tot USL (Cp = Cpk = 2). De grijze curves zijn ±1,5σ verschoven: de breedte blijft (Cp = 2), maar de dichtste grens ligt nog 4,5σ ver (Cpk = 1,5) en daar valt 3.4 DPMO buiten. <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a></figcaption></figure>
+    <figcaption>Figuur: de gecentreerde curve heeft \(6\sigma\) tot LSL en \(6\sigma\) tot USL (Cp = Cpk = 2). De grijze curves zijn ±\(1{,}5\sigma\) verschoven: de breedte blijft (Cp = 2), maar de dichtste grens ligt nog \(4{,}5\sigma\) ver (Cpk = 1,5) en daar valt 3.4 DPMO buiten. <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a></figcaption></figure>
 
-    <div class="box warn"><span class="t">Het "6σ-criterium": twee lezingen in de cursus</span>
+    <div class="box warn"><span class="t">Het "\(6\sigma\)-criterium": twee lezingen in de cursus</span>
     <p>De cursus gebruikt twee verschillende getallen voor "Six Sigma-kwaliteit". Toon er bij een examenvraag beide,
     met de lezing erbij (beslissing 2 in <code>inventory/conventions.md</code>):</p>
     <table>
       <tr><th>Lezing</th><th>Wat je aanneemt</th><th class="n">Hoogstens buiten specificatie</th><th>Bron</th></tr>
-      <tr><td>lange termijn, met 1,5σ-verschuiving</td><td><var data-s="cp">Cp</var> = 2, <var data-s="cpk">Cpk</var> = 1,5; één staart voorbij 4,5σ</td><td class="n">3,4 ppm = 0,00034 %</td><td><a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=21">SPC p. 21</a> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a></td></tr>
-      <tr><td>korte termijn, gecentreerd</td><td><var data-s="cp">Cp</var> = <var data-s="cpk">Cpk</var> = 2; twee staarten voorbij ±6<var data-s="sigma">σ</var></td><td class="n">0,002 ppm = 2 per miljard</td><td><a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a></td></tr>
+      <tr><td>lange termijn, met \(1{,}5\sigma\)-verschuiving</td><td>\(\sym{cp}{C_{p}}=2\), \(\sym{cpk}{C_{pk}}=1{,}5\); één staart voorbij \(4{,}5\sigma\)</td><td class="n">3,4 ppm = 0,00034 %</td><td><a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=21">SPC p. 21</a> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a></td></tr>
+      <tr><td>korte termijn, gecentreerd</td><td>\(\sym{cp}{C_{p}}=\sym{cpk}{C_{pk}}=2\); twee staarten voorbij ±\(6\sym{sigma}{\sigma}\)</td><td class="n">0,002 ppm = 2 per miljard</td><td><a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a></td></tr>
     </table>
-    <p>De verre staart bij de verschoven curve (voorbij 7,5σ) is verwaarloosbaar <span class="computed">zelf
+    <p>De verre staart bij de verschoven curve (voorbij \(7{,}5\sigma\)) is verwaarloosbaar <span class="computed">zelf
     berekend</span>. De rekentool toont beide lezingen in werkblad <b>Capability</b>, blok 4.</p>
     </div>
-    <p>Waarom 1,5σ: zie <a href="#d03-sigma">03.10</a> en de notities bij <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a>.</p>
+    <p>Waarom \(1{,}5\sigma\): zie <a href="#d03-sigma">03.10</a> en de notities bij <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a>.</p>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"Six Sigma-kwaliteit betekent 3,4 ppm buiten specificatie."</b> Fout: dat is maar één van de twee lezingen in de cursus. Met de 1,5σ-verschuiving (<var data-s="cp">Cp</var> = 2, <var data-s="cpk">Cpk</var> = 1,5, lange termijn) is het 3,4 ppm <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a>; gecentreerd (<var data-s="cp">Cp</var> = <var data-s="cpk">Cpk</var> = 2, korte termijn) 0,002 ppm of 2 per miljard <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a>. Geef beide (beslissing 2).</li>
-      <li><b>"Na de verschuiving van 1,5σ zakt Cp naar 1,5."</b> Fout: de breedte verandert niet, dus blijft <var data-s="cp">Cp</var> = 2; alleen Cpk zakt naar <var data-s="cpk">Cpk</var> = 1,5, met nog 4,5σ tot de dichtste grens <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a>.</li>
-      <li><b>Let op:</b> 3,4 ppm telt één staart (voorbij 4,5σ; de verre kant voorbij 7,5σ is verwaarloosbaar), 2 per miljard telt twee staarten (voorbij ±6<var data-s="sigma">σ</var>) <span class="computed">zelf berekend</span>.</li>
+      <li><b>"Six Sigma-kwaliteit betekent 3,4 ppm buiten specificatie."</b> Fout: dat is maar één van de twee lezingen in de cursus. Met de \(1{,}5\sigma\)-verschuiving (\(\sym{cp}{C_{p}}=2\), \(\sym{cpk}{C_{pk}}=1{,}5\), lange termijn) is het 3,4 ppm <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a>; gecentreerd (\(\sym{cp}{C_{p}}=\sym{cpk}{C_{pk}}=2\), korte termijn) 0,002 ppm of 2 per miljard <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a>. Geef beide (beslissing 2).</li>
+      <li><b>"Na de verschuiving van \(1{,}5\sigma\) zakt Cp naar 1,5."</b> Fout: de breedte verandert niet, dus blijft \(\sym{cp}{C_{p}}=2\); alleen Cpk zakt naar \(\sym{cpk}{C_{pk}}=1{,}5\), met nog \(4{,}5\sigma\) tot de dichtste grens <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a>.</li>
+      <li><b>Let op:</b> 3,4 ppm telt één staart (voorbij \(4{,}5\sigma\); de verre kant voorbij \(7{,}5\sigma\) is verwaarloosbaar), 2 per miljard telt twee staarten (voorbij ±\(6\sym{sigma}{\sigma}\)) <span class="computed">zelf berekend</span>.</li>
       <li><b>"Het verschil tussen de twee lezingen is verwaarloosbaar."</b> Fout: 3,4 ppm is ruim 1700 keer zoveel als 0,002 ppm <span class="computed">zelf berekend</span>. Zeg daarom altijd welke lezing je gebruikt, zoals in vraag 3d van het voorbeeldexamen (<a href="#d13-v3">13.3</a>).</li>
     </ul></div>
 
     <div class="exercise" id="ex-09-4" data-kw="6 sigma criterium; six sigma criterion; 3,4 ppm; 2 per miljard; Cp = 2; Cpk = 1,5; ppm; technische definitie">
       <h4>Oefening 09.4 — De twee lezingen van Six Sigma <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a></h4>
       <div class="q" data-answer="3.4" data-tol="0.05">
-        <label>a. <var data-s="cp">Cp</var> = 2 en het gemiddelde is 1,5σ verschoven (<var data-s="cpk">Cpk</var> = 1,5). ppm buiten specificatie (1 decimaal) =</label> <input type="text" inputmode="decimal">
+        <label>a. \(\sym{cp}{C_{p}}=2\) en het gemiddelde is \(1{,}5\sigma\) verschoven \((\sym{cpk}{C_{pk}}=1{,}5)\). ppm buiten specificatie (1 decimaal) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="0.002" data-tol="0.0002">
-        <label>b. <var data-s="cp">Cp</var> = <var data-s="cpk">Cpk</var> = 2 (gecentreerd). ppm buiten specificatie (3 decimalen) =</label> <input type="text" inputmode="decimal">
+        <label>b. \(\sym{cp}{C_{p}}=\sym{cpk}{C_{pk}}=2\) (gecentreerd). ppm buiten specificatie (3 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
-      <details class="hint"><summary>Hint</summary><p>a: de dichtste grens ligt 3 × 1,5 = 4,5<var data-s="sigma">σ</var> van het gemiddelde.
-      b: beide grenzen liggen 6σ ver.</p></details>
+      <details class="hint"><summary>Hint</summary><p>a: de dichtste grens ligt \(3\times1{,}5=4{,}5\sym{sigma}{\sigma}\) van het gemiddelde.
+      b: beide grenzen liggen \(6\sigma\) ver.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
-          <li>a. <var data-s="z">z</var> = 3 × <var data-s="cpk">Cpk</var> = 4,5; P(<var data-s="z_rv">Z</var> &gt; 4,5) × 10<sup>6</sup> = <b>3,4 ppm</b> (de verre kant, 7,5σ, telt niet
+          <li>a. \(\sym{z}{z}=3\times\sym{cpk}{C_{pk}}=4{,}5\); \(P(\sym{z_rv}{Z}\gt4{,}5)\times10^{6}=\) <b>3,4 ppm</b> (de verre kant, \(7{,}5\sigma\), telt niet
           mee) <span class="computed">zelf berekend</span>; de cursus zegt "3.4 DPMO" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a>.</li>
-          <li>b. 2 × P(<var data-s="z_rv">Z</var> &gt; 6) × 10<sup>6</sup> = <b>0,002 ppm</b> <span class="computed">zelf berekend</span>; de
+          <li>b. \(2\times P(\sym{z_rv}{Z}\gt6)\times10^{6}=\) <b>0,002 ppm</b> <span class="computed">zelf berekend</span>; de
           cursus zegt "2 defect per billion of opportunities (short term)" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a>.</li>
         </ol>
-        <p>Het verschil is een factor van ruim 1700: daarom moet je bij "aan het 6σ-criterium voldoen" altijd zeggen
+        <p>Het verschil is een factor van ruim 1700: daarom moet je bij "aan het \(6\sigma\)-criterium voldoen" altijd zeggen
         welke lezing je gebruikt (vraag 3d van het voorbeeldexamen, <a href="#d13">Deel 13</a>).</p>
       </details>
     </div>
@@ -418,7 +418,7 @@
     (zie ook de doelen op <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=22">SPC p. 22</a> en de post-project-figuur op <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=26">SPC p. 26</a>):</p>
     <ol class="steps">
       <li><b>Centreren</b> (het gemiddelde naar het midden van LSL en USL): Cpk stijgt tot Cp; Cp verandert niet.</li>
-      <li><b>De spreiding σ verkleinen</b>: Cp en Cpk stijgen allebei.</li>
+      <li><b>De spreiding \(\sigma\) verkleinen</b>: Cp en Cpk stijgen allebei.</li>
     </ol>
     <div class="box key"><span class="t">Wat is het makkelijkst?</span>
     <p>Cpk verbeteren is makkelijker: kalibreren, de operator kan het corrigeren, er spelen meestal maar één of twee
@@ -435,7 +435,7 @@
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"Centreren verhoogt Cp."</b> Fout: centreren verandert de breedte niet. Cp blijft gelijk en Cpk stijgt tot Cp; alleen de spreiding verkleinen verhoogt Cp <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=36">SPC p. 36</a>.</li>
-      <li><b>"<var data-s="cp">Cp</var> = <var data-s="cpk">Cpk</var> = 0,8: eerst centreren."</b> Fout: <var data-s="cpk">Cpk</var> = <var data-s="cp">Cp</var> betekent dat het proces al in het midden ligt. De spreiding moet omlaag: "long term and difficult solutions (engineer)" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=44">SPC p. 44</a>.</li>
+      <li><b>"\(\sym{cp}{C_{p}}=\sym{cpk}{C_{pk}}=0{,}8\): eerst centreren."</b> Fout: \(\sym{cpk}{C_{pk}}=\sym{cp}{C_{p}}\) betekent dat het proces al in het midden ligt. De spreiding moet omlaag: "long term and difficult solutions (engineer)" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=44">SPC p. 44</a>.</li>
       <li><b>"Cp verbeteren is de makkelijkste ingreep."</b> Fout: Cpk verbeteren is makkelijker (kalibreren, de operator kan het corrigeren, één of twee factoren); Cp verbeteren is veel moeilijker en meestal werk voor de procesingenieur. "If Cp sucks, don't calculate Cpk" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=36">SPC p. 36</a>.</li>
       <li><b>"Variatie verminderen en centreren is iets voor productieprocessen."</b> Fout: het geldt voor alle processen <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=36">SPC p. 36</a>.</li>
       <li><b>Let op:</b> Cp stijgt ook als de klant bredere specificaties aanvaardt: de cursus noemt naast minder variatie "widen specification limits" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=23">SPC p. 23</a>.</li>
@@ -444,12 +444,12 @@
     <div class="exercise" id="ex-09-5" data-kw="capabiliteit verbeteren; improve capability; centreren; centering; spreiding verminderen; reduce variation; Cp; Cpk; operator; procesingenieur">
       <h4>Oefening 09.5 — Welke hefboom? <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=36">SPC p. 36</a></h4>
       <div class="q" data-type="choice" data-answer="centreren">
-        <label>a. <var data-s="cp">Cp</var> = 1,8 en <var data-s="cpk">Cpk</var> = 0,7. Wat doe je eerst?</label>
+        <label>a. \(\sym{cp}{C_{p}}=1{,}8\) en \(\sym{cpk}{C_{pk}}=0{,}7\). Wat doe je eerst?</label>
         <select><option value="">kies…</option><option value="centreren">het proces centreren</option><option value="spreiding">de spreiding verkleinen</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-type="choice" data-answer="spreiding">
-        <label>b. <var data-s="cp">Cp</var> = 0,8 en <var data-s="cpk">Cpk</var> = 0,8. Wat moet er gebeuren?</label>
+        <label>b. \(\sym{cp}{C_{p}}=0{,}8\) en \(\sym{cpk}{C_{pk}}=0{,}8\). Wat moet er gebeuren?</label>
         <select><option value="">kies…</option><option value="centreren">het proces centreren</option><option value="spreiding">de spreiding verkleinen</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
@@ -460,7 +460,7 @@
           <li>a. <b>Centreren</b>: de spreiding is ruim goed (Cp 1,8), maar het gemiddelde ligt te dicht bij een grens.
           Centreren brengt Cpk naar 1,8. Dat is de makkelijke ingreep, vaak door de operator ("simple question of
           adjustment", <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=44">SPC p. 44</a>).</li>
-          <li>b. <b>Spreiding verkleinen</b>: <var data-s="cpk">Cpk</var> = <var data-s="cp">Cp</var>, dus het proces ligt al in het midden; centreren helpt niet. Het
+          <li>b. <b>Spreiding verkleinen</b>: \(\sym{cpk}{C_{pk}}=\sym{cp}{C_{p}}\), dus het proces ligt al in het midden; centreren helpt niet. Het
           proces is te breed voor de tolerantie: werk voor de procesingenieur, "long term and difficult solutions"
           <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=44">SPC p. 44</a>.</li>
         </ol>
@@ -502,11 +502,11 @@
     <p>De tweede gidstabel <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=45">SPC p. 45</a> koppelt Cp aan een oordeel en een actie, met de steekproeffrequentie:</p>
     <table>
       <tr><th>Cp</th><th>Oordeel</th><th>Actie <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=45">SPC p. 45</a></th></tr>
-      <tr><td><var data-s="cp">Cp</var> ≥ 1,67</td><td>capabiliteit is meer dan genoeg</td><td>vereenvoudigen van de procesbeheersing en kostenverlaging kan in sommige gevallen; driemaandelijkse steekproeven op product</td></tr>
-      <tr><td>1,67 &gt; <var data-s="cp">Cp</var> ≥ 1,33</td><td>capabiliteit is voldoende hoog</td><td>ideale toestand, behouden; regelmatige steekproeven</td></tr>
-      <tr><td>1,33 &gt; <var data-s="cp">Cp</var> ≥ 1,00</td><td>niet voldoende hoog, maar adequaat</td><td>proces goed beheersen en in controle houden; defecten mogelijk als Cp naar 1 gaat; ingrijpen indien nodig; frequente steekproeven</td></tr>
-      <tr><td>1,00 &gt; <var data-s="cp">Cp</var> ≥ 0,67</td><td>niet voldoende</td><td>er zijn defecten gemaakt; sorteerinspectie (screening), procesbeheersing en Kaizen nodig; alle producten controleren</td></tr>
-      <tr><td>0,67 &gt; <var data-s="cp">Cp</var></td><td>zeer laag</td><td>kwaliteit niet haalbaar; verbeteren, oorzaak zoeken, noodmaatregelen; normen herbekijken; alle producten controleren</td></tr>
+      <tr><td>\(\sym{cp}{C_{p}}\ge1{,}67\)</td><td>capabiliteit is meer dan genoeg</td><td>vereenvoudigen van de procesbeheersing en kostenverlaging kan in sommige gevallen; driemaandelijkse steekproeven op product</td></tr>
+      <tr><td>\(1{,}67\gt\sym{cp}{C_{p}}\ge1{,}33\)</td><td>capabiliteit is voldoende hoog</td><td>ideale toestand, behouden; regelmatige steekproeven</td></tr>
+      <tr><td>\(1{,}33\gt\sym{cp}{C_{p}}\ge1{,}00\)</td><td>niet voldoende hoog, maar adequaat</td><td>proces goed beheersen en in controle houden; defecten mogelijk als Cp naar 1 gaat; ingrijpen indien nodig; frequente steekproeven</td></tr>
+      <tr><td>\(1{,}00\gt\sym{cp}{C_{p}}\ge0{,}67\)</td><td>niet voldoende</td><td>er zijn defecten gemaakt; sorteerinspectie (screening), procesbeheersing en Kaizen nodig; alle producten controleren</td></tr>
+      <tr><td>\(0{,}67\gt\sym{cp}{C_{p}}\)</td><td>zeer laag</td><td>kwaliteit niet haalbaar; verbeteren, oorzaak zoeken, noodmaatregelen; normen herbekijken; alle producten controleren</td></tr>
     </table>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
@@ -514,8 +514,8 @@
       <li><b>"Instabiel en niet capabel is het geval dat het dringendst is."</b> Fout: de gidstabel noemt dat "not desperate but …". "Urgent reaction needed" hoort bij instabiel met goede Cp en slechte Cpk <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=44">SPC p. 44</a>.</li>
       <li><b>"Instabiel, maar goede Cp en Cpk: geen actie nodig."</b> Fout: "the first blunder…": nu nog goed, maar het kan elk moment fout gaan; de tunnelfiguur zegt "acceptable (for now…)" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=42">SPC p. 42</a>.</li>
       <li><b>"In de vrachtwagenanalogie staat de breedte van de tunnel voor de spreiding van het proces."</b> Fout: de tunnel is de specificatie; de breedte van het spoor is de spreiding, de plaats van het spoor de ligging, en een slingerend spoor een instabiel proces <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=42">SPC p. 42–43</a>.</li>
-      <li><b>Let op:</b> in de Cp-gidstabel hoort de ondergrens bij de klasse: <var data-s="cp">Cp</var> = 1,33 is "voldoende hoog" (regelmatige steekproeven), <var data-s="cp">Cp</var> = 1,00 is "adequaat" (frequente steekproeven) en <var data-s="cp">Cp</var> = 0,67 is "niet voldoende" (alle producten controleren) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=45">SPC p. 45</a>.</li>
-      <li><b>"Bij <var data-s="cp">Cp</var> ≥ 1,67 mag je stoppen met controleren."</b> Fout: de tabel spreekt van vereenvoudigen en kostenverlaging "in sommige gevallen", met driemaandelijkse steekproeven op product <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=45">SPC p. 45</a>.</li>
+      <li><b>Let op:</b> in de Cp-gidstabel hoort de ondergrens bij de klasse: \(\sym{cp}{C_{p}}=1{,}33\) is "voldoende hoog" (regelmatige steekproeven), \(\sym{cp}{C_{p}}=1{,}00\) is "adequaat" (frequente steekproeven) en \(\sym{cp}{C_{p}}=0{,}67\) is "niet voldoende" (alle producten controleren) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=45">SPC p. 45</a>.</li>
+      <li><b>"Bij \(\sym{cp}{C_{p}}\ge1{,}67\) mag je stoppen met controleren."</b> Fout: de tabel spreekt van vereenvoudigen en kostenverlaging "in sommige gevallen", met driemaandelijkse steekproeven op product <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=45">SPC p. 45</a>.</li>
     </ul></div>
 
     <div class="exercise" id="ex-09-6" data-kw="gidstabel; guide table; stabiliteit; stability; Cp; Cpk; operator; engineer; urgent; impossible; first blunder; klasseer; classify">
@@ -557,21 +557,21 @@
     <div class="exercise" id="ex-09-7" data-kw="Cp-gidstabel; Cp guide table; oordeel; judgment; steekproeffrequentie; sampling frequency; Kaizen; 1,33; 1,67; 0,67">
       <h4>Oefening 09.7 — Oordeel en actie bij een Cp <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=45">SPC p. 45</a></h4>
       <div class="q" data-type="choice" data-answer="frequent">
-        <label>a. <var data-s="cp">Cp</var> = 1,17. Welke steekproeffrequentie raadt de tabel aan?</label>
+        <label>a. \(\sym{cp}{C_{p}}=1{,}17\). Welke steekproeffrequentie raadt de tabel aan?</label>
         <select><option value="">kies…</option><option value="kwartaal">driemaandelijks</option><option value="regelmatig">regelmatig</option><option value="frequent">frequent</option><option value="alles">alle producten controleren</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-type="choice" data-answer="alles">
-        <label>b. <var data-s="cp">Cp</var> = 0,83. Welke steekproeffrequentie?</label>
+        <label>b. \(\sym{cp}{C_{p}}=0{,}83\). Welke steekproeffrequentie?</label>
         <select><option value="">kies…</option><option value="kwartaal">driemaandelijks</option><option value="regelmatig">regelmatig</option><option value="frequent">frequent</option><option value="alles">alle producten controleren</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
-      <details class="hint"><summary>Hint</summary><p>Zoek de rij waarin de Cp valt: 1,33 &gt; <var data-s="cp">Cp</var> ≥ 1,00 of 1,00 &gt; <var data-s="cp">Cp</var> ≥ 0,67.</p></details>
+      <details class="hint"><summary>Hint</summary><p>Zoek de rij waarin de Cp valt: \(1{,}33\gt\sym{cp}{C_{p}}\ge1{,}00\) of \(1{,}00\gt\sym{cp}{C_{p}}\ge0{,}67\).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
-          <li>a. 1,17 ligt in 1,33 &gt; <var data-s="cp">Cp</var> ≥ 1,00: "not sufficiently high, but adequate"; proces goed beheersen,
+          <li>a. 1,17 ligt in \(1{,}33\gt\sym{cp}{C_{p}}\ge1{,}00\): "not sufficiently high, but adequate"; proces goed beheersen,
           <b>frequente steekproeven</b>. (1,17 is de Cp van de as-oefening, <a href="#d09-as">09.9</a>.)</li>
-          <li>b. 0,83 ligt in 1,00 &gt; <var data-s="cp">Cp</var> ≥ 0,67: "not sufficient"; er zijn defecten gemaakt, screening, procesbeheersing
+          <li>b. 0,83 ligt in \(1{,}00\gt\sym{cp}{C_{p}}\ge0{,}67\): "not sufficient"; er zijn defecten gemaakt, screening, procesbeheersing
           en Kaizen; <b>alle producten controleren</b>.</li>
         </ol>
       </details>
@@ -587,17 +587,17 @@
     <div class="exercise" id="ex-09-8" data-kw="oefening as; axle; Cp; Cpk; uitval; reject; ppm; gecentreerd; centered; NORM.VERD; tweezijdig; two-sided; transmissie">
       <h4>Oefening 09.8 — Proces capabiliteit: oefening <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=46">SPC p. 46</a></h4>
       <p>Een as die gebruikt wordt in een automatische transmissie moet een lengte hebben tussen <b>71,4 mm en 72,8 mm</b>.
-      Het productieproces wordt gemonitord met een X̄-kaart en een s-kaart, met steekproeven van lengte 5. De kaarten
-      tonen aan dat het proces beheerst verloopt. Uit de kaarten blijkt dat <b><var data-s="xbar">X̄</var> = 71,8 mm</b> en <b><var data-s="sbar">s̄</var> = 0,2 mm</b>.
+      Het productieproces wordt gemonitord met een \(\bar{X}\)-kaart en een s-kaart, met steekproeven van lengte 5. De kaarten
+      tonen aan dat het proces beheerst verloopt. Uit de kaarten blijkt dat <b>\(\sym{xbar}{\bar{X}}=71{,}8\) mm</b> en <b>\(\sym{sbar}{\bar{s}}=0{,}2\) mm</b>.
       Is dit proces geschikt om aan de specificaties van de klant te voldoen? Hoeveel % uitval mogen we verwachten? Wat
-      als het gemiddelde in het midden gelegd wordt: wat worden dan Cp, Cpk en de uitval? Gebruik <var data-s="sigma">σ</var> = <var data-s="sbar">s̄</var> = 0,2, zoals
+      als het gemiddelde in het midden gelegd wordt: wat worden dan Cp, Cpk en de uitval? Gebruik \(\sym{sigma}{\sigma}=\sym{sbar}{\bar{s}}=0{,}2\), zoals
       de cursus.</p>
       <div class="q" data-answer="1.1667" data-tol="0.0005">
         <label>a. <var data-s="cp">Cp</var> (4 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="0.667" data-tol="0.005">
-        <label>b. <var data-s="cpk">Cpk</var> (2 à 3 decimalen) =</label> <input type="text" inputmode="decimal">
+        <label>b. <var data-s="cpk">Cpk</var> (\(2\ a\ 3\) decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-type="choice" data-answer="neen">
@@ -625,52 +625,52 @@
         <label>h. Dezelfde uitval in ppm =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
-      <details class="hint"><summary>Hint</summary><p><var data-s="cp">Cp</var> = (72,8 − 71,4)/(6 × 0,2). <var data-s="cpk">Cpk</var>: afstand van 71,8 tot de dichtste
+      <details class="hint"><summary>Hint</summary><p>\(\sym{cp}{C_{p}}=\frac{72{,}8-71{,}4}{6\times0{,}2}\). <var data-s="cpk">Cpk</var>: afstand van 71,8 tot de dichtste
       grens, gedeeld door 3 × 0,2. Uitval: reken z voor elke grens, zoek beide staarten op en tel op. Gecentreerd: het
       midden van 71,4 en 72,8.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
-          <li>a. <var data-s="cp">Cp</var> = (72,8 − 71,4)/(6 × 0,2) = 1,4/1,2 = <b>1,1667</b>. De notities en het werkboek schrijven
+          <li>a. \(\sym{cp}{C_{p}}=\frac{72{,}8-71{,}4}{6\times0{,}2}=\frac{1{,}4}{1{,}2}=\) <b>1,1667</b>. De notities en het werkboek schrijven
           "1,166"; afgerond is dat 1,167 (de cel Q15 van het werkboek bevat 1,1667).</li>
-          <li>b. <var data-s="cpu">CPU</var> = (72,8 − 71,8)/(3 × 0,2) = 1,67 en <var data-s="cpl">CPL</var> = (71,8 − 71,4)/(3 × 0,2) = 0,67; <var data-s="cpk">Cpk</var> = min = <b>0,67</b>
-          (notities: "min (1,67 , 0,67) = 0,67"). In de cursusnotatie is de punt een maalteken: "6.0,2" betekent
+          <li>b. \(\sym{cpu}{\mathrm{CPU}}=\frac{72{,}8-71{,}8}{3\times0{,}2}=1{,}67\) en \(\sym{cpl}{\mathrm{CPL}}=\frac{71{,}8-71{,}4}{3\times0{,}2}=0{,}67\); \(\sym{cpk}{C_{pk}}=\min=\) <b>0,67</b>
+          (notities: "\(\min(1{,}67,0{,}67)=0{,}67\)"). In de cursusnotatie is de punt een maalteken: "6.0,2" betekent
           6 × 0,2.</li>
-          <li>c. <b>Neen</b>: <var data-s="cpk">Cpk</var> = 0,67 ligt ver onder 1, het proces ligt te dicht bij de ondergrens (op <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=41">SPC p. 41</a> staat
-          <var data-s="cpk">Cpk</var> = 0,66 bij "scrap"). <var data-s="cp">Cp</var> = 1,17 valt in
+          <li>c. <b>Neen</b>: \(\sym{cpk}{C_{pk}}=0{,}67\) ligt ver onder 1, het proces ligt te dicht bij de ondergrens (op <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=41">SPC p. 41</a> staat
+          \(\sym{cpk}{C_{pk}}=0{,}66\) bij "scrap"). \(\sym{cp}{C_{p}}=1{,}17\) valt in
           de klasse "niet voldoende hoog, maar adequaat" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=45">SPC p. 45</a>: de spreiding is dus niet het grootste probleem, de
           ligging wel.</li>
-          <li>d. Ondergrens: <var data-s="z">z</var> = (71,8 − 71,4)/0,2 = 2,0; Z-tabel P(<var data-s="z_rv">Z</var> &lt; −2,00) = 0,0228, exact <b>2,275 %</b>.
-          Bovengrens: <var data-s="z">z</var> = (72,8 − 71,8)/0,2 = 5,0; staart 0,29 ppm, verwaarloosbaar (werkboek: "Andere kant: 1,67 * 3
+          <li>d. Ondergrens: \(\sym{z}{z}=\frac{71{,}8-71{,}4}{0{,}2}=2{,}0\); Z-tabel \(P(\sym{z_rv}{Z}\lt-2{,}00)=0{,}0228\), exact <b>2,275 %</b>.
+          Bovengrens: \(\sym{z}{z}=\frac{72{,}8-71{,}8}{0{,}2}=5{,}0\); staart 0,29 ppm, verwaarloosbaar (werkboek: "Andere kant: 1,67 * 3
           Sigma = 5 Sigma, uitval = 0,29 ppm"). Totaal <b>2,28 %</b> = 22 750 ppm <span class="computed">zelf
           berekend</span>. In Excel: <code>NORM.VERD(71,4;71,8;0,2;WAAR)</code>, de formule die de notities zelf
           noemen.</li>
-          <li>e. Midden: (71,4 + 72,8)/2 = <b>72,1 mm</b>.</li>
-          <li>f. Cp blijft 1,1667 (de spreiding verandert niet). <var data-s="cpk">Cpk</var> = (72,1 − 71,4)/(3 × 0,2) = 0,7/0,6 =
+          <li>e. Midden: \(\frac{71{,}4+72{,}8}{2}=\) <b>72,1 mm</b>.</li>
+          <li>f. Cp blijft 1,1667 (de spreiding verandert niet). \(\sym{cpk}{C_{pk}}=\frac{72{,}1-71{,}4}{3\times0{,}2}=\frac{0{,}7}{0{,}6}=\)
           <b>1,1667</b> = <var data-s="cp">Cp</var>.</li>
-          <li>g. Elke grens ligt nu 0,7/0,2 = 3,5<var data-s="sigma">σ</var> ver. Eén staart P(<var data-s="z_rv">Z</var> &gt; 3,5) = 0,0233 %, twee staarten
+          <li>g. Elke grens ligt nu \(\frac{0{,}7}{0{,}2}=3{,}5\sym{sigma}{\sigma}\) ver. Eén staart \(P(\sym{z_rv}{Z}\gt3{,}5)=0{,}0233\ \%\), twee staarten
           <b>0,0465 %</b> <span class="computed">zelf berekend</span>.</li>
           <li>h. <b>465 ppm</b> (233 ppm per zijde) <span class="computed">zelf berekend</span>.</li>
         </ol>
         <div class="box warn"><span class="t">De notities wijken hier af</span>
         <ul>
           <li>Voor het niet-gecentreerde proces zeggen de notities "0,67.6 sigma = 4,02 sigma = 95 %, 5 % uitval,
-          50.000 ppm, 1 zijdig: 2,5 % of 25.000 ppm". Die redenering klopt niet: <var data-s="cpk">Cpk</var> × 6 is geen breedte van het
-          proces. Juist is: 2,275 % onder de ondergrens (<var data-s="z">z</var> = 2) en bijna niets boven de bovengrens (<var data-s="z">z</var> = 5), samen
-          <b>2,28 %</b> of 22 750 ppm. De "2,5 %" ligt daar dicht bij omdat ze uit de afgeronde 95 % van ±2σ komt.</li>
+          50.000 ppm, 1 zijdig: 2,5 % of 25.000 ppm". Die redenering klopt niet: \(\sym{cpk}{C_{pk}}\times6\) is geen breedte van het
+          proces. Juist is: 2,275 % onder de ondergrens \((\sym{z}{z}=2)\) en bijna niets boven de bovengrens \((\sym{z}{z}=5)\), samen
+          <b>2,28 %</b> of 22 750 ppm. De "2,5 %" ligt daar dicht bij omdat ze uit de afgeronde 95 % van ±\(2\sigma\) komt.</li>
           <li>Voor het gecentreerde proces zeggen de notities "3,5 sigma = 1 zijdig 0,02 % of 200 ppm, maar je moet hier
           2 zijdig rekenen: 0,04 % of 400 ppm". De aanpak (beide zijden tellen) is juist, maar ze verdubbelen de
           afgeronde 0,02 %. Exact: <b>233 ppm per zijde, 465 ppm samen</b> (0,0465 %).</li>
         </ul>
         <p>Zie ook <a href="#fouten">Fouten in de slides</a>.</p>
         </div>
-        <p>Besluit: centreren alleen haalt de uitval van 2,28 % naar 0,05 %, maar met <var data-s="cp">Cp</var> = <var data-s="cpk">Cpk</var> = 1,17 is het proces nog
-        steeds niet "acceptabel" (<var data-s="cp">Cp</var> ≥ 1,33, <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a>). Daarvoor moet ook de spreiding omlaag.</p>
+        <p>Besluit: centreren alleen haalt de uitval van 2,28 % naar 0,05 %, maar met \(\sym{cp}{C_{p}}=\sym{cpk}{C_{pk}}=1{,}17\) is het proces nog
+        steeds niet "acceptabel" (\(\sym{cp}{C_{p}}\ge1{,}33\), <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a>). Daarvoor moet ook de spreiding omlaag.</p>
       </details>
     </div>
 
     <p><b>De grafieken hieronder</b> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=47">SPC p. 47</a> komen uit het werkboek <a class="p" href="../source/course/Les%204/Exercise%20axis%20-%20vizualisation.xlsx">Exercise axis - vizualisation.xlsx</a>. Kolom A loopt van 71,0 tot 73,5 mm; kolom B is
     <code>NORMDIST(<var data-s="x">x</var>;71,8;0,2;FALSE)</code> en kolom C <code>NORMDIST(<var data-s="x">x</var>;72,1;0,2;FALSE)</code>: met cumulatief = ONWAAR
-    geeft NORM.VERD de hoogte van de curve (piek 1,99 bij <var data-s="x">x</var> = 71,8). De linkergrafiek toont de curve rond 71,8 met de
+    geeft NORM.VERD de hoogte van de curve (piek 1,99 bij \(\sym{x}{x}=71{,}8\)). De linkergrafiek toont de curve rond 71,8 met de
     grenzen 71,4 en 72,8 als oranje lijnen; de rechter toont de verschuiving van 71,8 (rood) naar 72,1 (groen), met de
     staart onder 71,4 omcirkeld.</p>
     <figure class="fig"><img src="figures/09_as_grafieken.png" alt="Twee Excel-grafieken: links een normale curve rond 71,8 met verticale grenzen op 71,4 en 72,8; rechts dezelfde curve en een curve rond 72,1, met een pijl naar rechts en een cirkel rond de staart onder 71,4">
@@ -678,10 +678,9 @@
 
     <div class="exercise" id="ex-09-9" data-kw="s̄/c4; c4; zuivere schatting; unbiased; σ-schatting; sigma estimate; Table A; Wheeler; Cp; Cpk; oefening as">
       <h4>Oefening 09.9 — Dezelfde as met σ = s̄/c<sub>4</sub> <a class="p" href="../source/course/Les%204/___4.1%20tabellen%20SPC.pdf#page=1">Tabellen SPC p. 1</a></h4>
-      <p>Table A van Wheeler <a class="p" href="../source/course/Les%204/___4.1%20tabellen%20SPC.pdf#page=1">Tabellen SPC p. 1</a> geeft <var data-s="sbar">s̄</var>/<var data-s="c4">c<sub>4</sub></var> als zuivere schatting van σ; voor <var data-s="n_sub">n</var> = 5 is <var data-s="c4">c<sub>4</sub></var> =
-      0,9400. Herreken de as-oefening (LSL 71,4, USL 72,8, <var data-s="xbar">X̄</var> = 71,8, <var data-s="sbar">s̄</var> = 0,2) met deze σ.</p>
+      <p>Table A van Wheeler <a class="p" href="../source/course/Les%204/___4.1%20tabellen%20SPC.pdf#page=1">Tabellen SPC p. 1</a> geeft \(\frac{\sym{sbar}{\bar{s}}}{\sym{c4}{c_{4}}}\) als zuivere schatting van \(\sigma\); voor \(\sym{n_sub}{n}=5\) is \(\sym{c4}{c_{4}}=0{,}9400\). Herreken de as-oefening (LSL 71,4, USL 72,8, \(\sym{xbar}{\bar{X}}=71{,}8\), \(\sym{sbar}{\bar{s}}=0{,}2\)) met deze \(\sigma\).</p>
       <div class="q" data-answer="0.2128" data-tol="0.0001">
-        <label>a. <var data-s="sigma">σ</var> = <var data-s="sbar">s̄</var>/<var data-s="c4">c<sub>4</sub></var> (4 decimalen) =</label> <input type="text" inputmode="decimal">
+        <label>a. \(\sym{sigma}{\sigma}=\frac{\sym{sbar}{\bar{s}}}{\sym{c4}{c_{4}}}\) (4 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="1.097" data-tol="0.001">
@@ -696,23 +695,23 @@
         <label>d. Uitval onder LSL, in % (2 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
-      <details class="hint"><summary>Hint</summary><p><var data-s="sigma">σ</var> = 0,2/0,94. Daarna dezelfde stappen als in oefening 09.8.</p></details>
+      <details class="hint"><summary>Hint</summary><p>\(\sym{sigma}{\sigma}=\frac{0{,}2}{0{,}94}\). Daarna dezelfde stappen als in oefening 09.8.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
-          <li>a. <var data-s="sigma">σ</var> = 0,2/0,9400 = <b>0,2128</b> <span class="computed">zelf berekend</span>.</li>
-          <li>b. <var data-s="cp">Cp</var> = 1,4/(6 × 0,2128) = <b>1,097</b> <span class="computed">zelf berekend</span>.</li>
-          <li>c. <var data-s="cpk">Cpk</var> = 0,4/(3 × 0,2128) = <b>0,627</b> <span class="computed">zelf berekend</span>.</li>
-          <li>d. <var data-s="z">z</var> = 0,4/0,2128 = 1,88; Z-tabel P(<var data-s="z_rv">Z</var> &lt; −1,88) = 0,0301 → <b>3,01 %</b>
+          <li>a. \(\sym{sigma}{\sigma}=\frac{0{,}2}{0{,}9400}=\) <b>0,2128</b> <span class="computed">zelf berekend</span>.</li>
+          <li>b. \(\sym{cp}{C_{p}}=\frac{1{,}4}{6\times0{,}2128}=\) <b>1,097</b> <span class="computed">zelf berekend</span>.</li>
+          <li>c. \(\sym{cpk}{C_{pk}}=\frac{0{,}4}{3\times0{,}2128}=\) <b>0,627</b> <span class="computed">zelf berekend</span>.</li>
+          <li>d. \(\sym{z}{z}=\frac{0{,}4}{0{,}2128}=1{,}88\); Z-tabel \(P(\sym{z_rv}{Z}\lt-1{,}88)=0{,}0301\to\) <b>3,01 %</b>
           <span class="computed">zelf berekend</span>.</li>
         </ol>
-        <p>De σ is 6 % groter, dus alle indices zijn 6 % kleiner en de uitval stijgt van 2,28 % naar 3,01 %. De cursus
-        rekent de oefening met s̄ rechtstreeks; de rekentool toont beide rijen naast elkaar, zodat je ziet hoeveel de
+        <p>De \(\sigma\) is 6 % groter, dus alle indices zijn 6 % kleiner en de uitval stijgt van 2,28 % naar 3,01 %. De cursus
+        rekent de oefening met \(\bar{s}\) rechtstreeks; de rekentool toont beide rijen naast elkaar, zodat je ziet hoeveel de
         keuze uitmaakt.</p>
       </details>
     </div>
 
     <div class="box tool"><span class="t">Rekentool</span>
-    <p>Werkblad <b>Capability</b>: LSL 71,4, USL 72,8, gemiddelde 71,8 in blok 1; <var data-s="sbar">s̄</var> = 0,2 en <var data-s="n_sub">n</var> = 5 in blok 2. Rij
+    <p>Werkblad <b>Capability</b>: LSL 71,4, USL 72,8, gemiddelde 71,8 in blok 1; \(\sym{sbar}{\bar{s}}=0{,}2\) en \(\sym{n_sub}{n}=5\) in blok 2. Rij
     "s-bar used directly" geeft de cursusuitkomst, rij "s-bar / c4" de variant van oefening 09.9. Vul 72,1 als
     gemiddelde in voor het gecentreerde geval.</p>
     </div>
@@ -726,38 +725,38 @@
     <p>Minitab geeft vier rapporten voor dezelfde dataset C1 <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=48">SPC p. 48</a>:</p>
     <ol class="steps">
       <li><b>Report Card</b> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=49">SPC p. 49</a>: vier controles. <i>Stability</i> (waarschuwing): geen punten buiten de
-      regelgrenzen, maar te veel punten op een rij binnen 1 standaardafwijking van de centerlijn van de X̄-kaart. De
+      regelgrenzen, maar te veel punten op een rij binnen 1 standaardafwijking van de centerlijn van de \(\bar{X}\)-kaart. De
       spreiding binnen de subgroepen is waarschijnlijk opgeblazen, wat de "potential" capabiliteit beïnvloedt, en de
-      grenzen van de X̄-kaart zijn te breed. Waarschijnlijk zit er een systematische bron van variatie binnen de
+      grenzen van de \(\bar{X}\)-kaart zijn te breed. Waarschijnlijk zit er een systematische bron van variatie binnen de
       subgroepen. <i>Number of subgroups</i> (info): slechts 13 subgroepen; aanbevolen zijn er minstens 25.
       <i>Normality</i>: de data doorstaan de normaliteitstoets. <i>Amount of data</i>: 100 of meer waarnemingen, de
       schattingen zijn redelijk precies.</li>
       <li><b>Summary Report</b> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=50">SPC p. 50</a>: LSL 0,145, USL 0,155, geen doel; gemiddelde 0,14852, standaardafwijking
       (overall) 0,0025303; Pp 0,66, Ppk 0,46, Z.Bench 1,36, % out of spec 8,74, PPM 87 445. De balk "How capable is the
-      process?" toont <var data-s="z_bench">Z potential</var> = 1,32 en <var data-s="z_bench">Z actual</var> = 1,36.</li>
+      process?" toont \(\sym{z_bench}{Z\ \text{potential}}=1{,}32\) en \(\sym{z_bench}{Z\ \text{actual}}=1{,}36\).</li>
       <li><b>Process Performance Report</b> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=51">SPC p. 51</a>: Total N 180, subgroepgrootte 14, standaardafwijking (within)
       0,0025891. Actual (overall): Pp 0,66, Ppk 0,46, Z.Bench 1,36, % out of spec observed 8,89 en expected 8,74, PPM
       observed 88 889 en expected 87 445. Potential (within): Cp 0,64, Cpk 0,45, Z.Bench 1,32, % out of spec expected
       9,33, PPM 93 282.</li>
-      <li><b>Diagnostic Report</b> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=52">SPC p. 52</a>: een X̄-S-kaart met 13 subgroepen ("Confirm that the process is
+      <li><b>Diagnostic Report</b> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=52">SPC p. 52</a>: een \(\bar{X}\)-S-kaart met 13 subgroepen ("Confirm that the process is
       stable") en een normaliteitsplot met de Anderson-Darling-toets: "Pass", p-waarde 0,553.</li>
     </ol>
     <figure class="fig"><img src="figures/09_minitab_performance.png" alt="Minitab Process Performance Report: histogram van 180 waarnemingen met LSL 0,145 en USL 0,155 en twee normale curves, naast een tabel met Pp 0,66, Ppk 0,46, Cp 0,64, Cpk 0,45 en het percentage buiten specificatie">
     <figcaption>Figuur: het Process Performance Report. Het histogram toont dat een deel van de data links van LSL valt; de volle curve is de overall-verdeling ("what the customer experiences"), de stippellijn de within-verdeling ("what could be achieved if process shifts and drifts were eliminated"). Rechts de getallen: Actual (overall) Pp, Ppk en Potential (within) Cp, Cpk. <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=51">SPC p. 51</a></figcaption></figure>
     <figure class="fig"><img src="figures/09_minitab_diagnostic.png" alt="Minitab Diagnostic Report: X-bar-kaart en S-kaart van 13 subgroepen zonder punten buiten de regelgrenzen, en een normaliteitsplot met de Anderson-Darling-toets Pass, p-waarde 0,553">
-    <figcaption>Figuur: het Diagnostic Report. Boven de X̄-S-kaart van 13 subgroepen ("Confirm that the process is stable"): geen punten buiten de grenzen, maar de gemiddelden liggen dicht bij de centerlijn. Onder het normaliteitsplot: de punten liggen dicht bij de lijn, Anderson-Darling "Pass" met p-waarde 0,553. <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=52">SPC p. 52</a></figcaption></figure>
+    <figcaption>Figuur: het Diagnostic Report. Boven de \(\bar{X}\)-S-kaart van 13 subgroepen ("Confirm that the process is stable"): geen punten buiten de grenzen, maar de gemiddelden liggen dicht bij de centerlijn. Onder het normaliteitsplot: de punten liggen dicht bij de lijn, Anderson-Darling "Pass" met p-waarde 0,553. <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=52">SPC p. 52</a></figcaption></figure>
 
     <div class="box key"><span class="t">Zo lees je het rapport</span>
     <ul>
       <li><b>Observed</b> = wat echt buiten de grenzen viel (8,89 % van 180 = 16 waarnemingen
       <span class="computed">zelf berekend</span>); <b>expected</b> = wat de normale verdeling voorspelt.</li>
       <li><b>Z.Bench</b> is een Minitab-getal dat de cursus niet uitlegt. Narekenen toont dat het de z-waarde is
-      waarvoor één staart even groot is als de totale % buiten specificatie: 8,74 % hoort bij <var data-s="z">z</var> = 1,36 en 9,33 % bij
-      <var data-s="z">z</var> = 1,32 <span class="computed">zelf berekend</span>.</li>
-      <li>Hier is <var data-s="sigma_st">σ(within)</var> = 0,0025891 <b>groter</b> dan <var data-s="sigma_lt">σ(overall)</var> = 0,0025303, en dus <var data-s="cp">Cp</var> &lt; <var data-s="pp">Pp</var>. Normaal is het
+      waarvoor één staart even groot is als de totale % buiten specificatie: 8,74 % hoort bij \(\sym{z}{z}=1{,}36\) en 9,33 % bij
+      \(\sym{z}{z}=1{,}32\) <span class="computed">zelf berekend</span>.</li>
+      <li>Hier is \(\sym{sigma_st}{\sigma(\text{within})}=0{,}0025891\) <b>groter</b> dan \(\sym{sigma_lt}{\sigma(\text{overall})}=0{,}0025303\), en dus \(\sym{cp}{C_{p}}\lt\sym{pp}{P_{p}}\). Normaal is het
       omgekeerd: de lange termijn bevat ook de verschuivingen tussen de groepen en is daardoor breder (figuur in <a href="#d09-ppk">09.4</a>,
       <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=25">SPC p. 25</a>).
-      De Report Card verklaart het: een systematische bron van variatie binnen de subgroepen blaast σ(within) op.</li>
+      De Report Card verklaart het: een systematische bron van variatie binnen de subgroepen blaast \(\sigma\)(within) op.</li>
       <li>Minstens 25 subgroepen voor capabiliteit (Minitab Report Card, <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=49">SPC p. 49</a>) tegenover minstens 20 voor een regelkaart
       (<a href="#d10">Deel 10</a>): beide getallen staan in de cursus (beslissing 13), zie <a href="#d10-opzet">10.3</a>.</li>
     </ul>
@@ -766,15 +765,15 @@
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"Observed en expected % out of spec zijn hetzelfde."</b> Fout: observed is wat echt buiten de grenzen viel (8,89 %, 16 van de 180 waarnemingen <span class="computed">zelf berekend</span>); expected is wat de normale verdeling voorspelt (8,74 %) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=51">SPC p. 51</a>.</li>
-      <li><b>"<var data-s="z_bench">Z.Bench</var> is 3 × <var data-s="ppk">Ppk</var>."</b> Fout: Z.Bench is de z waarvoor één staart even groot is als de totale % buiten specificatie, beide kanten samen. Daarom is Z.Bench 1,36 iets kleiner dan 3 × <var data-s="ppk">Ppk</var> = <var data-s="zl">z<sub>L</sub></var> = 1,391 <span class="computed">zelf berekend</span> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=51">SPC p. 51</a>.</li>
-      <li><b>"De Anderson-Darling-toets slaagt (<var data-s="p_value">p</var> = 0,553), dus de data zijn bewezen normaal."</b> Fout: een niet-significante toets bewijst niets; hij vindt alleen geen bewijs tegen normaliteit <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=52">SPC p. 52</a>. Zie <a href="#d05-pwaarde">05.4</a>. <span class="gen">algemeen</span></li>
+      <li><b>"<var data-s="z_bench">Z.Bench</var> is \(3\times\sym{ppk}{P_{pk}}\)."</b> Fout: Z.Bench is de z waarvoor één staart even groot is als de totale % buiten specificatie, beide kanten samen. Daarom is Z.Bench 1,36 iets kleiner dan \(3\times\sym{ppk}{P_{pk}}=\sym{zl}{z_{L}}=1{,}391\) <span class="computed">zelf berekend</span> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=51">SPC p. 51</a>.</li>
+      <li><b>"De Anderson-Darling-toets slaagt \((\sym{p_value}{p}=0{,}553)\), dus de data zijn bewezen normaal."</b> Fout: een niet-significante toets bewijst niets; hij vindt alleen geen bewijs tegen normaliteit <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=52">SPC p. 52</a>. Zie <a href="#d05-pwaarde">05.4</a>. <span class="gen">algemeen</span></li>
       <li><b>"Voor een capabiliteitsanalyse volstaan 20 subgroepen, zoals voor een regelkaart."</b> Fout: Minitab raadt voor capabiliteit minstens 25 subgroepen aan; met 13 geeft de Report Card een waarschuwing <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=49">SPC p. 49</a>. Beide getallen staan in de cursus (<a href="#d10-opzet">10.3</a>).</li>
       <li><b>Let op:</b> met het afgedrukte gemiddelde 0,14852 kom je op 8,73 % in plaats van 8,74 % <span class="computed">zelf berekend</span>: Minitab rekent met het onafgeronde gemiddelde. Dat is geen rekenfout van jou.</li>
     </ul></div>
 
     <div class="exercise" id="ex-09-10" data-kw="Minitab; Pp; Ppk; Cp; Cpk; within; overall; % out of spec; narekenen; recompute; 0,145; 0,155">
       <h4>Oefening 09.10 — Het Minitab-rapport narekenen (extra) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=50">SPC p. 50–51</a></h4>
-      <p><var data-s="ll">LSL</var> = 0,145; <var data-s="ul">USL</var> = 0,155; gemiddelde = 0,14852; <var data-s="sigma_lt">σ(overall)</var> = 0,0025303; <var data-s="sigma_st">σ(within)</var> = 0,0025891.</p>
+      <p>\(\sym{ll}{\mathrm{LSL}}=0{,}145\); \(\sym{ul}{\mathrm{USL}}=0{,}155\); gemiddelde = 0,14852; \(\sym{sigma_lt}{\sigma(\text{overall})}=0{,}0025303\); \(\sym{sigma_st}{\sigma(\text{within})}=0{,}0025891\).</p>
       <div class="q" data-answer="0.66" data-tol="0.005">
         <label>a. <var data-s="pp">Pp</var> (2 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
@@ -792,23 +791,22 @@
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="8.73" data-tol="0.02">
-        <label>e. % buiten specificatie met σ(overall), beide zijden (2 decimalen) =</label> <input type="text" inputmode="decimal">
+        <label>e. % buiten specificatie met \(\sigma\)(overall), beide zijden (2 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
-      <details class="hint"><summary>Hint</summary><p>Pp en Ppk met σ(overall), Cp en Cpk met σ(within). Voor e: <var data-s="zl">z<sub>L</sub></var>
-      = (0,14852 − 0,145)/0,0025303 en <var data-s="zu">z<sub>U</sub></var> = (0,155 − 0,14852)/0,0025303.</p></details>
+      <details class="hint"><summary>Hint</summary><p>Pp en Ppk met \(\sigma\)(overall), Cp en Cpk met \(\sigma\)(within). Voor e: \(\sym{zl}{z_{L}}=\frac{0{,}14852-0{,}145}{0{,}0025303}\) en \(\sym{zu}{z_{U}}=\frac{0{,}155-0{,}14852}{0{,}0025303}\).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
-          <li>a. <var data-s="pp">Pp</var> = 0,010/(6 × 0,0025303) = 0,659 → <b>0,66</b>.</li>
-          <li>b. <var data-s="ppk">Ppk</var> = min{0,00648; 0,00352}/(3 × 0,0025303) = 0,00352/0,0075909 = 0,464 → <b>0,46</b>.</li>
-          <li>c. <var data-s="cp">Cp</var> = 0,010/(6 × 0,0025891) = 0,644 → <b>0,64</b>.</li>
-          <li>d. <var data-s="cpk">Cpk</var> = 0,00352/(3 × 0,0025891) = 0,453 → <b>0,45</b>.</li>
-          <li>e. <var data-s="zl">z<sub>L</sub></var> = 1,391 → 8,209 % onder LSL; <var data-s="zu">z<sub>U</sub></var> = 2,561 → 0,522 % boven USL; samen
+          <li>a. \(\sym{pp}{P_{p}}=\frac{0{,}010}{6\times0{,}0025303}=0{,}659\to\) <b>0,66</b>.</li>
+          <li>b. \(\sym{ppk}{P_{pk}}=\) min{0,00648; 0,00352}/\((3\times0{,}0025303)=\frac{0{,}00352}{0{,}0075909}=0{,}464\to\) <b>0,46</b>.</li>
+          <li>c. \(\sym{cp}{C_{p}}=\frac{0{,}010}{6\times0{,}0025891}=0{,}644\to\) <b>0,64</b>.</li>
+          <li>d. \(\sym{cpk}{C_{pk}}=\frac{0{,}00352}{3\times0{,}0025891}=0{,}453\to\) <b>0,45</b>.</li>
+          <li>e. \(\sym{zl}{z_{L}}=1{,}391\to8{,}209\ \%\) onder LSL; \(\sym{zu}{z_{U}}=2{,}561\to0{,}522\ \%\) boven USL; samen
           <b>8,73 %</b> <span class="computed">zelf berekend</span>. Minitab drukt 8,74 % af (en 9,33 % voor within,
           waar het gedrukte gemiddelde 9,31 % geeft): Minitab rekent met het onafgeronde gemiddelde, het rapport toont het
           afgerond op 5 decimalen.</li>
         </ol>
-        <p>Alle vier de indices liggen ver onder 1: het proces is niet capabel. <var data-s="ppk">Ppk</var> ≪ <var data-s="pp">Pp</var>, dus het ligt bovendien te dicht
+        <p>Alle vier de indices liggen ver onder 1: het proces is niet capabel. \(\sym{ppk}{P_{pk}}\ll\sym{pp}{P_{p}}\), dus het ligt bovendien te dicht
         bij de ondergrens (bijna alle uitval zit onder LSL).</p>
       </details>
     </div>
@@ -822,25 +820,25 @@
     <ol class="steps">
       <li><b>Is het proces stabiel en normaal?</b> Capabiliteit veronderstelt een beheerst proces (regelkaart,
       <a href="#d10">Deel 10</a>) en een normale verdeling (<a href="#d03-normaal">03.3</a>). Vermeld de aanname.</li>
-      <li><b>Verzamel LSL, USL, x̄ en σ.</b> Welke σ? Korte termijn (within: σ gegeven, <var data-s="rbar">R̄</var>/<var data-s="d2">d<sub>2</sub></var>, s̄ of
-      <var data-s="sbar">s̄</var>/<var data-s="c4">c<sub>4</sub></var>) geeft Cp, Cpk; de totale s geeft Pp, Ppk (<a href="#d09-ppk">09.4</a>).</li>
-      <li><b><var data-s="cp">Cp</var></b> = (<var data-s="ul">USL</var> − <var data-s="ll">LSL</var>)/(6<var data-s="sigma">σ</var>) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=34">SPC p. 34</a>.</li>
-      <li><b><var data-s="cpl">CPL</var>, <var data-s="cpu">CPU</var> en <var data-s="cpk">Cpk</var></b> = min <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=35">SPC p. 35</a>. Is <var data-s="cpk">Cpk</var> &lt; <var data-s="cp">Cp</var>, dan ligt het proces niet in het midden.</li>
-      <li><b>Uitval</b>: <var data-s="zl">z<sub>L</sub></var> = 3·<var data-s="cpl">CPL</var> en <var data-s="zu">z<sub>U</sub></var> = 3·<var data-s="cpu">CPU</var>; tel beide staarten op (Z-tabel of
+      <li><b>Verzamel LSL, USL, \(\bar{x}\) en \(\sigma\).</b> Welke \(\sigma\)? Korte termijn (within: \(\sigma\) gegeven, \(\frac{\sym{rbar}{\bar{R}}}{\sym{d2}{d_{2}}}\), \(\bar{s}\) of
+      \(\frac{\sym{sbar}{\bar{s}}}{\sym{c4}{c_{4}}}\)) geeft Cp, Cpk; de totale s geeft Pp, Ppk (<a href="#d09-ppk">09.4</a>).</li>
+      <li><b><var data-s="cp">Cp</var></b> = \(\frac{\sym{ul}{\mathrm{USL}}-\sym{ll}{\mathrm{LSL}}}{6\sym{sigma}{\sigma}}\) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=34">SPC p. 34</a>.</li>
+      <li><b><var data-s="cpl">CPL</var>, <var data-s="cpu">CPU</var> en <var data-s="cpk">Cpk</var></b> = min <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=35">SPC p. 35</a>. Is \(\sym{cpk}{C_{pk}}\lt\sym{cp}{C_{p}}\), dan ligt het proces niet in het midden.</li>
+      <li><b>Uitval</b>: \(\sym{zl}{z_{L}}=3\cdot\sym{cpl}{\mathrm{CPL}}\) en \(\sym{zu}{z_{U}}=3\cdot\sym{cpu}{\mathrm{CPU}}\); tel beide staarten op (Z-tabel of
       NORM.VERD) (<a href="#d09-uitval">09.5</a>).</li>
       <li><b>Oordeel</b>: tabellen op <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a>, <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=44">SPC p. 44</a> en <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=45">SPC p. 45</a>, en de figuur op
       <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=41">SPC p. 41</a> voor Cpk (1,33 "good").</li>
-      <li><b>Verbeteren</b>: centreren (<var data-s="cpk">Cpk</var> → <var data-s="cp">Cp</var>) en/of de spreiding verkleinen (Cp en Cpk omhoog)
-      (<a href="#d09-verbeteren">09.7</a>). Gecentreerd ligt elke grens 3·<var data-s="cp">Cp</var> <var data-s="sigma">σ</var> ver.</li>
-      <li><b>6σ-criterium</b>: geef beide lezingen, 3,4 ppm (lange termijn, 1,5σ-verschuiving) en 0,002 ppm (<var data-s="cp">Cp</var> = 2,
+      <li><b>Verbeteren</b>: centreren \((\sym{cpk}{C_{pk}}\to\sym{cp}{C_{p}})\) en/of de spreiding verkleinen (Cp en Cpk omhoog)
+      (<a href="#d09-verbeteren">09.7</a>). Gecentreerd ligt elke grens \(3\cdot\sym{cp}{C_{p}}\ \sym{sigma}{\sigma}\) ver.</li>
+      <li><b>\(6\sigma\)-criterium</b>: geef beide lezingen, 3,4 ppm (lange termijn, \(1{,}5\sigma\)-verschuiving) en 0,002 ppm (\(\sym{cp}{C_{p}}=2\),
       korte termijn) (<a href="#d09-sixsigma">09.6</a>).</li>
     </ol>
     <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-09-mr">14 Dummies: σ<sub>ST</sub> uit individuele waarden, MR̄/1,128</a>, <a href="#d14-09-cpk">14 Dummies: CPU en CPL met σ<sub>ST</sub>, negatieve Cpk en de vuistregel Cpk &gt; 1,33</a>.</p>
     <div class="box tool"><span class="t">Rekentool</span>
-    <p>Werkblad <b>Capability</b> doet stappen 3 tot 8 in één keer: blok 1 (grenzen en gemiddelde), blok 2 (de σ die
-    je hebt), blok 3 (Cp, Cpk of Pp, Ppk, z en % buiten specificatie per σ-schatting), blok 4 (het 6σ-criterium in
+    <p>Werkblad <b>Capability</b> doet stappen 3 tot 8 in één keer: blok 1 (grenzen en gemiddelde), blok 2 (de \(\sigma\) die
+    je hebt), blok 3 (Cp, Cpk of Pp, Ppk, z en % buiten specificatie per \(\sigma\)-schatting), blok 4 (het \(6\sigma\)-criterium in
     beide lezingen), blok 5 (oordeelsgrenzen) en blok 6 (verbeteren). Voor losse kansen: werkblad <b>Normal</b>; voor
-    d<sub>2</sub> en c<sub>4</sub>: werkblad <b>Tables</b>.</p>
+    \(d_{2}\) en \(c_{4}\): werkblad <b>Tables</b>.</p>
     </div>
   </section>
 </section>

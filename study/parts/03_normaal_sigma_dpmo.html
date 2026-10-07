@@ -2,7 +2,7 @@
   <h2>Deel 03 — Normale verdeling, sigmaniveau en DPMO</h2>
   <p class="intro">Dit deel behandelt waarom data en statistiek de basis zijn, de normale verdeling en de
   standaardnormale Z-waarde, de Z-tabel en de Excel-functies, en de maten voor discrete data (DPO, DPMO, yield) met het sigmaniveau en de
-  1,5σ-verschuiving. Het is de basis voor procescapabiliteit (<a href="#d09">Deel 09</a>) en regelkaarten
+  \(1{,}5\sigma\)-verschuiving. Het is de basis voor procescapabiliteit (<a href="#d09">Deel 09</a>) en regelkaarten
   (<a href="#d10">Deel 10</a>). Algemene kansbegrippen en andere verdelingen staan in <a href="#d02">Deel 02</a>.</p>
 
   <p class="small">Paginaverwijzingen zijn PDF-paginanummers. In de SPC-slides is dat het dianummer van de .pptx; het
@@ -24,8 +24,8 @@
 
     <div class="box key"><span class="t">Kernidee: spreiding</span>
     <p>Six Sigma bekijkt elk proces als iets dat <b>spreiding</b> (dispersion, variation) vertoont. Spreiding zit
-    overal, denk aan de entropie en de tweede hoofdwet (d<var data-s="s_entropy">S</var>/d<var data-s="t_time">t</var> ≥ 0) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=11">SPC p. 11</a>. Je drukt ze uit met de
-    variantie of de standaardafwijking σ ("sigma"). Wie de spreiding beheerst, gaat naar nul defecten.
+    overal, denk aan de entropie en de tweede hoofdwet (d\(\frac{\sym{s_entropy}{S}}{d\sym{t_time}{t}}\ge0\)) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=11">SPC p. 11</a>. Je drukt ze uit met de
+    variantie of de standaardafwijking \(\sigma\) ("sigma"). Wie de spreiding beheerst, gaat naar nul defecten.
     Samengevat <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=8">SPC p. 8</a>: <b>spreiding meten = inzicht verwerven</b>; <b>spreiding verminderen = verliezen
     bestrijden</b>.</p>
     </div>
@@ -105,25 +105,25 @@
     <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=15">SPC p. 15</a></figcaption></figure>
 
     <p><b>Populatie en steekproef</b> (population, sample) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=16">SPC p. 16</a>. De <b>populatie</b> heeft een echt gemiddelde
-    µ en een echte standaardafwijking σ, die je niet kent. Via een steekproefplan neem je een <b>steekproef</b>, je
-    meet, en uit de data bereken je x̄ en s. Daarmee zeg je iets over de populatie ("check the reality").
-    Hoe je x̄ en s berekent (met <var data-s="n">n</var> − 1 in de noemer van s) staat in <a href="#d02">Deel 02</a>; hoe zeker zo'n
+    \(\mu\) en een echte standaardafwijking \(\sigma\), die je niet kent. Via een steekproefplan neem je een <b>steekproef</b>, je
+    meet, en uit de data bereken je \(\bar{x}\) en s. Daarmee zeg je iets over de populatie ("check the reality").
+    Hoe je \(\bar{x}\) en s berekent (met \(\sym{n}{n}-1\) in de noemer van s) staat in <a href="#d02">Deel 02</a>; hoe zeker zo'n
     schatting is, in <a href="#d04">Deel 04</a>.</p>
     <figure class="fig"><img src="figures/03_populatie_steekproef.png" alt="Schema: populatie (µ, σ), via een steekproefplan naar een steekproef (x̄, s), meten geeft data, een pijl gaat terug naar de populatie">
-    <figcaption>Figuur: van de populatie (population, µ en σ) via een steekproefplan (sampling scheme) naar de
-    steekproef (sample, x̄ en s); meten (measure) levert data, en die data zeggen weer iets over de populatie (de
+    <figcaption>Figuur: van de populatie (population, \(\mu\) en \(\sigma\)) via een steekproefplan (sampling scheme) naar de
+    steekproef (sample, \(\bar{x}\) en s); meten (measure) levert data, en die data zeggen weer iets over de populatie (de
     pijl terug). <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=16">SPC p. 16</a></figcaption></figure>
 
     <div class="f">
-      <div>Centrale limietstelling (central limit theorem) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=28">SPC p. 28</a>: gemiddelden van steekproeven met <var data-s="n">n</var> metingen
+      <div>Centrale limietstelling (central limit theorem) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=28">SPC p. 28</a>: gemiddelden van steekproeven met \(\sym{n}{n}\) metingen
       zijn normaal verdeeld,</div>
-      <div><var data-s="sigma_xbar">σ<sub>x̄</sub></var> = <var data-s="sigma">σ</var> / √<var data-s="n">n</var>  (spreiding van de gemiddelden = spreiding van de populatie gedeeld door √<var data-s="n">n</var>; zie ook <a href="#d10-xbar">10.4</a>)</div>
+      <div>\(\sym{sigma_xbar}{\sigma_{\bar{x}}}=\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\)  (spreiding van de gemiddelden = spreiding van de populatie gedeeld door \(\sqrt{\sym{n}{n}}\); zie ook <a href="#d10-xbar">10.4</a>)</div>
     </div>
 
     <div class="box warn"><span class="t">Opgelet: specificaties gelden voor individuele waarden</span>
     <p>De specificaties van de klant gelden altijd voor
     <b>individuele waarden X</b>, niet voor gemiddelden (notities bij <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=14">SPC p. 14</a>). Wil je toch met steekproefgemiddelden werken, dan moet je de
-    klantspecificaties eerst omrekenen, want gemiddelden spreiden minder (<var data-s="sigma">σ</var>/√<var data-s="n">n</var>).</p>
+    klantspecificaties eerst omrekenen, want gemiddelden spreiden minder \(\left(\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\right)\).</p>
     <p>Rond een reeks metingen bestaan drie soorten grenzen (figuur hieronder, <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=14">SPC p. 14</a>): <b>waarschuwingsgrenzen</b>
     (warning limits, UWL/LWL: "krijgt het proces de nodige aandacht?"), <b>regelgrenzen</b> (control limits,
     UCL/LCL: "is het proces onder controle?") en <b>specificatiegrenzen</b> (specification limits, USL/LSL: "aanvaarden
@@ -138,18 +138,18 @@
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"Liggen de steekproefgemiddelden binnen de specificatie, dan voldoet het proces."</b> Fout: de specificaties van de klant gelden altijd voor individuele waarden, niet voor gemiddelden. Gemiddelden spreiden minder (<var data-s="sigma_xbar">σ<sub>x̄</sub></var> = <var data-s="sigma">σ</var>/√<var data-s="n">n</var>), dus het proces lijkt beter dan het is (notities bij <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=14">SPC p. 14</a>).</li>
-      <li><b>"Uit de steekproef bereken je µ en σ."</b> Fout: µ en σ van de populatie ken je niet. Uit de steekproef bereken je x̄ en s; dat zijn schattingen van µ en σ <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=16">SPC p. 16</a>.</li>
+      <li><b>"Liggen de steekproefgemiddelden binnen de specificatie, dan voldoet het proces."</b> Fout: de specificaties van de klant gelden altijd voor individuele waarden, niet voor gemiddelden. Gemiddelden spreiden minder \(\left(\sym{sigma_xbar}{\sigma_{\bar{x}}}=\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\right)\), dus het proces lijkt beter dan het is (notities bij <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=14">SPC p. 14</a>).</li>
+      <li><b>"Uit de steekproef bereken je \(\mu\) en \(\sigma\)."</b> Fout: \(\mu\) en \(\sigma\) van de populatie ken je niet. Uit de steekproef bereken je \(\bar{x}\) en s; dat zijn schattingen van \(\mu\) en \(\sigma\) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=16">SPC p. 16</a>.</li>
       <li><b>"Een punt buiten de regelgrenzen betekent dat het stuk afgekeurd wordt."</b> Fout: regelgrenzen (UCL/LCL) zeggen of het proces onder controle is; over aanvaarden of afkeuren beslissen de specificatiegrenzen (USL/LSL) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=14">SPC p. 14</a>. Zie ook <a href="#d10-grenzen">10.2</a>.</li>
-      <li><b>Let op:</b> in <var data-s="sigma_xbar">σ<sub>x̄</sub></var> = <var data-s="sigma">σ</var>/√<var data-s="n">n</var> deel je door √<var data-s="n">n</var>, niet door <var data-s="n">n</var>: vier keer zoveel metingen halveert de spreiding van het gemiddelde <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=28">SPC p. 28</a>. <span class="gen">algemeen</span></li>
+      <li><b>Let op:</b> in \(\sym{sigma_xbar}{\sigma_{\bar{x}}}=\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\) deel je door \(\sqrt{\sym{n}{n}}\), niet door \(\sym{n}{n}\): vier keer zoveel metingen halveert de spreiding van het gemiddelde <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=28">SPC p. 28</a>. <span class="gen">algemeen</span></li>
     </ul></div>
 
     <div class="exercise" id="ex-03-1" data-kw="spreiding van gemiddelden; standard error; σ/√n; centrale limietstelling; central limit theorem; specificatie; individuele waarden; individual values">
       <h4>Oefening 03.1 — Spreiding van gemiddelden <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=14">SPC p. 14</a></h4>
-      <p>Een proces maakt assen met <var data-s="sigma">σ</var> = 0,2 mm. Je neemt steekproeven van <var data-s="n">n</var> = 5 assen (de gegevens van de
+      <p>Een proces maakt assen met \(\sym{sigma}{\sigma}=0{,}2\) mm. Je neemt steekproeven van \(\sym{n}{n}=5\) assen (de gegevens van de
       capabiliteitsoefening <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=46">SPC p. 46</a>).</p>
       <div class="q" data-answer="0.0894" data-tol="0.0005">
-        <label><var data-s="sigma_xbar">σ<sub>x̄</sub></var> van de steekproefgemiddelden (mm, 4 decimalen) =</label> <input type="text" inputmode="decimal">
+        <label>\(\sym{sigma_xbar}{\sigma_{\bar{x}}}\) van de steekproefgemiddelden (mm, 4 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-type="choice" data-answer="individueel">
@@ -157,12 +157,12 @@
         <select><option value="">kies…</option><option value="individueel">met de individuele assen (σ = 0,2)</option><option value="gemiddelde">met de steekproefgemiddelden (σ<sub>x̄</sub>)</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
-      <details class="hint"><summary>Hint</summary><p>Gebruik <var data-s="sigma_xbar">σ<sub>x̄</sub></var> = <var data-s="sigma">σ</var>/√<var data-s="n">n</var>. Lees het kader "Opgelet: specificaties gelden voor individuele waarden" hierboven.</p></details>
+      <details class="hint"><summary>Hint</summary><p>Gebruik \(\sym{sigma_xbar}{\sigma_{\bar{x}}}=\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\). Lees het kader "Opgelet: specificaties gelden voor individuele waarden" hierboven.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
-        <p><var data-s="sigma_xbar">σ<sub>x̄</sub></var> = 0,2 / √5 = 0,2 / 2,236 = <b>0,0894 mm</b> <span class="computed">zelf berekend</span>.</p>
+        <p>\(\sym{sigma_xbar}{\sigma_{\bar{x}}}=\frac{0{,}2}{\sqrt{5}}=\frac{0{,}2}{2{,}236}=\) <b>0,0894 mm</b> <span class="computed">zelf berekend</span>.</p>
         <p>De specificaties van de klant gelden voor <b>individuele waarden</b>: de klant krijgt één as, geen gemiddelde
         (notities SPC p. 14). Vergelijk je de grenzen met de gemiddelden, dan lijkt het proces veel beter dan het is,
-        want gemiddelden spreiden √5 ≈ 2,2 keer minder.</p>
+        want gemiddelden spreiden \(\sqrt{5}\approx2{,}2\) keer minder.</p>
       </details>
     </div>
   </section>
@@ -173,23 +173,23 @@
     <p>De <b>normale verdeling</b> (normal distribution) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=17">SPC p. 17</a> is een kansverdeling (probability distribution)
     met deze eigenschappen:</p>
     <ul>
-      <li>ze is <b>symmetrisch</b> rond het gemiddelde µ;</li>
+      <li>ze is <b>symmetrisch</b> rond het gemiddelde \(\mu\);</li>
       <li>de oppervlakte onder de curve is 100 %: een oppervlakte onder de curve is dus een kans;</li>
       <li>ze kan meer of minder "gepiekt" zijn: de <b>kurtosis</b> (gepiektheid, "peakness");</li>
-      <li>σ is de afstand van het gemiddelde tot het <b>buigpunt</b> (inflection point) van de curve: daar gaat de
+      <li>\(\sigma\) is de afstand van het gemiddelde tot het <b>buigpunt</b> (inflection point) van de curve: daar gaat de
       curve van hol naar bol.</li>
     </ul>
     <figure class="fig"><img src="figures/03_buigpunt.png" alt="Normale curve met de buigpunten op µ − σ en µ + σ, waar de raaklijnen getekend zijn">
-    <figcaption>Figuur: de buigpunten (points of inflexion) van de normale curve liggen op µ − σ en µ + σ: daar gaat
+    <figcaption>Figuur: de buigpunten (points of inflexion) van de normale curve liggen op \(\mu-\sigma\) en \(\mu+\sigma\): daar gaat
     de curve van hol naar bol. <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=17">SPC p. 17</a></figcaption></figure>
-    <p>µ bepaalt de <b>ligging</b> en σ de <b>breedte</b> (figuur hieronder, <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=17">SPC p. 17</a>): twee curves met hetzelfde
-    gemiddelde maar een andere σ (de bredere is lager), twee curves met dezelfde σ maar een ander gemiddelde
+    <p>\(\mu\) bepaalt de <b>ligging</b> en \(\sigma\) de <b>breedte</b> (figuur hieronder, <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=17">SPC p. 17</a>): twee curves met hetzelfde
+    gemiddelde maar een andere \(\sigma\) (de bredere is lager), twee curves met dezelfde \(\sigma\) maar een ander gemiddelde
     (verschoven), en twee curves die in beide verschillen. Voorbeelden van zulke populaties: lengtes en
     schoenmaten van personen, diktes en breedtes van staalplaten, treksterkte, vetgehalte in melk.</p>
     <figure class="fig"><img src="figures/03_ligging_breedte.jpg" alt="Drie paren normale curves: zelfde gemiddelde en andere σ; zelfde σ en ander gemiddelde; beide verschillend">
-    <figcaption>Figuur: (a) A en B hebben hetzelfde gemiddelde (µ = 50), maar σ<sub>B</sub> = 10 is groter dan
-    σ<sub>A</sub> = 5: B is breder en lager; (b) C en D hebben dezelfde σ (10), maar µ<sub>D</sub> = 80 ligt hoger
-    dan µ<sub>C</sub> = 50; (c) E en F verschillen in gemiddelde én standaardafwijking.
+    <figcaption>Figuur: (a) A en B hebben hetzelfde gemiddelde \((\mu=50)\), maar \(\sigma_{B}=10\) is groter dan
+    \(\sigma_{A}=5\): B is breder en lager; (b) C en D hebben dezelfde \(\sigma\ (10)\), maar \(\mu_{D}=80\) ligt hoger
+    dan \(\mu_{C}=50\); (c) E en F verschillen in gemiddelde én standaardafwijking.
     <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=17">SPC p. 17</a></figcaption></figure>
 
     <p><b>Wanneer is een proces normaal verdeeld?</b> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=27">SPC p. 27</a> Als een productkenmerk het resultaat is van een
@@ -202,44 +202,44 @@
     <h4>De vuistregel 68 – 95 – 99,7</h4>
     <table>
       <tr><th>Interval</th><th class="n">Vuistregel <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=19">SPC p. 19</a></th><th class="n">Figuur <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=18">SPC p. 18</a></th><th class="n">Exact <span class="computed">zelf berekend</span></th></tr>
-      <tr><td><var data-s="mu">µ</var> ± 1<var data-s="sigma">σ</var></td><td class="n">≈ 68 %</td><td class="n">68 %</td><td class="n">68,27 %</td></tr>
-      <tr><td><var data-s="mu">µ</var> ± 2<var data-s="sigma">σ</var></td><td class="n">≈ 95 %</td><td class="n">95,4 %</td><td class="n">95,45 %</td></tr>
-      <tr><td><var data-s="mu">µ</var> ± 3<var data-s="sigma">σ</var></td><td class="n">≈ 99,7 %</td><td class="n">99,7 %</td><td class="n">99,73 %</td></tr>
+      <tr><td>\(\sym{mu}{\mu}\pm1\sym{sigma}{\sigma}\)</td><td class="n">≈ 68 %</td><td class="n">68 %</td><td class="n">68,27 %</td></tr>
+      <tr><td>\(\sym{mu}{\mu}\pm2\sym{sigma}{\sigma}\)</td><td class="n">≈ 95 %</td><td class="n">95,4 %</td><td class="n">95,45 %</td></tr>
+      <tr><td>\(\sym{mu}{\mu}\pm3\sym{sigma}{\sigma}\)</td><td class="n">≈ 99,7 %</td><td class="n">99,7 %</td><td class="n">99,73 %</td></tr>
     </table>
     <figure class="fig"><img src="figures/03_68_95_997.png" alt="Normale curve met de intervallen µ ± 1σ (68 %), µ ± 2σ (95.4 %) en µ ± 3σ (99.7 %)">
-    <figcaption>Figuur: de vuistregel op de normale curve. Tussen µ ± 1σ ligt 68 %, tussen µ ± 2σ 95,4 % en tussen
-    µ ± 3σ 99,7 % van de verdeling.
+    <figcaption>Figuur: de vuistregel op de normale curve. Tussen \(\mu\pm1\sigma\) ligt 68 %, tussen \(\mu\pm2\sigma\ 95{,}4\ \%\) en tussen
+    \(\mu\pm3\sigma\ 99{,}7\ \%\) van de verdeling.
     <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=18">SPC p. 18</a></figcaption></figure>
     <p>Denk bij voorkeur <b>eenzijdig</b> (notities bij <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=18">SPC p. 18</a>): de verdeling is symmetrisch, dus de
-    kans buiten <var data-s="mu">µ</var> ± <var data-s="k_sigma">k</var><var data-s="sigma">σ</var> is twee keer de kans aan één kant. Eenzijdig maakt de zaken eenvoudiger; dat heb je nodig bij
+    kans buiten \(\sym{mu}{\mu}\pm\sym{k_sigma}{k}\sym{sigma}{\sigma}\) is twee keer de kans aan één kant. Eenzijdig maakt de zaken eenvoudiger; dat heb je nodig bij
     capabiliteit, waar de twee specificatiegrenzen elk hun eigen staart hebben (<a href="#d09-uitval">09.5</a>).</p>
 
-    <div class="box warn"><span class="t">Fout in de slide: buiten 3σ</span>
+    <div class="box warn"><span class="t">Fout in de slide: buiten \(3\sigma\)</span>
     <p><a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=18">SPC p. 18</a> zegt: "Hoeveel nog buiten 3 Sigma? 0,30 % totaal, dus 0,15 % links/rechts". Dat is 100 % − 99,7 %,
-    met de afgeronde 99,7 %. Exact ligt <b>0,27 %</b> buiten <var data-s="mu">µ</var> ± 3<var data-s="sigma">σ</var>, dus <b>0,135 %</b> per zijde
+    met de afgeronde 99,7 %. Exact ligt <b>0,27 %</b> buiten \(\sym{mu}{\mu}\pm3\sym{sigma}{\sigma}\), dus <b>0,135 %</b> per zijde
     <span class="computed">zelf berekend</span>. Het verschil telt bij ppm-berekeningen: 0,135 % is 1350 ppm, niet
     1500 ppm. Zie ook <a href="#fouten">Fouten in de slides</a>.</p>
     </div>
 
     <div class="f">
-      <div>Dichtheid op <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=27">SPC p. 27</a>: f(<var data-s="x">x</var>) = 1/√(2π) · e<sup>−½((<var data-s="x">x</var>−<var data-s="mu">µ</var>)/<var data-s="sigma">σ</var>)²</sup>  ("A standard Normal Distribution is governed by")</div>
+      <div>Dichtheid op <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=27">SPC p. 27</a>: \(f(\sym{x}{x})=\frac{1}{\sqrt{2\pi}}\cdot e^{-\tfrac{1}{2}\left(\frac{\sym{x}{x}-\sym{mu}{\mu}}{\sym{sigma}{\sigma}}\right)^{2}}\)  ("A standard Normal Distribution is governed by")</div>
     </div>
     <div class="box warn"><span class="t">Opgelet bij de formule op SPC p. 27</span>
-    <p>De cursus noemt dit de standaardnormale verdeling, en daarvoor (<var data-s="mu">µ</var> = 0, <var data-s="sigma">σ</var> = 1) klopt de formule. Voor een
-    willekeurige µ en σ is de oppervlakte onder deze formule gelijk aan σ en niet aan 100 % (zoals <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=17">SPC p. 17</a>
-    eist) <span class="computed">zelf berekend</span>: er hoort dan nog een factor 1/<var data-s="sigma">σ</var> voor. Je hebt deze formule
+    <p>De cursus noemt dit de standaardnormale verdeling, en daarvoor \((\sym{mu}{\mu}=0,\sym{sigma}{\sigma}=1)\) klopt de formule. Voor een
+    willekeurige \(\mu\) en \(\sigma\) is de oppervlakte onder deze formule gelijk aan \(\sigma\) en niet aan 100 % (zoals <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=17">SPC p. 17</a>
+    eist) <span class="computed">zelf berekend</span>: er hoort dan nog een factor \(\frac{1}{\sym{sigma}{\sigma}}\) voor. Je hebt deze formule
     voor de oefeningen niet nodig; kansen haal je uit de Z-tabel of Excel (<a href="#d03-ztabel">03.5</a>,
     <a href="#d03-excel">03.6</a>).</p>
     </div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"Buiten <var data-s="mu">µ</var> ± 3<var data-s="sigma">σ</var> ligt 0,30 %, dus 0,15 % per zijde."</b> Fout: dat is 100 % min de afgeronde 99,7 % <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=18">SPC p. 18</a>. Exact ligt 0,27 % buiten <var data-s="mu">µ</var> ± 3<var data-s="sigma">σ</var>, dus 0,135 % per zijde: 1350 ppm, niet 1500 <span class="computed">zelf berekend</span>.</li>
-      <li><b>"σ is de afstand van het gemiddelde tot de rand van de curve."</b> Fout: σ is de afstand van het gemiddelde tot het buigpunt, waar de curve van hol naar bol gaat <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=17">SPC p. 17</a>.</li>
-      <li><b>"Een normale verdeling met een grotere σ heeft een hogere top."</b> Fout: µ bepaalt de ligging, σ de breedte. De oppervlakte blijft 100 %, dus de bredere curve is lager <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=17">SPC p. 17</a>.</li>
-      <li><b>"De formule op SPC p. 27 is de dichtheid van elke normale verdeling."</b> Fout: alleen van de standaardnormale (<var data-s="sigma">σ</var> = 1). Voor een andere σ hoort er nog een factor 1/<var data-s="sigma">σ</var> voor <span class="computed">zelf berekend</span>; zie de waarschuwing hierboven.</li>
+      <li><b>"Buiten \(\sym{mu}{\mu}\pm3\sym{sigma}{\sigma}\) ligt 0,30 %, dus 0,15 % per zijde."</b> Fout: dat is 100 % min de afgeronde 99,7 % <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=18">SPC p. 18</a>. Exact ligt 0,27 % buiten \(\sym{mu}{\mu}\pm3\sym{sigma}{\sigma}\), dus 0,135 % per zijde: 1350 ppm, niet 1500 <span class="computed">zelf berekend</span>.</li>
+      <li><b>"\(\sigma\) is de afstand van het gemiddelde tot de rand van de curve."</b> Fout: \(\sigma\) is de afstand van het gemiddelde tot het buigpunt, waar de curve van hol naar bol gaat <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=17">SPC p. 17</a>.</li>
+      <li><b>"Een normale verdeling met een grotere \(\sigma\) heeft een hogere top."</b> Fout: \(\mu\) bepaalt de ligging, \(\sigma\) de breedte. De oppervlakte blijft 100 %, dus de bredere curve is lager <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=17">SPC p. 17</a>.</li>
+      <li><b>"De formule op SPC p. 27 is de dichtheid van elke normale verdeling."</b> Fout: alleen van de standaardnormale \((\sym{sigma}{\sigma}=1)\). Voor een andere \(\sigma\) hoort er nog een factor \(\frac{1}{\sym{sigma}{\sigma}}\) voor <span class="computed">zelf berekend</span>; zie de waarschuwing hierboven.</li>
       <li><b>Let op:</b> volgens de cursus kloppen statistische berekeningen zoals gemiddelden en spreiding alleen als de verdeling normaal is. Visualiseer daarom eerst je data <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=28">SPC p. 28</a>.</li>
-      <li><b>Let op:</b> de kans buiten <var data-s="mu">µ</var> ± <var data-s="k_sigma">k</var><var data-s="sigma">σ</var> is twee keer de kans aan één kant. Gaat het om één grens, dan neem je de helft (notities bij <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=18">SPC p. 18</a>).</li>
+      <li><b>Let op:</b> de kans buiten \(\sym{mu}{\mu}\pm\sym{k_sigma}{k}\sym{sigma}{\sigma}\) is twee keer de kans aan één kant. Gaat het om één grens, dan neem je de helft (notities bij <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=18">SPC p. 18</a>).</li>
     </ul></div>
 
     <div class="exercise" id="ex-03-2" data-kw="schoenmaten; shoe sizes; normale verdeling; normal distribution; 3 sigma; µ ± 3σ; staartkans; tail probability; Z-waarde">
@@ -259,13 +259,12 @@
         <label>c. P(40 &lt; maat &lt; 45), in % (2 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
-      <details class="hint"><summary>Hint</summary><p>Reken elke grens om naar <var data-s="z">z</var> = (<var data-s="x">x</var> − 42,5)/2,5 en zoek de kans op in
+      <details class="hint"><summary>Hint</summary><p>Reken elke grens om naar \(\sym{z}{z}=\frac{\sym{x}{x}-42{,}5}{2{,}5}\) en zoek de kans op in
       de Z-tabel. De tabel geeft de oppervlakte links van z.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
-          <li>a. <var data-s="z">z</var> = (45 − 42,5)/2,5 = 1,00. Z-tabel: P(<var data-s="z_rv">Z</var> &lt; 1,00) = 0,8413, dus P(<var data-s="z_rv">Z</var> &gt; 1) = 1 − 0,8413 =
-          0,1587 = <b>15,87 %</b>. In Excel: <code>1 − NORM.VERD(45;42,5;2,5;WAAR)</code>.</li>
-          <li>b. <var data-s="z">z</var> = (50 − 42,5)/2,5 = 3,00. Z-tabel: P(<var data-s="z_rv">Z</var> &lt; 3,00) = 0,9987, dus 0,13 %; exact
+          <li>a. \(\sym{z}{z}=\frac{45-42{,}5}{2{,}5}=1{,}00\). Z-tabel: \(P(\sym{z_rv}{Z}\lt1{,}00)=0{,}8413\), dus \(P(\sym{z_rv}{Z}\gt1)=1-0{,}8413=0{,}1587=\) <b>15,87 %</b>. In Excel: <code>1 − NORM.VERD(45;42,5;2,5;WAAR)</code>.</li>
+          <li>b. \(\sym{z}{z}=\frac{50-42{,}5}{2{,}5}=3{,}00\). Z-tabel: \(P(\sym{z_rv}{Z}\lt3{,}00)=0{,}9987\), dus 0,13 %; exact
           <b>0,135 %</b> <span class="computed">zelf berekend</span>. Dat is ongeveer 1 man op 740: "er zal wel
           steeds iemand zijn" klopt.</li>
           <li>c. z loopt van −1 tot +1: 0,8413 − 0,1587 = 0,6826, exact <b>68,27 %</b>: de "68 %" van de vuistregel.</li>
@@ -275,19 +274,19 @@
 
     <div class="box tool"><span class="t">Rekentool</span>
     <p>Werkblad <b>Normal</b> in <code>build/bb_toolkit.xlsx</code>: blok 2 (kans onder en boven x), blok 3 (kans
-    tussen a en b), blok 5 (<var data-s="mu">µ</var> ± <var data-s="k_sigma">k</var><var data-s="sigma">σ</var>) en blok 6 (de 68 – 95 – 99,7-regel).</p>
+    tussen a en b), blok \(5\ (\sym{mu}{\mu}\pm\sym{k_sigma}{k}\sym{sigma}{\sigma})\) en blok 6 (de 68 – 95 – 99,7-regel).</p>
     </div>
   </section>
 
   <!-- ============================================================ 03.4 -->
   <section class="unit" id="d03-z" data-kw="standaardnormale verdeling; standard normal distribution; Z-waarde; z-score; Z score; normaliseren; standardize; standaardiseren; N(0,1); X~N(µ,σ); sigmascore; sigma score">
     <h3>03.4 De standaardnormale verdeling en de Z-waarde <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=19">SPC p. 19</a></h3>
-    <p>Er zijn oneindig veel normale verdelingen, één voor elke combinatie van µ en σ. Om ze met elkaar te kunnen
+    <p>Er zijn oneindig veel normale verdelingen, één voor elke combinatie van \(\mu\) en \(\sigma\). Om ze met elkaar te kunnen
     vergelijken en om eenvoudig te rekenen, zet je elke waarde om naar een <b>Z-waarde</b> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=19">SPC p. 19</a>: het aantal
     standaardafwijkingen dat de waarde van het gemiddelde ligt.</p>
     <div class="f">
-      <div><var data-s="x_rv">X</var> ~ N(<var data-s="mu">µ</var>, <var data-s="sigma">σ</var>):  E(<var data-s="x_rv">X</var>) = <var data-s="mu">µ</var>,  σ(<var data-s="x_rv">X</var>) = <var data-s="sigma">σ</var></div>
-      <div><var data-s="z_rv">Z</var> = (<var data-s="x_rv">X</var> − <var data-s="mu">µ</var>) / <var data-s="sigma">σ</var>  →  <var data-s="z_rv">Z</var> ~ N(0, 1):  E(<var data-s="z_rv">Z</var>) = 0,  σ(<var data-s="z_rv">Z</var>) = 1  (de <b>standaardnormale verdeling</b>, standard normal distribution)</div>
+      <div>\[\sym{x_rv}{X}\sim N(\sym{mu}{\mu},\sym{sigma}{\sigma})\]:  \[E(\sym{x_rv}{X})=\sym{mu}{\mu}\],  \[\sigma(\sym{x_rv}{X})=\sym{sigma}{\sigma}\]</div>
+      <div>\[\sym{z_rv}{Z}=\frac{\sym{x_rv}{X}-\sym{mu}{\mu}}{\sym{sigma}{\sigma}}\to\sym{z_rv}{Z}\sim N(0,1)\]:  \[E(\sym{z_rv}{Z})=0\],  \[\sigma(\sym{z_rv}{Z})=1\]  (de <b>standaardnormale verdeling</b>, standard normal distribution)</div>
     </div>
     <p>Een voorbeeld: wie wil weten hoeveel procent van de bevolking meer weegt dan hij, kan dat
     uitrekenen uit het gemiddelde en de spreiding. Je kunt met de echte waarden rekenen, of alles <b>normaliseren</b>:
@@ -295,21 +294,21 @@
     de Z-tabel.</p>
 
     <div class="box key"><span class="t">Waarom dit zo belangrijk is</span>
-    <p>Een kans bij een normale verdeling hangt alleen af van <b>hoeveel σ</b> een grens van het gemiddelde ligt.
+    <p>Een kans bij een normale verdeling hangt alleen af van <b>hoeveel \(\sigma\)</b> een grens van het gemiddelde ligt.
     Dat getal heet in Six Sigma de <b>sigmascore</b> (sigma score) Z: het Six Sigma-landschap op <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=10">SPC p. 10</a> noemt
     "Sigmascore (Z)" als een aparte tool. Het is de Z-waarde van <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=19">SPC p. 19</a> met een specificatiegrens als waarde:</p>
-    <div class="f"><div><var data-s="z">Z</var> = |<var data-s="sl">SL</var> − <var data-s="xbar">x̄</var>| / <var data-s="sigma">σ</var>,  <var data-s="sl">SL</var> = een specificatiegrens (<var data-s="lsl">LSL</var> of <var data-s="usl">USL</var>)</div></div>
+    <div class="f"><div>\[\sym{z}{Z}=\frac{|\sym{sl}{\mathrm{SL}}-\sym{xbar}{\bar{x}}|}{\sym{sigma}{\sigma}}\],  \[\sym{sl}{\mathrm{SL}}=\] een specificatiegrens (<var data-s="lsl">LSL</var> of <var data-s="usl">USL</var>)</div></div>
     <p>Hoe groter Z, hoe kleiner de staart voorbij de grens, hoe minder defecten. Daarop zijn het sigmaniveau
     (<a href="#d03-sigma">03.10</a>) en de capabiliteitsindices (<a href="#d09">Deel 09</a>) gebouwd. Een
-    "6-sigmaproces" heeft 6σ van het gemiddelde tot elke grens ("6σ to LSL", "6σ to USL" op <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a>).</p>
+    "6-sigmaproces" heeft \(6\sigma\) van het gemiddelde tot elke grens ("\(6\sigma\) to LSL", "\(6\sigma\) to USL" op <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a>).</p>
     </div>
     <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-03-sigmawoord">14 "Sigma": standaardafwijking of sigmascore</a>.</p>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"Z heeft dezelfde eenheid als de meetwaarde (bv. mm)."</b> Fout: Z telt standaardafwijkingen: het aantal σ dat een waarde van het gemiddelde ligt, zonder eenheid <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=19">SPC p. 19</a>.</li>
-      <li><b>"Voor elke combinatie van µ en σ heb je een eigen tabel nodig."</b> Fout: na normaliseren, <var data-s="z_rv">Z</var> = (<var data-s="x_rv">X</var> − <var data-s="mu">µ</var>)/<var data-s="sigma">σ</var>, is het gemiddelde 0 en de spreiding 1. Eén tabel volstaat: de Z-tabel (notities bij <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=19">SPC p. 19</a>).</li>
+      <li><b>"Z heeft dezelfde eenheid als de meetwaarde (bv. mm)."</b> Fout: Z telt standaardafwijkingen: het aantal \(\sigma\) dat een waarde van het gemiddelde ligt, zonder eenheid <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=19">SPC p. 19</a>.</li>
+      <li><b>"Voor elke combinatie van \(\mu\) en \(\sigma\) heb je een eigen tabel nodig."</b> Fout: na normaliseren, \(\sym{z_rv}{Z}=\frac{\sym{x_rv}{X}-\sym{mu}{\mu}}{\sym{sigma}{\sigma}}\), is het gemiddelde 0 en de spreiding 1. Eén tabel volstaat: de Z-tabel (notities bij <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=19">SPC p. 19</a>).</li>
       <li><b>"Hoe groter de sigmascore Z, hoe meer defecten."</b> Fout: hoe groter Z, hoe kleiner de staart voorbij de grens en hoe minder defecten. In de sigmatabel daalt de DPMO van 308 537 bij 2 sigma tot 3,4 bij 6 sigma <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=21">SPC p. 21</a>.</li>
-      <li><b>Let op:</b> een waarde onder het gemiddelde heeft een negatieve z. De sigmascore <var data-s="z">Z</var> = |<var data-s="sl">SL</var> − <var data-s="xbar">x̄</var>|/<var data-s="sigma">σ</var> neemt de absolute waarde; teken de curve om te zien aan welke kant de staart ligt (<a href="#d03-ztabel">03.5</a>).</li>
+      <li><b>Let op:</b> een waarde onder het gemiddelde heeft een negatieve z. De sigmascore \(\sym{z}{Z}=\frac{|\sym{sl}{\mathrm{SL}}-\sym{xbar}{\bar{x}}|}{\sym{sigma}{\sigma}}\) neemt de absolute waarde; teken de curve om te zien aan welke kant de staart ligt (<a href="#d03-ztabel">03.5</a>).</li>
     </ul></div>
   </section>
 
@@ -317,8 +316,8 @@
   <section class="unit" id="d03-ztabel" data-kw="Z-tabel; Z table; standaardnormale tabel; standard normal table; normal table; oppervlakte links van z; area to the left; cumulatieve kans; cumulative probability; P(Z<z); kwantiel; quantile; opzoeken">
     <h3>03.5 De Z-tabel lezen <a class="p" href="../source/course/Les%204/___1.1%20Ztable.pdf#page=1">Z-tabel p. 1–2</a></h3>
     <p>De Z-tabel van de cursus heet "Standard Normal Probabilities". De tabelwaarde is de <b>oppervlakte links van
-    z</b> (area to the left of z): P(<var data-s="z_rv">Z</var> &lt; <var data-s="z">z</var>). Pagina 1 geeft z van −3,4 tot −0,0, pagina 2 van 0,0 tot 3,4. De rij
-    geeft z tot op één decimaal, de kolom de tweede decimaal. Voorbeeld: P(<var data-s="z_rv">Z</var> &lt; 1,25) staat in rij 1,2, kolom
+    z</b> (area to the left of z): \(P(\sym{z_rv}{Z}\lt\sym{z}{z})\). Pagina 1 geeft z van −3,4 tot −0,0, pagina 2 van 0,0 tot 3,4. De rij
+    geeft z tot op één decimaal, de kolom de tweede decimaal. Voorbeeld: \(P(\sym{z_rv}{Z}\lt1{,}25)\) staat in rij 1,2, kolom
     .05: 0,8944. Alle 699 cellen kloppen tot op 4 decimalen met de exacte waarden
     <span class="computed">zelf berekend</span>.</p>
     <figure class="fig"><img src="figures/03_ztabel_positief.png" alt="Z-tabel Standard Normal Probabilities voor z van 0,0 tot 3,4, met een schets van de oppervlakte links van z">
@@ -327,54 +326,54 @@
     kolom (.00 tot .09) de tweede decimaal. <a class="p" href="../source/course/Les%204/___1.1%20Ztable.pdf#page=2">Z-tabel p. 2</a></figcaption></figure>
     <table>
       <tr><th>Gevraagd</th><th>Zo lees je het af</th><th>Voorbeeld uit de tabel</th></tr>
-      <tr><td>P(<var data-s="z_rv">Z</var> &lt; <var data-s="z">z</var>)</td><td>direct de tabelwaarde</td><td>P(<var data-s="z_rv">Z</var> &lt; −2,00) = 0,0228</td></tr>
-      <tr><td>P(<var data-s="z_rv">Z</var> &gt; <var data-s="z">z</var>)</td><td>1 − tabelwaarde (of, door symmetrie, de tabelwaarde bij −<var data-s="z">z</var>)</td><td>P(<var data-s="z_rv">Z</var> &gt; 2,00) = 1 − 0,9772 = 0,0228</td></tr>
-      <tr><td>P(<var data-s="ab">a</var> &lt; <var data-s="z_rv">Z</var> &lt; <var data-s="ab">b</var>)</td><td>tabel(<var data-s="ab">b</var>) − tabel(<var data-s="ab">a</var>)</td><td>P(−1 &lt; <var data-s="z_rv">Z</var> &lt; 1) = 0,8413 − 0,1587 = 0,6826</td></tr>
-      <tr><td>z voor een kans p (omgekeerd)</td><td>zoek p <i>in</i> de tabel, lees z af aan rij en kolom</td><td>0,9901 staat bij <var data-s="z">z</var> = 2,33</td></tr>
+      <tr><td>\(P(\sym{z_rv}{Z}\lt\sym{z}{z})\)</td><td>direct de tabelwaarde</td><td>\(P(\sym{z_rv}{Z}\lt-2{,}00)=0{,}0228\)</td></tr>
+      <tr><td>\(P(\sym{z_rv}{Z}\gt\sym{z}{z})\)</td><td>1 − tabelwaarde (of, door symmetrie, de tabelwaarde bij −\(\sym{z}{z}\))</td><td>\(P(\sym{z_rv}{Z}\gt2{,}00)=1-0{,}9772=0{,}0228\)</td></tr>
+      <tr><td>\(P(\sym{ab}{a}\lt\sym{z_rv}{Z}\lt\sym{ab}{b})\)</td><td>tabel(\(\sym{ab}{b}\)) − tabel(\(\sym{ab}{a}\))</td><td>\(P(-1\lt\sym{z_rv}{Z}\lt1)=0{,}8413-0{,}1587=0{,}6826\)</td></tr>
+      <tr><td>z voor een kans p (omgekeerd)</td><td>zoek p <i>in</i> de tabel, lees z af aan rij en kolom</td><td>0,9901 staat bij \(\sym{z}{z}=2{,}33\)</td></tr>
     </table>
     <ol class="steps">
-      <li>Zet de grens om: <var data-s="z">z</var> = (<var data-s="x">x</var> − <var data-s="mu">µ</var>)/<var data-s="sigma">σ</var>.</li>
+      <li>Zet de grens om: \(\sym{z}{z}=\frac{\sym{x}{x}-\sym{mu}{\mu}}{\sym{sigma}{\sigma}}\).</li>
       <li>Teken de curve en arceer de gevraagde oppervlakte (links, rechts of ertussen). Dat voorkomt de meeste fouten.</li>
       <li>Lees af en corrigeer met "1 −" of met een verschil.</li>
     </ol>
-    <div class="box warn"><span class="t">Voorbij 3,4σ stopt de tabel</span>
-    <p>De tabel eindigt bij |<var data-s="z">z</var>| = 3,4 (0,0003 en 0,9997). Voor <var data-s="z">z</var> = 3,5, 4, 5 of 6, typisch bij capabiliteit en Six
+    <div class="box warn"><span class="t">Voorbij \(3{,}4\sigma\) stopt de tabel</span>
+    <p>De tabel eindigt bij \(|\sym{z}{z}|=3{,}4\) (0,0003 en 0,9997). Voor \(\sym{z}{z}=3{,}5\), 4, 5 of 6, typisch bij capabiliteit en Six
     Sigma, gebruik je Excel (<a href="#d03-excel">03.6</a>). De sigmatabel van <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=21">SPC p. 21</a> gaat wel tot 6, maar is
-    met 1,5σ verschoven (<a href="#d03-sigma">03.10</a>): de rij 5 (233 DPMO) is de staart voorbij 3,5σ en de rij 6
-    (3,4 DPMO) de staart voorbij 4,5σ <span class="computed">zelf berekend</span>.</p>
+    met \(1{,}5\sigma\) verschoven (<a href="#d03-sigma">03.10</a>): de rij 5 (233 DPMO) is de staart voorbij \(3{,}5\sigma\) en de rij 6
+    (3,4 DPMO) de staart voorbij \(4{,}5\sigma\) <span class="computed">zelf berekend</span>.</p>
     </div>
 
     <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-03-sigmatabel">14 De sigmatabellen van de boeken</a>.</p>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"De Z-tabel geeft de kans voorbij z."</b> Fout: de tabelwaarde is de oppervlakte links van z, P(<var data-s="z_rv">Z</var> &lt; <var data-s="z">z</var>). Voor "groter dan" neem je 1 − tabelwaarde <a class="p" href="../source/course/Les%204/___1.1%20Ztable.pdf#page=1">Z-tabel p. 1</a>.</li>
-      <li><b>"P(<var data-s="z_rv">Z</var> &gt; 1,96) = 0,9750."</b> Fout: 0,9750 is P(<var data-s="z_rv">Z</var> &lt; 1,96). Rechts ervan ligt 1 − 0,9750 = 0,0250 <a class="p" href="../source/course/Les%204/___1.1%20Ztable.pdf#page=2">Z-tabel p. 2</a>.</li>
-      <li><b>Let op:</b> omgekeerd (de z bij een kans) zoek je de kans <i>in</i> de tabel en lees je z af aan rij en kolom. Bij 0,99 is 0,9901 de dichtste: <var data-s="z">z</var> = 2,33 (exact 2,326 <span class="computed">zelf berekend</span>) <a class="p" href="../source/course/Les%204/___1.1%20Ztable.pdf#page=2">Z-tabel p. 2</a>.</li>
-      <li><b>Let op:</b> de tabel stopt bij |<var data-s="z">z</var>| = 3,4. De sigmatabel van de cursus gaat verder, maar is 1,5σ verschoven: de rij 6 (3,4 DPMO) is de staart voorbij 4,5σ, niet voorbij 6σ <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=21">SPC p. 21</a> <span class="computed">zelf berekend</span>; zie <a href="#d03-sigma">03.10</a>.</li>
-      <li><b>Let op:</b> de tabel rondt af op 4 decimalen: P(−1 &lt; <var data-s="z_rv">Z</var> &lt; 1) geeft 0,6826 uit de tabel en 0,6827 exact <span class="computed">zelf berekend</span>. Geen fout van jou, maar zo verklaar je kleine verschillen met Excel.</li>
+      <li><b>"De Z-tabel geeft de kans voorbij z."</b> Fout: de tabelwaarde is de oppervlakte links van z, \(P(\sym{z_rv}{Z}\lt\sym{z}{z})\). Voor "groter dan" neem je 1 − tabelwaarde <a class="p" href="../source/course/Les%204/___1.1%20Ztable.pdf#page=1">Z-tabel p. 1</a>.</li>
+      <li><b>"\(P(\sym{z_rv}{Z}\gt1{,}96)=0{,}9750\)."</b> Fout: 0,9750 is \(P(\sym{z_rv}{Z}\lt1{,}96)\). Rechts ervan ligt 1 − 0,9750 = 0,0250 <a class="p" href="../source/course/Les%204/___1.1%20Ztable.pdf#page=2">Z-tabel p. 2</a>.</li>
+      <li><b>Let op:</b> omgekeerd (de z bij een kans) zoek je de kans <i>in</i> de tabel en lees je z af aan rij en kolom. Bij 0,99 is 0,9901 de dichtste: \(\sym{z}{z}=2{,}33\) (exact 2,326 <span class="computed">zelf berekend</span>) <a class="p" href="../source/course/Les%204/___1.1%20Ztable.pdf#page=2">Z-tabel p. 2</a>.</li>
+      <li><b>Let op:</b> de tabel stopt bij \(|\sym{z}{z}|=3{,}4\). De sigmatabel van de cursus gaat verder, maar is \(1{,}5\sigma\) verschoven: de rij 6 (3,4 DPMO) is de staart voorbij \(4{,}5\sigma\), niet voorbij \(6\sigma\) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=21">SPC p. 21</a> <span class="computed">zelf berekend</span>; zie <a href="#d03-sigma">03.10</a>.</li>
+      <li><b>Let op:</b> de tabel rondt af op 4 decimalen: \(P(-1\lt\sym{z_rv}{Z}\lt1)\) geeft 0,6826 uit de tabel en 0,6827 exact <span class="computed">zelf berekend</span>. Geen fout van jou, maar zo verklaar je kleine verschillen met Excel.</li>
     </ul></div>
 
     <div class="exercise" id="ex-03-3" data-kw="Z-tabel; Z table; opzoeken; lookup; P(Z<z); oppervlakte; area; kwantiel; quantile; 1,96; 2,33">
       <h4>Oefening 03.3 — Z-tabel opzoeken <a class="p" href="../source/course/Les%204/___1.1%20Ztable.pdf#page=1">Z-tabel p. 1–2</a></h4>
       <p>Gebruik de Z-tabel van de cursus. Geef de kansen als fractie met 4 decimalen.</p>
       <div class="q" data-answer="0.8944" data-tol="0.0001">
-        <label>a. P(<var data-s="z_rv">Z</var> &lt; 1,25) =</label> <input type="text" inputmode="decimal">
+        <label>a. \(P(\sym{z_rv}{Z}\lt1{,}25)=\)</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="0.0250" data-tol="0.0001">
-        <label>b. P(<var data-s="z_rv">Z</var> &gt; 1,96) =</label> <input type="text" inputmode="decimal">
+        <label>b. \(P(\sym{z_rv}{Z}\gt1{,}96)=\)</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="0.6826" data-tol="0.0002">
-        <label>c. P(−1 &lt; <var data-s="z_rv">Z</var> &lt; 1) =</label> <input type="text" inputmode="decimal">
+        <label>c. \(P(-1\lt\sym{z_rv}{Z}\lt1)=\)</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="0.0228" data-tol="0.0001">
-        <label>d. P(<var data-s="z_rv">Z</var> &lt; −2,00) =</label> <input type="text" inputmode="decimal">
+        <label>d. \(P(\sym{z_rv}{Z}\lt-2{,}00)=\)</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="2.33" data-tol="0.01">
-        <label>e. <var data-s="z">z</var> waarvoor P(<var data-s="z_rv">Z</var> &lt; <var data-s="z">z</var>) = 0,99 (2 decimalen) =</label> <input type="text" inputmode="decimal">
+        <label>e. \(\sym{z}{z}\) waarvoor \(P(\sym{z_rv}{Z}\lt\sym{z}{z})=0{,}99\) (2 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <details class="hint"><summary>Hint</summary><p>De tabel geeft altijd de oppervlakte links. Voor "groter dan"
@@ -382,7 +381,7 @@
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>a. Rij 1,2, kolom .05: <b>0,8944</b>.</li>
-          <li>b. Rij 1,9, kolom .06: 0,9750, dus P(<var data-s="z_rv">Z</var> &gt; 1,96) = 1 − 0,9750 = <b>0,0250</b>.</li>
+          <li>b. Rij 1,9, kolom .06: 0,9750, dus \(P(\sym{z_rv}{Z}\gt1{,}96)=1-0{,}9750=\) <b>0,0250</b>.</li>
           <li>c. 0,8413 − 0,1587 = <b>0,6826</b> (exact 0,6827 <span class="computed">zelf berekend</span>; de tabel
           rondt elke waarde af op 4 decimalen).</li>
           <li>d. Rij −2,0, kolom .00: <b>0,0228</b>. Dit getal heb je nodig bij de capabiliteitsoefening
@@ -402,13 +401,13 @@
     Engelse naam van NORM.VERD wordt in <a class="p" href="../source/course/Les%204/___1.2%20statistische%20functionaliteit%20in%20excel.pdf#page=6">Excel-functies p. 6</a> gegeven ("NormDist voor Norm.Verd").</p>
     <table>
       <tr><th>Functie (NL)</th><th>Engels (zoals in de cursusbestanden)</th><th>Wat ze geeft <a class="p" href="../source/course/Les%204/___1.2%20statistische%20functionaliteit%20in%20excel.pdf#page=1">Excel-functies p. 1–2</a></th></tr>
-      <tr><td><code>NORM.VERD(<var data-s="x">x</var>;gemiddelde;spreiding;cumulatief)</code></td><td>NORMDIST</td><td>cumulatief = WAAR: P(<var data-s="x_rv">X</var> ≤ <var data-s="x">x</var>); cumulatief = ONWAAR: de kansdichtheid (de hoogte van de curve)</td></tr>
-      <tr><td><code>NORM.INV(kans;gemiddelde;spreiding)</code></td><td>NORMINV</td><td>de grenswaarde <var data-s="x">x</var> waarvoor P(<var data-s="x_rv">X</var> ≤ <var data-s="x">x</var>) = kans</td></tr>
-      <tr><td><code>NORMALISEREN(<var data-s="x">x</var>;gemiddelde;spreiding)</code></td><td>(niet vermeld)</td><td><var data-s="z">z</var> = (<var data-s="x">x</var> − gemiddelde)/spreiding</td></tr>
-      <tr><td><code>STDEV(bereik)</code> / <code>STDEVP(bereik)</code></td><td>STDEV (in de SPC-werkboeken)</td><td>standaardafwijking van een steekproef (<var data-s="n">n</var> − 1) / van een populatie (<var data-s="n">n</var>)</td></tr>
+      <tr><td><code>NORM.VERD(<var data-s="x">x</var>;gemiddelde;spreiding;cumulatief)</code></td><td>NORMDIST</td><td>cumulatief = WAAR: \(P(\sym{x_rv}{X}\le\sym{x}{x})\); cumulatief = ONWAAR: de kansdichtheid (de hoogte van de curve)</td></tr>
+      <tr><td><code>NORM.INV(kans;gemiddelde;spreiding)</code></td><td>NORMINV</td><td>de grenswaarde \(\sym{x}{x}\) waarvoor \(P(\sym{x_rv}{X}\le\sym{x}{x})=\) kans</td></tr>
+      <tr><td><code>NORMALISEREN(<var data-s="x">x</var>;gemiddelde;spreiding)</code></td><td>(niet vermeld)</td><td>\(\sym{z}{z}=\) (\(\sym{x}{x}-\) gemiddelde)/spreiding</td></tr>
+      <tr><td><code>STDEV(bereik)</code> / <code>STDEVP(bereik)</code></td><td>STDEV (in de SPC-werkboeken)</td><td>standaardafwijking van een steekproef \((\sym{n}{n}-1)/\) van een populatie \((\sym{n}{n})\)</td></tr>
     </table>
     <p>Voor de standaardnormale verdeling vul je gemiddelde 0 en spreiding 1 in:
-    <code>NORM.VERD(<var data-s="z">z</var>;0;1;WAAR)</code> = P(<var data-s="z_rv">Z</var> &lt; <var data-s="z">z</var>) en <code>NORM.INV(<var data-s="p">p</var>;0;1)</code> = de <var data-s="z">z</var> bij kans <var data-s="p">p</var>. De cursus schrijft de Nederlandse notatie met <b>;</b> tussen de
+    <code>NORM.VERD(<var data-s="z">z</var>;0;1;WAAR)</code> = \(P(\sym{z_rv}{Z}\lt\sym{z}{z})\) en <code>NORM.INV(<var data-s="p">p</var>;0;1)</code> = de \(\sym{z}{z}\) bij kans \(\sym{p}{p}\). De cursus schrijft de Nederlandse notatie met <b>;</b> tussen de
     argumenten en de komma als decimaalteken (notities bij <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=46">SPC p. 46</a>: "Norm.verd(71,4 ; 71,8 ; 0,2 ; cumulatief =
     waar)"). Met Engelse instellingen is de punt het decimaalteken en de komma het scheidingsteken <a class="p" href="../source/course/Les%204/___1.2%20statistische%20functionaliteit%20in%20excel.pdf#page=6">Excel-functies p. 6</a>.</p>
 
@@ -424,30 +423,30 @@
 
     <table>
       <tr><th>Gevraagd</th><th>Excel (NL)</th></tr>
-      <tr><td>P(<var data-s="x_rv">X</var> &lt; <var data-s="x">x</var>)</td><td><code>NORM.VERD(<var data-s="x">x</var>;<var data-s="mu">µ</var>;<var data-s="sigma">σ</var>;WAAR)</code></td></tr>
-      <tr><td>P(<var data-s="x_rv">X</var> &gt; <var data-s="x">x</var>)</td><td><code>1 − NORM.VERD(<var data-s="x">x</var>;<var data-s="mu">µ</var>;<var data-s="sigma">σ</var>;WAAR)</code></td></tr>
-      <tr><td>P(<var data-s="ab">a</var> &lt; <var data-s="x_rv">X</var> &lt; <var data-s="ab">b</var>)</td><td><code>NORM.VERD(<var data-s="ab">b</var>;<var data-s="mu">µ</var>;<var data-s="sigma">σ</var>;WAAR) − NORM.VERD(<var data-s="ab">a</var>;<var data-s="mu">µ</var>;<var data-s="sigma">σ</var>;WAAR)</code></td></tr>
+      <tr><td>\(P(\sym{x_rv}{X}\lt\sym{x}{x})\)</td><td><code>NORM.VERD(<var data-s="x">x</var>;<var data-s="mu">µ</var>;<var data-s="sigma">σ</var>;WAAR)</code></td></tr>
+      <tr><td>\(P(\sym{x_rv}{X}\gt\sym{x}{x})\)</td><td><code>1 − NORM.VERD(<var data-s="x">x</var>;<var data-s="mu">µ</var>;<var data-s="sigma">σ</var>;WAAR)</code></td></tr>
+      <tr><td>\(P(\sym{ab}{a}\lt\sym{x_rv}{X}\lt\sym{ab}{b})\)</td><td><code>NORM.VERD(<var data-s="ab">b</var>;<var data-s="mu">µ</var>;<var data-s="sigma">σ</var>;WAAR) − NORM.VERD(<var data-s="ab">a</var>;<var data-s="mu">µ</var>;<var data-s="sigma">σ</var>;WAAR)</code></td></tr>
       <tr><td>grens met fractie p eronder</td><td><code>NORM.INV(<var data-s="p">p</var>;<var data-s="mu">µ</var>;<var data-s="sigma">σ</var>)</code></td></tr>
       <tr><td>grens met fractie p erboven</td><td><code>NORM.INV(1 − <var data-s="p">p</var>;<var data-s="mu">µ</var>;<var data-s="sigma">σ</var>)</code></td></tr>
     </table>
 
     <h4>Omgekeerd rekenen: σ of µ uit een staartfractie</h4>
-    <p>Soms ken je de fractie f voorbij een grens L en het gemiddelde, en zoek je σ (of omgekeerd). Je gebruikt dan
-    dezelfde formule <var data-s="z_rv">Z</var> = (<var data-s="x_rv">X</var> − <var data-s="mu">µ</var>)/<var data-s="sigma">σ</var>, maar lost op naar de onbekende:</p>
+    <p>Soms ken je de fractie f voorbij een grens L en het gemiddelde, en zoek je \(\sigma\) (of omgekeerd). Je gebruikt dan
+    dezelfde formule \(\sym{z_rv}{Z}=\frac{\sym{x_rv}{X}-\sym{mu}{\mu}}{\sym{sigma}{\sigma}}\), maar lost op naar de onbekende:</p>
     <div class="f">
-      <div><var data-s="z_p">z<sub>p</sub></var> = <code>NORM.INV(<var data-s="p">p</var>;0;1)</code>, de <var data-s="z_p">z</var> met kans <var data-s="p">p</var> eronder</div>
-      <div>fractie <var data-s="f">f</var> <b>boven</b> <var data-s="l">L</var>:  <var data-s="sigma">σ</var> = (<var data-s="l">L</var> − <var data-s="mu">µ</var>) / <var data-s="z_p">z<sub>1−f</sub></var>  en  <var data-s="mu">µ</var> = <var data-s="l">L</var> − <var data-s="z_p">z<sub>1−f</sub></var> · <var data-s="sigma">σ</var></div>
-      <div>fractie <var data-s="f">f</var> <b>onder</b> <var data-s="l">L</var>:  <var data-s="sigma">σ</var> = (<var data-s="l">L</var> − <var data-s="mu">µ</var>) / <var data-s="z_p">z<sub>f</sub></var>  (<var data-s="z_p">z<sub>f</sub></var> is negatief, dus <var data-s="sigma">σ</var> = (<var data-s="mu">µ</var> − <var data-s="l">L</var>)/<var data-s="z_p">z<sub>1−f</sub></var>)</div>
+      <div>\(\sym{z_p}{z_{p}}=\) <code>NORM.INV(<var data-s="p">p</var>;0;1)</code>, de \(\sym{z_p}{z}\) met kans \(\sym{p}{p}\) eronder</div>
+      <div>fractie \(\sym{f}{f}\) <b>boven</b> \(\sym{l}{L}\):  \(\sym{sigma}{\sigma}=\frac{\sym{l}{L}-\sym{mu}{\mu}}{\sym{z_p}{z_{1-f}}}\)  en  \(\sym{mu}{\mu}=\sym{l}{L}-\sym{z_p}{z_{1-f}}\cdot\sym{sigma}{\sigma}\)</div>
+      <div>fractie \(\sym{f}{f}\) <b>onder</b> \(\sym{l}{L}\):  \(\sym{sigma}{\sigma}=\frac{\sym{l}{L}-\sym{mu}{\mu}}{\sym{z_p}{z_{f}}}\)  (\(\sym{z_p}{z_{f}}\) is negatief, dus \(\sym{sigma}{\sigma}=\frac{\sym{mu}{\mu}-\sym{l}{L}}{\sym{z_p}{z_{1-f}}}\))</div>
     </div>
     <p>Dat heb je nodig voor vraag 6c van het voorbeeldexamen (<a href="#d13">Deel 13</a>).</p>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"<code>NORM.VERD(<var data-s="x">x</var>;<var data-s="mu">µ</var>;<var data-s="sigma">σ</var>;ONWAAR)</code> geeft P(<var data-s="x_rv">X</var> ≤ <var data-s="x">x</var>)."</b> Fout: met cumulatief = ONWAAR geeft NORM.VERD de kansdichtheid, de hoogte van de curve; voor een kans zet je WAAR <a class="p" href="../source/course/Les%204/___1.2%20statistische%20functionaliteit%20in%20excel.pdf#page=1">Excel-functies p. 1</a>. Het werkboek van de as-oefening gebruikt ONWAAR alleen om de curve te tekenen (<a href="#d09-as">09.9</a>).</li>
-      <li><b>"NORM.VERD geeft de kans boven een grens."</b> Fout: altijd de kans links, P(<var data-s="x_rv">X</var> ≤ <var data-s="x">x</var>). Erboven is <code>1 − NORM.VERD(<var data-s="x">x</var>;<var data-s="mu">µ</var>;<var data-s="sigma">σ</var>;WAAR)</code> <a class="p" href="../source/course/Les%204/___1.2%20statistische%20functionaliteit%20in%20excel.pdf#page=1">Excel-functies p. 1</a>.</li>
+      <li><b>"<code>NORM.VERD(<var data-s="x">x</var>;<var data-s="mu">µ</var>;<var data-s="sigma">σ</var>;ONWAAR)</code> geeft \(P(\sym{x_rv}{X}\le\sym{x}{x})\)."</b> Fout: met cumulatief = ONWAAR geeft NORM.VERD de kansdichtheid, de hoogte van de curve; voor een kans zet je WAAR <a class="p" href="../source/course/Les%204/___1.2%20statistische%20functionaliteit%20in%20excel.pdf#page=1">Excel-functies p. 1</a>. Het werkboek van de as-oefening gebruikt ONWAAR alleen om de curve te tekenen (<a href="#d09-as">09.9</a>).</li>
+      <li><b>"NORM.VERD geeft de kans boven een grens."</b> Fout: altijd de kans links, \(P(\sym{x_rv}{X}\le\sym{x}{x})\). Erboven is <code>1 − NORM.VERD(<var data-s="x">x</var>;<var data-s="mu">µ</var>;<var data-s="sigma">σ</var>;WAAR)</code> <a class="p" href="../source/course/Les%204/___1.2%20statistische%20functionaliteit%20in%20excel.pdf#page=1">Excel-functies p. 1</a>.</li>
       <li><b>"De grens met 1 % afkeur aan de bovenkant is <code>NORM.INV(0,01;20;0,5)</code>."</b> Fout: dat is de grens met 1 % eronder (18,837 <span class="computed">zelf berekend</span>). Met 1 % erboven ligt 99 % eronder: <code>NORM.INV(0,99;20;0,5)</code> = 21,1632 (cel B5 van <a class="p" href="../source/course/Les%204/__NormVerdeling%20Excel%20functies.xlsx">__NormVerdeling Excel functies.xlsx</a>).</li>
-      <li><b>Let op:</b> <code>NORM.INV(<var data-s="p">p</var>;<var data-s="mu">µ</var>;<var data-s="sigma">σ</var>)</code> geeft een grens in de eenheid van de meting, geen z. De z krijg je met <code>NORM.INV(<var data-s="p">p</var>;0;1)</code> (in andere delen ook NORM.S.INV) of met <var data-s="z">z</var> = (<var data-s="x">x</var> − <var data-s="mu">µ</var>)/<var data-s="sigma">σ</var>. <span class="gen">algemeen</span></li>
-      <li><b>Let op:</b> STDEV deelt door <var data-s="n">n</var> − 1 (steekproef), STDEVP door <var data-s="n">n</var> (populatie). Voor meetdata uit een steekproef neem je STDEV <a class="p" href="../source/course/Les%204/___1.2%20statistische%20functionaliteit%20in%20excel.pdf#page=2">Excel-functies p. 2</a>.</li>
+      <li><b>Let op:</b> <code>NORM.INV(<var data-s="p">p</var>;<var data-s="mu">µ</var>;<var data-s="sigma">σ</var>)</code> geeft een grens in de eenheid van de meting, geen z. De z krijg je met <code>NORM.INV(<var data-s="p">p</var>;0;1)</code> (in andere delen ook NORM.S.INV) of met \(\sym{z}{z}=\frac{\sym{x}{x}-\sym{mu}{\mu}}{\sym{sigma}{\sigma}}\). <span class="gen">algemeen</span></li>
+      <li><b>Let op:</b> STDEV deelt door \(\sym{n}{n}-1\) (steekproef), STDEVP door \(\sym{n}{n}\) (populatie). Voor meetdata uit een steekproef neem je STDEV <a class="p" href="../source/course/Les%204/___1.2%20statistische%20functionaliteit%20in%20excel.pdf#page=2">Excel-functies p. 2</a>.</li>
       <li><b>Let op:</b> in de Nederlandse Excel staat ; tussen de argumenten en is de komma het decimaalteken: <code>NORM.VERD(71,4;71,8;0,2;WAAR)</code>. Met Engelse instellingen is de punt het decimaalteken en de komma het scheidingsteken <a class="p" href="../source/course/Les%204/___1.2%20statistische%20functionaliteit%20in%20excel.pdf#page=6">Excel-functies p. 6</a>.</li>
     </ul></div>
 
@@ -460,7 +459,7 @@
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="2.326" data-tol="0.005">
-        <label>b. Hoeveel σ ligt die grens boven het gemiddelde? <var data-s="z">z</var> (3 decimalen) =</label> <input type="text" inputmode="decimal">
+        <label>b. Hoeveel \(\sigma\) ligt die grens boven het gemiddelde? \(\sym{z}{z}\) (3 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="1.00" data-tol="0.02">
@@ -468,13 +467,13 @@
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <details class="hint"><summary>Hint</summary><p>1 % erboven betekent 99 % eronder: NORM.INV(0,99;20;0,5). Zonder
-      Excel: <var data-s="z">z</var> = 2,33 uit de Z-tabel, dan <var data-s="x">x</var> = <var data-s="mu">µ</var> + <var data-s="z">z</var>·<var data-s="sigma">σ</var>.</p></details>
+      Excel: \(\sym{z}{z}=2{,}33\) uit de Z-tabel, dan \(\sym{x}{x}=\sym{mu}{\mu}+\sym{z}{z}\cdot\sym{sigma}{\sigma}\).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>a. <code>NORM.INV(0,99;20;0,5)</code> = <b>21,163</b> (cel B5 van het werkboek). Met de Z-tabel:
-          20 + 2,33 × 0,5 = 21,165.</li>
-          <li>b. <var data-s="z">z</var> = (21,1632 − 20)/0,5 = <b>2,326</b> <span class="computed">zelf berekend</span>: de grens ligt
-          2,33σ boven het gemiddelde.</li>
+          \(20+2{,}33\times0{,}5=21{,}165\).</li>
+          <li>b. \(\sym{z}{z}=\frac{21{,}1632-20}{0{,}5}=\) <b>2,326</b> <span class="computed">zelf berekend</span>: de grens ligt
+          \(2{,}33\sigma\) boven het gemiddelde.</li>
           <li>c. <code>1 − NORM.VERD(21,1632;20;0,5;WAAR)</code> = 1 − 0,9900 = <b>1,00 %</b> (cel B6).</li>
         </ol>
       </details>
@@ -484,34 +483,34 @@
       <h4>Oefening 03.5 — Omgekeerd rekenen met hetzelfde werkboek <a class="p" href="../source/course/Les%204/__NormVerdeling%20Excel%20functies.xlsx">__NormVerdeling Excel functies.xlsx</a></h4>
       <p>Gebruik de getallen van oefening 03.4 in omgekeerde richting.</p>
       <div class="q" data-answer="0.500" data-tol="0.002">
-        <label>a. Gemiddelde 20, en 1 % van de productie ligt boven 21,1632. Spreiding <var data-s="sigma">σ</var> (3 decimalen) =</label> <input type="text" inputmode="decimal">
+        <label>a. Gemiddelde 20, en 1 % van de productie ligt boven 21,1632. Spreiding \(\sym{sigma}{\sigma}\) (3 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="20.00" data-tol="0.01">
-        <label>b. <var data-s="sigma">σ</var> = 0,5, en 1 % ligt boven 21,1632. Gemiddelde <var data-s="mu">µ</var> (2 decimalen) =</label> <input type="text" inputmode="decimal">
+        <label>b. \(\sym{sigma}{\sigma}=0{,}5\), en 1 % ligt boven 21,1632. Gemiddelde \(\sym{mu}{\mu}\) (2 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="18.837" data-tol="0.003">
-        <label>c. <var data-s="mu">µ</var> = 20, <var data-s="sigma">σ</var> = 0,5. Ondergrens met precies 1 % eronder (3 decimalen) =</label> <input type="text" inputmode="decimal">
+        <label>c. \(\sym{mu}{\mu}=20\), \(\sym{sigma}{\sigma}=0{,}5\). Ondergrens met precies 1 % eronder (3 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
-      <details class="hint"><summary>Hint</summary><p>Schrijf <var data-s="z">z</var> = (<var data-s="l">L</var> − <var data-s="mu">µ</var>)/<var data-s="sigma">σ</var> op en los op naar de onbekende. De z bij 1 %
-      erboven is <var data-s="z_p">z<sub>0,99</sub></var> = 2,326 (tabel: 2,33).</p></details>
+      <details class="hint"><summary>Hint</summary><p>Schrijf \(\sym{z}{z}=\frac{\sym{l}{L}-\sym{mu}{\mu}}{\sym{sigma}{\sigma}}\) op en los op naar de onbekende. De z bij 1 %
+      erboven is \(\sym{z_p}{z_{0{,}99}}=2{,}326\) (tabel: 2,33).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
-          <li>a. <var data-s="sigma">σ</var> = (21,1632 − 20) / 2,326 = <b>0,500</b> <span class="computed">zelf berekend</span> (met de
+          <li>a. \(\sym{sigma}{\sigma}=\frac{21{,}1632-20}{2{,}326}=\) <b>0,500</b> <span class="computed">zelf berekend</span> (met de
           tabelwaarde 2,33: 0,499).</li>
-          <li>b. <var data-s="mu">µ</var> = 21,1632 − 2,326 × 0,5 = <b>20,00</b> <span class="computed">zelf berekend</span>.</li>
-          <li>c. De onderste 1 % ligt symmetrisch: <code>NORM.INV(0,01;20;0,5)</code> = 20 − 2,326 × 0,5 =
+          <li>b. \(\sym{mu}{\mu}=21{,}1632-2{,}326\times0{,}5=\) <b>20,00</b> <span class="computed">zelf berekend</span>.</li>
+          <li>c. De onderste 1 % ligt symmetrisch: <code>NORM.INV(0,01;20;0,5)</code> = \(20-2{,}326\times0{,}5=\)
           <b>18,837</b> <span class="computed">zelf berekend</span>.</li>
         </ol>
-        <p>Rekentool: werkblad <b>Normal</b>, blokken 7 en 8 (σ en gemiddelde uit een staartfractie).</p>
+        <p>Rekentool: werkblad <b>Normal</b>, blokken 7 en 8 (\(\sigma\) en gemiddelde uit een staartfractie).</p>
       </details>
     </div>
 
     <div class="box tool"><span class="t">Rekentool</span>
-    <p>Werkblad <b>Normal</b>: blok 4 (waarde x bij een kans p, ook met p verdeeld over beide staarten), blok 7 (σ
-    uit een staartfractie bij gekend gemiddelde) en blok 8 (gemiddelde uit een staartfractie bij gekende σ).</p>
+    <p>Werkblad <b>Normal</b>: blok 4 (waarde x bij een kans p, ook met p verdeeld over beide staarten), blok 7 (\(\sigma\)
+    uit een staartfractie bij gekend gemiddelde) en blok 8 (gemiddelde uit een staartfractie bij gekende \(\sigma\)).</p>
     </div>
   </section>
 
@@ -565,7 +564,7 @@
     (shift mean), zodat ook de lange-termijnverdeling smal blijft en ruim binnen LSL en USL valt.
     <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=26">SPC p. 26</a></figcaption></figure>
     <div class="box key"><span class="t">Korte en lange termijn</span>
-    <p>Dit onderscheid komt drie keer terug: bij het sigmaniveau met de 1,5σ-verschuiving (<a href="#d03-sigma">03.10</a>),
+    <p>Dit onderscheid komt drie keer terug: bij het sigmaniveau met de \(1{,}5\sigma\)-verschuiving (<a href="#d03-sigma">03.10</a>),
     bij Cp/Cpk (korte termijn) tegenover Pp/Ppk (lange termijn) (<a href="#d09-ppk">09.4</a>) en bij gewone tegenover
     speciale oorzaken (<a href="#d09-stabiliteit">09.1</a>).</p>
     </div>
@@ -591,11 +590,11 @@
     </ul>
     <p>Elk kenmerk waar het mis kan gaan, is een <b>opportuniteit</b> (opportunity, kans op een defect).</p>
     <div class="f">
-      <div><var data-s="d_defects">D</var> = aantal defecten, <var data-s="n_units">N</var> = aantal eenheden, <var data-s="o_opp">O</var> = opportuniteiten per eenheid <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=20">SPC p. 20</a></div>
-      <div><var data-s="dpo">DPO</var> = <var data-s="d_defects">D</var> / (<var data-s="n_units">N</var> · <var data-s="o_opp">O</var>)   (defects per opportunity)</div>
-      <div><var data-s="dpmo">DPMO</var> = 1 000 000 · <var data-s="d_defects">D</var> / (<var data-s="n_units">N</var> · <var data-s="o_opp">O</var>)   (defects per million opportunities)</div>
-      <div><var data-s="yield_opp">Yield</var> = 1 − <var data-s="d_defects">D</var> / (<var data-s="n_units">N</var> · <var data-s="o_opp">O</var>)   (het percentage goed, per opportuniteit)</div>
-      <div><var data-s="ppm">PPM</var> = parts per million; van % naar ppm: × 10 000 (1 % = 10 000 ppm)</div>
+      <div>\(\sym{d_defects}{D}=\) aantal defecten, \(\sym{n_units}{N}=\) aantal eenheden, \(\sym{o_opp}{O}=\) opportuniteiten per eenheid <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=20">SPC p. 20</a></div>
+      <div>\(\sym{dpo}{\mathrm{DPO}}=\frac{\sym{d_defects}{D}}{\sym{n_units}{N}\cdot\sym{o_opp}{O}}\)   (defects per opportunity)</div>
+      <div>\(\sym{dpmo}{\mathrm{DPMO}}=1\ 000\ \frac{000\cdot\sym{d_defects}{D}}{\sym{n_units}{N}\cdot\sym{o_opp}{O}}\)   (defects per million opportunities)</div>
+      <div>\(\sym{yield_opp}{\text{Yield}}=1-\frac{\sym{d_defects}{D}}{\sym{n_units}{N}\cdot\sym{o_opp}{O}}\)   (het percentage goed, per opportuniteit)</div>
+      <div>\(\sym{ppm}{\mathrm{PPM}}=\) parts per million; van % naar ppm: × 10 000 (1 % = 10 000 ppm)</div>
     </div>
 
     <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-03-dpu">14 DPU en het tellen van opportuniteiten</a>.</p>
@@ -614,7 +613,7 @@
   <!-- ============================================================ 03.9 -->
   <section class="unit" id="d03-yield" data-kw="verborgen fabriek; hidden factory; herbewerken; herbewerking; rework; uitval; scrap; inspectie; inspection; klachtenbehandeling; complaint handling; yield; opbrengst">
     <h3>03.9 De verborgen fabriek <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=40">LSS p. 40</a></h3>
-    <p>De cursus meet de opbrengst met <var data-s="yield_opp">Yield</var> = 1 − <var data-s="dpo">DPO</var> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=20">SPC p. 20</a>. Wat er
+    <p>De cursus meet de opbrengst met \(\sym{yield_opp}{\text{Yield}}=1-\sym{dpo}{\mathrm{DPO}}\) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=20">SPC p. 20</a>. Wat er
     rond die yield gebeurt, toont het schema van de <b>verborgen fabriek</b> (hidden factory) <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=40">LSS p. 40</a>
     (figuur hieronder). De stroom loopt van invoer via de processtap naar de uitvoer, langs de inspectie naar de
     klant. De inspectie stuurt eenheden naar <b>herbewerken</b> (rework) of <b>uitval</b> (scrap); bij de klant komt
@@ -634,8 +633,8 @@
   <section class="unit" id="d03-sigma" data-kw="sigmaniveau; sigma level; sigmascore; sigma score; DPMO; 1,5 sigma verschuiving; 1.5 sigma shift; korte termijn; lange termijn; short term; long term; 3,4 DPMO; 6 sigma; Motorola; sigmatabel; sigma table">
     <h3>03.10 Sigmaniveau ↔ DPMO en de 1,5σ-verschuiving <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=21">SPC p. 21</a> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a></h3>
     <p>Het <b>sigmaniveau</b> (sigma level) zegt hoeveel standaardafwijkingen er tussen het procesgemiddelde en de
-    specificatiegrens passen: de sigmascore <var data-s="z">Z</var> = |<var data-s="sl">SL</var> − <var data-s="xbar">x̄</var>|/<var data-s="sigma">σ</var> uit <a href="#d03-z">03.4</a>. Een "6-sigmaproces" heeft
-    6σ ruimte tot de grens. Het sigmaniveau en de DPMO zijn twee kanten van hetzelfde: hoe hoger Z, hoe minder
+    specificatiegrens passen: de sigmascore \(\sym{z}{Z}=\frac{|\sym{sl}{\mathrm{SL}}-\sym{xbar}{\bar{x}}|}{\sym{sigma}{\sigma}}\) uit <a href="#d03-z">03.4</a>. Een "6-sigmaproces" heeft
+    \(6\sigma\) ruimte tot de grens. Het sigmaniveau en de DPMO zijn twee kanten van hetzelfde: hoe hoger Z, hoe minder
     defecten. De cursus geeft de vertaaltabel <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=21">SPC p. 21</a>:</p>
 
     <table>
@@ -648,17 +647,17 @@
       <tr><td class="n">6</td><td class="n">3,4</td><td class="n">99,99966 %</td><td class="n">3,4</td><td class="n">0,001</td></tr>
     </table>
 
-    <p>Waarom geeft 6σ "3,4 DPMO" en niet de veel kleinere staart voorbij 6σ (laatste kolom)? Dat komt door de
-    <b>1,5σ-verschuiving</b> (1.5 sigma shift).</p>
+    <p>Waarom geeft \(6\sigma\) "3,4 DPMO" en niet de veel kleinere staart voorbij \(6\sigma\) (laatste kolom)? Dat komt door de
+    <b>\(1{,}5\sigma\)-verschuiving</b> (1.5 sigma shift).</p>
 
-    <div class="box key"><span class="t">De 1,5σ-verschuiving</span>
+    <div class="box key"><span class="t">De \(1{,}5\sigma\)-verschuiving</span>
     <p>Een proces dat vandaag goed gecentreerd is, verschuift na verloop van tijd: slijtage van gereedschap,
     temperatuurwisselingen, verschillen tussen operatoren, materiaalvariatie, kalibratiedrift. Motorola, waar Six
-    Sigma ontstond, zag empirisch dat het gemiddelde op lange termijn tot ongeveer ±1,5σ kan verschuiven. Het is
+    Sigma ontstond, zag empirisch dat het gemiddelde op lange termijn tot ongeveer ±\(1{,}5\sigma\) kan verschuiven. Het is
     "geen universele wet", maar een empirische observatie en een voorzichtige aanname: "Even if your process looks
     perfect today, expect it to degrade over time" (notities bij <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a>).</p>
     <p>De tabel van <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=21">SPC p. 21</a> rekent zo: de DPMO bij een sigmaniveau is de staart voorbij (sigmaniveau − 1,5). Bij 6 is
-    dat de staart voorbij 4,5σ (3,4 DPMO), bij 2 de staart voorbij 0,5σ (308 537,5 DPMO) <span class="computed">zelf
+    dat de staart voorbij \(4{,}5\sigma\) (3,4 DPMO), bij 2 de staart voorbij \(0{,}5\sigma\) (308 537,5 DPMO) <span class="computed">zelf
     berekend</span>.</p>
     </div>
 
@@ -666,60 +665,60 @@
     <p>De cursus is hier niet consequent. Daarom toont deze gids, zoals de rekentool, altijd beide lezingen
     (beslissing 3 in <code>inventory/conventions.md</code>):</p>
     <ul>
-      <li><b>met 1,5σ-verschuiving</b> (de tabellen: <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=21">SPC p. 21</a>, <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=7">LSS p. 7</a>): <var data-s="sigma_level">sigmaniveau</var> = <var data-s="z">Z</var> + 1,5;</li>
-      <li><b>zonder verschuiving</b>: <var data-s="sigma_level">sigmaniveau</var> = <var data-s="z">Z</var>.</li>
+      <li><b>met \(1{,}5\sigma\)-verschuiving</b> (de tabellen: <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=21">SPC p. 21</a>, <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=7">LSS p. 7</a>): \(\sym{sigma_level}{\text{sigmaniveau}}=\sym{z}{Z}+1{,}5\);</li>
+      <li><b>zonder verschuiving</b>: \(\sym{sigma_level}{\text{sigmaniveau}}=\sym{z}{Z}\).</li>
     </ul>
     <p>De tabel van SPC p. 21 rekent met de verschuiving, maar <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a> noemt een gecentreerd proces met
-    <var data-s="cp">Cp</var> = 2 "6 Sigma quality level – 2 defect per billion" (zonder verschuiving, zie <a href="#d09-sixsigma">09.6</a>), en bij de tweede
+    \(\sym{cp}{C_{p}}=2\) "6 Sigma quality level – 2 defect per billion" (zonder verschuiving, zie <a href="#d09-sixsigma">09.6</a>), en bij de tweede
     sigmatabel (figuur onder "Afrondingen in de tabellen") staat niet welke lezing ze gebruikt. Vermeld bij een examenantwoord dus altijd welke lezing je gebruikt.</p>
     </div>
 
     <div class="f">
       <div>In Excel (NL), met de verschuiving:</div>
-      <div><var data-s="dpmo">DPMO</var> = 1 000 000 × (1 − <code>NORM.VERD(<var data-s="sigma_level">sigmaniveau</var> − 1,5;0;1;WAAR)</code>)</div>
-      <div><var data-s="sigma_level">sigmaniveau</var> = <code>NORM.INV(1 − <var data-s="dpmo">DPMO</var>/1 000 000;0;1)</code> + 1,5</div>
+      <div>\(\sym{dpmo}{\mathrm{DPMO}}=1\ 000\ 000\times\) (1 − <code>NORM.VERD(<var data-s="sigma_level">sigmaniveau</var> − 1,5;0;1;WAAR)</code>)</div>
+      <div>\(\sym{sigma_level}{\text{sigmaniveau}}=\) <code>NORM.INV(1 − <var data-s="dpmo">DPMO</var>/1 000 000;0;1)</code> + 1,5</div>
       <div>Zonder verschuiving: laat de "− 1,5" en de "+ 1,5" weg.</div>
     </div>
 
     <div class="box warn"><span class="t">Afrondingen in de tabellen</span>
-    <p>Bij 2σ drukt <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=21">SPC p. 21</a> 308 537 af; de exacte waarde is
+    <p>Bij \(2\sigma\) drukt <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=21">SPC p. 21</a> 308 537 af; de exacte waarde is
     308 537,5, dus afgerond 308 538 <span class="computed">zelf berekend</span>. De tweede sigmatabel
     <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=7">LSS p. 7</a> (figuur hieronder)
     rondt af tot 308 000; op duizendtallen afgerond is dat 309 000. De andere waarden van die tabel (690 000, 66 800,
     230) zijn correct afgerond. Klein, maar het verklaart waarom tabellen een paar eenheden verschillen.</p>
     </div>
     <figure class="fig"><img src="figures/03_sigmaniveau_68_95_997_tabel.png" alt="Links de 68-95-99,7-regel op een normale curve tot ±6σ, rechts een tabel sigmaniveau 1 tot 6 met defects per million en yield">
-    <figcaption>Figuur: de tweede sigmatabel. Links de 68-95-99,7-regel, uitgebreid tot ±6σ; rechts per sigmaniveau
+    <figcaption>Figuur: de tweede sigmatabel. Links de 68-95-99,7-regel, uitgebreid tot ±\(6\sigma\); rechts per sigmaniveau
     de defecten per miljoen en de yield, van 690,000 (30.85 %) bij 1 tot 3.4 (99.99966 %) bij 6. Let op de afronding
     bij 2: 308,000. <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=7">LSS p. 7</a></figcaption></figure>
 
     <p>De figuur hieronder ("Technical Definition of Six Sigma", <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a>) toont hetzelfde met Cp en Cpk: een gecentreerd
-    proces met 6σ ruimte aan elke kant (<var data-s="cp">Cp</var> = <var data-s="cpk">Cpk</var> = 2) dat 1,5σ verschuift, houdt <var data-s="cp">Cp</var> = 2 maar zakt naar <var data-s="cpk">Cpk</var> = 1,5 en
+    proces met \(6\sigma\) ruimte aan elke kant \((\sym{cp}{C_{p}}=\sym{cpk}{C_{pk}}=2)\) dat \(1{,}5\sigma\) verschuift, houdt \(\sym{cp}{C_{p}}=2\) maar zakt naar \(\sym{cpk}{C_{pk}}=1{,}5\) en
     geeft dan 3,4 DPMO aan de kant waarheen het schoof. Dat werkt <a href="#d09-sixsigma">09.6</a> verder uit, samen
-    met de tweede lezing van het 6σ-criterium (2 per miljard).</p>
+    met de tweede lezing van het \(6\sigma\)-criterium (2 per miljard).</p>
     <figure class="fig"><img src="figures/03_technische_definitie_6sigma.png" alt="Gecentreerde curve met 6σ tot LSL en tot USL (Cp = Cpk = 2) en twee curves verschoven met ±1,5σ (Cp = 2, Cpk = 1,5), met 3,4 DPMO voorbij elke grens">
-    <figcaption>Figuur: de technische definitie van Six Sigma. Het gecentreerde proces heeft 6σ tot LSL en 6σ tot
-    USL (Cp = Cpk = 2). Verschuift het gemiddelde ±1,5σ, dan blijft Cp = 2 maar wordt Cpk = 1,5, en voorbij de grens
+    <figcaption>Figuur: de technische definitie van Six Sigma. Het gecentreerde proces heeft \(6\sigma\) tot LSL en \(6\sigma\) tot
+    USL (Cp = Cpk = 2). Verschuift het gemiddelde ±\(1{,}5\sigma\), dan blijft Cp = 2 maar wordt Cpk = 1,5, en voorbij de grens
     aan die kant valt 3,4 DPMO.
     <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a></figcaption></figure>
 
     <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-03-sigmatabel">14 De sigmatabellen van de boeken</a>.</p>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"Een 6σ-proces heeft 3,4 defecten per miljoen voorbij 6σ."</b> Fout: 3,4 DPMO is de staart voorbij 4,5σ (6 − 1,5), met de 1,5σ-verschuiving <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=21">SPC p. 21</a>. Zonder verschuiving is de staart voorbij 6σ maar 0,001 DPMO <span class="computed">zelf berekend</span>. Geef beide lezingen (beslissing 3).</li>
-      <li><b>Let op:</b> de richting van de 1,5. Van DPMO naar sigmaniveau tel je 1,5 <i>bij</i>; van sigmaniveau naar DPMO trek je eerst 1,5 <i>af</i>. Zo is de tabel van <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=21">SPC p. 21</a> opgebouwd: bij 2 hoort de staart voorbij 0,5σ <span class="computed">zelf berekend</span>.</li>
-      <li><b>Let op:</b> de sigmatabel telt één staart, de kant waarheen het proces schuift: de 308 537 DPMO bij 2 is precies één staart voorbij 0,5σ <span class="computed">zelf berekend</span>, en <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a> zet de 3,4 DPMO aan de kant waarheen het proces schoof. Verdubbel de DPMO uit de tabel dus niet.</li>
-      <li><b>"De 1,5σ-verschuiving is een natuurwet."</b> Fout: het is een empirische observatie van Motorola en een voorzichtige aanname, "not a universal law" (notities bij <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a>).</li>
+      <li><b>"Een \(6\sigma\)-proces heeft 3,4 defecten per miljoen voorbij \(6\sigma\)."</b> Fout: 3,4 DPMO is de staart voorbij \(4{,}5\sigma\ (6-1{,}5)\), met de \(1{,}5\sigma\)-verschuiving <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=21">SPC p. 21</a>. Zonder verschuiving is de staart voorbij \(6\sigma\) maar 0,001 DPMO <span class="computed">zelf berekend</span>. Geef beide lezingen (beslissing 3).</li>
+      <li><b>Let op:</b> de richting van de 1,5. Van DPMO naar sigmaniveau tel je 1,5 <i>bij</i>; van sigmaniveau naar DPMO trek je eerst 1,5 <i>af</i>. Zo is de tabel van <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=21">SPC p. 21</a> opgebouwd: bij 2 hoort de staart voorbij \(0{,}5\sigma\) <span class="computed">zelf berekend</span>.</li>
+      <li><b>Let op:</b> de sigmatabel telt één staart, de kant waarheen het proces schuift: de 308 537 DPMO bij 2 is precies één staart voorbij \(0{,}5\sigma\) <span class="computed">zelf berekend</span>, en <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a> zet de 3,4 DPMO aan de kant waarheen het proces schoof. Verdubbel de DPMO uit de tabel dus niet.</li>
+      <li><b>"De \(1{,}5\sigma\)-verschuiving is een natuurwet."</b> Fout: het is een empirische observatie van Motorola en een voorzichtige aanname, "not a universal law" (notities bij <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a>).</li>
     </ul></div>
 
     <div class="exercise" id="ex-03-6" data-kw="sigmaniveau; sigma level; DPMO; 1,5 sigma shift; Z; NORM.INV; omrekenen; convert">
       <h4>Oefening 03.6 — Van DPMO naar sigmaniveau en terug <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=21">SPC p. 21</a></h4>
       <div class="q" data-answer="3.55" data-tol="0.01">
-        <label>a. Een proces heeft 20 000 DPMO. <var data-s="sigma_level">Sigmaniveau</var> met de 1,5σ-verschuiving (2 decimalen) =</label> <input type="text" inputmode="decimal">
+        <label>a. Een proces heeft 20 000 DPMO. <var data-s="sigma_level">Sigmaniveau</var> met de \(1{,}5\sigma\)-verschuiving (2 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="2.05" data-tol="0.01">
-        <label>b. Dezelfde 20 000 DPMO, <var data-s="z">Z</var> zonder verschuiving (2 decimalen) =</label> <input type="text" inputmode="decimal">
+        <label>b. Dezelfde 20 000 DPMO, \(\sym{z}{Z}\) zonder verschuiving (2 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="4.00" data-tol="0.01">
@@ -727,19 +726,19 @@
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="1350" data-tol="1">
-        <label>d. <var data-s="sigma_level">Sigmaniveau</var> 4,5 (met verschuiving): <var data-s="dpmo">DPMO</var> =</label> <input type="text" inputmode="decimal">
+        <label>d. \(\sym{sigma_level}{\text{Sigmaniveau}}\ 4{,}5\) (met verschuiving): \(\sym{dpmo}{\mathrm{DPMO}}=\)</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
-      <details class="hint"><summary>Hint</summary><p>DPMO → fractie: delen door 10<sup>6</sup>. <var data-s="z">Z</var> = NORM.INV(1 − fractie;0;1);
-      met verschuiving tel je er 1,5 bij. Omgekeerd: staart voorbij (<var data-s="sigma_level">sigmaniveau</var> − 1,5).</p></details>
+      <details class="hint"><summary>Hint</summary><p>\(\mathrm{DPMO}\to\) fractie: delen door \(10^{6}\). \(\sym{z}{Z}=\operatorname{NORM.INV}\)(1 − fractie;0;1);
+      met verschuiving tel je er 1,5 bij. Omgekeerd: staart voorbij \((\sym{sigma_level}{\text{sigmaniveau}}-1{,}5)\).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
-          <li>a. Fractie 0,02; <var data-s="z">Z</var> = NORM.INV(0,98;0;1) = 2,054; + 1,5 = <b>3,55</b> <span class="computed">zelf
+          <li>a. Fractie 0,02; \(\sym{z}{Z}=\operatorname{NORM.INV}(0{,}98;0;1)=2{,}054\); + 1,5 = <b>3,55</b> <span class="computed">zelf
           berekend</span>.</li>
           <li>b. Zonder verschuiving: <b>2,05</b> <span class="computed">zelf berekend</span>. Dezelfde prestatie heet
           dus "3,6 sigma" of "2,1 sigma", naargelang de lezing.</li>
-          <li>c. 6 210 DPMO staat in de tabel bij 4σ <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=21">SPC p. 21</a>: <b>4,00</b>.</li>
-          <li>d. Staart voorbij 4,5 − 1,5 = 3<var data-s="sigma">σ</var>: P(<var data-s="z_rv">Z</var> &gt; 3) = 0,00135 → <b>1 350 DPMO</b> <span class="computed">zelf berekend</span>.</li>
+          <li>c. 6 210 DPMO staat in de tabel bij \(4\sigma\) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=21">SPC p. 21</a>: <b>4,00</b>.</li>
+          <li>d. Staart voorbij \(4{,}5-1{,}5=3\sym{sigma}{\sigma}\): \(P(\sym{z_rv}{Z}\gt3)=0{,}00135\to\) <b>1 350 DPMO</b> <span class="computed">zelf berekend</span>.</li>
         </ol>
         <p>Rekentool: werkblad <b>Sigma &amp; DPMO</b>, blokken 2 en 3 (beide lezingen naast elkaar).</p>
       </details>
@@ -747,7 +746,7 @@
 
     <div class="box tool"><span class="t">Rekentool</span>
     <p>Werkblad <b>Sigma &amp; DPMO</b>: blok 2 (van DPMO naar sigmaniveau) en blok 3 (van sigmaniveau naar DPMO),
-    telkens met en zonder 1,5σ-verschuiving.</p>
+    telkens met en zonder \(1{,}5\sigma\)-verschuiving.</p>
     </div>
   </section>
 </section>

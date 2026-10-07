@@ -1,2 +1,2 @@
 wat	formule_html	bron	href
-Uitkomst als functie van de oorzaken (DMAIC trechtert de X'en)	<var data-s="y_out">Y</var> = f(<var data-s="x_in">x<sub>1</sub></var>, <var data-s="x_in">x<sub>2</sub></var>, …, <var data-s="x_in">x<sub>n</sub></var>) → <var data-s="y_out">Y</var> = f(<var data-s="x_in">x<sub>7</sub></var>, <var data-s="x_in">x<sub>22</sub></var>, <var data-s="x_in">x<sub>57</sub></var>)	LSS p. 73	../source/course/Les%201/20260521_van%20volsem.pdf#page=73
+Uitkomst als functie van de oorzaken (DMAIC trechtert de X'en)	\[\sym{y_out}{Y}=f(\sym{x_in}{x_{1}},\sym{x_in}{x_{2}},\ldots,\sym{x_in}{x_{n}})\to\sym{y_out}{Y}=f(\sym{x_in}{x_{7}},\sym{x_in}{x_{22}},\sym{x_in}{x_{57}})\]	LSS p. 73	../source/course/Les%201/20260521_van%20volsem.pdf#page=73

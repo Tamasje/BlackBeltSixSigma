@@ -1,44 +1,44 @@
 key	symbool	betekenis	hoe	anchor
-mu	µ	Gemiddelde van de populatie of het proces (population mean); bepaalt de ligging.	Onbekend; geschat door x̄. In opgaven meestal gegeven. In Excel het tweede argument van NORM.VERD en NORM.INV.	d03-normaal
-sigma	σ	Standaardafwijking van de populatie of het proces (standard deviation); bepaalt de breedte.	Onbekend; geschat door s (STDEV, n − 1), of gegeven. Afstand van µ tot het buigpunt. Niet verwarren met σ<sub>x̄</sub> van gemiddelden.	d03-normaal
-xbar	x̄	Steekproefgemiddelde (sample mean) van de metingen: schatting van µ.	AVERAGE van de waarden, of gegeven in de opgave.	d03-populatie
+mu	\(\mu\)	Gemiddelde van de populatie of het proces (population mean); bepaalt de ligging.	Onbekend; geschat door \(\bar{x}\). In opgaven meestal gegeven. In Excel het tweede argument van NORM.VERD en NORM.INV.	d03-normaal
+sigma	\(\sigma\)	Standaardafwijking van de populatie of het proces (standard deviation); bepaalt de breedte.	Onbekend; geschat door s (STDEV, n − 1), of gegeven. Afstand van \(\mu\) tot het buigpunt. Niet verwarren met \(\sigma_{\bar{x}}\) van gemiddelden.	d03-normaal
+xbar	\(\bar{x}\)	Steekproefgemiddelde (sample mean) van de metingen: schatting van \(\mu\).	AVERAGE van de waarden, of gegeven in de opgave.	d03-populatie
 n	n	Steekproefgrootte (sample size): aantal metingen in de steekproef.	Tellen of gegeven. Vuistregel: minstens 20, liefst 30 (SPC p. 13). In s deel je door n − 1 (STDEV), niet door n (STDEVP).	d03-populatie
-sigma_xbar	σ<sub>x̄</sub>	Standaardafwijking van steekproefgemiddelden (standard error of the mean).	σ/√n (centrale limietstelling, SPC p. 28): delen door √n, niet door n. Specificaties vergelijk je met σ van individuele waarden, niet met σ<sub>x̄</sub>.	d03-populatie
-x_rv	X	De gemeten grootheid als toevalsveranderlijke (random variable), bv. de lengte van één as.	X ~ N(µ, σ); kansen via Z = (X − µ)/σ en de Z-tabel, of met NORM.VERD.	d03-z
-x	x	Eén bepaalde waarde of grens van X (value), bv. een specificatiegrens.	Gegeven in de opgave, of NORM.INV(p;µ;σ). z = (x − µ)/σ; NORM.VERD(x;µ;σ;WAAR) = P(X ≤ x).	d03-excel
-z_rv	Z	Standaardnormale toevalsveranderlijke, Z ~ N(0, 1) (standard normal variable).	Z = (X − µ)/σ. P(Z &lt; z): Z-tabel (oppervlakte links) of NORM.VERD(z;0;1;WAAR); P(Z &gt; z) = 1 − tabelwaarde.	d03-z
-z	z	z-waarde of sigmascore (z-score): aantal σ tussen een waarde (grens) en het gemiddelde.	z = (x − µ)/σ, of Z = |SL − x̄|/σ; uit een kans p: NORM.INV(p;0;1). Zonder 1,5σ-verschuiving is dit het sigmaniveau.	d03-z
-ab	a, b	Onder- en bovengrens van een interval (lower and upper bound).	Gegeven. P(a &lt; X &lt; b) = NORM.VERD(b;µ;σ;WAAR) − NORM.VERD(a;µ;σ;WAAR); met de Z-tabel tabel(b) − tabel(a).	d03-ztabel
-k_sigma	k	Aantal standaardafwijkingen rond het gemiddelde (µ ± kσ).	Gegeven. k = 1, 2, 3 geeft ≈ 68 %, 95 %, 99,7 % binnen (SPC p. 19); buiten ligt aan elke kant de helft van de rest.	d03-normaal
-p	p	Kans of fractie (probability) links van de gezochte grens.	Gegeven in de opgave. Grens x = NORM.INV(p;µ;σ); voor een fractie p erboven gebruik je 1 − p.	d03-excel
-z_p	z<sub>p</sub>	Kwantiel (quantile) van de standaardnormale verdeling: de z met kans p eronder.	NORM.INV(p;0;1), of zoek p in de Z-tabel: z<sub>0,99</sub> = 2,326 (tabel 2,33). z<sub>f</sub> is negatief als f &lt; 0,5.	d03-excel
-f	f	Fractie van de productie voorbij een grens L (tail fraction).	Gegeven (1 % afkeur: f = 0,01). Boven L gebruik je z<sub>1−f</sub>, onder L z<sub>f</sub>.	d03-excel
+sigma_xbar	\(\sigma_{\bar{x}}\)	Standaardafwijking van steekproefgemiddelden (standard error of the mean).	\(\frac{\sigma}{\sqrt{n}}\) (centrale limietstelling, SPC p. 28): delen door \(\sqrt{n}\), niet door n. Specificaties vergelijk je met \(\sigma\) van individuele waarden, niet met \(\sigma_{\bar{x}}\).	d03-populatie
+x_rv	X	De gemeten grootheid als toevalsveranderlijke (random variable), bv. de lengte van één as.	\(X\sim N(\mu,\sigma)\); kansen via \(Z=\frac{X-\mu}{\sigma}\) en de Z-tabel, of met NORM.VERD.	d03-z
+x	x	Eén bepaalde waarde of grens van X (value), bv. een specificatiegrens.	Gegeven in de opgave, of \(\operatorname{NORM.INV}(p;\mu;\sigma)\). \(z=\frac{x-\mu}{\sigma}\); \(\operatorname{NORM.VERD}(x;\mu;\sigma;\mathrm{WAAR})=P(X\le x)\).	d03-excel
+z_rv	Z	Standaardnormale toevalsveranderlijke, \(Z\sim N(0,1)\) (standard normal variable).	\(Z=\frac{X-\mu}{\sigma}\). \(P(Z\lt z)\): Z-tabel (oppervlakte links) of NORM.VERD(z;0;1;WAAR); \(P(Z\gt z)=1-\) tabelwaarde.	d03-z
+z	z	z-waarde of sigmascore (z-score): aantal \(\sigma\) tussen een waarde (grens) en het gemiddelde.	\(z=\frac{x-\mu}{\sigma}\), of \(Z=\frac{|\mathrm{SL}-\bar{x}|}{\sigma}\); uit een kans p: NORM.INV(p;0;1). Zonder \(1{,}5\sigma\)-verschuiving is dit het sigmaniveau.	d03-z
+ab	a, b	Onder- en bovengrens van een interval (lower and upper bound).	Gegeven. \(P(a\lt X\lt b)=\operatorname{NORM.VERD}(b;\mu;\sigma;\mathrm{WAAR})-\operatorname{NORM.VERD}(a;\mu;\sigma;\mathrm{WAAR})\); met de Z-tabel tabel(b) − tabel(a).	d03-ztabel
+k_sigma	k	Aantal standaardafwijkingen rond het gemiddelde \((\mu\pm k\sigma)\).	Gegeven. \(k=1\), 2, 3 geeft ≈ 68 %, 95 %, 99,7 % binnen (SPC p. 19); buiten ligt aan elke kant de helft van de rest.	d03-normaal
+p	p	Kans of fractie (probability) links van de gezochte grens.	Gegeven in de opgave. Grens \(x=\operatorname{NORM.INV}(p;\mu;\sigma)\); voor een fractie p erboven gebruik je 1 − p.	d03-excel
+z_p	\(z_{p}\)	Kwantiel (quantile) van de standaardnormale verdeling: de z met kans p eronder.	NORM.INV(p;0;1), of zoek p in de Z-tabel: \(z_{0{,}99}=2{,}326\) (tabel 2,33). \(z_{f}\) is negatief als \(f\lt0{,}5\).	d03-excel
+f	f	Fractie van de productie voorbij een grens L (tail fraction).	Gegeven (1 % afkeur: \(f=0{,}01\)). Boven L gebruik je \(z_{1-f}\), onder L \(z_{f}\).	d03-excel
 l	L	Grens (limit) waar een gekende fractie f voorbij ligt.	Gegeven in de opgave (werkboek: 21,1632).	d03-excel
-sl	SL	Een specificatiegrens (specification limit): LSL of USL.	Gegeven door de klant (VOC). Sigmascore Z = |SL − x̄|/σ.	d03-z
+sl	SL	Een specificatiegrens (specification limit): LSL of USL.	Gegeven door de klant (VOC). Sigmascore \(Z=\frac{|\mathrm{SL}-\bar{x}|}{\sigma}\).	d03-z
 lsl	LSL	Onderste specificatiegrens (lower specification limit): stem van de klant.	Gegeven in de opgave (klant, tekening, norm).	d03-voc
 usl	USL	Bovenste specificatiegrens (upper specification limit): stem van de klant.	Gegeven in de opgave. Niet de UCL van een regelkaart: die komt uit het proces.	d03-voc
 d_defects	D	Aantal gevonden defecten (defects): afwijkingen op één kenmerk.	Tellen. Eén eenheid kan meerdere defecten hebben: defecten zijn geen defectieve eenheden.	d03-dpmo
 n_units	N	Aantal geïnspecteerde eenheden (units).	Tellen of gegeven.	d03-dpmo
 o_opp	O	Aantal opportuniteiten (opportunities) per eenheid: kenmerken waar het mis kan gaan.	Gegeven (CTQ's per eenheid).	d03-dpmo
 dpu	DPU	Defecten per eenheid (defects per unit).	D/N. Eerlijk binnen één product, niet tussen producten van verschillende complexiteit: deel dan door O (DPO).	d14-03-dpu
-dpo	DPO	Defecten per opportuniteit (defects per opportunity).	D/(N · O) = DPU/O.	d03-dpmo
-dpmo	DPMO	Defecten per miljoen opportuniteiten (defects per million opportunities).	DPO × 1 000 000. In de sigmatabellen is de DPMO lange termijn (met de 1,5σ-verschuiving).	d03-dpmo
-yield_opp	Yield	Yield per opportuniteit (SPC p. 20): fractie opportuniteiten zonder defect.	1 − DPO = 1 − D/(N · O).	d03-dpmo
-ppm	PPM	Delen per miljoen (parts per million).	Fractie × 10<sup>6</sup>; van % naar ppm: × 10 000 (1 % = 10 000 ppm).	d03-dpmo
+dpo	DPO	Defecten per opportuniteit (defects per opportunity).	\(\frac{D}{N\cdot O}=\frac{\mathrm{DPU}}{O}\).	d03-dpmo
+dpmo	DPMO	Defecten per miljoen opportuniteiten (defects per million opportunities).	DPO × 1 000 000. In de sigmatabellen is de DPMO lange termijn (met de \(1{,}5\sigma\)-verschuiving).	d03-dpmo
+yield_opp	Yield	Yield per opportuniteit (SPC p. 20): fractie opportuniteiten zonder defect.	\(1-\mathrm{DPO}=1-\frac{D}{N\cdot O}\).	d03-dpmo
+ppm	PPM	Delen per miljoen (parts per million).	Fractie × \(10^{6}\); van % naar ppm: × 10 000 (1 % = 10 000 ppm).	d03-dpmo
 y_trad	Y	Traditionele yield (traditional yield): fractie goede eenheden aan het einde.	out/in = 1 − scrap/in. Ziet de herwerking niet (de verborgen fabriek).	d14-03-yield
 fty	FTY	First time yield: fractie die de eerste keer goed is, zonder herwerking of afval.	(in − scrap − rework)/in.	d14-03-yield
-rty	RTY	Rolled throughput yield: kans dat een eenheid alle stappen in één keer goed doorloopt.	Product FTY<sub>1</sub> × … × FTY<sub>n</sub>, niet het gemiddelde. Nooit hoger dan de laagste stap-FTY.	d14-03-yield
-ny	NY	Normalized yield: gemiddelde yield per processtap.	RTY<sup>1/k</sup> (k-de wortel, k = aantal stappen). H&amp;S p. 5 drukt de exponent fout af (−10).	d14-03-yield
+rty	RTY	Rolled throughput yield: kans dat een eenheid alle stappen in één keer goed doorloopt.	Product \(\mathrm{FTY}_{1}\times\ldots\times\mathrm{FTY}_{n}\), niet het gemiddelde. Nooit hoger dan de laagste stap-FTY.	d14-03-yield
+ny	NY	Normalized yield: gemiddelde yield per processtap.	\(\mathrm{RTY}^{\frac{1}{k}}\) (k-de wortel, \(k=\) aantal stappen). H&amp;S p. 5 drukt de exponent fout af (−10).	d14-03-yield
 k_steps	k	Aantal processtappen (number of steps).	Tellen of gegeven.	d14-03-yield
 in_units	in	Aantal eenheden dat de stap binnenkomt (input).	Gegeven (banden oppompen: 352).	d14-03-yield
 out_units	out	Aantal goede eenheden dat buitenkomt (output), na herwerking.	in − scrap (banden: 347).	d14-03-yield
 scrap	scrap	Afgekeurde eenheden die niet te herstellen zijn (scrap).	Gegeven (banden: 5). Telt mee in Y én in FTY.	d14-03-yield
 rework	rework	Eenheden die herwerkt werden tot ze goed zijn (rework).	Gegeven (banden: 98). Telt alleen mee in FTY: dat verschil is de verborgen fabriek.	d14-03-yield
-y_final	yield	Eindyield (final yield) van een product: fractie goede eenheden.	Gegeven (H&amp;S p. 3: A 85 %, B 96,8 %). Yield per opportuniteit = yield<sup>1/O</sup>.	ex-14-03-7
-z_st	Z<sub>ST</sub>	Korte-termijnsigmascore (short-term Z): het sigmaniveau van de sigmatabellen.	NORM.INV(1 − DPMO/10<sup>6</sup>;0;1) + 1,5, of de Z-kolom van de sigmatabel (SPC p. 21, Dummies p. 160).	d14-03-sigmatabel
-z_lt	Z<sub>LT</sub>	Lange-termijnsigmascore (long-term Z).	Z<sub>ST</sub> − 1,5 (min, niet plus). De staart voorbij Z<sub>LT</sub> geeft de lange-termijn-DPMO.	d14-03-sigmatabel
-sigma_level	sigmaniveau	Sigmaniveau (sigma level): aantal σ tussen gemiddelde en grens, zoals in de sigmatabellen.	Met verschuiving: NORM.INV(1 − DPMO/10<sup>6</sup>;0;1) + 1,5; zonder verschuiving zonder de + 1,5. Vermeld altijd welke lezing.	d03-sigma
-cp	Cp	Procescapabiliteitsindex (process capability index): toegelaten breedte gedeeld door 6σ.	(USL − LSL)/(6σ), met de korte-termijn-σ. Uitgewerkt in Deel 09.	d09-cp
-cpk	Cpk	Capabiliteitsindex met ligging: afstand tot de dichtste grens, gedeeld door 3σ.	min{USL − x̄; x̄ − LSL}/(3σ). Altijd ≤ Cp. Uitgewerkt in Deel 09.	d09-cpk
+y_final	yield	Eindyield (final yield) van een product: fractie goede eenheden.	Gegeven (H&amp;S p. 3: A 85 %, B 96,8 %). Yield per opportuniteit = \(\text{yield}^{\frac{1}{O}}\).	ex-14-03-7
+z_st	\(Z_{\mathrm{ST}}\)	Korte-termijnsigmascore (short-term Z): het sigmaniveau van de sigmatabellen.	\(\operatorname{NORM.INV}\left(1-\frac{\mathrm{DPMO}}{10^{6}};0;1\right)+1{,}5\), of de Z-kolom van de sigmatabel (SPC p. 21, Dummies p. 160).	d14-03-sigmatabel
+z_lt	\(Z_{\mathrm{LT}}\)	Lange-termijnsigmascore (long-term Z).	\(Z_{\mathrm{ST}}-1{,}5\) (min, niet plus). De staart voorbij \(Z_{\mathrm{LT}}\) geeft de lange-termijn-DPMO.	d14-03-sigmatabel
+sigma_level	sigmaniveau	Sigmaniveau (sigma level): aantal \(\sigma\) tussen gemiddelde en grens, zoals in de sigmatabellen.	Met verschuiving: \(\operatorname{NORM.INV}\left(1-\frac{\mathrm{DPMO}}{10^{6}};0;1\right)+1{,}5\); zonder verschuiving zonder de + 1,5. Vermeld altijd welke lezing.	d03-sigma
+cp	Cp	Procescapabiliteitsindex (process capability index): toegelaten breedte gedeeld door \(6\sigma\).	\(\frac{\mathrm{USL}-\mathrm{LSL}}{6\sigma}\), met de korte-termijn-\(\sigma\). Uitgewerkt in Deel 09.	d09-cp
+cpk	Cpk	Capabiliteitsindex met ligging: afstand tot de dichtste grens, gedeeld door \(3\sigma\).	min{\(\mathrm{USL}-\bar{x}\); \(\bar{x}-\mathrm{LSL}\)}/\((3\sigma)\). Altijd ≤ Cp. Uitgewerkt in Deel 09.	d09-cpk
 s_entropy	S	Entropie (entropy) van een systeem.	Niet om te rekenen: de slide gebruikt dS/dt ≥ 0 (tweede hoofdwet) als beeld voor spreiding die vanzelf toeneemt.	d03-intro
 t_time	t	Tijd (time).	In dS/dt ≥ 0: de entropie neemt toe met de tijd.	d03-intro

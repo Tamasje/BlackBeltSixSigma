@@ -1,36 +1,36 @@
 key	symbool	betekenis	hoe	anchor
-pi	π	Ware fractie defectieven in de populatie (population proportion).	Onbekend; het BI [1,4 %; 2,2 %] situeert π. Ligt 1 % buiten het BI, dan wordt H<sub>0</sub>: π ≤ 1 % verworpen.	d04-pi
-h0	H<sub>0</sub>	Nulhypothese (null hypothesis): de uitspraak die de toets probeert te verwerpen.	Uit de vraag: hier π ≤ 1 %. Niet verwerpen bewijst H<sub>0</sub> niet.	d05-idee
-alpha	α	Significantieniveau (significance level): kans op een type-I-fout.	Vooraf gekozen of gegeven. Een (1 − α)-BI hoort bij een toets met significantie α: 99 % hoort bij 1 %.	d04-dualiteit
+pi	\(\pi\)	Ware fractie defectieven in de populatie (population proportion).	Onbekend; het BI [1,4 %; 2,2 %] situeert \(\pi\). Ligt 1 % buiten het BI, dan wordt \(H_{0}\): \(\pi\le1\ \%\) verworpen.	d04-pi
+h0	\(H_{0}\)	Nulhypothese (null hypothesis): de uitspraak die de toets probeert te verwerpen.	Uit de vraag: hier \(\pi\le1\ \%\). Niet verwerpen bewijst \(H_{0}\) niet.	d05-idee
+alpha	\(\alpha\)	Significantieniveau (significance level): kans op een type-I-fout.	Vooraf gekozen of gegeven. Een \((1-\alpha)\)-BI hoort bij een toets met significantie \(\alpha\): 99 % hoort bij 1 %.	d04-dualiteit
 x_dim	X	Gemeten afmeting van een stuk; beide machines zijn afgesteld op 10,000.	Gegeven: normaal verdeeld. Nodig voor de F-methode.	d13-v2
-n1	n<sub>1</sub>	Steekproefgrootte van machine M1.	Gegeven: 10. Vrijheidsgraden n<sub>1</sub> − 1 = 9, niet 10.	d04-f
-n2	n<sub>2</sub>	Steekproefgrootte van machine M2.	Gegeven: 15. Vrijheidsgraden n<sub>2</sub> − 1 = 14.	d04-f
-s1	s<sub>1</sub>	Steekproefstandaardafwijking (sample standard deviation) van M1.	STDEV.S van de 10 metingen van M1 (deler n − 1). Het databestand zit niet in de cursusbestanden.	d04-f
-s2	s<sub>2</sub>	Steekproefstandaardafwijking van M2.	STDEV.S van de 15 metingen van M2 (deler n − 1).	d04-f
-sigma1	σ<sub>1</sub>	Ware (onbekende) standaardafwijking van machine M1.	Niet te berekenen; het BI voor σ<sub>2</sub>²/σ<sub>1</sub>² zegt of σ<sub>1</sub> &lt; σ<sub>2</sub> (M1 nauwkeuriger).	d04-f
-sigma2	σ<sub>2</sub>	Ware (onbekende) standaardafwijking van machine M2.	"M1 nauwkeuriger" betekent σ<sub>2</sub>²/σ<sub>1</sub>² &gt; 1: zoek een ondergrens voor die verhouding.	d04-f
-f_stat	F	F-grootheid (s<sub>1</sub>²/s<sub>2</sub>²)(σ<sub>2</sub>²/σ<sub>1</sub>²), F-verdeeld met (n<sub>1</sub> − 1, n<sub>2</sub> − 1) vrijheidsgraden.	Kritische waarde met F.INV(p; 9; 14); F.INV(0,05; 9; 14) = 0,3305 laat 5 % links liggen.	d04-f
-df1	9	Vrijheidsgraden van de teller: n<sub>1</sub> − 1 (M1, n<sub>1</sub> = 10).	Hoort bij s<sub>1</sub>² in de teller; draai je de verhouding om, dan wisselen ook de vrijheidsgraden.	d04-f
-df2	14	Vrijheidsgraden van de noemer: n<sub>2</sub> − 1 (M2, n<sub>2</sub> = 15).	Derde argument van F.INV; niet 15.	d04-f
-p_left	0,05	Kans links van de kritische waarde: eenzijdig 95%-BI, dus 5 % in de linkerstaart.	F.INV(p; df1; df2) geeft het punt met kans p eronder. Ondergrens: p = 0,05, niet 0,95 (F.INV(0,95; 9; 14) = 2,6458).	d04-f
-cp	Cp	Procescapabiliteitsindex (process capability index): tolerantie gedeeld door 6σ.	(USL − LSL)/(6σ) = 60/60. Negeert de ligging van het gemiddelde: daarvoor Cpk.	d09-cp
-cpk	Cpk	Capabiliteitsindex met de ligging: afstand tot de dichtste grens, gedeeld door 3σ.	min{(USL − µ)/(3σ); (µ − LSL)/(3σ)} = min{0,667; 1,333}.	d09-cpk
+n1	\(n_{1}\)	Steekproefgrootte van machine M1.	Gegeven: 10. Vrijheidsgraden \(n_{1}-1=9\), niet 10.	d04-f
+n2	\(n_{2}\)	Steekproefgrootte van machine M2.	Gegeven: 15. Vrijheidsgraden \(n_{2}-1=14\).	d04-f
+s1	\(s_{1}\)	Steekproefstandaardafwijking (sample standard deviation) van M1.	STDEV.S van de 10 metingen van M1 (deler n − 1). Het databestand zit niet in de cursusbestanden.	d04-f
+s2	\(s_{2}\)	Steekproefstandaardafwijking van M2.	STDEV.S van de 15 metingen van M2 (deler n − 1).	d04-f
+sigma1	\(\sigma_{1}\)	Ware (onbekende) standaardafwijking van machine M1.	Niet te berekenen; het BI voor \(\frac{\sigma_{2}^{2}}{\sigma_{1}^{2}}\) zegt of \(\sigma_{1}\lt\sigma_{2}\) (M1 nauwkeuriger).	d04-f
+sigma2	\(\sigma_{2}\)	Ware (onbekende) standaardafwijking van machine M2.	"M1 nauwkeuriger" betekent \(\frac{\sigma_{2}^{2}}{\sigma_{1}^{2}}\gt1\): zoek een ondergrens voor die verhouding.	d04-f
+f_stat	F	F-grootheid \(\left(\frac{s_{1}^{2}}{s_{2}^{2}}\right)\left(\frac{\sigma_{2}^{2}}{\sigma_{1}^{2}}\right)\), F-verdeeld met \((n_{1}-1,n_{2}-1)\) vrijheidsgraden.	Kritische waarde met F.INV(p; 9; 14); F.INV(0,05; 9; 14) = 0,3305 laat 5 % links liggen.	d04-f
+df1	9	Vrijheidsgraden van de teller: \(n_{1}-1\) (M1, \(n_{1}=10\)).	Hoort bij \(s_{1}^{2}\) in de teller; draai je de verhouding om, dan wisselen ook de vrijheidsgraden.	d04-f
+df2	14	Vrijheidsgraden van de noemer: \(n_{2}-1\) (M2, \(n_{2}=15\)).	Derde argument van F.INV; niet 15.	d04-f
+p_left	0,05	Kans links van de kritische waarde: eenzijdig 95%-BI, dus 5 % in de linkerstaart.	F.INV(p; df1; df2) geeft het punt met kans p eronder. Ondergrens: \(p=0{,}05\), niet 0,95 (F.INV(0,95; 9; 14) = 2,6458).	d04-f
+cp	Cp	Procescapabiliteitsindex (process capability index): tolerantie gedeeld door \(6\sigma\).	\(\frac{\mathrm{USL}-\mathrm{LSL}}{6\sigma}=\frac{60}{60}\). Negeert de ligging van het gemiddelde: daarvoor Cpk.	d09-cp
+cpk	Cpk	Capabiliteitsindex met de ligging: afstand tot de dichtste grens, gedeeld door \(3\sigma\).	min{\(\frac{\mathrm{USL}-\mu}{3\sigma}\); \(\frac{\mu-\mathrm{LSL}}{3\sigma}\)} = min{0,667; 1,333}.	d09-cpk
 usl	USL	Bovenste specificatiegrens (upper specification limit): 1460 mm.	Gegeven in de opgave (stem van de klant). Niet de UCL van een regelkaart.	d09-cp
 lsl	LSL	Onderste specificatiegrens (lower specification limit): 1400 mm.	Gegeven in de opgave (stem van de klant).	d09-cp
-sigma	σ	Standaardafwijking van de breedte van de rol plaatstaal: 10 mm.	Gegeven in de opgave. Cp deelt door 6σ, Cpk door 3σ.	d09-cp
-mu	µ	Gemiddelde breedte van de rol: 1440 mm.	Gegeven in de opgave. Niet het midden van de tolerantie: (USL + LSL)/2 = 1430.	d09-cpk
-z	z	Afstand van een specificatiegrens tot het gemiddelde, in standaardafwijkingen.	(grens − µ)/σ: boven 2, onder −4. Staartkans met de Z-tabel of NORM.S.DIST; tel beide staarten op.	d03-z
-n_sub	n	Steekproefgrootte per subgroep op een regelkaart.	Kleine steekproeven (n &lt; 10): range R; grotere: standaardafwijking s.	d10-formules
-b_orders	B	Aantal bestellingen per week: een telling per tijdseenheid.	Poisson; E[B] = 175,3 per week (gegeven).	d02-verdelingen
-t_between	T	Tijd tussen twee bestellingen: een wachttijd.	Exponentieel; E[T] = 1/175,3 week ≈ 57,5 minuten (E[T] = 1/λ is een standaarddefinitie, niet in de slides).	d02-verdelingen
-c_cap	C	Capaciteit van één elco, in µF: een meetwaarde.	Normaal; E[C] = 820 µF, het gegeven gemiddelde (niet de nominale 800).	d02-verdelingen
-x_conf	X	Conformiteit van één elco: niet-conform of niet (ja/nee).	Bernoulli; E[X] = p = 2/40 = 0,05.	d02-verdelingen
-d_noncon	D	Aantal niet-conforme elco's in een lot van 100.	Binomiaal met n = 100 en p = 0,05; E[D] = n·p = 5.	d06-oc
-lambda	λ	Gemiddeld aantal gebeurtenissen per tijdseenheid (Poisson-parameter).	Hier 175,3 bestellingen per week. E[B] = Var[B] = λ en E[T] = 1/λ: standaarddefinities, niet in de slides (beslissing 20).	d02-poisson
+sigma	\(\sigma\)	Standaardafwijking van de breedte van de rol plaatstaal: 10 mm.	Gegeven in de opgave. Cp deelt door \(6\sigma\), Cpk door \(3\sigma\).	d09-cp
+mu	\(\mu\)	Gemiddelde breedte van de rol: 1440 mm.	Gegeven in de opgave. Niet het midden van de tolerantie: \(\frac{\mathrm{USL}+\mathrm{LSL}}{2}=1430\).	d09-cpk
+z	z	Afstand van een specificatiegrens tot het gemiddelde, in standaardafwijkingen.	(grens − \(\mu\))/\(\sigma\): boven 2, onder −4. Staartkans met de Z-tabel of NORM.S.DIST; tel beide staarten op.	d03-z
+n_sub	n	Steekproefgrootte per subgroep op een regelkaart.	Kleine steekproeven \((n\lt10)\): range R; grotere: standaardafwijking s.	d10-formules
+b_orders	B	Aantal bestellingen per week: een telling per tijdseenheid.	Poisson; \(E[B]=175{,}3\) per week (gegeven).	d02-verdelingen
+t_between	T	Tijd tussen twee bestellingen: een wachttijd.	Exponentieel; \(E[T]=\frac{1}{175{,}3}\) week ≈ 57,5 minuten (\(E[T]=\frac{1}{\lambda}\) is een standaarddefinitie, niet in de slides).	d02-verdelingen
+c_cap	C	Capaciteit van één elco, in µF: een meetwaarde.	Normaal; \(E[C]=820\) µF, het gegeven gemiddelde (niet de nominale 800).	d02-verdelingen
+x_conf	X	Conformiteit van één elco: niet-conform of niet (ja/nee).	Bernoulli; \(E[X]=p=\frac{2}{40}=0{,}05\).	d02-verdelingen
+d_noncon	D	Aantal niet-conforme elco's in een lot van 100.	Binomiaal met \(n=100\) en \(p=0{,}05\); \(E[D]=n\cdot p=5\).	d06-oc
+lambda	\(\lambda\)	Gemiddeld aantal gebeurtenissen per tijdseenheid (Poisson-parameter).	Hier 175,3 bestellingen per week. \(E[B]=\operatorname{Var}[B]=\lambda\) en \(E[T]=\frac{1}{\lambda}\): standaarddefinities, niet in de slides (beslissing 20).	d02-poisson
 n_lot	n	Aantal elco's per lot: de parameter n van de binomiale verdeling van D.	Gegeven: loten van 100 stuks.	d06-oc
 p_noncon	p	Kans dat één elco niet-conform is (C onder 720 µF).	2 op 40 = 0,05.	d02-verdelingen
-sigma_c	σ	Standaardafwijking van de capaciteit C.	Uit P(C &lt; 720) = 0,05: σ = (720 − 820)/z<sub>0,05</sub> = 100/1,645 = 60,8 µF; Var[C] = σ².	d03-z
-z005	z<sub>0,05</sub>	z-waarde met 5 % links ervan (linkerstaart van de standaardnormale verdeling).	NORM.S.INV(0,05) = −1,645 (tabel: ongeveer −1,64). Negatief, want 720 ligt onder het gemiddelde.	d03-excel
+sigma_c	\(\sigma\)	Standaardafwijking van de capaciteit C.	Uit \(P(C\lt720)=0{,}05\): \(\sigma=\frac{720-820}{z_{0{,}05}}=\frac{100}{1{,}645}=60{,}8\) µF; \(\operatorname{Var}[C]=\sigma^{2}\).	d03-z
+z005	\(z_{0{,}05}\)	z-waarde met 5 % links ervan (linkerstaart van de standaardnormale verdeling).	NORM.S.INV(0,05) = −1,645 (tabel: ongeveer −1,64). Negatief, want 720 ligt onder het gemiddelde.	d03-excel
 s_strength	S	Sterkte van het staal (y-as van de figuur).	Gemeten. Bij een ingreep op T verandert S alleen als T een oorzaak van S is.	d02-regressielijn
-t_temp	T	Gloeitemperatuur (annealing temperature), in °C.	Gemeten, of bij een interventie vastgelegd (T = 730 °C).	d02-dag
-x_temp	x	Een vaste waarde van de temperatuur T.	Kies x langs de as; E[S | T = x] is de gemiddelde S in de verticale strook bij x.	d02-regressielijn
+t_temp	T	Gloeitemperatuur (annealing temperature), in °C.	Gemeten, of bij een interventie vastgelegd (\(T=730\) °C).	d02-dag
+x_temp	x	Een vaste waarde van de temperatuur T.	Kies x langs de as; \(E[S\mid T=x]\) is de gemiddelde S in de verticale strook bij x.	d02-regressielijn
