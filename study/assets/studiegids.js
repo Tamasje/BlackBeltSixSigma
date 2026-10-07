@@ -87,9 +87,9 @@
       tocLink.scrollIntoView({ block: 'nearest' });
     }
   }
-  document.addEventListener('click', function (e) {
+  document.addEventListener('click', function (e) {   // links that open in a new tab unfold there, not here
     var a = e.target.closest && e.target.closest('a[href^="#"]');
-    if (a) reveal(decodeURIComponent(a.getAttribute('href').slice(1)));
+    if (a && a.target !== '_blank') reveal(decodeURIComponent(a.getAttribute('href').slice(1)));
   }, true);
   window.addEventListener('hashchange', function () { reveal(decodeURIComponent(location.hash.slice(1))); });
   if (location.hash) reveal(decodeURIComponent(location.hash.slice(1)));
@@ -111,7 +111,7 @@
     current = v; v.classList.add('on');
     pop.innerHTML = '<button type="button" class="x" aria-label="sluit">×</button><div class="sym">' + d.s + '</div>' +
       '<p class="what">' + d.b + '</p><p class="how"><b>Hoe bekom je het?</b> ' + d.h + '</p>' +
-      '<a class="more" href="#' + d.a + '">Meer uitleg: ' + d.t.replace(/</g, '&lt;') + ' →</a>';
+      '<a class="more" href="#' + d.a + '" target="_blank" rel="noopener">Meer uitleg: ' + d.t.replace(/</g, '&lt;') + ' →</a>';
     pop.hidden = false;
     var r = v.getBoundingClientRect(), w = Math.min(380, window.innerWidth - 24);
     pop.style.width = w + 'px';
@@ -258,9 +258,11 @@
   var box = document.getElementById('q'), hits = document.getElementById('hits');
   var panel = document.getElementById('zoek-resultaten'), list = document.getElementById('results');
   var timer = null;
-  function link(f) {
+  function link(f) {   // a search result opens in a new tab: the tab you were reading in stays put
     var a = document.createElement('a');
     a.href = '#' + f.b.id;
+    a.target = '_blank';
+    a.rel = 'noopener';
     a.textContent = f.b.title || f.b.id;
     return a;
   }

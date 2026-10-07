@@ -28,6 +28,11 @@ class Status(Enum):
     VERIFIED = "VERIFIED"
     UNVERIFIED = "UNVERIFIED"
 
+    @property
+    def label(self) -> str:
+        """Dutch label with the CLAUDE.md term in brackets, e.g. 'GEVERIFIEERD (VERIFIED)'."""
+        return {"VERIFIED": "GEVERIFIEERD (VERIFIED)", "UNVERIFIED": "NIET GEVERIFIEERD (UNVERIFIED)"}[self.value]
+
 
 @dataclass(frozen=True)
 class HeaderBlock:
@@ -50,12 +55,12 @@ def write_header(ws: Worksheet, header: HeaderBlock) -> None:
     ws["A1"] = header.tool
     ws["A1"].font = font(bold=True, size=14)
     lines = [
-        ("Course source", header.source),
-        ("Convention used", header.convention),
-        ("Status", f"{header.status.value}: {header.status_detail}"),
-        ("Legend", "Yellow cell = type your input here.  Green cell = result, do not type.  "
-                   "Orange cell (Tables) = disagrees with another printed source."),
-        ("Check", "If a green cell shows nothing, an input it needs is still empty."),
+        ("Bron in de cursus", header.source),
+        ("Gebruikte conventie", header.convention),
+        ("Status", f"{header.status.label}: {header.status_detail}"),
+        ("Legende", "Gele cel = vul hier in (invoer).  Groene cel = resultaat, niet overtypen.  "
+                    "Oranje cel (Tabellen) = verschilt van een andere gedrukte bron."),
+        ("Controle", "Blijft een groene cel leeg, dan ontbreekt nog een invoer die ze nodig heeft."),
     ]
     for row, (label, text) in enumerate(lines, start=2):
         ws.cell(row=row, column=1, value=label).font = font(bold=True)

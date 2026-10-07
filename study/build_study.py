@@ -711,7 +711,17 @@ def render(parts: list[Part], table: dict[str, dict[str, str]]) -> str:
 </html>
 """
     data = json.dumps(symbols_data(table, page), ensure_ascii=False).replace("</", "<\\/")
-    return page.replace("@SYMBOLS@", data, 1)
+    return new_tab_links(page).replace("@SYMBOLS@", data, 1)
+
+
+def new_tab_links(page: str) -> str:
+    """Links in the content open in a new tab, so the tab you are reading in stays where it is: every link to a course
+    file, and every cross-reference inside the text. The table of contents (and the top bar) keep navigating in place."""
+    head, sep, rest = page.partition("<main>")
+    content, sep2, tail = rest.partition("<!--APP-->")
+    content = re.sub(r'<a ((?:class="[^"]*" )?)href="(\.\./[^"]+|#[^"]+)"(?! target)',
+                     r'<a \1href="\2" target="_blank" rel="noopener"', content)
+    return head + sep + content + sep2 + tail
 
 
 def main() -> None:

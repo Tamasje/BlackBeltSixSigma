@@ -77,9 +77,9 @@ def test_every_sheet_has_a_complete_header_block(built: Path) -> None:
         texts = [ws.cell(row=r, column=2).value for r in range(2, 5)]
         # assert -- tool name, course source, convention, status (CLAUDE.md)
         assert ws["A1"].value, ws.title
-        assert labels == ["Course source", "Convention used", "Status"], ws.title
+        assert labels == ["Bron in de cursus", "Gebruikte conventie", "Status"], ws.title
         assert all(texts), ws.title
-        assert texts[2].startswith(("VERIFIED", "UNVERIFIED")), ws.title
+        assert texts[2].startswith(("GEVERIFIEERD (VERIFIED)", "NIET GEVERIFIEERD (UNVERIFIED)")), ws.title
 
 
 def test_calculator_sheets_use_distinct_input_and_output_colours(built: Path) -> None:
