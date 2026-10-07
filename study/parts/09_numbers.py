@@ -7,7 +7,7 @@ technical definition of SPC p. 37; the hidden Minitab example of SPC p. 50-51; T
 p. 1 (inventory/constants). Page numbers are PDF page numbers (Les 4 deck: PDF page = pptx slide number).
 
 Each re-check has an expected status: "OK" (agrees after rounding to the printed precision) or "MISMATCH" (a known
-printed error, listed in 09_errata.tsv). The script exits 1 if any check does not have its expected status.
+printed error, explained in the guide text). The script exits 1 if any check does not have its expected status.
 Run from the project root:  python3 study/parts/09_numbers.py
 """
 from __future__ import annotations
@@ -229,7 +229,7 @@ def main() -> int:
     if FAILURES:
         print("FAILED:", *FAILURES, sep="\n  ")
         return 1
-    print("All checks have their expected status (MISMATCH lines are the errata in 09_errata.tsv).")
+    print("All checks have their expected status (MISMATCH lines are printed errors the guide text explains).")
     return 0
 
 

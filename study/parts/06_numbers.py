@@ -9,7 +9,7 @@ Sources (all read-only):
 Formulas are the course's own (page cited at each block). Run from anywhere:
     python3 study/parts/06_numbers.py
 The script prints OK / MISMATCH for every printed course value it re-checks; a MISMATCH is a known
-disagreement that the text and 06_errata.tsv report. It always exits 0 when it runs to the end.
+disagreement that the guide text reports. It always exits 0 when it runs to the end.
 """
 from __future__ import annotations
 
@@ -290,7 +290,7 @@ def peach() -> None:
         show(f"({n},{c}) OC(0.5 %) binomial", binom.cdf(c, n, 0.005), "zelf berekend")
         show(f"({n},{c}) OC(3.5 %) binomial", binom.cdf(c, n, 0.035), "zelf berekend")
     check("FR p. 4: (164,2) gives beta = 5 % at 3.5 %", binom.cdf(2, 164, 0.035) * 100, "5",
-          "approximate method; see errata")
+          "approximate method; printed value disagrees")
     p_at_5 = optimize.brentq(lambda p: binom.cdf(2, 164, p) - 0.05, 0.001, 0.2)
     show("p where OC of (164,2) = 5 %", p_at_5, "zelf berekend")
     answer("ex-06-14", "R0", 7.0)
@@ -446,8 +446,8 @@ def rectifying() -> None:
     i_b = int(np.argmax(r[:, 6]))
     show("AOQL approximation p*OC(p) (binomial OC) and its p", f"{r[i_b, 6]:.5f} at {r[i_b, 0]:.3f}", "zelf berekend")
     check("FR p. 10: AOQL approximately 1.3 % (approximation)", r[i_ap, 5] * 100, "1.3")
-    check("FR p. 10: AOQL approximately 1.3 % (exact formula)", r[i_ex, 3] * 100, "1.3", "see errata")
-    check("FR p. 10: at about 1.8 % (location of the maximum)", r[i_ap, 0] * 100, "1.8", "see errata")
+    check("FR p. 10: AOQL approximately 1.3 % (exact formula)", r[i_ex, 3] * 100, "1.3", "printed value disagrees")
+    check("FR p. 10: at about 1.8 % (location of the maximum)", r[i_ap, 0] * 100, "1.8", "printed value disagrees")
     show("AOQ approximation at p = 1.8 %", r[18, 5], "zelf berekend (curve is flat near its top)")
     for m in (10, 17, 20, 30):
         p, oc, rs, exact, _, approx, _, ati = r[m]

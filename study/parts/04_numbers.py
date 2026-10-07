@@ -6,7 +6,7 @@ source/course/Les 2/20260529_ottoy_Confidence Intervals.xlsx (read-only, openpyx
 named in the comment next to them. Nothing is taken from memory.
 
 Check lines: "OK" = the computed value equals the printed one after half-up rounding to the printed precision;
-"MISMATCH (erratum)" = a known disagreement that is listed in 04_errata.tsv; "approx OK" = the course states the value as
+"MISMATCH (erratum)" = a known disagreement that the guide text explains; "approx OK" = the course states the value as
 approximate ("about", "≅") and it agrees within the stated tolerance. An unexpected mismatch makes the script exit 1.
 Run from the project root:  python3 study/parts/04_numbers.py
 """

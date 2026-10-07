@@ -7,7 +7,7 @@ source/course/Les 2/20260529_ottoy_Testing of Hypotheses.xlsx (read-only, openpy
 named in the comment next to them. Nothing is taken from memory.
 
 Check lines: "OK" = equal after half-up rounding to the printed precision; "MISMATCH (erratum)" = known disagreement,
-listed in 05_errata.tsv; "approx OK" = the course states the value as approximate ("≅", "about").
+explained in the guide text; "approx OK" = the course states the value as approximate ("≅", "about").
 An unexpected mismatch makes the script exit 1. Run from the project root:  python3 study/parts/05_numbers.py
 """
 from __future__ import annotations

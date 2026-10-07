@@ -1,5 +1,0 @@
-bron	href	gedrukt	correct	toelichting
-SPC p. 18	../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=18	0,30 % totaal buiten 3 sigma, dus 0,15 % links/rechts	0,27 % totaal, 0,135 % per zijde	100 % − 99,7 % met de afgeronde 99,7 %; exact ligt 99,73 % binnen µ ± 3σ (zelf berekend).
-SPC p. 27	../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=27	f(x) = 1/√(2π) · e^(−½((x−µ)/σ)²) als dichtheid	1/(σ√(2π)) · e^(−½((x−µ)/σ)²) voor een algemene σ	De gedrukte vorm is alleen een dichtheid voor σ = 1 (de standaardnormale); anders is de oppervlakte σ in plaats van 100 % (zelf berekend).
-SPC p. 21	../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=21	2 sigma: 308,537 DPMO	308 538	Exact 308 537,5 (met 1,5σ-verschuiving), dus afgerond 308 538 (zelf berekend).
-LSS p. 7	../source/course/Les%201/20260521_van%20volsem.pdf#page=7	2 sigma: 308,000 defects per million	308 538 (309 000 afgerond op duizendtallen)	De andere rijen van die tabel (690 000, 66 800, 230) zijn correct afgerond.

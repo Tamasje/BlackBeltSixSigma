@@ -831,7 +831,7 @@ def test_run_rules_literal_reading_counts_both_sides() -> None:
 
 def test_observed_cp_msa_p26() -> None:
     # arrange -- MSA p. 26 notes: actual Cp 2 with %GRR (tolerance) 10 % / 30 % -> 1.96 / "no more than 1.71"; 60 % is
-    #            printed 1.20, the formula gives 1.28 (erratum in 11_errata.tsv)
+    #            printed 1.20, the formula gives 1.28 (a printed error the guide text explains)
     # act
     got = run_js([("Calc.cpObserved", ["tol", g, 2, None]) for g in (0.10, 0.30, 0.60)])
     # assert

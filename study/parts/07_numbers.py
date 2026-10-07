@@ -4,7 +4,7 @@ exercise answer (data-answer), and a re-check of every printed course result the
 Data come from inventory/constants (each row carries its course file and page) or, for the exercise workbook,
 from source/course/Les 3/20260605_devuyst_Regression_demo.xlsx (read-only, openpyxl). Nothing is taken from memory.
 Lines "OK" / "MISMATCH" compare a computation with a printed course value (half-up rounding to the printed
-precision, convention decision 10); "MISMATCH (erratum)" marks a known slide error listed in 07_errata.tsv.
+precision, convention decision 10); "MISMATCH (erratum)" marks a known slide error the guide text explains.
 Run from the project root:  python3 study/parts/07_numbers.py
 """
 from __future__ import annotations

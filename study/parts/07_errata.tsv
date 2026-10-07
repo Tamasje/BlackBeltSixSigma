@@ -1,4 +1,0 @@
-bron	href	gedrukt	correct	toelichting
-REG p. 21	../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=21	ŷ = 74,20 + 14,97x (onderschrift Figuur 11-4)	ŷ = 74,283 + 14,947x	De Minitab-output op REG p. 22 en een herberekening uit de data van REG p. 20 geven 74,283 en 14,947.
-REG p. 56	../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=56	R²adj = 1 − (1 − R²)(n − 1)/(n − k − 2)	R²adj = 1 − (1 − R²)(n − 1)/(n − k − 1)	Alle outputs van de cursus gebruiken n − k − 1: Excel 0,95988 voor de olie-data (REG p. 52; met n − k − 2 zou het 0,9562 zijn), Minitab 87,1 % (REG p. 22), de shampootabellen (REG p. 64–65), Design-Expert 0,8666 (DOE p. 61) en σ̂ op REG p. 57.
-REG p. 57	../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=57	Ŷ = 562,15 − 5,43 · 30 − 20,01 · 6 = 278,97	coëfficiënt 5,44 (REG p. 53); voorspelling 278,98	Met de exacte coëfficiënten 278,98; met 562,15, 5,44 en 20,01 krijg je 278,89; met de 5,43 van de slide 279,19.

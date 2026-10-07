@@ -445,5 +445,5 @@ show("half width 3 sqrt(p(1-p)/n)", 0.2777 - 0.2232)
 show("implied n of the last subgroup", 9 * 0.2232 * (1 - 0.2232) / (0.2777 - 0.2232) ** 2)
 
 print()
-print(f"{len(MISMATCHES)} MISMATCH line(s) (printed course values that disagree; see 10_errata.tsv): "
+print(f"{len(MISMATCHES)} MISMATCH line(s) (printed course values that disagree; explained in the guide text): "
       + "; ".join(MISMATCHES))

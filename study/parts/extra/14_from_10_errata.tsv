@@ -1,3 +1,0 @@
-bron	href	gedrukt	correct	toelichting
-Dummies p. 256	../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=256	3.0SL = 2379	2,379 (UCL bij subgroep 20, n = 65)	Decimaalteken ontbreekt; ū = 1,870 en LCL = 1,361 kloppen.
-Dummies p. 254 (Table 10-3)	../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=254	u-kaart: USL_i = ū + 3√(ū/n_i) ; LSL_i = ū − 3√(ū/n_i)	UCL_i en LCL_i	Het zijn regelgrenzen, geen specificatiegrenzen (de p-kaart in dezelfde tabel heet wel UCL/LCL).

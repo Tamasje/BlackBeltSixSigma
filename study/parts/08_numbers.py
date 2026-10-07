@@ -5,7 +5,7 @@ Data come from inventory/constants (each row carries its course file and page), 
 source/course/Les 3/20260605_devuyst_DOE_demo.xlsx and source/course/Les 5/20260619_ottoy_GRR - ANOVA - avegage and
 range - 2.xlsx (read-only, openpyxl), or, for data that exist only in a figure, from the slide cited next to them.
 Lines "OK" / "MISMATCH" compare a computation with a printed course value (half-up rounding to the printed
-precision, convention decision 10); "MISMATCH (erratum)" marks a known slide error listed in 08_errata.tsv.
+precision, convention decision 10); "MISMATCH (erratum)" marks a known slide error the guide text explains.
 Run from the project root:  python3 study/parts/08_numbers.py
 """
 from __future__ import annotations

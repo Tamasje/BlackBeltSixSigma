@@ -1,6 +1,0 @@
-bron	href	gedrukt	correct	toelichting
-H&S-samenvatting p. 2	../source/course/Les%204/Six-Sigma%20Mikel%20Harry%20-%20%20Richard%20Schroeder%20book%20summary.pdf#page=2	2 sigma: 308,537 DPMO (ook H&S-schets p. 1)	308 538	Zelfde afronding als SPC p. 21.
-Dummies p. 149	../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=149	hidden factory 98.6% − 70.7% = 27.9%	27,84 %	Het boek trekt afgeronde waarden af; 347/352 − 249/352 = 27,84 procentpunt.
-H&S p. 3	../source/course/Les%204/Six-Sigma%20Mikel%20Harry%20-%20%20Richard%20Schroeder.pdf#page=3	product B: (0.968)**(1/48) = 99.97% (or about 3.5 sigma)	99,932 %; Z = 3,20 zonder verschuiving (4,70 met)	Product A (99,97 %, Z = 3,46 ≈ 3,5 zonder verschuiving) klopt wel.
-H&S p. 3	../source/course/Les%204/Six-Sigma%20Mikel%20Harry%20-%20%20Richard%20Schroeder.pdf#page=3	product A: 'produces one defect for every 1.2 units produced'	1 defect per 6,2 eenheden (DPU = 0,16)	600 × 0,00027 = 0,16 defecten per eenheid; 1,2 is 1/0,85, het aantal eenheden per goede eenheid.
-H&S p. 5	../source/course/Les%204/Six-Sigma%20Mikel%20Harry%20-%20%20Richard%20Schroeder.pdf#page=5	NY = (0.368)**(-10) = 0.9051	0,368^(1/10) = 0,9049	De tekst definieert NY als de k-de wortel van RTY; de exponent moet 1/10 zijn.
