@@ -9,6 +9,7 @@ Expected values:
     (convention decision 10: half-up rounding to the last printed digit).
   * Printed values that disagree with the computation are strict xfails naming the page, never adjusted.
 - An independent scipy.stats computation for random inputs.
+The MR̄ / 1.128 row moved to the Extra sheet (Six Sigma For Dummies only); its tests are in test_sheet_extra.py.
 """
 from __future__ import annotations
 
@@ -231,7 +232,7 @@ def test_six_sigma_criterion_short_term_is_two_per_billion(evaluate: Evaluate) -
 
 @pytest.mark.parametrize("seed", [1, 2, 3])
 def test_every_row_matches_scipy_for_random_inputs(seed: int, evaluate: Evaluate) -> None:
-    # arrange -- six different sigmas at once, one per result row
+    # arrange -- different sigmas at once, one per result row
     rng = random.Random(seed)
     lsl = rng.uniform(-50, 50)
     usl = lsl + rng.uniform(1, 40)
@@ -239,6 +240,7 @@ def test_every_row_matches_scipy_for_random_inputs(seed: int, evaluate: Evaluate
     n = rng.choice([2, 3, 4, 5, 6, 8, 10, 15, 20, 25])
     raw = {"sigma_given": rng.uniform(0.1, 10), "rbar": rng.uniform(0.1, 10), "sbar": rng.uniform(0.1, 10),
            "mrbar": rng.uniform(0.1, 10), "s_overall": rng.uniform(0.1, 10)}
+    raw.pop("mrbar")  # still drawn so each seed keeps its inputs; the MR̄ row is tested in test_sheet_extra.py
     ws = evaluate(SHEET, cells({"lsl": lsl, "usl": usl, "mean": mean, "n": n, **raw}))
     # act / assert -- sigma per row uses the sheet's own looked-up constant (column Q), checked in test_constants
     for row in RESULT_ROWS:
@@ -254,12 +256,11 @@ def test_every_row_matches_scipy_for_random_inputs(seed: int, evaluate: Evaluate
 
 
 def test_sigma_rows_use_the_constants_from_the_tables_sheet(evaluate: Evaluate) -> None:
-    # arrange -- n = 5: d2 2.326 (Table 18), c4 .9400 (Table A); MR uses d2 for n = 2, 1.128
-    ws = evaluate(SHEET, cells({"lsl": 0, "usl": 10, "mean": 5, "rbar": 2.326, "sbar": 0.94, "n": 5, "mrbar": 1.128}))
+    # arrange -- n = 5: d2 2.326 (Table 18), c4 .9400 (Table A)
+    ws = evaluate(SHEET, cells({"lsl": 0, "usl": 10, "mean": 5, "rbar": 2.326, "sbar": 0.94, "n": 5}))
     # act / assert
     assert result(ws, "rbar_d2", "sigma") == pytest.approx(1.0)
     assert result(ws, "sbar_c4", "sigma") == pytest.approx(1.0)
-    assert result(ws, "mrbar", "sigma") == pytest.approx(1.0)
 
 
 def test_one_sided_specification_gives_only_the_one_sided_indices(evaluate: Evaluate) -> None:
@@ -277,7 +278,7 @@ def test_rows_stay_empty_until_their_input_is_filled(evaluate: Evaluate) -> None
     ws = evaluate(SHEET, cells({"lsl": 0, "usl": 6, "mean": 3, "sigma_given": 1}))
     # act / assert
     assert result(ws, "given", "cp") == pytest.approx(1.0)
-    for row in ("rbar_d2", "sbar", "sbar_c4", "mrbar", "overall"):
+    for row in ("rbar_d2", "sbar", "sbar_c4", "overall"):
         assert result(ws, row, "sigma") is None and result(ws, row, "cp") is None
 
 
@@ -285,7 +286,7 @@ def test_reversed_limits_blank_the_results_and_show_a_warning(evaluate: Evaluate
     # arrange -- LSL above USL
     ws = evaluate(SHEET, cells({"lsl": 1460, "usl": 1400, "mean": 1440, "sigma_given": 10}))
     # act / assert
-    assert ws["A12"].value == "Check: USL must be above LSL"
+    assert ws["A12"].value == "Controle: USL moet boven LSL liggen"
     assert result(ws, "given", "sigma") is None and result(ws, "given", "out_total") is None
 
 
@@ -293,12 +294,13 @@ def test_subgroup_size_outside_table_18_is_reported_not_computed(evaluate: Evalu
     # arrange -- Table 18 stops at n = 25
     ws = evaluate(SHEET, cells({"lsl": 0, "usl": 6, "mean": 3, "rbar": 4, "n": 30}))
     # act / assert
-    assert ws[f"Q{RESULT_ROWS['rbar_d2']}"].value == "n not in Table 18"
+    assert ws[f"Q{RESULT_ROWS['rbar_d2']}"].value == "n niet in Tabel 18"
     assert result(ws, "rbar_d2", "sigma") is None
 
 
 @pytest.mark.parametrize(("cp_sigma", "level"), [
-    (1.2, "not capable"), (1.0, "just capable"), (0.75, "acceptable"), (0.59, "good"), (0.5, "6 Sigma quality level"),
+    (1.2, "niet capabel (not capable)"), (1.0, "net capabel (just capable)"), (0.75, "acceptabel (acceptable)"),
+    (0.59, "goed (good)"), (0.5, "6 Sigma-kwaliteitsniveau (6 Sigma quality level)"),
 ])
 def test_cp_level_follows_deck_page_39(cp_sigma: float, level: str, evaluate: Evaluate) -> None:
     # arrange -- spec width 6, so Cp = 1/sigma: 0.83, 1.0, 1.33, 1.69, 2.0
