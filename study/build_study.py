@@ -37,6 +37,7 @@ FRAGMENT = re.compile(r"^(\d\d)_(?!numbers).+\.html$")
 sys.path.insert(0, str(STUDY.parent / "src"))
 
 from bbtools.constants import USED_TABLE, load_all, load_average_range_table  # noqa: E402
+from bbtools.printed import rounding_consistent  # noqa: E402
 
 
 def constants_data() -> dict[str, object]:
@@ -75,6 +76,7 @@ DOCS = {  # short name -> PDF under source/course/
     "AS": "Les 2/20260529_ottoy_Acceptance Sampling.pdf",
     "AS FR": "Les 2/20260529_ottoy_Acceptance Sampling - Further Reading.pdf",
     "Data": "Les 1/20260522_naert_big data.pdf",
+    "Constants": "Les 4/Control charts - constants.pdf",
     "ML": "Les 2/20260529_naert.pdf",
     "CI": "Les 2/20260529_ottoy_Confidence Intervals.pdf",
     "LSS": "Les 1/20260521_van volsem.pdf",
@@ -96,28 +98,22 @@ class Tool:
 
 
 TOOLS: dict[str, Tool] = {
-    "normaal": Tool("Rekenmachine normale verdeling: µ, σ, x, z en kansen uit elkaar",
+    "normaal": Tool("Rekenmachine normale verdeling: µ, σ, x, z, kansen en intervallen uit elkaar, met de Z-tabel",
                     "normale verdeling; normal distribution; z-waarde; z-score; kans; probability; NORM.DIST; NORM.INV; "
-                    "standaardnormaal; standard normal; staartkans; tail; rekenmachine; calculator",
-                    (("SPC", 16, "SPC p. 16–19, 27"), ("Excel", 1, "Excel-functies p. 1–3")), "Normaal"),
-    "ztabel": Tool("Z-tabel van de cursus (met zoekfunctie)",
-                   "Z-tabel; Z table; standaardnormale tabel; standard normal table; kans links van z",
-                   (("Ztable", 1, "Ztable.pdf p. 1–2"),)),
-    "sigma": Tool("Rekenmachine sigmaniveau, DPO en DPMO",
+                    "standaardnormaal; standard normal; staartkans; tail; rekenmachine; calculator; Z-tabel; Z table; "
+                    "standaardnormale tabel; standard normal table; kans links van z; interval; µ ± kσ; 68-95-99,7",
+                    (("SPC", 16, "SPC p. 16–19, 27"), ("Excel", 1, "Excel-functies p. 1–3"), ("Ztable", 1, "Ztable.pdf p. 1–2")),
+                    "Normaal"),
+    "sigma": Tool("Rekenmachine sigmaniveau, DPO, DPMO en yield in elke richting, met de sigmatabellen",
                   "sigmaniveau; sigma level; DPMO; DPO; defecten per kans; defects per opportunity; yield; "
-                  "1,5 sigma shift; verschuiving",
-                  (("SPC", 20, "SPC p. 20–21, 37–40"),),
+                  "1,5 sigma shift; verschuiving; sigmatabel; sigma table; sigma scale; DPMO-tabel; sigma level table; Z DPMO",
+                  (("SPC", 20, "SPC p. 20–21, 37–40"), ("LSS", 7, "LSS p. 7"), ("Dummies", 41, "Dummies p. 41, 160")),
                   "Sigma & DPMO"),
-    "sigmatabellen": Tool("Sigmatabellen zoals gedrukt in de cursus",
-                          "sigmatabel; sigma table; sigma scale; DPMO-tabel; sigma level table; Z DPMO",
-                          ()),
-    "kwantielen": Tool("Rekenmachine kritieke waarden en p-waarden (z, t, χ², F)",
+    "kwantielen": Tool("Rekenmachine kritieke waarden ↔ p-waarden (z, t, χ², F)",
                        "kritieke waarde; critical value; kwantiel; quantile; p-waarde; p-value; t-verdeling; t distribution; "
-                       "chi-kwadraat; chi-square; F-verdeling; F distribution; T.INV; CHISQ.INV; F.INV",
+                       "chi-kwadraat; chi-square; F-verdeling; F distribution; T.INV; CHISQ.INV; F.INV; t-tabel; t table; "
+                       "chi-kwadraattabel; chi-square table; F-tabel; F table",
                        (("TR", 4, "Test Recipes p. 4–14"),)),
-    "dummiestabellen": Tool("Extra (niet te kennen): t-, χ²- en F-tabellen van Six Sigma For Dummies",
-                            "t-tabel; t table; chi-kwadraattabel; chi-square table; F-tabel; F table; Dummies",
-                            (("Dummies", 192, "Dummies p. 192–196"),)),
     "gemiddelde": Tool("Rekenmachine één gemiddelde: BI en z- of t-toets",
                        "betrouwbaarheidsinterval gemiddelde; confidence interval mean; t-toets; t-test; z-toets; z-test; "
                        "eenzijdig; one-sided; tweezijdig; two-sided",
@@ -169,9 +165,11 @@ TOOLS: dict[str, Tool] = {
                        "regelkaart; control chart; controlegrenzen; control limits; UCL; LCL; X-bar; R-kaart; s-kaart; "
                        "Western Electric; run rules; standaardwaarden; standard values",
                        (("SPC", 62, "SPC p. 62–74"), ("tabellen SPC", 2, "tabellen SPC p. 2")), "Regelkaarten"),
-    "constanten": Tool("Constanten voor regelkaarten zoals gedrukt (Table 18, Table A, Six Sigma Demystified)",
-                       "constanten; constants; regelkaartconstanten; control chart constants; A2; D3; D4; d2; c4; B3; B4; E2; A3; Table 18; tabel",
-                       (), "Tabellen"),
+    "constanten": Tool("Constanten voor regelkaarten: één tabel met de waarden die de rekenmachines gebruiken",
+                       "constanten; constants; regelkaartconstanten; control chart constants; A2; D3; D4; d2; c4; B3; B4; E2; A3; "
+                       "Table 18; Table A; Six Sigma Demystified; Table 10-2; Dummies; tabel",
+                       (("tabellen SPC", 1, "tabellen SPC p. 1–2"), ("Constants", 1, "constants p. 1–2"), ("Dummies", 250, "Dummies p. 250")),
+                       "Tabellen"),
     "grr": Tool("Rekenmachine Gage R&R: gemiddelde-en-spreidingsbreedte en ANOVA",
                 "Gage R&R; GRR; meetsysteemanalyse; measurement system analysis; MSA; herhaalbaarheid; repeatability; "
                 "reproduceerbaarheid; reproducibility; EV; AV; PV; %GRR",
@@ -249,12 +247,6 @@ TOOLS: dict[str, Tool] = {
     "regelkaart_extra": Tool("Extra (niet te kennen): I-MR-, p- en u-kaart",
                              "I-MR; individuals; moving range; p-kaart; p chart; u-kaart; u chart; attributen; attributes; Dummies",
                              (("Dummies", 249, "Dummies p. 249–256"),), "Extra (boeken)"),
-    "sigmatabellen_extra": Tool("Extra (niet te kennen): sigmatabellen van Six Sigma For Dummies",
-                                "sigma scale; sigma score table; Dummies; Table 1-2; Table 6-3",
-                                (("Dummies", 41, "Dummies p. 41, 160"),)),
-    "constanten_extra": Tool("Extra (niet te kennen): regelkaartconstanten van Six Sigma For Dummies (Table 10-2)",
-                             "constanten Dummies; Table 10-2; control chart constants Dummies",
-                             (("Dummies", 250, "Dummies p. 250"),)),
     "confusion": Tool("Rekenmachine confusion matrix (2 × 2 en k klassen): accuracy, recall, precision, F1",
                       "confusion matrix; verwarringsmatrix; accuracy; nauwkeurigheid; recall; precision; F1; overfitting; "
                       "underfitting; train; test",
@@ -262,9 +254,9 @@ TOOLS: dict[str, Tool] = {
 }
 
 PART_TOOLS: dict[str, tuple[str, ...]] = {
-    "01": ("sigmatabellen",),
-    "02": ("beschrijvend", "verdelingen", "kruistabel", "bayes", "normaal", "ztabel"),
-    "03": ("normaal", "ztabel", "sigma", "sigmatabellen"),
+    "01": ("sigma",),
+    "02": ("beschrijvend", "verdelingen", "kruistabel", "bayes", "normaal"),
+    "03": ("normaal", "sigma"),
     "04": ("gemiddelde", "tweegemiddelden", "proportie", "variantie", "steekproefgrootte", "tolerantie", "kwantielen"),
     "05": ("gemiddelde", "tweegemiddelden", "proportie", "variantie", "onderscheidingsvermogen", "chikwadraat",
            "nietparametrisch", "kwantielen"),
@@ -272,11 +264,11 @@ PART_TOOLS: dict[str, tuple[str, ...]] = {
            "verdelingen", "normaal"),
     "07": ("regressie", "meervoudig", "beschrijvend", "kwantielen"),
     "08": ("anova", "anova2", "factorieel", "aliassen", "kwantielen"),
-    "09": ("capabiliteit", "normaal", "ztabel", "sigma", "constanten"),
+    "09": ("capabiliteit", "normaal", "sigma", "constanten"),
     "10": ("regelkaart", "constanten", "normaal"),
     "11": ("grr", "meetsysteem", "msatabel", "regressie", "capabiliteit", "bayes"),
     "12": ("confusion", "bayes"),
-    "14": ("sigma_extra", "regelkaart_extra", "sigmatabellen_extra", "dummiestabellen", "constanten_extra"),
+    "14": ("sigma_extra", "regelkaart_extra", "constanten"),
     "13": ("variantie", "kwantielen", "capabiliteit", "normaal", "confusion", "verdelingen", "sigma", "regelkaart",
            "kruistabel"),
 }
@@ -301,15 +293,6 @@ def read_constant_csv(stem: str) -> tuple[list[str], list[list[str]], str, int, 
     return header[:width], [row[:width] for row in body], body[0][width], int(body[0][width + 1]), body[0][width + 2]
 
 
-def printed_table(stem: str, note: str = "") -> str:
-    """One course table exactly as printed, with its source link."""
-    header, rows, source_file, page, title = read_constant_csv(stem)
-    head = "".join(f"<th>{html.escape(h)}</th>" for h in header)
-    body = "".join("<tr>" + "".join(f"<td>{html.escape(c)}</td>" for c in row) + "</tr>" for row in rows)
-    return (f'<p class="lbl">{html.escape(title)} — {source_link(source_file, page, Path(source_file).name + " p. " + str(page))}'
-            f'</p>{note}<div class="scroll"><table class="out grid printed"><tr>{head}</tr>{body}</table></div>')
-
-
 def z_table() -> str:
     """The course Z table (Ztable.pdf p. 1-2) with data-z on every cell for the lookup in tools.js."""
     parts = []
@@ -330,29 +313,57 @@ def z_table() -> str:
     return "".join(parts)
 
 
-def chart_constants(extra: bool = False) -> str:
-    """The control-chart constant tables as printed, with the table each calculator uses (decision 4).
+# Column order of the merged constant table: X̄-chart factors, σ estimation, R chart, s chart, rarely used.
+CONSTANT_ORDER = ("A", "A2", "A3", "E2", "d2", "1/d2", "d3", "c4", "1/c4", "c2", "1/c2", "D1", "D2", "D3", "D4",
+                  "B3", "B4", "B5", "B6", "B1", "B2", "A0", "A1")
+TABLE_LABEL = {"T18": "Table 18", "TA": "Table A", "SSD1": "SSD p. 1", "SSD2": "SSD p. 2", "DUM": "Dummies"}
 
-    extra=False: the course tables (Table 18, Table A, Six Sigma Demystified); extra=True: the Dummies table (Deel 14).
-    """
-    blocks = []
-    for table in load_all():
-        if (table.source.key == "DUM") != extra:
-            continue
-        used = sorted(symbol for symbol, key in USED_TABLE.items() if key == table.source.key)
-        head = "".join(f"<th>{html.escape(c)}</th>" for c in table.columns)
-        body = "".join("<tr>" + "".join(f"<td>{html.escape(c)}</td>" for c in row) + "</tr>" for row in table.rows)
-        role = f"De rekenmachines gebruiken hieruit: {', '.join(used)}." if used else "Ter referentie."
-        blocks.append(f'<p class="lbl">{html.escape(table.title)} — '
-                      f'{source_link(table.source_file, table.source_page, Path(table.source_file).name + " p. " + str(table.source_page))}'
-                      f'</p><p class="help">{role} Bron: {html.escape(table.source.origin)}.</p>'
-                      f'<div class="scroll"><table class="out grid printed"><tr>{head}</tr>{body}</table></div>')
-    if extra:
-        return ('<p class="help">Uit Six Sigma For Dummies (niet te kennen voor het examen); ter vergelijking met de '
-                'tabellen van de cursus.</p>' + "".join(blocks))
-    return ('<p class="help">Beslissing 4: Table 18 eerst (de oefenwerkboeken van de cursus gebruiken die waarden), c4 en '
-            'd3 uit Table A, A3, E2, B5 en B6 uit Six Sigma Demystified. Kleine verschillen tussen de tabellen staan in '
-            'build/README.md.</p>' + "".join(blocks))
+
+def chart_constants() -> str:
+    """One table of control-chart constants: per symbol the printed value the calculators use (decision 4), with the
+    table it comes from; below it, every place where the other printed tables differ beyond rounding."""
+    tables = {table.source.key: table for table in load_all()}
+    printed: dict[tuple[str, str], dict[str, str]] = {}   # (symbol, n) -> {table key: printed value}
+    for key, table in tables.items():
+        for symbol, column in table.symbol_columns().items():
+            for row in table.rows:
+                if row[column].strip():
+                    printed.setdefault((symbol, row[0].strip()), {})[key] = row[column].strip()
+    symbols = [s for s in CONSTANT_ORDER if s in USED_TABLE]
+    assert set(symbols) == set(USED_TABLE), "every constant the calculators use needs a column"
+    sizes = [row[0].strip() for row in tables[USED_TABLE["d2"]].rows]
+    sizes += [row[0].strip() for row in tables["TA"].rows if row[0].strip() not in sizes]   # Table A goes to n = 100
+    head = "<th>n</th>" + "".join(f"<th>{html.escape(s)}<br><span class=\"aux\">{TABLE_LABEL[USED_TABLE[s]]}</span></th>"
+                                  for s in symbols)
+    body = []
+    for n in sizes:
+        cells = []
+        for symbol in symbols:
+            values = printed.get((symbol, n), {})
+            used = values.get(USED_TABLE[symbol])
+            if used is None and values:   # n beyond the used table: the value of the table that has it, labelled
+                other, used = next(iter(values.items()))
+                used = f"{used} <span class=\"aux\">({TABLE_LABEL[other]})</span>"
+            else:
+                used = html.escape(used or "")
+            cells.append(f"<td>{used}</td>")
+        body.append(f"<tr><th>{html.escape(n)}</th>{''.join(cells)}</tr>")
+    groups: dict[tuple[str, tuple[str, ...]], list[str]] = {}   # (symbol, tables) -> "n = 7: 0.205 / 0.204", …
+    for (symbol, n), values in sorted(printed.items(), key=lambda item: (item[0][0], int(item[0][1]) if item[0][1].isdigit() else 0)):
+        if len(values) > 1 and n.isdigit() and not rounding_consistent(list(values.values())):
+            groups.setdefault((symbol, tuple(values)), []).append(f"n = {n}: {' / '.join(html.escape(v) for v in values.values())}")
+    differences = [(CONSTANT_ORDER.index(symbol) if symbol in CONSTANT_ORDER else 99, 0,
+                    f"<li><b>{html.escape(symbol)}</b> ({' / '.join(TABLE_LABEL[k] for k in keys)}): {'; '.join(items)}</li>")
+                   for (symbol, keys), items in groups.items()]
+    links = " · ".join(source_link(t.source_file, t.source_page, f"{TABLE_LABEL[k]}: {Path(t.source_file).name} p. {t.source_page}")
+                       for k, t in tables.items())
+    return ('<p class="help">Elke kolom geeft de waarde die de rekenmachines gebruiken, uit de tabel onder het symbool '
+            '(beslissing 4: Table 18 eerst, zoals de oefenwerkboeken van de cursus; c4 en d3 uit Table A; A3, 1/c4, B5, B6 '
+            'en E2 uit Six Sigma Demystified). De andere gedrukte tabellen geven dezelfde waarden, op afronding na, behalve '
+            f'de plaatsen in de lijst onder de tabel. Gedrukte tabellen: {links}.</p>'
+            f'<div class="scroll"><table class="out grid printed"><tr>{head}</tr>{"".join(body)}</table></div>'
+            '<p class="lbl">Waar de gedrukte tabellen meer dan afronding verschillen</p><ul class="small">'
+            + "".join(item for _, _, item in sorted(differences)) + "</ul>")
 
 
 def msa_table() -> str:
@@ -369,21 +380,50 @@ def msa_table() -> str:
             f'<div class="scroll"><table class="out grid printed msa"><tr>{head}</tr>{body}</table></div>')
 
 
+# The printed sigma tables: (CSV stem, column of the level, of the DPMO, of the yield, short source label).
+SIGMA_TABLES = (
+    ("S06_voc_vs_vop_sigma_capability_defects_per_million_opportunitie", "Sigma Capability", "Defects per Million Opportunities", "% Yield", "SPC p. 21"),
+    ("S01_sigma_level_defects_per_million_yield_tabel", "Sigma Level", "Defects per Million", "Yield", "LSS p. 7"),
+    ("S07_table_1_2_the_sigma_scale", "Sigma", "Defects per Million", None, "Dummies p. 41"),
+    ("S08_table_6_3_sigma_score_table_z_dpmo", "Z", "DPMO", None, "Dummies p. 160"),
+)
+
+
+def joined(printed: list[tuple[str, str]]) -> str:
+    """One printed value when all sources agree, else every value with its source: '233 (SPC p. 21) · 230 (LSS p. 7)'."""
+    values = list(dict.fromkeys(value for value, _ in printed))
+    if len(values) == 1:
+        return html.escape(values[0])
+    return " · ".join(html.escape(value) + " <span class=\"aux\">(" + ", ".join(src for v, src in printed if v == value) + ")</span>"
+                      for value in values)
+
+
+def sigma_table() -> str:
+    """The four printed sigma tables as one: a row per sigma level, each printed DPMO and yield once, with its source.
+    Dummies' 'percent defective' is 1 − yield and is left out."""
+    levels: dict[float, dict[str, list[tuple[str, str]]]] = {}
+    for stem, level_col, dpmo_col, yield_col, label in SIGMA_TABLES:
+        with (CONSTANTS_DIR / f"{stem}.csv").open(encoding="utf-8", newline="") as handle:
+            for row in csv.DictReader(handle):
+                entry = levels.setdefault(float(row[level_col]), {"dpmo": [], "yield": [], "src": []})
+                entry["dpmo"].append((row[dpmo_col], label))
+                entry["src"].append(label)
+                if yield_col:
+                    entry["yield"].append((row[yield_col], label))
+    rows = "".join(f"<tr><th>{str(level).replace('.0', '').replace('.', ',')}</th><td>{joined(e['dpmo'])}</td>"
+                   f"<td>{joined(e['yield']) if e['yield'] else ''}</td><td class=\"note\">{', '.join(e['src'])}</td></tr>"
+                   for level, e in sorted(levels.items()))
+    return ('<p class="lbl">Sigmaniveau ↔ DPMO zoals gedrukt in de cursus (SPC p. 21, LSS p. 7) en in Six Sigma For Dummies '
+            '(p. 41, 160; niet te kennen)</p><p class="help">Alle tabellen rekenen met de 1,5σ-verschuiving (beslissing 3): '
+            'DPMO is de staart voorbij sigmaniveau − 1,5. Waar de tabellen verschillen, staat elke waarde met haar bron. '
+            '2σ correct afgerond is 308 538. Voor een niveau dat niet in de tabel staat: de rekenmachine hierboven.</p>'
+            '<div class="scroll"><table class="out grid printed"><tr><th>sigmaniveau</th><th>DPMO</th><th>yield</th>'
+            f'<th>staat in</th></tr>{rows}</table></div>')
+
+
 def templates() -> str:
-    """<template> elements with the static tables; tools.js copies them into a panel when it is opened."""
-    sigma = "".join(printed_table(stem) for stem in (
-        "S06_voc_vs_vop_sigma_capability_defects_per_million_opportunitie",
-        "S01_sigma_level_defects_per_million_yield_tabel"))
-    sigma = ('<p class="help">Beide tabellen rekenen met de 1,5σ-verschuiving (beslissing 3). 2σ: SPC p. 21 drukt 308,537 '
-             'en LSS p. 7 308,000; correct afgerond is 308 538.</p>' + sigma)
-    sigma_extra = ('<p class="help">Uit Six Sigma For Dummies (niet te kennen voor het examen), ook met de 1,5σ-verschuiving.</p>'
-                   + "".join(printed_table(stem) for stem in ("S07_table_1_2_the_sigma_scale", "S08_table_6_3_sigma_score_table_z_dpmo")))
-    dummies = ('<p class="calc-warn">Let op: Dummies noemt "95 %" wat ±2σ is (95,45 %, 2,275 % per staart) bij de χ²-tabel, '
-               'en een rechterstaart van 5 % bij de F-tabel; de kolommen staan per n, niet per vrijheidsgraden. Gebruik voor '
-               'de oefeningen van de cursus de rekenmachine voor kritieke waarden.</p>' + "".join(printed_table(stem) for stem in (
-                   "S08_table_8_1_t_values", "S08_table_8_2_chi_square_values", "S08_table_8_3_f_values_for_95_confidence")))
-    content = {"ztabel": z_table(), "sigmatabellen": sigma, "sigmatabellen_extra": sigma_extra, "dummiestabellen": dummies,
-               "constanten": chart_constants(), "constanten_extra": chart_constants(extra=True), "msatabel": msa_table()}
+    """<template> elements with the static tables; tools.js copies them into a panel, below its calculators."""
+    content = {"normaal": z_table(), "sigma": sigma_table(), "constanten": chart_constants(), "msatabel": msa_table()}
     return "\n".join(f'<template id="tpl-{name}">{body}</template>' for name, body in content.items())
 
 

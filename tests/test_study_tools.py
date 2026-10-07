@@ -14,6 +14,7 @@ import itertools
 import json
 import math
 import random
+import re
 import shutil
 import subprocess
 import sys
@@ -897,3 +898,151 @@ def test_k_class_confusion_matrix_ml_p30() -> None:
     assert r["accuracy"] == pytest.approx(np.trace(m) / m.sum())
     for i, c in enumerate(r["classes"]):
         assert c["recall"] == pytest.approx(m[i, i] / m[i].sum()) and c["precision"] == pytest.approx(m[i, i] / m[:, i].sum())
+
+
+# ---------- solvers in every direction (user request 2026-10-07: tables merged, calculators work both ways) ----------
+
+def test_sigma_solver_reproduces_the_course_sigma_table_both_ways() -> None:
+    # arrange -- SPC p. 21: level -> DPMO and the printed DPMO back to its level (decision 3, 1.5σ shift)
+    rows = course_rows("S06_voc_vs_vop_sigma_capability_defects_per_million_opportunitie")
+    calls = [("Calc.sigmaSolve", [{"level": float(r["Sigma Capability"])}]) for r in rows]
+    calls += [("Calc.sigmaSolve", [{"dpmo": float(r["Defects per Million Opportunities"].replace(",", ""))}]) for r in rows]
+    # act
+    got = run_js(calls)
+    forward, backward = got[:len(rows)], got[len(rows):]
+    # assert -- at printed precision (2σ: 308,537.5 prints as 308,537 on SPC p. 21, build/README.md); back within 0.01σ
+    for row, ahead, back in zip(rows, forward, backward):
+        printed = row["Defects per Million Opportunities"]
+        if printed != "308,537":
+            assert agrees_at_printed_precision(ahead["dpmo"], printed, thousands=True), row
+        assert back["level"] == pytest.approx(float(row["Sigma Capability"]), abs=0.01), row
+        assert back["z"] == pytest.approx(stats.norm.isf(float(printed.replace(",", "")) / 1e6), rel=1e-9)
+
+
+def test_sigma_solver_finds_the_missing_count() -> None:
+    # arrange -- D, N, O give DPO; DPMO with two of D, N, O gives the third
+    # act
+    full, no_n, no_o = run_js([("Calc.sigmaSolve", [{"D": 15, "N": 500, "O": 6}]),
+                               ("Calc.sigmaSolve", [{"D": 15, "O": 6, "dpmo": 5000}]),
+                               ("Calc.sigmaSolve", [{"D": 15, "N": 500, "dpmo": 5000}])])
+    # assert
+    assert full["dpo"] == pytest.approx(0.005) and full["level"] == pytest.approx(stats.norm.isf(0.005) + 1.5)
+    assert no_n["N"] == pytest.approx(500) and no_o["O"] == pytest.approx(6)
+
+
+def test_normal_interval_every_direction_matches_scipy() -> None:
+    # arrange -- µ ± kσ, a symmetric interval with its coverage, and σ from µ, one bound and the fraction outside
+    mu, sigma, k = 10.0, 2.0, 1.7
+    inside = float(stats.norm.cdf(k) - stats.norm.cdf(-k))
+    # act
+    by_k, by_bounds, by_one_bound = run_js([
+        ("Calc.normalInterval", [{"mu": mu, "sigma": sigma, "k": k}]),
+        ("Calc.normalInterval", [{"a": mu - k * sigma, "b": mu + k * sigma, "inside": inside}]),
+        ("Calc.normalInterval", [{"mu": mu, "a": mu - k * sigma, "outside": 1 - inside}])])
+    # assert
+    assert by_k["inside"] == pytest.approx(inside, rel=1e-10) and by_k["b"] == pytest.approx(mu + k * sigma)
+    assert by_bounds["mu"] == pytest.approx(mu) and by_bounds["sigma"] == pytest.approx(sigma, rel=1e-8)
+    assert by_one_bound["sigma"] == pytest.approx(sigma, rel=1e-8) and by_one_bound["b"] == pytest.approx(mu + k * sigma, rel=1e-8)
+
+
+def test_capability_solver_every_direction_matches_scipy() -> None:
+    # arrange -- random processes: the forward values from scipy, then each solver direction recovers the rest
+    rng = random.Random(5)
+    calls, cases = [], []
+    for _ in range(10):
+        lsl, usl = 100.0, 100.0 + rng.uniform(5, 40)
+        sigma, mean = rng.uniform(0.6, 3.0), rng.uniform(lsl + 0.3 * (usl - lsl), usl - 0.3 * (usl - lsl))
+        cp, cpu, cpl = (usl - lsl) / (6 * sigma), (usl - mean) / (3 * sigma), (mean - lsl) / (3 * sigma)
+        ppm = (stats.norm.sf(3 * cpu) + stats.norm.sf(3 * cpl)) * 1e6
+        cases.append((sigma, mean, cp, min(cpu, cpl), ppm))
+        calls += [("Calc.capabilitySolve", [{"lsl": lsl, "usl": usl, "mean": mean, "sigma": sigma}]),
+                  ("Calc.capabilitySolve", [{"lsl": lsl, "usl": usl, "cp": cp, "cpk": min(cpu, cpl)}]),
+                  ("Calc.capabilitySolve", [{"lsl": lsl, "usl": usl, "cp": cp, "ppm": ppm}]),
+                  ("Calc.capabilitySolve", [{"usl": usl, "ppm": stats.norm.sf(3 * cpu) * 1e6}])]
+    # act
+    got = run_js(calls)
+    # assert
+    for i, (sigma, mean, cp, cpk, ppm) in enumerate(cases):
+        forward, from_indices, from_ppm, one_sided = got[4 * i:4 * i + 4]
+        assert forward["cp"] == pytest.approx(cp) and forward["cpk"] == pytest.approx(cpk) and forward["ppm"] == pytest.approx(ppm, rel=1e-9)
+        assert from_indices["ppm"] == pytest.approx(ppm, rel=1e-9) and from_indices["sigma"] == pytest.approx(sigma)
+        assert mean == pytest.approx(min(from_indices["meanOptions"], key=lambda m: abs(m - mean)))
+        assert from_ppm["cpk"] == pytest.approx(cpk, rel=1e-7)
+        assert one_sided["cpk"] == pytest.approx((one_sided["usl"] - mean) / (3 * sigma), rel=1e-7)
+
+
+def test_capability_solver_centred_cp_2_is_2_per_billion_spc_p40() -> None:
+    # arrange -- SPC p. 40: Cp = 2, centred: 0.002 ppm (study/parts/09_numbers.py); and back from the ppm
+    # act
+    ahead, back = run_js([("Calc.capabilitySolve", [{"lsl": 0, "usl": 12, "cp": 2, "centred": True}]),
+                          ("Calc.capabilitySolve", [{"lsl": 0, "usl": 12, "ppm": 2 * stats.norm.sf(6) * 1e6, "centred": True}])])
+    # assert
+    assert agrees_at_printed_precision(ahead["ppm"], "0.002") and ahead["mean"] == 6
+    assert back["cp"] == pytest.approx(2, rel=1e-9) and back["sigma"] == pytest.approx(1, rel=1e-9)
+
+
+def test_limits_inverse_recovers_the_summary_of_the_chart() -> None:
+    # arrange -- SPC p. 74 forwards with the decision 4 constants, then backwards from the limits
+    n, xbb, rbar, sbar = 5, 28.46, 3.06, 1.30
+    forward = run_js([("Calc.limitsSummary", [n, xbb, rbar, sbar, "@K"])])[0]
+    # act
+    from_r = run_js([("Calc.limitsInverse", [n, {"ucl": forward["xR"][2], "lcl": forward["xR"][0], "uclR": forward["R"][2]}, "@K"])])[0]
+    from_s = run_js([("Calc.limitsInverse", [n, {"ucl": forward["xS"][2], "cl": xbb, "uclS": forward["S"][2]}, "@K"])])[0]
+    # assert
+    assert from_r["xbb"] == pytest.approx(xbb) and from_r["rbarFromX"] == pytest.approx(rbar) and from_r["rbarFromR"] == pytest.approx(rbar)
+    assert from_r["sigmaR"] == pytest.approx(rbar / table_constant("d2", n))
+    assert from_s["sbarFromX"] == pytest.approx(sbar) and from_s["sbarFromS"] == pytest.approx(sbar)
+
+
+def test_sample_size_solver_every_direction() -> None:
+    # arrange -- CI p. 7, 10: n 1537 for a full width of 5 % at 95 %; then width and confidence back from n
+    z = stats.norm.ppf(0.975)
+    # act
+    n, width, confidence = run_js([("Calc.sampleSizeSolve", [0.05, 0.05, None, None, None]),
+                                   ("Calc.sampleSizeSolve", [0.05, None, 1537, None, None]),
+                                   ("Calc.sampleSizeSolve", [None, 0.05, 1537, None, 5])])
+    # assert
+    assert n["prop"]["nUp"] == 1537
+    assert width["prop"]["width"] == pytest.approx(2 * z * math.sqrt(0.25 / 1537), rel=1e-12)
+    assert confidence["prop"]["alpha"] == pytest.approx(2 * stats.norm.sf(0.05 * math.sqrt(1537) / (2 * 0.5)), rel=1e-10)
+    assert confidence["mean"]["alpha"] == pytest.approx(2 * stats.norm.sf(0.05 * math.sqrt(1537) / (2 * 5)), rel=1e-10)
+
+
+def test_detectable_shift_th_fr_p9() -> None:
+    # arrange -- TH FR p. 9: σ 300, α 1 %, β 1 %: n = 195 detects the true mean 1300 against 1200 (oracle S03-WE11)
+    # act
+    shift = run_js([("Calc.detectableShift", [300, 195, 0.01, 0.01])])[0]
+    # assert
+    assert shift == pytest.approx(2 * stats.norm.ppf(0.99) * 300 / math.sqrt(195), rel=1e-12)
+    assert 1200 + shift == pytest.approx(1300, abs=0.5)
+
+
+def test_discrete_and_exponential_inverses_match_scipy() -> None:
+    # arrange
+    cases = [("Calc.binomialInv", [20, 0.1, 0.95], stats.binom.ppf(0.95, 20, 0.1)),
+             ("Calc.binomialInv", [130, 0.02, 0.5], stats.binom.ppf(0.5, 130, 0.02)),
+             ("Calc.poissonInv", [2.959, 0.9], stats.poisson.ppf(0.9, 2.959)),
+             ("Calc.hypergeometricInv", [1000, 30, 80, 0.99], stats.hypergeom.ppf(0.99, 1000, 30, 80))]
+    # act
+    got = run_js([(name, args) for name, args, _ in cases] + [("Calc.exponentialSolve", [None, 10, 0.5]),
+                                                               ("Calc.exponentialSolve", [0.2, None, 0.5])])
+    # assert
+    for (name, args, expected), value in zip(cases, got):
+        assert value == expected, (name, args)
+    assert got[-2]["rate"] == pytest.approx(math.log(2) / 10) and got[-1]["t"] == pytest.approx(math.log(2) / 0.2)
+
+
+def test_merged_tables_keep_every_printed_number() -> None:
+    # arrange -- the four sigma tables and the five constant tables became one table each (build_study.py)
+    module = build_module()
+    sigma_html, constants_html = module.sigma_table(), module.chart_constants()
+    # act
+    sigma_dpmo = [(stem, row[dpmo]) for stem, _, dpmo, _, _ in module.SIGMA_TABLES for row in course_rows(stem)]
+    used = {(symbol, row[0].strip()): row[column].strip() for table in load_all() if table.source.key in set(USED_TABLE.values())
+            for symbol, column in table.symbol_columns().items() if USED_TABLE.get(symbol) == table.source.key
+            for row in table.rows if row[0].strip().isdigit() and row[column].strip()}
+    # assert
+    for stem, printed in sigma_dpmo:
+        assert re.search(rf"(?<![\d,.]){re.escape(printed)}(?![\d,.])", sigma_html), (stem, printed)
+    for (symbol, n), printed in used.items():
+        assert f"<td>{printed}</td>" in constants_html, (symbol, n, printed)

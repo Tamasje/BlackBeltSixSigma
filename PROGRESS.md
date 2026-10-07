@@ -204,6 +204,23 @@ Decisions 18-20 (2026-10-05) in inventory/conventions.md; oracle updated once wi
 - Build validated with links into source/ not checkable (source/ absent in the cloud container); all other checks pass.
   pytest, scipy and openpyxl are not installed there, so tests/ was not run; rerun `pytest` locally.
 
+### Study guide: tools deduplicated, calculators in every direction (2026-10-07, user request step 1)
+- Tables that repeated each other are now one table each: the four sigma tables (SPC p. 21, LSS p. 7, Dummies p. 41,
+  160) → one row per sigma level, each printed DPMO/yield once with its source where they differ; the five
+  control-chart constant tables (Table 18, Table A, SSD p. 1-2, Dummies Table 10-2) → one column per symbol with the
+  value the calculators use (decision 4) and a grouped list of the places where printed tables differ beyond rounding.
+  The Z table moved into the normal-distribution tool (the cell of the computed z is highlighted); the Dummies t/χ²/F
+  tables are gone (the quantile calculator gives both directions). Tools removed: ztabel, sigmatabellen,
+  sigmatabellen_extra, dummiestabellen, constanten_extra (their search keywords moved to the tools that replace them).
+- New solvers (study/assets/calc.js), each fills in whatever is missing: sigmaSolve (D, N, O, DPO, DPMO, yield, Z,
+  sigma level), normalInterval (µ, σ, a, b, k, fraction inside/outside), capabilitySolve (LSL, USL, µ, σ, Cp, Cpk,
+  ppm; one-sided and centred cases), limitsInverse (control limits → X̿, R̄, s̄, σ̂), sampleSizeSolve (two of α, W, n),
+  detectableShift (smallest µ1 for a β), binomial/Poisson/hypergeometric quantiles, exponentialSolve; σ/√n any two of
+  three; quantile and p-value blocks merged into one block.
+- tests/test_study_tools.py: 10 new tests (course sigma table both ways, SPC p. 40 Cp = 2 → 0.002 ppm, TH FR p. 9
+  n = 195 → 1300, merged tables keep every printed number, scipy cross-checks). Not run here (no pytest/scipy); the
+  same assertions were replayed in node with stdlib expected values: all pass. Browser check: panels compute, no errors.
+
 ## Answered questions (inventory-review STOP; decisions in inventory/conventions.md)
 Convention questions (details and sources in inventory/conventions.md, "Conflicts and gaps"):
 1. σ for capability from data: R̄/d2; s̄ directly (deck p. 46) or s̄/c4; overall STDEV.S for Pp/Ppk; MR̄/1.128 for individuals?

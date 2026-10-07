@@ -1159,6 +1159,253 @@ var Calc = (function () {
              tooCoarse: values.length <= limit, limit: limit };
   }
 
+  /* ---------- solvers in every direction: any sufficient subset of the inputs gives all the others ---------- */
+  // A note when two inputs that should agree differ by more than 0.5 % (a printed table value is rounded).
+  function disagree(a, b) { return Math.abs(a - b) > 0.005 * Math.max(Math.abs(a), Math.abs(b)); }
+  // Repeat a set of rules until none of them adds a value; each rule returns true when it set something.
+  function propagate(rules) {
+    for (var pass = 0; pass < 8; pass++) {
+      var changed = false;
+      rules.forEach(function (rule) { changed = rule() || changed; });
+      if (!changed) return;
+    }
+  }
+  // True when any of the already evaluated set() results is true: every set() in the list has run.
+  function anySet(results) { return results.some(Boolean); }
+  function setter(v, solved) {
+    return function (key, value) {
+      if (num(v[key]) || !num(value)) return false;
+      v[key] = value; solved.push(key);
+      return true;
+    };
+  }
+
+  // Sigma level ↔ DPMO ↔ DPO ↔ yield ↔ (D, N, O): SPC p. 20–21, decision 3 (sigma level = Z + 1,5).
+  // The first given quantity in this order fixes DPO: D/(N·O), DPO, DPMO, yield, Z, sigma level.
+  function sigmaSolve(k) {
+    var notes = [], solved = [], from = [];
+    if (all(k.D, k.N, k.O) && k.N > 0 && k.O > 0) from.push(['D/(N·O)', k.D / (k.N * k.O)]);
+    if (num(k.dpo)) from.push(['DPO', k.dpo]);
+    if (num(k.dpmo)) from.push(['DPMO', k.dpmo / MILLION]);
+    if (num(k.yield)) from.push(['yield', 1 - k.yield]);
+    if (num(k.z)) from.push(['Z', S.normCdf(-k.z)]);
+    if (num(k.level)) from.push(['sigmaniveau', S.normCdf(-(k.level - SHIFT))]);
+    var v = { D: k.D, N: k.N, O: k.O, dpo: from.length ? from[0][1] : null }, set = setter(v, solved);
+    from.slice(1).forEach(function (f) {
+      if (disagree(f[1], v.dpo)) notes.push(f[0] + ' spreekt ' + from[0][0] + ' tegen; ' + from[0][0] + ' gebruikt');
+    });
+    if (!from.length || from[0][0] !== 'DPO') solved.push('dpo');
+    if (num(v.dpo)) {   // the missing one of D, N, O
+      if (all(v.N, v.O) && !num(v.D)) set('D', v.dpo * v.N * v.O);
+      else if (all(v.D, v.O) && !num(v.N) && v.dpo > 0) set('N', v.D / (v.dpo * v.O));
+      else if (all(v.D, v.N) && !num(v.O) && v.dpo > 0) set('O', v.D / (v.dpo * v.N));
+    }
+    var out = { D: v.D, N: v.N, O: v.O, dpo: v.dpo, solved: solved, notes: notes };
+    if (!num(v.dpo)) return out;
+    out.dpmo = v.dpo * MILLION; out.yield = 1 - v.dpo;
+    if (v.dpo > 0 && v.dpo < 1) {
+      out.z = -S.normInv(v.dpo); out.level = out.z + SHIFT;
+      out.oneTail = MILLION * S.normCdf(-out.level); out.twoTails = 2 * out.oneTail;   // the level read without shift
+    } else notes.push('DPO moet tussen 0 en 1 liggen voor een sigmaniveau');
+    ['dpmo', 'yield', 'z', 'level'].forEach(function (key) { if (!num(k[key]) && num(out[key])) solved.push(key); });
+    return out;
+  }
+
+  // An interval [a ; b] of the normal distribution: µ, σ, a, b, k (bounds µ ± kσ), the fraction inside or outside.
+  // Without µ the interval is taken symmetric (µ in the middle) and said so.
+  function normalInterval(q) {
+    var v = { mu: q.mu, sigma: num(q.sigma) && q.sigma > 0 ? q.sigma : null, a: q.a, b: q.b, k: q.k }, solved = [], notes = [];
+    var set = setter(v, solved);
+    if (num(q.sigma) && q.sigma <= 0) notes.push('σ moet positief zijn');
+    if (num(q.inside) && num(q.outside) && Math.abs(q.inside + q.outside - 1) > 1e-9) notes.push('binnen + buiten is niet 1');
+    var inside = num(q.inside) ? q.inside : (num(q.outside) ? 1 - q.outside : null);
+    var kFromP = num(inside) && inside > 0 && inside < 1 ? S.normInv(1 - (1 - inside) / 2) : null;
+    if (num(v.k) && num(kFromP) && disagree(v.k, kFromP)) notes.push('k en de kans spreken elkaar tegen; k gebruikt');
+    if (!num(v.mu) && all(v.a, v.b) && (num(v.sigma) || num(v.k) || num(kFromP))) {
+      set('mu', (v.a + v.b) / 2);
+      notes.push('symmetrisch interval aangenomen: µ = (a + b)/2');
+    }
+    propagate([
+      function () { return set('k', kFromP); },
+      function () { return all(v.mu, v.sigma, v.a, v.b) && Math.abs((v.b - v.mu) - (v.mu - v.a)) < 1e-9 * Math.max(1, Math.abs(v.b)) ? set('k', (v.b - v.mu) / v.sigma) : false; },
+      function () {
+        if (num(v.sigma) || !all(v.mu, v.k) || v.k <= 0) return false;
+        var bound = num(v.b) ? v.b - v.mu : (num(v.a) ? v.mu - v.a : null);
+        return num(bound) && bound > 0 ? set('sigma', bound / v.k) : false;
+      },
+      function () { return all(v.mu, v.sigma, v.k) ? set('a', v.mu - v.k * v.sigma) : false; },
+      function () { return all(v.mu, v.sigma, v.k) ? set('b', v.mu + v.k * v.sigma) : false; },
+      function () { return all(v.a, v.b, v.k) && !num(v.sigma) && v.k > 0 ? set('sigma', (v.b - v.a) / (2 * v.k)) : false; }
+    ]);
+    var out = { mu: v.mu, sigma: v.sigma, a: v.a, b: v.b, k: v.k, solved: solved, notes: notes };
+    if (all(v.mu, v.sigma, v.a, v.b)) {
+      var lo = Math.min(v.a, v.b), hi = Math.max(v.a, v.b);
+      out.za = (lo - v.mu) / v.sigma; out.zb = (hi - v.mu) / v.sigma;
+      out.below = S.normCdf(out.za); out.above = S.normCdf(-out.zb);
+      out.inside = 1 - out.below - out.above; out.outside = out.below + out.above;
+      if (!num(q.inside)) solved.push('inside');
+      if (!num(q.outside)) solved.push('outside');
+      if (num(inside) && disagree(inside, out.inside)) notes.push('de ingevulde kans past niet bij µ, σ, a en b');
+    }
+    return out;
+  }
+
+  // Capability in every direction (SPC p. 33–40): LSL, USL, µ, σ, Cp, Cpk, ppm outside the specification.
+  // Cp = (USL − LSL)/6σ, Cpu = (USL − µ)/3σ, Cpl = (µ − LSL)/3σ, Cpk = min(Cpu, Cpl), so Cpu + Cpl = 2·Cp;
+  // the fraction outside is Φ(−3·Cpu) + Φ(−3·Cpl). With only USL (or LSL) the index is Cpu (Cpl).
+  function capabilitySolve(q) {
+    var lsl = q.lsl, usl = q.usl, two = all(lsl, usl), side = num(usl) ? 'usl' : (num(lsl) ? 'lsl' : null);
+    if (two && usl <= lsl) return { error: 'USL moet groter zijn dan LSL' };
+    var v = { mean: q.mean, sigma: num(q.sigma) && q.sigma > 0 ? q.sigma : null, cp: two ? q.cp : null, cpk: q.cpk,
+              cpu: null, cpl: null, out: num(q.ppm) ? q.ppm / MILLION : null };
+    var solved = [], notes = [], set = setter(v, solved), Phi = S.normCdf;
+    if (!two && num(q.cp)) notes.push('Cp vraagt beide grenzen; genegeerd');
+    if (q.centred && two) set('mean', (lsl + usl) / 2);
+    function tails(cpk, cp) { return Phi(-3 * cpk) + Phi(-3 * (2 * cp - cpk)); }
+    function bisect(f, lo, hi) {   // f decreasing on [lo, hi]; root of f = 0
+      for (var i = 0; i < 200; i++) { var m = (lo + hi) / 2; if (f(m) > 0) lo = m; else hi = m; }
+      return (lo + hi) / 2;
+    }
+    propagate([
+      function () { return two && num(v.sigma) ? set('cp', (usl - lsl) / (6 * v.sigma)) : false; },
+      function () { return two && num(v.cp) && v.cp > 0 ? set('sigma', (usl - lsl) / (6 * v.cp)) : false; },
+      function () { return all(usl, v.mean, v.sigma) ? set('cpu', (usl - v.mean) / (3 * v.sigma)) : false; },
+      function () { return all(lsl, v.mean, v.sigma) ? set('cpl', (v.mean - lsl) / (3 * v.sigma)) : false; },
+      function () {
+        if (!two || !num(v.cpu) || !num(v.cpl)) return false;
+        return anySet([set('cpk', Math.min(v.cpu, v.cpl)), set('cp', (v.cpu + v.cpl) / 2)]);
+      },
+      function () {   // one limit: the index of that side is Cpk
+        if (two || !side) return false;
+        var key = side === 'usl' ? 'cpu' : 'cpl';
+        return anySet([set('cpk', v[key]), set(key, v.cpk)]);
+      },
+      function () {   // centred: Cpu = Cpl = Cp = Cpk
+        if (!q.centred || !two) return false;
+        var c = num(v.cp) ? v.cp : v.cpk;
+        return anySet([set('cp', c), set('cpk', c), set('cpu', c), set('cpl', c)]);
+      },
+      function () {   // µ and σ back from an index
+        var r = false;
+        if (num(v.cpu) && all(usl, v.sigma)) r = set('mean', usl - 3 * v.cpu * v.sigma) || r;
+        if (num(v.cpl) && all(lsl, v.sigma)) r = set('mean', lsl + 3 * v.cpl * v.sigma) || r;
+        if (num(v.cpu) && all(usl, v.mean) && v.cpu > 0) r = set('sigma', (usl - v.mean) / (3 * v.cpu)) || r;
+        if (num(v.cpl) && all(lsl, v.mean) && v.cpl > 0) r = set('sigma', (v.mean - lsl) / (3 * v.cpl)) || r;
+        if (num(v.cpk) && num(v.mean) && !num(v.sigma) && v.cpk > 0) {
+          var d = two ? Math.min(usl - v.mean, v.mean - lsl) : (side === 'usl' ? usl - v.mean : v.mean - (num(lsl) ? lsl : NaN));
+          if (d > 0) r = set('sigma', d / (3 * v.cpk)) || r;
+        }
+        return r;
+      },
+      function () {   // the fraction outside from the indices
+        if (two && num(v.cpu) && num(v.cpl)) return set('out', Phi(-3 * v.cpu) + Phi(-3 * v.cpl));
+        if (two && num(v.cp) && num(v.cpk)) return set('out', tails(v.cpk, v.cp));
+        if (!two && num(v.cpk)) return set('out', Phi(-3 * v.cpk));
+        return false;
+      },
+      function () {   // the indices from the fraction outside
+        if (!num(v.out) || v.out <= 0 || v.out >= 1) return false;
+        if (!two) return set('cpk', -S.normInv(v.out) / 3);
+        if (q.centred) return set('cp', -S.normInv(v.out / 2) / 3);
+        if (num(v.cp) && !num(v.cpk)) {
+          if (v.out < 2 * Phi(-3 * v.cp) * (1 - 1e-12)) { notes.push('zo weinig uitval kan niet bij deze Cp (minimum: gecentreerd)'); return false; }
+          return set('cpk', bisect(function (c) { return tails(c, v.cp) - v.out; }, -10, v.cp));
+        }
+        if (num(v.cpk) && !num(v.cp)) {
+          var lo = Phi(-3 * v.cpk), hi = 2 * Phi(-3 * v.cpk);
+          if (v.out <= lo || v.out > hi * (1 + 1e-12)) { notes.push('deze uitval past niet bij deze Cpk (tussen één en twee staarten)'); return false; }
+          return set('cp', bisect(function (c) { return tails(v.cpk, c) - v.out; }, v.cpk, v.cpk + 20));
+        }
+        return false;
+      }
+    ]);
+    var out = { lsl: lsl, usl: usl, mean: v.mean, sigma: v.sigma, cp: v.cp, cpk: v.cpk, cpu: v.cpu, cpl: v.cpl,
+                ppm: num(v.out) ? v.out * MILLION : null, out: v.out, solved: solved.map(function (s) { return s === 'out' ? 'ppm' : s; }),
+                notes: notes };
+    if (two && all(v.cp, v.cpk, v.sigma) && !num(v.mean)) {   // two positions give the same Cp and Cpk
+      out.meanOptions = [usl - 3 * v.cpk * v.sigma, lsl + 3 * v.cpk * v.sigma];
+      notes.push('µ volgt niet eenduidig: dichter bij USL of dichter bij LSL');
+    }
+    if (num(v.cpu)) { out.zUsl = 3 * v.cpu; out.above = Phi(-out.zUsl); }
+    if (num(v.cpl)) { out.zLsl = 3 * v.cpl; out.below = Phi(-out.zLsl); }
+    if (num(v.cp)) out.level = cpLevel(v.cp);
+    if (num(v.cpk)) out.capable = v.cpk >= 1.33 ? 'ja' : 'nee';   // SPC p. 41: Cpk = 1,33 is 'Good'
+    return out;
+  }
+
+  // Control limits back to X̿, R̄, s̄ and σ̂ (the SPC p. 74 formulas read backwards):
+  // X̄-chart UCL − CL = A2·R̄ = A3·s̄ = 3σ̂/√n; R-chart UCL = D4·R̄; s-chart UCL = B4·s̄; σ̂ = R̄/d2 = s̄/c4.
+  function limitsInverse(n, q, K) {
+    if (!num(n)) return null;
+    var c = {}; ['A2', 'A3', 'D4', 'B4', 'd2', 'c4'].forEach(function (s) { c[s] = K.get(s, n); });
+    var out = { n: n, c: c, notes: [] };
+    out.xbb = num(q.cl) ? q.cl : (all(q.ucl, q.lcl) ? (q.ucl + q.lcl) / 2 : null);
+    var h = all(q.ucl, out.xbb) ? q.ucl - out.xbb : (all(q.lcl, out.xbb) ? out.xbb - q.lcl : null);
+    if (all(q.ucl, q.lcl, q.cl) && disagree(q.ucl - q.cl, q.cl - q.lcl)) out.notes.push('UCL en LCL liggen niet symmetrisch rond CL');
+    if (num(h)) {
+      out.half = h; out.sigmaXbar = h / 3; out.sigma = h * Math.sqrt(n) / 3;
+      if (num(c.A2)) out.rbarFromX = h / c.A2;
+      if (num(c.A3)) out.sbarFromX = h / c.A3;
+    }
+    if (num(q.uclR) && num(c.D4)) out.rbarFromR = q.uclR / c.D4;
+    if (num(q.uclS) && num(c.B4)) out.sbarFromS = q.uclS / c.B4;
+    var rbar = num(out.rbarFromR) ? out.rbarFromR : out.rbarFromX, sbar = num(out.sbarFromS) ? out.sbarFromS : out.sbarFromX;
+    if (num(rbar) && num(c.d2)) out.sigmaR = rbar / c.d2;
+    if (num(sbar) && num(c.c4)) out.sigmaS = sbar / c.c4;
+    return out;
+  }
+
+  // Sample size, full width W and confidence 1 − α of a CI (CI p. 7, 10; CI FR p. 3): any two give the third.
+  // Proportion: W = 2·z·√(p(1 − p)/n), p = 0,5 when not given (worst case); mean with σ known: W = 2·z·σ/√n.
+  function sampleSizeSolve(alpha, W, n, p, sigma) {
+    var pp = num(p) ? p : 0.5, up = function (x) { return Math.ceil(x - 1e-9); };
+    function solve(spread) {   // spread = √(p(1 − p)) or σ
+      var r = {};
+      if (all(alpha, W) && !num(n)) {
+        r.z = S.normInv(1 - alpha / 2); r.n = Math.pow(2 * r.z * spread / W, 2); r.nUp = up(r.n);
+        r.width = 2 * r.z * spread / Math.sqrt(r.nUp); r.alpha = alpha;
+      } else if (all(alpha, n) && n > 0) {
+        r.z = S.normInv(1 - alpha / 2); r.width = 2 * r.z * spread / Math.sqrt(n); r.n = n; r.alpha = alpha;
+      } else if (all(W, n) && n > 0) {
+        r.z = W * Math.sqrt(n) / (2 * spread); r.alpha = 2 * S.normCdf(-r.z); r.n = n; r.width = W;
+      } else return null;
+      r.confidence = 1 - r.alpha;
+      return r;
+    }
+    if (num(alpha) && (alpha <= 0 || alpha >= 1)) return null;
+    var out = { p: pp, prop: pp > 0 && pp < 1 ? solve(Math.sqrt(pp * (1 - pp))) : null,
+                mean: num(sigma) && sigma > 0 ? solve(sigma) : null };
+    if (out.prop) out.prop.defectives = (num(out.prop.nUp) ? out.prop.nUp : out.prop.n) * pp;
+    return out.prop || out.mean ? out : null;
+  }
+
+  // The smallest µ1 that a one-sided Z-test detects with risk β (TH FR p. 9 read backwards):
+  // |µ1 − µ0| = (z_{1−α} + z_{1−β})·σ/√n.
+  function detectableShift(sigma, n, alpha, beta) {
+    if (!all(sigma, n, alpha, beta) || sigma <= 0 || n <= 0) return null;
+    return (S.normInv(1 - alpha) + S.normInv(1 - beta)) * sigma / Math.sqrt(n);
+  }
+
+  // Quantile of a discrete distribution: the smallest k with P(X ≤ k) ≥ p (as BINOM.INV / CRITBINOM).
+  function discreteQuantile(cdf, p, kMax) {
+    if (!num(p) || p < 0 || p > 1) return null;
+    for (var k = 0; k <= kMax; k++) if (cdf(k) >= p - 1e-12) return k;
+    return kMax;
+  }
+  function binomialInv(n, p, q) { return all(n, p) ? discreteQuantile(function (k) { return S.binomCdf(k, n, p); }, q, n) : null; }
+  function poissonInv(lam, q) { return num(lam) && lam > 0 ? discreteQuantile(function (k) { return S.poissonCdf(k, lam); }, q, 100000) : null; }
+  function hypergeometricInv(N, D, n, q) {
+    return all(N, D, n) ? discreteQuantile(function (k) { return S.hypergeomCdf(k, N, D, n); }, q, Math.min(n, D)) : null;
+  }
+  // Exponential P(T ≤ t) = 1 − e^(−λt): any two of λ, t, P give the third.
+  function exponentialSolve(rate, t, pLe) {
+    if (num(pLe) && (pLe <= 0 || pLe >= 1)) return null;
+    if (all(rate, t)) return { rate: rate, t: t, le: 1 - Math.exp(-rate * t) };
+    if (all(rate, pLe) && rate > 0) return { rate: rate, t: -Math.log(1 - pLe) / rate, le: pLe };
+    if (all(t, pLe) && t > 0) return { rate: -Math.log(1 - pLe) / t, t: t, le: pLe };
+    return null;
+  }
+
   /* ---------- constant tables, as embedded by study/build_study.py (convention decision 4, tabel MSA.pdf) ---------- */
   function tables(data) {
     return {
@@ -1198,6 +1445,10 @@ var Calc = (function () {
            sprt: sprt, variablesGivenN: variablesGivenN, skipLot: skipLot, deming: deming,
            regSums: regSums, regFromSS: regFromSS, r2adj: r2adj, regTests: regTests, standardLimits: standardLimits,
            runRules: runRules, cpObserved: cpObserved, gaugePerformance: gaugePerformance,
-           uncertaintyBudget: uncertaintyBudget, biasTest: biasTest, discrimination: discrimination };
+           uncertaintyBudget: uncertaintyBudget, biasTest: biasTest, discrimination: discrimination,
+           sigmaSolve: sigmaSolve, normalInterval: normalInterval, capabilitySolve: capabilitySolve,
+           limitsInverse: limitsInverse, sampleSizeSolve: sampleSizeSolve, detectableShift: detectableShift,
+           binomialInv: binomialInv, poissonInv: poissonInv, hypergeometricInv: hypergeometricInv,
+           exponentialSolve: exponentialSolve };
 })();
 if (typeof module !== 'undefined') module.exports = Calc;
