@@ -89,3 +89,5 @@ k2_cost	\(k_{2}\)	Kost per defect stuk dat de assemblage doet falen.	Gegeven (de
 pi_d	\(\pi_{D}\)	Kans dat een lot precies D defecten bevat (Deming).	Binomiaal: \(\pi_{D}=b(D;N,p)=C_{N}^{D}p^{D}(1-p)^{N-D}\).	d06-deming
 beta_d	\(\beta_{D}\)	Kans om een lot met D defecten te aanvaarden (Deming).	Hypergeometrisch: \(\beta_{D}=H(\mathrm{Ac};N,D,n)\) (hypergeometrische verdelingsfunctie). Niet het consumentenrisico \(\beta\).	d06-deming
 xt	\(X_{T}\)	Doelwaarde (target) van een kenmerk.	Gegeven (klant, specificatie); vaak het midden van \([X_{L};X_{U}]\).	d06-kwaliteit
+d	d	Aantal defectieven (defectives) in de steekproef.	Tellen. \(P=\frac{d}{n}\); het plan (100, 4) aanvaardt de partij als \(d\le4\).	d06-oc
+pi_l	\(\pi_{L}\)	Ondergrens (lower limit) van het BI voor \(\pi\).	Eenzijdig ]\(\pi_{L}\); 1] bij HA: \(\pi\gt\pi_{0}\), met de hele \(\alpha\) aan één kant; tweezijdig met \(\frac{\alpha}{2}\).	d06-oc

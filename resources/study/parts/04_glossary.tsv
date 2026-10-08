@@ -43,8 +43,8 @@ standaardafwijking	standard deviation	d04-sigma
 F-verdeling	F distribution	d04-f
 verhouding van varianties	ratio of variances	d04-f
 nauwkeuriger (kleinere spreiding)	more precise	d04-f
-dualiteit tussen toetsen en intervallen	duality of tests and confidence intervals	d04-dualiteit
-toetsen met een betrouwbaarheidsinterval	testing with a confidence interval	d04-dualiteit
+dualiteit tussen toetsen en intervallen	duality of tests and confidence intervals	d05-dualiteit
+toetsen met een betrouwbaarheidsinterval	testing with a confidence interval	d05-dualiteit
 tolerantie-interval	tolerance interval	d04-tolerantie
 onderste tolerantiegrens	lower tolerance limit (LTL)	d04-tolerantie
 bovenste tolerantiegrens	upper tolerance limit (UTL)	d04-tolerantie

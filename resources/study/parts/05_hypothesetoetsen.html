@@ -510,7 +510,7 @@
         \(\sym{mu}{\mu}\lt10\)), "is het proces grilliger?" (\(\sym{ha}{H_{A}}\): \(\sym{sigma}{\sigma}\gt0{,}01\)), "is machine 1 nauwkeuriger?"
         (\(\sym{ha}{H_{A}}\): \(\sym{sigma1}{\sigma_{1}}\lt\sym{sigma2}{\sigma_{2}}\)).</li>
         <li>Een eenzijdige toets bij \(\alpha\) hoort bij een eenzijdig \((1-\sym{alpha}{\alpha})\)-BI aan dezelfde kant; een tweezijdige bij een
-        tweezijdig \((1-\sym{alpha}{\alpha})\)-BI (<a href="#d04-dualiteit">04.9</a>).</li>
+        tweezijdig \((1-\sym{alpha}{\alpha})\)-BI (<a href="#d05-dualiteit">05.15</a>).</li>
       </ul>
     </div>
     <div class="calc-here" data-tool="kwantielen" data-blocks="0"></div>
@@ -591,7 +591,7 @@
         <li>Met een grote steekproef wordt ook een klein, onbelangrijk verschil significant <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=11">TH p. 11</a>. Met een kleine steekproef
         kan een groot, belangrijk verschil niet-significant blijven (\(\beta\) is dan groot).</li>
         <li>Of een verschil <b>praktisch relevant</b> is, beoordeel je met de grootte van het effect (een betrouwbaarheidsinterval
-        toont die, <a href="#d04-dualiteit">04.9</a>) en de economische gevolgen: kost van de actie tegenover de winst. Toetsen is
+        toont die, <a href="#d05-dualiteit">05.15</a>) en de economische gevolgen: kost van de actie tegenover de winst. Toetsen is
         een instrument voor risicobeheer (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=10">TH p. 10</a>). Ook bij regressie moet een resultaat praktische betekenis
         hebben <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=11">REG p. 11</a>.</li>
         <li>Een significant resultaat is dus geen automatisch argument voor een dure procesaanpassing: kijk eerst hoe groot het
@@ -866,7 +866,7 @@
           <li>\(\sym{k_crit}{\text{Kritische waarden}}\pm t_{0{,}975;18}=\pm2{,}10\) (2,5 % per staart; t-tabel).</li>
           <li>b. \(\sym{p_value}{p}=2\cdot P[t(18)\ge1{,}90]=\) <b>0,074</b> <span class="computed">zelf berekend</span>.</li>
           <li>c. |−1,90| &lt; 2,10 en 0,074 &gt; 0,05: <b>\(H_{0}\) niet verwerpen</b>. Zelfde besluit als het BI
-          −5,6 ± 6,19 dat 0 bevat (04.10): dualiteit.</li>
+          −5,6 ± 6,19 dat 0 bevat (oefening 04.10): dualiteit.</li>
         </ol>
       </details>
     </div>
@@ -893,7 +893,7 @@
         <ol class="steps">
           <li>a. \(\sym{t_stat}{t}=-\frac{3{,}3}{\frac{2{,}406}{\sqrt{10}}}=\) <b>−4,34</b> <span class="computed">zelf berekend</span>; kritische waarden ±2,26.</li>
           <li>b. \(\sym{p_value}{p}=2\cdot P[t(9)\le-4{,}34]=\) <b>0,0019</b> <span class="computed">zelf berekend</span>.</li>
-          <li>c. <b>\(H_{0}\) verwerpen</b>: materiaal 2 is sleetvaster, zoals het BI −3,3 ± 1,72 (04.11). Dezelfde vraag
+          <li>c. <b>\(H_{0}\) verwerpen</b>: materiaal 2 is sleetvaster, zoals het BI −3,3 ± 1,72 (oefening 04.11). Dezelfde vraag
           gaf niet-gepaard \(\sym{p_value}{p}=0{,}074\): paren maakt de toets veel krachtiger.</li>
         </ol>
       </details>
@@ -1261,8 +1261,121 @@
   </section>
 
   <!-- ============================================================ 05.15 -->
+  <section class="unit" id="d05-dualiteit" data-kw="dualiteit; duality; toetsen met BI; testing with CI; significantie; significance; betrouwbaarheid; confidence; 99 %; 1 %; eenzijdige toets; one-sided test; tweezijdige toets; two-sided test; aanvaardingsgebied; acceptance region; nulhypothese">
+    <h3>05.15 Toetsen met een BI: de dualiteit tussen toetsen en intervallen <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=12">CI p. 12–14</a></h3>
+    <p>Deel 04 maakte intervallen, dit deel toetsen. Ze zeggen hetzelfde op twee manieren: een BI is de verzameling waarden voor de parameter die je met je steekproef als nulhypothese zou aanvaarden (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=6">CI p. 6</a>, <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=17">TH FR p. 17</a>, <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=19">TH FR p. 19</a>). Daarom kun je elke klassieke toets ook uitvoeren met een BI <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=12">CI p. 12</a>. Hieronder staan de twee werkwijzen naast elkaar voor \(\sym{h0}{H_{0}}\): \(\sym{pi}{\pi}\le\sym{pi0}{\pi_{0}}\) (\(\pi_{0}=\) de AQL) tegen \(\sym{ha}{H_{A}}\): \(\sym{pi}{\pi}\gt\sym{pi0}{\pi_{0}}\):</p>
+    <table>
+      <tr><th>klassieke toets</th><th>toets met een BI</th></tr>
+      <tr><td>1. kies de significantie \(\sym{alpha}{\alpha}\)</td><td>1. kies de betrouwbaarheid \((1-\sym{alpha}{\alpha})\times100\ \%\)</td></tr>
+      <tr><td>2. kies de steekproefgrootte n</td><td>2. kies de steekproefgrootte n</td></tr>
+      <tr><td>3. trek de steekproef, bereken \(\sym{p}{P}=\frac{\sym{d}{d}}{\sym{n}{n}}\)</td><td>3. trek de steekproef, bereken \(\sym{p}{P}=\frac{\sym{d}{d}}{\sym{n}{n}}\)</td></tr>
+      <tr><td>4. bepaal de kritische waarde c (of de p-waarde)</td><td>4. bereken het \((1-\sym{alpha}{\alpha})\times100\%\)-BI ]\(\sym{pi_l}{\pi_{L}}\); 1]</td></tr>
+      <tr><td>5. \(\sym{p}{P}\le\sym{c}{c}\) (of \(\sym{p_value}{\text{p-waarde}}\gt\sym{alpha}{\alpha}\)): aanvaard \(H_{0}\), anders verwerp</td><td>5. \(\sym{pi0}{\pi_{0}}\in\mathrm{BI}\): aanvaard \(H_{0}\), anders verwerp</td></tr>
+    </table>
+    <p>Welk BI bij welke alternatieve hypothese (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=12">CI p. 12</a>):</p>
+    <table>
+      <tr><th>\(H_{A}\)</th><th>BI dat je berekent</th><th>voorbeeld</th></tr>
+      <tr><td>\(\sym{pi}{\pi}\gt\sym{pi0}{\pi_{0}}\)</td><td>eenzijdig ]\(\sym{pi_l}{\pi_{L}}\); 1] (ondergrens)</td><td>aanvaardingscontrole: is de partij slechter dan de AQL?</td></tr>
+      <tr><td>\(\sym{pi}{\pi}\lt\sym{pi0}{\pi_{0}}\)</td><td>eenzijdig [0; \(\sym{pi_u}{\pi_{U}}\)[ (bovengrens)</td><td>is de kwaliteit beter dan verwacht, bv. na een investering?</td></tr>
+      <tr><td>\(\sym{pi}{\pi}\ne\sym{pi0}{\pi_{0}}\)</td><td>tweezijdig ]\(\sym{pi_l}{\pi_{L}}\); \(\sym{pi_u}{\pi_{U}}\)[</td><td>is het historische kwaliteitsniveau veranderd, in welke richting ook?</td></tr>
+    </table>
+    <p><b>De significantie</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=13">CI p. 13</a>. Stel \(H_{0}\) is waar \((\sym{pi}{\pi}=\sym{pi0}{\pi_{0}})\). Het \((1-\sym{alpha}{\alpha})\)-BI bevat de ware
+    waarde in \((1-\sym{alpha}{\alpha})\) van de steekproeven, dus je aanvaardt \(H_{0}\) in \((1-\sym{alpha}{\alpha})\) van de gevallen en verwerpt ze
+    verkeerd in \(\alpha\) van de gevallen. <b>Toets je met een \((1-\sym{alpha}{\alpha})\times100\%\)-BI, dan is de significantie van de toets \(\alpha\).</b> TH FR
+    zegt het zo: "significantie test + betrouwbaarheid interval = 100 %" <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=17">TH FR p. 17</a>.</p>
+    <figure class="fig"><img src="figures/04_significantie_eenzijdig_bi.png" alt="Toets van H0 pi kleiner of gelijk aan pi0 met het eenzijdige 90%-BI bij n = 100; significantie 10 %">
+    <figcaption>Figuur: toets van \(H_{0}\): \(\pi\le\pi_{0}\) tegen \(H_{A}\): \(\pi\gt\pi_{0}\) met het eenzijdige 90%-BI
+    \((n=100)\). Bovenaan het gebied van de steekproeffractie P waarin \(H_{0}\) aanvaard of verworpen wordt. Is
+    \(\pi=\pi_{0}\), dan is de kans om \(H_{0}\) te aanvaarden 90 %: de significantie van de toets is 10 %.
+    Algemeen: toets je met een \((1-\alpha)\times100\%\)-BI, dan is de significantie \(\alpha\).
+    <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=13">CI p. 13</a></figcaption></figure>
+    <p><b>Voorbeeld met de tegels</b> (tabel van 04.2, \(n=100\), 4 defect, norm \(\pi_{0}=2\ \%\)). Alle intervallen met een betrouwbaarheid boven 70 % bevatten de 2 %, die eronder niet. Met het BI aanvaard je \(H_{0}\) dus bij een betrouwbaarheid boven 70 % en verwerp je ze eronder: een lage betrouwbaarheid is een hoge \(\alpha\), dus je verwerpt sneller <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=6">CI p. 6</a>.</p>
+    <p><b>Algemeen: het BI bevat precies de nulhypothesen die je aanvaardt</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=19">TH FR p. 19</a>. Voor een toets van \(H_{0}\): \(\sym{theta}{\theta}=\sym{theta0}{\theta_{0}}\) tegen HA: \(\sym{theta}{\theta}\ne\sym{theta0}{\theta_{0}}\) met
+    toetsingsgrootheid T is het aanvaardingsgebied \([\sym{k_lo}{\underline{K}_{\alpha}}(\sym{theta0}{\theta_{0}});\sym{k_hi}{\bar{K}_{\alpha}}(\sym{theta0}{\theta_{0}})]\). Voor een
+    waargenomen T is</p>
+    <div class="f">
+      <div>\[\sym{l_alpha}{L_{\alpha}}(\sym{teststat}{T})=\] inf{\[\sym{theta}{\theta}\] : \[\sym{teststat}{T}\le\sym{k_hi}{\bar{K}_{\alpha}}(\sym{theta}{\theta})\]},  \[\sym{u_alpha}{U_{\alpha}}(\sym{teststat}{T})=\] sup{\[\sym{theta}{\theta}\] : \[\sym{teststat}{T}\ge\sym{k_lo}{\underline{K}_{\alpha}}(\sym{theta}{\theta})\]}</div>
+      <div>\[[\sym{l_alpha}{L_{\alpha}}(\sym{teststat}{T});\sym{u_alpha}{U_{\alpha}}(\sym{teststat}{T})]\] is een \[(1-\sym{alpha}{\alpha})\times100\%\]-BI voor \[\sym{theta}{\theta}\]: de verzameling van alle nulhypothesen die je met T aanvaardt</div>
+    </div>
+    <figure class="fig"><img src="figures/04_bi_uit_aanvaardingsgebied.png" alt="Twee stijgende grenskrommen van het aanvaardingsgebied; een horizontale lijn op hoogte T snijdt ze in de grenzen van het BI">
+    <figcaption>Figuur: de grenzen van het aanvaardingsgebied, \(\bar{K}_{\alpha}(\theta)\) (boven) en \(\underline{K}_{\alpha}(\theta)\) (onder), als stijgende
+    functies van \(\theta\). De horizontale lijn op hoogte van de waargenomen T snijdt ze in \(L_{\alpha}(T)\) en
+    \(U_{\alpha}(T)\); daartussen ligt het \((1-\alpha)\times100\%\)-BI voor \(\theta\).
+    <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=19">TH FR p. 19</a></figcaption></figure>
+    <p><b>Afleiding voor de Z-toets</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=16">TH FR p. 16</a>: \(H_{0}\): \(\sym{mu}{\mu}=\sym{mu0}{\mu_{0}}\) tegen HA: \(\sym{mu}{\mu}\ne\sym{mu0}{\mu_{0}}\), \(\alpha=5\ \%\),
+    \(\sigma\) gekend, \(\sym{xbar}{\bar{X}}\sim N\left(\sym{mu0}{\mu_{0}};\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\right)\) onder \(H_{0}\):</p>
+    <div class="f">
+      <div>aanvaard \(H_{0}\Leftrightarrow\sym{mu0}{\mu_{0}}-\frac{\sym{z_1ma2}{Z_{0{,}025}}\cdot\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\le\sym{xbar}{\bar{x}}\le\sym{mu0}{\mu_{0}}+\frac{\sym{z_1ma2}{Z_{0{,}025}}\cdot\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\)</div>
+      <div>⇔ \(\sym{xbar}{\bar{x}}-\frac{\sym{z_1ma2}{Z_{0{,}025}}\cdot\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\le\sym{mu0}{\mu_{0}}\le\sym{xbar}{\bar{x}}+\frac{\sym{z_1ma2}{Z_{0{,}025}}\cdot\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\Leftrightarrow\sym{mu0}{\mu_{0}}\) ligt in het 95%-BI rond \(\sym{xbar}{\bar{x}}\)</div>
+      <div>eenzijdig, HA: \(\sym{mu}{\mu}\gt\sym{mu0}{\mu_{0}}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=18">TH FR p. 18</a>: aanvaard \(H_{0}\Leftrightarrow\sym{xbar}{\bar{x}}\le\sym{mu0}{\mu_{0}}+\frac{\sym{z_1ma}{Z_{0{,}05}}\cdot\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\Leftrightarrow\sym{mu0}{\mu_{0}}\ge\sym{xbar}{\bar{x}}-\frac{\sym{z_1ma}{Z_{0{,}05}}\cdot\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\)</div>
+      <div>dus: eenzijdig 95%-BI voor \(\sym{mu}{\mu}=\) [ \(\sym{xbar}{\bar{x}}-\frac{\sym{z_1ma}{Z_{0{,}05}}\cdot\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\) ; +∞ [  (\(\sym{z_1ma}{Z_{0{,}05}}=1{,}645\) in bovenstaartnotatie)</div>
+    </div>
+    <div class="box key"><span class="t">"Toetsen bij 1 % vraagt een 99%-BI": wanneer klopt dat?</span>
+      <ul>
+        <li>Het klopt als het BI <b>van hetzelfde type is als de toets</b>. Tweezijdige toets bij \(\alpha=1\ \%\leftrightarrow\) tweezijdig
+        99%-BI. Eenzijdige toets bij \(\alpha=1\ \%\leftrightarrow\) eenzijdig 99%-BI aan de juiste kant (HA: \(\sym{theta}{\theta}\gt\sym{theta0}{\theta_{0}}\leftrightarrow\)
+        ondergrens; HA: \(\sym{theta}{\theta}\lt\sym{theta0}{\theta_{0}}\leftrightarrow\) bovengrens).</li>
+        <li>Een tweezijdig 99%-BI zet 0,5 % in elke staart. Gebruik je één grens daarvan voor een eenzijdige toets, dan toets
+        je dus bij 0,5 %, niet bij 1 %. Omgekeerd is de ondergrens van een eenzijdig 99%-BI dezelfde als de ondergrens van
+        een tweezijdig 98%-BI: beide gebruiken \(Z=z_{0{,}99}=2{,}326\) (Z-tabel of rekenmachine normale verdeling; <span class="computed">zelf berekend</span>).</li>
+        <li>Het BI is een <b>alternatief</b> voor de klassieke toets, met dezelfde OC-curve <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=12">CI p. 12</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=14">CI p. 14</a>; je bent
+        niet verplicht er een te berekenen. Het voordeel van het BI: het toont ook <i>hoe groot</i> het verschil kan zijn,
+        wat je nodig hebt om over praktische relevantie te oordelen.</li>
+      </ul>
+    </div>
+
+    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
+    <ul>
+      <li><b>"Het BI is de verzameling van alle nulhypothesen die je met de waargenomen toetsingsgrootheid aanvaardt."</b> Juist <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=19">TH FR p. 19</a>; daarom kun je met een BI toetsen (<a href="#d05-dualiteit">05.15</a>).</li>
+      <li><b>"Om een hypothese te toetsen bij een significantie van 1 % dient een 99%-BI berekend te worden."</b> Juist in de zin van de dualiteit: toets je met een \((1-\sym{alpha}{\alpha})\)-BI, dan is de significantie \(\alpha\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=13">CI p. 13</a>. Maar "dient" klopt niet: het BI is een alternatief, geen verplichting <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=12">CI p. 12</a>, en het moet van hetzelfde type zijn als de toets (examenvraag, <a href="#d13-v1">13.1</a>e).</li>
+      <li><b>"Eenzijdige toets bij \(\alpha=1\ \%\): kijk of \(\mu_{0}\) in het tweezijdige 99%-BI ligt."</b> Fout: een grens van het tweezijdige 99%-BI zet 0,5 % in de staart \((Z=2{,}576)\); de eenzijdige 99%-grens gebruikt \(Z=2{,}326\) <span class="computed">zelf berekend</span>.</li>
+      <li><b>Let op:</b> de kant volgt \(H_{A}\). \(\sym{pi}{\pi}\gt\sym{pi0}{\pi_{0}}\leftrightarrow\) ondergrens ]\(\sym{pi_l}{\pi_{L}}\); 1]; \(\sym{pi}{\pi}\lt\sym{pi0}{\pi_{0}}\leftrightarrow\) bovengrens [0; \(\sym{pi_u}{\pi_{U}}\)[; \(\sym{pi}{\pi}\ne\sym{pi0}{\pi_{0}}\leftrightarrow\) tweezijdig (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=12">CI p. 12</a>).</li>
+      <li><b>"Een lagere betrouwbaarheid maakt de toets voorzichtiger."</b> Fout: een lagere betrouwbaarheid is een hogere \(\alpha\); je verwerpt \(H_{0}\) sneller en het risico om \(H_{0}\) ten onrechte te verwerpen stijgt (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=6">CI p. 6</a>).</li>
+      <li><b>Let op:</b> het eenzijdige 95%-BI voor \(\mu\) is [\(\sym{xbar}{\bar{x}}-\frac{\sym{z_1ma}{Z_{0{,}05}}\cdot\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\); +∞[, niet met \(Z_{0{,}025}\) (dat zou een 97,5%-interval zijn).</li>
+    </ul></div>
+
+    <div class="exercise" id="ex-05-19" data-kw="dualiteit; duality; eenzijdig; one-sided; tweezijdig; two-sided; 99 %; 1 %; z-waarde; significantie; betrouwbaarheid">
+      <h4>Oefening 05.19 — Welk interval hoort bij welke toets? <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=16">TH FR p. 16–18</a></h4>
+      <div class="q" data-type="choice" data-answer="twee99">
+        <label>a. \(H_{0}\): \(\sym{mu}{\mu}=\sym{mu0}{\mu_{0}}\) tegen HA: \(\sym{mu}{\mu}\ne\sym{mu0}{\mu_{0}}\) bij \(\alpha=1\ \%\) is gelijkwaardig met nagaan of \(\mu_{0}\) ligt in:</label>
+        <select><option value="">kies…</option><option value="twee99">een tweezijdig 99%-BI</option><option value="een99">een eenzijdig 99%-BI</option><option value="twee98">een tweezijdig 98%-BI</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="onder99">
+        <label>b. \(H_{0}\): \(\sym{mu}{\mu}=\sym{mu0}{\mu_{0}}\) tegen HA: \(\sym{mu}{\mu}\gt\sym{mu0}{\mu_{0}}\) bij \(\alpha=1\ \%\) is gelijkwaardig met:</label>
+        <select><option value="">kies…</option><option value="onder99">µ0 in [ondergrens; +∞[ van een eenzijdig 99%-BI</option><option value="boven99">µ0 in ]−∞; bovengrens] van een eenzijdig 99%-BI</option><option value="twee99">µ0 in een tweezijdig 99%-BI</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-answer="2.326" data-tol="0.01">
+        <label>c. Welke Z-waarde gebruik je voor die eenzijdige 99%-grens (\(\sigma\) gekend)? (3 decimalen)</label>
+        <input type="text" inputmode="decimal">
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="q" data-type="choice" data-answer="boven70">
+        <label>d. Tegels (\(n=100\), 4 defect, AQL 2 %, tabel van 04.2): bij welke betrouwbaarheden aanvaardt de toets met het BI \(H_{0}\)?</label>
+        <select><option value="">kies…</option><option value="boven70">bij een betrouwbaarheid boven 70 %</option><option value="onder70">alleen onder 70 %</option><option value="altijd">bij elke betrouwbaarheid</option></select>
+        <button type="button" class="check">Controleer</button> <span class="fb"></span>
+      </div>
+      <div class="calc-here" data-tool="normaal" data-blocks="0"></div>
+      <details class="solution"><summary>Toon oplossing</summary>
+        <ol class="steps">
+          <li>a. Tweezijdige toets ↔ <b>tweezijdig 99%-BI</b>: significantie + betrouwbaarheid = 100 % <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=17">TH FR p. 17</a>.</li>
+          <li>b. HA: \(\sym{mu}{\mu}\gt\sym{mu0}{\mu_{0}}\): je verwerpt \(H_{0}\) als \(\bar{x}\) te groot is, dus als \(\mu_{0}\) onder de
+          <b>ondergrens</b> van het eenzijdige 99%-BI ligt <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=18">TH FR p. 18</a>.</li>
+          <li>c. \(\sym{z_1ma}{Z}=z_{0{,}99}=\) <b>2,326</b> (Z-tabel of rekenmachine normale verdeling) <span class="computed">zelf berekend</span> (in bovenstaartnotatie
+          \(Z_{0{,}01}\)). Een tweezijdig 99%-BI zou 2,576 gebruiken (0,5 % per staart).</li>
+          <li>d. De intervallen boven 70 % bevatten de AQL van 2 %, die onder 70 % niet: \(H_{0}\) wordt <b>aanvaard
+          bij een betrouwbaarheid boven 70 %</b> en verworpen eronder <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=6">CI p. 6</a>. Een lage betrouwbaarheid is een hoge \(\alpha\): je verwerpt
+          \(H_{0}\) sneller.</li>
+        </ol>
+      </details>
+    </div>
+  </section>
+
+
+  <!-- ============================================================ 05.16 -->
   <section class="unit" id="d05-studiewijzer" data-kw="studiewijzer; study guide; wat moet ik kennen; leerdoelen; learning objectives; examenstof; exam; checklist; overzicht">
-    <h3>05.15 Studiewijzer: wat moet je kunnen?</h3>
+    <h3>05.16 Studiewijzer: wat moet je kunnen?</h3>
     <p>De cursus geeft voor dit onderwerp geen studiewijzer of leerdoelen.</p>
     <p>Voorbeeldexamen: vraag 1 (<a href="#d13-v1">13.1</a>) toetst onder meer statistische tegenover praktische significantie
     (a; zie <a href="#d05-valkuilen">05.6</a>). Vraag 2 (<a href="#d13-v2">13.2</a>) toetst onder meer de F-toets voor twee

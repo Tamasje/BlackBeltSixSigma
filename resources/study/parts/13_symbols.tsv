@@ -1,7 +1,7 @@
 key	symbool	betekenis	hoe	anchor
 pi	\(\pi\)	Ware fractie defectieven in de populatie (population proportion).	Onbekend; het BI [1,4 %; 2,2 %] situeert \(\pi\). Ligt 1 % buiten het BI, dan wordt \(H_{0}\): \(\pi\le1\ \%\) verworpen.	d04-pi
 h0	\(H_{0}\)	Nulhypothese (null hypothesis): de uitspraak die de toets probeert te verwerpen.	Uit de vraag: hier \(\pi\le1\ \%\). Niet verwerpen bewijst \(H_{0}\) niet.	d05-idee
-alpha	\(\alpha\)	Significantieniveau (significance level): kans op een type-I-fout.	Vooraf gekozen of gegeven. Een \((1-\alpha)\)-BI hoort bij een toets met significantie \(\alpha\): 99 % hoort bij 1 %.	d04-dualiteit
+alpha	\(\alpha\)	Significantieniveau (significance level): kans op een type-I-fout.	Vooraf gekozen of gegeven. Een \((1-\alpha)\)-BI hoort bij een toets met significantie \(\alpha\): 99 % hoort bij 1 %.	d05-dualiteit
 x_dim	X	Gemeten afmeting van een stuk; beide machines zijn afgesteld op 10,000.	Gegeven: normaal verdeeld. Nodig voor de F-methode.	d13-v2
 n1	\(n_{1}\)	Steekproefgrootte van machine M1.	Gegeven: 10. Vrijheidsgraden \(n_{1}-1=9\), niet 10.	d04-f
 n2	\(n_{2}\)	Steekproefgrootte van machine M2.	Gegeven: 15. Vrijheidsgraden \(n_{2}-1=14\).	d04-f

@@ -326,7 +326,7 @@ def duality() -> None:
     """04.9: Z values used in the text; CI p. 14 OC points and one-sided 90 % table; TH FR p. 18."""
     print("04.9 Duality tests <-> intervals")
     for q in (0.95, 0.975, 0.99, 0.995):
-        show(f"NORM.S.INV({q})" + ("  [ex-04-16]" if q == 0.99 else ""), float(stats.norm.ppf(q)))
+        show(f"NORM.S.INV({q})" + ("  [ex-05-19]" if q == 0.99 else ""), float(stats.norm.ppf(q)))
     for p, printed in ((0.013, "0.99"), (0.0245, "0.90"), (0.0785, "0.10")):
         check(f"CI p. 14 OC (100, 4) at pi = {p}", printed, float(stats.binom.cdf(4, 100, p)))
     z = float(stats.norm.ppf(0.9))
@@ -347,8 +347,8 @@ def duality() -> None:
 
 
 def tolerance() -> None:
-    """04.10: CI FR p. 22-23 (S03-WE16, S03-WE17), alpha = 5 %, beta = 10 % as in the p. 23 exercise."""
-    print("04.10 Tolerance intervals")
+    """04.9: CI FR p. 22-23 (S03-WE16, S03-WE17), alpha = 5 %, beta = 10 % as in the p. 23 exercise."""
+    print("04.9 Tolerance intervals")
     z10 = float(stats.norm.ppf(0.10))
     check("CI FR p. 22: 5.75 + Z_0.1 * 0.2", "5.49", 5.75 + z10 * 0.2)
     check("CI FR p. 22: ln(240)", "5.48", float(np.log(240)))

@@ -6,26 +6,20 @@
   voorspelt. <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=1">REG p. 1</a></p>
 
   <section class="unit" id="d07-start" data-kw="overview; kernidee; key idea; variatie opsplitsen; partition of variation; verklaarde variatie; explained variation; ruis; noise; F-verhouding; F-ratio; kritieke waarde; critical value; kwantiel; quantile; F-tabel; t-tabel; notatie; notation">
-    <h3>07.1 Start: het ene idee achter regressie, ANOVA en proefopzet <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=8">DOE p. 8</a></h3>
-    <p>Dit deel opent met het idee dat regressie, ANOVA en proefopzet (<a href="#d08">deel 08</a>) gemeen hebben. Wie dat ziet,
-    leest de output van alle drie op dezelfde manier.</p>
+    <h3>07.1 Start: variatie opsplitsen en de F-verhouding <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=8">DOE p. 8</a></h3>
+    <p>Eén idee draagt dit hele deel: de metingen van de respons verschillen van elkaar, en je wilt weten hoeveel van
+    dat verschil een model verklaart. Wie dat idee kent, leest de output van een regressie zonder moeite.</p>
     <div class="box key"><span class="t">Kernidee</span>
-      <p>Je metingen van de respons verschillen van elkaar: dat is de totale variatie (total variation). Elk van de drie
-      methoden splitst die variatie in <b>een deel dat een model verklaart</b> en <b>een deel dat overblijft</b> (ruis,
-      noise). Daarna vraagt ze of het verklaarde deel groot is vergeleken met de ruis.</p>
-      <ul>
-        <li><b>Regressie</b> (dit deel): de verklaring is "de respons volgt een rechte (of een vlak) in x".</li>
-        <li><b>One-way ANOVA</b>: de verklaring is "de groepen hebben verschillende gemiddelden". Dat is hetzelfde model
-        als regressie, met een categorische x.</li>
-        <li><b>Factoriële proefopzetten (DOE)</b>: de verklaring is "deze factoren en hun interacties verschuiven de
-        respons". Bovendien kies je het experiment zo dat je de effecten van elkaar kunt scheiden.</li>
-      </ul>
+      <p>Je metingen van de respons verschillen van elkaar: dat is de totale variatie (total variation). Regressie
+      splitst die variatie in <b>een deel dat het model verklaart</b> en <b>een deel dat overblijft</b> (ruis,
+      noise). Daarna vraag je of het verklaarde deel groot is vergeleken met de ruis.</p>
+      <p>Bij regressie is de verklaring: "de respons volgt een rechte (of een vlak) in x".</p>
       <p>De vergelijking is altijd een <b>F-verhouding (F-ratio)</b>: \(\sym{f0}{F}=\) (verklaarde variatie per vrijheidsgraad) /
       (ruis per vrijheidsgraad). Verklaart het model niets, dan meten teller en noemer allebei alleen ruis en ligt F rond 1.
       Een echt effect maakt F veel groter dan 1
       <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=8">DOE p. 8</a>.</p>
     </div>
-    <p>Om te beslissen of F (of later een t-waarde) "groot genoeg" is, vergelijk je ze met een <b>kritieke waarde
+    <p>Om te beslissen of F (of een t-waarde) "groot genoeg" is, vergelijk je ze met een <b>kritieke waarde
     (critical value)</b> uit de t- of F-tabel. De cursus schrijft die waarde op twee manieren, omdat ze eigen slides mengt
     met gescande tekstboekpagina's (Montgomery; referenties op
     <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=67">REG p. 67</a> en <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=94">DOE p. 94</a>).
@@ -261,7 +255,8 @@
     <h3>07.5 Variantieanalyse (ANOVA) en R² <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=23">REG p. 23–28</a></h3>
     <p>De lijn van 07.4 volgt de punten goed, maar niet perfect. Hoeveel van de variatie in y verklaart ze? Daarvoor
     splitst het blok "Analysis of Variance" van de output de variatie van y in een verklaard en een onverklaard deel, zoals
-    07.1 aankondigde.</p>
+    07.1 aankondigde. Die opsplitsing heet <b>variantieanalyse</b> (analysis of variance, <b>ANOVA</b>); de tabel waarin je
+    ze samenvat is de <b>ANOVA-tabel</b>.</p>
     <p><b>Kwadratensommen.</b> Variatie meet je met een kwadratensom (sum of squares, SS): de gekwadrateerde afwijkingen
     tegenover een gemiddelde of een lijn, opgeteld over alle punten <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=23">REG p. 23</a>. Drie afstanden
     tellen: van elk punt \(\sym{y}{Y_{i}}\) tot het gemiddelde \(\sym{ybar}{\bar{Y}}\), van elk punt tot de lijn (de geschatte waarde \(\sym{y_hat}{\hat{Y}_{i}}\)), en

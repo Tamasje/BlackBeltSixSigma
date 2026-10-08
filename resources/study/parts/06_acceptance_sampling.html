@@ -15,7 +15,7 @@
 <ul>
 <li><b>Eén output</b> is conform of <b>defect (defective, non-conform)</b>. Noteer dat als een 0/1-variabele \(\sym{p_bernoulli}{P}\): 1 = defect, 0 = conform. Noem \(\sym{pi}{\pi}\) de kans dat een output defect is. Dan heeft P een <b>Bernoulli-verdeling</b> met \(E[\sym{p_bernoulli}{P}]=0\cdot(1-\sym{pi}{\pi})+1\cdot\sym{pi}{\pi}=\sym{pi}{\pi}\): \(\pi\) is de verwachte fractie non-conforme outputs van het proces, de <b>fractie defecten (fraction defectives)</b>.</li>
 <li><b>Een meetbaar kenmerk X</b> (bv. de lengte van een tegel) heeft een verdeling. De klant legt een <b>specificatie-interval</b> \([\sym{xl}{X_{L}},\sym{xu}{X_{U}}]\) vast: \(X_{L}\) is de onderste, \(X_{U}\) de bovenste specificatiegrens. De fractie van de verdeling buiten dat interval is de fractie defecten voor dat kenmerk.</li>
-<li>Ligt het centrum van de verdeling naast de <b>doelwaarde (target)</b> \(\sym{xt}{X_{T}}\), dan heeft het proces <b>bias</b> (systematische fout). Bias corrigeren is meestal eenvoudig; de <b>variabiliteit verkleinen</b> is het eigenlijke werk van Six Sigma. Daarvoor moet het meetsysteem de variatie goed kunnen zien (MSA) en moet het proces stabiel blijven (SPC).</li>
+<li>Ligt het centrum van de verdeling naast de <b>doelwaarde (target)</b> \(\sym{xt}{X_{T}}\), dan heeft het proces <b>bias</b> (systematische fout). Bias corrigeren is meestal eenvoudig; de <b>variabiliteit verkleinen</b> is het eigenlijke werk van Six Sigma. Daarvoor moet je de variatie goed kunnen meten en het proces stabiel houden.</li>
 </ul>
 <p>De figuur hieronder zet beide beschrijvingen naast elkaar: de 0/1-variabele van één output en de verdeling van een meetbaar kenmerk met het non-conforme deel buiten de specificatiegrenzen.</p>
 <figure class="fig"><img src="figures/06_bernoulli_specificatie.png" alt="Staafdiagram van de 0/1-variabele P met kansen 1 − π en π, en de verdeling van een kenmerk X met specificatiegrenzen X_L en X_U en doelwaarde X_T; het deel buiten de grenzen is non-conform">
@@ -30,6 +30,7 @@
 <tr><td class="n">III</td><td>Procesbeheersing (process control)</td><td>regelkaarten (control charts)</td></tr>
 <tr><td class="n">IV</td><td>Kwaliteit door ontwerp (quality by design)</td><td>proefopzet (design of experiments)</td></tr>
 </table>
+<p>Twee namen uit de tabel, kort uitgelegd: een <b>regelkaart (control chart)</b> volgt een proces in de tijd om afwijkingen vroeg te zien; dat heet <b>statistische procesbeheersing (statistical process control, SPC)</b>. Een <b>proefopzet (design of experiments, DOE)</b> plant experimenten om te leren welke instellingen het proces beïnvloeden.</p>
 <p>Aanvaardingssteekproeven staan dus op trede II: ze kijken naar het product, niet naar het proces dat het maakt. Deming vond inspectie om kwaliteit te verbeteren "te laat, ineffectief en duur": bouw kwaliteit in het product in. Je kunt geen trede overslaan <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=8">AS p. 8</a>.</p>
 
 <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
@@ -763,8 +764,23 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 </div>
 <div class="calc-here" data-tool="steekproefplan" data-blocks="0 3"></div>
 
+    <h4>Een BI en de OC-curve geven dezelfde beslissing</h4>
+    <p>Toets je met een BI (05.15), dan hoort daar dezelfde OC-curve bij als bij de klassieke toets.  <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=14">CI p. 14</a>. Het plan (100, 4) heeft volgens zijn OC-curve een
+    aanvaardingskans van 99 % bij \(\pi=1{,}30\ \%\), 90 % bij 2,45 % en 10 % bij 7,85 % (binomiaal nagerekend
+    <span class="computed">zelf berekend</span>). Neem \(\mathrm{AQL}=2{,}45\ \%\): dan is \(\alpha=10\ \%\). Bereken je bij elke uitkomst het
+    eenzijdige 90%-BI ]\(\sym{pi_l}{\pi_{L}}\); 100 %], dan bevat het de AQL precies voor \(P=0\ \%\ \ldots\ 4\ \%\), en dat zijn juist de
+    uitkomsten \((\sym{d}{d}\le4)\) waarvoor het plan de partij aanvaardt. De tabel in de figuur hieronder: \(P=1\ \%\to\) ]0,30 %; 100 %], 2 % →
+    ]0,85 %], 3 % → ]1,45 %], 4 % → ]2,10 %], 5 % → ]2,85 %], 6 % → ]3,60 %] (afgelezen uit de grafiek, normale
+    benadering).</p>
+    <figure class="fig"><img src="figures/04_oc_bi_equivalentie.png" alt="OC-curve van het plan (100, 4) met drie gemarkeerde punten, tabel van eenzijdige 90%-BI's en uitvergrote BI-krommen">
+    <figcaption>Figuur: links de OC-curve van het plan (100, 4) met de punten (1,30 %; 99 %), (2,45 %; 90 %) en (7,85 %; 10 %); in het
+    midden de eenzijdige 90%-BI's voor \(P=0\ \%\) tot 6 %; rechts een uitvergroting van de BI-krommen met de horizontale
+    lijnen op 1,30 %, 2,45 % (de AQL) en 7,85 %. De AQL ligt in het BI precies voor \(P=0\ \%\) tot 4 %.
+    <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=14">CI p. 14</a></figcaption></figure>
+
 <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
 <ul>
+      <li><b>"Toetsen met een BI geeft een andere OC-curve dan de klassieke toets."</b> Fout: beide werkwijzen zijn gelijkwaardig en hebben dezelfde OC-curve <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=12">CI p. 12</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=14">CI p. 14</a>.</li>
   <li><b>Let op:</b> \(\sym{alpha}{\alpha}=1-\sym{oc}{\mathrm{OC}}(\sym{aql}{\mathrm{AQL}})\), niet \(\sym{oc}{\mathrm{OC}}(\sym{aql}{\mathrm{AQL}})\); \(\sym{beta}{\beta}=\sym{oc}{\mathrm{OC}}(\sym{lql}{\mathrm{LQL}})\), niet
   \(1-\sym{oc}{\mathrm{OC}}(\sym{lql}{\mathrm{LQL}})\). Aanvaarden doe je bij \(\sym{d_sample}{d}\le\sym{c_accept}{c}\), dus c zelf telt mee:
   \(\sym{oc}{\mathrm{OC}}(\sym{pi}{p})=P(\sym{d_sample}{d}\le\sym{c_accept}{c})\), niet \(P(\sym{d_sample}{d}\lt\sym{c_accept}{c})\). <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=4">AS-FR p. 4</a></li>

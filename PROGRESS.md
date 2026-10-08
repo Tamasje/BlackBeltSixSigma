@@ -47,10 +47,14 @@ rewritten fluently (bouwstenen box, W absolute/relative); new Deel 15 "Van gegev
    05, 06, 07, 08, 09, 12, 13 (10, 11, 14 untouched). `build_study.py --check` reported missing symbol keys
    (05:chi2_crit, 05:t_crit, 06:xt): add rows to the part's `NN_symbols.tsv`. Review each partial part, finish or revert
    (`git checkout -- file`) before committing. Do not leave the tree unbuildable.
-2. **User request 2026-10-08 (newest): logical order.** Part 04 uses many things first introduced in 05 (tests, H0/HA,
-   α, p-value, critical value, acceptance sampling…); part 06 likewise; parts 07 and 08 mention ANOVA in many places.
-   Make the course follow logically: every concept is explained where it first appears and later parts only refer back
-   briefly; decide ONE home for ANOVA (see "Decisions" below).
+2. **Logical order (user request 2026-10-08) — DONE for parts 04–08, remaining: other parts.** Part 04 is now estimation-only:
+   the test/CI duality unit (was 04.9, ex-04-16) moved to part 05 as 05.15 `d05-dualiteit` / ex-05-19 (studiewijzer is 05.16);
+   its OC-curve paragraph moved to 06.9; the general test-inversion block (TH FR p. 19) moved with it; part-04 units renumbered
+   (tolerance 04.9, overview 04.10, studiewijzer 04.11); H0/HA/significance/AQL language removed from 04.1–04.8 (examples are
+   phrased as "is 10 still a plausible value?"). Part 06.1 glosses SPC/DOE once; 07.1 is regression-only (no ANOVA/DOE
+   bullets); ANOVA is introduced once in 07.5 (defined there) and part 08 is its home (08.1 bridge). Tool:
+   `.claude/handoff/forward_scan.py` (run from resources/: `python3 ../.claude/handoff/forward_scan.py 04 05 ...`) lists per
+   unit the terms used before their home part. Still unreviewed: parts 09–12 (e.g. 09 uses SPC for stability, 10→11).
 3. Calculators (HTML): show every value as soon as its inputs exist, especially critical values from α and df
    (z, t, χ², F) — done for gemiddelde, tweegemiddelden, proporties, variantie, tolerantie, power, regelkaart; still to
    audit: kwantielen (z/t/χ²/F from α + df without a statistic), anova, anova2, factorieel, regressie, grr,

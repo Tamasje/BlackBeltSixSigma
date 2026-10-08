@@ -7,7 +7,7 @@ import re, sys, glob, os
 HOME = {  # term regex -> home part number
     r'nulhypothese|\bH_?\{?0\}?\b|\\mathrm\{H\}_\{0\}|H_\{0\}|\bH0\b|alternatieve hypothese|HA\b|H_\{A\}': 5,
     r'p-waarde|type I\b|type II|onderscheidingsvermogen|\bkracht\b|significantieniveau|statistisch significant': 5,
-    r'OC-curve|OC\(': 6,
+    r'OC-curve|OC\(': 5,
     r'\bAQL\b|\bLQL\b|steekproefplan|aanvaardingssteekproef|producentenrisico|consumentenrisico': 6,
     r'kleinste.kwadraten|regressielijn|regressiemodel|\bR\^?\{?2\}?\b adj|residu': 7,
     r'\bANOVA\b|variantieanalyse|proefopzet|\bDOE\b|factorieel|interactie-effect': 8,
