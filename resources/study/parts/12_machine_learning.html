@@ -4,12 +4,11 @@
 causaliteit (<a href="#d02">Deel 2</a>): daar leerde je de
 regressielijn \(E[\sym{y_rv}{Y}\mid\sym{x_rv}{X}=\sym{x}{x}]\) kennen, hier zie je hoe een machine-learningmodel zo'n functie uit data leert, hoe je meet of
 het model goed is (loss, cross-validatie, confusion matrix) en welke methoden er bestaan. De klassieke lineaire
-regressie zelf staat in <a href="#d07">Deel 7</a>; voorbeeldexamenvraag 5 over drie beslissingsbomen staat in
-<a href="#d13">Deel 13</a>.</p>
+regressie zelf staat in <a href="#d07">Deel 7</a>.</p>
 
 <!-- ============================================================== 12.1 -->
-<section class="unit" id="d12-overzicht" data-kw="studiewijzer; overzicht; wat moet ik kennen; examenstof; study guide; overview; exam scope; machine learning; Les 2">
-<h3>12.1 Overzicht, bronnen en studiewijzer <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=1">ML p. 1</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=24">ML-notities p. 24</a></h3>
+<section class="unit" id="d12-overzicht" data-kw="overzicht; bronnen; overview; sources; machine learning; Les 2">
+<h3>12.1 Overzicht en bronnen <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=1">ML p. 1</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=24">ML-notities p. 24</a></h3>
 <div class="box key"><span class="t">Waarover gaat dit deel?</span>
 <p>Machine learning (ML) is <b>geen magie maar statistiek</b>: een model is een familie van functies met
 instelbare getallen (gewichten), en "leren" is die getallen zo kiezen dat een maat voor de fout (de loss) zo klein
@@ -23,22 +22,6 @@ unsupervised methoden en Bayesiaanse methoden.</p>
 volledige studiewijzer. "ML-webslides p. N" is de websiteversie van hetzelfde deck (59 p.) met twee extra slides: p. 46 (trainingskeuzes bij beslissingsbomen) en
 p. 55 (Bayesiaanse inferentie met een muntstuk). Daardoor verschuift de nummering: ML-webslides p. 47–\(54=\mathrm{ML}\) p. 46–53
 en ML-webslides p. 56–\(59=\mathrm{ML}\) p. 54–57.</p>
-<p><b>Studiewijzer</b> (wat je moet kunnen) en waar het in dit deel staat:</p>
-<table>
-<tr><th>Studiewijzer-item</th><th>Uitleg in</th></tr>
-<tr><td>Terminologie zoals AI, ML, supervised en unsupervised learning kunnen plaatsen</td><td>12.2, 12.3</td></tr>
-<tr><td>Loss-functies: de rol ervan begrijpen, MSE en MAE kennen</td><td>12.4</td></tr>
-<tr><td>Cross-validatie en het belang van de train-testsplitsing kunnen uitleggen</td><td>12.6, 12.7</td></tr>
-<tr><td>Bias-variance: de afweging in functie van de modelcomplexiteit kunnen uitleggen</td><td>12.8, 12.9, 12.15</td></tr>
-<tr><td>Confusion matrices en de evaluatie van classificatiemodellen</td><td>12.10, 12.11, 12.15</td></tr>
-<tr><td>Lineaire regressie: weten dat er uitbreidingen zijn zoals logistische en quantielregressie</td><td>12.12</td></tr>
-<tr><td>Neurale netwerken: notie hebben van verborgen lagen (hidden layers) en deep learning</td><td>12.13</td></tr>
-<tr><td>Beslissingsbomen: het algemene werkingsprincipe kunnen uitleggen</td><td>12.14</td></tr>
-<tr><td>Bayesiaanse methoden: de voordelen voor gestructureerde data kennen</td><td>12.17</td></tr>
-</table>
-<p class="small">De studiewijzer op <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=56">ML p. 56</a> (en <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20slides.pdf#page=58">ML-webslides p. 58</a>) mist het item over lineaire regressie;
-de notities <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=24">ML-notities p. 24</a> hebben het wel (gedrukt als "logistical en quantile regression"). Leer de volledige lijst
-van de notities. Het hands-on deel met Python (12.19) is <b>niet</b> te kennen voor het examen.</p>
 <p class="small">Getallen in de tekst komen uit de cursus. Wat hier zelf is uitgerekend (oplossingen van oefeningen,
 tussenstappen) is gemarkeerd met <span class="computed">zelf berekend</span>; die getallen worden geprint door <code>study/parts/12_numbers.py</code>,
 dat ook elke geciteerde cursuswaarde narekent.</p>
@@ -535,7 +518,7 @@ curven zo lopen, verklaart 12.9.</p>
 <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
 <ul>
 <li><b>"Overfitting herken je aan een hoge trainfout."</b> Fout: bij overfitting is de trainfout laag en de testfout hoog. Hoog op allebei is underfitting <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=10">ML-notities p. 10</a>.</li>
-<li><b>"Underfitting herken je aan een groot verschil tussen train- en testfout."</b> Fout: bij underfitting zijn beide hoog en liggen ze dus niet ver uit elkaar; een duidelijk slechtere test dan train wijst op overfitting <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=10">ML-notities p. 10</a> (voorbeeldexamenvraag 5, <a href="#d13-v5">13.5</a>).</li>
+<li><b>"Underfitting herken je aan een groot verschil tussen train- en testfout."</b> Fout: bij underfitting zijn beide hoog en liggen ze dus niet ver uit elkaar; een duidelijk slechtere test dan train wijst op overfitting <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=10">ML-notities p. 10</a>.</li>
 <li><b>"Een polynoom van graad 15 die perfect door de 15 meetpunten gaat, is het beste model."</b> Fout: dat is overfitting, met belachelijke voorspellingen voor nieuwe data. Graad 2 of 3 is vermoedelijk de juiste keuze <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=10">ML-notities p. 10</a>.</li>
 <li><b>"Hoe complexer het model, hoe kleiner de testfout."</b> Fout: de testfout volgt een U: eerst sterk beter, daarna weer slechter. Alleen de trainfout daalt (bijna) altijd mee <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=24">ML p. 24</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=10">ML-notities p. 10</a>.</li>
 </ul></div>
@@ -1310,7 +1293,7 @@ ingebouwde feature-importance-scores die tonen welke kenmerken het meest bijdrag
 <h3>12.15 Diagnose: hoge bias of hoge variance? (train- en testmatrices lezen) <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=23">ML p. 23</a> <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=26">ML p. 26</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20slides.pdf#page=46">ML-webslides p. 46</a></h3>
 <p>Dit stuk brengt 12.7–12.14 samen tot een werkwijze. Je krijgt voor één of meer modellen een confusion matrix op de
 <b>trainingsdata</b> en een op de <b>testdata</b>, en je moet zeggen welk model underfit, welk overfit en welk het
-beste is. Voorbeeldexamenvraag 5 (<a href="#d13">Deel 13</a>) is precies van dit type.</p>
+beste is.</p>
 <ol class="steps">
 <li><b>Reken voor elk model dezelfde metric uit op train en op test</b>, meestal de accuracy (12.10). Bij onevenwichtige
 klassen kijk je ook naar precision en recall met <b>elke klasse als positieve klasse</b> (12.11). Het blad
@@ -1745,5 +1728,28 @@ random forest op Titanic, en een Bayesiaanse regressie met PyMC op een dataset v
 blijft de testset tot de laatste controle onaangeroerd.</p>
 <figure class="fig"><img src="figures/12_leercurven.png" alt="Cross-entropy loss tegen het aantal epochs voor een compact en een groot netwerk, telkens trainingsloss gestippeld en validatieloss als volle lijn">
 <figcaption>Figuur: leercurven op Fashion-MNIST (niet te kennen). De trainingsloss (gestippeld) daalt bij beide netwerken. Bij het grote netwerk stijgt de validatieloss (volle lijn) vanaf ongeveer epoch 9, terwijl de trainingsloss verder daalt: een groeiende kloof die op overfitting wijst. Het compacte netwerk leert trager, maar zijn validatieloss blijft dalen. <a class="p" href="../source/course/Les%206/20260626_naert.pdf#page=17">Les 6 p. 17</a></figcaption></figure>
+</section>
+
+<!-- ============================================================== 12.20 -->
+<section class="unit" id="d12-studiewijzer" data-kw="studiewijzer; study guide; wat moet ik kennen; leerdoelen; learning objectives; examenstof; exam; checklist; overzicht">
+<h3>12.20 Studiewijzer: wat moet je kunnen? <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=56">ML p. 56</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=24">ML-notities p. 24</a></h3>
+<p>De studiewijzer bij dit onderwerp, met waar elk punt in deze gids staat:</p>
+<table>
+<tr><th>Je moet …</th><th>Zie</th></tr>
+<tr><td>Terminologie zoals AI, ML, supervised en unsupervised learning kunnen plaatsen</td><td><a href="#d12-terminologie">12.2</a>, <a href="#d12-paradigmas">12.3</a></td></tr>
+<tr><td>Loss-functies: de rol ervan begrijpen, MSE en MAE kennen</td><td><a href="#d12-loss">12.4</a></td></tr>
+<tr><td>Cross-validatie en het belang van de train-testsplitsing kunnen uitleggen</td><td><a href="#d12-hyperparameters">12.6</a>, <a href="#d12-crossvalidatie">12.7</a></td></tr>
+<tr><td>Bias-variance: de afweging in functie van de modelcomplexiteit kunnen uitleggen</td><td><a href="#d12-overfitting">12.8</a>, <a href="#d12-bias-variance">12.9</a>, <a href="#d12-diagnose">12.15</a></td></tr>
+<tr><td>Confusion matrices en de evaluatie van classificatiemodellen</td><td><a href="#d12-confusion">12.10</a>, <a href="#d12-metric-keuze">12.11</a>, <a href="#d12-diagnose">12.15</a></td></tr>
+<tr><td>Lineaire regressie: weten dat er uitbreidingen zijn zoals logistische en quantielregressie</td><td><a href="#d12-linreg">12.12</a></td></tr>
+<tr><td>Neurale netwerken: notie hebben van verborgen lagen (hidden layers) en deep learning</td><td><a href="#d12-neuraal">12.13</a></td></tr>
+<tr><td>Beslissingsbomen: het algemene werkingsprincipe kunnen uitleggen</td><td><a href="#d12-bomen">12.14</a></td></tr>
+<tr><td>Bayesiaanse methoden: de voordelen voor gestructureerde data kennen</td><td><a href="#d12-bayes">12.17</a></td></tr>
+</table>
+<p class="small">De studiewijzer op <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=56">ML p. 56</a> (en <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20slides.pdf#page=58">ML-webslides p. 58</a>) mist het item over lineaire regressie;
+de notities <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=24">ML-notities p. 24</a> hebben het wel (gedrukt als "logistical en quantile regression"). Leer de volledige lijst
+van de notities. Het hands-on deel met Python (12.19) is <b>niet</b> te kennen voor het examen.</p>
+<p>Voorbeeldexamen: vraag 5 (<a href="#d13-v5">13.5</a>) toetst dit deel: confusion matrix en accuracy, under- en
+overfitting (bias-variance) en de diepte van een beslissingsboom (zie <a href="#d12-diagnose">12.15</a>).</p>
 </section>
 </section>
