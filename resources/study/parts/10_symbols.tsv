@@ -30,12 +30,12 @@ sigma_hat	\(\hat{\sigma}\)	Geschatte standaardafwijking van het proces (estimate
 sigma_hat_i	\(\hat{\sigma}_{i}\)	Schatting van \(\sigma\) uit één subgroep i (variabele steekproefgrootte).	\(\frac{R_{i}}{d_{2}}\), met de \(d_{2}\) van die subgroepgrootte; \(\hat{\sigma}\) is het gemiddelde van de \(\hat{\sigma}_{i}\).	d10-formules
 rbar	\(\bar{R}\)	Gemiddelde range (average range) van de k subgroepen.	\(\left(\frac{1}{k}\right)\ \Sigma\ R_{i}\), met \(R_{i}=\) grootste − kleinste per subgroep. Dit is geen \(\sigma\): \(\hat{\sigma}=\frac{\bar{R}}{d_{2}}\).	d10-formules
 rbar_new	\(\bar{R}_{\text{nieuw}}\)	Verwachte gemiddelde range bij een nieuwe steekproefgrootte (ook \(\bar{R}_{3}\), \(\bar{R}_{8}\)).	\(d_{2}(n_{\text{nieuw}})\cdot\hat{\sigma}\), met \(\hat{\sigma}=\frac{\bar{R}}{d_{2}}\) van de oude n.	ex-10-8
-r_i	\(R_{i}\)	Range (spreidingsbreedte) van subgroep i.	Grootste − kleinste waarde in de subgroep (Excel: MAX − MIN).	d10-formules
-xbarbar	\(\bar{\bar{X}}\)	Groot gemiddelde (grand mean): gemiddelde van de subgroepgemiddelden.	\(\left(\frac{1}{k}\right)\ \Sigma\ \bar{x}_{i}\) (AVERAGE van de \(\bar{x}'\)s). Schat \(\mu\); centrale lijn van de \(\bar{X}\)-kaart.	d10-formules
-xbar_i	\(\bar{x}_{i}\)	Gemiddelde van subgroep i: het punt op de \(\bar{X}\)-kaart.	AVERAGE van de n metingen van die subgroep.	d10-formules
+r_i	\(R_{i}\)	Range (spreidingsbreedte) van subgroep i.	Grootste − kleinste waarde in de subgroep.	d10-formules
+xbarbar	\(\bar{\bar{X}}\)	Groot gemiddelde (grand mean): gemiddelde van de subgroepgemiddelden.	\(\left(\frac{1}{k}\right)\ \Sigma\ \bar{x}_{i}\), het gemiddelde van de \(\bar{x}'\)s. Schat \(\mu\); centrale lijn van de \(\bar{X}\)-kaart.	d10-formules
+xbar_i	\(\bar{x}_{i}\)	Gemiddelde van subgroep i: het punt op de \(\bar{X}\)-kaart.	\(\frac{\Sigma x}{n}\): het gemiddelde van de n metingen van die subgroep.	d10-formules
 sbar	\(\bar{s}\)	Gemiddelde standaardafwijking van de k subgroepen.	\(\left(\frac{1}{k}\right)\ \Sigma\ s_{i}\). Voor \(\sigma\): \(\hat{\sigma}=\frac{\bar{s}}{c_{4}}\), met \(c_{4}\) uit Table A.	d10-formules
-s_i	\(s_{i}\)	Standaardafwijking van subgroep i.	STDEV.S van de n metingen van die subgroep (deler n − 1).	d10-formules
-s_overall	s	Standaardafwijking van alle metingen samen (overall, lange termijn).	STDEV.S van alle metingen (hier 100). Geeft Pp en Ppk, niet Cp en Cpk.	d09-ppk
+s_i	\(s_{i}\)	Standaardafwijking van subgroep i.	Steekproefstandaardafwijking van de n metingen van die subgroep (deler n − 1).	d10-formules
+s_overall	s	Standaardafwijking van alle metingen samen (overall, lange termijn).	Steekproefstandaardafwijking (deler n − 1) van alle metingen (hier 100). Geeft Pp en Ppk, niet Cp en Cpk.	d09-ppk
 a2	\(A_{2}\)	Constante voor de grenzen van de \(\bar{X}\)-kaart met \(\bar{R}\ (\pm3\sigma_{\bar{x}})\).	Table 18 bij n (\(n=5\): 0,577; \(n=3\): 1,023). Volgt uit \(\frac{3}{d_{2}\sqrt{n}}\).	d10-formules
 a3	\(A_{3}\)	Constante voor de grenzen van de \(\bar{X}\)-kaart met \(\bar{s}\).	Six Sigma Demystified bij n (\(n=5\): 1,427); Table 18 heeft geen kolom \(A_{3}\).	d10-formules
 a1	\(A_{1}\)	Constante uit Table 18 voor de \(\bar{X}\)-kaart met \(\bar{s}\) in de vorm van Table 7.2.	Table 18 bij n (\(n=5\): 1,596). \(A_{1}\cdot\sqrt{\frac{n-1}{n}}\) is \(A_{3}\).	d10-formules
@@ -51,7 +51,7 @@ c4	\(c_{4}\)	Biascorrectie (bias correction factor) voor een \(\sigma\)-schattin
 e2	\(E_{2}\)	Constante voor de grenzen van de I-kaart (individuele waarden).	Voor \(n=2\): 2,660 (Six Sigma Demystified, beslissing 4) of 2,659 (Dummies). \(\mathrm{UCL}_{X}=\bar{X}+E_{2}\cdot\)MR̄.	d14-10-imr
 d2_n2	1,128	\(d_{2}\) voor \(n=2\): een moving range overspant twee metingen.	Table 18, rij \(n=2\). \(\sigma_{\mathrm{ST}}=\) MR̄/1,128.	d14-10-imr
 sigma_st	\(\sigma_{\mathrm{ST}}\)	Korte-termijnstandaardafwijking (short-term \(\sigma\)).	MR̄/1,128 bij individuele waarden, alleen in meetvolgorde; bij subgroepen \(\frac{\bar{R}}{d_{2}}\). Hoort bij Cp en Cpk.	d14-10-imr
-xbar_ind	\(\bar{X}\)	Gemiddelde van de individuele waarden: centrale lijn van de I-kaart.	\(\frac{X_{1}+\ldots+X_{k}}{k}\) (AVERAGE).	d14-10-imr
+xbar_ind	\(\bar{X}\)	Gemiddelde van de individuele waarden: centrale lijn van de I-kaart.	\(\frac{X_{1}+\ldots+X_{k}}{k}\).	d14-10-imr
 x_i	\(X_{i}\)	Individuele meting nummer i, in de volgorde waarin ze genomen is.	Gegeven (de data), in meetvolgorde.	d14-10-imr
 mr_i	\(\mathrm{MR}_{i}\)	Bewegend bereik (moving range): verschil tussen twee opeenvolgende metingen.	\(|X_{i+1}-X_{i}|\), altijd positief; k metingen geven k − 1 waarden.	d14-10-imr
 mrbar	MR̄	Gemiddeld bewegend bereik (average moving range).	\(\frac{\mathrm{MR}_{1}+\ldots+\mathrm{MR}_{k-1}}{k-1}\): deel door k − 1, niet door k.	d14-10-imr
@@ -64,14 +64,14 @@ var_pp	\(\sigma^{2}_{\text{Part-Part}}\)	Variantie tussen de stuks (part-to-part
 var_rr	\(\sigma^{2}_{\text{R\&R}}\)	Variantie van het meetsysteem: herhaalbaarheid plus reproduceerbaarheid (gauge R&amp;R).	Uit een Gage R&amp;R-studie (Deel 11). Les 4: R&amp;\(R\le20\ \%\) van de tolerantie; Les 5: 10 % / 30 %.	d11-rr
 cp	Cp	Procescapabiliteitsindex (process capability index): tolerantie gedeeld door \(6\sigma\).	\(\frac{\mathrm{USL}-\mathrm{LSL}}{6\sigma}\) met \(\hat{\sigma}=\frac{\bar{R}}{d_{2}}\) (korte termijn). Negeert de ligging: daarvoor Cpk.	d09-cp
 cpk	Cpk	Capabiliteitsindex die ook de ligging van het gemiddelde meetelt.	\(\min\left[\frac{\bar{\bar{X}}-\mathrm{LSL}}{3\sigma};\frac{\mathrm{USL}-\bar{\bar{X}}}{3\sigma}\right]\): \(3\sigma\) in de noemer, de dichtste grens telt.	d09-cpk
-pp	Pp	Performance-index: zoals Cp, maar met de totale (lange-termijn) standaardafwijking.	(USL − LSL)/(6s) met \(s=\) STDEV.S van alle metingen (Minitab: StDev(overall)).	d09-ppk
+pp	Pp	Performance-index: zoals Cp, maar met de totale (lange-termijn) standaardafwijking.	(USL − LSL)/(6s) met \(s=\) de steekproefstandaardafwijking (deler n − 1) van alle metingen (Minitab: StDev(overall)).	d09-ppk
 ppk	Ppk	Performance-index met ligging: zoals Cpk, met de totale standaardafwijking.	\(\min\left[\frac{\bar{\bar{X}}-\mathrm{LSL}}{3s};\frac{\mathrm{USL}-\bar{\bar{X}}}{3s}\right]\) met s van alle metingen.	d09-ppk
 usl	USL	Bovenste specificatiegrens (upper specification limit): de stem van de klant.	Gegeven in de opgave (bv. 16,2 + 0,5 = 16,7). Niet de UCL van een regelkaart.	d09-cp
 lsl	LSL	Onderste specificatiegrens (lower specification limit): de stem van de klant.	Gegeven in de opgave (bv. 16,2 − 0,5 = 15,7). Niet de LCL van een regelkaart.	d09-cp
 stdev_within	StDev(within)	Minitab-naam voor de korte-termijn-\(\sigma\) binnen de subgroepen.	Op de \(\bar{X}\)-R-kaart \(\frac{\bar{R}}{d_{2}}=0{,}20636\); Minitabs capabiliteitsanalyse drukt 0,20982 (methode niet uitgelegd). Hoort bij Cp en Cpk.	d09-minitab
-stdev_overall	StDev(overall)	Minitab-naam voor de standaardafwijking van alle metingen samen.	STDEV.S van alle metingen (oefening 2: 0,20212). Hoort bij Pp en Ppk.	d09-minitab
+stdev_overall	StDev(overall)	Minitab-naam voor de standaardafwijking van alle metingen samen.	Steekproefstandaardafwijking (deler n − 1) van alle metingen (oefening 2: 0,20212). Hoort bij Pp en Ppk.	d09-minitab
 p_value	P	p-waarde (p-value) van de normaliteitstoets (Anderson-Darling) in Minitab.	Gedrukt door Minitab. Kleiner dan \(\alpha\): de normaliteit wordt verworpen.	d05-pwaarde
-z	Z	Standaardnormale z-waarde: afstand tot een grens in standaardafwijkingen.	\(\frac{\mathrm{USL}-\bar{\bar{X}}}{\hat{\sigma}}=3\cdot\)Cpk aan de bovenkant; kans erboven \(1-\Phi(Z)\) (Excel: 1 − NORM.S.DIST(Z;TRUE)).	d03-z
+z	Z	Standaardnormale z-waarde: afstand tot een grens in standaardafwijkingen.	\(\frac{\mathrm{USL}-\bar{\bar{X}}}{\hat{\sigma}}=3\cdot\)Cpk aan de bovenkant; kans erboven \(1-\Phi(Z)\) uit de Z-tabel of de rekenmachine normale verdeling.	d03-z
 p_out	P	Fractie buiten de specificatie aan één kant (uitval).	\(1-\Phi(Z)\) met \(Z=\frac{\mathrm{USL}-\bar{\bar{X}}}{\hat{\sigma}}\); tel de andere kant er apart bij; ×100 voor %.	d09-uitval
 sigma_zone	\(\sigma\) (zones)	Standaardafwijking van wat je uitzet: bepaalt de zones A, B en C.	(UCL − CL)/3. Bij een \(\bar{X}\)-kaart is dat \(\sigma_{\bar{x}}=\frac{\sigma}{\sqrt{n}}\), niet de \(\sigma\) van de losse metingen.	d10-regels
 x_code	x	Gecodeerde waarde: alleen de laatste drie decimalen (bv. 34,5).	Gegeven in de tabel. Reken gecodeerd en pas op het einde terug: \(x'=\frac{x}{10000}+0{,}5\).	ex-10-7

@@ -1,6 +1,6 @@
 <section class="part" id="d06" data-title="Deel 06 — Aanvaardingssteekproeven en steekproefmethoden" data-lecturer="P.L. Ottoy" data-les="Les 2">
 <h2>Deel 06 — Aanvaardingssteekproeven (acceptance sampling) en steekproefmethoden</h2>
-<p class="intro">Dit deel vertrekt bij kwaliteit en procesvariatie, legt uit hoe je met een steekproef de fractie defecten in een lot schat (aselect, gestratificeerd, cluster, systematisch) en welke fouten daarbij ontstaan, en behandelt dan de aanvaardingsprocedure: OC-curve, AQL en LQL, plannen ontwerpen, dubbele en sequentiële plannen, plannen voor variabelen, rectificerende inspectie, skip-lot en het inspectiecriterium van Deming. Een aanvaardingssteekproef is een hypothesetoets (\(H_{0}\): het lot is goed); de toetsbegrippen \(\alpha\), \(\beta\) en kracht staan in Deel 5, het betrouwbaarheidsinterval voor een fractie defecten in Deel 4.</p>
+<p class="intro">Dit deel vertrekt bij kwaliteit en procesvariatie, legt uit hoe je met een steekproef de fractie defecten in een lot schat (aselect, gestratificeerd, cluster, systematisch) en welke fouten daarbij ontstaan, en behandelt dan de aanvaardingsprocedure: OC-curve, AQL en LQL, plannen ontwerpen, dubbele en sequentiële plannen, plannen voor variabelen, rectificerende inspectie, skip-lot en het inspectiecriterium van Deming. Een aanvaardingssteekproef is een hypothesetoets (\(H_{0}\): het lot is goed).</p>
 
 <p class="small">Getallen komen uit de slides en de cursusbestanden. Wat hier zelf is uitgerekend (oplossingen, tussenstappen, controles) is gemarkeerd met <span class="computed">zelf berekend</span>; het script <code>study/parts/06_numbers.py</code> rekent die waarden uit de cursusgegevens en controleert ook elk geciteerd cursusresultaat. Afkortingen in de paginalinks: \(\mathrm{AS}=\) Acceptance Sampling (slides), AS-\(\mathrm{FR}=\) Acceptance Sampling – Further Reading, \(\mathrm{TH}=\) Testing of Hypotheses, \(\mathrm{CI}=\) Confidence Intervals.</p>
 
@@ -44,7 +44,7 @@
   niet zo moeilijk; de variabiliteit verkleinen is het moeilijke en eigenlijke werk. <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=6">AS p. 6</a></li>
   <li><b>"\(\pi\) is de fractie defecten die je in de steekproef vindt."</b> Fout: \(\sym{pi}{\pi}=E[\sym{p_bernoulli}{P}]\) is de verwachte
   fractie non-conforme outputs van het proces (bij een lot: \(\frac{\sym{d_lot}{D}}{\sym{n_lot}{N}}\), vast). Een steekproef geeft alleen een schatting die rond \(\pi\)
-  schommelt (<a href="#d06-srs">06.4</a>). <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=6">AS p. 6</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=15">AS p. 15</a></li>
+  schommelt. <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=6">AS p. 6</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=15">AS p. 15</a></li>
 </ul></div>
 
 <div class="exercise" id="ex-06-1" data-kw="kwaliteitsladder; quality ladder; trede; steekproefplannen; sampling plans; regelkaarten; control charts; DOE; Deming">
@@ -62,30 +62,28 @@
 </div>
 <details class="hint"><summary>Hint</summary><p>Van onder naar boven: brandjes blussen, product, proces, ontwerp.</p></details>
 <details class="solution"><summary>Toon oplossing</summary>
-<p>Trede \(\mathrm{II}=\) productinspectie met steekproefplannen; trede \(\mathrm{III}=\) procesbeheersing met regelkaarten; trede \(\mathrm{IV}=\) quality by design met DOE <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=8">AS p. 8</a>. Een leverancier op trede III die zijn capabiliteit aantoont, levert zonder ingangscontrole (zie 06.3 en 06.14).</p>
+<p>Trede \(\mathrm{II}=\) productinspectie met steekproefplannen; trede \(\mathrm{III}=\) procesbeheersing met regelkaarten; trede \(\mathrm{IV}=\) quality by design met DOE <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=8">AS p. 8</a>. Een leverancier op trede III die zijn capabiliteit aantoont, levert zonder ingangscontrole.</p>
 </details>
 </div>
 </section>
 
 <!-- =========================================================== 06.2 -->
-<section class="unit" id="d06-lotdefecten" data-kw="normale verdeling; normal distribution; centrale limietstelling; central limit theorem; Cpk; capabiliteit; process capability; ppm; binomiale verdeling; binomial distribution; defecten in een lot; lot fraction defectives; NORM.DIST; NORM.INV; E[i]">
+<section class="unit" id="d06-lotdefecten" data-kw="normale verdeling; normal distribution; centrale limietstelling; central limit theorem; Cpk; capabiliteit; process capability; ppm; binomiale verdeling; binomial distribution; defecten in een lot; lot fraction defectives; E[i]">
 <h3>06.2 Procesvariatie, capabiliteit en defecten in een lot <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=9">AS p. 9–12</a></h3>
-<p>Een <b>stabiel proces</b> levert outputs die variëren, maar altijd volgens dezelfde verdeling: hetzelfde percentage valt telkens tussen dezelfde grenzen (Deming, "constant-cause system") <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=9">AS p. 9</a>. De meest voorkomende procesverdeling is de <b>normale verdeling (normal distribution)</b>. De reden is de <b>centrale limietstelling (central limit theorem)</b>: een output die de som is van veel kleine, gelijkaardige invloeden is ongeveer normaal verdeeld (het Galtonbord). De figuur hieronder toont een stabiel proces als tijdreeks naast drie kandidaat-verdelingen. Welke verdeling past bij de tijdreeks? De normale. De normale verdeling zelf staat in Deel 3.</p>
+<p>Een <b>stabiel proces</b> levert outputs die variëren, maar altijd volgens dezelfde verdeling: hetzelfde percentage valt telkens tussen dezelfde grenzen (Deming, "constant-cause system") <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=9">AS p. 9</a>. De meest voorkomende procesverdeling is de <b>normale verdeling (normal distribution)</b>. De reden is de <b>centrale limietstelling (central limit theorem)</b>: een output die de som is van veel kleine, gelijkaardige invloeden is ongeveer normaal verdeeld (het Galtonbord). De figuur hieronder toont een stabiel proces als tijdreeks naast drie kandidaat-verdelingen. Welke verdeling past bij de tijdreeks? De normale.</p>
 <figure class="fig"><img src="figures/06_procesvariatie.png" alt="Tijdreeks van een stabiel proces, een Galtonbord en drie verdelingen: uniform, exponentieel en normaal">
 <figcaption>Figuur: een stabiel proces als tijdreeks (process variation observed as a time series), drie kandidaat-verdelingen (uniform, exponentieel, normaal) en het Galtonbord. Het Galtonbord maakt de centrale limietstelling zichtbaar: de som van onafhankelijke, gelijk verdeelde invloeden (\(X_{i}\) IID) is normaal verdeeld. <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=9">AS p. 9</a></figcaption></figure>
 
 <h4>Capabiliteit en fractie defecten <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=10">AS p. 10–11</a></h4>
 <div class="f">
-<div>\[\sym{cpk}{C_{\mathrm{pk}}}=\min\left(\frac{\sym{xu}{X_{U}}-\sym{mu}{\mu}}{3\sym{sigma}{\sigma}};\frac{\sym{mu}{\mu}-\sym{xl}{X_{L}}}{3\sym{sigma}{\sigma}}\right)\]</div>
 <div>\[\sym{xu}{X_{U}}-\sym{xl}{X_{L}}=6\sym{sigma}{\sigma}\] (gecentreerd): \[\sym{cpk}{C_{\mathrm{pk}}}=1\], 99,73 % conform, 0,27 % defect</div>
 <div>\[\sym{xu}{X_{U}}-\sym{xl}{X_{L}}=8\sym{sigma}{\sigma}\] (gecentreerd): \[\sym{cpk}{C_{\mathrm{pk}}}=1{,}33\], 99,9937 % conform, 63 ppm defect</div>
 </div>
 <p>De figuur hieronder toont het gecentreerde geval: de standaardnormale verdeling met de specificatiegrenzen op ±\(3\sigma\).</p>
 <figure class="fig"><img src="figures/06_capabiliteit_normaal.png" alt="Standaardnormale verdeling met specificatiegrenzen op −3 en +3 en de fracties conform en defect voor X_U − X_L = 6σ (Cpk = 1) en 8σ (Cpk = 1,33)">
 <figcaption>Figuur: standaardnormale verdeling \((\mu=0,\sigma=1)\) met \(X_{L}\) en \(X_{U}\) op ±\(3\sigma\). Bij \(X_{U}-X_{L}=6\sigma\) is 99,73 % van de output conform en 0,27 % defect \((C_{\mathrm{pk}}=1)\); bij \(8\sigma\) is 99,9937 % conform en 63 ppm defect \((C_{\mathrm{pk}}=1{,}33)\). <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=10">AS p. 10</a></figcaption></figure>
-<p>In massaproductie is \(\sym{cpk}{C_{\mathrm{pk}}}=1{,}33\) een gangbare drempel. \(\mu\) en \(\sigma\) zijn schattingen uit metingen binnen subgroepen. In Excel: <code>=NORM.DIST(x, <var data-s="mu">μ</var>, <var data-s="sigma">σ</var>, FALSE)</code> geeft de dichtheid, <code>=NORM.DIST(x, <var data-s="mu">μ</var>, <var data-s="sigma">σ</var>, TRUE)</code> de cumulatieve kans \(\Phi\), <code>=NORM.INV(p, <var data-s="mu">μ</var>, <var data-s="sigma">σ</var>)</code> het kwantiel, en <code>=NORM.INV(RAND(), <var data-s="mu">μ</var>, <var data-s="sigma">σ</var>)</code> een normaal verdeeld toevalsgetal <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=11">AS p. 11</a>. De figuur hieronder toont waar elke functie op de dichtheid en op de cumulatieve curve aangrijpt.</p>
-<figure class="fig"><img src="figures/06_normaal_excel.png" alt="Normale dichtheid en cumulatieve verdelingsfunctie, met aangeduid wat NORM.DIST(…, FALSE), NORM.DIST(…, TRUE) en NORM.INV teruggeven">
-<figcaption>Figuur: links de dichtheid \(\varphi\): <code>NORM.DIST(x<sub>1</sub>, μ, σ, FALSE)</code> geeft de hoogte \(\varphi(x_{1})\), <code>NORM.DIST(x<sub>2</sub>, μ, σ, TRUE)</code> het oppervlak \(\Phi(x_{2})\) links van \(x_{2}\). Rechts de cumulatieve curve: <code>NORM.DIST(x<sub>2</sub>, μ, σ, TRUE)</code> geeft \(p=\Phi(x_{2})\), en <code>NORM.INV(p, μ, σ)</code> gaat terug van p naar het kwantiel \(x_{2}=\Phi^{-1}(p)=X_{p}\). <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=11">AS p. 11</a></figcaption></figure>
+<p>In massaproductie is \(\sym{cpk}{C_{\mathrm{pk}}}=1{,}33\) een gangbare drempel. \(\mu\) en \(\sigma\) zijn schattingen uit metingen binnen subgroepen.</p>
+<div class="calc-here" data-tool="normaal" data-blocks="1"></div>
 
 <h4>Hoeveel defecten zitten er in een lot? <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=12">AS p. 12</a></h4>
 <p>Als defecten onafhankelijk van elkaar ontstaan, is het aantal defecten i in een lot van N stuks <b>binomiaal verdeeld (binomial distribution)</b>:</p>
@@ -98,12 +96,13 @@
 <li>\(\sym{cpk}{C_{\mathrm{pk}}}=1\Rightarrow\sym{pi}{\pi}=0{,}27\ \%\Rightarrow E[\sym{i_lot}{i}]=10\ 000\times0{,}0027=27\). Het aantal schommelt ongeveer tussen 12 en 44; \(P(12\le\sym{i_lot}{i}\le44)=0{,}9986\) <span class="computed">zelf berekend</span>. Honderd defecten is niet onmogelijk, maar de kans is \(2{,}1\times10^{-27}\): gebeurt het toch, dan is het proces veranderd (niet meer capabel op hetzelfde niveau).</li>
 <li>\(\sym{cpk}{C_{\mathrm{pk}}}=1{,}33\Rightarrow\sym{pi}{\pi}=0{,}0063\ \%\Rightarrow E[\sym{i_lot}{i}]=0{,}6\). In de praktijk zitten er dan nooit meer dan 3 defecten in een lot: \(P(\sym{i_lot}{i}\le3)=0{,}9959\) <span class="computed">zelf berekend</span>.</li>
 </ul>
-<p class="small">Het werkblad 'defective probabilities' rekent met ±\(3\sigma\) en ±\(4\sigma\) (de rijen "3sigma" en "4sigma"). De 0,0063 % hoort dus bij \(\sym{cpk}{C_{\mathrm{pk}}}=\frac{4}{3}\), wat de cursus als 1,33 schrijft.</p>
+<p class="small">Het cursusbestand rekent met ±\(3\sigma\) en ±\(4\sigma\). De 0,0063 % hoort dus bij \(\sym{cpk}{C_{\mathrm{pk}}}=\frac{4}{3}\), wat de cursus als 1,33 schrijft.</p>
 </div>
 <p><b>Kern:</b> kent men de capabiliteit van het proces (trede III), dan volgt de kwaliteit van elk lot daaruit en is inspectie overbodig. Kent men ze niet (trede II), dan moet men het lot bemonsteren. Dat is het onderwerp van de rest van dit deel.</p>
 <div class="box tool"><span class="t">Rekentool</span>
 <p>Blad <b>Distributions</b> van <code>bb_toolkit.xlsx</code>, blok 2 (binomiaal): \(n=\sym{n_lot}{N}=10\ 000\), \(p=\sym{pi}{\pi}\), \(k=\) het aantal defecten; je krijgt \(P(X=k)\), \(P(X\le k)\), E[X] en \(\sigma\). Het blad <b>Normal</b> geeft \(\pi\) uit \(\mu\), \(\sigma\) en de specificatiegrenzen.</p>
 </div>
+<div class="calc-here" data-tool="verdelingen" data-blocks="1"></div>
 
 <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
 <ul>
@@ -121,7 +120,7 @@
 
 <div class="exercise" id="ex-06-2" data-kw="defecten in een lot; defective probabilities; binomiaal; binomial; 3 sigma; 4 sigma; Cpk; ppm; E[i]; verwachte waarde; expected value">
 <h4>Oefening 06.2 — Defecten in een lot van 10 000 tegels <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=12">AS p. 12</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.xlsm">AS.xlsm</a></h4>
-<p>Werkblad 'defective probabilities': een stabiel, gecentreerd proces levert lots van \(\sym{n_lot}{N}=10\ 000\) stuks. Defecten ontstaan onafhankelijk.</p>
+<p>Cursusvoorbeeld 'defective probabilities': een stabiel, gecentreerd proces levert lots van \(\sym{n_lot}{N}=10\ 000\) stuks. Defecten ontstaan onafhankelijk.</p>
 <div class="q" data-answer="0.27" data-tol="0.005">
 <label>Specificatie = \(\sym{mu}{\mu}\pm3\sym{sigma}{\sigma}\): fractie defect \(\sym{pi}{\pi}\) (in %, 2 decimalen) =</label> <input type="text" inputmode="decimal">
 <button type="button" class="check">Controleer</button> <span class="fb"></span>
@@ -138,13 +137,14 @@
 <label>Bij ±\(4\sym{sigma}{\sigma}\): kans dat een lot géén enkel defect bevat, \(P(\sym{i_lot}{i}=0)\) (3 decimalen) =</label> <input type="text" inputmode="decimal">
 <button type="button" class="check">Controleer</button> <span class="fb"></span>
 </div>
+<div class="calc-here" data-tool="normaal" data-blocks="1"></div>
 <details class="hint"><summary>Hint</summary><p>\(\sym{pi}{\pi}=2\cdot\Phi(-3)\) of \(2\cdot\Phi(-4)\). \(E[\sym{i_lot}{i}]=\sym{n_lot}{N}\sym{pi}{\pi}\). \(P(\sym{i_lot}{i}=0)=(1-\sym{pi}{\pi})^{\sym{n_lot}{N}}\).</p></details>
 <details class="solution"><summary>Toon oplossing</summary>
 <ol class="steps">
-<li>±\(3\sym{sigma}{\sigma}\): \(\sym{pi}{\pi}=2\cdot\Phi(-3)=0{,}0026998=0{,}27\ \%\) (2 699,8 ppm, cel D3 van het werkblad).</li>
-<li>\(E[\sym{i_lot}{i}]=10\ 000\times0{,}0026998=27{,}0\) (cel J1: 26,998).</li>
-<li>±\(4\sym{sigma}{\sigma}\): \(\sym{pi}{\pi}=2\cdot\Phi(-4)=0{,}0000633=63{,}3\) ppm; \(E[\sym{i_lot}{i}]=0{,}633\) (cel K1).</li>
-<li>\(P(\sym{i_lot}{i}=0)=(1-0{,}0000633)^{10\ 000}=0{,}531\) (cel H3). Meer dan de helft van de lots is dan foutloos. <span class="computed">zelf berekend</span> (en zo ook in het werkblad)</li>
+<li>±\(3\sym{sigma}{\sigma}\): \(\sym{pi}{\pi}=2\cdot\Phi(-3)=0{,}0026998=0{,}27\ \%\) (2 699,8 ppm).</li>
+<li>\(E[\sym{i_lot}{i}]=10\ 000\times0{,}0026998=27{,}0\) (cursusbestand: 26,998).</li>
+<li>±\(4\sym{sigma}{\sigma}\): \(\sym{pi}{\pi}=2\cdot\Phi(-4)=0{,}0000633=63{,}3\) ppm; \(E[\sym{i_lot}{i}]=0{,}633\).</li>
+<li>\(P(\sym{i_lot}{i}=0)=(1-0{,}0000633)^{10\ 000}=0{,}531\). Meer dan de helft van de lots is dan foutloos. <span class="computed">zelf berekend</span> (en zo ook in het cursusbestand)</li>
 </ol>
 </details>
 </div>
@@ -156,7 +156,7 @@
 <p>Hoe ken je de kwaliteit van een lot, dus de fractie non-conforme stuks? Er zijn twee situaties <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=13">AS p. 13</a>:</p>
 <table>
 <tr><th>Kwaliteitsladder minstens trede III</th><th>Kwaliteitsladder hoogstens trede II</th></tr>
-<tr><td>De procescapabiliteit is gekend; daaruit volgt de kans op een lot met een bepaald aantal defecten (06.2). Is de capabiliteit voldoende, dan is het lot aanvaardbaar zonder inspectie.</td>
+<tr><td>De procescapabiliteit is gekend; daaruit volgt de kans op een lot met een bepaald aantal defecten. Is de capabiliteit voldoende, dan is het lot aanvaardbaar zonder inspectie.</td>
 <td>Inspectie is onvermijdelijk. <b>Volledige inspectie (100 % inspection, screening)</b> is vaak niet haalbaar: het duurt te lang, kost te veel, of de test is <b>destructief</b>. Een steekproef geeft dan een schatting van de kwaliteit van het lot.</td></tr>
 </table>
 <p class="small">Ook 100 % inspectie is niet perfect (inspectiemoeheid) <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=13">AS p. 13</a>. Bij lotkeuring is het <b>lot de populatie (population)</b>, met een vaste fractie defecten. Bekijk je het hele proces, dan is één lot maar een deel van de output, en verschilt de kwaliteit van lot tot lot.</p>
@@ -170,7 +170,7 @@
 <li>Fractie defecten \(\sym{pi}{\pi}=\frac{\sym{d_lot}{D}}{\sym{n_lot}{N}}\) (\(\sym{d_lot}{D}=\) aantal defecten in het lot): klein, vast, maar onbekend.</li>
 <li>Schatting: \(\sym{p_sample}{P}=\frac{\sym{d_sample}{d}}{\sym{n}{n}}\), de fractie defecten in een steekproef van n stuks met d defecten. Hoe hangen P en \(\pi\) samen?</li>
 </ul>
-<p>Vier gangbare methoden: <b>enkelvoudige aselecte steekproef (simple random sampling, SRS)</b>, <b>gestratificeerde steekproef (stratified random sampling)</b>, <b>clustersteekproef (cluster sampling)</b> en <b>systematische steekproef (systematic sampling)</b>. De volgende units behandelen ze één voor één. In het Excel-bestand (werkblad 'lot fraction defectives') is dit lot volledig beschreven: per tegel de doos, de palet, de batch en of hij defect is. Het lot telt 200 defecten, 180 in batch A en 20 in batch B <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.xlsm">AS.xlsm</a>. In de praktijk ken je dat natuurlijk niet.</p>
+<p>Vier gangbare methoden: <b>enkelvoudige aselecte steekproef (simple random sampling, SRS)</b>, <b>gestratificeerde steekproef (stratified random sampling)</b>, <b>clustersteekproef (cluster sampling)</b> en <b>systematische steekproef (systematic sampling)</b>. De volgende units behandelen ze één voor één. In het cursusbestand is dit lot volledig beschreven: per tegel de doos, de palet, de batch en of hij defect is. Het lot telt 200 defecten, 180 in batch A en 20 in batch B <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.xlsm">AS.xlsm</a>. In de praktijk ken je dat natuurlijk niet.</p>
 </div>
 <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
 <ul>
@@ -185,7 +185,7 @@
   <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=13">AS p. 13</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=15">AS p. 15</a></li>
   <li><b>"Een steekproef is representatief zodra ze groot genoeg is."</b> Fout: representatief betekent dat ze een juiste
   beslissing over de populatie toelaat. Bij kaas en wijn (homogeen) maakt de plaats niet uit, bij de ham en het graan wel, en
-  een grotere steekproef op de verkeerde plaats lost dat niet op (<a href="#d06-bias">06.7</a>). <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=14">AS p. 14</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=22">AS p. 22</a></li>
+  een grotere steekproef op de verkeerde plaats lost dat niet op. <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=14">AS p. 14</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=22">AS p. 22</a></li>
 </ul></div>
 </section>
 
@@ -209,11 +209,12 @@
 </ul>
 </div>
 <div class="box key"><span class="t">Kernidee</span>
-<p>Binnen een lot is \(\pi\) vast. Alle toevalligheid in P komt van de steekproef. Een SRS is <b>zuiver</b>: gemiddeld over alle mogelijke steekproeven geeft ze precies \(\pi\). Een grotere steekproef verkleint de toevallige fout, nooit een systematische (zie 06.7).</p>
+<p>Binnen een lot is \(\pi\) vast. Alle toevalligheid in P komt van de steekproef. Een SRS is <b>zuiver</b>: gemiddeld over alle mogelijke steekproeven geeft ze precies \(\pi\). Een grotere steekproef verkleint de toevallige fout, nooit een systematische.</p>
 </div>
 <div class="box tool"><span class="t">Rekentool</span>
-<p>Blad <b>Distributions</b>: blok 3 (hypergeometrisch: N, D, n, k) voor de exacte kansen, blok 2 (binomiaal: n, p, k) voor de benadering. Excel (zoals in het werkblad 'sampling distribution'): <code>=HYPGEOM.DIST(<var data-s="i_value">i</var>, <var data-s="n">n</var>, <var data-s="d_lot">D</var>, <var data-s="n_lot">N</var>, FALSE)</code> en <code>=BINOM.DIST(<var data-s="i_value">i</var>, <var data-s="n">n</var>, <var data-s="pi">π</var>, FALSE)</code>.</p>
+<p>Blad <b>Distributions</b>: blok 3 (hypergeometrisch: N, D, n, k) voor de exacte kansen, blok 2 (binomiaal: n, p, k) voor de benadering.</p>
 </div>
+<div class="calc-here" data-tool="verdelingen" data-blocks="1 2"></div>
 
 <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
 <ul>
@@ -227,13 +228,13 @@
   1,4 procentpunt. Vijf keer zoveel stuks maakt de fout maar \(\sqrt{5}\) keer kleiner. <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=16">AS p. 16</a></li>
   <li><b>Let op:</b> exact is de hypergeometrische verdeling (trekken zonder teruglegging uit een eindig lot); de binomiale is
   een benadering die goed is tenzij de populatie klein is. Voor de OC van (100, 4) uit 10 000 is het verschil klein (0,9501
-  tegenover 0,9492), voor (80, 2) uit een lot van 200 niet (0,823 tegenover 0,784 <span class="computed">zelf berekend</span>);
-  zie <a href="#d06-oc">06.9</a>. <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=16">AS p. 16</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=11">TH p. 11</a></li>
+  tegenover 0,9492), voor (80, 2) uit een lot van 200 niet (0,823 tegenover 0,784 <span class="computed">zelf berekend</span>).
+  <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=16">AS p. 16</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=11">TH p. 11</a></li>
 </ul></div>
 
 <div class="exercise" id="ex-06-3" data-kw="steekproevenverdeling; sampling distribution; SRS; variantie; variance; sigma P; P[d=0]; binomiaal; hypergeometrisch; n=500">
 <h4>Oefening 06.3 — Steekproevenverdeling van een SRS <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=16">AS p. 16</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.xlsm">AS.xlsm</a></h4>
-<p>Werkblad 'sampling distribution': lot van \(\sym{n_lot}{N}=10\ 000\) met \(\sym{pi}{\pi}=2\ \%\), SRS van \(\sym{n}{n}=100\). Gebruik de binomiale benadering.</p>
+<p>Cursusvoorbeeld 'sampling distribution': lot van \(\sym{n_lot}{N}=10\ 000\) met \(\sym{pi}{\pi}=2\ \%\), SRS van \(\sym{n}{n}=100\). Gebruik de binomiale benadering.</p>
 <div class="q" data-answer="0.000196" data-tol="0.000002">
 <label>\(\sigma^{2}[\sym{p_sample}{P}]\) (decimaal) =</label> <input type="text" inputmode="decimal">
 <button type="button" class="check">Controleer</button> <span class="fb"></span>
@@ -250,12 +251,13 @@
 <label>\(\sigma[\sym{p_sample}{P}]\) als \(\sym{n}{n}=500\) (decimaal) =</label> <input type="text" inputmode="decimal">
 <button type="button" class="check">Controleer</button> <span class="fb"></span>
 </div>
+<div class="calc-here" data-tool="verdelingen" data-blocks="1 2"></div>
 <details class="hint"><summary>Hint</summary><p>\(\sigma^{2}[\sym{p_sample}{P}]=\frac{\sym{pi}{\pi}(1-\sym{pi}{\pi})}{\sym{n}{n}}\). \(P[\sym{d_sample}{d}=0]=(1-\sym{pi}{\pi})^{\sym{n}{n}}\).</p></details>
 <details class="solution"><summary>Toon oplossing</summary>
 <ol class="steps">
-<li>\(\sigma^{2}[\sym{p_sample}{P}]=\frac{0{,}02\times0{,}98}{100}=0{,}000196\) (cel G45 van het werkblad).</li>
+<li>\(\sigma^{2}[\sym{p_sample}{P}]=\frac{0{,}02\times0{,}98}{100}=0{,}000196\).</li>
 <li>\(\sigma[\sym{p_sample}{P}]=\sqrt{0{,}000196}=0{,}014\).</li>
-<li>\(P[\sym{d_sample}{d}=0]=0{,}98^{100}=0{,}1326\) (binomiaal, cel E13). Exact hypergeometrisch: 0,1313 (cel D13). De cursus rondt af tot 13 % <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=20">AS p. 20</a>.</li>
+<li>\(P[\sym{d_sample}{d}=0]=0{,}98^{100}=0{,}1326\) (binomiaal). Exact hypergeometrisch: 0,1313. De cursus rondt af tot 13 % <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=20">AS p. 20</a>.</li>
 <li>\(\sym{n}{n}=500\): \(\sigma[\sym{p_sample}{P}]=\sqrt{\frac{0{,}02\times0{,}98}{500}}=0{,}00626\). Vijf keer zoveel werk geeft een \(\sqrt{5}=2{,}24\) keer kleinere fout. <span class="computed">zelf berekend</span></li>
 </ol>
 </details>
@@ -280,7 +282,7 @@
 <div class="box ex"><span class="t">Uitgewerkt: de tegels</span> <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=18">AS p. 18</a>
 <ul>
 <li>\(\sym{sigma2}{\sigma^{2}}=0{,}0196\), \(\sym{sigma2_stratum}{\sigma_{A}^{2}}=0{,}0291\), \(\sym{sigma2_stratum}{\sigma_{B}^{2}}=0{,}004975\).</li>
-<li>\(\sigma^{2}[\sym{p_strat}{P_{s}}]=\frac{0{,}6\times0{,}0291+0{,}4\times0{,}004975}{100}=0{,}000195\) (exact 0,0001945, cel Y48 van 'sampling distribution').</li>
+<li>\(\sigma^{2}[\sym{p_strat}{P_{s}}]=\frac{0{,}6\times0{,}0291+0{,}4\times0{,}004975}{100}=0{,}000195\) (exact 0,0001945).</li>
 <li>\(\sigma^{2}[\sym{p_sample}{P}]=\sigma^{2}[\sym{p_strat}{P_{s}}]+\frac{0{,}4\times0{,}6\times(0{,}03-0{,}005)^{2}}{100}=0{,}000196\).</li>
 </ul>
 <p>Het verschil is verwaarloosbaar: de twee steekproevenverdelingen zijn bijna gelijk, zoals de figuur hieronder toont. Voor de fractie defecten in een lot weegt het voordeel niet op tegen het extra organisatiewerk. Voor aanvaardingssteekproeven <i>op variabelen</i> is pre-stratificatie wel het overwegen waard.</p>
@@ -295,15 +297,17 @@
 <div>Proportioneel: \[\frac{\sym{n_stratum}{n_{A}}}{\sym{n_stratum}{n_{B}}}=\frac{\sym{w_stratum}{W_{A}}}{\sym{w_stratum}{W_{B}}}\];  optimaal: \[\frac{\sym{n_stratum}{n_{A}}}{\sym{n_stratum}{n_{B}}}=\frac{\sym{w_stratum}{W_{A}}\sym{sigma_stratum}{\sigma_{A}}}{\sym{w_stratum}{W_{B}}\sym{sigma_stratum}{\sigma_{B}}}\]</div></div>
 Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) is proportioneel ook optimaal. Hier is \(\sym{sigma_stratum}{\sigma_{A}}\gg\sym{sigma_stratum}{\sigma_{B}}\), dus 78 % van de steekproef uit A (in plaats van 60 %) en 22 % uit B. Nadeel: je moet \(\pi_{A}\) en \(\pi_{B}\) vooraf ongeveer kennen, bv. uit een voorafgaande steekproef.</li>
 </ul>
+<div class="calc-here" data-tool="steekproefmethoden" data-blocks="0"></div>
 <h4>Wanneer stratificatie wél veel oplevert: twee normale strata <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=19">AS p. 19</a></h4>
-<p>Twee even grote strata, elk normaal verdeeld met dezelfde variantie \(\sym{sigma2_stratum}{\sigma_{S}^{2}}=4\) maar met gemiddelden \(\sym{mu_stratum}{\mu_{A}}=10\) en \(\sym{mu_stratum}{\mu_{B}}=15\). Je schat het populatiegemiddelde \(\sym{mu}{\mu}=12{,}5\) met \(\sym{n}{n}=100\), met de algemene formules van <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=17">AS p. 17</a> (de cursus verwijst hier naar "the formulas of page 19"; zie de erratalijst):</p>
+<p>Twee even grote strata, elk normaal verdeeld met dezelfde variantie \(\sym{sigma2_stratum}{\sigma_{S}^{2}}=4\) maar met gemiddelden \(\sym{mu_stratum}{\mu_{A}}=10\) en \(\sym{mu_stratum}{\mu_{B}}=15\). Je schat het populatiegemiddelde \(\sym{mu}{\mu}=12{,}5\) met \(\sym{n}{n}=100\), met de algemene formules van <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=17">AS p. 17</a>:</p>
 <div class="f">
 <div>\[\sym{sigma2}{\sigma^{2}}=\sym{sigma2_stratum}{\sigma_{S}^{2}}+\frac{(\sym{mu_stratum}{\mu_{A}}-\sym{mu_stratum}{\mu_{B}})^{2}}{4}\]</div>
 <div>\[\sigma^{2}[\sym{xbar_s}{\bar{X}_{S}}]=\frac{\sym{sigma2_stratum}{\sigma_{S}^{2}}}{\sym{n}{n}}\] (gestratificeerd),  \[\sigma^{2}[\sym{xbar}{\bar{X}}]=\sigma^{2}[\sym{xbar_s}{\bar{X}_{S}}]+\frac{(\sym{mu_stratum}{\mu_{A}}-\sym{mu_stratum}{\mu_{B}})^{2}}{4\sym{n}{n}}\] (SRS)</div>
 </div>
-<p>Het werkblad 'normal distribution' tekent beide steekproevenverdelingen rond 12,5 met varianties 0,1025 (SRS) en 0,04 (gestratificeerd) <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.xlsm">AS.xlsm</a>. Hier is het tussen-deel groot ten opzichte van het binnen-deel, en levert stratificatie duidelijk kleinere fouten op. De figuur hieronder toont bovenaan de twee strata en onderaan de twee steekproevenverdelingen van het gemiddelde: de gestratificeerde is duidelijk smaller.</p>
+<p>Het cursusbestand tekent beide steekproevenverdelingen rond 12,5 met varianties 0,1025 (SRS) en 0,04 (gestratificeerd) <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.xlsm">AS.xlsm</a>. Hier is het tussen-deel groot ten opzichte van het binnen-deel, en levert stratificatie duidelijk kleinere fouten op. De figuur hieronder toont bovenaan de twee strata en onderaan de twee steekproevenverdelingen van het gemiddelde: de gestratificeerde is duidelijk smaller.</p>
 <figure class="fig"><img src="figures/06_normale_strata.png" alt="Boven twee normale strata met gemiddelden 10 en 15; onder de steekproevenverdelingen van het gemiddelde voor een SRS en een pre-gestratificeerde steekproef van 100, beide rond 12,5">
 <figcaption>Figuur: boven de populatie: twee even grote, normaal verdeelde strata, A rond 10 en B rond 15. Onder de steekproevenverdeling van het gemiddelde bij \(n=100\): de pre-gestratificeerde steekproef (smalle, hoge curve) schat 12,5 duidelijk nauwkeuriger dan de SRS (brede curve). <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=19">AS p. 19</a></figcaption></figure>
+<div class="calc-here" data-tool="steekproefmethoden" data-blocks="1"></div>
 
 <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
 <ul>
@@ -347,6 +351,7 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <label>Optimale stratificatie: aantal stuks uit stratum A (van de 100) =</label> <input type="text" inputmode="decimal">
 <button type="button" class="check">Controleer</button> <span class="fb"></span>
 </div>
+<div class="calc-here" data-tool="steekproefmethoden" data-blocks="0"></div>
 <details class="hint"><summary>Hint</summary><p>\(\sym{sigma2_stratum}{\sigma_{A}^{2}}=\sym{pi_stratum}{\pi_{A}}(1-\sym{pi_stratum}{\pi_{A}})\). Voor de optimale verdeling gebruik je \(\sigma_{A}\) en \(\sigma_{B}\), niet de varianties.</p></details>
 <details class="solution"><summary>Toon oplossing</summary>
 <ol class="steps">
@@ -374,13 +379,14 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <label>\(\sigma^{2}[\sym{xbar_s}{\bar{X}_{S}}]\) voor de proportioneel gestratificeerde steekproef =</label> <input type="text" inputmode="decimal">
 <button type="button" class="check">Controleer</button> <span class="fb"></span>
 </div>
+<div class="calc-here" data-tool="steekproefmethoden" data-blocks="1"></div>
 <details class="solution"><summary>Toon oplossing</summary>
 <ol class="steps">
 <li>\(\sym{sigma2}{\sigma^{2}}=4+\frac{(10-15)^{2}}{4}=4+6{,}25=10{,}25\) <span class="computed">zelf berekend</span>.</li>
 <li>\(\sigma^{2}[\sym{xbar}{\bar{X}}]=\frac{\sym{sigma2}{\sigma^{2}}}{\sym{n}{n}}=\frac{10{,}25}{100}=0{,}1025\ \left(=0{,}04+\frac{25}{400}\right)\).</li>
 <li>\(\sigma^{2}[\sym{xbar_s}{\bar{X}_{S}}]=\frac{4}{100}=0{,}04\).</li>
 </ol>
-<p>De gestratificeerde fout is \(\sigma=0{,}2\) tegenover 0,32 voor de SRS <span class="computed">zelf berekend</span>. Dat zijn de twee varianties in de kolommen AU en AV van het werkblad 'normal distribution'.</p>
+<p>De gestratificeerde fout is \(\sigma=0{,}2\) tegenover 0,32 voor de SRS <span class="computed">zelf berekend</span>.</p>
 </details>
 </div>
 </section>
@@ -401,10 +407,9 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <div class="f"><div>\[P[\sym{d_cluster}{d_{C}}=0]=\frac{C_{9}^{2}\cdot C_{100}^{5}\cdot C_{100}^{5}+9\cdot C_{100}^{5}\cdot C_{80}^{5}}{C_{10}^{2}\cdot C_{100}^{5}\cdot C_{100}^{5}}=86\ \%\]</div></div>
 <p>Eerste term: twee goede paletten (\(C_{9}^{2}=36\) paren). Tweede term: de slechte palet plus één van de 9 goede, met 5 dozen uit de 80 goede dozen van de slechte palet. Een clustersteekproef ziet hier hoogstens 50 defecten (5 volle slechte dozen), een SRS kan er in principe 100 zien.</p>
 </div>
-<p><b>Het lot in het Excel-bestand.</b> De Monte Carlo-uitkomst van de cursus (\(\sigma^{2}[\sym{p_cluster}{P_{C}}]=0{,}000267\), 10 000 runs, cel AL34 van 'sampling distribution') hoort bij één bepaalde spreiding van de defecten, die van het werkblad 'lot fraction defectives' <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.xlsm">AS.xlsm</a>. Daar zitten per palet 30, 29, 26, 30, 43, 22, 6, 3, 8 en 3 defecten: batch A staat op paletten 1–6, batch B op 7–10. Een eigen simulatie met 200 000 runs op dat lot geeft \(\sigma^{2}[\sym{p_cluster}{P_{C}}]=0{,}000272\) en \(P[\sym{d_cluster}{d_{C}}=0]=0{,}19\) (SRS: 0,13) <span class="computed">zelf berekend</span>. Die waarden beschrijven alleen de variabiliteit door de steekproef bij een vast lot; de variatie tussen lots komt er bij een echte leverancier nog bij. De figuur hieronder toont de Monte Carlo-steekproevenverdeling van \(P_{C}\) voor dit lot.</p>
+<p><b>Het lot in het cursusbestand.</b> De Monte Carlo-uitkomst van de cursus (\(\sigma^{2}[\sym{p_cluster}{P_{C}}]=0{,}000267\), 10 000 runs) hoort bij één bepaalde spreiding van de defecten, die van het cursusbestand <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.xlsm">AS.xlsm</a>. Daar zitten per palet 30, 29, 26, 30, 43, 22, 6, 3, 8 en 3 defecten: batch A staat op paletten 1–6, batch B op 7–10. Een eigen simulatie met 200 000 runs op dat lot geeft \(\sigma^{2}[\sym{p_cluster}{P_{C}}]=0{,}000272\) en \(P[\sym{d_cluster}{d_{C}}=0]=0{,}19\) (SRS: 0,13) <span class="computed">zelf berekend</span>. Die waarden beschrijven alleen de variabiliteit door de steekproef bij een vast lot; de variatie tussen lots komt er bij een echte leverancier nog bij. De figuur hieronder toont de Monte Carlo-steekproevenverdeling van \(P_{C}\) voor dit lot.</p>
 <figure class="fig"><img src="figures/06_cluster_montecarlo.png" alt="Staafdiagram van de Monte Carlo-steekproevenverdeling van de fractie defecten bij de clustersteekproef voor het gegeven tegellot">
 <figcaption>Figuur: steekproevenverdeling van \(P_{C}\) voor de clustersteekproef, geschat met Monte Carlo-simulatie voor één gegeven lot (for the given population). De staaf bij 0 % is hoger dan bij de SRS in 06.4: een slecht lot lijkt vaker perfect. <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=20">AS p. 20</a></figcaption></figure>
-<p class="small">Let op bij het werkblad: kolom C ('Palette') van 'lot fraction defectives' loopt van 1 tot 100 en groepeert telkens 10 dozen. De clusterprocedure op hetzelfde werkblad gebruikt, zoals de cursus, 10 paletten van 100 dozen (palet 1 = dozen 1–100, enz.). De telling per palet hierboven volgt de clusterprocedure (zie de erratalijst).</p>
 <div class="box key"><span class="t">Op lange termijn geven cluster en SRS dezelfde verdeling</span> <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=20">AS p. 20</a>
 <p>Komen de lots uit een stabiel proces met defectkans \(\pi\) per stuk, dan middelen gunstige en ongunstige spreidingen over de dozen uit. Voorbeeld: een lot van 10 dozen van 10 tegels. Een SRS van 20 tegels en een clustersteekproef van 2 volle dozen geven dezelfde kans op 3 defecten:</p>
 <div class="f">
@@ -430,7 +435,7 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
   dan hebben beide dezelfde binomiale verdeling (3 defecten: \(1140\ \sym{pi}{\pi}^{3}(1-\sym{pi}{\pi})^{17}\) voor beide).
   Het verschil zit in één concreet lot. <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=20">AS p. 20</a></li>
   <li><b>Let op:</b> de 0,000267 van de cursus hoort bij één bepaalde spreiding van de defecten (het lot van het
-  Excel-bestand); een ander lot met dezelfde 2 % defecten geeft een andere waarde. <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=20">AS p. 20</a></li>
+  cursusbestand); een ander lot met dezelfde 2 % defecten geeft een andere waarde. <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=20">AS p. 20</a></li>
 </ul></div>
 
 <div class="exercise" id="ex-06-6" data-kw="clustersteekproef; cluster sampling; extreem geval; P[d=0]; perfecte steekproef; palet; SRS vergelijken; non-response">
@@ -448,6 +453,7 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <label>Hoeveel defecten kan de clustersteekproef hier maximaal vinden?</label> <input type="text" inputmode="decimal">
 <button type="button" class="check">Controleer</button> <span class="fb"></span>
 </div>
+<div class="calc-here" data-tool="verdelingen" data-blocks="2"></div>
 <details class="hint"><summary>Hint</summary><p>Splits naar de gekozen paletten: geen slechte palet (\(C_{9}^{2}\) paren), of de slechte palet samen met één goede (9 paren). Op de slechte palet zijn 80 van de 100 dozen goed.</p></details>
 <details class="solution"><summary>Toon oplossing</summary>
 <ol class="steps">
@@ -472,6 +478,7 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <label>P(3 defecten) bij \(\sym{pi}{\pi}=2\ \%\) (5 decimalen) =</label> <input type="text" inputmode="decimal">
 <button type="button" class="check">Controleer</button> <span class="fb"></span>
 </div>
+<div class="calc-here" data-tool="verdelingen" data-blocks="1"></div>
 <details class="solution"><summary>Toon oplossing</summary>
 <ol class="steps">
 <li>SRS: \(C_{20}^{3}=1140\).</li>
@@ -549,6 +556,7 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <select><option value="">kies…</option><option value="ja">ja</option><option value="nee">nee</option></select>
 <button type="button" class="check">Controleer</button> <span class="fb"></span>
 </div>
+<div class="calc-here" data-tool="verdelingen" data-blocks="1"></div>
 <details class="solution"><summary>Toon oplossing</summary>
 <ol class="steps">
 <li>Een SRS is zuiver voor de populatie waaruit je trekt, hier het frame: \(E[\sym{p_sample}{P}]=1\ \%\).</li>
@@ -626,12 +634,9 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <div><b>Consumentenrisico (consumer's risk)</b>: kans om een lot van slechte kwaliteit te aanvaarden = type-II-fout</div>
 </div>
 <p>AQL en LQL worden afgesproken tussen beide partijen. Plannen staan in de normen <b>ISO 2859</b> (attributen) en <b>ISO 3951</b> (variabelen), die uit MIL-STD-105 komen en teruggaan op Dodge en Romig (Bell Labs, jaren 1920) <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=23">AS p. 23</a>.</p>
-<div class="box warn"><span class="t">Drukfout in de cursus</span>
-<p>In de definities onder de figuur van de procedure op <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=23">AS p. 23</a> (en op <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=2">AS-FR p. 2</a>) staat "Consumer's risk: risk of accepting a <i>good</i> lot". Dat moet een <b>slecht</b> lot zijn: de toelichting op dezelfde pagina's zegt "risk of accepting a lot of bad quality".</p>
-</div>
 
 <div class="box key"><span class="t">Een aanvaardingssteekproef is een hypothesetoets</span> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=3">TH p. 3–4</a>
-<p>De keuring laat zich formuleren als toets (de toetsbegrippen zelf: Deel 5):</p>
+<p>De keuring laat zich formuleren als toets:</p>
 <table>
 <tr><th>Toets</th><th>Aanvaardingssteekproef</th></tr>
 <tr><td>\(H_{0}\) (status quo)</td><td>het lot is aanvaardbaar: \(\sym{pi}{P}=\frac{\sym{d_lot}{D}}{\sym{n_lot}{N}}\le\sym{aql}{\mathrm{AQL}}\)</td></tr>
@@ -644,7 +649,6 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 </table>
 <p>\(H_{0}\) moet de status quo zijn ("doe niets"): het lot gaat zijn normale gang. Je mag de hypothesen niet omdraaien. Daarom moet \(\alpha\) klein zijn. Beide partijen spreken de risico's, en dus de hele OC-curve, vooraf af <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=4">TH p. 4</a>.</p>
 </div>
-<p class="small">De rest van dit deel behandelt achtereenvolgens <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=3">AS-FR p. 3</a>: enkelvoudige, dubbele en sequentiële plannen voor attributen, plannen voor variabelen, rectificerende inspectie, skip-lot, internationale normen, het inspectiecriterium van Deming, gecertificeerde leveranciers en oefeningen (06.9 tot 06.16).</p>
 
 <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
 <ul>
@@ -659,7 +663,7 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
   moet \(\alpha\) klein zijn. <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=3">TH p. 3</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=4">TH p. 4</a></li>
   <li><b>"AQL is de kwaliteit die de consument gegarandeerd krijgt."</b> Fout: de AQL is een afgesproken kwaliteitsniveau dat
   normaal de keuring doorstaat, \(\sym{oc}{\mathrm{OC}}(\sym{aql}{\mathrm{AQL}})=1-\sym{alpha}{\alpha}\). Lots net boven de AQL worden ook vaak aanvaard, en wat er
-  gemiddeld uitgaat, is de AOQ (<a href="#d06-aoq">06.13</a>). <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=2">AS-FR p. 2</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=8">TH p. 8</a></li>
+  gemiddeld uitgaat, is de AOQ. <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=2">AS-FR p. 2</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=8">TH p. 8</a></li>
   <li><b>"De keurder legt AQL en LQL zelf vast."</b> Fout: producent en consument spreken ze af, en eigenlijk de hele
   OC-curve, vooraf. <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=2">AS-FR p. 2</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=4">TH p. 4</a></li>
   <li><b>Let op:</b> \(\alpha\) en \(\beta\) horen bij verschillende punten van de OC-curve (\(\alpha\) bij de AQL, \(\beta\) bij de LQL); ze tellen dus niet
@@ -690,13 +694,12 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 </section>
 
 <!-- =========================================================== 06.9 -->
-<section class="unit" id="d06-oc" data-kw="OC-curve; operating characteristic; aanvaardingskans; probability of acceptance; enkelvoudig plan; single sampling plan; (n,c); aanvaardingsgetal; acceptance number; hypergeometrisch; binomiaal; HYPGEOM.DIST; BINOM.DIST; big data fallacy; equivalente plannen; equivalent plans; RSWOR">
+<section class="unit" id="d06-oc" data-kw="OC-curve; operating characteristic; aanvaardingskans; probability of acceptance; enkelvoudig plan; single sampling plan; (n,c); aanvaardingsgetal; acceptance number; hypergeometrisch; binomiaal; big data fallacy; equivalente plannen; equivalent plans; RSWOR">
 <h3>06.9 Het enkelvoudige plan (n, c) en de OC-curve <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=4">AS-FR p. 4</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=5">TH p. 5–8</a></h3>
 <p><b>Enkelvoudig steekproefplan (single sampling plan) \((\sym{n}{n},\sym{c_accept}{c})\)</b>: trek één aselecte steekproef zonder teruglegging (RSWOR, random sample without replacement) van n stuks, tel het aantal defecten X, en <b>aanvaard het lot als \(\sym{d_sample}{X}\le\sym{c_accept}{c}\)</b>. c heet het <b>aanvaardingsgetal (acceptance number)</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=4">AS-FR p. 4</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=24">AS p. 24</a>.</p>
 <div class="f">
 <div>\(\sym{oc}{\mathrm{OC}}(\sym{pi}{p})=P(\sym{d_sample}{X}\le\sym{c_accept}{c}\mid\sym{pi}{p})=H(\sym{c_accept}{c};\sym{n_lot}{N},\sym{m_p}{M_{p}},\sym{n}{n})\) met \(\sym{m_p}{M_{p}}=[\sym{n_lot}{N}\sym{pi}{p}]\)  (\(H=\) hypergeometrische verdelingsfunctie)</div>
 <div>\(\sym{aql}{\mathrm{AQL}}=\) de \(\sym{pi}{p}\) waarvoor \(\sym{oc}{\mathrm{OC}}(\sym{pi}{p})=1-\sym{alpha}{\alpha}\ (=95\ \%)\);  \(\sym{lql}{\mathrm{LQL}}=\) de \(\sym{pi}{p}\) waarvoor \(\sym{oc}{\mathrm{OC}}(\sym{pi}{p})=\sym{beta}{\beta}\ (=10\ \%)\)</div>
-<div>Excel: <code>=HYPGEOM.DIST(<var data-s="c_accept">c</var>, <var data-s="n">n</var>, <var data-s="m_p">M</var>, <var data-s="n_lot">N</var>, TRUE)</code>; binomiale benadering <code>=BINOM.DIST(<var data-s="c_accept">c</var>, <var data-s="n">n</var>, <var data-s="pi">p</var>, TRUE)</code> als het lot groot is t.o.v. de steekproef</div>
 </div>
 <p>De <b>OC-curve (operating characteristic curve)</b> toont de aanvaardingskans van een lot als functie van de fractie defecten in het lot <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=25">AS p. 25</a>. Ze begint bij 1 (een lot zonder defecten wordt altijd aanvaard) en daalt naar 0. Elk punt van de curve is een risico: bij \(\sym{pi}{p}\le\sym{aql}{\mathrm{AQL}}\) is \(1-\sym{oc}{\mathrm{OC}}(\sym{pi}{p})\) het producentenrisico, bij \(\sym{pi}{p}\ge\sym{lql}{\mathrm{LQL}}\) is \(\sym{oc}{\mathrm{OC}}(\sym{pi}{p})\) het consumentenrisico. Twee plannen met dezelfde OC-curve zijn <b>equivalent</b>: ze hebben dezelfde risico's en zijn voor producent en consument uitwisselbaar <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=25">AS p. 25</a>.</p>
 <div class="box warn"><span class="t">Standaardwaarden \(\alpha\) en \(\beta\)</span>
@@ -709,9 +712,9 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <figcaption>Figuur: verdeling van het aantal defecten d in de steekproef bij een lot met \(P=2\ \%\) defecten (\(H_{0}\) geldt, links) en met \(P=8\ \%\) (\(H_{A}\) geldt, rechts). Lage d pleiten voor \(H_{0}\), hoge voor \(H_{A}\); \(P[d\le4]\cong95\ \%\) links en ≅ 10 % rechts. <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=5">TH p. 5</a></figcaption></figure>
 <div class="box ex"><span class="t">Uitgewerkt: plan (100, 4)</span> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=5">TH p. 5–8</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.xlsx">TH.xlsx</a>
 <ol class="steps">
-<li>Steekproevenverdeling van d bij \(\sym{pi}{P}=2\ \%\) (\(H_{0}\) geldt, de grensgeval-AQL) en bij \(\sym{pi}{P}=8\ \%\ (H_{A})\): \(P[\sym{d_sample}{d}\le4]\cong95\ \%\) resp. ≅ 10 % <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=5">TH p. 5</a> (werkblad 'sampling distribution d').</li>
+<li>Steekproevenverdeling van d bij \(\sym{pi}{P}=2\ \%\) (\(H_{0}\) geldt, de grensgeval-AQL) en bij \(\sym{pi}{P}=8\ \%\ (H_{A})\): \(P[\sym{d_sample}{d}\le4]\cong95\ \%\) resp. ≅ 10 % <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=5">TH p. 5</a>.</li>
 <li>Wil je een lot met precies AQL-kwaliteit met minstens 95 % kans aanvaarden, dan wordt \(\sym{c_accept}{c}=4\): \(\sym{alpha}{\alpha}=P[\sym{d_sample}{d}\ge5]=5\ \%\). Met \(\sym{c_accept}{c}=5\) daalt \(\sym{alpha}{\alpha}\) tot 1,5 % <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=6">TH p. 6</a>. Is het lot beter dan de AQL, dan is \(\alpha\) nog kleiner.</li>
-<li>De OC-curve van (100, 4) geeft bij \(\sym{pi}{P}=8\ \%\): \(\sym{beta}{\beta}=9\ \%\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=7">TH p. 7</a> (werkblad 'OC-curve (binomial)'). De figuur hieronder zet de drie stappen samen: beide verdelingen met \(c=4\), \(\alpha\) en \(\beta\), en de OC-curve van het plan.</li>
+<li>De OC-curve van (100, 4) geeft bij \(\sym{pi}{P}=8\ \%\): \(\sym{beta}{\beta}=9\ \%\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=7">TH p. 7</a>. De figuur hieronder zet de drie stappen samen: beide verdelingen met \(c=4\), \(\alpha\) en \(\beta\), en de OC-curve van het plan.</li>
 </ol>
 <p class="small"><a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=5">TH p. 5</a> schrijft "≅ 10 %" en <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=7">TH p. 7</a> "9 %" voor dezelfde kans; de binomiale waarde is 9,03 % <span class="computed">zelf berekend</span>.</p>
 </div>
@@ -722,13 +725,13 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <li>\(\beta\) wordt vanzelf kleiner naarmate het lot slechter is ("this we get for free").</li>
 <li>Bij vaste n hangt \(\beta\) af van \(\alpha\): wie \(\sym{alpha}{\alpha}\approx0\) kiest, aanvaardt bijna elk lot.</li>
 <li>Voor een lot net boven de AQL is \(\beta\) altijd groot (net onder \(1-\sym{alpha}{\alpha}\)). Dat moet je aanvaarden, en het is meestal niet erg.</li>
-<li><b>\(\beta\) verklein je door de steekproef te vergroten.</b> Met (130, 5) blijft \(\alpha\) op 5 % en daalt \(\beta\) bij 8 % defecten naar 5 % (werkblad 'OC-curve (binomial)', kolom E).</li>
+<li><b>\(\beta\) verklein je door de steekproef te vergroten.</b> Met (130, 5) blijft \(\alpha\) op 5 % en daalt \(\beta\) bij 8 % defecten naar 5 %.</li>
 </ul>
 <p>De figuur hieronder vergelijkt de OC-curves van (100, 4) en (130, 5): tot de AQL vallen ze ongeveer samen, bij slechtere lots ligt (130, 5) lager.</p>
 <figure class="fig"><img src="figures/06_oc_100_4_130_5.png" alt="OC-curves van de plannen (100,4) en (130,5); bij grotere fracties defecten ligt de curve van (130,5) lager">
 <figcaption>Figuur: OC-curves van (100, 4) (volle lijn) en (130, 5) (streepjeslijn), aanvaardingskans tegen de fractie defecten in het lot. Tot ongeveer 2 % vallen ze samen; bij slechtere lots ligt (130, 5) lager, dus een kleinere \(\beta\). <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=8">TH p. 8</a></figcaption></figure>
 <h4>Hypergeometrisch of binomiaal, en de "big data"-valkuil <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=11">TH p. 11</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.xlsx">TH.xlsx</a></h4>
-<p>Het werkblad 'OC-curve (hypergeometric)' vergelijkt voor \(\sym{n_lot}{N}=10\ 000\):</p>
+<p>De cursus vergelijkt voor \(\sym{n_lot}{N}=10\ 000\):</p>
 <table>
 <tr><th>Plan</th><th>Methode</th><th class="n">\(\sym{oc}{\mathrm{OC}}(2\ \%)\)</th><th class="n">\(\sym{oc}{\mathrm{OC}}(2{,}5\ \%)\)</th></tr>
 <tr><td>(100, 4)</td><td>hypergeometrisch</td><td class="n">0,9501</td><td class="n">0,8948</td></tr>
@@ -738,19 +741,20 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <p>Bij \(\sym{n}{n}=100\) uit 10 000 maakt de keuze nauwelijks uit. Bij \(\sym{n}{n}=5000\) (de helft van het lot) is de hypergeometrische verdeling nodig. Zo'n plan heeft een zeer steile OC-curve: een lot met 2,5 % defecten, nauwelijks slechter dan de AQL, wordt bijna altijd afgekeurd. Dat is niet wenselijk. Een significant resultaat is daarom niet altijd relevant (de "big data fallacy trap") <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=11">TH p. 11</a>. De figuur hieronder toont beide OC-curves.</p>
 <figure class="fig"><img src="figures/06_oc_bigdata.png" alt="OC-curves van (5000,111) en (100,4): de curve van (5000,111) valt net na 2 % bijna verticaal naar 0, die van (100,4) daalt geleidelijk">
 <figcaption>Figuur: OC-curves (aanvaardingskans tegen de fractie defecten in het lot) van (5000, 111) en (100, 4). De curve van (5000, 111) valt net na 2 % bijna verticaal naar 0; die van (100, 4) daalt geleidelijk tot ongeveer 12 %. <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=11">TH p. 11</a></figcaption></figure>
-<p>Ook het werkblad 'OC-curve (n,c)' in <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.xlsx">CI.xlsx</a> tekent de binomiale OC-curve van (100, 4), met hulplijnen waar \(\sym{oc}{\mathrm{OC}}=0{,}99\ (\sym{pi}{\pi}=1{,}3\ \%)\), \(0{,}90\ (\sym{pi}{\pi}=2{,}45\ \%)\) en \(0{,}10\ (\sym{pi}{\pi}=7{,}85\ \%)\). De toets via een betrouwbaarheidsinterval met \(\sym{aql}{\mathrm{AQL}}=2{,}45\ \%\) heeft dezelfde OC-curve <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=12">CI p. 12–14</a> (Deel 4). Het werkblad 'Nomogram fraction defectives' in hetzelfde bestand hoort bij het betrouwbaarheidsinterval voor een fractie defecten, bv. [1,1 %; 9,9 %] bij 4 defecten in 100 <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=4">CI p. 4</a>; zie Deel 4.</p>
+<p>Ook <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.xlsx">CI.xlsx</a> tekent de binomiale OC-curve van (100, 4), met hulplijnen waar \(\sym{oc}{\mathrm{OC}}=0{,}99\ (\sym{pi}{\pi}=1{,}3\ \%)\), \(0{,}90\ (\sym{pi}{\pi}=2{,}45\ \%)\) en \(0{,}10\ (\sym{pi}{\pi}=7{,}85\ \%)\). De toets via een betrouwbaarheidsinterval met \(\sym{aql}{\mathrm{AQL}}=2{,}45\ \%\) heeft dezelfde OC-curve <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=12">CI p. 12–14</a>.</p>
 <p>De figuur hieronder toont de OC-curves van (10, 0), (160, 2) en (390, 4) <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=4">AS-FR p. 4</a>: hoe groter n (met een passende c), hoe steiler de curve en hoe beter goede en slechte lots gescheiden worden.</p>
 <figure class="fig"><img src="figures/06_oc_curves_n_c.png" alt="OC-curves van de plannen (10,0), (160,2) en (390,4) voor fracties defecten van 0 tot 0,15">
 <figcaption>Figuur: OC-curves van (10, 0) (volle lijn), (160, 2) (streepjeslijn) en (390, 4) (stippellijn), aanvaardingskans tegen de fractie defecten. Het kleine plan (10, 0) daalt traag en aanvaardt bij 0,14 nog ongeveer een vijfde van de lots; de grote plannen dalen steil en scheiden goede en slechte lots veel scherper. <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=4">AS-FR p. 4</a></figcaption></figure>
 <div class="box tool"><span class="t">Rekentool</span>
 <p>Blad <b>Acceptance sampling</b>, sectie 1: vul n (B9), c (B10), AQL (B12), LQL (B13), \(\alpha\) (B14) en \(\beta\) (B15) in; vul N (B11) in voor de exacte hypergeometrische OC. Sectie 2 geeft \(\sym{oc}{\mathrm{OC}}(\sym{aql}{\mathrm{AQL}})\), \(\sym{alpha}{\alpha}=1-\sym{oc}{\mathrm{OC}}(\sym{aql}{\mathrm{AQL}})\), \(\sym{beta}{\beta}=\sym{oc}{\mathrm{OC}}(\sym{lql}{\mathrm{LQL}})\) en of het plan beide doelen haalt. Sectie 5 maakt een OC-tabel over een reeks p.</p>
 </div>
+<div class="calc-here" data-tool="steekproefplan" data-blocks="0 3"></div>
 
 <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
 <ul>
   <li><b>Let op:</b> \(\sym{alpha}{\alpha}=1-\sym{oc}{\mathrm{OC}}(\sym{aql}{\mathrm{AQL}})\), niet \(\sym{oc}{\mathrm{OC}}(\sym{aql}{\mathrm{AQL}})\); \(\sym{beta}{\beta}=\sym{oc}{\mathrm{OC}}(\sym{lql}{\mathrm{LQL}})\), niet
   \(1-\sym{oc}{\mathrm{OC}}(\sym{lql}{\mathrm{LQL}})\). Aanvaarden doe je bij \(\sym{d_sample}{d}\le\sym{c_accept}{c}\), dus c zelf telt mee:
-  \(\operatorname{BINOM.DIST}(\sym{c_accept}{c},\sym{n}{n},\sym{pi}{p},\mathrm{TRUE})\). <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=4">AS-FR p. 4</a></li>
+  \(\sym{oc}{\mathrm{OC}}(\sym{pi}{p})=P(\sym{d_sample}{d}\le\sym{c_accept}{c})\), niet \(P(\sym{d_sample}{d}\lt\sym{c_accept}{c})\). <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=4">AS-FR p. 4</a></li>
   <li><b>"Met \(\sym{alpha}{\alpha}=5\ \%\) heeft elk goed lot 5 % kans om afgekeurd te worden."</b> Fout: de 5 % geldt voor het grensgeval
   \(\sym{pi}{P}=\sym{aql}{\mathrm{AQL}}\); is het lot beter, dan is het risico kleiner. <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=6">TH p. 6</a></li>
   <li><b>"Het lot is aanvaard, dus het is goed."</b> Fout: aanvaarden is geen bewijs. Plan (100, 4) aanvaardt een lot met
@@ -762,13 +766,13 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
   <li><b>"(1000, 40) is gewoon een nauwkeuriger versie van (100, 4): beide hebben \(\frac{\sym{c_accept}{c}}{\sym{n}{n}}=4\ \%\)."</b> Fout: de OC-curve hangt van
   n en c af, niet van hun verhouding. (100, 4) heeft \(\sym{oc}{\mathrm{OC}}=95\ \%\) bij 2 % en \(\sym{oc}{\mathrm{OC}}=10\ \%\) bij ongeveer 7,8 %; (1000, 40) bij
   3,1 % en 4,9 % <span class="computed">zelf berekend</span>. Een groter plan met dezelfde c/n verschuift AQL en LQL; ontwerp
-  n en c samen (<a href="#d06-peach">06.10</a>). <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=4">AS-FR p. 4</a></li>
+  n en c samen. <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=4">AS-FR p. 4</a></li>
   <li><b>"Hoe steiler de OC-curve, hoe beter: neem een zo groot mogelijke steekproef."</b> Fout: (5000, 111) keurt een lot
   met 2,5 % defecten, nauwelijks slechter dan de AQL van 2 %, in 96 % van de gevallen af. Significant is niet altijd relevant
-  (de "big data fallacy trap", zie ook <a href="#d05-valkuilen">05.6</a>). <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=11">TH p. 11</a></li>
+  (de "big data fallacy trap"). <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=11">TH p. 11</a></li>
 </ul></div>
 
-<div class="exercise" id="ex-06-11" data-kw="plan (100,4); OC-curve; alpha; beta; producentenrisico; consumentenrisico; AQL 2%; 8% defecten; c=5; BINOM.DIST">
+<div class="exercise" id="ex-06-11" data-kw="plan (100,4); OC-curve; alpha; beta; producentenrisico; consumentenrisico; AQL 2%; 8% defecten; c=5">
 <h4>Oefening 06.11 — Plan (100, 4) met AQL = 2 % <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=5">TH p. 5–7</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.xlsx">TH.xlsx</a></h4>
 <p>Lot van 10 000 tegels, \(\sym{aql}{\mathrm{AQL}}=2\ \%\), plan \((\sym{n}{n},\sym{c_accept}{c})=(100,4)\). Gebruik de binomiale verdeling.</p>
 <div class="q" data-answer="0.9492" data-tol="0.003">
@@ -787,10 +791,11 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <label>\(\sym{alpha}{\alpha}\) (in %) als je \(\sym{c_accept}{c}=5\) neemt =</label> <input type="text" inputmode="decimal">
 <button type="button" class="check">Controleer</button> <span class="fb"></span>
 </div>
-<details class="hint"><summary>Hint</summary><p><code>=BINOM.DIST(4, 100, 0.02, TRUE)</code>; \(\sym{alpha}{\alpha}=1-\sym{oc}{\mathrm{OC}}(\sym{aql}{\mathrm{AQL}})\); \(\sym{beta}{\beta}=\sym{oc}{\mathrm{OC}}(8\ \%)\).</p></details>
+<div class="calc-here" data-tool="steekproefplan" data-blocks="0"></div>
+<details class="hint"><summary>Hint</summary><p>\(\sym{oc}{\mathrm{OC}}(2\ \%)=P(\sym{d_sample}{d}\le4)=\sum_{i=0}^{4}C_{100}^{i}\ 0{,}02^{i}\ 0{,}98^{100-i}\); \(\sym{alpha}{\alpha}=1-\sym{oc}{\mathrm{OC}}(\sym{aql}{\mathrm{AQL}})\); \(\sym{beta}{\beta}=\sym{oc}{\mathrm{OC}}(8\ \%)\).</p></details>
 <details class="solution"><summary>Toon oplossing</summary>
 <ol class="steps">
-<li>\(\sym{oc}{\mathrm{OC}}(2\ \%)=0{,}9492\) (cel D10 van 'OC-curve (binomial)'; cursus: ≅ 95 %).</li>
+<li>\(\sym{oc}{\mathrm{OC}}(2\ \%)=0{,}9492\) (cursus: ≅ 95 %).</li>
 <li>\(\sym{alpha}{\alpha}=1-0{,}9492=5{,}08\ \%\) (cursus: 5 %).</li>
 <li>\(\sym{beta}{\beta}=P(\sym{d_sample}{d}\le4\mid8\ \%)=9{,}03\ \%\) (cursus, TH p. 7: 9 %).</li>
 <li>\(\sym{c_accept}{c}=5\): \(\sym{alpha}{\alpha}=1-P(\sym{d_sample}{d}\le5\mid2\ \%)=1{,}55\ \%\) (cursus, TH p. 6: 1,5 %). Een kleinere \(\alpha\) maakt \(\beta\) groter.</li>
@@ -810,8 +815,9 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <label>\(\sym{beta}{\beta}\) bij 8 % defecten (in %) =</label> <input type="text" inputmode="decimal">
 <button type="button" class="check">Controleer</button> <span class="fb"></span>
 </div>
+<div class="calc-here" data-tool="steekproefplan" data-blocks="0"></div>
 <details class="solution"><summary>Toon oplossing</summary>
-<p>\(\sym{alpha}{\alpha}=1-\operatorname{BINOM.DIST}(5,130,0{,}02,\mathrm{TRUE})=1-0{,}9527=4{,}73\ \%\); \(\sym{beta}{\beta}=\operatorname{BINOM.DIST}(5,130,0{,}08,\mathrm{TRUE})=4{,}67\ \%\) <span class="computed">zelf berekend</span>. De cursus rondt af: \(\alpha\) blijft 5 %, \(\beta\) daalt van 9 % naar 5 % <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=8">TH p. 8</a>. De prijs is 30 extra inspecties per lot.</p>
+<p>\(\sym{alpha}{\alpha}=1-P(\sym{d_sample}{d}\le5\mid\sym{n}{n}=130,\ 2\ \%)=1-0{,}9527=4{,}73\ \%\); \(\sym{beta}{\beta}=P(\sym{d_sample}{d}\le5\mid\sym{n}{n}=130,\ 8\ \%)=4{,}67\ \%\) (binomiaal) <span class="computed">zelf berekend</span>. De cursus rondt af: \(\alpha\) blijft 5 %, \(\beta\) daalt van 9 % naar 5 % <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=8">TH p. 8</a>. De prijs is 30 extra inspecties per lot.</p>
 </details>
 </div>
 
@@ -835,11 +841,12 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <select><option value="">kies…</option><option value="ja">ja, strenger is beter</option><option value="nee">nee</option></select>
 <button type="button" class="check">Controleer</button> <span class="fb"></span>
 </div>
-<details class="hint"><summary>Hint</summary><p><code>=HYPGEOM.DIST(<var data-s="c_accept">c</var>, <var data-s="n">n</var>, <var data-s="n_lot">N</var>·<var data-s="pi">p</var>, <var data-s="n_lot">N</var>, TRUE)</code>, zoals in het werkblad.</p></details>
+<div class="calc-here" data-tool="steekproefplan" data-blocks="0"></div>
+<details class="hint"><summary>Hint</summary><p>\(\sym{oc}{\mathrm{OC}}(\sym{pi}{p})=H(\sym{c_accept}{c};\sym{n_lot}{N},\sym{m_p}{M_{p}},\sym{n}{n})\) met \(\sym{m_p}{M_{p}}=\sym{n_lot}{N}\cdot\sym{pi}{p}\) (hypergeometrische verdelingsfunctie).</p></details>
 <details class="solution"><summary>Toon oplossing</summary>
 <ol class="steps">
-<li>\(\operatorname{HYPGEOM.DIST}(4,100,200,10000,\mathrm{TRUE})=0{,}9501\) (binomiaal 0,9492): het verschil is te verwaarlozen.</li>
-<li>\(\operatorname{HYPGEOM.DIST}(111,5000,250,10000,\mathrm{TRUE})=0{,}0418\): het grote plan keurt dit lot in 96 % van de gevallen af.</li>
+<li>\(H(4;10\ 000,200,100)=0{,}9501\) (binomiaal 0,9492): het verschil is te verwaarlozen.</li>
+<li>\(H(111;10\ 000,250,5000)=0{,}0418\): het grote plan keurt dit lot in 96 % van de gevallen af.</li>
 <li>Plan (100, 4) aanvaardt hetzelfde lot met kans 0,894 <span class="computed">zelf berekend</span>.</li>
 <li>Nee: een lot net boven de AQL is nauwelijks slechter. Het grote plan maakt kleine, irrelevante afwijkingen "significant" en kost 50 keer meer inspecties <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=11">TH p. 11</a>.</li>
 </ol>
@@ -864,6 +871,7 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <p>De Further Reading verwijst naar "tabellen AS.pdf"; dat bestand staat niet in de cursusmap. Zonder tabel kun je een plan wel <b>controleren</b>: kies \(\sym{c_accept}{c}=0\), 1, 2, …, zoek voor elke c de kleinste n met \(\sym{oc}{\mathrm{OC}}(\sym{lql}{\mathrm{LQL}})\le\sym{beta}{\beta}\) en kijk of \(\sym{oc}{\mathrm{OC}}(\sym{aql}{\mathrm{AQL}})\ge1-\sym{alpha}{\alpha}\) nog klopt. Het blad <b>Acceptance sampling</b> (secties 1–2) rekent dat voor elke poging.</p>
 </div>
 <p>De OC-curve van een steekproefplan heeft de klassieke betekenis uit de toetstheorie: ze toont het risico op een type-II-fout als je de inspectie als hypothesetoets ziet <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=4">AS-FR p. 4</a>.</p>
+<div class="calc-here" data-tool="planontwerp" data-blocks="0"></div>
 
 <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
 <ul>
@@ -903,14 +911,15 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <select><option value="">kies…</option><option value="ja">ja</option><option value="nee">nee</option></select>
 <button type="button" class="check">Controleer</button> <span class="fb"></span>
 </div>
+<div class="calc-here" data-tool="steekproefplan" data-blocks="0 5"></div>
 <details class="solution"><summary>Toon oplossing</summary>
 <ol class="steps">
 <li>\(\sym{r0}{R_{0}}=\frac{0{,}035}{0{,}005}=7\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=4">AS-FR p. 4</a>.</li>
-<li>\(\sym{oc}{\mathrm{OC}}(0{,}5\ \%)=\operatorname{BINOM.DIST}(2,164,0{,}005,\mathrm{TRUE})=0{,}950\).</li>
-<li>\(\sym{oc}{\mathrm{OC}}(3{,}5\ \%)=\operatorname{BINOM.DIST}(2,164,0{,}035,\mathrm{TRUE})=7{,}12\ \%\).</li>
+<li>\(\sym{oc}{\mathrm{OC}}(0{,}5\ \%)=\sum_{i=0}^{2}C_{164}^{i}\ 0{,}005^{i}\ 0{,}995^{164-i}=0{,}950\).</li>
+<li>\(\sym{oc}{\mathrm{OC}}(3{,}5\ \%)=\sum_{i=0}^{2}C_{164}^{i}\ 0{,}035^{i}\ 0{,}965^{164-i}=7{,}12\ \%\).</li>
 <li>Nee, maar het scheelt niet veel: de methode is benaderend. Het consumentenrisico van 5 % wordt pas bij 3,79 % gehaald.</li>
 </ol>
-<p class="small">Stap 2–4 <span class="computed">zelf berekend</span>; zie ook de erratalijst.</p>
+<p class="small">Stap 2–4 <span class="computed">zelf berekend</span>.</p>
 </details>
 </div>
 
@@ -934,11 +943,12 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <select><option value="">kies…</option><option value="ja">ja</option><option value="nee">nee</option></select>
 <button type="button" class="check">Controleer</button> <span class="fb"></span>
 </div>
+<div class="calc-here" data-tool="steekproefplan" data-blocks="5"></div>
 <details class="hint"><summary>Hint</summary><p>De procedure aanvaardt bij "0 defecten in 56" of bij "1 defect in 56 en 0 in de volgende 39".</p></details>
 <details class="solution"><summary>Toon oplossing</summary>
 <ol class="steps">
 <li>(56, 0): \((1-\sym{pi}{p})^{56}=0{,}10\Rightarrow\sym{pi}{p}=1-0{,}1^{\frac{1}{56}}=4{,}03\ \%\).</li>
-<li>(95, 1): \((1-\sym{pi}{p})^{95}+95\sym{pi}{p}(1-\sym{pi}{p})^{94}=0{,}10\Rightarrow\sym{pi}{p}=4{,}03\ \%\) (proberen met BINOM.DIST). De LQL's zijn inderdaad gelijk.</li>
+<li>(95, 1): \((1-\sym{pi}{p})^{95}+95\sym{pi}{p}(1-\sym{pi}{p})^{94}=0{,}10\Rightarrow\sym{pi}{p}=4{,}03\ \%\) (proberen, of met de rekenmachine). De LQL's zijn inderdaad gelijk.</li>
 <li>Procedure: \(\sym{oc}{\mathrm{OC}}(\sym{pi}{p})=(1-\sym{pi}{p})^{56}+56\sym{pi}{p}(1-\sym{pi}{p})^{55}\cdot(1-\sym{pi}{p})^{39}\). Bij \(\sym{pi}{p}=4{,}03\ \%\): 0,100 + 0,047 = 0,147.</li>
 <li>De procedure is in feite een dubbel plan, (56, 0, 2)+(39, 1). Haar OC-curve ligt boven die van beide plannen: bij 2 % aanvaardt ze 49 % van de lots, tegenover 32 % voor (56, 0) en 43 % voor (95, 1). Het consumentenrisico bij de LQL stijgt van 10 % naar 14,7 %. De "tweede kans" helpt alleen de producent. Wie (95, 1) wil, moet ook bij 0 defecten in de eerste 56 verder testen.</li>
 </ol>
@@ -968,7 +978,7 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <div>\(\sym{oc}{\mathrm{OC}}(\sym{pi}{p})=H(\sym{c1}{c_{1}};\sym{n_lot}{N},\sym{m_p}{M_{p}},\sym{n1}{n_{1}})+\Sigma_{\sym{j_first}{j}=\sym{c1}{c1}+1}^{\sym{c2}{c2}-1}\ h(\sym{j_first}{j};\sym{n_lot}{N},\sym{m_p}{M_{p}},\sym{n1}{n_{1}})\cdot H(\sym{c3}{c_{3}}-\sym{j_first}{j};\sym{n_lot}{N}-\sym{n1}{n_{1}},\sym{m_p}{M_{p}}-\sym{j_first}{j},\sym{n2}{n_{2}})\)</div>
 <div>\(\sym{pi_decision}{\Pi}(\sym{pi}{p})=H(\sym{c1}{c_{1}};\sym{n_lot}{N},\sym{m_p}{M_{p}},\sym{n1}{n_{1}})+1-H(\sym{c2}{c_{2}}-1;\sym{n_lot}{N},\sym{m_p}{M_{p}},\sym{n1}{n_{1}})\)  (kans op een beslissing na de eerste steekproef)</div>
 <div>\(\sym{asn}{\mathrm{ASN}}(\sym{pi}{p})=\sym{n1}{n_{1}}\sym{pi_decision}{\Pi}(\sym{pi}{p})+(\sym{n1}{n_{1}}+\sym{n2}{n_{2}})(1-\sym{pi_decision}{\Pi}(\sym{pi}{p}))\)  (average sample number, gemiddelde steekproefgrootte)</div>
-<div class="small">\(h=\) hypergeometrische kansfunctie, \(H=\) verdelingsfunctie <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=5">AS-FR p. 5</a>. De Further Reading schrijft in de eerste term "\(H(\sym{c1}{c_{1}};H,\sym{m_p}{M_{p}},\sym{n1}{n_{1}})\)": dat moet N zijn.</div>
+<div class="small">\(h=\) hypergeometrische kansfunctie, \(H=\) verdelingsfunctie <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=5">AS-FR p. 5</a>.</div>
 </div>
 <div class="box ex"><span class="t">Controle: zijn (175, 8) en (90, 2, 7)+(90, 8) equivalent?</span> <span class="computed">zelf berekend</span> (binomiaal)
 <table>
@@ -987,6 +997,7 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <figure class="fig"><img src="figures/06_werklast.png" alt="Gemiddeld aantal geïnspecteerde stuks van het dubbele plan (90,2,7)+(90,8) tegen het percentage defecten, met een horizontale lijn op 175 voor (175,8)">
 <figcaption>Figuur: werklast (workload comparison): het aantal geïnspecteerde stuks van (175, 8) (horizontale lijn op 175) en het gemiddelde voor (90, 2, 7)+(90, 8), tegen het percentage defecten in een lot van 10 000. Het dubbele plan blijft overal onder 175, met een top van ongeveer 150 rond \(4\ a\ 5\ \%\). <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=25">AS p. 25</a></figcaption></figure>
 <p class="small">Ook de methode van Peach kan een dubbel plan bepalen (met \(\sym{n1}{n_{1}}=\sym{n2}{n_{2}}\)); dat vraagt de tabel, die niet in de cursus zit. Dubbele plannen zijn efficiënter maar moeilijker te organiseren <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=5">AS-FR p. 5</a>.</p>
+<div class="calc-here" data-tool="dubbelplan" data-blocks="0"></div>
 
 <h4>Sequentieel: de SPRT van Wald <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=6">AS-FR p. 6–8</a></h4>
 <p>De <b>sequential probability ratio test (SPRT)</b> gebruikt de binomiale verdeling (goed als het lot groot is t.o.v. de steekproef). Na n stuks met \(X_{n}\) defecten vergelijk je de <b>likelihood ratio</b> van "\(\sym{pi}{p}=\sym{lql}{p_{t}}\)" tegenover "\(\sym{pi}{p}=\sym{aql}{p_{0}}\)":</p>
@@ -1017,6 +1028,7 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 </div>
 <figure class="fig"><img src="figures/06_sprt_asn.png" alt="ASN-curve van de SPRT met p0 = 0,005, pt = 3,5 % en α = β = 0,05: start bij ongeveer 96, top net boven 150 rond p = 0,012, ongeveer 40 bij p = 0,05">
 <figcaption>Figuur: gemiddelde steekproefgrootte (ASN) van de SPRT met \(p_{0}=0{,}005\), \(p_{t}=3{,}5\ \%\) en \(\alpha=\beta=0{,}05\), tegen de fractie defecten p. De curve begint bij ongeveer 96, piekt net boven 150 rond \(p=0{,}012\) en daalt naar ongeveer 40 bij \(p=0{,}05\). <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=8">AS-FR p. 8</a></figcaption></figure>
+<div class="calc-here" data-tool="sprt" data-blocks="0"></div>
 
 <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
 <ul>
@@ -1057,11 +1069,12 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <label>\(\sym{oc}{\mathrm{OC}}(3\ \%)\) van het dubbele plan (3 decimalen) =</label> <input type="text" inputmode="decimal">
 <button type="button" class="check">Controleer</button> <span class="fb"></span>
 </div>
+<div class="calc-here" data-tool="dubbelplan" data-blocks="0"></div>
 <details class="hint"><summary>Hint</summary><p>\(\sym{oc}{\mathrm{OC}}=P(\sym{d1}{d_{1}}\le2)+\Sigma_{\sym{j_first}{j}=3..6}\ P(\sym{d1}{d_{1}}=\sym{j_first}{j})\cdot P(\sym{d2}{d_{2}}\le8-\sym{j_first}{j})\).</p></details>
 <details class="solution"><summary>Toon oplossing</summary>
 <ol class="steps">
-<li>\(P(\sym{d1}{d_{1}}\le2)=\operatorname{BINOM.DIST}(2,90,0{,}03,\mathrm{TRUE})=0{,}491\).</li>
-<li>\(P(\sym{d1}{d_{1}}\ge7)=1-\operatorname{BINOM.DIST}(6,90,0{,}03,\mathrm{TRUE})=0{,}0188\).</li>
+<li>\(P(\sym{d1}{d_{1}}\le2)=\sum_{i=0}^{2}C_{90}^{i}\ 0{,}03^{i}\ 0{,}97^{90-i}=0{,}491\).</li>
+<li>\(P(\sym{d1}{d_{1}}\ge7)=1-P(\sym{d1}{d_{1}}\le6)=0{,}0188\).</li>
 <li>\(\sym{pi_decision}{\Pi}(3\ \%)=0{,}491+0{,}019=0{,}510\): in iets meer dan de helft van de gevallen volstaat de eerste steekproef.</li>
 <li>\(\sym{asn}{\mathrm{ASN}}=90\times0{,}510+180\times0{,}490=134{,}1\), tegenover 175 voor (175, 8).</li>
 <li>\(\sym{oc}{\mathrm{OC}}(3\ \%)=0{,}908\), tegenover 0,918 voor (175, 8): bijna dezelfde bescherming met gemiddeld 41 stuks minder.</li>
@@ -1093,6 +1106,7 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <label><var data-s="asn">ASN</var> bij \(\sym{pi}{p}=\sym{s_slope}{s}\) (1 decimaal) =</label> <input type="text" inputmode="decimal">
 <button type="button" class="check">Controleer</button> <span class="fb"></span>
 </div>
+<div class="calc-here" data-tool="sprt" data-blocks="0"></div>
 <details class="solution"><summary>Toon oplossing</summary>
 <ol class="steps">
 <li>\(\sym{g_sprt}{g}=\ln\left(\frac{0{,}05\times0{,}99}{0{,}01\times0{,}95}\right)=\ln5{,}2105=1{,}6507\).</li>
@@ -1117,6 +1131,7 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <label><var data-s="asn">ASN</var> bij \(\sym{pi}{p}=\sym{s_slope}{s}=\)</label> <input type="text" inputmode="decimal">
 <button type="button" class="check">Controleer</button> <span class="fb"></span>
 </div>
+<div class="calc-here" data-tool="sprt" data-blocks="0"></div>
 <details class="solution"><summary>Toon oplossing</summary>
 <ol class="steps">
 <li>\(\sym{pi}{p}=0\), \(\sym{oc}{\mathrm{OC}}=1\): \(\sym{asn}{\mathrm{ASN}}=\frac{\ln\left(\frac{0{,}05}{0{,}95}\right)}{\ln\left(\frac{0{,}965}{0{,}995}\right)}=-2{,}944/-0{,}03062=96{,}2\).</li>
@@ -1140,26 +1155,24 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <div>\[\sym{xbar}{\bar{X}}=\left(\frac{1}{\sym{n}{n}}\right)\ \Sigma\ \sym{x_i}{X_{i}}\],  \[\sym{s_sd}{s}=\sqrt{\Sigma\ \frac{(\sym{x_i}{X_{i}}-\sym{xbar}{\bar{X}})^{2}}{\sym{n}{n}-1}}\],  \[\sym{q_stat}{Q}=\frac{\sym{xbar}{\bar{X}}-\sym{xi}{\xi}}{\sym{s_sd}{s}}\]</div>
 <div><b>aanvaard als \[\sym{q_stat}{Q}\ge\sym{k_var}{k}\Leftrightarrow\sym{xbar}{\bar{X}}-\sym{k_var}{k}\cdot\sym{s_sd}{s}\ge\sym{xi}{\xi}\]</b>  (k is de tegenhanger van c bij attributen)</div>
 </div>
-<div class="box warn"><span class="t">Drukfout in de cursus</span>
-<p><a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=27">AS p. 27</a> schrijft \(\sym{xbar}{\bar{X}}=\Sigma\ \sym{x_i}{X_{i}}\), zonder de factor \(\frac{1}{\sym{n}{n}}\). Het gemiddelde is \(\left(\frac{1}{\sym{n}{n}}\right)\ \Sigma\ \sym{x_i}{X_{i}}\); het werkblad gebruikt ook AVERAGE.</p>
-</div>
 <h4>k kiezen bij gegeven n <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=27">AS p. 27</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=9">AS-FR p. 9</a></h4>
 <p>Een goed lot (fractie defecten ≤ \(\sym{aql}{p_{0}}\), dus \(\sym{x_p0}{X_{p0}}\ge\sym{xi}{\xi}\)) moet een grote aanvaardingskans hebben, een slecht lot een kleine. Neem \(\sym{k_var}{k}=\sym{t_tol}{t}(1-\sym{alpha}{\alpha},\sym{aql}{p_{0}},\sym{n}{n})\) voor een kleine \(\alpha\) (bv. 5 %); dan wordt een lot dat precies op de AQL zit met kans \(1-\sym{alpha}{\alpha}\) aanvaard. Voor voldoende grote n geldt:</p>
 <div class="f">
 <div>\(\sym{t_tol}{t}(1-\sym{alpha}{\alpha},\sym{aql}{p_{0}},\sym{n}{n})=\frac{\sym{z_q}{z_{1-p0}}+\sym{z_q}{z_{\alpha}}\cdot\sqrt{\frac{1}{\sym{n}{n}}+\frac{\sym{z_q}{z_{1-p0}}^{2}}{2\sym{n}{n}}-\frac{\sym{z_q}{z_{\alpha}}^{2}}{2\sym{n}{n}^{2}}}}{1-\frac{\sym{z_q}{z_{\alpha}}^{2}}{2\sym{n}{n}}}\)</div>
-<div>\(\sym{z_q}{z_{q}}=q\)-kwantiel van N(0, 1); dus \(\sym{z_q}{z_{\alpha}}\lt0\) voor \(\sym{alpha}{\alpha}=5\ \%\) (werkblad: <code>NORM.INV(<var data-s="alpha">α</var>, 0, 1)</code> = −1,6449)</div>
+<div>\(\sym{z_q}{z_{q}}=q\)-kwantiel van N(0, 1); dus \(\sym{z_q}{z_{\alpha}}\lt0\) voor \(\sym{alpha}{\alpha}=5\ \%\) (Z-tabel of rekenmachine: \(\sym{z_q}{z_{0{,}05}}=-1{,}6449\))</div>
 </div>
 <p>Achtergrond <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=9">AS-FR p. 9</a>: met \(\sym{k_var}{k}=\sym{t_tol}{t}(\sym{alpha_tol}{\alpha},\sym{beta_tol}{\beta},\sym{n}{n})\) is \(\sym{xbar}{\bar{X}}-\sym{k_var}{k}\sym{s_sd}{s}\) een \((1-\sym{alpha_tol}{\alpha},1-\sym{beta_tol}{\beta})\) <b>ondertolerantiegrens (lower tolerance limit)</b>: met betrouwbaarheid \(1-\sym{alpha_tol}{\alpha}\) ligt minstens een fractie \(1-\sym{beta_tol}{\beta}\) van de populatie boven \(\sym{xbar}{\bar{X}}-\sym{k_var}{k}\sym{s_sd}{s}\).</p>
-<div class="box ex"><span class="t">Uitgewerkt: het werkblad 'variable sampling plan'</span> <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.xlsm">AS.xlsm</a>
+<div class="box ex"><span class="t">Uitgewerkt: het cursusvoorbeeld 'variable sampling plan'</span> <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.xlsm">AS.xlsm</a>
 <ol class="steps">
-<li>Lot: \(\sym{mu}{\mu}=10\), \(\sym{sigma}{\sigma}=2\), \(\sym{aql}{\mathrm{AQL}}\ \sym{aql}{p_{0}}=2\ \%\). Dan \(\sym{xi}{\xi}=\sym{x_p0}{X_{p0}}=\operatorname{NORM.INV}(0{,}02;10;2)=5{,}8925\): het lot zit precies op de AQL-grens.</li>
-<li>\(\sym{n}{n}=10\), \(\sym{alpha}{\alpha}=5\ \%\): \(\sym{z_q}{z_{0{,}98}}=2{,}0537\), \(\sym{z_q}{z_{0{,}05}}=-1{,}6449\), en \(\sym{t_tol}{t}(0{,}95;0{,}02;10)=1{,}3378\) (cel I6).</li>
-<li>Eén aselecte trekking (in het bestand opgeslagen; F9 trekt een nieuwe): \(\sym{xbar}{\bar{X}}=10{,}373\), \(\sym{s_sd}{s}=2{,}337\), \(\sym{q_stat}{Q}=\frac{10{,}373-5{,}8925}{2{,}337}=1{,}917\).</li>
-<li>In het groene invoervak staat \(\sym{k_var}{k}=2\) (cel I7): \(\sym{q_stat}{Q}\lt\sym{k_var}{k}\), dus "NO", lot afgekeurd. Met \(\sym{k_var}{k}=\sym{t_tol}{t}=1{,}338\) zou het aanvaard zijn.</li>
-<li>Het werkblad meldt een aanvaardingskans van 0,61, uit een Monte Carlo van 100 runs met \(\sym{k_var}{k}=2\). De OC-benadering van <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=9">AS-FR p. 9</a> (zie hieronder) geeft 0,539 <span class="computed">zelf berekend</span>. Het verschil past bij de toevalsfout van 100 runs: \(\sqrt{\frac{0{,}61\times0{,}39}{100}}=0{,}049\) <span class="computed">zelf berekend</span>.</li>
+<li>Lot: \(\sym{mu}{\mu}=10\), \(\sym{sigma}{\sigma}=2\), \(\sym{aql}{\mathrm{AQL}}\ \sym{aql}{p_{0}}=2\ \%\). Dan \(\sym{xi}{\xi}=\sym{x_p0}{X_{p0}}=\sym{mu}{\mu}+\sym{z_q}{z_{0{,}02}}\cdot\sym{sigma}{\sigma}=10-2{,}0537\times2=5{,}8925\): het lot zit precies op de AQL-grens.</li>
+<li>\(\sym{n}{n}=10\), \(\sym{alpha}{\alpha}=5\ \%\): \(\sym{z_q}{z_{0{,}98}}=2{,}0537\), \(\sym{z_q}{z_{0{,}05}}=-1{,}6449\), en \(\sym{t_tol}{t}(0{,}95;0{,}02;10)=1{,}3378\).</li>
+<li>Eén aselecte trekking (die van het cursusbestand): \(\sym{xbar}{\bar{X}}=10{,}373\), \(\sym{s_sd}{s}=2{,}337\), \(\sym{q_stat}{Q}=\frac{10{,}373-5{,}8925}{2{,}337}=1{,}917\).</li>
+<li>Het cursusbestand neemt \(\sym{k_var}{k}=2\): \(\sym{q_stat}{Q}\lt\sym{k_var}{k}\), dus lot afgekeurd. Met \(\sym{k_var}{k}=\sym{t_tol}{t}=1{,}338\) zou het aanvaard zijn.</li>
+<li>Het cursusbestand meldt een aanvaardingskans van 0,61, uit een Monte Carlo van 100 runs met \(\sym{k_var}{k}=2\). De OC-benadering van <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=9">AS-FR p. 9</a> (zie hieronder) geeft 0,539 <span class="computed">zelf berekend</span>. Het verschil past bij de toevalsfout van 100 runs: \(\sqrt{\frac{0{,}61\times0{,}39}{100}}=0{,}049\) <span class="computed">zelf berekend</span>.</li>
 </ol>
-<p>Met \(\sym{k_var}{k}=\sym{t_tol}{t}\) geeft dezelfde OC-benadering precies \(0{,}95=1-\sym{alpha}{\alpha}\) <span class="computed">zelf berekend</span>: de formule voor t en die voor de OC-curve passen bij elkaar. De tekst in cel K7 zegt het ook: met \(\sym{k_var}{k}=\sym{t_tol}{t}\) is de theoretische aanvaardingskans van een lot op \(p_{0}\) gelijk aan \(1-\sym{alpha}{\alpha}\).</p>
+<p>Met \(\sym{k_var}{k}=\sym{t_tol}{t}\) geeft dezelfde OC-benadering precies \(0{,}95=1-\sym{alpha}{\alpha}\) <span class="computed">zelf berekend</span>: de formule voor t en die voor de OC-curve passen bij elkaar. Het cursusbestand zegt het ook: met \(\sym{k_var}{k}=\sym{t_tol}{t}\) is de theoretische aanvaardingskans van een lot op \(p_{0}\) gelijk aan \(1-\sym{alpha}{\alpha}\).</p>
 </div>
+<div class="calc-here" data-tool="variabelenplan" data-blocks="0"></div>
 <h4>Plan ontwerpen uit AQL en LQL <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=9">AS-FR p. 9</a></h4>
 <div class="f">
 <div>\[\sym{oc}{\mathrm{OC}}(\sym{pi}{p})\cong1-\Phi\left(\frac{(\sym{z_q}{z_{p}}+\sym{k_var}{k})\cdot\sqrt{\sym{n}{n}}}{\left(1+\frac{\sym{k_var}{k}^{2}}{2}\right)^{\frac{1}{2}}}\right)\]</div>
@@ -1178,30 +1191,29 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <div class="box tool"><span class="t">Rekentool</span>
 <p>Blad <b>Acceptance sampling</b>, sectie 4: met AQL (B12), LQL (B13), \(\alpha\) (B14) en \(\beta\) (B15) krijg je k, n (ook naar boven afgerond) en de OC bij AQL en LQL. Voor \(\sym{t_tol}{t}(1-\sym{alpha}{\alpha},\sym{aql}{p_{0}},\sym{n}{n})\) bij een opgelegde n is er geen blad: reken met de z-waarden van het blad <b>Normal</b>.</p>
 </div>
+<div class="calc-here" data-tool="steekproefplan" data-blocks="4"></div>
 
 <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
 <ul>
   <li><b>"Aanvaard het lot als het steekproefgemiddelde boven de ondergrens ligt, \(\sym{xbar}{\bar{X}}\ge\sym{xi}{\xi}\)."</b> Fout: je aanvaardt
   als \(\sym{xbar}{\bar{X}}-\sym{k_var}{k}\cdot\sym{s_sd}{s}\ge\sym{xi}{\xi}\), dus \(\sym{q_stat}{Q}\ge\sym{k_var}{k}\). Het gemiddelde moet ver genoeg boven \(\xi\) liggen,
   rekening houdend met de spreiding: hoe groter \(\sigma\), hoe verder. <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=26">AS p. 26</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=27">AS p. 27</a></li>
-  <li><b>Let op:</b> \(\sym{z_q}{z_{\alpha}}\) is negatief voor \(\sym{alpha}{\alpha}=5\ \%\ (\operatorname{NORM.INV}(0{,}05;0;1)=-1{,}6449)\). In de formule van \(\sym{t_tol}{t}\) staat
+  <li><b>Let op:</b> \(\sym{z_q}{z_{\alpha}}\) is negatief voor \(\sym{alpha}{\alpha}=5\ \%\ (\sym{z_q}{z_{0{,}05}}=-1{,}6449)\). In de formule van \(\sym{t_tol}{t}\) staat
   \(\sym{z_q}{z_{\alpha}}\), niet \(\sym{z_q}{z_{1-\alpha}}\); een tekenfout geeft een heel andere k. <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=27">AS p. 27</a></li>
-  <li><b>Let op:</b> \(\sym{s_sd}{s}\) met \(\sym{n}{n}-1\) (STDEV.S) en \(\sym{xbar}{\bar{X}}=\left(\frac{1}{\sym{n}{n}}\right)\Sigma\sym{x_i}{X_{i}}\): de cursus vergeet de factor
-  \(\frac{1}{\sym{n}{n}}\). <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=27">AS p. 27</a></li>
   <li><b>"Variabelenplannen zijn altijd beter dan attributenplannen."</b> Fout: ze zijn veel efficiënter (\(\sym{n}{n}=64\)
   tegenover 164 voor dezelfde twee punten), maar steunen op de verdelingsveronderstelling (hier normaal) en zijn moeilijker
   uit te leggen. Attributenplannen vragen geen verdeling en kunnen een combinatie van kenmerken beoordelen.
   <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=28">AS p. 28</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=9">AS-FR p. 9</a></li>
   <li><b>"Met \(\sym{k_var}{k}=2\) wordt een lot dat precies op de AQL zit in 95 % van de gevallen aanvaard."</b> Fout: dat geldt alleen voor
-  \(\sym{k_var}{k}=\sym{t_tol}{t}(1-\sym{alpha}{\alpha},\sym{aql}{p_{0}},\sym{n}{n})\), in het werkblad 1,3378 voor \(\sym{n}{n}=10\). \(\sym{k_var}{k}=2\) is strenger:
-  de OC-benadering geeft 0,539 <span class="computed">zelf berekend</span> (het werkblad schat 0,61 uit 100 runs).
+  \(\sym{k_var}{k}=\sym{t_tol}{t}(1-\sym{alpha}{\alpha},\sym{aql}{p_{0}},\sym{n}{n})\), in het cursusvoorbeeld 1,3378 voor \(\sym{n}{n}=10\). \(\sym{k_var}{k}=2\) is strenger:
+  de OC-benadering geeft 0,539 <span class="computed">zelf berekend</span> (het cursusbestand schat 0,61 uit 100 runs).
   <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=27">AS p. 27</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=9">AS-FR p. 9</a></li>
   <li><b>Let op:</b> in de \((1-\sym{alpha_tol}{\alpha},1-\sym{beta_tol}{\beta})\)-tolerantiegrens is \(\beta\) de fractie onder de grens, niet het
-  consumentenrisico; zie <a href="#d04-tolerantie">04.10</a>. <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=9">AS-FR p. 9</a></li>
+  consumentenrisico. <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=9">AS-FR p. 9</a></li>
 </ul></div>
 
-<div class="exercise" id="ex-06-19" data-kw="variable sampling plan; xi; X_p0; t(1-alpha,p0,n); Q; k; aanvaarden; accept; Monte Carlo; OC benadering; werkblad">
-<h4>Oefening 06.19 — Het werkblad 'variable sampling plan' nagerekend <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=27">AS p. 27</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.xlsm">AS.xlsm</a></h4>
+<div class="exercise" id="ex-06-19" data-kw="variable sampling plan; xi; X_p0; t(1-alpha,p0,n); Q; k; aanvaarden; accept; Monte Carlo; OC benadering; cursusvoorbeeld">
+<h4>Oefening 06.19 — Het cursusvoorbeeld 'variable sampling plan' nagerekend <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=27">AS p. 27</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.xlsm">AS.xlsm</a></h4>
 <p>Lot: \(\sym{x_char}{X}\sim N(10;2)\), \(\sym{aql}{\mathrm{AQL}}\ \sym{aql}{p_{0}}=2\ \%\), ondergrens \(\sym{xi}{\xi}=\sym{x_p0}{X_{p0}}\). Plan met \(\sym{n}{n}=10\) en \(\sym{alpha}{\alpha}=5\ \%\). Eén steekproef gaf \(\sym{xbar}{\bar{X}}=10{,}3729\) en \(\sym{s_sd}{s}=2{,}3368\).</p>
 <div class="q" data-answer="5.8925" data-tol="0.005">
 <label>\(\sym{xi}{\xi}=\sym{x_p0}{X_{p0}}\) (4 decimalen) =</label> <input type="text" inputmode="decimal">
@@ -1229,15 +1241,16 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <label>Aanvaardingskans van dit lot met \(\sym{k_var}{k}=2\) volgens de OC-benadering van FR p. 9 =</label> <input type="text" inputmode="decimal">
 <button type="button" class="check">Controleer</button> <span class="fb"></span>
 </div>
+<div class="calc-here" data-tool="variabelenplan" data-blocks="0"></div>
 <details class="hint"><summary>Hint</summary><p>\(\sym{z_q}{z_{0{,}98}}=2{,}0537\) en \(\sym{z_q}{z_{0{,}05}}=-1{,}6449\). Voor de OC: \(\sym{z_q}{z_{p}}=\sym{z_q}{z_{0{,}02}}=-2{,}0537\).</p></details>
 <details class="solution"><summary>Toon oplossing</summary>
 <ol class="steps">
-<li>\(\sym{xi}{\xi}=10+2\times\sym{z_q}{z_{0{,}02}}=10-2\times2{,}0537=5{,}8925\) (cel C14).</li>
+<li>\(\sym{xi}{\xi}=10+2\times\sym{z_q}{z_{0{,}02}}=10-2\times2{,}0537=5{,}8925\).</li>
 <li>\(\frac{1}{\sym{n}{n}}=0{,}1\); \(\frac{\sym{z_q}{z_{0{,}98}}^{2}}{2\sym{n}{n}}=\frac{4{,}2179}{20}=0{,}2109\); \(\frac{\sym{z_q}{z_{0{,}05}}^{2}}{2\sym{n}{n}^{2}}=\frac{2{,}7055}{200}=0{,}0135\). Wortel van 0,1 + 0,2109 − 0,0135 = 0,5453.</li>
-<li>\(\sym{t_tol}{t}=\frac{2{,}0537-1{,}6449\times0{,}5453}{1-\frac{2{,}7055}{20}}=\frac{1{,}1567}{0{,}8647}=1{,}3378\) (cel I6).</li>
-<li>\(\sym{q_stat}{Q}=\frac{10{,}3729-5{,}8925}{2{,}3368}=1{,}9174\) (cel F6).</li>
-<li>\(\sym{k_var}{k}=2\): \(\sym{q_stat}{Q}\lt2\), afkeuren (cel I9: "NO"). \(\sym{k_var}{k}=1{,}3378\): \(\sym{q_stat}{Q}\ge\sym{k_var}{k}\), aanvaarden.</li>
-<li>\(\sym{oc}{\mathrm{OC}}=1-\Phi\left(\frac{(-2{,}0537+2)\cdot\sqrt{10}}{\sqrt{1+\frac{2^{2}}{2}}}\right)=1-\Phi(-0{,}098)=0{,}539\). Het werkblad schat 0,61 uit 100 runs; met een toevalsfout van ±0,049 is dat verenigbaar.</li>
+<li>\(\sym{t_tol}{t}=\frac{2{,}0537-1{,}6449\times0{,}5453}{1-\frac{2{,}7055}{20}}=\frac{1{,}1567}{0{,}8647}=1{,}3378\).</li>
+<li>\(\sym{q_stat}{Q}=\frac{10{,}3729-5{,}8925}{2{,}3368}=1{,}9174\).</li>
+<li>\(\sym{k_var}{k}=2\): \(\sym{q_stat}{Q}\lt2\), afkeuren. \(\sym{k_var}{k}=1{,}3378\): \(\sym{q_stat}{Q}\ge\sym{k_var}{k}\), aanvaarden.</li>
+<li>\(\sym{oc}{\mathrm{OC}}=1-\Phi\left(\frac{(-2{,}0537+2)\cdot\sqrt{10}}{\sqrt{1+\frac{2^{2}}{2}}}\right)=1-\Phi(-0{,}098)=0{,}539\). Het cursusbestand schat 0,61 uit 100 runs; met een toevalsfout van ±0,049 is dat verenigbaar.</li>
 </ol>
 <p class="small">Stap 2 en 6 <span class="computed">zelf berekend</span>. Conclusie: \(\sym{k_var}{k}=2\) is strenger dan \(\sym{t_tol}{t}\), dus een lot dat precies op de AQL zit, wordt maar in ongeveer de helft van de gevallen aanvaard in plaats van 95 %.</p>
 </details>
@@ -1262,6 +1275,7 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <label>\(\sym{n}{n}\) bij \(\sym{beta}{\beta}=10\ \%\) (naar boven afgerond) =</label> <input type="text" inputmode="decimal">
 <button type="button" class="check">Controleer</button> <span class="fb"></span>
 </div>
+<div class="calc-here" data-tool="steekproefplan" data-blocks="4"></div>
 <details class="hint"><summary>Hint</summary><p>\(\sym{z_q}{z_{0{,}035}}=-1{,}8119\), \(\sym{z_q}{z_{0{,}005}}=-2{,}5758\), \(\sym{z_q}{z_{0{,}05}}=-1{,}6449\), \(\sym{z_q}{z_{0{,}10}}=-1{,}2816\).</p></details>
 <details class="solution"><summary>Toon oplossing</summary>
 <ol class="steps">
@@ -1317,6 +1331,7 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <div class="box tool"><span class="t">Rekentool</span>
 <p>Blad <b>Acceptance sampling</b>: vul n, c en N in (sectie 1) en p in B27 (sectie 3): je krijgt OC, AOQ exact, \(\sym{aoq}{\mathrm{AOQ}}\cong\sym{pi}{p}\cdot\sym{oc}{\mathrm{OC}}\) en ATI. Sectie 5 zoekt de AOQL in een tabel; zet de stap (B48) op 0,001 om het maximum bij 1,7 % te zien.</p>
 </div>
+<div class="calc-here" data-tool="steekproefplan" data-blocks="1 2"></div>
 
 <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
 <ul>
@@ -1359,7 +1374,8 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <label>Exacte <var data-s="aoql">AOQL</var> (in %, zoek over p) =</label> <input type="text" inputmode="decimal">
 <button type="button" class="check">Controleer</button> <span class="fb"></span>
 </div>
-<details class="hint"><summary>Hint</summary><p>\(\sym{oc}{\mathrm{OC}}=\operatorname{HYPGEOM.DIST}(5,250,20,1000,\mathrm{TRUE})\). \(\sym{rs_star}{R_{s}^{*}}=\frac{\operatorname{HYPGEOM.DIST}(4,249,19,999,\mathrm{TRUE})}{\sym{oc}{\mathrm{OC}}}\). Voor de AOQL: maak een tabel over \(\sym{pi}{p}=\frac{\sym{m_p}{M}}{1000}\).</p></details>
+<div class="calc-here" data-tool="steekproefplan" data-blocks="1 2"></div>
+<details class="hint"><summary>Hint</summary><p>\(\sym{oc}{\mathrm{OC}}=H(5;1000,20,250)\) (hypergeometrische verdelingsfunctie). \(\sym{rs_star}{R_{s}^{*}}=\frac{H(4;999,19,249)}{\sym{oc}{\mathrm{OC}}}\). Voor de AOQL: maak een tabel over \(\sym{pi}{p}=\frac{\sym{m_p}{M}}{1000}\).</p></details>
 <details class="solution"><summary>Toon oplossing</summary>
 <ol class="steps">
 <li>\(\sym{oc}{\mathrm{OC}}(2\ \%)=0{,}618\).</li>
@@ -1368,7 +1384,7 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <li>\(\sym{ati}{\mathrm{ATI}}=250\times0{,}618+1000\times0{,}382=536{,}7\).</li>
 <li>Exacte \(\sym{aoql}{\mathrm{AOQL}}=1{,}03\ \%\) bij \(\sym{pi}{p}=1{,}7\ \%\); de benadering geeft 1,30 % bij 1,7 %. De Further Reading noemt "ongeveer 1,3 % bij ongeveer 1,8 %": dat is de benadering.</li>
 </ol>
-<p class="small">Alle waarden <span class="computed">zelf berekend</span>; zie de erratalijst.</p>
+<p class="small">Alle waarden <span class="computed">zelf berekend</span>.</p>
 </details>
 </div>
 </section>
@@ -1408,6 +1424,7 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 
 <h4>Gecertificeerde leverancier (certified quality provider) <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=16">AS-FR p. 16</a></h4>
 <p>Inspectie (trede II) is verspilling in de zin van lean: ze voegt geen waarde toe. Beter is werken met gecertificeerde leveranciers: de leverancier doet doorlopend SPC (trede III), zijn kwaliteitssysteem wordt regelmatig geaudit, en af en toe wordt een lot gekeurd uit voorzichtigheid. Dat maakt "ship to stock" mogelijk: levering rechtstreeks in het magazijn van de klant, zonder ingangscontrole. SPC kost ook geld, maar is deel van het productieproces, is preventief en dwingt de leverancier na te denken over de bronnen van variatie.</p>
+<div class="calc-here" data-tool="skiplot" data-blocks="0"></div>
 
 <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
 <ul>
@@ -1443,11 +1460,12 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <label>Controle AQL: \(\sym{oc}{\mathrm{OC}}(1\ \%)\) van (80, 2), hypergeometrisch met \(\sym{n_lot}{N}=1000=\)</label> <input type="text" inputmode="decimal">
 <button type="button" class="check">Controleer</button> <span class="fb"></span>
 </div>
+<div class="calc-here" data-tool="skiplot" data-blocks="0"></div>
 <details class="solution"><summary>Toon oplossing</summary>
 <ol class="steps">
 <li>\(\sym{pi}{p}=1\ \%\): \(B(3;640;0{,}01)=0{,}1177\) en \(B(0;80;0{,}01)=0{,}99^{80}=0{,}4475\); \(\sym{p_q}{P_{q}}=0{,}1177\times0{,}4475^{2}=2{,}36\ \%\) (FR: 2,4 %).</li>
 <li>\(\sym{pi}{p}=0{,}1\ \%\): \(0{,}9958\times0{,}9231^{2}=84{,}9\ \%\) (FR: 85 %).</li>
-<li>\(\sym{oc}{\mathrm{OC}}(1\ \%)=\operatorname{HYPGEOM.DIST}(2,80,10,1000,\mathrm{TRUE})=0{,}961\) (binomiaal 0,953): de aanvaardingskans bij 1 % ligt rond 95 %, dus \(\sym{aql}{\mathrm{AQL}}\approx1\ \%\).</li>
+<li>\(\sym{oc}{\mathrm{OC}}(1\ \%)=H(2;1000,10,80)=0{,}961\) (binomiaal 0,953): de aanvaardingskans bij 1 % ligt rond 95 %, dus \(\sym{aql}{\mathrm{AQL}}\approx1\ \%\).</li>
 </ol>
 <p class="small">Tussenwaarden en stap 3 <span class="computed">zelf berekend</span>.</p>
 </details>
@@ -1477,6 +1495,7 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <p>Bij een stabiel proces is dus "niets of alles" kostenoptimaal, nooit een steekproef. Steekproefplannen veronderstellen geen stabiliteit; ze dienen om verschuivingen van het procesniveau te vangen. Volgens Deming is het goedkoper om vooraf in SPC te investeren dan te werken in een omgeving waar een proces ongemerkt kan ontsporen tot de aanvaardingskeuring het ziet; dat noemt hij een toestand van chaos.</p>
 </div>
 <p class="small">Technische aanvulling <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=15">AS-FR p. 15</a>: \(\sym{q_accept}{Q}=\sym{oc}{\mathrm{OC}}(\sym{pi}{p})=\Sigma_{\sym{d_lot}{D}}\ \sym{pi_d}{\pi_{D}}\sym{beta_d}{\beta_{D}}\), met \(\sym{pi_d}{\pi_{D}}=b(\sym{d_lot}{D};\sym{n_lot}{N},\sym{pi}{p})\) (binomiaal: kans op D defecten in het lot) en \(\sym{beta_d}{\beta_{D}}=H(\sym{c_accept}{\mathrm{Ac}};\sym{n_lot}{N},\sym{d_lot}{D},\sym{n}{n})\) (hypergeometrisch: kans om zo'n lot te aanvaarden). Verder geldt \(\sym{p_dprime}{p''}\gt\sym{pi}{p}\). De cursus geeft geen getallenvoorbeeld voor dit criterium.</p>
+<div class="calc-here" data-tool="skiplot" data-blocks="1"></div>
 
 <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
 <ul>
@@ -1522,7 +1541,7 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <!-- =========================================================== 06.16 -->
 <section class="unit" id="d06-oefeningen" data-kw="oefeningen; exercises; Further Reading; plan construeren; construct sampling plan; 2% 4%; lotgrootte; lot size; steekproefgrootte; sample size; ISO 2859; examen; checklist">
 <h3>06.16 Oefeningen uit de Further Reading en checklist <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=17">AS-FR p. 17–18</a></h3>
-<p>De Further Reading eindigt met drie reeksen oefeningen zonder oplossingen. De reeks "inventive inspection" staat in 06.10 (oefening 06.15); de andere twee volgen hier.</p>
+<p>De Further Reading eindigt met drie reeksen oefeningen zonder oplossingen.</p>
 
 <div class="exercise" id="ex-06-24" data-kw="plan construeren; construct single plan; 2%; 4%; 95%; 5%; (781,22); dubbel plan; double plan; variabelenplan; inspectiekost; inspection cost">
 <h4>Oefening 06.24 — Plannen voor (2 %; 95 %) en (4 %; 5 %) <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=17">AS-FR p. 17</a></h4>
@@ -1535,6 +1554,7 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <label>\(\sym{oc}{\mathrm{OC}}(4\ \%)\) van (781, 22) (4 decimalen) =</label> <input type="text" inputmode="decimal">
 <button type="button" class="check">Controleer</button> <span class="fb"></span>
 </div>
+<div class="calc-here" data-tool="steekproefplan" data-blocks="4"></div>
 <div class="q" data-answer="1.902" data-tol="0.003">
 <label>Ter vergelijking: \(\sym{k_var}{k}\) van het variabelenplan voor dezelfde twee punten =</label> <input type="text" inputmode="decimal">
 <button type="button" class="check">Controleer</button> <span class="fb"></span>
@@ -1543,6 +1563,7 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <label>\(\sym{n}{n}\) van dat variabelenplan (naar boven afgerond) =</label> <input type="text" inputmode="decimal">
 <button type="button" class="check">Controleer</button> <span class="fb"></span>
 </div>
+<div class="calc-here" data-tool="planontwerp" data-blocks="0"></div>
 <details class="hint"><summary>Hint</summary><p>Vul in het blad Acceptance sampling \(\sym{aql}{\mathrm{AQL}}=0{,}02\), \(\sym{lql}{\mathrm{LQL}}=0{,}04\), \(\sym{alpha}{\alpha}=0{,}05\), \(\sym{beta}{\beta}=0{,}05\) in. Probeer een c, zoek de kleinste n met \(\sym{beta}{\beta}\le5\ \%\) en kijk of \(\sym{alpha}{\alpha}\le5\ \%\). Hoe dichter AQL en LQL bij elkaar liggen \((\sym{r0}{R_{0}}=2)\), hoe groter het plan. Sectie 4 geeft k en n.</p></details>
 <details class="solution"><summary>Toon oplossing</summary>
 <ol class="steps">
@@ -1565,6 +1586,7 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <label>\(\sym{oc}{\mathrm{OC}}(2\ \%)\) bij \(\sym{n_lot}{N}=10\ 000=\)</label> <input type="text" inputmode="decimal">
 <button type="button" class="check">Controleer</button> <span class="fb"></span>
 </div>
+<div class="calc-here" data-tool="steekproefplan" data-blocks="0"></div>
 <details class="solution"><summary>Toon oplossing</summary>
 <ol class="steps">
 <li>\(\sym{oc}{\mathrm{OC}}(2\ \%)\) van (80, 2): \(\sym{n_lot}{N}=200\): 0,823; \(\sym{n_lot}{N}=500\): 0,795; \(\sym{n_lot}{N}=1000\): 0,789; \(\sym{n_lot}{N}=10\ 000\): 0,785; binomiaal \((\sym{n_lot}{N}\to\infty)\): 0,784 <span class="computed">zelf berekend</span>.</li>

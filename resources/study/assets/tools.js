@@ -87,7 +87,20 @@
     return '<label class="fld"><span>' + label + '</span><select name="' + name + '">' + options.map(function (o) {
       return '<option value="' + o[0] + '">' + o[1] + '</option>'; }).join('') + '</select></label>';
   }
-  var ALPHA = inp('alpha', 'α (significantieniveau)', '', '0,05');
+  // α or the confidence level: 0,05, 5 %, 0,95 and 95 % all mean α = 0,05 (values() turns a confidence into α)
+  var ALPHA = inp('alpha', 'α of betrouwbaarheid (0,05 · 5 % · 95 %)', '', '0,05');
+  function alphaRow(alpha) {
+    return num(alpha) ? ['α ; betrouwbaarheid 1 − α', f(alpha) + ' ; ' + pc(1 - alpha)] : null;
+  }
+  // critical values and half widths before the centre is known: "x̄ ± h" (CI FR p. 9-15)
+  function halfRows(q, alpha, sym, centre, spread) {
+    if (!num(q.c2)) return [];
+    return [['kritieke waarde tweezijdig ' + sym + '<sub>1−α/2</sub>', f(q.c2), 'P(' + sym + ' ≤ ' + f(q.c2, 4) + ') = ' + pc(1 - alpha / 2)],
+            ['kritieke waarde eenzijdig ' + sym + '<sub>1−α</sub>', f(q.c1), 'P(' + sym + ' ≤ ' + f(q.c1, 4) + ') = ' + pc(1 - alpha)],
+            ['BI tweezijdig: ' + centre + ' ± ' + sym + '<sub>1−α/2</sub>·' + spread, centre + ' ± ' + f(q.half2)],
+            ['enkel ondergrens ("minstens …")', centre + ' − ' + f(q.half1) + ' … +∞'],
+            ['enkel bovengrens ("hoogstens …")', '−∞ … ' + centre + ' + ' + f(q.half1)]];
+  }
 
   /* ---------- the calculators: blocks of {title, help, form, run(v) → html} ---------- */
   var TOOLS = {};
@@ -128,8 +141,7 @@
                     ['x', f(r.x), mark('x')], ['z', f(r.z), mark('z')], ['P(X ≤ x)', fp(r.pl), mark('pl')],
                     ['P(X > x)', fp(r.pr), mark('pr')], ['ppm boven x / onder x', f(num(r.pr) ? r.pr * 1e6 : null) + ' / ' + f(num(r.pl) ? r.pl * 1e6 : null)],
                     num(r.z) ? ['Z-tabel van de cursus bij z = ' + f(Math.round(r.z * 100) / 100), cell ? cell.textContent : 'buiten de tabel (−3,49 … 3,49)', 'kans links van z, 4 decimalen'] : null]) +
-          (r.notes.length ? warn(r.notes.join('; ')) : '') +
-          '<p class="xl">Excel: NORM.DIST(x; µ; σ; TRUE) = P(X ≤ x) (NL: NORM.VERD) · NORM.INV(p; µ; σ) · NORM.S.DIST(z; TRUE) · NORM.S.INV(p) · STANDARDIZE(x; µ; σ) (NL: NORMALISEREN)</p>', derived(r));
+          (r.notes.length ? warn(r.notes.join('; ')) : ''), derived(r));
       }, pct: ['pl', 'pr'] },
     { title: 'Interval [a ; b]: kans binnen en buiten, µ ± kσ, of grenzen bij een kans',
       help: 'Vul in wat gegeven is: µ, σ, a en b geven de kansen; µ, σ en k geven de grenzen µ ± kσ (68-95-99,7); ' +
@@ -170,7 +182,7 @@
         if (!num(r.dpo)) return r.notes.length ? warn(r.notes.join('; ')) : '';
         return result(out([[r.D, r.N, r.O].some(num) ? ['D ; N ; O', f(r.D) + ' ; ' + f(r.N) + ' ; ' + f(r.O), ['D', 'N', 'O'].filter(function (q) { return r.solved.indexOf(q) >= 0; }).map(function (q) { return q + ' berekend'; }).join(', ')] : null,
                     ['DPO = D / (N·O)', f(r.dpo), mark('dpo')], ['DPMO = DPO · 10⁶', f(r.dpmo), mark('dpmo')], ['yield = 1 − DPO', fp(r.yield), mark('yield')],
-                    ['Z = NORM.S.INV(1 − DPO)', f(r.z), mark('z')], ['sigmaniveau = Z + 1,5', f(r.level), mark('level')],
+                    ['Z: P(Z ≤ Z) = 1 − DPO', f(r.z), mark('z')], ['sigmaniveau = Z + 1,5', f(r.level), mark('level')],
                     'hetzelfde sigmaniveau gelezen zonder verschuiving (SPC p. 40)',
                     ['DPMO, één staart voorbij het niveau', f(r.oneTail)], ['DPMO, beide staarten (gecentreerd, Cp = niveau/3)', f(r.twoTails), 'SPC p. 40: Cp = 2 → 2 per miljard']]) +
           (r.notes.length ? warn(r.notes.join('; ')) : ''), derived(r));
@@ -187,9 +199,7 @@
         var q = Calc.quantiles(v.text.dist, v.d1, v.d2, v.alpha), p = Calc.pValues(v.text.dist, v.d1, v.d2, v.stat), h = '';
         var sym = v.text.dist === 'z' || v.text.dist === 't';
         if (q) {
-          var xl = { z: ['NORM.S.INV(α)', 'NORM.S.INV(1−α)'], t: ['T.INV(α; df)', 'T.INV(1−α; df) of T.INV.2T(2α; df)'],
-                     chi2: ['CHISQ.INV(α; df)', 'CHISQ.INV.RT(α; df)'], F: ['F.INV(α; df1; df2)', 'F.INV.RT(α; df1; df2)'] }[v.text.dist];
-          h += out([['linkse kritieke waarde', f(q.left), xl[0]], ['rechtse kritieke waarde', f(q.right), xl[1]],
+          h += out([alphaRow(v.alpha), ['linkse kritieke waarde', f(q.left), 'kans α links ervan'], ['rechtse kritieke waarde', f(q.right), 'kans α rechts ervan'],
                     ['tweezijdig: α/2 links en rechts', f(q.twoLo) + ' en ' + f(q.twoHi)]]);
         }
         if (p) {
@@ -213,78 +223,125 @@
     return { n: v[n], mean: v[m], s: v[s], fromData: false, solved: {} };
   }
   TOOLS.gemiddelde = [
-    { title: 'Eén gemiddelde µ: BI en toets (z met σ, t met s)',
-      help: 'Plak ruwe data óf vul n, x̄ en s (of σ) in. σ gekend: z; σ onbekend: t.',
-      form: ALPHA + area('data', 'ruwe data (optioneel)', '', 3) + inp('n', 'n') + inp('m', 'x̄') + inp('s', 's (steekproef)') +
-            inp('sigma', 'σ (gekend)') + inp('mu0', 'µ0 (H0: µ = µ0)'),
+    { title: 'Eén gemiddelde µ: standaardfout, kansen, BI en toets (z met σ, t met s)',
+      help: 'Vul in wat je hebt; elk resultaat verschijnt zodra zijn gegevens er zijn. n met σ (gekend, uit de opgave: z) of ' +
+            's (uit de steekproef: t) geeft de standaardfout. Met d ook hoeveel standaardfouten d is en de kans dat x̄ binnen d ' +
+            'van µ valt. Met α of de betrouwbaarheid de kritieke waarde en de halve breedte van het BI, ook zonder x̄ ("x̄ ± …"). ' +
+            'Met x̄ het BI zelf. µ0 is het getal uit de bewering die je toetst, bv. "de machine vult gemiddeld 500 g": µ0 = 500 ' +
+            '(H0: µ = 500); de toets geeft dan voor elke alternatieve hypothese (≠, >, <) de p-waarde en het besluit.',
+      form: ALPHA + area('data', 'ruwe data (optioneel; geeft n, x̄ en s)', '', 3) + inp('n', 'n (steekproefgrootte)') +
+            inp('m', 'x̄ (steekproefgemiddelde)') + inp('s', 's (uit de steekproef → t)') + inp('sigma', 'σ (gekend → z)') +
+            inp('d', 'afstand d tot µ (bv. "hoogstens 5 cm van µ": 5)') + inp('mu0', 'µ0: waarde uit de bewering (H0: µ = µ0)'),
       run: function (v) {
-        var d = summary(v, 'data', 'n', 'm', 's'), r = Calc.oneMean(d.n, d.mean, d.s, v.sigma, v.mu0, v.alpha);
-        if (!r) return '';
-        var h = out([d.fromData ? 'uit de data' : null, ['n', f(d.n)], ['x̄', f(d.mean)], ['s', f(d.s)],
-                     ['s.e. met σ: σ/√n', f(r.seZ)], ['s.e. met s: s/√n', f(r.seT)], ['vrijheidsgraden n − 1', f(r.df)]]);
-        if (r.ciZ) h += ciRows(r.ciZ, 'µ (z, σ gekend)');
-        if (r.ciT) h += ciRows(r.ciT, 'µ (t, σ onbekend)');
-        if (r.testZ) h += '<p class="lbl">z-toets van H0: µ = µ0</p>' + testRows(r.testZ, null);
-        if (r.testT) h += '<p class="lbl">t-toets van H0: µ = µ0</p>' + testRows(r.testT, r.df);
+        var d = summary(v, 'data', 'n', 'm', 's'), r = Calc.oneMean(d.n, d.mean, d.s, v.sigma, v.mu0, v.alpha, v.d);
+        if (!r) return result(num(d.n) ? warn('geef σ (gekend) of s (uit de steekproef) voor de standaardfout') : '', d.solved);
+        var h = out([d.fromData ? 'uit de data' : null, ['n', f(d.n)], num(d.mean) ? ['x̄', f(d.mean)] : null,
+                     num(d.s) ? ['s', f(d.s)] : null, ['vrijheidsgraden n − 1 (voor t)', f(r.df)], alphaRow(v.alpha)]);
+        [['z', 'σ gekend: z', 'σ/√n'], ['t', 's uit de steekproef (σ onbekend): t met n − 1 vrijheidsgraden', 's/√n']].forEach(function (m) {
+          var q = r[m[0]], sym = m[0];
+          if (!q) return;
+          var centre = num(r.xbar) ? f(r.xbar) : 'x̄';
+          h += '<p class="lbl">' + m[1] + '</p>' + out([
+            ['standaardfout ' + m[2], f(q.se)],
+            num(q.k) ? ['d in standaardfouten: d / (' + m[2] + ')', f(q.k)] : null,
+            num(q.k) ? ['P(|x̄ − µ| ≤ d) = 2·P(' + sym + ' ≤ ' + f(q.k, 4) + ') − 1', fp(q.within)] : null,
+            num(q.k) ? ['P(x̄ − µ > d) = P(' + sym + ' > ' + f(q.k, 4) + ')', fp(q.beyond), 'even groot als P(x̄ − µ < −d)'] : null]
+            .concat(halfRows(q, v.alpha, sym, centre, m[2])));
+          if (q.ci) h += ciRows(q.ci, 'µ (' + (sym === 'z' ? 'z, σ gekend' : 't, σ onbekend') + ')');
+          if (q.test) h += '<p class="lbl">' + sym + '-toets van H0: µ = µ0 = ' + f(v.mu0) + ', toetsgrootheid (x̄ − µ0)/(' + m[2] + ')</p>' +
+            testRows(q.test, sym === 'z' ? null : r.df);
+        });
+        if (!num(v.alpha)) h += '<p class="xl">Vul α of de betrouwbaarheid in voor de kritieke waarde en het BI.</p>';
+        else if (num(v.mu0) && !num(r.xbar)) h += '<p class="xl">Vul x̄ in voor de toets van µ0.</p>';
         return result(h, d.solved);
       } }
   ];
   TOOLS.tweegemiddelden = [
     { title: 'Twee onafhankelijke steekproeven: µ1 − µ2 (gepoolde s, t met n1 + n2 − 2)',
-      help: 'Plak beide reeksen óf vul de samenvattingen in.',
+      help: 'Plak beide reeksen óf vul de samenvattingen in. n en s van beide geven al de gepoolde s, de standaardfout en ' +
+            '(met α) de halve breedte; met beide gemiddelden ook het BI en de toets. H0: µ1 − µ2 = d0, meestal 0 ("geen verschil").',
       form: ALPHA + area('d1', 'data steekproef 1 (optioneel)', '', 2) + area('d2', 'data steekproef 2 (optioneel)', '', 2) +
-            inp('n1', 'n1') + inp('m1', 'x̄1') + inp('s1', 's1') + inp('n2', 'n2') + inp('m2', 'x̄2') + inp('s2', 's2') + inp('d0', 'H0: µ1 − µ2 = (standaard 0)'),
+            inp('n1', 'n1') + inp('m1', 'x̄1') + inp('s1', 's1') + inp('n2', 'n2') + inp('m2', 'x̄2') + inp('s2', 's2') +
+            inp('d0', 'd0 in H0: µ1 − µ2 = d0 (leeg = 0)'),
       run: function (v) {
         var a = summary(v, 'd1', 'n1', 'm1', 's1'), b = summary(v, 'd2', 'n2', 'm2', 's2');
-        var r = Calc.twoMeansPooled(a.n, a.mean, a.s, b.n, b.mean, b.s, v.d0, v.alpha);
-        if (!r) return '';
-        return result(out([['steekproef 1: n, x̄, s', f(a.n) + ' ; ' + f(a.mean) + ' ; ' + f(a.s)], ['steekproef 2: n, x̄, s', f(b.n) + ' ; ' + f(b.mean) + ' ; ' + f(b.s)],
-                    ['x̄1 − x̄2', f(r.diff)], ['gepoolde s_p', f(r.sp)], ['s.e. = s_p √(1/n1 + 1/n2)', f(r.se)], ['vrijheidsgraden', f(r.df)]]) +
-          ciRows(r.ci, 'µ1 − µ2') + '<p class="lbl">t-toets van H0: µ1 − µ2 = d0</p>' + testRows(r.test, r.df), merge(a.solved, b.solved));
+        var r = Calc.twoMeansPooled(a.n, a.mean, a.s, b.n, b.mean, b.s, v.d0, v.alpha), solved = merge(a.solved, b.solved);
+        if (!r) return result('', solved);
+        var centre = num(r.diff) ? f(r.diff) : '(x̄1 − x̄2)';
+        var h = out([['steekproef 1: n, x̄, s', f(a.n) + ' ; ' + f(a.mean) + ' ; ' + f(a.s)], ['steekproef 2: n, x̄, s', f(b.n) + ' ; ' + f(b.mean) + ' ; ' + f(b.s)],
+                     alphaRow(v.alpha), num(r.diff) ? ['x̄1 − x̄2', f(r.diff)] : null, ['gepoolde s_p', f(r.sp)],
+                     ['s.e. = s_p √(1/n1 + 1/n2)', f(r.se)], ['vrijheidsgraden n1 + n2 − 2', f(r.df)]].concat(halfRows(r, v.alpha, 't', centre, 's.e.')));
+        if (r.ci) h += ciRows(r.ci, 'µ1 − µ2') + '<p class="lbl">t-toets van H0: µ1 − µ2 = ' + f(num(v.d0) ? v.d0 : 0) + '</p>' + testRows(r.test, r.df);
+        return result(h, solved);
       } },
     { title: 'Gepaarde waarnemingen: verschillen v = x1 − x2 (t met n − 1)',
-      help: 'Plak per regel een paar "x1 x2", of enkel de verschillen, of vul n, v̄ en s_v in.',
-      form: ALPHA + area('pairs', 'paren x1 x2 (één paar per regel) of verschillen', '', 3) + inp('n', 'n') + inp('m', 'v̄') + inp('s', 's_v') +
-            inp('d0', 'H0: µ_v = (standaard 0)'),
+      help: 'Plak per regel een paar "x1 x2", of enkel de verschillen, of vul n, v̄ en s_v in. n en s_v geven al de standaardfout en ' +
+            '(met α) de halve breedte. H0: µ_v = d0, meestal 0 ("geen verschil").',
+      form: ALPHA + area('pairs', 'paren x1 x2 (één paar per regel) of verschillen', '', 3) + inp('n', 'n (aantal paren)') + inp('m', 'v̄') + inp('s', 's_v') +
+            inp('d0', 'd0 in H0: µ_v = d0 (leeg = 0)'),
       run: function (v) {
         var rows = parseRows(v.text.pairs), diffs = rows.length && rows.every(function (r) { return r.length === 2; })
           ? rows.map(function (r) { return r[0] - r[1]; }) : [].concat.apply([], rows);
         var d = diffs.length >= 2 ? Calc.describe(diffs) : { n: v.n, mean: v.m, s: v.s };
-        var r = Calc.paired(d.n, d.mean, d.s, v.d0, v.alpha);
-        return r ? result(out([['n', f(d.n)], ['v̄', f(d.mean)], ['s_v', f(d.s)], ['s.e. = s_v/√n', f(r.se)], ['vrijheidsgraden', f(r.df)]]) +
-          ciRows(r.ci, 'µ_v') + '<p class="lbl">gepaarde t-toets</p>' + testRows(r.test, r.df), diffs.length >= 2 ? { n: d.n, m: d.mean, s: d.s } : {}) : '';
+        var r = Calc.paired(d.n, d.mean, d.s, v.d0, v.alpha), solved = diffs.length >= 2 ? { n: d.n, m: d.mean, s: d.s } : {};
+        if (!r) return result('', solved);
+        var h = out([['n', f(d.n)], num(d.mean) ? ['v̄', f(d.mean)] : null, ['s_v', f(d.s)], alphaRow(v.alpha), ['s.e. = s_v/√n', f(r.se)],
+                     ['vrijheidsgraden n − 1', f(r.df)]].concat(halfRows(r, v.alpha, 't', num(d.mean) ? f(d.mean) : 'v̄', 's_v/√n')));
+        if (r.ci) h += ciRows(r.ci, 'µ_v') + '<p class="lbl">gepaarde t-toets</p>' + testRows(r.test, r.df);
+        return result(h, solved);
       } }
   ];
   TOOLS.proportie = [
     { title: 'Eén proportie π: BI (normale benadering en exact) en Z-toets',
-      help: 'Vul n en x in; met π0 ook de Z-toets.',
-      form: ALPHA + inp('n', 'n') + inp('x', 'x = aantal successen (bv. defecten)') + inp('pi0', 'π0 (H0: π = π0)'),
+      help: 'Vul in wat je hebt. n en x geven p en de standaardfout; met α of de betrouwbaarheid ook de BI. ' +
+            'π0 is de fractie uit de bewering die je toetst (H0: π = π0, bv. "hoogstens 2 % defect": π0 = 0,02); n en π0 geven al ' +
+            'de standaardfout onder H0 en (met α) de kritieke p, ook zonder x.',
+      form: ALPHA + inp('n', 'n') + inp('x', 'x = aantal successen (bv. defecten)') + inp('pi0', 'π0: fractie uit de bewering (H0: π = π0)'),
       run: function (v) {
         var r = Calc.oneProportion(v.n, v.x, v.pi0, v.alpha);
         if (!r) return '';
-        var h = out([['p = x / n', fp(r.p)], ['s.e. = √(p(1 − p)/n)', f(r.se)]]) + ciRows(r.ci, 'π (normale benadering)') +
+        var h = out([alphaRow(v.alpha), num(r.p) ? ['p = x / n', fp(r.p)] : null, num(r.se) ? ['s.e. = √(p(1 − p)/n)', f(r.se)] : null,
+                     num(r.se0) ? ['s.e. onder H0 = √(π0(1 − π0)/n)', f(r.se0)] : null,
+                     num(r.se0) ? ['voorwaarde voor de Z-toets n·π0 > 5', r.condition ? 'ja' : '<b>nee</b>: gebruik het exacte interval'] : null]);
+        if (r.ci) h += ciRows(r.ci, 'π (normale benadering)') +
           grid(['exact BI (Clopper-Pearson)', 'van', 'tot'], [['tweezijdig', fp(r.exact.two[0]), fp(r.exact.two[1])],
             ['enkel ondergrens', fp(r.exact.lower[0]), '+∞'], ['enkel bovengrens', fp(r.exact.upper[0]), fp(r.exact.upper[1])]]);
-        if (r.test) h += '<p class="lbl">Z-toets van H0: π = π0 — z = (p − π0)/√(π0(1 − π0)/n); voorwaarde n·π0 > 5: ' +
-          (r.condition ? 'ja' : '<b>nee</b>') + '</p>' + testRows(r.test, null);
+        if (r.critical && !r.test) h += '<p class="lbl">H0 verwerpen als p buiten deze grenzen valt</p>' + grid(['H<sub>A</sub>', 'kritieke p'], [
+            ['π ≠ π0', fp(r.critical.ne[0]) + ' en ' + fp(r.critical.ne[1])], ['π > π0', fp(r.critical.gt)], ['π < π0', fp(r.critical.lt)]]);
+        if (r.test) h += '<p class="lbl">Z-toets van H0: π = π0 — z = (p − π0)/√(π0(1 − π0)/n)</p>' + testRows(r.test, null);
+        if (!num(v.alpha)) h += '<p class="xl">Vul α of de betrouwbaarheid in voor de BI en de toets.</p>';
         return h;
       }, pct: ['pi0'] },
-    { title: 'Twee proporties: π1 − π2 (normale benadering)', form: ALPHA + inp('n1', 'n1') + inp('x1', 'x1') + inp('n2', 'n2') + inp('x2', 'x2'),
+    { title: 'Twee proporties: π1 − π2 (normale benadering)',
+      help: 'n en x van beide geven p1, p2, het verschil en de standaardfout; met α ook de BI.',
+      form: ALPHA + inp('n1', 'n1') + inp('x1', 'x1') + inp('n2', 'n2') + inp('x2', 'x2'),
       run: function (v) {
         var r = Calc.twoProportions(v.n1, v.x1, v.n2, v.x2, v.alpha);
-        return r ? out([['p1', fp(r.p1)], ['p2', fp(r.p2)], ['p1 − p2', fp(r.diff)], ['s.e.', f(r.se)]]) + ciRows(r.ci, 'π1 − π2') : '';
+        if (!r) return '';
+        return out([alphaRow(v.alpha), ['p1', fp(r.p1)], ['p2', fp(r.p2)], ['p1 − p2', fp(r.diff)], ['s.e. = √(p1(1 − p1)/n1 + p2(1 − p2)/n2)', f(r.se)]]) +
+          (r.ci ? ciRows(r.ci, 'π1 − π2') : '');
       } }
   ];
+  // χ² or F critical values, and the limits they put on s or on F, before the data are known
+  function critRows(c, sym) {
+    return c ? [['kritieke waarden tweezijdig ' + sym + '<sub>α/2</sub> ; ' + sym + '<sub>1−α/2</sub>', f(c.lo2) + ' ; ' + f(c.hi2)],
+                ['kritieke waarde eenzijdig ' + sym + '<sub>α</sub> (links) ; ' + sym + '<sub>1−α</sub> (rechts)', f(c.lo1) + ' ; ' + f(c.hi1)]] : [];
+  }
   TOOLS.variantie = [
     { title: 'Eén variantie σ²: BI (σ² en σ) en χ²-toets (n − 1 vrijheidsgraden)',
-      help: 'Plak ruwe data óf vul n en s in; met σ0 ook de χ²-toets.',
-      form: ALPHA + area('data', 'ruwe data (optioneel)', '', 2) + inp('n', 'n') + inp('s', 's') + inp('sigma0', 'σ0 (H0: σ = σ0)'),
+      help: 'Vul in wat je hebt. n en α geven de χ²-kritieke waarden; met σ0 (de waarde uit de bewering, H0: σ = σ0) ook de s ' +
+            'waarboven of waaronder je H0 verwerpt; met s (of ruwe data) de BI en de toets.',
+      form: ALPHA + area('data', 'ruwe data (optioneel)', '', 2) + inp('n', 'n') + inp('s', 's') + inp('sigma0', 'σ0: waarde uit de bewering (H0: σ = σ0)'),
       run: function (v) {
         var d = summary(v, 'data', 'n', 'm', 's'), r = Calc.oneVariance(d.n, d.s, v.sigma0, v.alpha);
-        if (!r) return '';
+        if (!r) return result('', d.solved);
         var sq = function (x) { return x === Infinity ? Infinity : Math.sqrt(x); };
-        var h = out([['n', f(d.n)], ['s', f(d.s)], ['s²', f(r.s2)], ['vrijheidsgraden', f(r.df)]]) +
-          grid(['BI', 'σ² van', 'σ² tot', 'σ van', 'σ tot'], [
+        var h = out([['n', f(d.n)], num(d.s) ? ['s', f(d.s)] : null, num(r.s2) ? ['s²', f(r.s2)] : null, ['vrijheidsgraden n − 1', f(r.df)],
+                     alphaRow(v.alpha)].concat(critRows(r.crit, 'χ²')));
+        if (r.sLimits && !r.test) h += '<p class="lbl">H0: σ = σ0 verwerpen als s buiten deze grenzen valt: s = σ0·√(χ²/(n − 1))</p>' +
+          grid(['H<sub>A</sub>', 'kritieke s'], [['σ ≠ σ0', f(r.sLimits.ne[0]) + ' en ' + f(r.sLimits.ne[1])],
+            ['σ > σ0', f(r.sLimits.gt)], ['σ < σ0', f(r.sLimits.lt)]]);
+        if (r.ci) h += grid(['BI', 'σ² van', 'σ² tot', 'σ van', 'σ tot'], [
             ['tweezijdig', f(r.ci.two[0]), f(r.ci.two[1]), f(sq(r.ci.two[0])), f(sq(r.ci.two[1]))],
             ['enkel ondergrens (σ minstens …; H<sub>A</sub>: σ > σ0)', f(r.ci.lower[0]), '+∞', f(sq(r.ci.lower[0])), '+∞'],
             ['enkel bovengrens (σ hoogstens …; H<sub>A</sub>: σ < σ0)', '0', f(r.ci.upper[1]), '0', f(sq(r.ci.upper[1]))]]);
@@ -294,25 +351,32 @@
             ['σ ≠ σ0', f(t.stat), f(t.ne.crit[0]) + ' en ' + f(t.ne.crit[1]), fp(t.ne.p), t.ne.d],
             ['σ > σ0', f(t.stat), f(t.gt.crit[0]), fp(t.gt.p), t.gt.d], ['σ < σ0', f(t.stat), f(t.lt.crit[0]), fp(t.lt.p), t.lt.d]]);
         }
+        if (!num(v.alpha)) h += '<p class="xl">Vul α of de betrouwbaarheid in voor de kritieke waarden, de BI en de toets.</p>';
         return result(h, d.solved);
       } },
     { title: 'Twee varianties: BI voor σ1²/σ2² en F-toets (F(n1 − 1, n2 − 1))',
-      help: 'Plak beide reeksen óf vul n en s van elk in (zoals examenvraag 2).',
+      help: 'Plak beide reeksen óf vul n en s van elk in (zoals examenvraag 2). n1, n2 en α geven al de F-kritieke waarden; ' +
+            'met s1 en s2 ook F, de BI en de toets van H0: σ1 = σ2.',
       form: ALPHA + area('d1', 'data 1 (optioneel)', '', 2) + area('d2', 'data 2 (optioneel)', '', 2) + inp('n1', 'n1') + inp('s1', 's1') +
             inp('n2', 'n2') + inp('s2', 's2'),
       run: function (v) {
-        var a = summary(v, 'd1', 'n1', 'x', 's1'), b = summary(v, 'd2', 'n2', 'x', 's2');
+        var a = summary(v, 'd1', 'n1', 'x', 's1'), b = summary(v, 'd2', 'n2', 'x', 's2'), solved = merge(a.solved, b.solved);
         var r = Calc.twoVariances(a.n, a.s, b.n, b.s, v.alpha);
-        if (!r) return '';
-        var t = r.test;
-        return result(out([['n1, s1', f(a.n) + ' ; ' + f(a.s)], ['n2, s2', f(b.n) + ' ; ' + f(b.s)], ['F = s1²/s2²', f(r.F)], ['vrijheidsgraden', f(r.v1) + ' en ' + f(r.v2)]]) +
-          grid(['BI', 'σ1²/σ2² van', 'tot', 'σ2²/σ1² van', 'tot'], [
-            ['tweezijdig', f(r.ci.two[0]), f(r.ci.two[1]), f(r.ciInv.two[0]), f(r.ciInv.two[1])],
-            ['σ1²/σ2² minstens … (σ2²/σ1² hoogstens …)', f(r.ci.lower[0]), '+∞', '0', f(r.ciInv.upper[1])],
-            ['σ1²/σ2² hoogstens … (σ2²/σ1² minstens …)', '0', f(r.ci.upper[1]), f(r.ciInv.lower[0]), '+∞']]) +
-          '<p class="lbl">F-toets van H0: σ1 = σ2</p>' + grid(['H<sub>A</sub>', 'F', 'kritieke waarde(n)', 'p-waarde', 'besluit'], [
-            ['σ1 ≠ σ2', f(t.stat), f(t.ne.crit[0]) + ' en ' + f(t.ne.crit[1]), fp(t.ne.p), t.ne.d],
-            ['σ1 > σ2', f(t.stat), f(t.gt.crit[0]), fp(t.gt.p), t.gt.d], ['σ1 < σ2', f(t.stat), f(t.lt.crit[0]), fp(t.lt.p), t.lt.d]]), merge(a.solved, b.solved));
+        if (!r) return result('', solved);
+        var h = out([['n1 ; s1', f(a.n) + ' ; ' + f(a.s)], ['n2 ; s2', f(b.n) + ' ; ' + f(b.s)], ['vrijheidsgraden n1 − 1 ; n2 − 1', f(r.v1) + ' ; ' + f(r.v2)],
+                     alphaRow(v.alpha), num(r.F) ? ['F = s1²/s2²', f(r.F)] : null].concat(critRows(r.crit, 'F')));
+        if (r.ci) {
+          var t = r.test;
+          h += grid(['BI', 'σ1²/σ2² van', 'tot', 'σ2²/σ1² van', 'tot'], [
+              ['tweezijdig', f(r.ci.two[0]), f(r.ci.two[1]), f(r.ciInv.two[0]), f(r.ciInv.two[1])],
+              ['σ1²/σ2² minstens … (σ2²/σ1² hoogstens …)', f(r.ci.lower[0]), '+∞', '0', f(r.ciInv.upper[1])],
+              ['σ1²/σ2² hoogstens … (σ2²/σ1² minstens …)', '0', f(r.ci.upper[1]), f(r.ciInv.lower[0]), '+∞']]) +
+            '<p class="lbl">F-toets van H0: σ1 = σ2</p>' + grid(['H<sub>A</sub>', 'F', 'kritieke waarde(n)', 'p-waarde', 'besluit'], [
+              ['σ1 ≠ σ2', f(t.stat), f(t.ne.crit[0]) + ' en ' + f(t.ne.crit[1]), fp(t.ne.p), t.ne.d],
+              ['σ1 > σ2', f(t.stat), f(t.gt.crit[0]), fp(t.gt.p), t.gt.d], ['σ1 < σ2', f(t.stat), f(t.lt.crit[0]), fp(t.lt.p), t.lt.d]]);
+        }
+        if (!num(v.alpha)) h += '<p class="xl">Vul α of de betrouwbaarheid in voor de kritieke waarden, de BI en de toets.</p>';
+        return result(h, solved);
       } }
   ];
 
@@ -385,8 +449,8 @@
   TOOLS.kruistabel = [
     { title: 'Voorwaardelijke kansen uit data: kruistabel of ruwe data, marginale verdelingen, (on)afhankelijkheid',
       help: 'Plak een kruistabel met aantallen (namen in de eerste rij en kolom mogen; een rij of kolom "Totaal" wordt weggelaten) ' +
-            'of ruwe data: één waarneming per regel, de categorie van X en van Y (bv. "Lijn 1 ⇥ Accepted"). Kopieer uit Excel: ' +
-            'dan mogen namen spaties bevatten. Kies daarna wat gevraagd is en wat gegeven is.',
+            'of ruwe data: één waarneming per regel, de categorie van X en van Y (bv. "Lijn 1 ⇥ Accepted"). Kolommen gescheiden door een tab ' +
+            '(geplakt uit een tabel): dan mogen namen spaties bevatten. Kies daarna wat gevraagd is en wat gegeven is.',
       form: sel('kind', 'soort data', [['tabel', 'kruistabel met aantallen'], ['ruw', 'ruwe data: X en Y per regel']]) +
             sel('head', 'ruwe data: eerste regel', [['0', 'is al een waarneming'], ['1', 'is een kop met de namen van X en Y']]) +
             txt('nx', 'naam van X (rijen)', 'X') + txt('ny', 'naam van Y (kolommen)', 'Y') +
@@ -441,7 +505,7 @@
         if (x2 && num(x2.chi2)) {
           h += '<p class="lbl">is de tabel een steekproef? χ²-toets op onafhankelijkheid (Test Recipes p. 18–20; zie ook 05.13)</p>' +
             out([['χ² = Σ (n − e)²/e, met e = rijtotaal · kolomtotaal / N', f(x2.chi2)], ['vrijheidsgraden (r − 1)(c − 1)', f(x2.df)],
-                 ['kritieke waarde CHISQ.INV.RT(α; df)', f(x2.crit)], ['p-waarde', fp(x2.p)],
+                 ['kritieke waarde χ² (kans α rechts ervan)', f(x2.crit)], ['p-waarde', fp(x2.p)],
                  ['besluit bij α', num(v.alpha) ? (x2.p < v.alpha ? 'verwerp H0: afhankelijk' : 'H0 (onafhankelijk) niet verwerpen') : '–'],
                  num(x2.yates) ? ['2×2: χ² met Yates ; p-waarde', f(x2.yates) + ' ; ' + fp(x2.pYates)] : null,
                  x2.small ? ['<b>' + x2.small + ' cel(len) met e ≤ 5</b>', 'voorwaarde e > 5 niet voldaan (TR p. 19)'] : null]);
@@ -494,7 +558,7 @@
 
   TOOLS.regressie = [
     { title: 'Enkelvoudige lineaire regressie: schatting, ANOVA, toetsen, BI en PI',
-      help: 'Eén paar "x y" per regel (plak twee kolommen uit Excel).',
+      help: 'Eén paar "x y" per regel (plak twee kolommen).',
       form: ALPHA + area('xy', 'x y (één paar per regel)', '', 5) + inp('x0', 'x0 (voor BI/PI)') + inp('b1', 'H0: β1 = (standaard 0)') + inp('b0', 'H0: β0 = (standaard 0)'),
       run: function (v) {
         var rows = parseRows(v.text.xy);
@@ -597,12 +661,18 @@
   ];
 
   TOOLS.regelkaart = [
-    { title: 'Grenzen uit X̿, R̄ en/of s̄ (X̄-R en X̄-s)', help: 'Vul n en X̿ in, met R̄ en/of s̄.',
+    { title: 'Grenzen uit X̿, R̄ en/of s̄ (X̄-R en X̄-s)',
+      help: 'n alleen geeft de constanten; met R̄ en/of s̄ ook de R- of s-kaart, σ̂ en de halve breedte van de X̄-kaart; met X̿ de X̄-grenzen.',
       form: inp('n', 'n (subgroepgrootte)') + inp('xbb', 'X̿') + inp('rbar', 'R̄') + inp('sbar', 's̄'),
       run: function (v) {
         if (!num(v.n)) return '';
         var r = Calc.limitsSummary(v.n, v.xbb, v.rbar, v.sbar, K);
-        return limitsTable(r);
+        if (!num(r.A2)) return warn('n = ' + f(v.n) + ' staat niet in de tabel');
+        var half = [];
+        if (!num(v.xbb) && num(v.rbar)) half.push(['X̄-kaart met R̄: X̿ ± A2·R̄', 'X̿ ± ' + f(r.A2 * v.rbar)]);
+        if (!num(v.xbb) && num(v.sbar)) half.push(['X̄-kaart met s̄: X̿ ± A3·s̄', 'X̿ ± ' + f(r.A3 * v.sbar)]);
+        return out([['constanten bij n = ' + f(v.n), ['A2', 'D3', 'D4', 'd2', 'A3', 'B3', 'B4', 'c4'].map(function (c) { return c + ' = ' + f(r[c]); }).join(' · ')]]
+                   .concat(half)) + limitsTable(r);
       } },
     { title: 'Subgroepen: ruwe data → X̿, R̄, s̄, grenzen en signalen', help: 'Eén subgroep per regel, alle subgroepen even groot.',
       form: area('g', 'subgroepen (één per regel)', '', 6),
@@ -718,8 +788,9 @@
       form: ALPHA + inp('beta', 'β (staartfractie)', '', '0,10') + inp('n', 'n') + inp('m', 'Ȳ') + inp('s', 'σ'),
       run: function (v) {
         var r = Calc.tolerance(v.n, v.m, v.s, v.alpha, v.beta, true);
-        return r ? out([['k (eenzijdig)', f(r.k1)], ['LTL = Ȳ − kσ', f(r.ltl)], ['UTL = Ȳ + kσ', f(r.utl), 'CI FR p. 22 drukt 5,55: een drukfout (Ȳ + kσ geeft dit)'],
-                        ['k* (tweezijdig)', f(r.k2)], ['tweezijdig interval', iv(r.two)]]) +
+        return r ? out([['k (eenzijdig)', f(r.k1)], ['LTL = Ȳ − kσ', num(r.ltl) ? f(r.ltl) : 'Ȳ − ' + f(r.k1) + '·σ'],
+                        ['UTL = Ȳ + kσ', num(r.utl) ? f(r.utl) : 'Ȳ + ' + f(r.k1) + '·σ', 'CI FR p. 22 drukt 5,55: een drukfout (Ȳ + kσ geeft dit)'],
+                        ['k* (tweezijdig)', f(r.k2)], ['tweezijdig interval', r.two ? iv(r.two) : 'Ȳ ± ' + f(r.k2) + '·σ']]) +
           '<p class="xl">Ligt de eis (bv. ln 240) binnen [LTL; +∞[, dan is ze niet aangetoond (CI FR p. 22).</p>' : '';
       }, pct: ['beta'] },
     { title: 'Tolerantie-interval, σ onbekend (CI FR p. 23)',
@@ -727,8 +798,9 @@
       form: ALPHA + inp('beta', 'β (staartfractie)', '', '0,10') + inp('n', 'n') + inp('m', 'Ȳ') + inp('s', 's'),
       run: function (v) {
         var r = Calc.tolerance(v.n, v.m, v.s, v.alpha, v.beta, false);
-        return r ? out([['k = t(α, β, n) (eenzijdig)', f(r.k1)], ['LTL = Ȳ − ks', f(r.ltl)], ['UTL = Ȳ + ks', f(r.utl)],
-                        ["k′ = t(α/2, β/2, n) (tweezijdig)", f(r.k2)], ['tweezijdig interval', iv(r.two)]]) : '';
+        return r ? out([['k = t(α, β, n) (eenzijdig)', f(r.k1)], ['LTL = Ȳ − ks', num(r.ltl) ? f(r.ltl) : 'Ȳ − ' + f(r.k1) + '·s'],
+                        ['UTL = Ȳ + ks', num(r.utl) ? f(r.utl) : 'Ȳ + ' + f(r.k1) + '·s'],
+                        ["k′ = t(α/2, β/2, n) (tweezijdig)", f(r.k2)], ['tweezijdig interval', r.two ? iv(r.two) : 'Ȳ ± ' + f(r.k2) + '·s']]) : '';
       }, pct: ['beta'] },
     { title: 'Verdelingsvrij tolerantie-interval [x<sub>(1)</sub>; x<sub>(n)</sub>] (CI FR p. 23)',
       help: 'Zonder n: de kleinste n; met n: de betrouwbaarheid.',
@@ -747,9 +819,14 @@
         var detect = num(shift) ? out([['kleinste verschuiving die de eenzijdige toets met die β ziet: (z<sub>1−α</sub> + z<sub>1−β</sub>)σ/√n', f(shift)],
                                        num(v.mu0) ? ['µ1 voor H<sub>A</sub>: µ > µ0 ; voor H<sub>A</sub>: µ < µ0', f(v.mu0 + shift) + ' ; ' + f(v.mu0 - shift)] : null]) : '';
         if (!r) return detect;
-        return out([['σ/√n', f(r.se)]]) + detect + grid(['H<sub>A</sub>', 'kritieke waarde(n) x̄', 'β (H0 ten onrechte aanvaarden)', 'power = 1 − β'], [
-            ['µ > µ0', f(r.gt.crit[0]), fp(r.gt.beta), fp(r.gt.power)], ['µ < µ0', f(r.lt.crit[0]), fp(r.lt.beta), fp(r.lt.power)],
-            ['µ ≠ µ0', f(r.ne.crit[0]) + ' en ' + f(r.ne.crit[1]), fp(r.ne.beta), fp(r.ne.power)]]) +
+        var crit = { gt: f(r.gt.crit[0]), lt: f(r.lt.crit[0]), ne: f(r.ne.crit[0]) + ' en ' + f(r.ne.crit[1]) };
+        var power = num(v.mu1)
+          ? grid(['H<sub>A</sub>', 'kritieke waarde(n) x̄', 'β (H0 ten onrechte aanvaarden)', 'power = 1 − β'], [
+              ['µ > µ0', crit.gt, fp(r.gt.beta), fp(r.gt.power)], ['µ < µ0', crit.lt, fp(r.lt.beta), fp(r.lt.power)],
+              ['µ ≠ µ0', crit.ne, fp(r.ne.beta), fp(r.ne.power)]])
+          : grid(['H<sub>A</sub>', 'H0 verwerpen als x̄ voorbij'], [['µ > µ0', crit.gt], ['µ < µ0', crit.lt], ['µ ≠ µ0', crit.ne]]) +
+            '<p class="xl">Vul de ware µ1 in voor β en de power.</p>';
+        return out([alphaRow(v.alpha), ['σ/√n', f(r.se)]]) + detect + power +
           (num(r.nOneSided) ? out([['n voor die β, eenzijdig: ((z<sub>1−α</sub> + z<sub>1−β</sub>)σ/|µ1 − µ0|)²', f(r.nOneSided)], ['naar boven afgerond', f(r.nOneSidedUp), 'TH FR p. 9: n = 195']]) : '');
       }, pct: ['tb'] },
     { title: 'β van de Z-toets voor een proportie π',
@@ -766,7 +843,7 @@
   ];
   TOOLS.chikwadraat = [
     { title: 'χ²-aanpassingstoets (goodness of fit)',
-      help: 'Geef kansen of verwachte aantallen. Excel CHISQ.TEST past de vrijheidsgraden NIET aan voor g.',
+      help: 'Geef kansen of verwachte aantallen. De vrijheidsgraden houden rekening met g geschatte parameters.',
       form: ALPHA + area('o', 'waargenomen aantallen n<sub>k</sub> per klasse', '', 2) + area('e', 'verwachte kansen π<sub>k</sub> (of verwachte aantallen)', '', 2) + inp('g', 'g = aantal geschatte parameters', '', '0'),
       run: function (v) {
         var o = parseList(v.text.o), e = parseList(v.text.e);
@@ -774,8 +851,8 @@
         if (o.length !== e.length) return warn('evenveel waargenomen als verwachte waarden nodig');
         var r = Calc.chi2Fit(o, e, v.g, v.alpha);
         return grid(['klasse', 'n<sub>k</sub>', 'e<sub>k</sub>'], o.map(function (x, i) { return [String(i + 1), f(x), f(r.e[i])]; })) +
-          out([['χ²', f(r.chi2)], ['vrijheidsgraden r − g − 1', f(r.df)], ['kritieke waarde CHISQ.INV.RT(α; df)', f(r.crit)],
-               ['p-waarde CHISQ.DIST.RT', fp(r.p)], ['besluit', num(r.p) ? (r.p < v.alpha ? 'verwerp H0' : 'H0 niet verwerpen') : '–'],
+          out([['χ²', f(r.chi2)], ['vrijheidsgraden r − g − 1', f(r.df)], ['kritieke waarde χ² (kans α rechts ervan)', f(r.crit)],
+               ['p-waarde P(χ² ≥ waarde)', fp(r.p)], ['besluit', num(r.p) ? (r.p < v.alpha ? 'verwerp H0' : 'H0 niet verwerpen') : '–'],
                r.small ? ['<b>' + r.small + ' klasse(n) met e ≤ 5</b>', 'klassen samenvoegen (TR p. 17)'] : null]);
       } },
     { title: 'χ²-toets op onafhankelijkheid (kruistabel)',
@@ -884,8 +961,8 @@
   ];
   TOOLS.variabelenplan = [
     { title: 'Plan voor variabelen met gegeven n: ξ, k = t(1 − α, p0, n), Q en beslissing',
-      help: 'Geef ξ direct, of µ en σ voor ξ = NORM.INV(p0; µ; σ) zoals het werkboek.',
-      form: inp('p0', 'p0 (AQL)') + ALPHA + inp('n', 'n') + inp('xi', 'ξ (ondergrens)') + inp('mu', 'of µ (voor ξ = NORM.INV(p0; µ; σ))') + inp('sg', 'σ (idem)') +
+      help: 'Geef ξ direct, of µ en σ: ξ = µ + z<sub>p0</sub>·σ, de waarde met kans p0 links ervan in N(µ, σ), zoals het werkboek.',
+      form: inp('p0', 'p0 (AQL)') + ALPHA + inp('n', 'n') + inp('xi', 'ξ (ondergrens)') + inp('mu', 'of µ (voor ξ = µ + z<sub>p0</sub>·σ)') + inp('sg', 'σ (idem)') +
             inp('m', 'X̄ van de steekproef') + inp('s', 's van de steekproef') + inp('k', 'k (leeg = t)'),
       run: function (v) {
         var xi = num(v.xi) ? v.xi : (num(v.mu) && num(v.sg) && num(v.p0) ? v.mu + v.sg * Stats.normInv(v.p0) : null);
@@ -974,14 +1051,14 @@
   }
   TOOLS.beschrijvend = [
     { title: 'Beschrijvende statistiek van één reeks',
-      help: 'Excel: AVERAGE, MEDIAN, MODE, STDEV.S (n − 1) en STDEV.P (n).',
+      help: 'Gemiddelde, mediaan, modus, s (n − 1 in de noemer) en σ (n in de noemer).',
       form: area('x', 'waarden', '', 3),
       run: function (v) {
         var xs = parseList(v.text.x), r = Calc.descriptives(xs);
         return r ? out([['n', f(r.n)], ['som', f(r.sum)], ['gemiddelde x̄', f(r.mean)], ['mediaan', f(r.median)], ['modus', modes(xs)],
                         ['minimum ; maximum', f(r.min) + ' ; ' + f(r.max)], ['bereik R = max − min', f(r.range)],
                         ['s (n − 1, steekproef)', f(r.sd)], ['s² (n − 1)', f(r.variance)], ['s/√n (standaardfout)', f(r.se)],
-                        ['σ met deler n (STDEV.P) ; σ²', f(r.sdPop) + ' ; ' + f(r.variancePop)]]) : '';
+                        ['σ met deler n ; σ²', f(r.sdPop) + ' ; ' + f(r.variancePop)]]) : '';
       } },
     { title: 'Correlatie en covariantie van paren (x, y)',
       help: 'De cursus noemt de deler van de covariantie niet: beide staan hier (COVARIANCE.S met n − 1, COVAR met n).',
@@ -1021,7 +1098,7 @@
         if (!r) return '';
         var rows = [['β1', r.ciB1, r.seB1, r.tB1]];
         if (r.ciB0) rows.push(['β0', r.ciB0, r.seB0, r.tB0]);
-        var h = out([['t-kritiek T.INV(1 − α/2; n − 2)', f(r.tcrit)], ['F0 = t0² (enkelvoudig)', f(r.F)]]) +
+        var h = out([['t-kritiek t<sub>1−α/2; n−2</sub>', f(r.tcrit)], ['F0 = t0² (enkelvoudig)', f(r.F)]]) +
           grid(['', 's.e.', 't0', 'p (≠)', 'BI tweezijdig'], rows.map(function (q) { return [q[0], f(q[2]), f(q[3].stat), fp(q[3].ne.p), iv(q[1].two)]; }));
         if (num(r.y0)) h += out([['ŷ0', f(r.y0)], ['s.e. gemiddelde respons ; BI', f(r.seMean) + ' ; ' + iv(r.ciMean.two)],
                                  ['s.e. nieuwe waarneming ; PI', f(r.sePred) + ' ; ' + iv(r.pi.two)]]);
@@ -1031,7 +1108,7 @@
       form: ALPHA + inp('rm', 'SS<sub>E</sub>(RM)') + inp('fm', 'SS<sub>E</sub>(FM)') + inp('r', 'k − r (toegevoegde termen)') + inp('df', 'n − p (fout-df volledig model)'),
       run: function (v) {
         var r = Calc.partialF(v.rm, v.fm, v.r, v.df, v.alpha);
-        return r ? out([['F0', f(r.F)], ['F-kritiek F.INV.RT(α; k − r; n − p)', f(r.Fcrit)], ['p-waarde', fp(r.p)], ['besluit', r.d]]) : '';
+        return r ? out([['F0', f(r.F)], ['F-kritiek (kans α rechts ervan; k − r en n − p vrijheidsgraden)', f(r.Fcrit)], ['p-waarde', fp(r.p)], ['besluit', r.d]]) : '';
       } },
     { title: 'R²<sub>adj</sub> uit R²', form: inp('r2', 'R²') + inp('n', 'n') + inp('k', 'k (regressoren)'),
       run: function (v) { var r = Calc.r2adj(v.r2, v.n, v.k); return r ? out([['R²<sub>adj</sub> (n − k − 1, de cursusoutputs)', f(r.usual)], ['zoals gedrukt op REG p. 56 (n − k − 2)', f(r.p56)]]) : ''; }, pct: ['r2'] });
@@ -1057,7 +1134,7 @@
   }
   TOOLS.meervoudig = [
     { title: 'Meervoudige lineaire regressie (ook polynomen)',
-      help: 'Eén regel per waarneming: y gevolgd door x1, x2, … (plak de kolommen uit Excel, y eerst). Uitvoer zoals Excel (REG p. 52). Tweede orde = kwadraten en kruisproducten; centreren op het gemiddelde zoals het acetyleenvoorbeeld (REG p. 60) verandert de coëfficiënten van de lagere termen, niet R², S of F. BI en PI bij x0 volgen de standaard kleinste-kwadratenformule; de cursus geeft ze alleen voor enkelvoudige regressie.',
+      help: 'Eén regel per waarneming: y gevolgd door x1, x2, … (plak de kolommen, y eerst). Uitvoer zoals de cursus (REG p. 52). Tweede orde = kwadraten en kruisproducten; centreren op het gemiddelde zoals het acetyleenvoorbeeld (REG p. 60) verandert de coëfficiënten van de lagere termen, niet R², S of F. BI en PI bij x0 volgen de standaard kleinste-kwadratenformule; de cursus geeft ze alleen voor enkelvoudige regressie.',
       form: ALPHA + sel('model', 'model', [['lin', 'lineair in de ingevoerde x’en'], ['second', 'tweede orde (+ kwadraten en kruisproducten)'], ['poly2', 'polynoom graad 2 (één x)'], ['poly3', 'polynoom graad 3 (één x)']]) +
             sel('centre', 'x centreren op het gemiddelde', [['0', 'nee'], ['1', 'ja']]) + area('d', 'y x1 x2 … per regel', '', 6) + inp('x0', 'x0: waarden van x1 x2 … (optioneel)'),
       run: function (v) {
@@ -1070,7 +1147,7 @@
         if (!r) return '';
         if (r.error) return warn(r.error);
         var names = ['intercept'].concat(design.names);
-        return '<p class="lbl">Regressiestatistieken</p>' + out([['meervoudige R', f(Math.sqrt(r.r2))], ['R²', f(r.r2)], ['R²<sub>adj</sub> (n − k − 1, zoals Excel/Minitab)', f(r.r2adj)],
+        return '<p class="lbl">Regressiestatistieken</p>' + out([['meervoudige R', f(Math.sqrt(r.r2))], ['R²', f(r.r2)], ['R²<sub>adj</sub> (n − k − 1)', f(r.r2adj)],
                ['R²<sub>adj</sub> zoals REG p. 56 (n − k − 2)', f(r.r2adjP56)], ['standaardfout S = √MS<sub>E</sub>', f(r.s)], ['waarnemingen', f(r.n)],
                v.text.centre === '1' ? ['gecentreerd rond', design.means.map(function (m) { return f(m); }).join(' ; ')] : null]) +
           grid(['', 'df', 'SS', 'MS', 'F', 'p (Significance F)'], [['regressie', f(r.dfR), f(r.ssr), f(r.msr), f(r.F), fp(r.pF)],
@@ -1081,8 +1158,8 @@
       } }
   ];
   TOOLS.anova2 = [
-    { title: 'Tweewegs-ANOVA, met of zonder herhalingen (zoals Excel)',
-      help: 'Excel-indeling (Excel-functies p. 4): kolommen = niveaus van factor B; per niveau van factor A r regels onder elkaar ("Rows per sample" = r). r = 1: zonder herhalingen, de interactie is dan de fout. De cursus print de Excel-uitvoer "With Replication" in het GRR-werkboek (blad 2way anova).',
+    { title: 'Tweewegs-ANOVA, met of zonder herhalingen',
+      help: 'Kolommen = niveaus van factor B; per niveau van factor A r regels onder elkaar. r = 1: zonder herhalingen, de interactie is dan de fout. Met herhalingen zoals de uitvoer in het GRR-werkboek van de cursus (blad 2way anova).',
       form: ALPHA + inp('r', 'r = regels per niveau van A (herhalingen)', '', '1') + area('d', 'metingen', '', 8),
       run: function (v) {
         var r = Calc.anova2(parseRows(v.text.d), v.r, v.alpha);
@@ -1249,8 +1326,9 @@
       if (el.classList.contains('solved')) { v.text[el.name] = ''; v[el.name] = null; return; }   // derived, not given
       v.text[el.name] = el.value;
       if (el.tagName === 'TEXTAREA' || el.tagName === 'SELECT' || el.getAttribute('data-text')) return;
-      var x = parseNumber(el.value);
-      if (x !== null && !isNaN(x) && (pctNames || []).indexOf(el.name) >= 0 && /%\s*$/.test(el.value)) x = x / 100;
+      var x = parseNumber(el.value), pct = (pctNames || []).indexOf(el.name) >= 0 || el.name === 'alpha';
+      if (x !== null && !isNaN(x) && pct && /%\s*$/.test(el.value)) x = x / 100;
+      if (el.name === 'alpha' && x > 0.5 && x < 1) x = 1 - x;   // a confidence level 0,95 means α = 0,05
       v[el.name] = x === null || isNaN(x) ? null : x;
       el.classList.toggle('bad', isNaN(x));
     });
@@ -1289,8 +1367,9 @@
     details.dataset.ready = '1';
     var body = details.querySelector('.tool-body'), name = details.dataset.tool;
     var tpl = document.getElementById('tpl-' + name);
-    var blocks = TOOLS[name] || [];
+    var blocks = TOOLS[name] || [], only = details.dataset.blocks ? details.dataset.blocks.split(' ').map(Number) : null;
     blocks.forEach(function (b, index) {
+      if (only && only.indexOf(index) < 0) return;   // a calculator placed in the text shows only the blocks it needs
       var box = document.createElement('div');
       box.className = 'calc';
       box.innerHTML = '<h5>' + b.title + '</h5>' + (b.help ? '<p class="help">' + b.help + '</p>' : '') +
@@ -1323,7 +1402,7 @@
       form.addEventListener('submit', function (e) { e.preventDefault(); });
       run();
     });
-    if (tpl) body.appendChild(document.importNode(tpl.content, true));
+    if (tpl && !only) body.appendChild(document.importNode(tpl.content, true));
   }
   document.querySelectorAll('details.tool').forEach(function (d) {
     d.addEventListener('toggle', function () { if (d.open) mount(d); });

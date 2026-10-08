@@ -3,12 +3,7 @@
   <p class="intro">Een betrouwbaarheidsinterval (confidence interval; BI in het Nederlands, CI in het Engels) geeft
   niet alleen een schatting, maar ook hoe ver de ware waarde ervan kan liggen en hoe zeker je daarvan bent. Dit deel
   behandelt betrouwbaarheidsintervallen voor een gemiddelde, een proportie en een variantie, voor verschillen en
-  verhoudingen daarvan, het verband met toetsen en tolerantie-intervallen. Voor de normale verdeling en Z-waarden: zie
-  <a href="#d03">Deel 03</a>.</p>
-  <p class="small">Afkortingen bij de paginalinks: <b>CI</b> = slides "A primer on Confidence Intervals"; <b>CI FR</b> =
-  "Betrouwbaarheidsintervallen" (Further Reading, Dutch); <b>TH</b> en <b>TH FR</b> = idem voor "Testing of
-  Hypotheses"; <b>Recepten</b> = "Test Recipes – Further Reading (Dutch)"; <b>CI.xlsx</b> en <b>TH.xlsx</b> = de
-  Excel-oefenbestanden bij die documenten.</p>
+  verhoudingen daarvan, het verband met toetsen en tolerantie-intervallen.</p>
 
   <!-- ============================================================ 04.1 -->
   <section class="unit" id="d04-waarom" data-kw="betrouwbaarheidsinterval; confidence interval; BI; CI; puntschatting; point estimate; intervalschatting; interval estimate; betekenis 95 %; interpretatie; interpretation; hoefijzer; horseshoe; tegels; ceramic tiles; AQL; betrouwbaarheid; confidence level">
@@ -34,8 +29,7 @@
     <p><b>Het betrouwbaarheidsinterval</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=4">CI p. 4</a>. Met dezelfde steekproef (100 tegels, 4 defect) kun je met 95 %
     betrouwbaarheid zeggen dat het ware percentage defectieven tussen 1,1 % en 9,9 % ligt: het 95%-BI is
     [1,1 %; 9,9 %]. Dat is een <b>betrouwbare</b> uitspraak (95 %) en een <b>duidelijke</b> (niet lager dan 1,1 %,
-    niet hoger dan 9,9 %), al is ze niet erg nauwkeurig. Hoe je die grenzen berekent, staat in
-    <a href="#d04-inversie">04.3</a> en <a href="#d04-pi">04.5</a>.</p>
+    niet hoger dan 9,9 %), al is ze niet erg nauwkeurig.</p>
     <p><b>Consistentie</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=5">CI p. 5</a>. Trek je herhaaldelijk een steekproef van 100 uit een partij met 2 % defectieven,
     dan springen de puntschattingen van 0 % tot 7 %. De intervallen overlappen echter sterk, omdat 95 % van hen de
     (vaste) ware waarde 2 % moet bevatten: ze worden als het ware rond die waarde getekend (figuur hieronder).</p>
@@ -115,8 +109,10 @@
         <select><option value="">kies…</option><option value="groter">groter</option><option value="gelijk">(nagenoeg) gelijk</option><option value="kleiner">kleiner</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="normaal" data-blocks="0 2"></div>
+      <div class="calc-here" data-tool="gemiddelde" data-blocks="0"></div>
       <details class="hint"><summary>Hint</summary><p>\(\sym{xbar}{\bar{X}}\sim N\left(\sym{mu}{\mu},\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\right)\). Reken 5 cm om naar een aantal standaardfouten
-      \(\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\) en gebruik de standaardnormale verdeling (zie <a href="#d03">Deel 03</a>).</p></details>
+      \(\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\) en gebruik de standaardnormale verdeling.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>Standaardfout \(\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}=\frac{5}{\sqrt{10}}=1{,}581\) cm; 5 cm is dus \(\frac{5}{1{,}581}=3{,}162\) standaardfouten
@@ -132,19 +128,18 @@
       </details>
     </div>
 
-    <div class="exercise" id="ex-04-2" data-kw="simulatie; simulation; dekking; coverage; Confidence interval mean; werkblad; T.INV; interpretatie; interpretation; 95 %">
-      <h4>Oefening 04.2 — Wat betekent 95 %? (werkblad "Confidence interval mean") <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.xlsx">CI.xlsx</a></h4>
-      <p>Het werkblad "Confidence interval mean" in CI.xlsx trekt 100 steekproeven van \(n=10\) uit N(10; 2) (met
-      NORM.INV(RAND(); 10; 2)) en berekent voor elke steekproef het 95%-BI \(\sym{xbar}{\bar{x}}\pm\frac{\operatorname{T.INV}(0{,}975;9)\cdot\sym{s}{s}}{\sqrt{10}}\). Cel C26 telt
-      welk deel van de 100 intervallen het ware gemiddelde 10 bevat; bij het opslaan van het bestand stond daar 0,93.
-      Met F9 trek je nieuwe steekproeven.</p>
+    <div class="exercise" id="ex-04-2" data-kw="simulatie; simulation; dekking; coverage; Confidence interval mean; t-waarde; interpretatie; interpretation; 95 %">
+      <h4>Oefening 04.2 — Wat betekent 95 %? (simulatie "Confidence interval mean") <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.xlsx">CI.xlsx</a></h4>
+      <p>De simulatie "Confidence interval mean" in CI.xlsx trekt 100 aselecte steekproeven van \(n=10\) uit N(10; 2) en
+      berekent voor elke steekproef het 95%-BI \(\sym{xbar}{\bar{x}}\pm\frac{\sym{t_crit}{t_{0{,}975;9}}\cdot\sym{s}{s}}{\sqrt{10}}\). Ze telt
+      welk deel van de 100 intervallen het ware gemiddelde 10 bevat; bij het opslaan van het bestand stond daar 0,93.</p>
       <div class="q" data-type="choice" data-answer="werkwijze">
         <label>a. De "95 %" slaat op:</label>
         <select><option value="">kies…</option><option value="werkwijze">het aandeel steekproeven waarvan het interval de ware waarde bevat</option><option value="waarnemingen">het aandeel waarnemingen dat binnen het interval valt</option><option value="mu">de kans dat het ware gemiddelde verandert</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="2.262" data-tol="0.002">
-        <label>b. T.INV(0,975; 9) = (3 decimalen)</label>
+        <label>b. \(\sym{t_crit}{t_{0{,}975;9}}\) (97,5%-punt van t(9)) = (3 decimalen)</label>
         <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
@@ -153,13 +148,14 @@
         <select><option value="">kies…</option><option value="toeval">toeval: het aandeel schommelt rond 95 %</option><option value="fout">de formule is fout</option><option value="sigma">men had σ = 2 moeten gebruiken in plaats van s</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="kwantielen" data-blocks="0"></div>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>a. De ware waarde ligt vast; het interval is toevallig. 95 % is het aandeel steekproeven (op lange termijn)
           waarvan het interval de ware waarde bevat <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=5">CI p. 5</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=4">CI FR p. 4</a>.</li>
-          <li>b. T.INV(0,975; 9) = <b>2,262</b> <span class="computed">zelf berekend</span>: het 97,5%-punt van t(9).</li>
-          <li>c. Het aandeel "treffers" is zelf een toevallige grootheid; 93 of 97 op 100 is normaal. Druk een paar keer
-          F9 en je ziet het rond 95 % schommelen. Wie meer steekproeven trekt, komt dichter bij 95 %. Het werkblad gebruikt
+          <li>b. \(t_{0{,}975;9}=\) <b>2,262</b> <span class="computed">zelf berekend</span>: het 97,5%-punt van t(9) (rekenmachine kwantielen).</li>
+          <li>c. Het aandeel "treffers" is zelf een toevallige grootheid; 93 of 97 op 100 is normaal. Bij nieuwe
+          steekproeven schommelt het rond 95 %. Wie meer steekproeven trekt, komt dichter bij 95 %. De simulatie gebruikt
           terecht s en de t-verdeling, want in de praktijk ken je \(\sigma\) niet (<a href="#d04-mu">04.4</a>).</li>
         </ol>
       </details>
@@ -213,8 +209,7 @@
       <tr><td class="n">400</td><td class="n">10 %</td><td class="n">9,8 %</td></tr>
       <tr><td class="n">1350</td><td class="n">5 %</td><td class="n">5,3 %</td></tr>
     </table>
-    <p class="small">Laatste kolom <span class="computed">zelf berekend</span> met de formule van <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=10">CI p. 10</a>
-    (<a href="#d04-pi">04.5</a>).</p>
+    <p class="small">Laatste kolom <span class="computed">zelf berekend</span> met de formule van <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=10">CI p. 10</a>.</p>
     <div class="box key"><span class="t">Vuistregel</span>
       <p>De nauwkeurigheid verdubbelen (de breedte halveren) kost ongeveer <b>vier keer</b> zoveel waarnemingen <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=7">CI p. 7</a>.
       Dat volgt uit de formules: de breedte is evenredig met \(\frac{1}{\sqrt{\sym{n}{n}}}\) (\(\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\) bij een gemiddelde, \(\sqrt{\frac{\sym{p}{p}(1-\sym{p}{p})}{\sym{n}{n}}}\) bij een
@@ -222,15 +217,9 @@
       steekproef. De betrouwbaarheid verhogen zonder de steekproef te vergroten gaat ten koste van de nauwkeurigheid, en
       omgekeerd <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=4">CI FR p. 4</a>.</p>
     </div>
-    <div class="box warn"><span class="t">Opgelet: "about 1350" voor 5 %</span>
-      <p>Met de formule van p. 10 is de breedte bij \(n=1350\) gelijk aan 5,3 % en heb je \(n=1537\) nodig voor precies 5 %
-      <span class="computed">zelf berekend</span>. De grafiek hierboven (p. 7) rekent kennelijk met de eindige partij van 10 000 tegels
-      (zoals p. 8: "finite population"; p. 7 zegt het niet): exact hypergeometrisch geeft dat bij \(n=1350\) een breedte van 5,02 %
-      <span class="computed">zelf berekend</span>. Het getal van de cursus klopt dus voor die partij; met de formule van p. 10 (zonder
-      rekening te houden met een eindige partij) kom je op ongeveer 1537.</p>
-    </div>
     <p>Relatieve en absolute nauwkeurigheid zijn iets anders <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=7">CI p. 7</a>: 10 % relatieve nauwkeurigheid op een schatting van
     10 % betekent een intervalbreedte van 2 % (van 9 % tot 11 %).</p>
+    <div class="calc-here" data-tool="steekproefgrootte" data-blocks="0"></div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
@@ -260,6 +249,7 @@
         <select><option value="">kies…</option><option value="twee">verdubbelen</option><option value="vier">verviervoudigen</option><option value="wortel">met √2 vermenigvuldigd worden</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="steekproefgrootte" data-blocks="0"></div>
       <details class="hint"><summary>Hint</summary><p>Breedte = \(2\cdot\sym{z_1ma2}{1{,}96}\cdot\sqrt{\frac{0{,}5\cdot0{,}5}{\sym{n}{n}}}\). Los voor b op naar n.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
@@ -267,7 +257,7 @@
           (de cursus rondt af tot 10 %).</li>
           <li>b. \(\frac{2\cdot1{,}96\cdot0{,}5}{\sqrt{\sym{n}{n}}}\le0{,}05\Leftrightarrow\sqrt{\sym{n}{n}}\ge39{,}2\Leftrightarrow\sym{n}{n}\ge1536{,}6\), dus <b>\(n=1537\)</b>
           <span class="computed">zelf berekend</span>. De cursus zegt "about 1350", kennelijk omdat de grafiek rekent voor de
-          eindige partij van 10 000 tegels (zie het kader hierboven).</li>
+          eindige partij van 10 000 tegels.</li>
           <li>c. De breedte is evenredig met \(\frac{1}{\sqrt{\sym{n}{n}}}\): halveren vraagt \(\sqrt{\sym{n}{n}}\times2\), dus \(\sym{n}{n}\times\) <b>4</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=7">CI p. 7</a>.</li>
         </ol>
       </details>
@@ -275,7 +265,7 @@
   </section>
 
   <!-- ============================================================ 04.3 -->
-  <section class="unit" id="d04-inversie" data-kw="functie-inversie; function inversion; rekenprincipe; calculation principle; nomogram; exact interval; binomiaal; binomial; BINOM.INV; eenzijdig; one-sided; tweezijdig; two-sided; double sided; kwantiel; quantile; percentiel; notatie; notation">
+  <section class="unit" id="d04-inversie" data-kw="functie-inversie; function inversion; rekenprincipe; calculation principle; nomogram; exact interval; binomiaal; binomial; eenzijdig; one-sided; tweezijdig; two-sided; double sided; kwantiel; quantile; percentiel; notatie; notation">
     <h3>04.3 Hoe wordt een BI berekend? Functie-inversie, tweezijdig en eenzijdig <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=8">CI p. 8</a></h3>
     <p><b>Het principe</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=8">CI p. 8</a>. Neem de tegels: partij \(N=10\ 000\), steekproef \(n=100\). Voor elk mogelijk waar
     percentage defectieven \(\pi\) in de partij ken je de steekproevenverdeling (sampling distribution) van het
@@ -323,12 +313,10 @@
     verticaal de steekproefproportie p. De horizontale lijn op \(p=0{,}6\) snijdt de twee krommen; de pijlen wijzen de
     grenzen van het BI aan: [0,53; 0,67].
     <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=20">TH FR p. 20</a></figcaption></figure>
-    <div class="box tool"><span class="t">Excel: werkblad "Nomogram fraction defectives" in <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.xlsx">CI.xlsx</a></span>
-      <p>Het eerste blok rekent de exacte krommen met BINOM.INV(\(\sym{n}{n}\); \(\sym{pi}{\pi}\); (1 − betrouwbaarheid)/2)/\(\sym{n}{n}\) en
-      BINOM.INV(\(\sym{n}{n}\); \(\sym{pi}{\pi}\); betrouwbaarheid + (1 − betrouwbaarheid)/2)/\(\sym{n}{n}\) voor \(\pi\) in stappen van \(0{,}001\ (n=100,95\ \%)\). De twee
-      andere blokken doen hetzelfde met de normale benadering, tweezijdig en eenzijdig. In de rekentool
-      (<code>bb_toolkit.xlsx</code>) geeft werkblad "Mean &amp; proportion", sectie 5, het exacte binomiale BI naast
-      het benaderde.</p>
+    <div class="box tool"><span class="t">Rekentool</span>
+      <p>Werkblad <b>"Mean &amp; proportion"</b>, sectie 5, in bb_toolkit.xlsx geeft het exacte binomiale BI naast
+      het benaderde. De krommen zelf (exact en normale benadering, \(n=100\), 95 %) staan in werkblad "Nomogram fraction
+      defectives" van <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.xlsx">CI.xlsx</a>.</p>
     </div>
     <p><b>Eenzijdig BI</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=11">CI p. 11</a>. Wil je alleen weten hoe <i>laag</i> het percentage defectieven kan zijn, dan bereken
     je het eenzijdige \((1-\sym{alpha}{\alpha})\times100\%\)-BI ]\(\sym{pi_l}{\pi_{L}}\); 1]: je tekent alleen de \((1-\sym{alpha}{\alpha})\)-kwantielkromme. Wil je weten hoe
@@ -344,28 +332,28 @@
     <div class="box warn"><span class="t">Twee notaties voor dezelfde grenswaarde</span>
       <p>De cursus schrijft kritische waarden op twee manieren, en dat is een bron van fouten.</p>
       <ul>
-        <li><b>Kwantielnotatie</b> (Engelse slides, tolerantie-intervallen, Excel): het subscript is de kans
+        <li><b>Kwantielnotatie</b> (Engelse slides, tolerantie-intervallen): het subscript is de kans
         <i>onder</i> de waarde. \(t_{0{,}975;n-1}\) en \(\sym{z_1ma2}{Z_{0{,}975}}=1{,}96\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=9">CI p. 9–10</a>, \(\chi^{2}_{0{,}98;19}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=16">CI p. 16</a>.
-        Let op: \(t_{0{,}02;19}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=15">CI p. 15</a> is dan <b>negatief</b> (−2,2047 in CI.xlsx); "\(\sym{xbar}{\bar{x}}-\frac{\sym{t_002}{t_{0{,}02;19}}\cdot\sym{s}{s}}{\sqrt{\sym{n}{n}}}\)"
+        Let op: \(t_{0{,}02;19}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=15">CI p. 15</a> is dan <b>negatief</b> (−2,2047); "\(\sym{xbar}{\bar{x}}-\frac{\sym{t_002}{t_{0{,}02;19}}\cdot\sym{s}{s}}{\sqrt{\sym{n}{n}}}\)"
         is dus \(\sym{xbar}{\bar{x}}\) <i>plus</i> \(\frac{2{,}2047\cdot\sym{s}{s}}{\sqrt{\sym{n}{n}}}\).</li>
         <li><b>Bovenstaartnotatie</b> (Nederlandse Further Reading): het subscript is de kans <i>boven</i> de waarde.
         \(t_{0{,}025}\) met \(P[\sym{t_stat}{t}\ge\sym{t_crit}{t_{0{,}025}}]=2{,}5\ \%\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=8">CI FR p. 8</a>; \(\sym{z_1ma2}{Z_{0{,}025}}=1{,}96\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=16">TH FR p. 16</a>;
         \(\chi^{2}_{0{,}025;n-1}\) is de <i>bovenste</i> en \(\chi^{2}_{0{,}975;n-1}\) de <i>onderste</i> grens <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=21">CI FR p. 21</a>.</li>
       </ul>
       <p>Controleer altijd met gezond verstand: een tweezijdig 95%-BI gebruikt ±1,96 (Z) of de t-waarde met 2,5 % in elke
-      staart. In Excel geven T.INV(p; df), NORM.S.INV(p), CHISQ.INV(p; df) en F.INV(p; df1; df2) altijd het punt met kans p
-      <i>eronder</i> (kwantielnotatie).</p>
+      staart.</p>
     </div>
+    <div class="calc-here" data-tool="kwantielen" data-blocks="0"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"Het BI is de verzameling van alle nulhypothesen die je met de waargenomen toetsingsgrootheid aanvaardt."</b> Juist <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=19">TH FR p. 19</a>; daarom kun je met een BI toetsen (<a href="#d04-dualiteit">04.9</a>).</li>
       <li><b>"Een exact binomiaal 95%-BI heeft precies 95 % betrouwbaarheid."</b> Fout: p en \(\pi\) veranderen in stapjes, dus je kunt niet precies 2,5 % staart afknippen <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=8">CI p. 8</a>. In het voorbeeld van <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=11">CI p. 11</a> is de kans op 14 % of meer "around 12 %" in plaats van 10 %.</li>
-      <li><b>Let op:</b> twee notaties voor hetzelfde getal. In de Engelse slides en in Excel is \(\sym{t_crit}{t_{0{,}975}}\) het punt met 97,5 % eronder; in de Nederlandse Further Reading heet hetzelfde punt \(\sym{t_crit}{t_{0{,}025}}\) (2,5 % erboven) <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=8">CI FR p. 8</a>. T.INV, NORM.S.INV, CHISQ.INV en F.INV geven altijd de kans eronder.</li>
+      <li><b>Let op:</b> twee notaties voor hetzelfde getal. In de Engelse slides is \(\sym{t_crit}{t_{0{,}975}}\) het punt met 97,5 % eronder; in de Nederlandse Further Reading heet hetzelfde punt \(\sym{t_crit}{t_{0{,}025}}\) (2,5 % erboven) <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=8">CI FR p. 8</a>.</li>
     </ul></div>
   </section>
 
   <!-- ============================================================ 04.4 -->
-  <section class="unit" id="d04-mu" data-kw="BI gemiddelde; confidence interval mean; mu; µ; t-verdeling; t distribution; Student; Gosset; z-interval; sigma gekend; known sigma; sigma onbekend; unknown sigma; vrijheidsgraden; degrees of freedom; T.INV; robuustheid; robustness; centrale limietstelling; central limit theorem">
+  <section class="unit" id="d04-mu" data-kw="BI gemiddelde; confidence interval mean; mu; µ; t-verdeling; t distribution; Student; Gosset; z-interval; sigma gekend; known sigma; sigma onbekend; unknown sigma; vrijheidsgraden; degrees of freedom; robuustheid; robustness; centrale limietstelling; central limit theorem">
     <h3>04.4 BI voor het gemiddelde µ: z of t <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=9">CI p. 9</a></h3>
     <p><b>\(\sigma\) gekend</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=3">CI FR p. 3</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=8">CI FR p. 8</a>. Dan is \(\sym{z_stat}{Z}=\frac{\sym{xbar}{\bar{X}}-\sym{mu}{\mu}}{\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}}\) standaardnormaal en is het 95%-BI
     \(\sym{xbar}{\bar{x}}\pm\frac{\sym{z_1ma2}{1{,}96}\cdot\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\). In de praktijk ken je \(\sigma\) zelden: "gebruik Z voor BI \(\mu\) onrealistisch: \(\sigma\) ??" <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=5">CI FR p. 5</a>.</p>
@@ -390,9 +378,7 @@
     <div class="f">
       <div>\[\sym{sigma}{\sigma}\] gekend: \[\sym{mu}{\mu}\in\left[\sym{xbar}{\bar{x}}-\frac{\sym{z_1ma2}{Z_{0{,}975}}\cdot\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}};\sym{xbar}{\bar{x}}+\frac{\sym{z_1ma2}{Z_{0{,}975}}\cdot\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\right]\], \[\sym{z_1ma2}{Z_{0{,}975}}=1{,}96\]</div>
       <div>\[\sym{sigma}{\sigma}\] onbekend: \[\sym{mu}{\mu}\in\left[\sym{xbar}{\bar{x}}-\frac{\sym{t_crit}{t_{0{,}975;n-1}}\cdot\sym{s}{s}}{\sqrt{\sym{n}{n}}};\sym{xbar}{\bar{x}}+\frac{\sym{t_crit}{t_{0{,}975;n-1}}\cdot\sym{s}{s}}{\sqrt{\sym{n}{n}}}\right]\ (95\ \%)\]</div>
-      <div>algemeen \[(1-\sym{alpha}{\alpha})\]: vervang 0,975 door \[1-\frac{\sym{alpha}{\alpha}}{2}\]; eenzijdig: gebruik \[1-\sym{alpha}{\alpha}\] aan de ene kant en ±∞ aan de andere</div>
-      <div>Excel: T.INV((1 + betrouwbaarheid)/2; \[\sym{n}{n}-1\]) tweezijdig, \[\operatorname{T.INV}(1-\sym{alpha}{\alpha};\sym{n}{n}-1)\] eenzijdig</div>
-    </div>
+      <div>algemeen \[(1-\sym{alpha}{\alpha})\]: vervang 0,975 door \[1-\frac{\sym{alpha}{\alpha}}{2}\]; eenzijdig: gebruik \[1-\sym{alpha}{\alpha}\] aan de ene kant en ±∞ aan de andere</div>    </div>
     <p class="small">In de laatste formule op <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=9">CI p. 9</a> staat \(t_{0{,}97;n-1}\): een drukfout voor \(t_{0{,}975;n-1}\).</p>
 
     <div class="box ex"><span class="t">Uitgewerkt voorbeeld: is het proces naar beneden verschoven? <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=15">CI p. 15</a></span>
@@ -402,14 +388,13 @@
       <ol class="steps">
         <li>\(H_{0}\): \(\sym{mu}{\mu}=10\) (nog steeds gecentreerd; eigenlijk \(\sym{mu}{\mu}\ge10\), een vergroting interesseert ons niet);
         HA: \(\sym{mu}{\mu}\lt10\). \(\alpha=2\ \%\), dus betrouwbaarheid 98 % ("rather conservative": pas bijregelen bij sterk bewijs).</li>
-        <li>CI.xlsx: \(\sym{xbar}{\bar{x}}=9{,}9287\) en \(\sym{s}{s}=0{,}10793\); \(\sym{t_002}{t_{0{,}02;19}}=\operatorname{T.INV}(0{,}02;19)=-2{,}2047\).</li>
+        <li>\(\sym{xbar}{\bar{x}}=9{,}9287\) en \(\sym{s}{s}=0{,}10793\) (CI.xlsx); \(\sym{t_002}{t_{0{,}02;19}}=-2{,}2047\) (kwantielnotatie: 2 % eronder).</li>
         <li>HA wijst naar beneden, dus je wilt weten hoe <i>hoog</i> \(\mu\) nog kan zijn: het eenzijdige 98%-BI is
-        ]−∞; \(\sym{xbar}{\bar{x}}-\frac{\sym{t_002}{t_{0{,}02;19}}\cdot\sym{s}{s}}{\sqrt{\sym{n}{n}}[=]}-\infty\); \(9{,}9287+\frac{2{,}2047\cdot0{,}10793}{\sqrt{20}[=-\infty}\); 9,98[</b> (9,9819
+        ]−∞; \(\sym{xbar}{\bar{x}}-\frac{\sym{t_002}{t_{0{,}02;19}}\cdot\sym{s}{s}}{\sqrt{\sym{n}{n}}}\)[ = ]−∞; \(9{,}9287+\frac{2{,}2047\cdot0{,}10793}{\sqrt{20}}\)[ = <b>]−∞; 9,98[</b> (9,9819
         <span class="computed">zelf berekend</span>).</li>
         <li>\(10\notin\mathrm{BI}\): \(H_{0}\) "cannot be accepted" bij 2 % significantie; het proces moet bijgeregeld worden.</li>
       </ol>
-      <p class="small">Twee details. (1) CI.xlsx deelt in cel F13 door \(\sqrt{19}\) in plaats van \(\sqrt{20}\) en toont 9,9833; met \(\sqrt{20}\)
-      krijg je 9,9819. Beide ronden af op 9,98, dus het besluit blijft (beslissing 9 in <code>inventory/conventions.md</code>). (2) CI p. 15 drukt de data afgerond op 2 decimalen af; met die
+      <p class="small">CI p. 15 drukt de data afgerond op 2 decimalen af; met die
       afgeronde waarden is \(\bar{x}=9{,}928\), \(s=0{,}10788\) en de bovengrens 9,9812 <span class="computed">zelf berekend</span>.</p>
     </div>
     <div class="box tool"><span class="t">Rekentool</span>
@@ -417,14 +402,15 @@
       \(\bar{x}\), s of \(\sigma\)). De rijen geven het tweezijdige BI en elke eenzijdige grens ("lower bound only", "upper bound only"),
       zowel met z (\(\sigma\) gekend) als met t.</p>
     </div>
+    <div class="calc-here" data-tool="gemiddelde" data-blocks="0"></div>
     <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-04-mu">14 Dummies: z of t, en "95 %" = ±2σ in de tabellen</a>.</p>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"\(\sigma\) is onbekend; reken toch met 1,96 en s."</b> Fout: met s volgt \(\frac{\sym{xbar}{\bar{X}}-\sym{mu}{\mu}}{\frac{\sym{s}{s}}{\sqrt{\sym{n}{n}}}}\) een t-verdeling met n − 1 vrijheidsgraden <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=9">CI p. 9</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=5">CI FR p. 5</a>; het interval wordt breder <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=8">CI FR p. 8</a>. Z gebruik je alleen als \(\sigma\) echt gekend is, wat in de praktijk zelden zo is <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=5">CI FR p. 5</a>.</li>
-      <li><b>Let op:</b> vrijheidsgraden n − 1, niet n. Voor \(n=10\) is de t-waarde T.INV(0,975; 9) = 2,262 <span class="computed">zelf berekend</span>, tegenover 1,96 voor Z.</li>
+      <li><b>Let op:</b> vrijheidsgraden n − 1, niet n. Voor \(n=10\) is de t-waarde \(t_{0{,}975;9}=2{,}262\) <span class="computed">zelf berekend</span>, tegenover 1,96 voor Z.</li>
       <li><b>"Het t-interval mag alleen als X exact normaal verdeeld is."</b> Fout: de methode is robuust en in de praktijk meestal in orde, behalve bij een kleine steekproef én een sterk niet-normale verdeling <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=5">CI FR p. 5</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=7">CI FR p. 7</a>; volgens <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=9">CI p. 9</a> werkt ze voor bijna elke verdeling van X als n niet te klein is.</li>
-      <li><b>Let op:</b> in kwantielnotatie is \(\sym{t_002}{t_{0{,}02;19}}=\operatorname{T.INV}(0{,}02;19)=-2{,}2047\) negatief, dus \(\sym{xbar}{\bar{x}}-\frac{\sym{t_002}{t_{0{,}02;19}}\cdot\sym{s}{s}}{\sqrt{\sym{n}{n}}}\) ligt bóven \(\bar{x}\): de bovengrens die bij HA: \(\mu\lt10\) hoort <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=15">CI p. 15</a>.</li>
+      <li><b>Let op:</b> in kwantielnotatie is \(\sym{t_002}{t_{0{,}02;19}}=-2{,}2047\) negatief, dus \(\sym{xbar}{\bar{x}}-\frac{\sym{t_002}{t_{0{,}02;19}}\cdot\sym{s}{s}}{\sqrt{\sym{n}{n}}}\) ligt bóven \(\bar{x}\): de bovengrens die bij HA: \(\mu\lt10\) hoort <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=15">CI p. 15</a>.</li>
       <li><b>Let op:</b> drukfout op <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=9">CI p. 9</a>: \(t_{0{,}97;n-1}\) moet \(t_{0{,}975;n-1}\) zijn.</li>
     </ul></div>
 
@@ -442,11 +428,12 @@
         <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="kwantielen" data-blocks="0"></div>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
-          <li>a. T.INV(0,975; 4) = 2,776, gedeeld door 1,96: <b>1,417</b>: 42 % breder
+          <li>a. \(t_{0{,}975;4}=2{,}776\), gedeeld door 1,96: <b>1,417</b>: 42 % breder
           <span class="computed">zelf berekend</span>.</li>
-          <li>b. T.INV(0,975; 19) = 2,093: <b>1,068</b>, nog 7 % breder. Bij \(n=10\): \(\frac{2{,}262}{1{,}96}=1{,}154\)
+          <li>b. \(t_{0{,}975;19}=2{,}093\): <b>1,068</b>, nog 7 % breder. Bij \(n=10\): \(\frac{2{,}262}{1{,}96}=1{,}154\)
           <span class="computed">zelf berekend</span>.</li>
           <li>Besluit: bij kleine steekproeven kost het schatten van \(\sigma\) veel nauwkeurigheid; bij grotere n wordt t(n − 1)
           bijna Z. Om dezelfde nauwkeurigheid te halen moet de steekproef dus iets groter zijn dan met gekende \(\sigma\).</li>
@@ -454,7 +441,7 @@
       </details>
     </div>
 
-    <div class="exercise" id="ex-04-5" data-kw="t-interval; eenzijdig BI; one-sided CI; 98 %; procesgemiddelde; process mean; verschoven; shifted; example t-test; T.INV; S03-WE02">
+    <div class="exercise" id="ex-04-5" data-kw="t-interval; eenzijdig BI; one-sided CI; 98 %; procesgemiddelde; process mean; verschoven; shifted; example t-test; S03-WE02">
       <h4>Oefening 04.5 — Eenzijdig 98%-BI voor µ <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=15">CI p. 15</a></h4>
       <p>De 20 metingen (werkblad "example t-test" van CI.xlsx; CI p. 15 geeft ze afgerond op 2 decimalen):</p>
       <p>10,06 – 9,89 – 9,896 – 9,989 – 9,872 – 9,884 – 9,927 – 9,984 – 10,117 – 9,863 – 9,889 – 9,813 – 9,954 – 9,917 –
@@ -477,14 +464,14 @@
         <select><option value="">kies…</option><option value="verwerp">10 ligt niet in het BI: H0 verwerpen, bijregelen</option><option value="aanvaard">10 ligt in het BI: H0 niet verwerpen</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="gemiddelde" data-blocks="0"></div>
       <details class="hint"><summary>Hint</summary><p>HA: \(\sym{mu}{\mu}\lt10\), dus je hebt een bovengrens nodig:
-      \(\sym{xbar}{\bar{x}}+\frac{|\operatorname{T.INV}(0{,}02;19)|\cdot\sym{s}{s}}{\sqrt{20}}\).</p></details>
+      \(\sym{xbar}{\bar{x}}+\frac{|\sym{t_002}{t_{0{,}02;19}}|\cdot\sym{s}{s}}{\sqrt{20}}\).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
-          <li>a–b. AVERAGE en STDEV.S geven \(\sym{xbar}{\bar{x}}=\) <b>9,9287</b> en \(\sym{s}{s}=\) <b>0,10793</b> (CI.xlsx, cellen F2 en F3).</li>
-          <li>c. T.INV(0,02; 19) = −2,2047 (cel F8). Bovengrens = \(9{,}9287+\frac{2{,}2047\cdot0{,}10793}{\sqrt{20}}=\) <b>9,9819</b>
-          <span class="computed">zelf berekend</span>; de cursus geeft ]−∞; 9,98[. (Cel F13 deelt door \(\sqrt{19}\) en geeft 9,9833:
-          een fout in het werkblad.) Met de afgeronde data van CI p. 15 vind je 9,9812.</li>
+          <li>a–b. \(\sym{xbar}{\bar{x}}=\frac{\sum x_{i}}{n}=\) <b>9,9287</b> en \(\sym{s}{s}=\) <b>0,10793</b> (noemer \(n-1\)).</li>
+          <li>c. \(t_{0{,}02;19}=-2{,}2047\) (kwantielnotatie). Bovengrens = \(9{,}9287+\frac{2{,}2047\cdot0{,}10793}{\sqrt{20}}=\) <b>9,9819</b>
+          <span class="computed">zelf berekend</span>; de cursus geeft ]−∞; 9,98[. Met de afgeronde data van CI p. 15 vind je 9,9812.</li>
           <li>d. 10 ∉ ]−∞; 9,98[: het nieuwe procescentrum ligt met 98 % betrouwbaarheid onder 10. \(H_{0}\) wordt
           verworpen bij 2 % significantie; het proces moet bijgeregeld worden <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=15">CI p. 15</a>.</li>
         </ol>
@@ -525,6 +512,7 @@
       <p>Werkblad <b>"Mean &amp; proportion"</b>: sectie 5 "One proportion \(\pi\)" (normale benadering én exact binomiaal,
       met de controle \(\sym{n}{n}\sym{pi0}{\pi_{0}}\gt5\)) en sectie 6 "Two proportions".</p>
     </div>
+    <div class="calc-here" data-tool="proportie" data-blocks="0 1"></div>
     <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-04-proporties">14 Dummies: BI voor een proportie en voor het verschil van twee proporties</a>.</p>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
@@ -552,6 +540,7 @@
         <select><option value="">kies…</option><option value="ja">ja, n = 100 is groot genoeg</option><option value="nee">nee, er zijn minder dan 5 defectieven</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="proportie" data-blocks="0"></div>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>\(\sqrt{\frac{0{,}04\cdot0{,}96}{100}}=0{,}0196\); \(1{,}96\cdot0{,}0196=0{,}0384\). Het benaderde BI is [<b>0,16 %</b>; <b>7,84 %</b>]
@@ -576,6 +565,7 @@
         <label>b. Bovengrens (3 decimalen):</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="proportie" data-blocks="0"></div>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>\(\sqrt{\frac{0{,}6\cdot0{,}4}{200}}=0{,}03464\); \(1{,}96\cdot0{,}03464=0{,}0679\). \(\mathrm{BI}=[0{,}532;0{,}668]\)
@@ -634,12 +624,6 @@
       vrijheidsgraden; de cursus geeft die formule niet (notities bij p. 15).</li>
       <li>Gepaard: de spreidingen hoeven niet gelijk te zijn (notities bij p. 16).</li>
     </ul>
-    <div class="box warn"><span class="t">Drukfout in CI FR p. 15: \(n_{1}+n_{2}-1\)</span>
-      <p><a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=15">CI FR p. 15</a> drukt \(s_{p}^{2}\) af met noemer \(\sym{n1}{n_{1}}+\sym{n2}{n_{2}}-1\), terwijl dezelfde pagina t met
-      \(\sym{n1}{n_{1}}+\sym{n2}{n_{2}}-2\) vrijheidsgraden gebruikt. De juiste noemer is \(\sym{n1}{n_{1}}+\sym{n2}{n_{2}}-2\),
-      zoals in <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=5">Recepten p. 5</a>; het cijfervoorbeeld van p. \(17\ (s_{p}=6{,}59)\) klopt ook alleen met − 2 (met − 1 zou het
-      6,42 zijn <span class="computed">zelf berekend</span>). Beslissing 8 in <code>inventory/conventions.md</code>.</p>
-    </div>
     <div class="box ex"><span class="t">Uitgewerkt voorbeeld: de schoenzolen <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=17">CI FR p. 17–19</a></span>
       <table>
         <tr><th></th><th>niet-gepaard (p. 17)</th><th>gepaard (p. 18)</th></tr>
@@ -662,6 +646,7 @@
       \(\sym{n1}{n_{1}}+\sym{n2}{n_{2}}-2\); plak de data in kolommen L en M) en sectie 4 (gepaard; plak de paren naast
       elkaar in L en M).</p>
     </div>
+    <div class="calc-here" data-tool="tweegemiddelden" data-blocks="0 1"></div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
@@ -691,11 +676,12 @@
         <select><option value="">kies…</option><option value="geen">0 ligt in het BI: geen verschil aangetoond</option><option value="wel">0 ligt niet in het BI: materiaal 2 is beter</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="tweegemiddelden" data-blocks="0"></div>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>\(\sym{xbar1}{\bar{x}_{1}}=28{,}7\); \(\sym{s1}{s_{1}}=5{,}50\); \(\sym{xbar2}{\bar{x}_{2}}=34{,}3\); \(\sym{s2}{s_{2}}=7{,}53\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=17">CI FR p. 17</a>.</li>
           <li>a. \(\sym{sp}{s_{p}}=\sqrt{\frac{9\cdot5{,}50^{2}+9\cdot7{,}53^{2}}{18}}=\) <b>6,59</b> (noemer \(\sym{n1}{n_{1}}+\sym{n2}{n_{2}}-2=18\)).</li>
-          <li>b. \(\sym{t_crit}{t_{18;0{,}025}}=\operatorname{T.INV}(0{,}975;18)=2{,}10\). Halve breedte = \(2{,}10\cdot6{,}59\cdot\sqrt{\frac{1}{10}+\frac{1}{10}}=\) <b>6,19</b>.
+          <li>b. \(\sym{t_crit}{t_{18;0{,}025}}=2{,}10\). Halve breedte = \(2{,}10\cdot6{,}59\cdot\sqrt{\frac{1}{10}+\frac{1}{10}}=\) <b>6,19</b>.
           \(\sym{bi}{\mathrm{BI}_{95}}=-5{,}6\pm6{,}19=[-11{,}79;0{,}59]\) <span class="computed">zelf berekend</span>.</li>
           <li>c. 0 ligt in het interval: <b>geen (significant) verschil</b> aangetoond <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=17">CI FR p. 17</a>. Dat bewijst niet dat de
           materialen gelijk zijn.</li>
@@ -724,6 +710,7 @@
         <select><option value="">kies…</option><option value="geen">0 ligt in het BI: geen verschil aangetoond</option><option value="wel">0 ligt niet in het BI: materiaal 2 is sleetvaster</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="tweegemiddelden" data-blocks="1"></div>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>\(\sym{v_i}{v}=1\), 0, −4, −3, −2, −5, −5, −3, −6, −6; \(\sym{vbar}{\bar{v}}=-3{,}3\) en a. \(\sym{s_v}{s_{v}}=\) <b>2,41</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=18">CI FR p. 18</a>.</li>
@@ -754,7 +741,7 @@
   </section>
 
   <!-- ============================================================ 04.7 -->
-  <section class="unit" id="d04-sigma" data-kw="BI variantie; confidence interval variance; BI standaardafwijking; confidence interval standard deviation; sigma; σ²; chi-kwadraat; chi-square; χ²; CHISQ.INV; niet symmetrisch; asymmetric; niet robuust; not robust; procesvariabiliteit">
+  <section class="unit" id="d04-sigma" data-kw="BI variantie; confidence interval variance; BI standaardafwijking; confidence interval standard deviation; sigma; σ²; chi-kwadraat; chi-square; χ²; niet symmetrisch; asymmetric; niet robuust; not robust; procesvariabiliteit">
     <h3>04.7 BI voor de variantie σ² en de standaardafwijking σ <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=21">CI FR p. 21</a></h3>
     <p>Als X normaal verdeeld is, volgt \(\frac{(\sym{n}{n}-1)\sym{s_sq}{s^{2}}}{\sym{sigma_sq}{\sigma^{2}}}\) een \(\chi^{2}\)-verdeling (chi-kwadraat, chi-square) met \(\sym{n}{n}-1\)
     vrijheidsgraden <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=21">CI FR p. 21</a>. De \(\chi^{2}\)-verdeling is asymmetrisch en neemt alleen positieve waarden aan; voor \(\sym{df_n}{n}\to\infty\) nadert
@@ -768,9 +755,7 @@
     <div class="f">
       <div>\[P\left[\sym{chi2_lower}{\chi^{2}_{0{,}975;n-1}}\le\frac{(\sym{n}{n}-1)\sym{s_sq}{s^{2}}}{\sym{sigma_sq}{\sigma^{2}}}\le\sym{chi2_upper}{\chi^{2}_{0{,}025;n-1}}\right]=95\ \%\]  (bovenstaartnotatie: \[\sym{chi2_upper}{\chi^{2}_{0{,}025}}\] is de bovenste waarde)</div>
       <div>95%-BI: \[\frac{(\sym{n}{n}-1)\sym{s_sq}{s^{2}}}{\sym{chi2_upper}{\chi^{2}_{0{,}025;n-1}}}\le\sym{sigma_sq}{\sigma^{2}}\le\frac{(\sym{n}{n}-1)\sym{s_sq}{s^{2}}}{\sym{chi2_lower}{\chi^{2}_{0{,}975;n-1}}}\]</div>
-      <div>BI voor \[\sym{sigma}{\sigma}\]: neem de vierkantswortel van beide grenzen</div>
-      <div>Excel: bovenste waarde = \[\operatorname{CHISQ.INV}\left(1-\frac{\sym{alpha}{\alpha}}{2};\sym{n}{n}-1\right)\], onderste = \[\operatorname{CHISQ.INV}\left(\frac{\sym{alpha}{\alpha}}{2};\sym{n}{n}-1\right)\]</div>
-    </div>
+      <div>BI voor \[\sym{sigma}{\sigma}\]: neem de vierkantswortel van beide grenzen</div>    </div>
     <ul>
       <li>Het interval is <b>niet symmetrisch</b> rond \(s^{2}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=21">CI FR p. 21</a>.</li>
       <li>De methode steunt sterk op normaliteit: de \(\chi^{2}\)-toets voor \(\sigma\) is "niet-robuust" <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=11">Recepten p. 11</a>.</li>
@@ -780,8 +765,7 @@
       groter is geworden. Steekproef van 20 stuks (data in <a href="#ex-04-13">oefening 04.13</a> en in CI.xlsx, werkblad "example \(\mathrm{chi}^{2}\)-test").</p>
       <ol class="steps">
         <li>\(H_{0}\): \(\sym{sigma}{\sigma}=0{,}01\) (eigenlijk \(\sym{sigma}{\sigma}\le0{,}01\)); HA: \(\sym{sigma}{\sigma}\gt0{,}01\). \(\alpha=2\ \%\), betrouwbaarheid 98 %.</li>
-        <li>\(\sym{s_sq}{s^{2}}=\operatorname{VAR.S}\)(data) = 0,00013582 (CI.xlsx cel E2); \(\sym{chi2_upper}{\chi^{2}_{0{,}98;19}}=\operatorname{CHISQ.INV}(0{,}98;19)=33{,}69\) (cel E7,
-        kwantielnotatie).</li>
+        <li>\(\sym{s_sq}{s^{2}}=0{,}00013582\) (noemer \(n-1\)); \(\sym{chi2_upper}{\chi^{2}_{0{,}98;19}}=33{,}69\) (kwantielnotatie: 98 % eronder).</li>
         <li>HA wijst naar boven, dus je wilt weten hoe <i>laag</i> \(\sigma\) kan zijn: eenzijdig 98%-BI voor \(\sym{sigma}{\sigma}=\)
         ]\(\sqrt{\frac{19\cdot\sym{s_sq}{s^{2}}}{\sym{chi2_upper}{\chi^{2}_{0{,}98;19}}}}\); +∞[ = <b>]0,0088; +∞[</b>.</li>
         <li>\(0{,}01\in\mathrm{BI}\): \(H_{0}\) kan niet verworpen worden bij 2 % significantie; het proces hoeft niet bijgesteld te
@@ -792,17 +776,18 @@
       <p>Werkblad <b>"Variance CI &amp; tests"</b>, sectie 2 "One sample: \(\sigma^{2}\) and \(\sigma\)": \(\alpha\), n en s (of plak de data in kolom
       H). De rijen geven het tweezijdige BI en de eenzijdige grenzen ("lower bound only; goes with HA: \(\sigma\gt\sigma_{0}\)").</p>
     </div>
+    <div class="calc-here" data-tool="variantie" data-blocks="0"></div>
     <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-04-sigma">14 Dummies: BI voor σ met Tabel 8-2</a>.</p>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"Het 95%-BI voor \(\sigma^{2}\) ligt symmetrisch rond \(s^{2}\)."</b> Fout: "niet symmetrisch" <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=21">CI FR p. 21</a>; de \(\chi^{2}\)-verdeling is asymmetrisch en neemt alleen positieve waarden aan <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=16">CI p. 16</a>. Het BI voor \(\sigma\) is de wortel van beide grenzen.</li>
-      <li><b>Let op:</b> de grenzen kruisen. De <i>ondergrens</i> voor \(\sigma^{2}\) deelt \((\sym{n}{n}-1)\sym{s_sq}{s^{2}}\) door de <i>bovenste</i> \(\chi^{2}\)-waarde \(\operatorname{CHISQ.INV}\left(1-\frac{\sym{alpha}{\alpha}}{2};\sym{n}{n}-1\right)\), de bovengrens door de onderste. In de Nederlandse Further Reading heet die bovenste waarde \(\chi^{2}_{0{,}025;n-1}\) (bovenstaartnotatie) <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=21">CI FR p. 21</a>.</li>
+      <li><b>Let op:</b> de grenzen kruisen. De <i>ondergrens</i> voor \(\sigma^{2}\) deelt \((\sym{n}{n}-1)\sym{s_sq}{s^{2}}\) door de <i>bovenste</i> \(\chi^{2}\)-waarde \(\sym{chi2_upper}{\chi^{2}_{1-\alpha/2;n-1}}\) (kwantielnotatie), de bovengrens door de onderste. In de Nederlandse Further Reading heet die bovenste waarde \(\chi^{2}_{0{,}025;n-1}\) (bovenstaartnotatie) <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=21">CI FR p. 21</a>.</li>
       <li><b>"\(s=0{,}0117\) is groter dan 0,01, dus het proces is grilliger geworden."</b> Fout: het eenzijdige 98%-BI ]0,0088; +∞[ bevat 0,01, dus \(H_{0}\) wordt niet verworpen <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=16">CI p. 16</a>. HA: \(\sigma\gt0{,}01\) vraagt een <i>ondergrens</i> voor \(\sigma\).</li>
       <li><b>"Het \(\chi^{2}\)-interval is even robuust als het t-interval."</b> Fout: het steunt sterk op normaliteit; de \(\chi^{2}\)-toets voor \(\sigma\) is niet-robuust <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=11">Recepten p. 11</a>.</li>
     </ul></div>
 
-    <div class="exercise" id="ex-04-13" data-kw="eenzijdig BI sigma; one-sided CI sigma; chi-kwadraat; chi-square; 0,0088; CHISQ.INV; 98 %; example chi²-test; S03-WE03">
+    <div class="exercise" id="ex-04-13" data-kw="eenzijdig BI sigma; one-sided CI sigma; chi-kwadraat; chi-square; 0,0088; chi-kwadraatwaarde; 98 %; example chi²-test; S03-WE03">
       <h4>Oefening 04.13 — Eenzijdig 98%-BI voor σ <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=16">CI p. 16</a></h4>
       <p>De 20 metingen: 9,997 – 10,004 – 10,010 – 9,991 – 10,008 – 9,981 – 9,984 – 9,993 – 9,990 – 9,997 – 9,996 – 9,977 –
       9,999 – 9,981 – 10,000 – 10,010 – 10,005 – 10,011 – 9,997 – 10,022. \(H_{0}\): \(\sym{sigma}{\sigma}=0{,}01\); HA: \(\sym{sigma}{\sigma}\gt0{,}01\);
@@ -812,7 +797,7 @@
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="33.69" data-tol="0.01">
-        <label>b. CHISQ.INV(0,98; 19) = (2 decimalen)</label> <input type="text" inputmode="decimal">
+        <label>b. \(\sym{chi2_upper}{\chi^{2}_{0{,}98;19}}\) (kwantielnotatie, 98 % eronder) = (2 decimalen)</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="0.00875" data-tol="0.00006">
@@ -824,12 +809,13 @@
         <select><option value="">kies…</option><option value="verwerp">0,01 ligt niet in het BI: het proces is grilliger</option><option value="aanvaard">0,01 ligt in het BI: H0 niet verwerpen</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="variantie" data-blocks="0"></div>
       <details class="hint"><summary>Hint</summary><p>Grote waarden van \(\frac{(\sym{n}{n}-1)\sym{s_sq}{s^{2}}}{\sym{sigma_sq}{\sigma^{2}}}\) wijzen op een kleine \(\sigma\). De ondergrens
-      voor \(\sigma\) hoort dus bij het bovenste 2%-punt: \(\sqrt{\frac{19\cdot\sym{s_sq}{s^{2}}}{\operatorname{CHISQ.INV}(0{,}98;19)}}\).</p></details>
+      voor \(\sigma\) hoort dus bij het bovenste 2%-punt: \(\sqrt{\frac{19\cdot\sym{s_sq}{s^{2}}}{\sym{chi2_upper}{\chi^{2}_{0{,}98;19}}}}\).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>a. \(\sym{s_sq}{s^{2}}=0{,}00013582\), \(\sym{s}{s}=\) <b>0,011654</b>.</li>
-          <li>b. CHISQ.INV(0,98; 19) = <b>33,69</b> (CI.xlsx, cel E7).</li>
+          <li>b. \(\chi^{2}_{0{,}98;19}=\) <b>33,69</b> (rekenmachine kwantielen).</li>
           <li>c. \(\sqrt{\frac{19\cdot0{,}00013582}{33{,}69}}=\) <b>0,00875</b> <span class="computed">zelf berekend</span>; de cursus rondt af tot
           0,0088.</li>
           <li>d. 0,01 ∈ ]0,0088; +∞[: <b>\(H_{0}\) niet verwerpen</b>; de procesvariabiliteit wordt stabiel geacht
@@ -842,7 +828,7 @@
   </section>
 
   <!-- ============================================================ 04.8 -->
-  <section class="unit" id="d04-f" data-kw="F-verdeling; F distribution; verhouding varianties; ratio of variances; σ1²/σ2²; σ2²/σ1²; F.INV; F.INV.RT; nauwkeuriger; more precise; precisie machine; twee machines; two machines; eenzijdig BI; one-sided CI; vrijheidsgraden">
+  <section class="unit" id="d04-f" data-kw="F-verdeling; F distribution; verhouding varianties; ratio of variances; σ1²/σ2²; σ2²/σ1²; nauwkeuriger; more precise; precisie machine; twee machines; two machines; eenzijdig BI; one-sided CI; vrijheidsgraden">
     <h3>04.8 BI voor de verhouding van twee varianties σ<sub>1</sub>²/σ<sub>2</sub>² (F) <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=12">Recepten p. 12</a></h3>
     <p><b>De F-verdeling</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=12">Recepten p. 12</a>. Zijn \(\sym{x_chi}{X}\sim\chi^{2}(\sym{df_n}{n})\) en \(\sym{y_chi}{Y}\sim\chi^{2}(\sym{df_m}{m})\) onafhankelijk, dan volgt \(\frac{\frac{\sym{x_chi}{X}}{\sym{df_n}{n}}}{\frac{\sym{y_chi}{Y}}{\sym{df_m}{m}}}\) een
     F-verdeling met \((\sym{df_n}{n},\sym{df_m}{m})\) vrijheidsgraden: \(F(\sym{df_n}{n},\sym{df_m}{m})\). De verdeling is scheef naar rechts, met \(E(\sym{f_stat}{F})=\frac{\sym{df_m}{m}}{\sym{df_m}{m}-2}\gt1\) (voor
@@ -859,14 +845,13 @@
     </div>
     <p><b>Het interval</b>. De cursus drukt geen kant-en-klaar BI voor een verhouding van varianties af; je krijgt het door
     de F-uitspraak om te keren, net zoals bij \(\sigma^{2}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=21">CI FR p. 21</a> (beslissing 7 in <code>inventory/conventions.md</code>; zo
-    werkt ook werkblad "Variance CI &amp; tests"). Schrijf \(\sym{f_lo}{F_{\mathrm{lo}}}=\operatorname{F.INV}\left(\frac{\sym{alpha}{\alpha}}{2};\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1\right)\)
-    en \(\sym{f_hi}{F_{\mathrm{hi}}}=\operatorname{F.INV}\left(1-\frac{\sym{alpha}{\alpha}}{2};\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1\right)\). Dan is
+    werkt ook werkblad "Variance CI &amp; tests"). Schrijf \(\sym{f_lo}{F_{\mathrm{lo}}}\) voor het \(\frac{\sym{alpha}{\alpha}}{2}\)-kwantiel en \(\sym{f_hi}{F_{\mathrm{hi}}}\) voor het \(\left(1-\frac{\sym{alpha}{\alpha}}{2}\right)\)-kwantiel
+    van \(F(\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\) (kwantielnotatie: kans eronder). Dan is
     \(P\left[\sym{f_lo}{F_{\mathrm{lo}}}\le\left(\frac{\sym{s1_sq}{s_{1}^{2}}}{\sym{s2_sq}{s_{2}^{2}}}\right)\left(\frac{\sym{sigma2_sq}{\sigma_{2}^{2}}}{\sym{sigma1_sq}{\sigma_{1}^{2}}}\right)\le\sym{f_hi}{F_{\mathrm{hi}}}\right]=1-\sym{alpha}{\alpha}\), dus:</p>
     <div class="f">
       <div>\[(1-\sym{alpha}{\alpha})\]-BI voor \[\frac{\sym{sigma2_sq}{\sigma_{2}^{2}}}{\sym{sigma1_sq}{\sigma_{1}^{2}}}\]: \[\left[\left(\frac{\sym{s2_sq}{s_{2}^{2}}}{\sym{s1_sq}{s_{1}^{2}}}\right)\cdot\sym{f_lo}{F_{\mathrm{lo}}};\left(\frac{\sym{s2_sq}{s_{2}^{2}}}{\sym{s1_sq}{s_{1}^{2}}}\right)\cdot\sym{f_hi}{F_{\mathrm{hi}}}\right]\]</div>
       <div>\[(1-\sym{alpha}{\alpha})\]-BI voor \[\frac{\sym{sigma1_sq}{\sigma_{1}^{2}}}{\sym{sigma2_sq}{\sigma_{2}^{2}}}\]: \[\left[\frac{\frac{\sym{s1_sq}{s_{1}^{2}}}{\sym{s2_sq}{s_{2}^{2}}}}{\sym{f_hi}{F_{\mathrm{hi}}}};\frac{\frac{\sym{s1_sq}{s_{1}^{2}}}{\sym{s2_sq}{s_{2}^{2}}}}{\sym{f_lo}{F_{\mathrm{lo}}}}\right]\]</div>
-      <div>eenzijdig \[(1-\sym{alpha}{\alpha})\]: gebruik \[\sym{alpha}{\alpha}\] in plaats van \[\frac{\sym{alpha}{\alpha}}{2}\] aan de kant die je nodig hebt, bv. ondergrens voor \[\frac{\sym{sigma2_sq}{\sigma_{2}^{2}}}{\sym{sigma1_sq}{\sigma_{1}^{2}}}=\left(\frac{\sym{s2_sq}{s_{2}^{2}}}{\sym{s1_sq}{s_{1}^{2}}}\right)\cdot\operatorname{F.INV}(\sym{alpha}{\alpha};\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\]</div>
-      <div>Excel: \[\operatorname{F.INV}(p;\mathrm{df}1;\mathrm{df}2)=\] punt met kans p eronder; \[\operatorname{F.INV.RT}(\sym{alpha}{\alpha};\mathrm{df}1;\mathrm{df}2)=\] punt met kans \[\sym{alpha}{\alpha}\] erboven = \[\operatorname{F.INV}(1-\sym{alpha}{\alpha};\mathrm{df}1;\mathrm{df}2)\]</div>
+      <div>eenzijdig \[(1-\sym{alpha}{\alpha})\]: gebruik \[\sym{alpha}{\alpha}\] in plaats van \[\frac{\sym{alpha}{\alpha}}{2}\] aan de kant die je nodig hebt, bv. ondergrens voor \[\frac{\sym{sigma2_sq}{\sigma_{2}^{2}}}{\sym{sigma1_sq}{\sigma_{1}^{2}}}=\left(\frac{\sym{s2_sq}{s_{2}^{2}}}{\sym{s1_sq}{s_{1}^{2}}}\right)\cdot\sym{f_q}{F_{\alpha}}(\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\]</div>
     </div>
     <div class="box key"><span class="t">"Is machine 1 nauwkeuriger dan machine 2?"</span>
       <ol class="steps">
@@ -874,8 +859,8 @@
         vraag heeft een richting, dus je gebruikt een <b>eenzijdig</b> BI (<a href="#d04-dualiteit">04.9</a>).</li>
         <li>Je wilt aantonen dat de verhouding groter is dan 1: bereken een <b>ondergrens</b> voor
         \(\frac{\sym{sigma2_sq}{\sigma_{2}^{2}}}{\sym{sigma1_sq}{\sigma_{1}^{2}}}\) (of, gelijkwaardig, een bovengrens voor \(\frac{\sym{sigma1_sq}{\sigma_{1}^{2}}}{\sym{sigma2_sq}{\sigma_{2}^{2}}}\)).</li>
-        <li>Start van de uitspraak \(\left(\frac{\sym{s1_sq}{s_{1}^{2}}}{\sym{s2_sq}{s_{2}^{2}}}\right)\left(\frac{\sym{sigma2_sq}{\sigma_{2}^{2}}}{\sym{sigma1_sq}{\sigma_{1}^{2}}}\right)\sim F(\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\): \(P[\sym{f_stat}{F}\ge\operatorname{F.INV}(\sym{alpha}{\alpha};\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)]=1-\sym{alpha}{\alpha}\), dus
-        \(\frac{\sym{sigma2_sq}{\sigma_{2}^{2}}}{\sym{sigma1_sq}{\sigma_{1}^{2}}}\ge\left(\frac{\sym{s2_sq}{s_{2}^{2}}}{\sym{s1_sq}{s_{1}^{2}}}\right)\cdot\operatorname{F.INV}(\sym{alpha}{\alpha};\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\).</li>
+        <li>Start van de uitspraak \(\left(\frac{\sym{s1_sq}{s_{1}^{2}}}{\sym{s2_sq}{s_{2}^{2}}}\right)\left(\frac{\sym{sigma2_sq}{\sigma_{2}^{2}}}{\sym{sigma1_sq}{\sigma_{1}^{2}}}\right)\sim F(\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\): \(P[\sym{f_stat}{F}\ge\sym{f_q}{F_{\alpha}}(\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)]=1-\sym{alpha}{\alpha}\), dus
+        \(\frac{\sym{sigma2_sq}{\sigma_{2}^{2}}}{\sym{sigma1_sq}{\sigma_{1}^{2}}}\ge\left(\frac{\sym{s2_sq}{s_{2}^{2}}}{\sym{s1_sq}{s_{1}^{2}}}\right)\cdot\sym{f_q}{F_{\alpha}}(\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\).</li>
         <li>Ligt die ondergrens <b>boven 1</b>, dan is machine 1 met \((1-\sym{alpha}{\alpha})\) betrouwbaarheid nauwkeuriger. Ligt ze onder 1,
         dan bevat het BI de waarde 1 en kun je het niet besluiten.</li>
         <li>Let op de volgorde van de vrijheidsgraden: teller hoort bij \(s_{1}^{2}\), noemer bij \(s_{2}^{2}\). Draai je
@@ -887,13 +872,14 @@
       (of plak de data in kolommen H en I). Rij 44 = tweezijdig; rij 45 = "\(\frac{\sigma_{1}^{2}}{\sigma_{2}^{2}}\) at least … (\(\frac{\sigma_{2}^{2}}{\sigma_{1}^{2}}\) at most …)"; rij 46
       = "\(\frac{\sigma_{1}^{2}}{\sigma_{2}^{2}}\) at most … (\(\frac{\sigma_{2}^{2}}{\sigma_{1}^{2}}\) at least …)". Voor "is machine 1 nauwkeuriger?" lees je rij 46.</p>
     </div>
+    <div class="calc-here" data-tool="variantie" data-blocks="1"></div>
     <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-04-f">14 Dummies: BI voor σ<sub>A</sub>²/σ<sub>B</sub>² met Tabel 8-3</a>.</p>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"Is machine 1 nauwkeuriger dan machine 2? Bereken het tweezijdige BI voor \(\frac{\sigma_{1}^{2}}{\sigma_{2}^{2}}\)."</b> Fout: de vraag heeft een richting, dus een eenzijdig BI: de ondergrens \(\frac{\sym{sigma2_sq}{\sigma_{2}^{2}}}{\sym{sigma1_sq}{\sigma_{1}^{2}}}\ge\left(\frac{\sym{s2_sq}{s_{2}^{2}}}{\sym{s1_sq}{s_{1}^{2}}}\right)\cdot\operatorname{F.INV}(\sym{alpha}{\alpha};\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\). Ligt die boven 1, dan is machine 1 nauwkeuriger (examenvraag, <a href="#d13-v2">13.2</a>).</li>
+      <li><b>"Is machine 1 nauwkeuriger dan machine 2? Bereken het tweezijdige BI voor \(\frac{\sigma_{1}^{2}}{\sigma_{2}^{2}}\)."</b> Fout: de vraag heeft een richting, dus een eenzijdig BI: de ondergrens \(\frac{\sym{sigma2_sq}{\sigma_{2}^{2}}}{\sym{sigma1_sq}{\sigma_{1}^{2}}}\ge\left(\frac{\sym{s2_sq}{s_{2}^{2}}}{\sym{s1_sq}{s_{1}^{2}}}\right)\cdot\sym{f_q}{F_{\alpha}}(\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\). Ligt die boven 1, dan is machine 1 nauwkeuriger (examenvraag, <a href="#d13-v2">13.2</a>).</li>
       <li><b>"De ondergrens voor \(\frac{\sigma_{2}^{2}}{\sigma_{1}^{2}}\) ligt onder 1, dus machine 2 is nauwkeuriger."</b> Fout: dan bevat het BI de waarde 1 en kun je niets besluiten (voorbeeld uit de boeken: <a href="#ex-14-04-4">verdeling A en B, Deel 14</a>, vraag e).</li>
-      <li><b>Let op:</b> de vrijheidsgraden volgen de verhouding: teller \(s_{1}^{2}\) hoort bij \(n_{1}-1\), noemer bij \(n_{2}-1\). Draai je de verhouding om, dan wisselen ook de vrijheidsgraden: \(\sym{f_q}{F_{\alpha}}(\sym{df_n}{n},\sym{df_m}{m})=\frac{1}{\sym{f_q}{F_{1-\alpha}}(\sym{df_m}{m},\sym{df_n}{n})}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=12">Recepten p. 12</a>. In Excel is \(\operatorname{F.INV.RT}(\sym{alpha}{\alpha};\ldots)=\operatorname{F.INV}(1-\sym{alpha}{\alpha};\ldots)\).</li>
+      <li><b>Let op:</b> de vrijheidsgraden volgen de verhouding: teller \(s_{1}^{2}\) hoort bij \(n_{1}-1\), noemer bij \(n_{2}-1\). Draai je de verhouding om, dan wisselen ook de vrijheidsgraden: \(\sym{f_q}{F_{\alpha}}(\sym{df_n}{n},\sym{df_m}{m})=\frac{1}{\sym{f_q}{F_{1-\alpha}}(\sym{df_m}{m},\sym{df_n}{n})}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=12">Recepten p. 12</a>.</li>
       <li><b>"Met de F-toets ga je eerst na of \(\sigma_{1}=\sigma_{2}\), voor de niet-gepaarde t-toets."</b> Fout: de F-toets is niet robuust en de cursus waarschuwt net voor dat gebruik <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=14">Recepten p. 14</a>.</li>
     </ul></div>
 
@@ -958,7 +944,7 @@
         ondergrens; HA: \(\sym{theta}{\theta}\lt\sym{theta0}{\theta_{0}}\leftrightarrow\) bovengrens).</li>
         <li>Een tweezijdig 99%-BI zet 0,5 % in elke staart. Gebruik je één grens daarvan voor een eenzijdige toets, dan toets
         je dus bij 0,5 %, niet bij 1 %. Omgekeerd is de ondergrens van een eenzijdig 99%-BI dezelfde als de ondergrens van
-        een tweezijdig 98%-BI: beide gebruiken \(Z=2{,}326\) (NORM.S.INV(0,99) <span class="computed">zelf berekend</span>).</li>
+        een tweezijdig 98%-BI: beide gebruiken \(Z=z_{0{,}99}=2{,}326\) (Z-tabel of rekenmachine normale verdeling; <span class="computed">zelf berekend</span>).</li>
         <li>Het BI is een <b>alternatief</b> voor de klassieke toets, met dezelfde OC-curve <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=12">CI p. 12</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=14">CI p. 14</a>; je bent
         niet verplicht er een te berekenen. Het voordeel van het BI: het toont ook <i>hoe groot</i> het verschil kan zijn,
         wat je nodig hebt om over praktische relevantie te oordelen.</li>
@@ -997,12 +983,13 @@
         <select><option value="">kies…</option><option value="boven70">bij een betrouwbaarheid boven 70 %</option><option value="onder70">alleen onder 70 %</option><option value="altijd">bij elke betrouwbaarheid</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="normaal" data-blocks="0"></div>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>a. Tweezijdige toets ↔ <b>tweezijdig 99%-BI</b>: significantie + betrouwbaarheid = 100 % <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=17">TH FR p. 17</a>.</li>
           <li>b. HA: \(\sym{mu}{\mu}\gt\sym{mu0}{\mu_{0}}\): je verwerpt \(H_{0}\) als \(\bar{x}\) te groot is, dus als \(\mu_{0}\) onder de
           <b>ondergrens</b> van het eenzijdige 99%-BI ligt <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=18">TH FR p. 18</a>.</li>
-          <li>c. \(\sym{z_1ma}{Z}=\operatorname{NORM.S.INV}(0{,}99)=\) <b>2,326</b> <span class="computed">zelf berekend</span> (in bovenstaartnotatie
+          <li>c. \(\sym{z_1ma}{Z}=z_{0{,}99}=\) <b>2,326</b> (Z-tabel of rekenmachine normale verdeling) <span class="computed">zelf berekend</span> (in bovenstaartnotatie
           \(Z_{0{,}01}\)). Een tweezijdig 99%-BI zou 2,576 gebruiken (0,5 % per staart).</li>
           <li>d. De intervallen boven 70 % bevatten de AQL van 2 %, die onder 70 % niet: \(H_{0}\) wordt <b>aanvaard
           bij een betrouwbaarheid boven 70 %</b> en verworpen eronder <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=6">CI p. 6</a>. Een lage betrouwbaarheid is een hoge \(\alpha\): je verwerpt
@@ -1046,15 +1033,6 @@
         </div>
       </li>
     </ol>
-    <div class="box warn"><span class="t">Twee onduidelijkheden in de tekst</span>
-      <ul>
-        <li>\(\alpha\) wordt niet vermeld. Met \(\alpha=5\ \%\) (en \(\beta=10\ \%\), het 10%-percentiel) vind je \(\mathrm{LTL}=5{,}40\)
-        <span class="computed">zelf berekend</span>.</li>
-        <li>\(\mathrm{UTL}=5{,}55\) volgt niet uit \(\sym{utl}{\mathrm{UTL}}=\sym{ybar}{\bar{Y}}+\sym{k_tol}{k}\sym{sigma}{\sigma}\) (dat geeft 6,06 <span class="computed">zelf berekend</span>). 5,55 is
-        \(\sym{ybar}{\bar{Y}}-\left(\sym{z_1mb}{z_{1-\beta}}-\frac{\sym{z_1ma}{z_{1-\alpha}}}{\sqrt{\sym{n}{n}}}\right)\sym{sigma}{\sigma}\), de bovengrens voor het 10%-percentiel zelf
-        <span class="computed">zelf berekend</span>.</li>
-      </ul>
-    </div>
     <p><b>Distributievrije tolerantie-intervallen</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=23">CI FR p. 23</a>. Welke continue verdeling X ook heeft:
     \([\sym{x_min}{x_{(1)}};\sym{x_max}{x_{(n)}}]\) (kleinste en grootste waarde van de steekproef) is een \((1-\sym{alpha}{\alpha},1-\sym{beta_tol}{\beta})\)-tolerantie-interval
     als n groot genoeg is om te voldoen aan</p>
@@ -1065,6 +1043,7 @@
     gevallen ligt de kleinste waarde \(x_{(1)}\) links en de grootste \(x_{(n)}\) rechts van die punten (het
     omcirkelde interval mist het linkse punt).
     <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=23">CI FR p. 23</a></figcaption></figure>
+    <div class="calc-here" data-tool="tolerantie" data-blocks="0 1 2"></div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
@@ -1092,6 +1071,7 @@
         <select><option value="">kies…</option><option value="ja">ja</option><option value="nee">nee</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="tolerantie" data-blocks="0"></div>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>a. \(\frac{\sym{z_1ma}{z_{0{,}95}}}{\sqrt{20}}+\sym{z_1mb}{z_{0{,}90}}=\frac{1{,}645}{4{,}472}+1{,}282=0{,}368+1{,}282=\) <b>1,649</b>
@@ -1120,6 +1100,7 @@
         <select><option value="">kies…</option><option value="ja">ja</option><option value="nee">nee</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="tolerantie" data-blocks="1"></div>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>\(\sym{z_1ma}{Z_{1-\alpha}}=\sym{z_1ma}{Z_{0{,}95}}=1{,}645\); \(\sym{z_1mb}{Z_{1-\beta}}=1{,}282\); \(\sym{z_b}{Z_{\beta}}^{2}=1{,}282^{2}=1{,}642\).
@@ -1141,8 +1122,9 @@
         <label>a. Kleinste n:</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="tolerantie" data-blocks="2"></div>
       <details class="hint"><summary>Hint</summary><p>Zoek de kleinste n met \(0{,}95^{\sym{n}{n}}-\tfrac{1}{2}\cdot0{,}90^{\sym{n}{n}}\le0{,}025\)
-      (probeer in Excel een kolom met \(n=60\), 61, …).</p></details>
+      (probeer \(n=60\), 61, …).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>\(n=71\): \(0{,}95^{71}-\tfrac{1}{2}\cdot0{,}90^{71}=0{,}0259\gt0{,}025\); \(n=72\): 0,0246 ≤ 0,025. Dus <b>\(n=72\)</b>
@@ -1159,7 +1141,7 @@
   <!-- ============================================================ 04.11 -->
   <section class="unit" id="d04-overzicht" data-kw="overzicht; summary; welk interval; which interval; formules; formulas; samenvatting; cheat sheet; rekentool; calculator">
     <h3>04.11 Overzicht: welk interval gebruik je? <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=9">CI p. 9–16</a></h3>
-    <p>Alle formules tweezijdig met betrouwbaarheid \(1-\sym{alpha}{\alpha}\), in kwantielnotatie (Excel). Eenzijdig: vervang \(\frac{\sym{alpha}{\alpha}}{2}\) door \(\sym{alpha}{\alpha}\) aan de
+    <p>Alle formules tweezijdig met betrouwbaarheid \(1-\sym{alpha}{\alpha}\), in kwantielnotatie. Eenzijdig: vervang \(\frac{\sym{alpha}{\alpha}}{2}\) door \(\sym{alpha}{\alpha}\) aan de
     kant die je nodig hebt en zet de andere grens op ±∞ (of 0 en 1 voor een proportie, 0 voor een spreiding).</p>
     <table>
       <tr><th>grootheid</th><th>BI</th><th>verdeling, voorwaarden</th><th>bron</th><th>werkblad</th></tr>

@@ -4,7 +4,7 @@ x_val	x	Een bepaalde waarde van een variabele (van X, of van Cu in do(Cu = x)).	
 y_var	Y	Variabele Y (random variable); in de causale delen de uitkomst (outcome).	Gegeven. In P(Y | X) is Y de grootheid waarvan je de verdeling zoekt en X de voorwaarde (de rijen die je filtert).	d02-kansen
 y_val	y	Een bepaalde waarde van Y; in ∫<sub>y</sub> … dy de variabele waarover je optelt.	Bij een discrete tabel wordt ∫<sub>y</sub> … dy een som over alle waarden y: tel de cellen van een rij of kolom op.	d02-kansen
 pdf	f	Kansdichtheidsfunctie (probability density function, pdf): de vorm van de verdeling.	Discreet: \(f(x)=P(X=x)\), de kans op precies x. Continu: een dichtheid, geen kans; kansen zijn oppervlakten onder f.	d02-verdelingen
-cdf	F	Cumulatieve verdelingsfunctie (cumulative distribution function, cdf): \(F(x)=P(X\le x)\).	Integraal (continu) of som (discreet) van de pdf tot x. Excel: …DIST met TRUE/WAAR, bv. \(\operatorname{POISSON.DIST}(7;\lambda;\mathrm{WAAR})\). "Meer dan x" = 1 − F(x).	d02-verdelingen
+cdf	F	Cumulatieve verdelingsfunctie (cumulative distribution function, cdf): \(F(x)=P(X\le x)\).	Integraal (continu) of som (discreet) van de pdf tot x; voor Poisson de formule \(F(k)=\sum_{j=0}^{k}e^{-\lambda}\frac{\lambda^{j}}{j!}\) of de rekenmachine. "Meer dan x" = 1 − F(x).	d02-verdelingen
 t_int	t	Integratievariabele in \(F(x)=\int\ f(t)\) dt; loopt van −∞ tot x.	Niets te berekenen: een hulpletter, anders dan x omdat x de bovengrens van de integraal is.	d02-verdelingen
 x_bound	\(x_{1}\), \(x_{2}\)	Onder- en bovengrens van het interval waarvoor je de kans zoekt.	Gegeven in de vraag. \(P(x_{1}\le X\le x_{2})=F(x_{2})-F(x_{1})\): bovengrens min ondergrens.	d02-verdelingen
 lambda	\(\lambda\)	Parameter van de Poisson-verdeling: gemiddeld aantal gebeurtenissen per tijdseenheid.	Gegeven, of geschat uit tellingen (inference): Data p. 9 geeft 2.959 klanten per minuut. Geldt per tijdseenheid van de data.	d02-poisson
@@ -12,20 +12,20 @@ k_count	k	Het aantal gebeurtenissen (telling) waarvoor je de Poisson-kans bereke
 u	U	Spanning (voltage): de respons in de wet van Ohm.	Deterministisch \(U=\mathrm{RI}\); gemeten \(U=\mathrm{RI}+\varepsilon\), met \(\varepsilon\) de meetfout (LSS p. 114).	d02-model
 r_ohm	R	Weerstand (resistance) in de wet van Ohm.	Gegeven; in het voorbeeld van de 20 studenten voor iedereen dezelfde.	d02-model
 i_ohm	I	Stroom (current) in de wet van Ohm.	Gegeven; in het voorbeeld van de 20 studenten voor iedereen dezelfde.	d02-model
-eps	\(\varepsilon\)	Meetfout of experimentele fout: de random component van het model.	Niet gegeven: wat overblijft naast het deterministische deel. Aanname: onafhankelijk, vaste verdeling, vaste locatie, constante spreiding (02.8).	d02-model
+eps	\(\varepsilon\)	Meetfout of experimentele fout: de random component van het model.	Niet gegeven: wat overblijft naast het deterministische deel. Aanname: onafhankelijk, vaste verdeling, vaste locatie, constante spreiding.	d02-model
 xbarbar	\(\bar{\bar{X}}\)	Gemiddelde van de subgroepgemiddelden (grand mean) op een \(\bar{X}\)-kaart.	Gemiddelde van alle subgroepgemiddelden \(\bar{x}\), of gegeven (LSS p. 127: 71.8 mm). Schat het procesgemiddelde \(\mu\).	d10-formules
-sbar	\(\bar{s}\)	Gemiddelde van de standaardafwijkingen van de subgroepen op een \(\bar{X}\)-s-kaart.	Gemiddelde van de s per subgroep, of gegeven (LSS p. 127: 0.2 mm). Welke \(\sigma\) je daaruit haalt voor capabiliteit: zie 09.4.	d10-formules
+sbar	\(\bar{s}\)	Gemiddelde van de standaardafwijkingen van de subgroepen op een \(\bar{X}\)-s-kaart.	Gemiddelde van de s per subgroep, of gegeven (LSS p. 127: 0.2 mm).	d10-formules
 n	n, N	Aantal waarnemingen (sample size); bij Anscombe het aantal punten (x, y).	Tel de waarnemingen (Anscombe: \(N=11\)). De residuele standaardafwijking deelt door n − 2, niet door n.	d02-eda
-r_corr	r	Correlatiecoëfficiënt (correlation): sterkte van het lineaire verband, tussen −1 en 1.	Excel CORRELATIE/CORREL, of \(r=\sqrt{R^{2}}\) met het teken van de helling. Een hoge r bewijst geen lineair verband (Anscombe) en geen oorzaak.	d02-eda
-r2	\(R^{2}\)	Determinatiecoëfficiënt: fractie van de variatie in y die de rechte verklaart.	Blad ANOVA DOE regression (B168), of \(r^{2}\). Zie Deel 7.	d07-anova
-b1	\(b_{1}\)	Geschatte helling (slope) van de kleinste-kwadratenrechte.	Excel HELLING/SLOPE, of blad ANOVA DOE regression (B161).	d07-kk
-b0	\(b_{0}\)	Geschat intercept van de kleinste-kwadratenrechte.	Excel SNIJPUNT/INTERCEPT, of blad ANOVA DOE regression (B162).	d07-kk
+r_corr	r	Correlatiecoëfficiënt (correlation): sterkte van het lineaire verband, tussen −1 en 1.	\(r=\frac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}\) (rekenmachine correlatie), of \(r=\sqrt{R^{2}}\) met het teken van de helling. Een hoge r bewijst geen lineair verband (Anscombe) en geen oorzaak.	d02-eda
+r2	\(R^{2}\)	Determinatiecoëfficiënt: fractie van de variatie in y die de rechte verklaart.	Blad Regressie, of \(r^{2}\).	d07-anova
+b1	\(b_{1}\)	Geschatte helling (slope) van de kleinste-kwadratenrechte.	\(b_{1}=\frac{S_{xy}}{S_{xx}}\), of blad Regressie.	d07-kk
+b0	\(b_{0}\)	Geschat intercept van de kleinste-kwadratenrechte.	\(b_{0}=\bar{y}-b_{1}\bar{x}\), of blad Regressie.	d07-kk
 sse	\(\mathrm{SS}_{E}\)	Residuele kwadratensom (error sum of squares): som van de gekwadrateerde residuen.	Uit de ANOVA-tabel van de regressie. Residuele standaardafwijking = \(\sqrt{\frac{\mathrm{SS}_{E}}{n-2}}\).	d07-anova
 mse	\(\mathrm{MS}_{E}\)	Gemiddelde residuele kwadratensom (mean square error) = \(\frac{\mathrm{SS}_{E}}{n-2}\).	ANOVA-tabel van de regressie; \(\hat{\sigma}=\sqrt{\mathrm{MS}_{E}}\) is de residuele standaardafwijking.	d07-anova
-sigma_hat	\(\hat{\sigma}\)	Geschatte residuele standaardafwijking: spreiding van de punten rond de regressierechte.	\(\hat{\sigma}=\sqrt{\mathrm{MS}_{E}}\); Excel STAND.FOUT.YX/STEYX; blad ANOVA DOE regression (B167).	d07-anova
-mu_yx	\(\mu_{Y\mid x}\)	Gemiddelde respons bij gegeven x: de ware regressierechte, gelijk aan \(E[Y\mid X=x]\).	Onbekend; geschat met de kleinste-kwadratenrechte \(b_{0}+b_{1}\)x (Deel 7).	d07-model
-beta0	\(\beta_{0}\)	Intercept van de ware regressierechte (populatie).	Onbekend; geschat door \(b_{0}\) (Excel SNIJPUNT/INTERCEPT).	d07-kk
-beta1	\(\beta_{1}\)	Helling van de ware regressierechte (populatie).	Onbekend; geschat door \(b_{1}\) (Excel HELLING/SLOPE).	d07-kk
+sigma_hat	\(\hat{\sigma}\)	Geschatte residuele standaardafwijking: spreiding van de punten rond de regressierechte.	\(\hat{\sigma}=\sqrt{\mathrm{MS}_{E}}\); blad Regressie.	d07-anova
+mu_yx	\(\mu_{Y\mid x}\)	Gemiddelde respons bij gegeven x: de ware regressierechte, gelijk aan \(E[Y\mid X=x]\).	Onbekend; geschat met de kleinste-kwadratenrechte \(b_{0}+b_{1}\)x.	d07-model
+beta0	\(\beta_{0}\)	Intercept van de ware regressierechte (populatie).	Onbekend; geschat door \(b_{0}=\bar{y}-b_{1}\bar{x}\).	d07-kk
+beta1	\(\beta_{1}\)	Helling van de ware regressierechte (populatie).	Onbekend; geschat door \(b_{1}=\frac{S_{xy}}{S_{xx}}\).	d07-kk
 y_i	\(Y_{i}\)	De i-de meting in tijdsvolgorde; \(Y_{i-1}\) is de meting ervoor.	Uit de data, in de volgorde van meten. Run sequence plot: \(Y_{i}\) tegen i; lag plot: \(Y_{i}\) tegen \(Y_{i-1}\) (onafhankelijkheid).	d02-4plot
 x_feat	\(X_{1}\ \ldots\ X_{n}\)	De n kenmerken (features) van één waarneming: de kolommen van de dataset.	Uit de dataset. n is hier het aantal kolommen (dimensies), niet het aantal rijen.	d02-associatie
 g	G	Geslacht (gender): discrete variabele, man of vrouw.	Gegeven. In P(M \(\mid G=\) vrouw) is G de voorwaarde: hou alleen de rijen met vrouwen over.	d02-kansen
@@ -48,15 +48,3 @@ ni	Ni	Nikkelconcentratie: komt met de schrootmix mee en beïnvloedt de sterkte.	
 cr	Cr	Chroomconcentratie: derde legeringselement uit de schrootmix.	Gemeten; schroot → Cr → Sterkte (Data-notities p. 22).	d02-dag
 schroot	schroot	De schrootmix: gemeenschappelijke oorzaak (confounder) van Cu, Ni en Cr.	Een causale aanname over het proces (Data-notities p. 22), niet uit de data af te leiden.	d02-dag
 sterkte	Sterkte	Sterkte van het staal: de uitkomst (outcome).	Gemeten (MPa). 100 ppm meer Cu gaat samen met 10 MPa meer sterkte, deels via Ni (Data-notities p. 23).	d02-dag
-m1	\(M_{1}\)	Gemeten temperatuur vóór het afkoelen, met meetfout.	In de data. \(M_{1}=T_{1}+\varepsilon_{1}\); de werkelijke \(T_{1}\) zie je niet.	d02-staal
-m2	\(M_{2}\)	Gemeten temperatuur na het afkoelen, met meetfout.	In de data. \(M_{2}=T_{2}+\varepsilon_{2}\).	d02-staal
-m_val	m	Een bepaalde waarde van de gemeten begintemperatuur \(M_{1}\).	Gekozen. \(E[M_{2}\mid M_{1}=m]\) is de regressielijn van \(M_{2}\) op \(M_{1}\).	d02-staal
-t1	\(T_{1}\)	Werkelijke temperatuur vóór het afkoelen; zit niet in de dataset.	Niet gemeten, alleen \(M_{1}=T_{1}+\varepsilon_{1}\). \(\operatorname{Var}(T_{1})=\operatorname{Var}(M_{1})-\operatorname{Var}(\varepsilon_{1})\).	d02-staal
-t2	\(T_{2}\)	Werkelijke temperatuur na het afkoelen.	Niet gemeten. Model: \(T_{2}=\alpha\ T_{1}+\beta\) W + \(\varepsilon_{0}\) (Data p. 56).	d02-staal
-eps1	\(\varepsilon_{1}\)	Meetfout op de gemeten begintemperatuur \(M_{1}\).	Niet gegeven; een meetsysteemanalyse (Deel 11) brengt zulke fouten in kaart. Elke \(\operatorname{Var}(\varepsilon_{1})\gt0\) maakt \(\alpha'\lt\alpha\).	d02-staal
-eps2	\(\varepsilon_{2}\)	Meetfout op de gemeten eindtemperatuur \(M_{2}\).	Niet gegeven. Een fout in de uitkomst; de verdunning van de helling komt van \(\varepsilon_{1}\), de fout in de verklarende variabele.	d02-staal
-eps0	\(\varepsilon_{0}\)	Toevallige restterm (random component) in het model voor \(T_{2}\).	Niet gegeven; de cursus werkt \(\varepsilon_{0}\) niet verder uit (Data p. 56).	d02-staal
-alpha	\(\alpha\)	Afkoelcoëfficiënt: hoe \(T_{2}\) van \(T_{1}\) afhangt (hier niet het significantieniveau).	Correct: \(\frac{\operatorname{Cov}(M_{1},M_{2})}{\operatorname{Var}(T_{1})}\). \(\alpha=1\): warm en koud staal dalen evenveel; \(\alpha\lt1\): warm staal koelt sneller af.	d02-staal
-alpha_n	\(\alpha'\)	Naïeve schatting van \(\alpha\): de OLS-helling van \(M_{2}\) op \(M_{1}\).	\(\frac{\operatorname{Cov}(M_{1},M_{2})}{\operatorname{Var}(M_{1})}\). Altijd kleiner dan \(\alpha\) als \(M_{1}\) meetfout bevat (attenuation bias).	d02-staal
-beta_w	\(\beta\)	Coëfficiënt van de wachtduur W in het afkoelmodel.	Niet gegeven en in het voorbeeld niet geschat (Data p. 56).	d02-staal
-w	W	Wachtduur: hoe lang de staalpan afkoelt.	Gemeten per staalpan; in het causale model een tweede oorzaak van \(T_{2}\).	d02-staal

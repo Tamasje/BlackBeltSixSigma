@@ -3,8 +3,7 @@
   <p class="intro">Dit deel behandelt variantieanalyse en proefopzet en bouwt verder op de regressie van
   <a href="#d07">Deel 7</a>. Eerst one-way ANOVA: een respons
   verklaren met een categorische x, wiskundig hetzelfde als regressie; daarna tweewegs-ANOVA. Daarna waarom en hoe je experimenten plant,
-  \(2^{\sym{k_factors}{k}}\)-proefopzetten en fractionele proefopzetten. Het kernidee (variatie opsplitsen, F-verhouding) en de twee
-  notaties voor kritieke waarden staan in <a href="#d07-start">07.1</a>.
+  \(2^{\sym{k_factors}{k}}\)-proefopzetten en fractionele proefopzetten.
   <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=1">DOE p. 1</a></p>
 
   <section class="unit" id="d08-brug" data-kw="ANOVA; variantieanalyse; analysis of variance; factor; categorische variabele; categorical variable; niveau; level; behandeling; treatment; groep; group; replicaties; replicates; gebalanceerd; balanced; dummyvariabelen; dummy variables; regressie; regression">
@@ -43,7 +42,7 @@
   <section class="unit" id="d08-model" data-kw="means model; gemiddeldenmodel; effects model; effectenmodel; tau; effect van een niveau; grote gemiddelde; grand mean; homoscedasticiteit; gelijke variantie; equal variance; nulhypothese; null hypothesis; twee-steekproeven t-toets; two-sample t-test; one-way ANOVA; enkelvoudige variantieanalyse">
     <h3>08.2 De vraag en het model <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=3">DOE p. 3–4</a></h3>
     <p>Factor A heeft <b>a niveaus</b>, met <b>n replicaties</b> per groep. Alle populaties zijn normaal, met mogelijk
-    verschillende gemiddelden maar <b>dezelfde variantie \(\sigma^{2}\)</b> (homoscedasticiteit, zoals in <a href="#d07-model">07.2</a>).
+    verschillende gemiddelden maar <b>dezelfde variantie \(\sigma^{2}\)</b> (homoscedasticiteit).
     \(Y_{ij}\) is de j-de meting bij het i-de niveau. Twee gelijkwaardige schrijfwijzen van hetzelfde model
     <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=3">DOE p. 3</a>:</p>
     <div class="f">
@@ -77,7 +76,7 @@
   <section class="unit" id="d08-opsplitsing" data-kw="kwadratensom; sum of squares; SS Total; SS Treatment; SS Error; tussen groepen; between groups; binnen groepen; within groups; vrijheidsgraden; degrees of freedom; groepsgemiddelde; group mean; grand mean">
     <h3>08.3 De variatie opsplitsen <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=6">DOE p. 6</a></h3>
     <p>Schrijf \(\bar{Y}_{i\cdot}\) voor het gemiddelde van groep i en \(\bar{Y}_{\cdot\cdot}\) voor het grote gemiddelde van alle \(\sym{a_levels}{a}\cdot\sym{n_rep}{n}\)
-    metingen <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=5">DOE p. 5</a>. Vergelijk elke regel met de regressietabel in <a href="#d07-anova">07.5</a>.</p>
+    metingen <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=5">DOE p. 5</a>.</p>
     <table>
       <tr><th>Kwadratensom</th><th>Formule</th><th>Wat ze meet</th><th>df</th><th>In regressie</th></tr>
       <tr><td>\(\sym{ss_total}{\mathrm{SS}_{\text{Total}}}\)</td><td>\(\Sigma_{i}\Sigma_{j}\ (\sym{y_ij}{Y_{ij}}-\sym{ybar_grand}{\bar{Y}_{\cdot\cdot}})^{2}\)</td><td>alle variatie in de data</td><td>\(\sym{a_levels}{a}\sym{n_rep}{n}-1\)</td><td>\(\sym{ss_total}{\mathrm{SS}_{T}}\)</td></tr>
@@ -89,7 +88,7 @@
     dus \(\sym{a_levels}{a}(\sym{n_rep}{n}-1)\) voor de fout en \(\sym{a_levels}{a}-1\) voor de behandelingen <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=6">DOE p. 6</a>.</p>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"\(\sym{ss_tr}{\mathrm{SS}_{\text{Treatment}}}\) meet de spreiding binnen de groepen."</b> Fout: \(\sym{ss_tr}{\mathrm{SS}_{\text{Treatment}}}\) is de variatie <i>tussen</i> de groepen (between, verklaard), \(\sym{ss_e}{\mathrm{SS}_{\text{Error}}}\) die <i>binnen</i> de groepen (within, onverklaard) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=6">DOE p. 6</a>. In Excel heten ze Between Groups en Within Groups (<a href="#d08-vezel">08.6</a>).</li>
+      <li><b>"\(\sym{ss_tr}{\mathrm{SS}_{\text{Treatment}}}\) meet de spreiding binnen de groepen."</b> Fout: \(\sym{ss_tr}{\mathrm{SS}_{\text{Treatment}}}\) is de variatie <i>tussen</i> de groepen (between, verklaard), \(\sym{ss_e}{\mathrm{SS}_{\text{Error}}}\) die <i>binnen</i> de groepen (within, onverklaard) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=6">DOE p. 6</a>. In de output van 08.6 heten ze Between Groups en Within Groups.</li>
       <li><b>Let op:</b> vergeet de factor \(\sym{n_rep}{n}\) niet in \(\sym{ss_tr}{\mathrm{SS}_{\text{Treatment}}}=\sym{n_rep}{n}\cdot\Sigma(\sym{ybar_i}{\bar{Y}_{i\cdot}}-\sym{ybar_grand}{\bar{Y}_{\cdot\cdot}})^{2}\). Bij de drie machines is \(\Sigma(\sym{ybar_i}{\bar{X}_{i}}-\sym{ybar_grand}{\bar{X}})^{2}=26\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=20">DOE p. 20</a>, maar \(\sym{ss_tr}{\mathrm{SS}_{\text{Treatment}}}=5\cdot26=130\) <span class="computed">zelf berekend</span> (oefening 08.4).</li>
       <li><b>Let op:</b> de vrijheidsgraden zijn \(\sym{a_levels}{a}\sym{n_rep}{n}-1\) (totaal), \(\sym{a_levels}{a}-1\) (behandelingen) en \(\sym{a_levels}{a}(\sym{n_rep}{n}-1)\) (fout) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=6">DOE p. 6</a>. Papier: 23 = 3 + 20 <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=9">DOE p. 9</a>.</li>
       <li><b>"Ook de gemiddelde kwadratensommen tellen op."</b> Fout: alleen de SS en de df tellen op <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=6">DOE p. 6</a>; een MS is een SS gedeeld door haar df, en die quotiënten tellen niet op. Daarom heeft de regel Total in de ANOVA-tabel geen MS <span class="gen">algemeen</span>.</li>
@@ -98,13 +97,13 @@
 
   <section class="unit" id="d08-ftoets" data-kw="F-toets; F-test; ANOVA-tabel; ANOVA table; mean square; gemiddelde kwadratensom; MS Treatment; MS Error; MSE; kritieke waarde; critical value; p-waarde; p-value; verwachte waarde; expected mean square">
     <h3>08.4 De F-toets en de ANOVA-tabel <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=7">DOE p. 7–8</a></h3>
-    <p>Zoals in <a href="#d07-toetsen">07.6</a>: deel elke SS door haar df om een <b>gemiddelde kwadratensom (mean square,
+    <p>Deel elke SS door haar df om een <b>gemiddelde kwadratensom (mean square,
     MS)</b> te krijgen en vergelijk de twee:</p>
     <div class="f">
       <div>\(\sym{ms_tr}{\mathrm{MS}_{\text{Treatment}}}=\frac{\sym{ss_tr}{\mathrm{SS}_{\text{Treatment}}}}{\sym{a_levels}{a}-1}\), \(\sym{ms_e}{\mathrm{MS}_{\text{Error}}}=\frac{\sym{ss_e}{\mathrm{SS}_{\text{Error}}}}{\sym{a_levels}{a}(\sym{n_rep}{n}-1)}\)</div>
       <div>\(\sym{f0}{F}=\frac{\sym{ms_tr}{\mathrm{MS}_{\text{Treatment}}}}{\sym{ms_e}{\mathrm{MS}_{\text{Error}}}}\sim\sym{f_dist}{F_{a-1,a(n-1)}}\) als \(\sym{h0}{H_{0}}\) waar is</div>
       <div>Verwerp \(\sym{h0}{H_{0}}\) als \(\sym{f0}{F}\gt\sym{f_crit}{F_{1-\alpha,a-1,a(n-1)}}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=7">DOE p. 7</a>, of gelijkwaardig als de \(\sym{p_value}{\text{p-waarde}}\lt\sym{alpha}{\alpha}\)
-      (notatie van de kritieke waarde: zie <a href="#d07-start">07.1</a>).</div>
+      (\(\sym{f_crit}{F_{1-\alpha,a-1,a(n-1)}}\) heeft kans \(1-\alpha\) eronder; de tekstboekpagina's schrijven dezelfde waarde als \(\sym{f_crit}{F_{\alpha;a-1;a(n-1)}}\), met \(\alpha\) erboven).</div>
     </div>
     <p><b>Waarom F rond 1 ligt als er niets aan de hand is</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=8">DOE p. 8</a>. \(\sym{ms_e}{\mathrm{MS}_{\text{Error}}}\) schat altijd <var data-s="sigma2">σ²</var>.
     \(\sym{ms_tr}{\mathrm{MS}_{\text{Treatment}}}\) schat \(\sym{sigma2}{\sigma^{2}}+\frac{\sym{n_rep}{n}\cdot\Sigma\sym{tau_i}{\tau_{i}}^{2}}{\sym{a_levels}{a}-1}\), en dat is alleen <var data-s="sigma2">σ²</var> als elke \(\sym{tau_i}{\tau_{i}}\) nul is.
@@ -116,12 +115,13 @@
       <tr><td>Error</td><td>\(\sym{ss_e}{\mathrm{SS}_{E}}\)</td><td>\(\sym{a_levels}{a}(\sym{n_rep}{n}-1)\)</td><td>\(\sym{ms_e}{\mathrm{MS}_{E}}\)</td><td></td></tr>
       <tr><td>Total</td><td>\(\sym{ss_total}{\mathrm{SS}_{T}}\)</td><td>\(\sym{a_levels}{a}\sym{n_rep}{n}-1\)</td><td></td><td></td></tr>
     </table>
+    <div class="calc-here" data-tool="kwantielen" data-blocks="0"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"De F-toets is tweezijdig: verwerp \(\sym{h0}{H_{0}}\) ook als \(\sym{f0}{F}\) veel kleiner is dan 1."</b> Fout: verwerp alleen als \(\sym{f0}{F}\gt\sym{f_crit}{F_{1-\alpha,a-1,a(n-1)}}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=7">DOE p. 7</a>; een echt effect maakt F groter, niet kleiner <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=8">DOE p. 8</a>. In Excel is dat de rechterstaart: F.INV.RT.</li>
+      <li><b>"De F-toets is tweezijdig: verwerp \(\sym{h0}{H_{0}}\) ook als \(\sym{f0}{F}\) veel kleiner is dan 1."</b> Fout: verwerp alleen als \(\sym{f0}{F}\gt\sym{f_crit}{F_{1-\alpha,a-1,a(n-1)}}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=7">DOE p. 7</a>; een echt effect maakt F groter, niet kleiner <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=8">DOE p. 8</a>.</li>
       <li><b>"Als \(\sym{h0}{H_{0}}\) waar is, is \(\sym{f0}{F}\) precies 1."</b> Fout: teller en noemer schatten dan allebei <var data-s="sigma2">σ²</var>, dus F ligt "rond 1", maar varieert volgens de F-verdeling <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=8">DOE p. 8</a>. Pas boven de kritieke waarde verwerp je.</li>
       <li><b>"\(\sym{ms_tr}{\mathrm{MS}_{\text{Treatment}}}\) schat altijd <var data-s="sigma2">σ²</var>."</b> Fout: alleen onder \(\sym{h0}{H_{0}}\); anders schat ze \(\sym{sigma2}{\sigma^{2}}+\frac{\sym{n_rep}{n}\cdot\Sigma\sym{tau_i}{\tau_{i}}^{2}}{\sym{a_levels}{a}-1}\). \(\sym{ms_e}{\mathrm{MS}_{E}}\) schat <var data-s="sigma2">σ²</var> altijd <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=8">DOE p. 8</a>.</li>
-      <li><b>Let op:</b> de volgorde van de vrijheidsgraden: teller \(\sym{a_levels}{a}-1\), noemer \(\sym{a_levels}{a}(\sym{n_rep}{n}-1)\). Papier: F.INV.RT(0,01; 3; 20) = 4,94 <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=9">DOE p. 9</a>; omgewisseld geeft F.INV.RT(0,01; 20; 3) = 26,69 <span class="computed">zelf berekend</span>.</li>
+      <li><b>Let op:</b> de volgorde van de vrijheidsgraden: teller \(\sym{a_levels}{a}-1\), noemer \(\sym{a_levels}{a}(\sym{n_rep}{n}-1)\). Papier: \(\sym{f_crit}{F_{0{,}01;3;20}}=4{,}94\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=9">DOE p. 9</a>; omgewisseld geeft \(\sym{f_crit}{F_{0{,}01;20;3}}=26{,}69\) <span class="computed">zelf berekend</span>.</li>
     </ul></div>
   </section>
 
@@ -198,8 +198,9 @@
         <select><option value="">kies…</option><option value="verwerp">H0 verwerpen: de concentratie heeft invloed</option><option value="aanvaard">H0 niet verwerpen</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="anova" data-blocks="0"></div>
       <details class="hint"><summary>Hint</summary><p>\(\Sigma\sym{y_ij}{y}^{2}=6625\) voor alle 24 waarden <span class="computed">zelf berekend</span>; de correctieterm is
-      \(\frac{383^{2}}{24}\). <var data-s="df">df</var>: \(\sym{a_levels}{a}-1=3\) en \(\sym{a_levels}{a}(\sym{n_rep}{n}-1)=20\). Excel: <code>F.INV.RT(0,01; 3; 20)</code>.</p></details>
+      \(\frac{383^{2}}{24}\). <var data-s="df">df</var>: \(\sym{a_levels}{a}-1=3\) en \(\sym{a_levels}{a}(\sym{n_rep}{n}-1)=20\). \(\sym{f_crit}{F_{0{,}01;3;20}}\): kolom F-kritiek van de rekenmachine eenweg-ANOVA.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>Correctieterm \(\frac{383^{2}}{24}=6112{,}04\) <span class="computed">zelf berekend</span>; \(\sym{ss_total}{\mathrm{SS}_{T}}=6625-6112{,}04=\) <b>512,96</b>.</li>
@@ -212,8 +213,8 @@
     </div>
   </section>
 
-  <section class="unit" id="d08-vezel" data-kw="synthetische vezel; synthetic fiber; katoen; cotton weight percent; Excel output; Anova: Single Factor; Between Groups; Within Groups; F crit; P-value; Count Sum Average Variance; 1ANOVA; DOE_demo; optimum">
-    <h3>08.6 Excel-output lezen: synthetische vezel <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=13">DOE p. 13–19</a></h3>
+  <section class="unit" id="d08-vezel" data-kw="synthetische vezel; synthetic fiber; katoen; cotton weight percent; ANOVA-output; Anova: Single Factor; Between Groups; Within Groups; F crit; P-value; Count Sum Average Variance; 1ANOVA; DOE_demo; optimum">
+    <h3>08.6 ANOVA-output lezen: synthetische vezel <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=13">DOE p. 13–19</a></h3>
     <p>Een nieuwe synthetische vezel voor hemdenstof; de respons is de treksterkte. Het katoengehalte kan variëren van 10
     tot 40 gewichts-%, en er wordt wat niet-lineariteit verwacht. De onderzoeker kiest 5 niveaus (15, 20, 25, 30 en
     35 gew.-%) met elk 5 replicaties in willekeurige volgorde <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=13">DOE p. 13</a>. Vragen: verandert het katoengehalte de
@@ -222,7 +223,7 @@
     <figcaption>Figuur: boxplots van de treksterkte (lb/\(\mathrm{in}^{2}\)) per katoengehalte (Figure 3-1). De dozen stijgen van 15 naar 30 %
     en zakken bij 35 % terug naar het niveau van 15 %: dat wijst op een optimum rond 30 %.
     <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=14">DOE p. 14</a></figcaption></figure>
-    <p>Excel's "Anova: Single Factor" geeft <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=15">DOE p. 15</a>:</p>
+    <p>De output "Anova: Single Factor" <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=15">DOE p. 15</a>:</p>
     <table>
       <tr><th>Source of Variation</th><th class="n">SS</th><th class="n">df</th><th class="n">MS</th><th class="n">F</th><th class="n">P-value</th><th class="n">F crit</th></tr>
       <tr><td>Between Groups</td><td class="n">475.76</td><td class="n">4</td><td class="n">118.94</td><td class="n">14.75682</td><td class="n">9.12794E-06</td><td class="n">2.866081</td></tr>
@@ -240,7 +241,7 @@
     <ul>
       <li><b>Between Groups</b> (tussen de groepen) is de behandelingsregel, <b>Within Groups</b> (binnen de groepen) de
       foutregel; \(\sym{ms_e}{\text{MS Within}}=8{,}06=\sym{ms_e}{\mathrm{MS}_{E}}\).</li>
-      <li><b>F crit</b> is de kritieke waarde bij de \(\alpha\) die je in het dialoogvenster koos (hier 0,05).</li>
+      <li><b>F crit</b> is de kritieke waarde bij de gekozen \(\alpha\) (hier 0,05).</li>
       <li>\(\sym{f0}{F}=14{,}76\) ligt ver boven 2,87, en \(\sym{p_value}{P}=9{,}1\times10^{-6}\): <b>het katoengehalte doet ertoe</b>. De
       groepsgemiddelden zijn 9,8; 15,4; 17,6; 21,6 en 10,8: 30 % geeft de sterkste vezel.</li>
       <li>De eerste figuur hieronder (<a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=16">DOE p. 16</a>) toont waar \(\sym{f0}{F_{0}}=14{,}76\) valt in de <var data-s="f_dist">F(4, 20)</var>-verdeling: ver voorbij zowel
@@ -257,20 +258,20 @@
     gelijke metingen), zwarte vierkanten de groepsgemiddelden met hun foutstaven. Het gemiddelde stijgt van 15 naar 30 % en
     valt bij 35 % sterk terug. <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=17">DOE p. 17</a></figcaption></figure>
     <div class="box tool"><span class="t">Rekentool</span>
-      <p>Werkblad <b>ANOVA DOE regression</b>, sectie <b>1 (one-way ANOVA)</b>: typ elke groep in een eigen kolom (tot 8
-      groepen van elk tot 30 waarden; groepen mogen verschillend groot zijn). Je krijgt de ANOVA-tabel, de p-waarde,
-      F crit bij jouw \(\alpha\), de groepsgemiddelden en -standaardafwijkingen en de \(\sym{sigma_hat}{\text{pooled sd}}=\sqrt{\sym{ms_e}{\mathrm{MS}_{E}}}\). In Excel zelf:
-      Gegevensanalyse → "Anova: Single Factor" geeft de tabel van <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=15">DOE p. 15</a>.</p>
+      <p>Werkblad <b>ANOVA (eenweg)</b> in bb_toolkit.xlsx: typ elke groep in een eigen kolom (groepen mogen
+      verschillend groot zijn). Je krijgt de ANOVA-tabel, de p-waarde, de kritieke F bij jouw \(\alpha\), de groepsgemiddelden
+      en -standaardafwijkingen en de \(\sym{sigma_hat}{\text{pooled sd}}=\sqrt{\sym{ms_e}{\mathrm{MS}_{E}}}\).</p>
     </div>
+    <div class="calc-here" data-tool="anova" data-blocks="0"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"F crit in de Excel-output hoort altijd bij \(\sym{alpha}{\alpha}=0{,}05\)."</b> Fout: F crit hoort bij de \(\sym{alpha}{\alpha}\) die je in het dialoogvenster invult (hier 0,05) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=15">DOE p. 15</a>. Bij \(\sym{alpha}{\alpha}=0{,}01\) is \(\sym{f_crit}{F_{0{,}01;4;20}}=4{,}431\) <span class="computed">zelf berekend</span>.</li>
+      <li><b>"F crit in de output hoort altijd bij \(\sym{alpha}{\alpha}=0{,}05\)."</b> Fout: F crit hoort bij de gekozen \(\sym{alpha}{\alpha}\) (hier 0,05) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=15">DOE p. 15</a>. Bij \(\sym{alpha}{\alpha}=0{,}01\) is \(\sym{f_crit}{F_{0{,}01;4;20}}=4{,}431\) <span class="computed">zelf berekend</span>.</li>
       <li><b>"\(\sym{f0}{F}\gt\sym{f_crit}{F\ \mathrm{crit}}\) en \(\sym{p_value}{\text{P-value}}\lt\sym{alpha}{\alpha}\) kunnen een verschillend besluit geven."</b> Fout: beide vergelijken dezelfde F met dezelfde F-verdeling <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=7">DOE p. 7</a>; zolang F crit bij dezelfde \(\sym{alpha}{\alpha}\) hoort, is het besluit hetzelfde.</li>
-      <li><b>Let op:</b> Excel schrijft de p-waarde wetenschappelijk: 9.12794E-06 is \(9{,}1\times10^{-6}=0{,}0000091\), ver onder 0,05 <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=15">DOE p. 15</a>. Lees het "E-06" niet over het hoofd.</li>
+      <li><b>Let op:</b> de output schrijft de p-waarde wetenschappelijk: 9.12794E-06 is \(9{,}1\times10^{-6}=0{,}0000091\), ver onder 0,05 <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=15">DOE p. 15</a>. Lees het "E-06" niet over het hoofd.</li>
     </ul></div>
-    <div class="exercise" id="ex-08-2" data-kw="Excel output lezen; read Excel output; Between Groups; Within Groups; F crit; P-value; synthetische vezel; synthetic fiber; katoen; cotton; optimum">
-      <h4>Oefening 08.2 — De Excel-output van de vezelproef lezen <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=15">DOE p. 15, 19</a></h4>
-      <p>Gebruik de twee Excel-tabellen hierboven.</p>
+    <div class="exercise" id="ex-08-2" data-kw="output lezen; read output; Between Groups; Within Groups; F crit; P-value; synthetische vezel; synthetic fiber; katoen; cotton; optimum">
+      <h4>Oefening 08.2 — De ANOVA-output van de vezelproef lezen <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=15">DOE p. 15, 19</a></h4>
+      <p>Gebruik de twee outputtabellen hierboven.</p>
       <div class="q" data-type="choice" data-answer="within">
         <label>Welke regel is de foutterm (error)?</label>
         <select><option value="">kies…</option><option value="between">Between Groups</option><option value="within">Within Groups</option><option value="total">Total</option></select>
@@ -306,7 +307,7 @@
         </ol>
       </details>
     </div>
-    <div class="exercise" id="ex-08-3" data-kw="1ANOVA; DOE_demo; one-way ANOVA zelf berekenen; ruwe data; raw data; synthetische vezel; Excel Anova Single Factor; rekentool">
+    <div class="exercise" id="ex-08-3" data-kw="1ANOVA; DOE_demo; one-way ANOVA zelf berekenen; ruwe data; raw data; synthetische vezel; Anova Single Factor; rekentool">
       <h4>Oefening 08.3 — Blad '1ANOVA': dezelfde ANOVA uit de ruwe data <a class="p" href="../source/course/Les%203/20260605_devuyst_DOE_demo.xlsx">DOE_demo.xlsx</a></h4>
       <p>Het blad <b>1ANOVA</b> van <a class="p" href="../source/course/Les%203/20260605_devuyst_DOE_demo.xlsx">20260605_devuyst_DOE_demo.xlsx</a> bevat de ruwe vezeldata (sterkte Y per
       katoengehalte A):</p>
@@ -318,7 +319,7 @@
         <tr><td>30</td><td class="n">19</td><td class="n">25</td><td class="n">22</td><td class="n">19</td><td class="n">23</td></tr>
         <tr><td>35</td><td class="n">7</td><td class="n">10</td><td class="n">11</td><td class="n">15</td><td class="n">11</td></tr>
       </table>
-      <p>Bereken de ANOVA zelf (met de formules van 08.3, met de rekentool of met Excel) en vergelijk met <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=15">DOE p. 15</a>.</p>
+      <p>Bereken de ANOVA zelf (met de formules van 08.3 of met de rekenmachine) en vergelijk met <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=15">DOE p. 15</a>.</p>
       <div class="q" data-answer="475.76" data-tol="0.01">
         <label>\(\sym{ss_tr}{\text{SS tussen de groepen}}=\)</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
@@ -335,8 +336,9 @@
         <label><var data-s="p_value">p-waarde</var> (wetenschappelijke notatie, bv. 1,23E-06) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="anova" data-blocks="0"></div>
       <details class="hint"><summary>Hint</summary><p>Groepstotalen 49, 77, 88, 108, 54; eindtotaal 376; \(\Sigma\sym{y_ij}{y}^{2}=6292\)
-      <span class="computed">zelf berekend</span>. Excel: <code>F.DIST.RT(F; 4; 20)</code> geeft de p-waarde.</p></details>
+      <span class="computed">zelf berekend</span>. De p-waarde is de kans in de F(4, 20)-verdeling boven F (kolom p van de rekenmachine eenweg-ANOVA).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>Correctieterm \(\frac{376^{2}}{25}=5655{,}04\); \(\sym{ss_total}{\mathrm{SS}_{T}}=6292-5655{,}04=636{,}96\) <span class="computed">zelf berekend</span>.</li>
@@ -344,14 +346,14 @@
           <b>161,2</b>.</li>
           <li>\(\sym{f0}{F}=\frac{\frac{475{,}76}{4}}{\frac{161{,}2}{20}}=\frac{118{,}94}{8{,}06}=\) <b>14,757</b>; \(\sym{p_value}{p}=\) <b>\(9{,}13\times10^{-6}\)</b>.</li>
         </ol>
-        <p>Precies de Excel-output van <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=15">DOE p. 15</a>: het blad bevat dezelfde data als het vezelvoorbeeld <span class="computed">zelf berekend</span>.</p>
+        <p>Precies de output van <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=15">DOE p. 15</a>: het blad bevat dezelfde data als het vezelvoorbeeld <span class="computed">zelf berekend</span>.</p>
       </details>
     </div>
   </section>
 
   <section class="unit" id="d08-residuen" data-kw="residuen; residuals; aannames controleren; model adequacy; normaal-kansplot; normal probability plot; residuen tegen niveau; run order; volgorde; transformatie; log y; welke gemiddelden verschillen; which means differ; Fisher LSD; grafische vergelijking; graphical comparison; post-hoc">
     <h3>08.7 Aannames controleren en gemiddelden vergelijken <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=11">DOE p. 11–12, 18–19</a></h3>
-    <p>Dezelfde residucontrole als in <a href="#d07-residuen">07.8</a>. In ANOVA is de geschatte waarde van een meting
+    <p>In ANOVA is de geschatte waarde van een meting
     het gemiddelde van haar groep, dus het residu is \(\sym{e_ij}{e_{ij}}=\sym{y_ij}{y_{ij}}-\sym{ybar_i}{\bar{y}_{i\cdot}}\): het verschil tussen
     de meting en de voorspelling van het model, gebruikt als benadering van de fouten \(\varepsilon_{ij}\)
     <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=11">DOE p. 11</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=18">DOE p. 18</a>. Controleer visueel:</p>
@@ -430,6 +432,7 @@
         <select><option value="">kies…</option><option value="verwerp">H0 verwerpen: de machines verschillen</option><option value="aanvaard">H0 niet verwerpen</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="anova" data-blocks="0"></div>
       <details class="hint"><summary>Hint</summary><p>\(\sym{ss_tr}{\mathrm{SS}_{\text{Treatment}}}=\sym{n_rep}{n}\cdot\Sigma(\sym{ybar_i}{\bar{X}_{i}}-\sym{ybar_grand}{\bar{X}})^{2}\). Voor \(\mathrm{SS}_{\text{Error}}\):
       kwadrateer de afwijking van elke waarde tot het gemiddelde van haar eigen machine.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
@@ -445,7 +448,7 @@
     </div>
   </section>
 
-  <section class="unit" id="d08-tweeweg" data-kw="tweewegs-ANOVA; two-way ANOVA; twee factoren; two factors; interactie; interaction; zonder replicatie; without replication; met replicatie; with replication; Anova: Two-Factor; Sample; Columns; Within; 2ANOVA; 2ANOVArep; machines operatoren; watering sunlight; GRR">
+  <section class="unit" id="d08-tweeweg" data-kw="tweewegs-ANOVA; two-way ANOVA; twee factoren; two factors; interactie; interaction; zonder replicatie; without replication; met replicatie; with replication; Two-Factor; Sample; Columns; Within; 2ANOVA; 2ANOVArep; machines operatoren; watering sunlight; GRR">
     <h3>08.9 Tweewegs-ANOVA (two-way ANOVA) <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=36">MSA p. 36</a></h3>
     <p>Bij tweewegs-ANOVA bestudeer je twee factoren tegelijk, met in elke combinatie (cel) evenveel metingen. Je splitst
     de variatie dan in een deel voor A, een deel voor B, eventueel een deel voor hun <b>interactie</b> (het effect van de ene
@@ -465,7 +468,7 @@
     \(\sym{ms_factor}{\mathrm{MS}_{a}}=\frac{\sym{n_parts}{n}\sym{r_rep}{r}\cdot\Sigma(\sym{ybar_i}{\bar{X}_{i}}-\sym{ybar_grand}{\bar{\bar{X}}})^{2}}{\sym{k_app}{k}-1}\) op <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=36">MSA p. 36</a>. Elke \(\sym{f0}{F}\) is MS van de factor gedeeld door MS van de fout.
     Dat \(\mathrm{SS}_{T}\) zo opsplitst, wordt bewezen op <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=37">MSA p. 37</a>; de hele Gage R&amp;R-uitleg met dit model loopt van
     <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=34">MSA p. 34–37</a>.</p>
-    <p><b>Met interactieterm</b>: het werkboek <a class="p" href="../source/course/Les%205/20260619_ottoy_GRR%20-%20ANOVA%20-%20avegage%20and%20range%20-%202.xlsx">GRR-werkboek</a> (blad '2way anova') gebruikt Excel's "Anova: Two-Factor With
+    <p><b>Met interactieterm</b>: het <a class="p" href="../source/course/Les%205/20260619_ottoy_GRR%20-%20ANOVA%20-%20avegage%20and%20range%20-%202.xlsx">GRR-werkboek</a> (blad '2way anova') geeft de tabel "Two-Factor With
     Replication". Die tabel heeft de regels Sample (de rijfactor: \(\sym{n_parts}{n}-1=4\) df voor 5 parts), Columns (de kolomfactor: \(\sym{k_app}{k}-1=2\) df
     voor 3 appraisers), Interaction (\((\sym{n_parts}{n}-1)(\sym{k_app}{k}-1)=8\) df), Within (\(\sym{n_parts}{n}\sym{k_app}{k}(\sym{r_rep}{r}-1)=15\) df, met \(\sym{r_rep}{r}=2\)) en Total (\(\sym{n_parts}{n}\sym{k_app}{k}\sym{r_rep}{r}-1=29\) df). Elke \(\sym{f0}{F}\) is
     \(\frac{\sym{ms_factor}{\mathrm{MS}}}{\sym{ms_e}{\mathrm{MS}_{\text{Within}}}}\). Within is de spreiding van de metingen rond hun eigen celgemiddelde (zoals de "pure error"
@@ -474,17 +477,17 @@
     <div class="box warn"><span class="t">Zonder replicatie geen interactietoets</span>
       <p>Met één meting per cel \((\sym{r_rep}{r}=1)\) is er geen "Within": de interactie is dan zelf de restterm en kan niet getoetst
       worden. De cursus over meetsysteemanalyse zegt het zo: een model met interacties "explicitly requires measurement replications"
-      <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=36">MSA p. 36</a>. Excel heeft daarvoor de aparte optie "Anova: Two-Factor Without Replication".</p>
+      <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=36">MSA p. 36</a>.</p>
     </div>
     <div class="box tool"><span class="t">Rekentool</span>
-      <p>Tweewegs-ANOVA staat niet op het werkblad ANOVA DOE regression. Gebruik Excel: Gegevensanalyse → "Anova: Two-Factor
-      Without Replication" of "Anova: Two-Factor With Replication" ("Rows per sample" = \(\sym{r_rep}{r}\)). Voor de Gage R&amp;R-variant: het
-      werkblad <b>Gage R&amp;R</b>. Heeft elke factor maar 2 niveaus, dan is het een
-      \(2^{2}\)-proefopzet en werkt ook sectie 2 van ANOVA DOE regression (08.18).</p>
+      <p>Tweewegs-ANOVA staat niet in bb_toolkit.xlsx: gebruik de rekenmachine tweewegs-ANOVA hieronder
+      (\(\sym{r_rep}{r}\) regels per niveau van de rijfactor). Voor de Gage R&amp;R-variant: het werkblad <b>Gage R&amp;R</b>. Heeft
+      elke factor maar 2 niveaus, dan is het een \(2^{2}\)-proefopzet en werkt ook het werkblad <b>DOE 2^k</b> (08.18).</p>
     </div>
+    <div class="calc-here" data-tool="anova2" data-blocks="0"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"Met één meting per cel kan ik de interactie toetsen."</b> Fout: zonder replicatie is er geen Within; de interactie is dan zelf de restterm en kan niet getoetst worden <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=36">MSA p. 36</a>. Excel: "Anova: Two-Factor Without Replication".</li>
+      <li><b>"Met één meting per cel kan ik de interactie toetsen."</b> Fout: zonder replicatie is er geen Within; de interactie is dan zelf de restterm en kan niet getoetst worden <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=36">MSA p. 36</a>.</li>
       <li><b>Let op:</b> in de MSA-notatie is \(\sym{n_parts}{n}\) het aantal parts en \(\sym{r_rep}{r}\) het aantal metingen per cel, niet omgekeerd <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=36">MSA p. 36</a>. Within heeft \(\sym{n_parts}{n}\sym{k_app}{k}(\sym{r_rep}{r}-1)\) vrijheidsgraden (werkboek: 15).</li>
       <li><b>Let op:</b> de interactie heeft \((\sym{n_parts}{n}-1)(\sym{k_app}{k}-1)\) vrijheidsgraden, het <i>product</i> van de df van de twee factoren, niet hun som: in het <a class="p" href="../source/course/Les%205/20260619_ottoy_GRR%20-%20ANOVA%20-%20avegage%20and%20range%20-%202.xlsx">GRR-werkboek</a> \(4\cdot2=8\) (Sample 4 df, Columns 2 df).</li>
     </ul></div>
@@ -525,6 +528,7 @@
         <select><option value="">kies…</option><option value="machines">alleen de machines verschillen significant</option><option value="operatoren">alleen de operatoren verschillen significant</option><option value="beide">beide verschillen</option><option value="geen">geen van beide</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="anova2" data-blocks="0"></div>
       <details class="hint"><summary>Hint</summary><p>Totaalgemiddelde 53. \(\sym{ss_factor}{\mathrm{SS}_{\text{machines}}}=5\cdot\Sigma\)(machinegemiddelde −
       53)², \(\sym{ss_factor}{\mathrm{SS}_{\text{operatoren}}}=4\cdot\Sigma\)(operatorgemiddelde − 53)²; de fout is de rest van \(\sym{ss_total}{\mathrm{SS}_{T}}\), met
       (4 − 1)(5 − 1) = 12 df.</p></details>
@@ -577,11 +581,12 @@
         <select><option value="">kies…</option><option value="zon">alleen zonlicht heeft een significant effect</option><option value="water">alleen water heeft een significant effect</option><option value="interactie">de interactie is significant</option><option value="alles">alle drie zijn significant</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="anova2" data-blocks="0"></div>
       <details class="hint"><summary>Hint</summary><p><var data-s="df">df</var>: water 1, zonlicht 3, interactie 3, within \(2\cdot4\cdot(5-1)=32\),
-      totaal 39. Excel: "Anova: Two-Factor With Replication" met "Rows per sample" = 5.</p></details>
+      totaal 39. In de rekenmachine tweewegs-ANOVA: \(\sym{r_rep}{r}=5\) regels per niveau van water.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <p>De cursus geeft geen oplossing; alles hieronder is <span class="computed">zelf berekend</span> (statsmodels; dezelfde methode reproduceert de
-        Excel-tabel van het GRR-werkboek exact).</p>
+        tabel van het GRR-werkboek exact).</p>
         <table>
           <tr><th>Bron</th><th class="n">SS</th><th class="n">df</th><th class="n">MS</th><th class="n">F</th><th class="n">p</th></tr>
           <tr><td>water (Watering)</td><td class="n">0,00025</td><td class="n">1</td><td class="n">0,00025</td><td class="n">0,0009</td><td class="n">0,976</td></tr>
@@ -658,7 +663,7 @@
       </ul>
       <p>Met drie factoren (driver, bal, drank) wordt het vierkant een kubus; met vier (plus wandelen/rijden) twee kubussen
       <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=43">DOE p. 43</a>. Een <b>fractioneel factorieel ontwerp</b> test maar een deel van de hoekpunten: in de figuur hieronder 8 van de 16
-      (omcirkeld) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=44">DOE p. 44</a>; zie 08.21.</p>
+      (omcirkeld) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=44">DOE p. 44</a>.</p>
       <figure class="fig"><img src="figures/08_golf_kubussen.png" alt="Boven een kubus voor drie factoren, midden twee kubussen voor vier factoren (wandelen en rijden), onder dezelfde twee kubussen met 8 omcirkelde hoekpunten">
       <figcaption>Figuur: boven een \(2^{3}\)-ontwerp in driver, bal en drank (beverage): de 8 runs zijn de hoekpunten van een
       kubus (Figure 1-6). Midden het volledige \(2^{4}\)-ontwerp met ook de verplaatsingswijze (wandelen of rijden): twee
@@ -907,6 +912,7 @@
         <label><var data-s="effect">[AB]</var> (3 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="factorieel" data-blocks="0"></div>
       <details class="hint"><summary>Hint</summary><p>Voor [AB]: de rijen met \(\sym{col}{\mathrm{AB}}=+1\) zijn de eerste en de laatste.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ul>
@@ -940,9 +946,6 @@
     </table>
     <p>De tweede rij is de les. Het <i>gemiddelde</i> effect van A is bijna nul, toch doet A er veel toe, in tegengestelde
     richting naargelang B. Kijk je alleen naar hoofdeffecten, dan laat je ten onrechte een belangrijke factor vallen.</p>
-    <div class="box warn"><span class="t">Fout in de slide</span>
-      <p><a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=53">DOE p. 53</a> drukt \(\sym{effect}{\mathrm{AB}}=\frac{52+20}{2}-\frac{30+40}{2}=-1\). Die uitdrukking is 36 − 35 = <b>+1</b>.</p>
-    </div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"Het hoofdeffect van A is bijna nul \((\sym{effect}{A}=1)\), dus A doet er niet toe."</b> Fout: \(\sym{effect}{\mathrm{AB}}=-29\): A helpt als B laag is en schaadt als B hoog is <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=54">DOE p. 54</a>. Ook in oefening 08.16 zit de niet-significante A in drie significante interacties.</li>
@@ -1014,6 +1017,7 @@
     van een effect is de som van de run-totalen met het teken uit zijn kolom; bv. kolom A geeft a + abc + ab + ac − b − c − bc −
     (1). De runs staan hier gesorteerd op het teken van ABC (bovenste vier +, onderste vier −), zoals nodig in 08.21.
     <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=80">DOE p. 80</a></figcaption></figure>
+    <div class="calc-here" data-tool="factorieel" data-blocks="0"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>Let op:</b> \(\sym{effect}{\text{effect}}=\frac{\sym{contrast}{\text{Contrast}}}{\sym{n_rep}{n}\cdot2^{\sym{k_factors}{k}-1}}\), maar \(\sym{ss_eff}{\mathrm{SS}}=\frac{\sym{contrast}{\text{Contrast}}^{2}}{\sym{n_rep}{n}\cdot2^{\sym{k_factors}{k}}}\): twee verschillende noemers <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=66">DOE p. 66</a>. Chemisch proces: \(\frac{50}{6}=8{,}33\) en \(\frac{2500}{12}=208{,}33\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=60">DOE p. 60–61</a>.</li>
@@ -1070,7 +1074,7 @@
       </ul>
     </div>
     <div class="box tool"><span class="t">Rekentool</span>
-      <p>Werkblad <b>ANOVA DOE regression</b>, sectie <b>2 (\(2^{\sym{k_factors}{k}}\) factorial)</b>: \(\sym{k_factors}{k}=2\) tot 5, tot 4 replicaties
+      <p>Werkblad <b>DOE 2^k</b> in bb_toolkit.xlsx: \(\sym{k_factors}{k}=2\) tot 5, tot 20 replicaties
       per run. Typ elke respons in de rij waarvan de tekens A … E overeenkomen met je tabel (standaardvolgorde, zoals
       <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=70">DOE p. 70</a> en <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=74">DOE p. 74</a>). Je krijgt elk effect, de \(\sym{coef}{\text{coëfficiënt}}\ \left(=\frac{\sym{effect}{\text{effect}}}{2}\right)\), SS, F en p-waarde, het interval
       \(\sym{effect}{\text{effect}}\pm2\ \sym{se_eff}{s.e.}\ (08.19)\), de model-ANOVA en \(R^{2}\) op twee manieren. Bij één replicatie kies je de interactie-orde die je
@@ -1112,6 +1116,7 @@
         <select><option value="">kies…</option><option value="a">A</option><option value="b">B</option><option value="ab">AB</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="factorieel" data-blocks="0"></div>
       <details class="hint"><summary>Hint</summary><p>Totalen \(\sym{run_total}{(1)}=80\), \(\sym{run_total}{a}=100\), \(\sym{run_total}{b}=60\), \(\sym{run_total}{\mathrm{ab}}=90\). \(\sym{effect}{\text{Effect}}=\frac{\sym{contrast}{C}}{\sym{n_rep}{n}\cdot2^{\sym{k_factors}{k}-1}}\),
       \(\sym{ss_eff}{\mathrm{SS}}=\frac{\sym{contrast}{C}^{2}}{\sym{n_rep}{n}\cdot2^{\sym{k_factors}{k}}}\). \(\sym{f_crit}{F_{0{,}05;1;8}}=5{,}32\) <span class="computed">zelf berekend</span>.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
@@ -1195,6 +1200,7 @@
         <select><option value="">kies…</option><option value="a">alleen A</option><option value="ab">A en B</option><option value="abc">A, B en AB</option><option value="geen">geen</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="factorieel" data-blocks="0"></div>
       <details class="hint"><summary>Hint</summary><p>Run-totalen: 16, 22, 20, 27, 21, 23, 18, 30. \(\sym{contrast}{\text{Contrast A}}=(22+27+23+30)-(16+20+21+18)\); \(\sym{effect}{\text{effect}}=\frac{\sym{contrast}{\text{contrast}}}{\sym{n_rep}{n}\cdot2^{\sym{k_factors}{k}-1}}=\frac{\sym{contrast}{\text{contrast}}}{8}\). \(\sym{se_eff}{s.e.}=\sqrt{\frac{\sym{ms_e}{\mathrm{MS}_{E}}}{\sym{n_rep}{n}\cdot2^{\sym{k_factors}{k}-2}}}\).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
@@ -1269,6 +1275,7 @@
         <select><option value="">kies…</option><option value="a-d-ad">A, D en AD</option><option value="d">alleen D</option><option value="a-d">A en D</option><option value="a-d-ad-bc">A, D, AD en BC</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="kwantielen" data-blocks="0"></div>
       <details class="hint"><summary>Hint</summary><p>Bij \(\sym{n_rep}{n}=1\) en \(\sym{k_factors}{k}=4\) is \(\sym{effect}{\text{effect}}=\frac{\sym{contrast}{\text{contrast}}}{8}\) en \(\sym{ss_eff}{\mathrm{SS}}=\frac{\sym{contrast}{\text{contrast}}^{2}}{16}\), dus
       \(\sym{ss_eff}{\mathrm{SS}}=4\cdot\sym{effect}{\text{effect}}^{2}\). Er zijn vier driefactor- en één vierfactorinteractie: 5 df.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
@@ -1301,7 +1308,7 @@
       <tr><td>c</td><td class="n">+</td><td class="n">−</td><td class="n">−</td><td class="n">+</td><td class="n">+</td><td class="n">−</td><td class="n">−</td><td class="n">+</td></tr>
       <tr><td>abc</td><td class="n">+</td><td class="n">+</td><td class="n">+</td><td class="n">+</td><td class="n">+</td><td class="n">+</td><td class="n">+</td><td class="n">+</td></tr>
     </table>
-    <p class="small">De bovenste helft van de tekentabel op <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=80">DOE p. 80</a>; de onderste helft (ab, ac, bc, (1)) heeft \(\sym{col}{\mathrm{ABC}}=-\). De volledige tabel staat als figuur in <a href="#d08-contrast">08.17</a>.</p>
+    <p class="small">De bovenste helft van de tekentabel op <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=80">DOE p. 80</a>; de onderste helft (ab, ac, bc, (1)) heeft \(\sym{col}{\mathrm{ABC}}=-\).</p>
     <p><b>Aliassen: de prijs die je betaalt</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=81">DOE p. 81–82</a>. Om te vinden waarmee een effect vermengd
     (aliased) is, vermenigvuldig je de definiërende relatie met dat effect, met de regel dat een letter maal zichzelf I
     geeft \((\sym{col}{A}\cdot\sym{col}{A}=\sym{i_col}{I})\):</p>
@@ -1312,6 +1319,7 @@
     <p><b>Projectie (projection)</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=83">DOE p. 83</a>: blijken een of meer factoren er niet toe te doen, laat ze dan vallen; de
     halve fractie wordt dan een volledig factorieel ontwerp in de overblijvende factoren. Daarom zijn fracties zo nuttig in
     screeningexperimenten.</p>
+    <div class="calc-here" data-tool="aliassen" data-blocks="0"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"Een halve fractie is gratis: je verliest alleen runs."</b> Fout: de prijs is aliasing. Wat je als A berekent, is A en BC samen; dat mag alleen als BC verwaarloosbaar is <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=81">DOE p. 81–82</a>.</li>
@@ -1337,6 +1345,7 @@
         <select><option value="">kies…</option><option value="a">A</option><option value="c">C</option><option value="bc">BC</option><option value="i">I</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="aliassen" data-blocks="0"></div>
       <details class="hint"><summary>Hint</summary><p>Vermenigvuldig met ABC en schrap elke letter die twee keer voorkomt.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <p>\(\sym{col}{A}\cdot\sym{word}{\mathrm{ABC}}=\sym{col}{A^{2}\mathrm{BC}}=\) <b><var data-s="col">BC</var></b>; \(\sym{col}{B}\cdot\sym{word}{\mathrm{ABC}}=\sym{col}{A\ B^{2}\ C}=\) <b><var data-s="col">AC</var></b>; \(\sym{col}{\mathrm{AB}}\cdot\sym{word}{\mathrm{ABC}}=\sym{col}{A^{2}B^{2}C}=\) <b>\(\sym{col}{C}\)</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=82">DOE p. 82</a>. Zo ook \(\sym{col}{\mathrm{AC}}\cdot\sym{word}{\mathrm{ABC}}=\sym{col}{B}\)
@@ -1370,7 +1379,7 @@
 
   <section class="unit" id="d08-generatoren" data-kw="kleinere fracties; smaller fractions; 2^(k-p); generator; design generator; ontwerpgenerator; basisfactoren; base factors; volledige definiërende relatie; complete defining relation; ABCE BCDF ADEF; 2^(6-2); Montgomery Table 13.23; screening; 11 factoren 32 runs">
     <h3>08.23 Kleinere fracties: 2<sup>k−p</sup> en generatoren <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=87">DOE p. 87–93</a></h3>
-    <p>Soms is zelfs de halve fractie te groot. Met \(\sym{k_factors}{k}=11\) factoren vraagt een volledig \(2^{\sym{k_factors}{k}}\ 2048\) runs en een
+    <p>Soms is zelfs de halve fractie te groot. Met \(\sym{k_factors}{k}=11\) factoren vraagt een volledig \(2^{\sym{k_factors}{k}}\)-ontwerp \(2^{11}=2048\) runs en een
     halve fractie nog 1024. Een ontwerp voor 11 factoren in \(32=2^{5}\) runs is een fractie \(2^{-6}=\frac{1}{64}\)
     van het volledige ontwerp. Algemeen: k factoren screenen met \(2^{\sym{r_base}{r}}\) runs is een \(2^{-\sym{k_factors}{k}+\sym{r_base}{r}}=2^{-\sym{p_gen}{p}}\)-fractie <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=87">DOE p. 87</a>. Een \(2^{\sym{k_factors}{k}-\sym{p_gen}{p}}\) opstellen gaat in twee stappen <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=88">DOE p. 88</a>:</p>
     <ol class="steps">
@@ -1425,6 +1434,7 @@
         <select><option value="">kies…</option><option value="ce">CE</option><option value="cd">CD</option><option value="ef">EF</option><option value="geen">met geen enkele</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="aliassen" data-blocks="0"></div>
       <details class="hint"><summary>Hint</summary><p>Vermenigvuldig ABCE met BCDF en schrap dubbele letters. Voor AB: vermenigvuldig
       AB met elk woord.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
@@ -1445,9 +1455,9 @@
     bladen over \(2^{\sym{k_factors}{k}}\)-ontwerpen, met dezelfde soort meetwaarden ("Meting"). De cursus geeft geen oplossingen; alles
     hieronder is <span class="computed">zelf berekend</span> met <code>08_numbers.py</code>.</p>
     <div class="box tool"><span class="t">Rekentool voor deze bladen</span>
-      <p>Sectie 2 van <b>ANOVA DOE regression</b> (\(\sym{k_factors}{k}=5\), \(\sym{n_rep}{n}=3\) kan). De runs in het werkboek staan <i>niet</i> in
+      <p>Werkblad <b>DOE 2^k</b> (\(\sym{k_factors}{k}=5\), \(\sym{n_rep}{n}=3\) kan). De runs in het werkboek staan <i>niet</i> in
       standaardvolgorde (daar wisselt D het snelst en E het traagst): typ elke respons in de rij van de rekentool met
-      dezelfde tekens (de drie replicaties naast elkaar), of sorteer eerst in Excel op E, D, C, B, A. Een fractie voer je in als het volledige ontwerp van
+      dezelfde tekens (de drie replicaties naast elkaar), of sorteer eerst op E, D, C, B, A. Een fractie voer je in als het volledige ontwerp van
       haar basisfactoren (voor de \(2^{5-1}\): \(\sym{k_factors}{k}=4\) met A, B, C, D; het "ABCD"-effect is dan E).</p>
     </div>
 
@@ -1475,6 +1485,7 @@
         <label>Aantal effecten (van de 31) met \(\sym{p_value}{p}\lt0{,}05=\)</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="factorieel" data-blocks="0"></div>
       <details class="hint"><summary>Hint</summary><p>\(\sym{effect}{\text{Effect}}=\) gemiddelde bij + min gemiddelde bij −; \(\sym{ss_eff}{\mathrm{SS}}=\frac{\sym{contrast}{\text{contrast}}^{2}}{\sym{n_rep}{n}\cdot2^{\sym{k_factors}{k}}}=\frac{\sym{contrast}{\text{contrast}}^{2}}{96}\); \(\sym{f0}{F}=\frac{\sym{ss_eff}{\mathrm{SS}}}{\sym{ms_e}{\mathrm{MS}_{E}}}\) met \(\sym{f_crit}{F_{0{,}05;1;64}}=3{,}99\) <span class="computed">zelf berekend</span>; \(\sym{se_eff}{s.e.}=\sqrt{\frac{\sym{ms_e}{\mathrm{MS}_{E}}}{3\cdot2^{3}}}\).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
@@ -1518,6 +1529,7 @@
         <label>Effect \(\sym{effect}{E}\) in deze fractie (3 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="factorieel" data-blocks="0"></div>
       <details class="hint"><summary>Hint</summary><p>Vermenigvuldig \(\sym{i_col}{I}=\sym{word}{\mathrm{ABCDE}}\) met \(\sym{col}{A}\). Hoe lang is het enige woord van de
       definiërende relatie?</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
@@ -1555,6 +1567,7 @@
         <select><option value="">kies…</option><option value="de">D en E worden dezelfde kolom (I = DE, resolutie II): hun hoofdeffecten zijn niet te scheiden</option><option value="niets">niets, de resolutie blijft III</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="aliassen" data-blocks="0"></div>
       <details class="hint"><summary>Hint</summary><p>De kandidaat-generatoren zijn de interacties van de basisfactoren: AB, AC,
       BC, ABC. Bereken voor een keuze de volledige definiërende relatie (ook het product van de twee woorden) en neem het
       kortste woord. Kijk ook in de tabel van Montgomery in <a href="#d08-generatoren">08.23</a> (<a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=93">DOE p. 93</a>).</p></details>

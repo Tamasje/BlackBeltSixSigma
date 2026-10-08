@@ -1,12 +1,10 @@
 <section class="part" id="d07" data-title="Deel 07 — Regressie (regression)" data-lecturer="Stijn De Vuyst" data-les="Les 3">
   <h2>Deel 07 — Regressie (regression)</h2>
   <p class="intro">Dit deel behandelt regressie: een
-  respons y verklaren met één of meer numerieke x-variabelen, nagaan hoe goed dat model is, en ermee voorspellen. Algemene uitleg
-  over betrouwbaarheidsintervallen en toetsen staat in <a href="#d04">Deel 4</a> en <a href="#d05">Deel 5</a>; correlatie,
-  causaliteit en de regressielijn als E[Y|X] staan in <a href="#d02">Deel 2</a>.
+  respons y verklaren met één of meer numerieke x-variabelen, nagaan hoe goed dat model is, en ermee voorspellen.
   <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=1">REG p. 1</a></p>
 
-  <section class="unit" id="d07-start" data-kw="overview; kernidee; key idea; variatie opsplitsen; partition of variation; verklaarde variatie; explained variation; ruis; noise; F-verhouding; F-ratio; kritieke waarde; critical value; kwantiel; quantile; F-tabel; T.INV; F.INV.RT; notatie; notation">
+  <section class="unit" id="d07-start" data-kw="overview; kernidee; key idea; variatie opsplitsen; partition of variation; verklaarde variatie; explained variation; ruis; noise; F-verhouding; F-ratio; kritieke waarde; critical value; kwantiel; quantile; F-tabel; t-tabel; notatie; notation">
     <h3>07.1 Start: het ene idee achter regressie, ANOVA en proefopzet <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=8">DOE p. 8</a></h3>
     <div class="box key"><span class="t">Kernidee</span>
       <p>Regressie, ANOVA en proefopzet doen allemaal hetzelfde. Elke methode splitst de totale variatie (total variation) in je metingen in
@@ -36,18 +34,17 @@
         <li><b>De tekstboekpagina's gebruiken bovenstaarten (upper tails).</b> \(\sym{t_crit}{t_{0{,}005;18}}=2{,}88\)
         <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=32">REG p. 32</a> en \(\sym{f_crit}{F_{0{,}01;3;20}}=4{,}94\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=9">DOE p. 9</a> zijn de waarden met \(\frac{\sym{alpha}{\alpha}}{2}\) (of \(\sym{alpha}{\alpha}\)) <i>erboven</i>.</li>
       </ul>
-      <p>Beide noemen dezelfde kritieke waarde; alleen het subscript verschilt. In Excel:
-      <code>T.INV(1−α/2; df)</code> en <code>F.INV.RT(α; df1; df2)</code> (Excel-functies: zie <a href="#d03">Deel 3</a>).</p>
+      <p>Beide noemen dezelfde kritieke waarde; alleen het subscript verschilt.</p>
     </div>
     <p class="small">Getallen komen uit de cursus. Waar deze tekst iets uitrekent wat de cursus niet toont (een
     oplossing, een tussenstap), staat <span class="computed">zelf berekend</span>; die waarden komen uit
     <code>study/parts/07_numbers.py</code>, dat ook elk geciteerd cursusresultaat narekent.</p>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"\(\sym{t_crit}{t_{0{,}005;18}}\) en \(\sym{t_crit}{t_{0{,}995;18}}\) zijn twee verschillende kritieke waarden."</b> Fout: het is dezelfde waarde, 2,88, in twee notaties. Het tekstboek noemt de kans erboven (0,005), de eigen slides de kans eronder (0,995) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=32">REG p. 32</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=34">REG p. 34</a>. In Excel: <code>T.INV(0,995; 18)</code>.</li>
-      <li><b>Let op:</b> in de intervalformules van de eigen slides is de ondergrens \(\sym{bj_hat}{\hat{\beta}}+\sym{t_crit}{t_{\alpha/2,n-2}}\cdot\sym{se_coef}{\mathrm{se}}\), met een <i>negatieve</i> \(\sym{t_crit}{t_{\alpha/2,n-2}}\). Trek je die nog eens af, dan krijg je de bovengrens. Veiliger: \(\sym{bj_hat}{\hat{\beta}}\pm\sym{t_crit}{t_{1-\alpha/2,n-2}}\cdot\sym{se_coef}{\mathrm{se}}\) met de positieve <code>T.INV(1−α/2; df)</code> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=34">REG p. 34</a>.</li>
+      <li><b>"\(\sym{t_crit}{t_{0{,}005;18}}\) en \(\sym{t_crit}{t_{0{,}995;18}}\) zijn twee verschillende kritieke waarden."</b> Fout: het is dezelfde waarde, 2,88, in twee notaties. Het tekstboek noemt de kans erboven (0,005), de eigen slides de kans eronder (0,995) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=32">REG p. 32</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=34">REG p. 34</a>.</li>
+      <li><b>Let op:</b> in de intervalformules van de eigen slides is de ondergrens \(\sym{bj_hat}{\hat{\beta}}+\sym{t_crit}{t_{\alpha/2,n-2}}\cdot\sym{se_coef}{\mathrm{se}}\), met een <i>negatieve</i> \(\sym{t_crit}{t_{\alpha/2,n-2}}\). Trek je die nog eens af, dan krijg je de bovengrens. Veiliger: \(\sym{bj_hat}{\hat{\beta}}\pm\sym{t_crit}{t_{1-\alpha/2,n-2}}\cdot\sym{se_coef}{\mathrm{se}}\) met de positieve \(\sym{t_crit}{t_{1-\alpha/2,n-2}}\) uit de t-tabel <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=34">REG p. 34</a>.</li>
       <li><b>"Als het model niets verklaart, ligt de F-verhouding rond 0."</b> Fout: dan ligt \(\sym{f0}{F}\) rond 1, want teller en noemer meten dan allebei alleen ruis. Pas een \(\sym{f0}{F}\) die veel groter is dan 1 wijst op een echt effect <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=8">DOE p. 8</a>.</li>
-      <li><b>Let op:</b> <code>F.INV.RT(α; df1; df2)</code> geeft de kritieke waarde met \(\alpha\) <i>erboven</i>, zoals \(\sym{f_crit}{F_{0{,}01;3;20}}=4{,}94\) in het tekstboek <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=9">DOE p. 9</a>. <code>F.INV(α; df1; df2)</code> geeft het kwantiel met \(\alpha\) eronder, een klein getal: dan verwerp je bijna altijd. Zonder RT gebruik je <code>F.INV(1−α; df1; df2)</code>. <span class="gen">algemeen</span></li>
+      <li><b>Let op:</b> de kritieke waarde van een F-toets heeft \(\alpha\) <i>erboven</i>, zoals \(\sym{f_crit}{F_{0{,}01;3;20}}=4{,}94\) in het tekstboek <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=9">DOE p. 9</a> (in de notatie van de eigen slides het kwantiel \(F_{1-\alpha}\)). Het kwantiel met \(\alpha\) eronder is een klein getal: daarmee verwerp je bijna altijd. <span class="gen">algemeen</span></li>
     </ul></div>
   </section>
 
@@ -96,8 +93,7 @@
     <div class="box warn"><span class="t">Correlatie is geen causaliteit</span>
       <p>Let op met "snelle" interpretaties <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=11">REG p. 11</a>. Roomijsverkoop op een dag (X) en de gemiddelde zweetproductie
       van de klanten (Y) lijken samen te hangen, maar de verborgen factor is de dagtemperatuur (Z): een "spurious" of
-      "confounding" relatie. En een resultaat moet ook <b>praktische betekenis</b> hebben. Meer over causaliteit en
-      ingrepen: <a href="#d02">Deel 2</a>.</p>
+      "confounding" relatie. En een resultaat moet ook <b>praktische betekenis</b> hebben.</p>
     </div>
     <figure class="fig"><img src="figures/07_ijsjes_confounding.png" alt="Spreidingsdiagram van zweetproductie tegen aantal verkochte ijsjes over 20 dagen, met daaronder een schema waarin Z naar X en naar Y wijst en de pijl tussen X en Y doorkruist is">
     <figcaption>Figuur: "20 dagen aan zee": de gemiddelde dagelijkse zweetproductie van de klanten (Y) stijgt duidelijk met het
@@ -110,10 +106,11 @@
     <p>De ware lijn \(\sym{mu_yx}{\mu_{Y\mid x}}=\sym{beta0}{\beta_{0}}+\sym{beta1}{\beta_{1}}\sym{x}{x}\) (populatie) en de geschatte regressielijn
     \(\sym{y_hat}{\hat{Y}}(\sym{x}{x})=\sym{b0}{\hat{\beta}_{0}}+\sym{b1}{\hat{\beta}_{1}}\sym{x}{x}\) zijn <b>twee verschillende lijnen</b>. De geschatte lijn is je beste schatting
     van de onbekende ware lijn, en je gebruikt ze om te voorspellen <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=19">REG p. 19</a>.</p>
+    <div class="calc-here" data-tool="beschrijvend" data-blocks="1"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"Een model met \(\sym{x}{x}^{2}\) of \(\sym{x}{x_{1}}\sym{x}{x_{2}}\) is geen lineaire regressie meer."</b> Fout: "lineair" slaat op de coëfficiënten \(\beta\), niet op x. Zulke termen zijn gewoon extra kolommen; het blijft lineaire regressie, gepast met kleinste kwadraten <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=6">REG p. 6–7</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=58">REG p. 58</a>.</li>
-      <li><b>"X en Y hangen sterk samen, dus X veroorzaakt Y."</b> Fout: correlatie is geen causaliteit. Een verborgen factor kan beide sturen: roomijsverkoop en zweetproductie hangen samen via de dagtemperatuur <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=11">REG p. 11</a>. Een regressielijn beschrijft wat je <i>ziet</i>, niet wat er gebeurt als je x zelf instelt; zie <a href="#d02-ladder">02.12</a> en <a href="#d02-simpson">02.13</a>.</li>
+      <li><b>"X en Y hangen sterk samen, dus X veroorzaakt Y."</b> Fout: correlatie is geen causaliteit. Een verborgen factor kan beide sturen: roomijsverkoop en zweetproductie hangen samen via de dagtemperatuur <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=11">REG p. 11</a>. Een regressielijn beschrijft wat je <i>ziet</i>, niet wat er gebeurt als je x zelf instelt.</li>
       <li><b>"De geschatte lijn is de ware lijn."</b> Fout: de ware lijn \(\sym{mu_yx}{\mu_{Y\mid x}}=\sym{beta0}{\beta_{0}}+\sym{beta1}{\beta_{1}}\sym{x}{x}\) is onbekend; \(\sym{y_hat}{\hat{Y}}(\sym{x}{x})=\sym{b0}{\hat{\beta}_{0}}+\sym{b1}{\hat{\beta}_{1}}\sym{x}{x}\) is er een schatting van uit één steekproef, met onzekerheid <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=19">REG p. 19</a>.</li>
       <li><b>"De aannames vragen dat alle y-waarden samen normaal verdeeld zijn."</b> Fout: de aanname is \(\sym{y}{Y}\mid\sym{x}{x}\sim N(\sym{mu_yx}{\mu_{Y\mid x}},\sym{sigma2}{\sigma^{2}})\): bij <i>elke</i> x normaal rond de lijn, met overal <b>dezelfde</b> variantie (homoscedasticiteit) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=16">REG p. 16</a>. De y-waarden samen hoeven niet normaal te zijn.</li>
     </ul></div>
@@ -137,6 +134,7 @@
     </div>
     <p>Bij een nieuwe x is je beste voorspelling dan \(\sym{y_hat}{\hat{Y}}=\sym{b0}{\hat{\beta}_{0}}+\sym{b1}{\hat{\beta}_{1}}\sym{x}{x}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=19">REG p. 19</a>. De cursus schrijft
     \(\hat{\beta}\) ook als b \((b_{0},b_{1})\), vooral in het deel over meervoudige regressie.</p>
+    <div class="calc-here" data-tool="regressie" data-blocks="1"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"Kleinste kwadraten minimaliseert de loodrechte afstand van de punten tot de lijn."</b> Fout: het minimaliseert de som van de gekwadrateerde <b>verticale</b> afwijkingen, in de y-richting <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=17">REG p. 17</a>.</li>
@@ -173,7 +171,7 @@
       <figure class="fig"><img src="figures/07_zuurstof_lijn.png" alt="Spreidingsdiagram van zuurstofzuiverheid tegen koolwaterstofgehalte met de gepaste stijgende regressielijn">
       <figcaption>Figuur: de 20 zuurstofwaarnemingen (x-as: koolwaterstofgehalte, 0,87 tot 1,67 %; y-as: zuiverheid, 87 tot
       102 %) met de kleinste-kwadratenlijn. De punten liggen dicht rond een stijgende rechte. Het gedrukte onderschrift
-      (\(\hat{y}=74.20+14.97\)x) is fout: zie het kader "Fout in de slide" hieronder.
+      (\(\hat{y}=74.20+14.97\)x) wijkt af van de kleinste-kwadratenlijn \(74{,}283+14{,}947x\) uit de output hieronder.
       <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=21">REG p. 21</a></figcaption></figure>
       <p><b>De Minitab-output lezen</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=22">REG p. 22</a> (zoals gedrukt, met decimaalpunt):</p>
       <table>
@@ -188,14 +186,8 @@
         <tr><td>Residual Error</td><td class="n">18</td><td class="n">21.25</td><td class="n">1.18</td><td></td><td></td></tr>
         <tr><td>Total</td><td class="n">19</td><td class="n">173.38</td><td></td><td></td><td></td></tr>
       </table>
-      <p>De volgende drie secties leggen elk stuk van deze output uit (ANOVA en \(R^{2}\) in 07.5, de t-toetsen in 07.6, de
-      voorspelling bij \(x=1{,}00\) in 07.7).</p>
     </div>
-    <div class="box warn"><span class="t">Fout in de slide</span>
-      <p>Het onderschrift van de figuur hierboven (<a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=21">REG p. 21</a>) vermeldt \(\sym{y_hat}{\hat{y}}=74{,}20+14{,}97\sym{x}{x}\). Dat klopt niet met de
-      kleinste-kwadratenwaarden van de Minitab-output op <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=22">REG p. 22</a> (74,283 en 14,947), die je ook zelf uit de data
-      krijgt. Gebruik \(74{,}283+14{,}947\sym{x}{x}\).</p>
-    </div>
+    <div class="calc-here" data-tool="regressie" data-blocks="0"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"\(\sym{sigma_hat}{S}=1.087\) is de standaardafwijking van de zuiverheden y."</b> Fout: \(\sym{sigma_hat}{S}=\sqrt{\sym{mse}{\mathrm{MS}_{E}}}\) is de spreiding van de punten <i>rond de lijn</i>, de schatting van \(\sigma\). De spreiding van y rond \(\bar{y}\) hoort bij \(\sym{sst}{\mathrm{SS}_{T}}\) en is hier veel groter <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=22">REG p. 22</a>.</li>
@@ -216,6 +208,7 @@
         <label>\(\sym{b0}{\hat{\beta}_{0}}\) (3 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="regressie" data-blocks="1"></div>
       <details class="hint"><summary>Hint</summary><p>Gebruik de rechtse vormen van <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=18">REG p. 18</a>:
       \(\sym{sxx}{S_{xx}}=\Sigma\sym{x}{x}^{2}-\sym{n}{n}\ \sym{xbar}{\bar{x}}^{2}\) en \(\sym{sxy}{S_{\mathrm{xY}}}=\Sigma\sym{x}{x}\sym{y}{y}-\sym{n}{n}\ \sym{xbar}{\bar{x}}\ \sym{ybar}{\bar{y}}\). Reken \(\bar{x}\) en \(\bar{y}\) eerst uit en rond tussenresultaten niet
       te vroeg af.</p></details>
@@ -259,6 +252,7 @@
     <p>Een gemiddelde kwadratensom (mean square, MS) is een SS gedeeld door haar vrijheidsgraden (degrees of freedom,
     df). Zuurstofvoorbeeld: 173,38 = 152,13 + 21,25; \(\sym{r2}{R^{2}}=\frac{152{,}13}{173{,}38}=0{,}877\); \(\sym{mse}{\mathrm{MS}_{E}}=\frac{21{,}25}{18}=1{,}18\).
     Het model verklaart 87,7 % van de variatie in de zuiverheid.</p>
+    <div class="calc-here" data-tool="regressie" data-blocks="2"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"\(\sym{r2}{R^{2}}=0{,}877\): het model voorspelt 87,7 % van de waarnemingen juist."</b> Fout: \(R^{2}\) is de fractie van de variatie in y die het model verklaart, \(\frac{\sym{ssr}{\mathrm{SS}_{R}}}{\sym{sst}{\mathrm{SS}_{T}}}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=27">REG p. 27</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=44">REG p. 44</a>. Hoe ver één voorspelling ernaast kan zitten, zegt het PI (<a href="#d07-bi-pi">07.7</a>).</li>
@@ -282,6 +276,7 @@
         <label>\(\sym{sigma_hat}{\hat{\sigma}}=\sym{sigma_hat}{S}=\)</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="regressie" data-blocks="2"></div>
       <details class="hint"><summary>Hint</summary><p>\(\sym{r2}{R^{2}}=\frac{\sym{ssr}{\mathrm{SS}_{R}}}{\sym{sst}{\mathrm{SS}_{T}}}\); \(\sym{mse}{\mathrm{MS}_{E}}=\sym{sse}{\mathrm{SS}_{E}}\)
       gedeeld door zijn vrijheidsgraden; \(\sym{sigma_hat}{S}=\sqrt{\sym{mse}{\mathrm{MS}_{E}}}\).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
@@ -307,8 +302,7 @@
       en zo ook voor \(\sym{beta0}{\beta_{0}}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=34">REG p. 34</a></div>
     </div>
     <p>Waarom t en niet z? Omdat \(\sigma\) onbekend is en je \(\mathrm{MS}_{E}\) gebruikt; dat kost de \(\sym{n}{n}-2\) vrijheidsgraden van
-    \(\mathrm{SS}_{E}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=30">REG p. 30</a>. Welke staart en welk \(\alpha\) je kiest, volgt de algemene toetsrecepten van
-    <a href="#d05">Deel 5</a>.</p>
+    \(\mathrm{SS}_{E}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=30">REG p. 30</a>.</p>
     <p><b>Significantie van de regressie</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=32">REG p. 32–33</a>: als \(\sym{beta1}{\beta_{1}}=0\), vertelt x niets en is de beste
     voorspelling gewoon \(\sym{ybar}{\bar{Y}}\). Toets \(H_{0}\): \(\sym{beta1}{\beta_{1}}=0\) op twee gelijkwaardige manieren:</p>
     <ul>
@@ -334,18 +328,19 @@
       </ul>
     </div>
     <div class="box tool"><span class="t">Rekentool</span>
-      <p><code>bb_toolkit.xlsx</code>, werkblad <b>ANOVA DOE regression</b>, sectie <b>3 (simple linear
-      regression)</b>: typ tot 200 paren (x, y) vanaf rij 191, plus \(x_{0}\) en de \(H_{0}\)-waarden van
+      <p><code>bb_toolkit.xlsx</code>, werkblad <b>Regressie</b>: plak de paren (x, y) in
+      kolom B en C (zoveel als nodig), plus \(x_{0}\) en de \(H_{0}\)-waarden van
       \(\beta_{1}\) en \(\beta_{0}\). Je krijgt \(b_{0}\), \(b_{1}\), de ANOVA, \(R^{2}\) (op twee manieren, zie 07.11),
       de t-toetsen (≠, &gt;, &lt; naast elkaar), de BI's voor \(\beta_{0}\) en \(\beta_{1}\) en het BI en PI bij
-      \(x_{0}\ (07.7)\). \(\alpha\) staat in een gele cel (vooraf 0,05; neem de \(\alpha\) van de opgave).</p>
+      \(x_{0}\) (07.7). \(\alpha\) staat in een gele cel (vooraf 0,05; neem de \(\alpha\) van de opgave).</p>
     </div>
+    <div class="calc-here" data-tool="regressie" data-blocks="3"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>Let op:</b> bij één x heeft de t-verdeling \(\sym{n}{n}-2\) vrijheidsgraden, niet \(\sym{n}{n}-1\): zuurstof \((\sym{n}{n}=20)\) gebruikt \(\sym{t_crit}{t_{0{,}005;18}}=2{,}88\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=30">REG p. 30</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=32">REG p. 32</a>. Bij \(\sym{k}{k}\) x-variabelen is het \(\sym{n}{n}-\sym{k}{k}-1\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=57">REG p. 57</a>.</li>
       <li><b>"Voor de toets op de helling neem je de kritieke waarde uit de standaardnormale verdeling (z)."</b> Fout: \(\sigma\) is onbekend en wordt geschat met \(\sym{mse}{\mathrm{MS}_{E}}\); daardoor volgt \(\sym{t0}{t_{0}}\) een t-verdeling met \(\sym{n}{n}-2\) vrijheidsgraden <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=30">REG p. 30</a>.</li>
-      <li><b>"\(\sym{p_value}{P}=1{,}23\times10^{-9}\), dus x heeft een groot effect."</b> Fout: een kleine p-waarde zegt dat \(\beta_{1}\) waarschijnlijk niet 0 is, niet hoe groot of hoe nuttig het effect is. Kijk naar \(\hat{\beta}_{1}\) en zijn BI, en naar de praktische betekenis <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=11">REG p. 11</a>; zie <a href="#d05-valkuilen">05.6</a>.</li>
-      <li><b>"\(H_{0}\): \(\sym{beta1}{\beta_{1}}=0\) niet verworpen, dus y hangt niet van x af."</b> Fout: je vindt alleen geen <i>lineair</i> verband. Figure 11-5(b) in de figuur van 07.6 (<a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=32">REG p. 32</a>) toont een duidelijk gebogen verband waarbij \(H_{0}\) toch niet verworpen wordt. En niet verwerpen bewijst \(H_{0}\) niet (<a href="#d05-valkuilen">05.6</a>).</li>
+      <li><b>"\(\sym{p_value}{P}=1{,}23\times10^{-9}\), dus x heeft een groot effect."</b> Fout: een kleine p-waarde zegt dat \(\beta_{1}\) waarschijnlijk niet 0 is, niet hoe groot of hoe nuttig het effect is. Kijk naar \(\hat{\beta}_{1}\) en zijn BI, en naar de praktische betekenis <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=11">REG p. 11</a>.</li>
+      <li><b>"\(H_{0}\): \(\sym{beta1}{\beta_{1}}=0\) niet verworpen, dus y hangt niet van x af."</b> Fout: je vindt alleen geen <i>lineair</i> verband. Figure 11-5(b) in de figuur van 07.6 (<a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=32">REG p. 32</a>) toont een duidelijk gebogen verband waarbij \(H_{0}\) toch niet verworpen wordt. En niet verwerpen bewijst \(H_{0}\) niet.</li>
       <li><b>"\(\sym{f0}{F_{0}}=\sym{t0}{t_{0}}^{2}\) geldt altijd."</b> Fout: alleen bij één x. In een meervoudig model toetst de F-toets alle hellingen samen, en heeft elke coëfficiënt zijn eigen t-toets <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=52">REG p. 52</a>.</li>
     </ul></div>
     <div class="exercise" id="ex-07-3" data-kw="t-toets; t-test; helling; slope; significantie; significance of regression; F-toets; t0; F0; zuurstof; oxygen; alpha 0,01">
@@ -369,8 +364,9 @@
         <label>De bijhorende \(\sym{f0}{F_{0}}\) van de ANOVA-tabel (2 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="regressie" data-blocks="3"></div>
       <details class="hint"><summary>Hint</summary><p>\(\sym{se_b1}{\mathrm{se}(\hat{\beta}_{1})}=\sqrt{\frac{\sym{mse}{\mathrm{MS}_{E}}}{\sym{sxx}{S_{xx}}}}\); tweezijdig met
-      \(\sym{alpha}{\alpha}=0{,}01\) zet 0,005 in elke staart; in Excel <code>T.INV(0,995; 18)</code>. Bij één x geldt \(\sym{f0}{F_{0}}=\sym{t0}{t_{0}}^{2}\).</p></details>
+      \(\sym{alpha}{\alpha}=0{,}01\) zet 0,005 in elke staart: lees \(\sym{t_crit}{t_{0{,}005;18}}\) (0,005 erboven) in de t-tabel. Bij één x geldt \(\sym{f0}{F_{0}}=\sym{t0}{t_{0}}^{2}\).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>\(\sym{se_b1}{\mathrm{se}(\hat{\beta}_{1})}=\sqrt{\frac{1{,}18}{0{,}68088}}=1{,}316\) (Minitab drukt 1.317, uit de onafgeronde \(\mathrm{MS}_{E}\));
@@ -397,8 +393,9 @@
         <label>bovengrens (2 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
-      <details class="hint"><summary>Hint</summary><p>\(\sym{b1}{\hat{\beta}_{1}}\pm\sym{t_crit}{t_{1-\alpha/2,n-2}}\cdot\sym{se_b1}{\mathrm{se}(\hat{\beta}_{1})}\); in Excel
-      <code>T.INV(0,975; 18)</code>.</p></details>
+      <div class="calc-here" data-tool="kwantielen" data-blocks="0"></div>
+      <details class="hint"><summary>Hint</summary><p>\(\sym{b1}{\hat{\beta}_{1}}\pm\sym{t_crit}{t_{1-\alpha/2,n-2}}\cdot\sym{se_b1}{\mathrm{se}(\hat{\beta}_{1})}\), met
+      \(\sym{t_crit}{t_{0{,}975;18}}\) uit de t-tabel (0,025 erboven).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <p>\(\sym{t_crit}{t_{0{,}975;18}}=2{,}101\); \(14{,}947\pm2{,}101\times1{,}317=14{,}947\pm2{,}767\), dus \(\sym{beta1}{\beta_{1}}\in\)
         <b>[12,18; 17,71]</b> <span class="computed">zelf berekend</span>. Het interval bevat 0 niet, wat past bij het besluit van oefening 07.3. In
@@ -429,6 +426,7 @@
       <p>Fit 89,231; SE Fit 0,354. 95 %-BI (88,486; 89,975): de <i>gemiddelde</i> zuiverheid bij 1,00 %
       koolwaterstoffen. 95 %-PI (86,830; 91,632): waar <i>één</i> nieuwe batch waarschijnlijk valt.</p>
     </div>
+    <div class="calc-here" data-tool="regressie" data-blocks="3"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"Het 95%-BI bij \(\sym{x0}{x_{0}}\) geeft aan waar 95 % van de individuele batches zal liggen."</b> Fout: dat is het PI. Het BI gaat over de <i>gemiddelde</i> respons \(\sym{mu_yx}{\mu_{Y\mid x0}}\); voor één nieuwe meting \(\sym{y0_new}{Y_{0}}\) neem je het PI <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=36">REG p. 36</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=38">REG p. 38</a>.</li>
@@ -471,6 +469,7 @@
         <select><option value="">kies…</option><option value="bi">het BI (gemiddelde respons)</option><option value="pi">het PI (nieuwe waarneming)</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="regressie" data-blocks="3"></div>
       <details class="hint"><summary>Hint</summary><p>\((\sym{x0}{x_{0}}-\sym{xbar}{\bar{x}})^{2}=(1{,}00-1{,}196)^{2}\); voor het PI tel je 1 op
       binnen de wortel.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
@@ -537,7 +536,7 @@
     <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=45">REG p. 45</a></figcaption></figure>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"\(R^{2}\) is hoog, dus het model is goed."</b> Fout: \(R^{2}\) stijgt altijd als je termen toevoegt, en een polynoom van graad \(\sym{n}{n}-1\) door n punten past zelfs "perfect" <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=44">REG p. 44</a>. Het kwartet van Anscombe toont vier heel verschillende datasets met dezelfde rechte en correlatie (<a href="#d02-eda">02.7</a>): alleen de grafieken en het residuplot tonen of het model klopt.</li>
+      <li><b>"\(R^{2}\) is hoog, dus het model is goed."</b> Fout: \(R^{2}\) stijgt altijd als je termen toevoegt, en een polynoom van graad \(\sym{n}{n}-1\) door n punten past zelfs "perfect" <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=44">REG p. 44</a>. Het kwartet van Anscombe toont vier heel verschillende datasets met dezelfde rechte en correlatie: alleen de grafieken en het residuplot tonen of het model klopt.</li>
       <li><b>"Een trechter in het residuplot: voeg een \(x^{2}\)-term toe."</b> Fout: een trechter (de spreiding groeit) wijst op ongelijke variantie; de remedie is een getransformeerde respons zoals \(\sqrt{\sym{y}{y}}\), \(\ln\sym{y}{y}\) of \(\frac{1}{\sym{y}{y}}\). Extra of andere x-termen zijn de remedie voor een niet-lineair, gebogen patroon <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=42">REG p. 42</a>.</li>
       <li><b>"Een gestandaardiseerd residu buiten ±2 is altijd een fout punt."</b> Fout: ook bij normale fouten valt ongeveer 5 % van de \(\sym{d_i}{d_{i}}\) buiten −2 en 2, ongeveer 1 punt op 20. Zo'n punt is een <i>mogelijke</i> uitschieter die je nagaat <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=42">REG p. 42</a>.</li>
       <li><b>"Een uitschieter doet de lijn altijd kantelen."</b> Fout: een uitschieter dicht bij \(\bar{x}\) heft vooral de lijn op (helling 17,5467 → 17,516, intercept 2,6765 → 3,102); een uitschieter aan een uiteinde van het x-bereik kan haar wel kantelen: een invloedrijke waarneming (influential observation) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=45">REG p. 45</a>.</li>
@@ -573,6 +572,7 @@
       voordeel om alle variabelen samen in één model te steken, om de respons te verklaren en om nieuwe metingen te
       voorspellen <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=50">REG p. 50</a>.</p>
     </div>
+    <div class="calc-here" data-tool="meervoudig" data-blocks="0"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>Let op:</b> een model met \(\sym{k}{k}\) x-variabelen heeft \(\sym{k}{k}+2\) parameters (\(\sym{beta0}{\beta_{0}}\ \ldots\ \sym{beta_j}{\beta_{k}}\) en \(\sym{sigma}{\sigma}\)), dus \(\sym{sse}{\mathrm{SS}_{E}}\) heeft \(\sym{n}{n}-\sym{k}{k}-1\) vrijheidsgraden: \(\sym{sigma_hat}{\hat{\sigma}}=\sqrt{\frac{\sym{sse}{\mathrm{SS}_{E}}}{\sym{n}{n}-\sym{k}{k}-1}}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=46">REG p. 46</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=57">REG p. 57</a>. Met \(\sym{k}{k}=1\) krijg je de \(\sym{n}{n}-2\) van de enkelvoudige regressie.</li>
@@ -582,7 +582,7 @@
     </ul></div>
   </section>
 
-  <section class="unit" id="d07-stookolie" data-kw="stookolie; heating oil; olieverbruik; oil consumption; isolatie; insulation; temperatuur; Excel output; Gegevensanalyse; Data Analysis; Regression; Adjusted R Square; Significance F; coëfficiënt interpreteren; interpret coefficient; beduidende cijfers; significant digits; voorspelling; prediction; sigma-hat">
+  <section class="unit" id="d07-stookolie" data-kw="stookolie; heating oil; olieverbruik; oil consumption; isolatie; insulation; temperatuur; Excel output; Regression; Adjusted R Square; Significance F; coëfficiënt interpreteren; interpret coefficient; beduidende cijfers; significant digits; voorspelling; prediction; sigma-hat">
     <h3>07.10 Uitgewerkt voorbeeld: stookolie (heating oil) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=51">REG p. 51–53, 57</a></h3>
     <div class="box ex"><span class="t">Uitgewerkt voorbeeld</span>
       <p>Bouw een model voor het olieverbruik Y (gallons) voor de verwarming van een ééngezinswoning in januari, met
@@ -620,21 +620,16 @@
         <li><b>Beduidende cijfers (significant digits)</b>: "Excel trekt zich daar niks van aan, maar een ingenieur wél"
         <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=53">REG p. 53</a>. Rapporteer alleen zinvolle cijfers.</li>
         <li><b>Voorspelling</b> voor een huis bij 30 °F met 6 inches isolatie: de cursus geeft 278,97 gallons <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=57">REG p. 57</a>.
-        De exacte waarde is 278,98 <span class="computed">zelf berekend</span>; daar staat 5,43 in plaats van 5,44 in de berekening (zie de waarschuwing
-        hieronder).</li>
+        De exacte waarde is 278,98 <span class="computed">zelf berekend</span>; daar staat 5,43 in plaats van 5,44 in de berekening.</li>
         <li><b>Schatting van \(\sigma\)</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=57">REG p. 57</a>: \(\sym{sigma_hat}{\hat{\sigma}}=\sqrt{\sym{mse}{\mathrm{MS}_{E}}}=\sqrt{\frac{\sym{sse}{\mathrm{SS}_{E}}}{\sym{n}{n}-\sym{k}{k}-1}}=\sqrt{\frac{8120{,}6}{15-2-1}}=26{,}0\). Je kunt \(\hat{\sigma}\) zien als (min of meer) de standaarddeviatie van zo'n voorspelling: hoeveel onzekerheid erop zit.</li>
       </ul>
     </div>
-    <div class="box warn"><span class="t">Fout in de slide</span>
-      <p>Op <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=57">REG p. 57</a> staat \(\sym{y_hat}{\hat{Y}}=562{,}15-5{,}43\cdot30-20{,}01\cdot6=278{,}97\). De coëfficiënt is 5,44 (zie <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=53">REG p. 53</a>). Met
-      de exacte coëfficiënten is de voorspelling 278,98; met 562,15, 5,44 en 20,01 krijg je 278,89, en met de 5,43 van
-      REG p. 57 zelf 279,19 <span class="computed">zelf berekend</span>. De conclusie (ongeveer 279 gallons) verandert niet.</p>
-    </div>
     <div class="box tool"><span class="t">Rekentool</span>
-      <p>Meervoudige regressie staat <b>niet</b> op het werkblad <b>ANOVA DOE regression</b>. Gebruik Excel:
-      Gegevens → Gegevensanalyse → Regressie (Data → Data Analysis → Regression), met alle x-kolommen samen als
-      "Input X Range". Dat geeft precies de output van <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=52">REG p. 52</a>.</p>
+      <p>Meervoudige regressie staat <b>niet</b> op het werkblad <b>Regressie</b>. Gebruik de rekenmachine
+      meervoudige regressie hieronder: plak per huis y (Oil) gevolgd door Temp en Insulation. Ze geeft dezelfde output als
+      <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=52">REG p. 52</a>.</p>
     </div>
+    <div class="calc-here" data-tool="meervoudig" data-blocks="0"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"Excels Standard Error bovenaan (26.0137832) is de standaardfout van de coëfficiënten."</b> Fout: dat is \(\sym{sigma_hat}{\hat{\sigma}}=\sqrt{\sym{mse}{\mathrm{MS}_{E}}}\), de spreiding rond het regressievlak. De standaardfouten van de coëfficiënten staan in de coëfficiëntentabel (21.09; 0.336; 2.343) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=52">REG p. 52</a>.</li>
@@ -688,19 +683,10 @@
     <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=54">REG p. 54–55</a></figcaption></figure>
     <p>Daarom gebruik je liever de <b>aangepaste \(R^{2}\) (adjusted \(R^{2}\))</b>: die stijgt alleen als je een variabele toevoegt die
     voldoende significant is. Ze is nuttig om modellen te vergelijken: hoe hoger, hoe beter <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=56">REG p. 56</a>.</p>
-    <div class="box warn"><span class="t">Fout in de slide: welke formule?</span>
-      <p><a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=56">REG p. 56</a> drukt \(\sym{r2_adj}{R^{2}_{\mathrm{adj}}}=1-\frac{(1-\sym{r2}{R^{2}})(\sym{n}{n}-1)}{\sym{n}{n}-\sym{k}{k}-2}\). Alle outputs van de cursus gebruiken
-      <b>\(\sym{n}{n}-\sym{k}{k}-1\)</b>:</p>
-      <ul>
-        <li>Excel voor de olie-data: \(1-\frac{(1-0{,}96561)\cdot14}{12}=0{,}95988\), de waarde van Excel <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=52">REG p. 52</a>. Met /11 zou je
-        0,9562 krijgen <span class="computed">zelf berekend</span>.</li>
-        <li>Minitab voor de zuurstofdata: \(\sym{r2_adj}{\text{R-Sq(adj)}}=87{,}1\ \%\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=22">REG p. 22</a>; met \(\sym{n}{n}-\sym{k}{k}-2\) zou het 86,30 % zijn <span class="computed">zelf berekend</span>.</li>
-        <li>Minitab voor de shampoodata (07.13) en Design-Expert <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=61">DOE p. 61</a>.</li>
-        <li>De formule voor \(\hat{\sigma}\) op <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=57">REG p. 57</a> deelt ook door \(\sym{n}{n}-\sym{k}{k}-1\).</li>
-      </ul>
-      <p>Gebruik dus \(\sym{r2_adj}{R^{2}_{\mathrm{adj}}}=1-\frac{(1-\sym{r2}{R^{2}})(\sym{n}{n}-1)}{\sym{n}{n}-\sym{k}{k}-1}\), met k het aantal x-variabelen. De rekentool
-      toont beide versies, gelabeld.</p>
-    </div>
+    <div class="f"><div>\[\sym{r2_adj}{R^{2}_{\mathrm{adj}}}=1-\frac{(1-\sym{r2}{R^{2}})(\sym{n}{n}-1)}{\sym{n}{n}-\sym{k}{k}-1}\]</div></div>
+    <p>met k het aantal x-variabelen. Zo rekenen alle outputs van de cursus: Excel voor de olie-data,
+    \(1-\frac{(1-0{,}96561)\cdot14}{12}=0{,}95988\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=52">REG p. 52</a>; Minitab voor de zuurstofdata, \(\sym{r2_adj}{\text{R-Sq(adj)}}=87{,}1\ \%\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=22">REG p. 22</a>.</p>
+    <div class="calc-here" data-tool="regressie" data-blocks="5"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"Een nutteloze extra variabele kan \(R^{2}\) doen dalen."</b> Fout: \(R^{2}\) stijgt bij elke extra variabele, ook bij een nutteloze <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=55">REG p. 55</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=56">REG p. 56</a>. \(R^{2}_{\mathrm{adj}}\) kan wel dalen.</li>
@@ -738,6 +724,7 @@
       <p>Hier is \(\sym{k}{k}-\sym{r_reduced}{r}=3\) extra termen en \(\sym{n}{n}-\sym{p_param}{p}=16-6=10\). Dat geeft \(\sym{f0_partial}{F_{0}}=\frac{\frac{170{,}73-11{,}37}{3}}{\frac{11{,}37}{10}}=\) <b>46,7</b>, ver boven \(\sym{f_crit}{F_{0{,}05;3;10}}=3{,}71\): <b>houd de tweede-ordetermen</b> <span class="computed">zelf berekend</span>. De data
       opnieuw passen geeft beide gedrukte \(\mathrm{SS}_{E}\)-waarden terug.</p>
     </div>
+    <div class="calc-here" data-tool="regressie" data-blocks="4"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>Let op:</b> in de acetyleenoutput staat R voor twee dingen. In de termen \(\sym{temp_t}{T}\), \(\sym{ratio_r}{R}\), \(\sym{temp_t}{T}\times\sym{ratio_r}{R}\), \(\sym{temp_t}{T}^{2}\), \(\sym{ratio_r}{R}^{2}\) is R de verhouding (ratio), en \(\sym{ratio_r}{R}^{2}\) dus een x-term. In "\(\sym{r2}{R^{2}}=99{,}5\ \%\)" is het de determinatiecoëfficiënt <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=59">REG p. 59</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=62">REG p. 62</a>.</li>
@@ -762,8 +749,9 @@
         <select><option value="">kies…</option><option value="houden">H0 verwerpen: de tweede-ordetermen houden</option><option value="weg">H0 niet verwerpen: het eerste-ordemodel volstaat</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="regressie" data-blocks="4"></div>
       <details class="hint"><summary>Hint</summary><p>\(\sym{k}{k}-\sym{r_reduced}{r}=\) aantal extra termen; \(\sym{n}{n}-\sym{p_param}{p}=\) vrijheidsgraden van
-      \(\sym{sse_fm}{\mathrm{SS}_{E}(\mathrm{FM})}\). Excel: <code>F.INV.RT(0,05; 3; 10)</code>.</p></details>
+      \(\sym{sse_fm}{\mathrm{SS}_{E}(\mathrm{FM})}\). De kritieke waarde \(\sym{f_crit}{F_{0{,}05;3;10}}\) (0,05 erboven) lees je in de F-tabel.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <p>Teller: \(\frac{170{,}73-11{,}37}{3}=53{,}12\). Noemer: \(\frac{11{,}37}{10}=1{,}137\). \(\sym{f0_partial}{F_{0}}=\) <b>46,72</b>; \(\sym{f_crit}{F_{0{,}05;3;10}}=\)
         <b>3,71</b>; p-waarde \(3{,}45\times10^{-6}\). <b>\(H_{0}\) verwerpen</b>: de tweede-ordetermen verbeteren het
@@ -857,10 +845,9 @@
   <section class="unit" id="d07-demo" data-kw="Regression_demo; oefeningen; exercises; demowerkboek; Simple 1; Simple 2; Multiple 1; model kiezen; choose model; kwadratisch; quadratic; derdegraads; cubic; polynoom; extrapolatie; extrapolation; voorspelling; prediction; multicollineariteit; multicollinearity">
     <h3>07.14 Oefeningen met het regressie-demowerkboek <a class="p" href="../source/course/Les%203/20260605_devuyst_Regression_demo.xlsx">Regression_demo.xlsx</a></h3>
     <p>Het werkboek <a class="p" href="../source/course/Les%203/20260605_devuyst_Regression_demo.xlsx">20260605_devuyst_Regression_demo.xlsx</a> bevat drie opgaven zonder oplossing. De oplossingen
-    hieronder zijn <span class="computed">zelf berekend</span> met <code>07_numbers.py</code>. Werkwijze in Excel: zet naast de x-kolom extra kolommen
-    \(x^{2}\), \(x^{3}\) (voor een polynoom) en gebruik Gegevensanalyse → Regressie met alle x-kolommen als "Input X Range"; vink
-    "Residuals" en "Residual Plots" aan om het residuplot te zien (07.8). Een rechte kun je ook met de rekentool doen
-    (werkblad ANOVA DOE regression, sectie 3).</p>
+    hieronder zijn <span class="computed">zelf berekend</span> met <code>07_numbers.py</code>. Een polynoom is een meervoudige regressie
+    met extra kolommen \(x^{2}\), \(x^{3}\) (07.12); kijk ook naar het residuplot (07.8). Een rechte kun je ook met de rekentool doen
+    (werkblad Regressie).</p>
     <div class="box warn"><span class="t">Extrapolatie (extrapolation)</span>
       <p>Een regressiemodel beschrijft het verband alleen in het gebied waar je data hebt. Een voorspelling ver buiten
       het x-bereik van de data is een extrapolatie: je weet niet of het verband daar nog geldt, en verschillende modellen
@@ -903,6 +890,7 @@
         <select><option value="">kies…</option><option value="extrapolatie">onbetrouwbaar: x = 10 ligt ver buiten het x-bereik (extrapolatie)</option><option value="goed">even betrouwbaar als bij x = 2,5, want R² is hoog</option><option value="pi">betrouwbaar, het PI is maar iets breder</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="meervoudig" data-blocks="0"></div>
       <details class="hint"><summary>Hint</summary><p>Pas graad 1 en graad 2 toe. Stijgt \(R^{2}_{\mathrm{adj}}\) veel? Is de
       \(x^{2}\)-term significant bij \(\sym{alpha}{\alpha}=0{,}05\)? Kijk in het residuplot naar een kromme (dan een andere x-term) of een trechter
       (dan een andere variantie) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=42">REG p. 42</a>.</p></details>
@@ -954,6 +942,7 @@
         <select><option value="">kies…</option><option value="extrapolatie">extrapolatie: de waarde hangt volledig af van de gekozen polynoom en is onbetrouwbaar</option><option value="goed">betrouwbaar, want R²adj is 0,95</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="meervoudig" data-blocks="0"></div>
       <details class="hint"><summary>Hint</summary><p>Maak eerst het spreidingsdiagram en het residuplot van de rechte. Een
       golvend patroon ("niet-lineair", <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=42">REG p. 42</a>) vraagt om extra x-termen.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
@@ -970,7 +959,7 @@
           weer (de toppen van de derdegraadsfit liggen bij \(\sym{x}{x}=-2{,}63\) en 2,57). De residuen van de rechte vormen een golf (gemiddeld −8,1; 23,1; 0,9; −19,3; 13,0 per x-interval van links
           naar rechts): het patroon "niet-lineair" van <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=42">REG p. 42</a>.</li>
           <li>\(x^{2}\) helpt niets (\(R^{2}_{\mathrm{adj}}\) daalt zelfs), maar \(x^{3}\) wel: \(R^{2}_{\mathrm{adj}}\) springt naar <b>0,9488</b> en S
-          zakt van 20 naar 5,5. De partiële F-toets voor \(x^{3}\ (07.12)\) geeft \(\sym{f0_partial}{F}=583{,}4\) met df (1, 46), \(\sym{p_value}{p}\approx9\times10^{-28}\).
+          zakt van 20 naar 5,5. De partiële F-toets voor \(x^{3}\) (07.12) geeft \(\sym{f0_partial}{F}=583{,}4\) met df (1, 46), \(\sym{p_value}{p}\approx9\times10^{-28}\).
           Een vierde graad voegt niets toe. Kies de <b>derdegraadspolynoom</b>:
           \(\sym{y_hat}{\hat{y}}=-1{,}0528-20{,}2787\sym{x}{x}+0{,}0922\sym{x}{x}^{2}+1{,}0034\sym{x}{x}^{3}\) (de \(x^{2}\)-term en het intercept zijn op zich niet significant:
           \(\sym{p_value}{p}=0{,}37\) voor allebei).</li>
@@ -1010,8 +999,10 @@
         <select><option value="">kies…</option><option value="extrapolatie">onbetrouwbaar: B = 220 (en A = 15, C = 85) ligt buiten het bereik van de data</option><option value="goed">betrouwbaar binnen ± σ̂</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
-      <details class="hint"><summary>Hint</summary><p>Kijk naar de F-toets en de t-toetsen in de Excel-output. Bereken ook de
-      correlaties tussen A, B en C (Excel: <code>CORREL</code>), en vergelijk het nieuwe punt met het minimum en maximum
+      <div class="calc-here" data-tool="meervoudig" data-blocks="0"></div>
+      <div class="calc-here" data-tool="beschrijvend" data-blocks="1"></div>
+      <details class="hint"><summary>Hint</summary><p>Kijk naar de F-toets en de t-toetsen van het volledige model. Bereken ook de
+      correlaties r tussen A, B en C, en vergelijk het nieuwe punt met het minimum en maximum
       van elke kolom.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <p>Alle getallen <span class="computed">zelf berekend</span>.</p>

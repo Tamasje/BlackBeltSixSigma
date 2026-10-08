@@ -167,7 +167,7 @@
         <input type="text" inputmode="decimal"> <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="30.663" data-tol="0.001">
-        <label>(c) \(1\ m=\left(9\ 192\ 631\ \frac{770}{299}\ 792\ 458\right)\cdot\sym{lambda_cs}{\lambda_{\mathrm{Cs}}}\). Hoeveel cesiumgolflengten in 1 m (3 decimalen)?</label>
+        <label>(c) \(1\ m=\frac{9\,192\,631\,770}{299\,792\,458}\cdot\sym{lambda_cs}{\lambda_{\mathrm{Cs}}}\). Hoeveel cesiumgolflengten in 1 m (3 decimalen)?</label>
         <input type="text" inputmode="decimal"> <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="1.38" data-tol="0.005">
@@ -176,8 +176,8 @@
       </div>
       <details class="solution"><summary>Toon oplossing</summary>
         <p>(a) \(\sym{l_pend}{l}=9{,}81\cdot\left(\frac{2}{2\pi}\right)^{2}=\frac{9{,}81}{\pi^{2}}=0{,}99396\ m\approx\) <b>994 mm</b>, zoals het document zegt <a class="p" href="../source/course/Les%205/20260619_ottoy_MSA%20-%20meter%20unit.pdf#page=1">Meter unit p. 1</a>.</p>
-        <p>(b) \(\sym{lambda}{\lambda}=1\ \frac{m}{1}\ 650\ 763{,}73=6{,}0578\cdot10^{-7}\ m=\) <b>605,78 nm</b>, de waarde in het document <a class="p" href="../source/course/Les%205/20260619_ottoy_MSA%20-%20meter%20unit.pdf#page=3">Meter unit p. 3</a>.</p>
-        <p>(c) \(9\ 192\ 631\ \frac{770}{299}\ 792\ 458=\) <b>30,663</b> <span class="computed">zelf berekend</span>; dus
+        <p>(b) \(\sym{lambda}{\lambda}=\frac{1\ m}{1\,650\,763{,}73}=6{,}0578\cdot10^{-7}\ m=\) <b>605,78 nm</b>, de waarde in het document <a class="p" href="../source/course/Les%205/20260619_ottoy_MSA%20-%20meter%20unit.pdf#page=3">Meter unit p. 3</a>.</p>
+        <p>(c) \(\frac{9\,192\,631\,770}{299\,792\,458}=\) <b>30,663</b> <span class="computed">zelf berekend</span>; dus
         \(\sym{lambda_cs}{\lambda_{\mathrm{Cs}}}=\frac{\sym{c_light}{c}}{\sym{dnu_cs}{\Delta\nu_{\mathrm{Cs}}}}=0{,}0326\) m <a class="p" href="../source/course/Les%205/20260619_ottoy_MSA%20-%20meter%20unit.pdf#page=4">Meter unit p. 4</a>.</p>
         <p>(d) 29,69 − 28,31 = <b>1,38 cm</b>, ongeveer 4,6 % van een Zweedse voet <span class="computed">zelf berekend</span>.</p>
       </details>
@@ -282,7 +282,6 @@
     as de referentiewaarde. Links een constante bias (horizontaal, onder de stippellijn "Zero Bias"); midden en rechts een
     niet-constante bias (Linearity error): een boog en een rechte die van negatieve naar positieve bias stijgt.
     <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=13">MSA p. 13</a></figcaption></figure>
-    <p class="small">Hoe je bias, stabiliteit en lineariteit vaststelt met data: 11.13–11.15.</p>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"Accuracy en precisie betekenen hetzelfde."</b> Fout: accuracy (nauwkeurigheid, juistheid) is de overeenstemming met de referentiewaarde, dus de locatie (bias) <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=11">MSA p. 11</a>; precisie is hoe dicht herhaalde aflezingen bij elkaar liggen, dus de spreiding, verwant aan de herhaalbaarheid <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=14">MSA p. 14</a>. Let op: ISO en ASTM gebruiken accuracy voor bias én herhaalbaarheid samen (p. 11, notes).</li>
@@ -657,13 +656,14 @@
     "niet meer dan 60 ppm" defecten (p. 24, notes). <span class="computed">zelf berekend</span>: \(2\cdot\Phi(-3\times1{,}33)=66\) ppm
     (en 63 ppm voor \(\sym{cp}{C_{p}}=\frac{4}{3}\)); "60 ppm" is dus een afgeronde waarde.</p>
 
+    <div class="calc-here" data-tool="meetsysteem" data-blocks="0"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"Door de meetfout kan de waargenomen \(C_{p}\) hoger uitvallen dan de werkelijke."</b> Fout: \(\sym{sigma_o}{\sigma^{2}_{o}}=\sym{sigma_a}{\sigma^{2}_{a}}+\sym{sigma_m}{\sigma^{2}_{m}}\ge\sym{sigma_a}{\sigma^{2}_{a}}\), dus \(\sym{cpo}{C_{p,o}}\le\sym{cpa}{C_{p,a}}\): de meetfout maakt de capabiliteit altijd pessimistischer <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=24">MSA p. 24</a>.</li>
       <li><b>"Bij \(\sym{pct_grr}{\%\mathrm{GRR}}=60\ \%\) hoort één waargenomen \(C_{p}\)."</b> Fout: dat hangt af van de basis. Bij \(\sym{cpa}{C_{p,a}}=2\) geeft %GRR t.o.v. de procesvariatie \(\sym{cpo}{C_{p,o}}=2\cdot\sqrt{1-0{,}36}=1{,}6\), en %GRR t.o.v. de tolerantie \(\sym{cpo}{C_{p,o}}=1{,}28\) <span class="computed">zelf berekend</span>. Kijk dus of %GRR t.o.v. TV of t.o.v. TOL gegeven is <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=24">MSA p. 24</a>.</li>
       <li><b>"Hoe beter het proces, hoe hoger de waargenomen \(C_{p}\), zonder grens."</b> Fout: met %GRR t.o.v. de tolerantie komt \(\sym{cpo}{C_{p,o}}\) nooit boven \(\frac{1}{\sym{pct_grr}{\%\mathrm{GRR}}}\), bv. 2 bij \(\sym{pct_grr}{\%\mathrm{GRR}}=50\ \%\) <span class="computed">zelf berekend</span>.</li>
       <li><b>Let op:</b> factor 6, niet 5,15. De formules van de cursus (en van deze gids) gebruiken \(6\sigma\ (99{,}73\ \%)\); 5,15 (99 %) is de historische conventie uit de voetnoot. Gebruik 5,15 alleen als de vraag dat uitdrukkelijk vraagt <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=24">MSA p. 24</a>.</li>
-      <li><b>"Bij de buy-off was de waargenomen \(C_{p}\ 1{,}96\), in productie 1,71: het proces is verslechterd."</b> Fout: bij dezelfde werkelijke \(\sym{cpa}{C_{p}}=2\) komt het verschil volledig van het productiemeetsysteem (%GRR 30 % in plaats van 10 %) <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=26">MSA p. 26</a>. De notes drukken bij \(\sym{pct_grr}{\%\mathrm{GRR}}=60\ \%\) "1,20" af; correct is 1,28 (kader "Fout in de notes" verderop).</li>
+      <li><b>"Bij de buy-off was de waargenomen \(C_{p}\ 1{,}96\), in productie 1,71: het proces is verslechterd."</b> Fout: bij dezelfde werkelijke \(\sym{cpa}{C_{p}}=2\) komt het verschil volledig van het productiemeetsysteem (%GRR 30 % in plaats van 10 %) <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=26">MSA p. 26</a>. De notes drukken bij \(\sym{pct_grr}{\%\mathrm{GRR}}=60\ \%\) "1,20" af; met de formule is het 1,28 (<a href="#ex-11-8">oefening 11.8</a>).</li>
       <li><b>"Na elke meting buiten 4,90–5,10 g bijregelen houdt het proces op doel."</b> Fout: bijregelen op basis van één meting van één onderdeel voegt variatie toe (tampering, Deming) <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=26">MSA p. 26</a>; ken eerst je meetsysteem en regel niet bij als het proces in controle is.</li>
     </ul></div>
     <div class="exercise" id="ex-11-7" data-kw="%GRR 50; vereiste Cp; required Cp; waargenomen Cp; observed Cp; werkelijke Cp; actual Cp; 1,33; procesvariatie; tolerantie">
@@ -678,6 +678,7 @@
         <label>(b) %GRR t.o.v. de tolerantie: \(\sym{cpa}{C_{p,a}}=\) (3 decimalen)</label>
         <input type="text" inputmode="decimal"> <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="meetsysteem" data-blocks="0"></div>
       <details class="solution"><summary>Toon oplossing</summary>
         <p>(a) \(\sym{cpa}{C_{p,a}}=\frac{\sym{cpo}{C_{p,o}}}{\sqrt{1-\sym{pct_grr}{\%\mathrm{GRR}}^{2}}}=\frac{1{,}33}{\sqrt{0{,}75}}=\) <b>1,536</b>.</p>
         <p>(b) \(\frac{1}{\sym{cpa}{C^{2}_{p,a}}}=\frac{1}{\sym{cpo}{C^{2}_{p,o}}}-\sym{pct_grr}{\%\mathrm{GRR}}^{2}=\frac{1}{1{,}33^{2}}-0{,}25=0{,}5653-0{,}25=0{,}3153\), dus
@@ -692,12 +693,6 @@
     werkelijke \(\sym{cpa}{C_{p}}=2\)) geeft bij \(\sym{pct_grr}{\%\mathrm{GRR}}=10\ \%\) een waargenomen \(C_{p}\) van 1,96, bij 30 % "niet meer dan
     1,71", en bij een niet-gekwalificeerd toestel met \(\sym{pct_grr}{\%\mathrm{GRR}}=60\ \%\) "slechts 1,20". Het verschil tussen buy-off en productie
     komt dan volledig van het meetsysteem, niet van procesverslechtering.</p>
-    <div class="box warn"><span class="t">Fout in de notes (p. 26)</span>
-    <p>Met de formule van slide 24–25 geeft \(\sym{pct_grr}{\%\mathrm{GRR}}=60\ \%\) bij \(\sym{cpa}{C_{p,a}}=2\): \(\frac{1}{\sym{cpo}{C^{2}_{p,o}}}=0{,}25+0{,}36=0{,}61\),
-    dus \(\sym{cpo}{C_{p,o}}=\) <b>1,28</b>, niet 1,20 <span class="computed">zelf berekend</span>. De waarden 1,96 en 1,71
-    kloppen wel. (1,20 zou horen bij \(\sym{pct_grr}{\%\mathrm{GRR}}\approx67\ \%\).) Het besluit blijft hetzelfde: veel lager dan 2 en voor de meeste
-    toepassingen onaanvaardbaar.</p>
-    </div>
 
     <div class="exercise" id="ex-11-8" data-kw="buy-off; procesaanvaarding; process acceptance; waargenomen Cp; observed Cp; productietoestel; production gauge; %GRR 10 30 60">
       <h4>Oefening 11.8 — Buy-off versus productie <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=26">MSA p. 26</a></h4>
@@ -714,11 +709,12 @@
         <label>(c) \(\sym{pct_grr}{\%\mathrm{GRR}}=60\ \%\) (2 decimalen):</label>
         <input type="text" inputmode="decimal"> <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="meetsysteem" data-blocks="0"></div>
       <details class="solution"><summary>Toon oplossing</summary>
         <p>\(\sym{cpo}{C_{p,o}}=\frac{1}{\sqrt{\frac{1}{\sym{cpa}{C^{2}_{p,a}}}+\sym{pct_grr}{\%\mathrm{GRR}}^{2}}}=\frac{1}{\sqrt{0{,}25+\sym{pct_grr}{\%\mathrm{GRR}}^{2}}}\).</p>
         <p>(a) \(\frac{1}{\sqrt{0{,}26}}=\) <b>1,96</b> (notes: 1,96). (b) \(\frac{1}{\sqrt{0{,}34}}=\) <b>1,715</b> (notes: "no more than 1,71").
         (c) \(\frac{1}{\sqrt{0{,}61}}=\) <b>1,280</b> <span class="computed">zelf berekend</span>; de notes drukken 1,20 af, wat niet klopt
-        met de formule (zie het kader hierboven en de foutenlijst).</p>
+        met de formule.</p>
       </details>
     </div>
 
@@ -795,6 +791,7 @@
     het onderdeel. Links de ideale GPC: 1 tussen LSL en USL, 0 erbuiten. Rechts het voorbeeld met \(\mathrm{LSL}=0{,}6\), \(\mathrm{USL}=1{,}0\),
     \(b=0{,}05\) en \(\sigma_{\mathrm{GRR}}=0{,}05\): de flanken zijn afgerond en liggen iets links van de specificatiegrenzen (verticale
     lijnen bij 0,6 en 1,0). <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=27">MSA p. 27</a></figcaption></figure>
+    <div class="calc-here" data-tool="meetsysteem" data-blocks="1"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"De GPC geeft de kans dat een onderdeel goed is."</b> Fout: ze geeft voor elke referentiewaarde de kans dat het onderdeel <i>aanvaard</i> wordt, dus gemeten tussen LSL en USL. De ideale GPC is een rechthoek: 1 binnen de specs, 0 erbuiten <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=27">MSA p. 27</a>.</li>
@@ -813,14 +810,14 @@
         <label>(b) Kans om een onderdeel met referentiewaarde 0,9 te aanvaarden (4 decimalen):</label>
         <input type="text" inputmode="decimal"> <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="meetsysteem" data-blocks="1"></div>
       <details class="solution"><summary>Toon oplossing</summary>
         <p>(a) \(\sym{x_r}{X_{r}}+\sym{b_bias}{b}=0{,}55\): \(\sym{beta_gpc}{\beta}=\Phi\left(\frac{1{,}0-0{,}55}{0{,}05}\right)-\Phi\left(\frac{0{,}6-0{,}55}{0{,}05}\right)=\Phi(9)-\Phi(1)=1-0{,}8413=\)
         <b>0,1587</b>. Een onderdeel <i>buiten</i> de specificatie wordt dus in bijna 16 % van de gevallen aanvaard
         (consumentenrisico).</p>
         <p>(b) \(\sym{x_r}{X_{r}}+\sym{b_bias}{b}=0{,}95\): \(\sym{beta_gpc}{\beta}=\Phi(1)-\Phi(-7)=\) <b>0,8413</b>. Een goed onderdeel wordt in bijna 16 % van de
         gevallen afgekeurd (producentenrisico).</p>
-        <p class="small">Beide <span class="computed">zelf berekend</span>; de notes stellen de vragen zonder antwoord.
-        Excel: <code>=NORM.S.DIST(9;TRUE)-NORM.S.DIST(1;TRUE)</code>.</p>
+        <p class="small">Beide <span class="computed">zelf berekend</span>; de notes stellen de vragen zonder antwoord.</p>
       </details>
     </div>
   </section>
@@ -857,11 +854,12 @@
     doorgegeven onzekerheid. Voorbeeld uit de notes: \(\sym{x_val}{x}=5\pm0{,}1\) en \(f(\sym{x_val}{x})=\sym{x_val}{x}^{2}\), dan \(\sym{u}{u}(\sym{x_val}{x}^{2})\approx2\sym{x_val}{x}\cdot\sym{u}{u}(\sym{x_val}{x})=10\times0{,}1=1\), dus
     \(\sym{x_val}{x}^{2}=25\pm1\): bij kwadrateren verdubbelt de <i>relatieve</i> onzekerheid (p. 29, notes).</p>
 
+    <div class="calc-here" data-tool="meetsysteem" data-blocks="2 3"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"\(\sym{u_exp}{U}=2\) mm betekent: de meting zit er hoogstens 2 mm naast."</b> Fout: \(\sym{x_m}{\text{meting}}\pm\sym{u_exp}{U}\) is een betrouwbaarheidsinterval voor de referentiewaarde, met \(\sym{k_cov}{k}=2\) ongeveer 95 %, geen absolute grens <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=28">MSA p. 28</a>.</li>
-      <li><b>Let op:</b> een kalibratiecertificaat geeft vaak een uitgebreide onzekerheid ("0,1 % van de aflezing bij dekkingsfactor 2"). Deel eerst door de dekkingsfactor om de standaardonzekerheid te krijgen: \(\sym{u1}{u_{1}}=1834\times0{,}1\ \frac{\%}{2}=0{,}917\) mm <a class="p" href="../source/course/Les%205/20260619_ottoy_Calculating%20the%20uncertainty%20in%20the%20width%20of%20a%20steel%20strip.pdf#page=1">Steel strip p. 1</a>.</li>
-      <li><b>Let op:</b> onafhankelijke bronnen combineer je kwadratisch, \(\sym{u_c}{u_{c}}=\sqrt{\sym{u1}{u_{1}}^{2}+\sym{u2}{u_{2}}^{2}+\ldots}\), niet door de u's op te tellen <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=29">MSA p. 29</a>. Het steel-strip-document rekent hier zelf fout: 1,264 gedrukt, 1,292 correct (kader verderop).</li>
+      <li><b>Let op:</b> een kalibratiecertificaat geeft vaak een uitgebreide onzekerheid ("0,1 % van de aflezing bij dekkingsfactor 2"). Deel eerst door de dekkingsfactor om de standaardonzekerheid te krijgen: \(\sym{u1}{u_{1}}=\frac{1834\times0{,}1\ \%}{2}=0{,}917\) mm <a class="p" href="../source/course/Les%205/20260619_ottoy_Calculating%20the%20uncertainty%20in%20the%20width%20of%20a%20steel%20strip.pdf#page=1">Steel strip p. 1</a>.</li>
+      <li><b>Let op:</b> onafhankelijke bronnen combineer je kwadratisch, \(\sym{u_c}{u_{c}}=\sqrt{\sym{u1}{u_{1}}^{2}+\sym{u2}{u_{2}}^{2}+\ldots}\), niet door de u's op te tellen <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=29">MSA p. 29</a>. Het steel-strip-document drukt 1,264 af; met de gedrukte u's is het 1,292 (<a href="#ex-11-13">oefening 11.13</a>).</li>
       <li><b>Let op:</b> een uniforme fout met halve breedte a heeft standaardafwijking \(\frac{\sym{a_half}{a}}{\sqrt{3}}\), niet a. Aflezen tot op 1 mm geeft \(\sym{a_half}{a}=0{,}5\) mm, niet 1 mm <a class="p" href="../source/course/Les%205/20260619_ottoy_Calculating%20the%20uncertainty%20in%20the%20width%20of%20a%20steel%20strip.pdf#page=1">Steel strip p. 1</a>.</li>
       <li><b>Let op:</b> \(\frac{\sym{r_range}{R}}{\sym{d2}{d_{2}}}\) is de herhaalbaarheid van <i>één</i> meting; voor het gemiddelde van n metingen deel je nog door \(\sqrt{\sym{n_sample}{n}}\): \(\sym{u4}{u_{4}}=\frac{\frac{2}{1{,}693}}{\sqrt{3}}=0{,}682\) mm. Het document slaat die tussenstap over <a class="p" href="../source/course/Les%205/20260619_ottoy_Calculating%20the%20uncertainty%20in%20the%20width%20of%20a%20steel%20strip.pdf#page=1">Steel strip p. 1</a>.</li>
       <li><b>"Bij kwadrateren verdubbelt de onzekerheid."</b> Fout: de <i>relatieve</i> onzekerheid verdubbelt: \(\sym{x_val}{x}=5\pm0{,}1\) geeft \(\sym{x_val}{x}^{2}=25\pm1\). Bij een vierkantswortel halveert de relatieve onzekerheid <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=29">MSA p. 29</a>.</li>
@@ -877,6 +875,7 @@
         <label>(b) \(\sym{u}{u}(\sqrt{\sym{x_val}{x}})=\) (4 decimalen)</label>
         <input type="text" inputmode="decimal"> <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="meetsysteem" data-blocks="3"></div>
       <details class="solution"><summary>Toon oplossing</summary>
         <p>(a) \(\sym{u}{u}(\sym{x_val}{x}^{2})=2\sym{x_val}{x}\cdot\sym{u}{u}(\sym{x_val}{x})=2\cdot5\cdot0{,}1=\) <b>1</b> (notes p. 29).</p>
         <p>(b) \(\frac{\sym{u}{u}(\sqrt{\sym{x_val}{x}})}{\sqrt{\sym{x_val}{x}}}=\frac{\sym{u}{u}(\sym{x_val}{x})}{2\sym{x_val}{x}}=\frac{0{,}1}{10}=0{,}01\), dus \(\sym{u}{u}(\sqrt{\sym{x_val}{x}})=0{,}01\cdot\sqrt{5}=0{,}01\times2{,}236=\) <b>0,0224</b>
@@ -900,17 +899,6 @@
     <p>Bij een uniforme verdeling op een interval met halve breedte a is de standaardafwijking \(\frac{\sym{a_half}{a}}{\sqrt{3}}\) (voetnoot 3 vraagt dit
     te bewijzen: de variantie van een uniforme verdeling op \([-\sym{a_half}{a},\sym{a_half}{a}]\) is \(\frac{\sym{a_half}{a}^{2}}{3}\)). De tekst neemt de fouten onafhankelijk aan
     en combineert ze met de somregel; met \(\sym{k_cov}{k}=2\) volgt het resultaat <a class="p" href="../source/course/Les%205/20260619_ottoy_Calculating%20the%20uncertainty%20in%20the%20width%20of%20a%20steel%20strip.pdf#page=2">Steel strip p. 2</a>.</p>
-    <div class="box warn"><span class="t">Fouten in het document "steel strip"</span>
-    <ul>
-      <li><b>\(u_{4}\)</b>: de tekst schrijft "\(\frac{2}{\sym{d2}{d_{2}}}=\frac{2}{1{,}693}\). Therefore \(\sym{u4}{u_{4}}=0{,}682\)". Maar
-      \(\frac{2}{1{,}693}=1{,}181\): dat is de herhaalbaarheid van <i>één</i> meting. De 0,682 is die waarde gedeeld door \(\sqrt{3}\), de
-      onzekerheid van het <i>gemiddelde</i> van 3 metingen (\(\sym{u_c}{u_{c}}(\sym{xbar}{\bar{x}})=\frac{\sym{u}{u}(\sym{x_val}{x})}{\sqrt{\sym{n_sample}{n}}}\), slide 29). De tussenstap ontbreekt
-      in de tekst; de waarde 0,682 klopt.</li>
-      <li><b>\(u_{c}\)</b>: gedrukt 1,264. Met de gedrukte u's is \(\sqrt{0{,}917^{2}+0{,}289^{2}+0{,}529^{2}+0{,}682^{2}}=\sqrt{1{,}669}=\)
-      <b>1,292</b> <span class="computed">zelf berekend</span>. Daardoor is \(\sym{u_exp}{U}=2\times1{,}292=2{,}58\approx\) <b>2,6 mm</b> (niet 2,5)
-      en het interval 1832,2 ± 2,6 = <b>[1829,6 ; 1834,8] mm</b> (niet [1829,7 ; 1834,7]).</li>
-    </ul>
-    </div>
 
     <div class="exercise" id="ex-11-13" data-kw="meetonzekerheid; measurement uncertainty; stalen band; steel strip; meetlint; tape measure; type A; type B; uniforme verdeling; uniform distribution; dekkingsfactor; coverage factor; gecombineerde onzekerheid">
       <h4>Oefening 11.13 — Onzekerheid op de breedte van een stalen band <a class="p" href="../source/course/Les%205/20260619_ottoy_Calculating%20the%20uncertainty%20in%20the%20width%20of%20a%20steel%20strip.pdf#page=1">Steel strip p. 1</a></h4>
@@ -941,6 +929,7 @@
         <label>(f) Gecorrigeerde breedte (na de correctie voor het niet haaks liggen, afgerond op 0,1 mm), mm:</label>
         <input type="text" inputmode="decimal"> <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="meetsysteem" data-blocks="2"></div>
       <details class="hint"><summary>Hint</summary><p>Een uniforme fout met halve breedte a heeft standaardafwijking \(\frac{\sym{a_half}{a}}{\sqrt{3}}\).
       De range geeft \(\sigma\) van één meting \(\left(\frac{\sym{r_range}{R}}{\sym{d2}{d_{2}}}\right)\); het resultaat is een gemiddelde van 3 metingen.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
@@ -950,7 +939,7 @@
           <li>\(\sym{u3}{u_{3}}=\frac{0{,}917}{\sqrt{3}}=0{,}529\); correctie: \(0{,}1\ \%\times1834=1{,}834\approx1{,}8\) mm aftrekken.</li>
           <li>\(\sym{u4}{u_{4}}=\frac{\frac{2}{1{,}693}}{\sqrt{3}}=\frac{1{,}181}{1{,}732}=\) <b>0,682</b>.</li>
           <li>\(\sym{u_c}{u_{c}}=\sqrt{0{,}917^{2}+0{,}289^{2}+0{,}529^{2}+0{,}682^{2}}=\sqrt{0{,}841+0{,}084+0{,}280+0{,}465}=\sqrt{1{,}669}=\)
-          <b>1,292</b> <span class="computed">zelf berekend</span> (gedrukt: 1,264, zie het kader hierboven).</li>
+          <b>1,292</b> <span class="computed">zelf berekend</span> (gedrukt: 1,264).</li>
           <li>\(\sym{u_exp}{U}=2\times1{,}292=\) <b>2,58 ≈ 2,6 mm</b> <span class="computed">zelf berekend</span> (gedrukt: 2,5).</li>
           <li>Resultaat: 1834 − 1,8 = <b>1832,2</b> ± 2,6 mm = [1829,6 ; 1834,8] mm met ongeveer 95 % betrouwbaarheid
           <span class="computed">zelf berekend</span>. Het document zelf: 1832,2 ± 2,5 mm = [1829,7 ; 1834,7] mm
@@ -988,12 +977,8 @@
     1/1000 inch (werkblad "originele data") en eens afgerond tot op 1/100 inch ("afgeronde data"). De werkbladen
     "… - opgelost" bevatten de opgeloste \(\frac{\bar{X}}{R}\)-kaarten. Met de originele data is de kaart in controle; met de
     afgeronde data lijkt hij uit controle. Dan mag je de kaart niet lezen als een beeld van het proces (p. 30, notes).</p>
-    <div class="box warn"><span class="t">Constante \(D_{4}\) in het Rheostat-werkboek</span>
-    <p>De opgeloste werkbladen rekenen \(\mathrm{UCL}_{R}\) met \(\sym{d4_r}{D_{4}}=2{,}114\) (zoals Six Sigma Demystified); Table 18 van
-    de cursus, die de rekentool gebruikt (beslissing 4), geeft 2,115 voor \(\sym{n_sample}{n}=5\) <a class="p" href="../source/course/Les%204/___4.1%20tabellen%20SPC.pdf#page=2">Table 18, tabellen SPC p. 2</a>. Het verschil zit in de 6e
-    decimaal van \(\mathrm{UCL}_{R}\) en verandert geen enkel besluit. Ook vermeld in <code>resources/build/README.md</code>.</p>
-    </div>
 
+    <div class="calc-here" data-tool="meetsysteem" data-blocks="5"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"De \(\frac{\bar{X}}{R}\)-kaart van de afgeronde Rheostat-data is uit controle, dus het proces is instabiel."</b> Fout: de afronding verlaagt \(\bar{R}\) kunstmatig (van 0,0086 naar 0,0048 inch) en maakt de grenzen te nauw; met de originele data is de kaart in controle <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=30">MSA p. 30</a>, zie <a href="#ex-11-14">oefening 11.14</a>.</li>
@@ -1064,6 +1049,7 @@
         <select><option value="">kies…</option><option value="instabiel">het proces is instabiel</option><option value="grof">de meeteenheid 0,01 inch is te grof voor deze kaart</option><option value="ok">de afgeronde kaart is bruikbaar</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="regelkaart" data-blocks="1"></div>
       <details class="hint"><summary>Hint</summary><p>\(\bar{X}\)-grenzen: \(\sym{xbarbar}{\bar{\bar{X}}}\pm\sym{a2}{A_{2}}\sym{rbar}{\bar{R}}\); R-grenzen: \(\sym{d3_r}{D_{3}}\sym{rbar}{\bar{R}}\) en
       \(\sym{d4_r}{D_{4}}\sym{rbar}{\bar{R}}\). Of typ de subgroepen in de rekentool (werkblad Control charts).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
@@ -1100,6 +1086,7 @@
         <label>(c) \(\sym{n_sample}{n}=5\): hoeveel mogelijke rangewaarden (0, 1, 2, … MU) liggen in het grensgeval binnen de grenzen?</label>
         <input type="text" inputmode="decimal"> <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="meetsysteem" data-blocks="5"></div>
       <details class="solution"><summary>Toon oplossing</summary>
         <p>\(\sym{ucl_r}{\mathrm{UCL}}=\sym{d4_r}{D_{4}}\cdot\sym{d2}{d_{2}}\cdot\sym{mu_unit}{\mathrm{MU}}\), \(\sym{lcl_r}{\mathrm{LCL}}=\sym{d3_r}{D_{3}}\cdot\sym{d2}{d_{2}}\cdot\sym{mu_unit}{\mathrm{MU}}\). <span class="computed">zelf berekend</span>
         met Table 18:</p>
@@ -1190,14 +1177,11 @@
     <div class="f"><div>\[\frac{\sym{nu}{\nu}\cdot\sym{rbar}{\bar{R}}^{2}}{\sym{d2star}{d_{2}^{*}}^{2}\sym{sigma}{\sigma}^{2}}\sim\sym{chi2}{\chi^{2}}(\sym{nu}{\nu})\]</div></div>
     <p>\(\nu\) is hier geen geheel getal (het begrip vrijheidsgraden wordt uitgebreid). Omdat \(E(\sym{chi2}{\chi^{2}}(\sym{nu}{\nu}))=\sym{nu}{\nu}\), volgt
     \(\sym{d2star}{d_{2}^{*}}^{2}=\frac{E(\sym{rbar}{\bar{R}}^{2})}{\sym{sigma}{\sigma}^{2}}\).</p>
-    <div class="box warn"><span class="t">Kleine fout op slide 32</span>
-    <p>MSA p. 32 zegt dat t "een t-verdeling met <b>n</b> vrijheidsgraden" volgt; bedoeld is <b>\(\nu\)</b> (het interval op
-    dezelfde pagina gebruikt \(t_{1-\alpha/2,\nu}\), en n is elders het aantal onderdelen).</p>
-    </div>
 
+    <div class="calc-here" data-tool="meetsysteem" data-blocks="4"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"t volgt een t-verdeling met n vrijheidsgraden."</b> Fout: met \(\nu\) vrijheidsgraden uit de tabel MSA (Patnaik), meestal geen geheel getal. MSA p. 32 schrijft n, maar bedoelt \(\nu\) (kader hierboven) <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=32">MSA p. 32</a>.</li>
+      <li><b>"t volgt een t-verdeling met n vrijheidsgraden."</b> Fout: met \(\nu\) vrijheidsgraden uit de tabel MSA (Patnaik), meestal geen geheel getal. MSA p. 32 schrijft n, maar bedoelt \(\nu\) <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=32">MSA p. 32</a>.</li>
       <li><b>"\(\sym{nu}{\nu}=\sym{g_sub}{g}\sym{n_sample}{m}-1\), zoals bij een gewone t-toets."</b> Fout: \(\nu\) komt uit de tabel MSA; voor \(\sym{g_sub}{g}=1\), \(\sym{n_sample}{m}=12\) is \(\sym{nu}{\nu}=9{,}0\) <a class="p" href="../source/course/Les%205/20260619_ottoy_tabel%20MSA.pdf#page=1">Tabel MSA p. 1</a>.</li>
       <li><b>Let op:</b> verwissel \(d_{2}\) en \(d_{2}^{*}\) niet. \(\sym{sigma_r}{\sigma_{r}}=\frac{\sym{rbar}{\bar{R}}}{\sym{d2}{d_{2}}}\) gebruikt \(d_{2}\) (laatste rij van de tabel MSA, voor subgroepgrootte m); de t-formule bevat daarnaast de factor \(\frac{\sym{d2star}{d_{2}^{*}}}{\sym{d2}{d_{2}}}\), met \(d_{2}^{*}\) uit rij g, kolom m <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=32">MSA p. 32</a>.</li>
       <li><b>Let op:</b> \(\sqrt{\sym{g_sub}{g}\sym{n_sample}{m}}\) is de wortel van het totale aantal metingen (g subgroepen van m), niet \(\sqrt{\sym{g_sub}{g}}\) of \(\sqrt{\sym{n_sample}{m}}\).</li>
@@ -1252,6 +1236,7 @@
         <select><option value="">kies…</option><option value="ja">ja, 0 ligt niet in het interval</option><option value="nee">nee</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="meetsysteem" data-blocks="4"></div>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>Gemiddelde = \(\frac{29{,}9}{12}=2{,}4917\); \(\sym{bias}{\mathrm{bias}}=2{,}4917-1{,}99=\) <b>0,5017</b>.</li>
@@ -1347,9 +1332,9 @@
         <select><option value="">kies…</option><option value="ja">ja</option><option value="nee">nee</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="regressie" data-blocks="0"></div>
       <details class="hint"><summary>Hint</summary><p>Maak 60 punten \((\sym{x_reg}{x}=\sym{x_r}{\text{referentiewaarde}},\sym{y_reg}{y}=\sym{x_m}{\text{meting}}-\sym{x_r}{\text{referentiewaarde}})\)
-      en doe een enkelvoudige regressie, bv. in het werkblad ANOVA DOE regression of met de Excel-functies
-      <code>SLOPE</code>, <code>INTERCEPT</code> en <code>LINEST</code>. Teken de biases per onderdeel.</p></details>
+      en doe een enkelvoudige regressie, bv. in het werkblad Regressie of met de rekenmachine regressie. Teken de biases per onderdeel.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <p>Alles <span class="computed">zelf berekend</span>; de cursus drukt geen oplossing af.</p>
         <table>
@@ -1405,10 +1390,6 @@
       is \(\sym{d2star}{d_{2}^{*}}=1{,}73857\) en \(\sym{nu}{\nu}=9{,}3\). Daaruit volgt \(E(\sym{rbar}{\bar{R}}^{2})=\sym{d2star}{d_{2}^{*}}^{2}\sym{sigma}{\sigma}^{2}\). En \(\sym{d2star}{d_{2}^{*}}\to\sym{d2}{d_{2}}\)
       als \(\sym{g_sub}{g}\to\infty\).</li>
     </ul>
-    <div class="box warn"><span class="t">Ontbrekend getal in het document</span>
-    <p>Er staat "for a sample of size \(\sym{d2}{d_{2}}=2{,}326\) and \(\sym{d3}{d_{3}}=0{,}864\)": de steekproefgrootte ontbreekt. Het
-    is <b>\(\sym{n_sample}{n}=5\)</b> (Table A geeft \(\sym{d2}{d_{2}}=2{,}326\) en \(\sym{d3}{d_{3}}=0{,}8641\) voor \(\sym{n_sample}{n}=5\) <a class="p" href="../source/course/Les%204/___4.1%20tabellen%20SPC.pdf#page=1">Table A, tabellen SPC p. 1</a>).</p>
-    </div>
     <p><b>De tabel MSA</b> <a class="p" href="../source/course/Les%205/20260619_ottoy_tabel%20MSA.pdf#page=1">Tabel MSA p. 1</a> ("Values associated with the Distribution of the Average Range", uit de MSA Reference
     Manual van DaimlerChrysler, Ford en GM, 2002): rijen \(\sym{g_sub}{g}=\) aantal subgroepen (1 tot 20), kolommen \(\sym{n_sample}{m}=\) subgroepgrootte (2
     tot 20). Elke cel heeft twee getallen: <b>boven \(\nu\)</b>, <b>onder \(d_{2}^{*}\)</b>. De laatste rij geeft
@@ -1429,10 +1410,9 @@
     (tabel 2,48124); \(\sym{n_sample}{m}=3\), \(\sym{g_sub}{g}=5\): 1,7386 (tabel 1,73857).</p>
     </div>
     <p><b>Werkblad "on d2 and d2star"</b> in het GRR-werkboek <a class="p" href="../source/course/Les%205/20260619_ottoy_GRR%20-%20ANOVA%20-%20avegage%20and%20range%20-%202.xlsx">GRR-werkboek (xlsx)</a>: een Monte-Carlosimulatie. Je kiest het aantal
-    subgroepen (F3, 1–5) en de subgroepgrootte (F4, 2–10); het blad trekt standaardnormale getallen met
-    <code>NORM.INV(RAND(),0,1)</code>, berekent per herhaling de gemiddelde range \(\bar{R}\) en schat \(d_{2}\) als het gemiddelde
-    van \(\bar{R}\) (V10) en \(d_{2}^{*}\) als √(gemiddelde van \(\bar{R}^{2}\)) (W10). Omdat RAND() bij elke herberekening nieuwe getallen
-    trekt, veranderen de uitkomsten telkens (F9). Met \(\sym{g_sub}{g}=2\), \(\sym{n_sample}{m}=5\) en 200 000 herhalingen vond ons script 2,328 en 2,407,
+    subgroepen (1–5) en de subgroepgrootte (2–10); het blad trekt standaardnormale toevalsgetallen, berekent per herhaling
+    de gemiddelde range \(\bar{R}\) en schat \(d_{2}\) als het gemiddelde van \(\bar{R}\) en \(d_{2}^{*}\) als √(gemiddelde van \(\bar{R}^{2}\)).
+    Omdat het blad bij elke herberekening nieuwe toevalsgetallen trekt, veranderen de uitkomsten telkens. Met \(\sym{g_sub}{g}=2\), \(\sym{n_sample}{m}=5\) en 200 000 herhalingen vond ons script 2,328 en 2,407,
     tegen 2,32593 en 2,40484 in de tabel <span class="computed">zelf berekend</span>.</p>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
@@ -1440,7 +1420,7 @@
       <li><b>"\(d_{2}^{*}\) is gewoon een andere naam voor \(d_{2}\)."</b> Fout: \(d_{2}^{*}\) hangt af van m én g en is groter dan \(d_{2}\); alleen als \(\sym{g_sub}{g}\to\infty\) wordt \(\sym{d2star}{d_{2}^{*}}=\sym{d2}{d_{2}}\) <a class="p" href="../source/course/Les%205/20260619_ottoy_Theoretical%20background%20of%20a%20GRR%20study.pdf#page=1">GRR theory p. 1</a>. Hierboven zelf afgeleid: \(\sym{d2star}{d_{2}^{*}}^{2}=\sym{d2}{d_{2}}^{2}+\frac{\sym{d3}{d_{3}}^{2}}{\sym{g_sub}{g}}\).</li>
       <li><b>Let op:</b> in de tabel MSA zijn de rijen g (aantal subgroepen) en de kolommen m (subgroepgrootte); in elke cel staat boven \(\nu\) en onder \(d_{2}^{*}\) <a class="p" href="../source/course/Les%205/20260619_ottoy_tabel%20MSA.pdf#page=1">Tabel MSA p. 1</a>. Voor \(K_{2}\) en \(K_{3}\) lees je rij \(\sym{g_sub}{g}=1\), voor \(K_{1}\) de laatste rij \((d_{2})\).</li>
       <li><b>"Vrijheidsgraden zijn altijd gehele getallen."</b> Fout: in Patnaiks benadering is \(\nu\) meestal geen geheel getal, bv. \(\sym{nu}{\nu}=9{,}3\) voor \(\sym{g_sub}{g}=5\), \(\sym{n_sample}{m}=3\) <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=32">MSA p. 32</a>.</li>
-      <li><b>Let op:</b> het werkblad "on d2 and d2star" rekent met RAND(): bij elke herberekening (F9) veranderen de uitkomsten. Neem voor een vraag de waarden uit de tabel, niet uit de simulatie.</li>
+      <li><b>Let op:</b> het werkblad "on d2 and d2star" is een simulatie: bij elke herberekening veranderen de uitkomsten. Neem voor een vraag de waarden uit de tabel, niet uit de simulatie.</li>
     </ul></div>
     <div class="exercise" id="ex-11-20" data-kw="tabel MSA; MSA table; d2*; d2; ν; aflezen; table lookup; subgroepen; subgroups; K1; K2; K3">
       <h4>Oefening 11.20 — De tabel MSA aflezen <a class="p" href="../source/course/Les%205/20260619_ottoy_tabel%20MSA.pdf#page=1">Tabel MSA p. 1</a></h4>
@@ -1533,6 +1513,7 @@
     tolerantie. <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=61">SPC p. 61</a></figcaption></figure>
     <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-11-varratio">14 De variantieverhouding als drempel voor het meetsysteem</a>.</p>
 
+    <div class="calc-here" data-tool="grr" data-blocks="0"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"\(\sym{pct_grr}{\%\mathrm{GRR}}=50\ \%\): de helft van de totale variatie komt van het meetsysteem."</b> Fout: \(\sym{pct_grr}{\%\mathrm{GRR}}=\frac{\sym{grr}{\mathrm{GRR}}}{\sym{tv}{\mathrm{TV}}}\) is een verhouding van standaardafwijkingen; het aandeel in de totale variantie is \(\sym{pct_grr}{\%\mathrm{GRR}}^{2}\), in de GRR-studie ongeveer 25 % <span class="computed">zelf berekend</span> <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=35">MSA p. 35</a>.</li>
@@ -1559,7 +1540,7 @@
   </section>
 
   <!-- ================================================================== 11.18 -->
-  <section class="unit" id="d11-anova" data-kw="ANOVA-methode; ANOVA method; tweeweg-ANOVA; two-way ANOVA; operator; appraiser; onderdeel; part; interactie; interaction; MS; mean square; EV = √MSe; additief model; additive model; poolen; pooling; Anova: Two-Factor With Replication; SST">
+  <section class="unit" id="d11-anova" data-kw="ANOVA-methode; ANOVA method; tweeweg-ANOVA; two-way ANOVA; operator; appraiser; onderdeel; part; interactie; interaction; MS; mean square; EV = √MSe; additief model; additive model; poolen; pooling; SST">
     <h3>11.18 GRR met de ANOVA-methode <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=36">MSA p. 36</a></h3>
     <p>De data van een GRR-studie laten een tweeweg-ANOVA toe (<a href="#d08">Deel 8</a>) met de factoren
     <b>operator (appraiser)</b> en <b>onderdeel (part)</b>. Voor een model <b>zonder interactie</b> ziet de tabel er zo uit
@@ -1599,18 +1580,19 @@
 
     <div class="box warn"><span class="t">Met of zonder interactie? Wat het werkboek doet</span>
     <p>De cursus geeft de tabel <i>zonder</i> interactie. Het GRR-werkboek <a class="p" href="../source/course/Les%205/20260619_ottoy_GRR%20-%20ANOVA%20-%20avegage%20and%20range%20-%202.xlsx">GRR-werkboek (xlsx)</a> (werkblad "2way anova") start
-    met Excels "Anova: Two-Factor With Replication", die wel een interactierij operator × onderdeel geeft. Die interactie is
+    met een tweeweg-ANOVA met herhalingen, die wel een interactierij operator × onderdeel geeft. Die interactie is
     niet significant \((\sym{p_value}{p}=0{,}294)\), en daarom bouwt het werkboek een "Afgeleide ANOVA-tabel, zonder schatting van de interactie
     (additief model)": het telt de interactie-SS bij de within-SS \((\sym{df_e}{\mathrm{df}}\ 8+15=23)\) en rekent EV, AV en PV uit die tabel.
     Een \(\alpha\) voor die beslissing (poolen) staat nergens in de cursus. De rekentool toont beide tabellen met de p-waarde van de
     interactie. Als de interactie wél significant zou zijn, geeft de cursus geen formule voor EV, AV en PV.</p>
     </div>
 
+    <div class="calc-here" data-tool="grr" data-blocks="0"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"In de ANOVA-methode is \(\sym{ev}{\mathrm{EV}}=\sqrt{\sym{ms_a}{\mathrm{MS}_{a}}}\)."</b> Fout: \(\sym{ev}{\mathrm{EV}}=\sqrt{\sym{ms_e}{\mathrm{MS}_{e}}}\): de foutterm is de herhaalbaarheid. De factor operator geeft de reproduceerbaarheid: \(\sym{av}{\mathrm{AV}}=\sqrt{\frac{\sym{ms_a}{\mathrm{MS}_{a}}-\sym{ev}{\mathrm{EV}}^{2}}{\sym{n_parts}{n}\sym{r_trials}{r}}}\) <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=36">MSA p. 36</a>.</li>
       <li><b>Let op:</b> \(\sym{ms_a}{\mathrm{MS}_{a}}=\sym{n_parts}{n}\sym{r_trials}{r}\cdot\sym{av}{\mathrm{AV}}^{2}+\sym{ev}{\mathrm{EV}}^{2}\): trek eerst \(\sym{ev}{\mathrm{EV}}^{2}\) af en deel dan door nr (metingen per operator); voor PV deel je \(\sym{ms_p}{\mathrm{MS}_{p}}-\sym{ev}{\mathrm{EV}}^{2}\) door kr (metingen per onderdeel) <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=36">MSA p. 36</a>.</li>
-      <li><b>Let op:</b> in het model zonder interactie is \(\sym{df_e}{\mathrm{df}_{e}}=\sym{n_parts}{n}\sym{k_ops}{k}(\sym{r_trials}{r}-1)+(\sym{k_ops}{k}-1)(\sym{n_parts}{n}-1)\), 23 in de GRR-studie. Excels "Anova: Two-Factor With Replication" geeft een aparte interactierij en within-df \(\sym{n_parts}{n}\sym{k_ops}{k}(\sym{r_trials}{r}-1)=15\); tel interactie en within samen als je zonder interactie rekent <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=36">MSA p. 36</a>.</li>
+      <li><b>Let op:</b> in het model zonder interactie is \(\sym{df_e}{\mathrm{df}_{e}}=\sym{n_parts}{n}\sym{k_ops}{k}(\sym{r_trials}{r}-1)+(\sym{k_ops}{k}-1)(\sym{n_parts}{n}-1)\), 23 in de GRR-studie. Een tweeweg-ANOVA met interactie geeft een aparte interactierij en within-df \(\sym{n_parts}{n}\sym{k_ops}{k}(\sym{r_trials}{r}-1)=15\); tel interactie en within samen als je zonder interactie rekent <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=36">MSA p. 36</a>.</li>
       <li><b>"Een significante factor operator wijst op een slechte herhaalbaarheid."</b> Fout: ze wijst op operatorbias: de reproduceerbaarheid is significant groter dan 0 <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=36">MSA p. 36</a>.</li>
       <li><b>"Beide methoden geven dezelfde EV en AV."</b> Fout: in de GRR-studie geven ze allebei \(\sym{pct_grr}{\%\mathrm{GRR}}\approx50\ \%\), maar \(\sym{ev}{\mathrm{EV}}^{2}=14{,}75\) (gemiddelde en spreidingsbreedte) tegen 30,83 (ANOVA). Volgens de cursus geeft ANOVA nauwkeurigere schattingen en kan ze interacties bestuderen <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=36">MSA p. 36</a>; zie <a href="#ex-11-25">oefening 11.25</a>.</li>
       <li><b>Let op:</b> de cursus geeft geen \(\alpha\) om de interactie bij de fout te poolen; het werkboek poolt omdat \(\sym{p_value}{p}=0{,}294\). Is de interactie wel significant, dan geeft de cursus geen formule voor EV, AV en PV.</li>
@@ -1710,6 +1692,7 @@
         <select><option value="">kies…</option><option value="ok">aanvaardbaar</option><option value="misschien">misschien aanvaardbaar</option><option value="niet">niet aanvaardbaar</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="grr" data-blocks="0"></div>
       <details class="hint"><summary>Hint</summary><p>Range per operator en onderdeel = |meting 1 − meting 2|; \(\bar{\bar{R}}\) is het
       gemiddelde van die 15 ranges. Operatorgemiddelden over 10 metingen, onderdeelgemiddelden over 6 metingen.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
@@ -1724,14 +1707,14 @@
           \(\frac{25}{2{,}48124}=10{,}08\) <span class="computed">zelf berekend</span>).</li>
           <li>\(\sym{grr}{\mathrm{GRR}}=\sqrt{14{,}748+18{,}298}=5{,}749\) <span class="computed">zelf berekend</span>; \(\sym{tv}{\mathrm{TV}}^{2}=14{,}748+18{,}298+99{,}060=132{,}106\); \(\sym{tv}{\mathrm{TV}}=\) <b>11,494</b>.</li>
           <li>\(\sym{pct_grr}{\%\mathrm{GRR}}=\sqrt{\frac{33{,}046}{132{,}106}}=0{,}5001=\) <b>50,01 %</b> &gt; 30 %: <b>niet aanvaardbaar</b>. Het werkboek
-          (werkblad ranges, C11–C17) geeft exact dezelfde waarden <a class="p" href="../source/course/Les%205/20260619_ottoy_GRR%20-%20ANOVA%20-%20avegage%20and%20range%20-%202.xlsx">GRR-werkboek (xlsx)</a>.</li>
+          (werkblad ranges) geeft exact dezelfde waarden <a class="p" href="../source/course/Les%205/20260619_ottoy_GRR%20-%20ANOVA%20-%20avegage%20and%20range%20-%202.xlsx">GRR-werkboek (xlsx)</a>.</li>
         </ol>
       </details>
     </div>
 
     <div class="exercise" id="ex-11-24" data-kw="ANOVA-methode; ANOVA method; tweeweg-ANOVA; two-way ANOVA; interactie; interaction; MSe; EV; AV; PV; %GRR; F-toets; F-test; operatoreffect; appraiser effect; additief model; pooling">
       <h4>Oefening 11.24 — GRR met de ANOVA-methode <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=36">MSA p. 36</a> <a class="p" href="../source/course/Les%205/20260619_ottoy_GRR%20-%20ANOVA%20-%20avegage%20and%20range%20-%202.xlsx">GRR-werkboek (xlsx)</a></h4>
-      <p>Dezelfde data. Maak eerst de tweeweg-ANOVA <i>met</i> interactie (zoals Excels "Anova: Two-Factor With Replication"),
+      <p>Dezelfde data. Maak eerst de tweeweg-ANOVA <i>met</i> interactie,
       beoordeel de interactie, en reken dan met het model <i>zonder</i> interactie van slide 36. \(\alpha=5\ \%\).</p>
       <div class="q" data-answer="3703.33" data-tol="0.05">
         <label>(a) SS onderdelen (2 decimalen):</label>
@@ -1774,22 +1757,23 @@
         <select><option value="">kies…</option><option value="ja">ja (er is operatorbias)</option><option value="nee">nee</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="grr" data-blocks="0"></div>
       <details class="hint"><summary>Hint</summary><p>\(\sym{ss_p}{\mathrm{SS}_{\text{onderdelen}}}=\sym{k_ops}{k}\cdot\sym{r_trials}{r}\cdot\Sigma(\sym{xbar_j}{\bar{X}_{j}}-\sym{xbarbar}{\bar{\bar{X}}})^{2}\),
       \(\sym{ss_a}{\mathrm{SS}_{\text{operatoren}}}=\sym{n_parts}{n}\cdot\sym{r_trials}{r}\cdot\Sigma(\sym{xbar_i}{\bar{X}_{i}}-\sym{xbarbar}{\bar{\bar{X}}})^{2}\). Met interactie: \(\sym{ss_w}{\text{within-SS}}=\Sigma(\sym{x_m}{\text{meting}}-\sym{xbar_ij}{\text{celgemiddelde}})^{2}\). Zonder
       interactie: \(\sym{ss_e}{\mathrm{SS}_{e}}=\sym{ss_t}{\mathrm{SS}_{T}}-\sym{ss_p}{\mathrm{SS}_{\text{onderdelen}}}-\sym{ss_a}{\mathrm{SS}_{\text{operatoren}}}\).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
-        <p><b>Met interactie</b> (werkblad 2way anova, B42:H48; \(\sym{xbarbar}{\bar{\bar{X}}}=\frac{845}{30}=28{,}17\) <span class="computed">zelf berekend</span>):</p>
+        <p><b>Met interactie</b> (werkblad 2way anova; \(\sym{xbarbar}{\bar{\bar{X}}}=\frac{845}{30}=28{,}17\) <span class="computed">zelf berekend</span>):</p>
         <table>
           <tr><th>Bron</th><th class="n">SS</th><th class="n">df</th><th class="n">MS</th><th class="n">F</th><th class="n">p</th><th class="n">F crit</th></tr>
-          <tr><td>onderdelen (Sample)</td><td class="n">3703,33</td><td class="n">4</td><td class="n">925,83</td><td class="n">33,67</td><td class="n">\(2{,}5\cdot10^{-7}\)</td><td class="n">3,056</td></tr>
-          <tr><td>operatoren (Columns)</td><td class="n">411,67</td><td class="n">2</td><td class="n">205,83</td><td class="n">7,48</td><td class="n">0,0056</td><td class="n">3,682</td></tr>
+          <tr><td>onderdelen</td><td class="n">3703,33</td><td class="n">4</td><td class="n">925,83</td><td class="n">33,67</td><td class="n">\(2{,}5\cdot10^{-7}\)</td><td class="n">3,056</td></tr>
+          <tr><td>operatoren</td><td class="n">411,67</td><td class="n">2</td><td class="n">205,83</td><td class="n">7,48</td><td class="n">0,0056</td><td class="n">3,682</td></tr>
           <tr><td>interactie</td><td class="n">296,67</td><td class="n">8</td><td class="n">37,08</td><td class="n">1,35</td><td class="n">0,294</td><td class="n">2,641</td></tr>
           <tr><td>within</td><td class="n">412,50</td><td class="n">15</td><td class="n">27,50</td><td></td><td></td><td></td></tr>
           <tr><td>totaal</td><td class="n">4824,17</td><td class="n">29</td><td></td><td></td><td></td><td></td></tr>
         </table>
         <p>De interactie is niet significant \((\sym{p_value}{p}=0{,}294\gt0{,}05)\); daarom gaat het werkboek over naar het additieve model van
         MSA p. 36: interactie en within samen als fout.</p>
-        <p><b>Zonder interactie</b> (werkblad 2way anova, J42:P47):</p>
+        <p><b>Zonder interactie</b> (werkblad 2way anova):</p>
         <table>
           <tr><th>Bron</th><th class="n">SS</th><th class="n">df</th><th class="n">MS</th><th class="n">F</th><th class="n">p</th><th class="n">F crit</th></tr>
           <tr><td>onderdelen</td><td class="n">3703,33</td><td class="n">4</td><td class="n">925,83</td><td class="n">30,03</td><td class="n">\(7{,}9\cdot10^{-9}\)</td><td class="n">2,796</td></tr>
@@ -1808,12 +1792,6 @@
           <li>Operatoren: \(\sym{f_stat}{F}=6{,}68\gt3{,}42\ (\sym{p_value}{p}=0{,}005)\): <b>significant</b>, dus er is operatorbias (reproduceerbaarheid
           &gt; 0) <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=36">MSA p. 36</a>.</li>
         </ol>
-        <div class="box warn"><span class="t">Afrondingsfout in het werkboek</span>
-        <p>Cel K45 van werkblad "2way anova" typt de fout-SS als <code>=412.5+296.667</code> in plaats van de exacte som
-        412,5 + 296,6667 = 709,1667. Daardoor is \(\mathrm{EV}^{2}\) in het werkboek 30,833348 in plaats van 30,833333; AV, PV, TV en %GRR
-        verschuiven pas in de 6e \(a\ 7\)e beduidende decimaal. Geen enkel besluit verandert. (Ook in
-        <code>resources/build/README.md</code>.)</p>
-        </div>
       </details>
     </div>
 
@@ -1867,6 +1845,7 @@
         <select><option value="">kies…</option><option value="grof">de meeteenheid is te grof (niet meer dan 3 waarden)</option><option value="ok">de meeteenheid is fijn genoeg</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="meetsysteem" data-blocks="5"></div>
       <details class="solution"><summary>Toon oplossing</summary>
         <p>(a) \(\sym{ucl_r}{\mathrm{UCL}_{R}}=3{,}267\times4{,}333=\) <b>14,16</b>. (b) Mogelijke ranges binnen [0 ; 14,16]: 0, 5 en 10, dus
         <b>3</b>. (c) Voor \(n=2\) wijst "niet meer dan 3" op een <b>te grove</b> meeteenheid. Dat klopt met de grootte van de

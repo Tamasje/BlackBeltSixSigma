@@ -1,10 +1,8 @@
 <section class="part" id="d12" data-title="Deel 12 — Machine learning en big data" data-lecturer="Karsten Naert" data-les="Les 2">
 <h2>Deel 12 — Machine learning en big data</h2>
-<p class="intro">Dit deel behandelt machine learning en big data. Het bouwt voort op kansverdelingen, associatie en
-causaliteit (<a href="#d02">Deel 2</a>): daar leerde je de
-regressielijn \(E[\sym{y_rv}{Y}\mid\sym{x_rv}{X}=\sym{x}{x}]\) kennen, hier zie je hoe een machine-learningmodel zo'n functie uit data leert, hoe je meet of
-het model goed is (loss, cross-validatie, confusion matrix) en welke methoden er bestaan. De klassieke lineaire
-regressie zelf staat in <a href="#d07">Deel 7</a>.</p>
+<p class="intro">Dit deel behandelt machine learning en big data: hoe een machine-learningmodel een functie zoals de
+regressielijn \(E[\sym{y_rv}{Y}\mid\sym{x_rv}{X}=\sym{x}{x}]\) uit data leert, hoe je meet of
+het model goed is (loss, cross-validatie, confusion matrix) en welke methoden er bestaan.</p>
 
 <!-- ============================================================== 12.1 -->
 <section class="unit" id="d12-overzicht" data-kw="overzicht; bronnen; overview; sources; machine learning; Les 2">
@@ -49,7 +47,7 @@ vorm van magisch denken. De praktische richtlijn van de notities: in een industr
 grote taalmodellen (LLM's), bv. als code-assistent. De belangrijke vragen blijven: welke statistische aanname maakt
 dit model, en klopt die voor mijn data?</p>
 <p><b>Big data</b> betekent <b>in de eerste plaats veel dimensies</b>: de uitdaging is niet alleen het volume (veel rijen), maar vooral het
-grote aantal variabelen dat je tegelijk moet bekijken <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=6">Data-notities p. 6</a> (zie <a href="#d02">Deel 2</a>).</p>
+grote aantal variabelen dat je tegelijk moet bekijken <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=6">Data-notities p. 6</a>.</p>
 <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
 <ul>
 <li><b>"AI, machine learning en deep learning zijn drie aparte vakgebieden."</b> Fout: het zijn concentrische cirkels: deep learning is een deel van ML, en ML een deel van AI. Data science is breder en omvat ook dataverzameling, statistiek en communicatie <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=1">ML-notities p. 1</a>.</li>
@@ -62,7 +60,7 @@ grote aantal variabelen dat je tegelijk moet bekijken <a class="p" href="../sour
 <section class="unit" id="d12-paradigmas" data-kw="supervised learning; gesuperviseerd leren; unsupervised learning; ongesuperviseerd leren; reinforcement learning; versterkend leren; leerparadigma; regressie; classificatie; regression; classification; label; P(Y|X)">
 <h3>12.3 Drie leerparadigma's; regressie versus classificatie <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=5">ML p. 5–8</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=1">ML-notities p. 1–4</a></h3>
 <p>Machine learning kent drie klassieke manieren van leren (learning paradigms) <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=5">ML p. 5</a>. Elk zoekt structuur in een
-andere kansverdeling (<a href="#d02">Deel 2</a>):</p>
+andere kansverdeling:</p>
 <table>
 <tr><th></th><th>Supervised (gesuperviseerd)</th><th>Unsupervised (ongesuperviseerd)</th><th>Reinforcement (versterkend)</th></tr>
 <tr><td>Leert uit</td><td>gelabelde data: paren \((\sym{x}{x_{i}},\sym{y}{y_{i}})\) met gekende uitkomst \(y_{i}\)</td><td>alleen invoer \(x_{i}\), geen labels</td><td>een agent die beloningen of straffen krijgt van zijn omgeving</td></tr>
@@ -77,7 +75,7 @@ die D <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202
 <p><b>Regressie of classificatie?</b> Dat hangt af van het soort uitkomst y <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=7">ML p. 7</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=3">ML-notities p. 3–4</a>:</p>
 <ul>
 <li><b>Regressie (regression)</b>: y is <b>continu</b>. Het model voorspelt één waarde per input; het leert
-\(E[\sym{y_rv}{Y}\mid\sym{x_rv}{X}=\sym{x}{x}]\), de regressielijn uit <a href="#d02">Deel 2</a>. In de figuur hieronder (links) is dat een golvende curve door een puntenwolk <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=7">ML p. 7</a>.</li>
+\(E[\sym{y_rv}{Y}\mid\sym{x_rv}{X}=\sym{x}{x}]\), de regressielijn. In de figuur hieronder (links) is dat een golvende curve door een puntenwolk <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=7">ML p. 7</a>.</li>
 <li><b>Classificatie (classification)</b>: y is <b>discreet</b> (een klasse). Het model leert een
 <b>kansverdeling</b> \(P(\sym{y_rv}{Y}\mid\sym{x_rv}{X})\). In de figuur (rechts) krijgt een foto van een kat als "top-5 voorspellingen": Cat 82 %,
 Dog 12 %, Tiger 4 %, Fox 1 %, Car 1 %. Het model geeft dus een kans per klasse; de klasse met de hoogste kans is de
@@ -97,7 +95,7 @@ of aan de zelfscan-kassa.</p>
 <li><b>"Het aantal klanten dat een week voor kerstmis online koopt, is een telling, dus classificatie."</b> Fout: dit voorbeeld is regressie: je voorspelt een getal, geen klasse <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=8">ML p. 8</a>.</li>
 <li><b>"Een classificatiemodel geeft alleen een klasse terug."</b> Fout: het leert een kansverdeling \(P(\sym{y_rv}{Y}\mid\sym{x_rv}{X})\): een kans per klasse (Cat 82 %, Dog 12 %, …). De klasse met de hoogste kans is de voorspelling <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=7">ML p. 7</a>.</li>
 <li><b>"Fraudedetectie is supervised: je zoekt iets heel specifieks."</b> Fout: anomalie- en fraudedetectie zijn unsupervised: er zijn geen labels, het model leert wat normaal is <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=8">ML p. 8</a>.</li>
-<li><b>"Een supervised model dat de uitkomst goed voorspelt, zegt ook wat er gebeurt als je de invoer verandert."</b> Fout: het leert \(P(\sym{y_rv}{Y}\mid\sym{x_rv}{X})\) (zien), niet het effect van ingrijpen \(P(\sym{y_rv}{Y}\mid\mathrm{do}(\sym{x_rv}{X}))\) (doen) <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=5">ML p. 5</a>. Correlatie is geen causaliteit: het PINO-principe, zie <a href="#d02-ladder">02.12</a>.</li>
+<li><b>"Een supervised model dat de uitkomst goed voorspelt, zegt ook wat er gebeurt als je de invoer verandert."</b> Fout: het leert \(P(\sym{y_rv}{Y}\mid\sym{x_rv}{X})\) (zien), niet het effect van ingrijpen \(P(\sym{y_rv}{Y}\mid\mathrm{do}(\sym{x_rv}{X}))\) (doen) <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=5">ML p. 5</a>. Correlatie is geen causaliteit: het PINO-principe.</li>
 </ul></div>
 
 <div class="exercise" id="ex-12-1" data-kw="supervised; unsupervised; reinforcement; regressie; classificatie; regression; classification; leerparadigma; learning paradigm; label">
@@ -212,7 +210,7 @@ genoemd. \(\hat{p}_{i,k}\) is de voorspelde kans dat observatie i tot klasse k b
 beschouwt het model als een beschrijving van het proces dat de data genereert en je maakt de plausibiliteit van de
 geobserveerde data zo groot mogelijk (de likelihood maximaliseren). Om technische redenen minimaliseert men de
 negatieve log-likelihood; afhankelijk van de opzet is dat precies een van de bekende losses. Zo sluit "MSE minimaliseren"
-aan bij de kleinste-kwadratenmethode van <a href="#d07">Deel 7</a>.</p>
+aan bij de kleinste-kwadratenmethode.</p>
 <div class="box warn"><span class="t">Asymmetrische kosten</span>
 <p>In productie zijn niet alle fouten even erg <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=6">ML-notities p. 6</a>. Een goed stuk ten onrechte afkeuren (vals positief) kost
 productie; een defect stuk doorlaten (vals negatief) kost klachten en mogelijk veiligheid. Een standaard-loss weegt
@@ -298,7 +296,7 @@ maakt. Omdat het resultaat van de gebruikte data D afhangt, schrijft men:</p>
 <p>Lees "arg min" als: "de waarde van \(\theta\) waarvoor de loss het kleinst is". Train je opnieuw op een andere dataset, dan
 vind je een andere \(\hat{\theta}\) <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=7">ML-notities p. 7</a>. Voor de meeste modelklassen bestaan goede algoritmen die dit minimum snel vinden;
 specialisten gebruiken bestaande implementaties. Bij lineaire regressie met MSE is er zelfs een exacte formule
-(OLS, 12.12 en <a href="#d07">Deel 7</a>).</p>
+(OLS, 12.12).</p>
 <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
 <ul>
 <li><b>"\(\sym{theta_hat}{\hat{\theta}_{D}}=\) arg \(\min_{\sym{theta}{\theta}}\sym{l_d}{L_{D}}(\sym{fhat_theta}{\hat{f}_{\theta}})\) is de kleinste waarde van de loss."</b> Fout: arg min geeft de waarde van \(\theta\) (de gewichten) waarvoor de loss het kleinst is, niet de loss zelf <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=17">ML p. 17</a>.</li>
@@ -593,7 +591,7 @@ curven zo lopen, verklaart 12.9.</p>
 </table>
 <p><b>Wat betekenen de termen precies?</b> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=10">ML-notities p. 10–11</a> Stel je een gedachte-experiment voor:</p>
 <ul>
-<li>\(\sym{f_true}{f}(\sym{x}{x})=E[\sym{y_rv}{Y}\mid\sym{x_rv}{X}=\sym{x}{x}]\) is de echte regressielijn (<a href="#d02">Deel 2</a>).</li>
+<li>\(\sym{f_true}{f}(\sym{x}{x})=E[\sym{y_rv}{Y}\mid\sym{x_rv}{X}=\sym{x}{x}]\) is de echte regressielijn.</li>
 <li>\(\sym{fhat}{\hat{f}}(\sym{x}{x};\sym{d_data}{D})\) is de voorspelling van jouw model, getraind op jouw dataset D.</li>
 <li>\(\sym{ftilde}{\tilde{f}}(\sym{x}{x})=E_{\sym{d_data}{D}}[\sym{fhat}{\hat{f}}(\sym{x}{x};\sym{d_data}{D})]\) is de <b>gemiddelde</b> voorspelling als je in gedachten oneindig veel nieuwe
 datasets zou trekken en telkens opnieuw zou trainen. Dat is een theoretisch begrip.</li>
@@ -616,8 +614,7 @@ eigen aan de data.</p>
 <figcaption>Figuur: de foutendecompositie in beeld (bias-variance decomposition). Links (ensemble view): elke dunne lijn is een model \(\hat{f}(x;D)\), telkens getraind op een andere dataset D; de donkere lijn is hun gemiddelde \(\tilde{f}(x)\), de gestippelde lijn de waarheid \(f(x)=E[Y\mid X=x]\). De oranje band (bias gap) is het verschil \(f(x)-\tilde{f}(x)\), de groene band \((\pm\sqrt{\operatorname{Var}})\) de spreiding van de modellen rond hun gemiddelde. Rechts (anatomy of the error at \(x_{0}\)): y spreidt met \(\sigma\) rond \(f(x_{0})\), het gemiddelde \(\tilde{f}(x_{0})\) ligt een bias daarnaast, en één model \(\hat{f}(x_{0};D)\) spreidt met \(\sqrt{\operatorname{Var}}\) rond \(\tilde{f}(x_{0})\). Onderaan per term hoe je hem verlaagt (lower with): bias met een rijkere modelklasse (richer model class), variance met meer data en regularisatie; de ruis is eigen aan de data. <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=27">ML p. 27</a></figcaption></figure>
 <div class="box key"><span class="t">Analogie met SPC</span>
 <p>De bias-variance afweging is de statistische tegenhanger van het klassieke onderscheid in SPC tussen
-<b>nauwkeurigheid</b> (accuracy, dus bias) en <b>precisie</b> (precision, dus variance) <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=28">ML p. 28</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=12">ML-notities p. 12</a>; voor SPC
-zie <a href="#d10">Deel 10</a>. De figuur hieronder toont vier schietschijven waarop de voorspellingen van een model landen:</p>
+<b>nauwkeurigheid</b> (accuracy, dus bias) en <b>precisie</b> (precision, dus variance) <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=28">ML p. 28</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=12">ML-notities p. 12</a>. De figuur hieronder toont vier schietschijven waarop de voorspellingen van een model landen:</p>
 <ul>
 <li>lage bias, lage variance: een strak groepje midden in de roos;</li>
 <li>lage bias, hoge variance: de punten liggen rond het midden, maar ver uit elkaar: <b>gemiddeld correct, maar
@@ -767,6 +764,7 @@ training in B14:C15, test in E14:F15), met <b>rijen = werkelijke klasse en kolom
 <b>niet</b> in de cursus; het is gewoon het aandeel foute voorspellingen. Een 4 × 4-matrix past niet rechtstreeks: maak
 er eerst per klasse een 2 × 2 "klasse k tegen de rest" van (oefening 12.8).</p>
 </div>
+<div class="calc-here" data-tool="confusion" data-blocks="0 1"></div>
 
 <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
 <ul>
@@ -820,6 +818,7 @@ er eerst per klasse een 2 × 2 "klasse k tegen de rest" van (oefening 12.8).</p>
     <select><option value="">kies…</option><option value="k12">1 en 2</option><option value="k13">1 en 3</option><option value="k34">3 en 4</option><option value="k24">2 en 4</option></select>
     <button type="button" class="check">Controleer</button> <span class="fb"></span>
   </div>
+  <div class="calc-here" data-tool="confusion" data-blocks="1"></div>
   <details class="hint"><summary>Hint</summary><p>Rijen zijn hier de voorspellingen. <var data-s="precision">Precision</var> van klasse \(k=\) diagonaal /
   rijtotaal van rij k; \(\sym{recall}{\text{recall}}=\) diagonaal / kolomtotaal van kolom k.</p></details>
   <details class="solution"><summary>Toon oplossing</summary>
@@ -869,6 +868,7 @@ er eerst per klasse een 2 × 2 "klasse k tegen de rest" van (oefening 12.8).</p>
     <select><option value="">kies…</option><option value="ja">ja</option><option value="nee">nee</option></select>
     <button type="button" class="check">Controleer</button> <span class="fb"></span>
   </div>
+  <div class="calc-here" data-tool="confusion" data-blocks="0"></div>
   <details class="hint"><summary>Hint</summary><p>\(\sym{tn}{\mathrm{TN}}=\) totaal − \(\sym{tp}{\mathrm{TP}}-\sym{fp}{\mathrm{FP}}-\sym{fn}{\mathrm{FN}}\). Wissel je de positieve klasse, dan
   wisselen TP en TN van rol, en ook FP en FN.</p></details>
   <details class="solution"><summary>Toon oplossing</summary>
@@ -888,8 +888,8 @@ er eerst per klasse een 2 × 2 "klasse k tegen de rest" van (oefening 12.8).</p>
   <li>(e) <b>Nee</b>: in de 2 × 2 tellen verwarringen tussen klassen 2, 3 en 4 (bv. 3 voorspeld als 4) als "correct",
   want ze vallen allemaal in "de rest". Daarom is 0,895 hoger dan 0,759.</li>
   </ol>
-  <p>Controle met de rekentool: vul in het blad "Confusion matrix" bij model A, training, in: B14 = 52, C14 = 8,
-  B15 = 12, C15 = 119. De rijen "class 1 positive" en "class 2 positive" geven dan beide versies.</p>
+  <p>Controle met de rekenmachine confusion matrix: vul de vier aantallen rij per rij in (rijen = werkelijk):
+  52 8 12 119. De kolommen voor klasse 1 en klasse 2 ("de rest") als positieve klasse geven beide versies.</p>
   </details>
 </div>
 </section>
@@ -975,8 +975,7 @@ daarom ook naar precision en recall met elke klasse als positieve klasse.</p>
 \(\sym{y_hat}{\hat{y}}=\sym{beta_coef}{\beta_{0}}+\sym{beta_coef}{\beta_{1}}\) sin(\(\sym{x_feat}{x_{1}}\)) + \(\sym{beta_coef}{\beta_{2}}\ \sym{x_feat}{x_{2}}^{2}+\cdots+\sym{beta_coef}{\beta_{p}}\ f(\sym{x_feat}{x_{p}})\) is
 een lineair model, en een polynoom \(\sym{y}{y}=\sym{beta_coef}{\beta_{0}}+\sym{beta_coef}{\beta_{1}}\sym{x}{x}+\sym{beta_coef}{\beta_{2}}\sym{x}{x}^{2}\) ook <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=34">ML p. 34</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=16">ML-notities p. 16</a>.</li>
 <li>Met MSE als loss is er een <b>analytische oplossing</b>: de Ordinary Least Squares (OLS)-schatter.</li>
-<li>De coëfficiënten zijn interpreteerbaar en er bestaan geijkte statistische tests voor significantie; die
-behandelt <a href="#d07">Deel 7</a>.</li>
+<li>De coëfficiënten zijn interpreteerbaar en er bestaan geijkte statistische tests voor significantie.</li>
 </ul>
 <p><b>Uitbreidingen</b> <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=35">ML p. 35</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=16">ML-notities p. 16</a>. De studiewijzer vraagt alleen dat je <b>weet dat ze bestaan</b>, met
 logistische en quantielregressie als voorbeelden:</p>
@@ -986,7 +985,7 @@ logistische en quantielregressie als voorbeelden:</p>
 <tr><td>Lasso-regressie</td><td>L1-bestraffing; duwt sommige coëfficiënten naar nul → ingebouwde variabelenselectie</td></tr>
 <tr><td>Elastic Net</td><td>combinatie van Ridge en Lasso</td></tr>
 <tr><td>Quantielregressie</td><td>modelleert de mediaan (of een ander kwantiel) in plaats van het gemiddelde; robuuster bij uitschieters</td></tr>
-<tr><td>Deming-regressie / Total Least Squares</td><td>houdt rekening met meetfout in zowel x als y (zie het staalkoelingvoorbeeld in <a href="#d02">Deel 2</a>)</td></tr>
+<tr><td>Deming-regressie / Total Least Squares</td><td>houdt rekening met meetfout in zowel x als y</td></tr>
 <tr><td>Logistische regressie</td><td>voorspelt een binaire respons (1/0) (alleen in het slidedeck; de notities noemen ze enkel in de studiewijzer)</td></tr>
 <tr><td>Gegeneraliseerde lineaire modellen (GLM)</td><td>niet-Gaussische uitkomsten (lognormaal, Poisson, binomiaal, …)</td></tr>
 </table>
@@ -1002,7 +1001,7 @@ model eenvoudiger.</p>
 <li><b>"Logistische regressie voorspelt een continue uitkomst."</b> Fout: ze voorspelt een binaire respons (1/0) <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=35">ML p. 35</a>.</li>
 <li><b>"Quantielregressie modelleert, net als OLS, het gemiddelde."</b> Fout: ze modelleert de mediaan (of een ander kwantiel) en is robuuster bij uitschieters <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=35">ML p. 35</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=16">ML-notities p. 16</a>.</li>
 <li><b>"Ridge-regressie duwt coëfficiënten naar nul en selecteert zo variabelen."</b> Fout: dat doet Lasso (L1-bestraffing). Ridge (L2-bestraffing) zorgt voor stabiliteit, nuttig bij multicollineariteit <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=35">ML p. 35</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=16">ML-notities p. 16</a>.</li>
-<li><b>"Zit er meetfout op x, dan geeft gewone kleinste kwadraten nog steeds de juiste helling."</b> Fout: meetfout in de onafhankelijke variabele leidt tot een onderschatting (regression dilution, <a href="#d02-staal">02.16</a>); Deming-regressie of Total Least Squares houdt rekening met meetfout in x én y <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=35">ML p. 35</a>.</li>
+<li><b>"Zit er meetfout op x, dan geeft gewone kleinste kwadraten nog steeds de juiste helling."</b> Fout: meetfout in de onafhankelijke variabele leidt tot een onderschatting (regression dilution); Deming-regressie of Total Least Squares houdt rekening met meetfout in x én y <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=35">ML p. 35</a>.</li>
 </ul></div>
 </section>
 
@@ -1190,7 +1189,7 @@ ingebouwde feature-importance-scores die tonen welke kenmerken het meest bijdrag
 <ul>
 <li><b>"Een blad met gini 0 is een betrouwbare voorspelling."</b> Fout: het blad [1, 0] in de boom van <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=44">ML p. 44</a> is perfect zuiver, maar steunt op één passagier: overfitting in het klein. Een minimum aantal observaties per blad voorkomt dat <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20slides.pdf#page=46">ML-webslides p. 46</a>.</li>
 <li><b>"Hoe hoger de gini, hoe zuiverder het blad."</b> Fout: gini meet onzuiverheid (Gini impurity): het bijna zuivere blad [4, 108] heeft gini 0,069, het half-om-half-blad [27, 29] gini 0,499 <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=44">ML p. 44</a>. Een goede splitsing maakt de kinderen zuiverder <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20slides.pdf#page=46">ML-webslides p. 46</a>.</li>
-<li><b>"De splitsingen van een boom tonen welke variabele de uitkomst veroorzaakt."</b> Fout: bomen hebben meestal geen fysische of causale interpretatie <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=45">ML p. 45</a>. Ook feature importance toont wat bijdraagt aan de voorspelling, niet wat je moet veranderen (PINO, <a href="#d02-ladder">02.12</a>).</li>
+<li><b>"De splitsingen van een boom tonen welke variabele de uitkomst veroorzaakt."</b> Fout: bomen hebben meestal geen fysische of causale interpretatie <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=45">ML p. 45</a>. Ook feature importance toont wat bijdraagt aan de voorspelling, niet wat je moet veranderen (PINO).</li>
 <li><b>"Random forest en gradient boosting doen hetzelfde: veel bomen middelen."</b> Fout: random forest middelt bomen op willekeurige subsets; bij gradient boosting corrigeert elke nieuwe boom de vorige <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=46">ML p. 46</a>.</li>
 <li><b>"Een random forest overfit sneller dan één boom, want het bevat meer bomen."</b> Fout: random forest is net robuust tegen overfitting, met weinig tuning <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=46">ML p. 46</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=19">ML-notities p. 19</a>.</li>
 <li><b>Let op:</b> in de figuur van <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=44">ML p. 44</a> gaat "True" (de vraag is waar) naar links en "False" naar rechts, en \(\sym{value}{\text{value}}=\) [niet overleefd, overleefd].</li>
@@ -1318,6 +1317,7 @@ veel bomen en is "robuust tegen overfitting" <a class="p" href="../source/course
 <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=40">ML p. 40</a>.</li>
 </ul></li>
 </ol>
+<div class="calc-here" data-tool="confusion" data-blocks="0"></div>
 <div class="box warn"><span class="t">Twee valkuilen</span>
 <ul>
 <li>Een kleine trainingsfout is geen goed nieuws op zich: bij een boom die "alles" juist heeft op de traindata
@@ -1448,8 +1448,8 @@ een voorbeeld van een anomalie gezien te hebben.</p>
 <!-- ============================================================== 12.17 -->
 <section class="unit" id="d12-bayes" data-kw="Bayesiaans; Bayesian; Bayes; regel van Bayes; Bayes rule; prior; likelihood; posterior; frequentistisch; frequentist; beta-verdeling; Beta(4,3); muntstuk; coin; MLE; Bayesiaans netwerk; Bayesian network; MCMC; PyMC; Stan">
 <h3>12.17 Bayesiaanse methoden <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=51">ML p. 51–55</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20slides.pdf#page=52">ML-webslides p. 52–57</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=22">ML-notities p. 22–24</a></h3>
-<p><b>Een andere filosofie</b> <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=52">ML p. 52</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=22">ML-notities p. 22</a>. In de frequentistische ("klassieke") statistiek van
-<a href="#d04">Deel 4</a> en <a href="#d05">Deel 5</a> zijn alleen de data willekeurig; hypothesen en parameters zijn
+<p><b>Een andere filosofie</b> <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=52">ML p. 52</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=22">ML-notities p. 22</a>. In de frequentistische ("klassieke") statistiek
+(betrouwbaarheidsintervallen, hypothesetoetsen) zijn alleen de data willekeurig; hypothesen en parameters zijn
 <b>geen</b> stochastische grootheden. Uitspraken als "de kans dat de nulhypothese waar is" of "de kans dat de parameter \(\beta\)
 tussen 1 en 2 ligt" zijn daar dus niet zinnig. In de <b>Bayesiaanse statistiek</b> zijn parameters zelf stochastische
 grootheden: onzekerheid over een parameter is subjectieve onzekerheid over hoe de natuur in elkaar zit. Voordeel:
@@ -1467,13 +1467,13 @@ subjectiviteit binnen; de likelihood zegt hoe waarschijnlijk de waargenomen data
 <figcaption>Figuur: Bayesiaanse inferentie in vier stappen voor een muntstuk met onbekende kans p op kop. (1) Prior Beta(1, 1): vlak, elke p is even plausibel. (2) Data: H H T H T, 3 keer kop (heads) en 2 keer munt (tails), \(n=5\). (3) Likelihood \(p^{3}(1-p)^{2}\), met de top bij de \(\mathrm{MLE}=\frac{k}{n}=\frac{3}{5}=0{,}60\). (4) Posterior: prior en data samen geven Beta(4, 3), met gemiddelde 4/7 ≈ 0,57. <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20slides.pdf#page=55">ML-webslides p. 55</a></figcaption></figure>
 <ol class="steps">
 <li><b>Prior</b>: Beta(\(\sym{alpha_prior}{\alpha}=1\), \(\sym{beta_prior}{\beta}=1\)): een vlakke verdeling op [0, 1], "elke p is even plausibel" (geen voorkennis). De
-beta-verdeling is een verdeling voor fracties tussen 0 en 1 <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=4">Data-notities p. 4</a> (<a href="#d02">Deel 2</a>).</li>
+beta-verdeling is een verdeling voor fracties tussen 0 en 1 <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=4">Data-notities p. 4</a>.</li>
 <li><b>Data</b>: de worpen K K M K M (H H T H T): \(\sym{k_heads}{k}=3\) keer kop, \(\sym{n_tosses}{n}-\sym{k_heads}{k}=2\) keer munt, \(\sym{n_tosses}{n}=5\).</li>
 <li><b>Likelihood</b>: \(\sym{likelihood}{L}(\sym{p_coin}{p})\propto\sym{p_coin}{p}^{3}\cdot(1-\sym{p_coin}{p})^{2}\). Het maximum ligt bij de <var data-s="mle">MLE</var> (maximum likelihood estimate) = \(\frac{\sym{k_heads}{k}}{\sym{n_tosses}{n}}=\frac{3}{5}=0{,}60\):
 de steekproeffractie.</li>
 <li><b>Posterior</b>: \(\sym{prior}{\text{prior}}\times\sym{likelihood}{\text{likelihood}}\) geeft Beta(\(\sym{alpha_prior}{\alpha}+\sym{k_heads}{k}\), \(\sym{beta_prior}{\beta}+\sym{n_tosses}{n}-\sym{k_heads}{k}\)) = <b>Beta(4, 3)</b>, met gemiddelde 4/7 ≈ 0,57.</li>
 </ol>
-<p>Het gemiddelde in de figuur is \(\frac{4}{7}=\frac{\sym{alpha_prior}{\alpha}}{\sym{alpha_prior}{\alpha}+\sym{beta_prior}{\beta}}\); hetzelfde patroon geldt voor Beta(2, 8) uit <a href="#d02">Deel 2</a>, met
+<p>Het gemiddelde in de figuur is \(\frac{4}{7}=\frac{\sym{alpha_prior}{\alpha}}{\sym{alpha_prior}{\alpha}+\sym{beta_prior}{\beta}}\); hetzelfde patroon geldt voor Beta(2, 8) uit de Data-notities, met
 gemiddelde \(0{,}200=\frac{2}{10}\) <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=4">Data-notities p. 4</a>. Het gemiddelde van de vlakke prior is dus 1/2 <span class="computed">zelf berekend</span>. Het posterior-gemiddelde 0,57
 ligt <b>tussen</b> het prior-gemiddelde 0,5 en de MLE 0,60: de data trekken je overtuiging richting 0,60, de prior houdt
 ze een beetje tegen.</p>
@@ -1509,10 +1509,11 @@ technologiebedrijven:</p>
 aanvaardbaar om vooraf te stellen dat vloeibaar staal tussen 1400 en 1800 °C ligt; die voorkennis weggooien maakt de
 schatting suboptimaal.</p>
 </div>
+<div class="calc-here" data-tool="bayes" data-blocks="0 1"></div>
 
 <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
 <ul>
-<li><b>"'De kans dat de parameter \(\beta\) tussen 1 en 2 ligt' is een zinnige frequentistische uitspraak."</b> Fout: in de frequentistische statistiek zijn parameters en hypothesen geen stochastische grootheden; zo'n uitspraak is alleen Bayesiaans zinnig <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=52">ML p. 52</a>. Ook een p-waarde is dus niet "de kans dat \(H_{0}\) waar is" (<a href="#d05-pwaarde">05.4</a>).</li>
+<li><b>"'De kans dat de parameter \(\beta\) tussen 1 en 2 ligt' is een zinnige frequentistische uitspraak."</b> Fout: in de frequentistische statistiek zijn parameters en hypothesen geen stochastische grootheden; zo'n uitspraak is alleen Bayesiaans zinnig <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=52">ML p. 52</a>. Ook een p-waarde is dus niet "de kans dat \(H_{0}\) waar is".</li>
 <li><b>"\(P(\sym{theta_bayes}{\theta}\mid\sym{data_obs}{\mathrm{data}})=P(\sym{data_obs}{\mathrm{data}}\mid\sym{theta_bayes}{\theta})\): de posterior is gewoon de likelihood."</b> Fout: Bayes draait de vraag om: \(\sym{posterior}{\text{posterior}}=\frac{\sym{likelihood}{\text{likelihood}}\times\sym{prior}{\text{prior}}}{P(\sym{data_obs}{\mathrm{data}})}\) <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=53">ML p. 53</a>.</li>
 <li><b>"De prior doet er niet toe; de data beslissen."</b> Fout: in de prior komt de subjectiviteit binnen <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=22">ML-notities p. 22</a>. Met dezelfde 5 worpen geeft de vlakke prior Beta(1, 1) een posteriorgemiddelde 4/7 ≈ 0,571, de prior Beta(2, 8) slechts 5/15 ≈ 0,333 (<a href="#ex-12-14">oefening 12.14</a>) <span class="computed">zelf berekend</span>.</li>
 <li><b>"Het posteriorgemiddelde is gelijk aan de MLE."</b> Fout: het gemiddelde 0,57 van Beta(4, 3) ligt tussen het priorgemiddelde 0,5 <span class="computed">zelf berekend</span> en de \(\sym{mle}{\mathrm{MLE}}=\frac{\sym{k_heads}{k}}{\sym{n_tosses}{n}}=0{,}60\) <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20slides.pdf#page=55">ML-webslides p. 55</a>: de prior houdt de schatting een beetje tegen.</li>
@@ -1540,7 +1541,7 @@ schatting suboptimaal.</p>
     <label>(d) Gemiddelde van de posterior (3 decimalen):</label> <input type="text" inputmode="decimal">
     <button type="button" class="check">Controleer</button> <span class="fb"></span>
   </div>
-  <p><b>Variant</b> (zelf samengesteld uit cursusgetallen): je gebruikt als prior Beta(2, 8), de verdeling uit Deel 2, en
+  <p><b>Variant</b> (zelf samengesteld uit cursusgetallen): je gebruikt als prior Beta(2, 8), de verdeling uit de Data-notities, en
   observeert dezelfde 5 worpen.</p>
   <div class="q" data-answer="5" data-tol="0">
     <label>(e) \(\alpha\) van de posterior:</label> <input type="text" inputmode="decimal">
@@ -1559,6 +1560,7 @@ schatting suboptimaal.</p>
     <select><option value="">kies…</option><option value="freq">frequentistisch</option><option value="bayes">Bayesiaans</option><option value="beide">in beide</option></select>
     <button type="button" class="check">Controleer</button> <span class="fb"></span>
   </div>
+  <div class="calc-here" data-tool="bayes" data-blocks="1"></div>
   <details class="hint"><summary>Hint</summary><p>\(\sym{k_heads}{k}=\) aantal keer kop, \(\sym{n_tosses}{n}=\) aantal worpen. Gemiddelde van Beta(\(\sym{alpha_prior}{\alpha}\), \(\sym{beta_prior}{\beta}\)):
   zoals in het uitgewerkte voorbeeld, \(\frac{\sym{alpha_prior}{\alpha}}{\sym{alpha_prior}{\alpha}+\sym{beta_prior}{\beta}}\).</p></details>
   <details class="solution"><summary>Toon oplossing</summary>

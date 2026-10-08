@@ -22,19 +22,20 @@
 
   <section class="unit" id="d14-03-dpu" data-kw="DPU; defects per unit; defecten per eenheid; eenheid; unit; opportuniteiten tellen; counting opportunities; DPPM; defective parts per million; throughput yield; auto; fiets; lening; Dummies; Harry Schroeder">
     <h3>14.2 DPU en het tellen van opportuniteiten <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=152">Dummies p. 152–155</a> <a class="p" href="../source/course/Les%204/Six-Sigma%20Mikel%20Harry%20-%20%20Richard%20Schroeder.pdf#page=5">H&amp;S p. 5</a></h3>
-    <p>Hoort bij <a href="#d03-dpmo">03.8 Discrete data: defecten, DPO, DPMO en yield</a>.</p>
+    <p>Hoort bij <a href="#d03-dpmo">03.6 Discrete data: defecten, DPO, DPMO en yield</a>.</p>
     <p>Six Sigma For Dummies <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=152">Dummies p. 152–155</a> noemt elk ding dat je maakt een <b>eenheid</b> (unit) en definieert ook</p>
     <div class="f"><div>\(\sym{03:dpu}{\mathrm{DPU}}=\) aantal defecten / aantal geïnspecteerde eenheden   (defects per unit) <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=152">Dummies p. 152</a></div></div>
     <p>DPU is eerlijk binnen één product, maar niet tussen producten van verschillende complexiteit: een auto heeft
     veel meer opportuniteiten dan een fiets. DPO en DPMO maken dat gelijk door per opportuniteit te tellen <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=153">Dummies p. 153</a>.
     Dummies waarschuwt: blaas het aantal opportuniteiten niet kunstmatig op, want dan ziet je DPO er beter uit dan het
     is <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=154">Dummies p. 154</a>. DPPM (defective parts per million) is een synoniem van DPMO <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=155">Dummies p. 155</a>.</p>
+    <div class="calc-here" data-tool="sigma_extra" data-blocks="0"></div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"DPU en DPO zijn hetzelfde."</b> Fout: DPO deelt nog door het aantal opportuniteiten per eenheid, \(\sym{03:dpo}{\mathrm{DPO}}=\frac{\sym{03:dpu}{\mathrm{DPU}}}{\sym{03:o_opp}{O}}\). Voorbeeld: \(\sym{03:dpu}{\mathrm{DPU}}=0{,}05\) met 20 opportuniteiten geeft \(\sym{03:dpo}{\mathrm{DPO}}=0{,}0025\) <a class="p" href="../source/course/Les%204/Six-Sigma%20Mikel%20Harry%20-%20%20Richard%20Schroeder.pdf#page=5">H&amp;S p. 5</a>.</li>
       <li><b>"De auto heeft 158 defecten en de fiets maar 2, dus de auto is slechter."</b> Fout: per opportuniteit doen ze het ongeveer even goed (\(\sym{03:dpmo}{\mathrm{DPMO}}=10\ 859\) tegenover 11 561 <span class="computed">zelf berekend</span>); de auto heeft gewoon veel meer opportuniteiten <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=153">Dummies p. 153–154</a>.</li>
-      <li><b>"\(\sym{03:yield_opp}{\text{Yield}}=1-\sym{03:dpo}{\mathrm{DPO}}=99{,}75\ \%\), dus 99,75 % van de eenheden is foutloos."</b> Fout: die yield telt per opportuniteit. Uit hetzelfde voorbeeld \((\sym{03:dpu}{\mathrm{DPU}}=5\ \%)\) halen Harry &amp; Schroeder een throughput yield van 95 %: 95 van de 100 eenheden foutloos <a class="p" href="../source/course/Les%204/Six-Sigma%20Mikel%20Harry%20-%20%20Richard%20Schroeder.pdf#page=5">H&amp;S p. 5</a>. Zie ook FTY en RTY in <a href="#d14-03-yield">14 Yield-maten</a>.</li>
+      <li><b>"\(\sym{03:yield_opp}{\text{Yield}}=1-\sym{03:dpo}{\mathrm{DPO}}=99{,}75\ \%\), dus 99,75 % van de eenheden is foutloos."</b> Fout: die yield telt per opportuniteit. Uit hetzelfde voorbeeld \((\sym{03:dpu}{\mathrm{DPU}}=5\ \%)\) halen Harry &amp; Schroeder een throughput yield van 95 %: 95 van de 100 eenheden foutloos <a class="p" href="../source/course/Les%204/Six-Sigma%20Mikel%20Harry%20-%20%20Richard%20Schroeder.pdf#page=5">H&amp;S p. 5</a>.</li>
       <li><b>Let op:</b> blaas het aantal opportuniteiten niet op: dan wordt DPO kleiner en lijkt het proces beter dan het is <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=154">Dummies p. 154</a>.</li>
     </ul></div>
 
@@ -64,7 +65,7 @@
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>a. \(\sym{03:dpu}{\mathrm{DPU}}=\frac{11}{23}=\) <b>0,478</b> <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=152">Dummies p. 152</a>: ongeveer één defect per twee aanvragen.</li>
-          <li>b. \(\sym{03:dpo}{\mathrm{DPO}}=\frac{158}{14}\ 550=0{,}0109\) (boek: 0,011 <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=153">Dummies p. 153</a>); \(\sym{03:dpmo}{\mathrm{DPMO}}=\) <b>10 859</b>
+          <li>b. \(\sym{03:dpo}{\mathrm{DPO}}=\frac{158}{14\,550}=0{,}0109\) (boek: 0,011 <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=153">Dummies p. 153</a>); \(\sym{03:dpmo}{\mathrm{DPMO}}=\) <b>10 859</b>
           <span class="computed">zelf berekend</span>.</li>
           <li>c. \(\sym{03:dpo}{\mathrm{DPO}}=\frac{2}{173}=0{,}0116\) (boek: 0,012 <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=154">Dummies p. 154</a>); \(\sym{03:dpmo}{\mathrm{DPMO}}=\) <b>11 561</b>
           <span class="computed">zelf berekend</span>.</li>
@@ -98,18 +99,18 @@
         <label>e. \(\sym{03:z}{Z}\) zonder verschuiving (2 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
-      <details class="hint"><summary>Hint</summary><p>\(\sym{03:dpo}{\mathrm{DPO}}=\frac{\sym{03:d_defects}{D}}{\sym{03:n_units}{N}\cdot\sym{03:o_opp}{O}}\). Voor d en e: zie <a href="#d03-sigma">03.10</a>;
-      \(\sym{03:z}{Z}=\operatorname{NORM.INV}(1-\sym{03:dpo}{\mathrm{DPO}};0;1)\), en het <var data-s="03:sigma_level">sigmaniveau</var> met verschuiving is \(\sym{03:z}{Z}+1{,}5\).</p></details>
+      <details class="hint"><summary>Hint</summary><p>\(\sym{03:dpo}{\mathrm{DPO}}=\frac{\sym{03:d_defects}{D}}{\sym{03:n_units}{N}\cdot\sym{03:o_opp}{O}}\). Voor d en e:
+      \(\sym{03:z}{Z}\) is de z-waarde met oppervlakte links \(1-\sym{03:dpo}{\mathrm{DPO}}\) (Z-tabel), en het <var data-s="03:sigma_level">sigmaniveau</var> met verschuiving is \(\sym{03:z}{Z}+1{,}5\).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>a. \(\sym{03:dpu}{\mathrm{DPU}}=\frac{5}{100}=0{,}05\); \(\sym{03:dpo}{\mathrm{DPO}}=\frac{0{,}05}{20}=\) <b>0,0025</b> (boek <a class="p" href="../source/course/Les%204/Six-Sigma%20Mikel%20Harry%20-%20%20Richard%20Schroeder.pdf#page=5">H&amp;S p. 5</a>).</li>
           <li>b. \(\sym{03:dpmo}{\mathrm{DPMO}}=0{,}0025\times10^{6}=\) <b>2 500</b> (boek).</li>
           <li>c. \(\sym{03:yield_opp}{\text{Yield}}=1-0{,}0025=\) <b>99,75 %</b> <span class="computed">zelf berekend</span>.</li>
-          <li>d. \(\sym{03:z}{Z}=\operatorname{NORM.INV}(0{,}9975;0;1)=2{,}81\); met de verschuiving 2,81 + 1,5 = <b>4,31</b>
+          <li>d. \(\sym{03:z}{Z}=z_{0{,}9975}=2{,}81\) (Z-tabel: oppervlakte links 0,9975); met de verschuiving 2,81 + 1,5 = <b>4,31</b>
           <span class="computed">zelf berekend</span>. Het boek zegt "about 4.3 sigma capability": het gebruikt dus
           de verschuiving.</li>
-          <li>e. Zonder verschuiving: <b>2,81</b> <span class="computed">zelf berekend</span>. Zie
-          <a href="#d14-03-sigmatabel">14 De sigmatabellen van de boeken</a>: hetzelfde boek gebruikt op p. 3 géén verschuiving.</li>
+          <li>e. Zonder verschuiving: <b>2,81</b> <span class="computed">zelf berekend</span>. Hetzelfde boek gebruikt op p. 3 géén
+          verschuiving (<a href="#d14-03-sigmatabel">De sigmatabellen van de boeken</a>).</li>
         </ol>
         <p>Het boek leidt uit \(\sym{03:dpu}{\mathrm{DPU}}=5\ \%\) ook een <b>throughput yield</b> af: 95 van de 100 eenheden gaan foutloos door
         stap 3; als alle 5 defecten in één eenheid zaten, was de first-time
@@ -120,7 +121,7 @@
 
   <section class="unit" id="d14-03-yield" data-kw="yield; opbrengst; traditional yield; first time yield; FTY; rolled throughput yield; RTY; throughput yield; TY; normalized yield; NY; hidden factory; verborgen fabriek; rework; herbewerking; scrap; afval; dobbelstenen; dice; Dummies; Harry Schroeder">
     <h3>14.3 Yield-maten: traditionele yield, FTY, RTY en normalized yield <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=146">Dummies p. 146–151</a> <a class="p" href="../source/course/Les%204/Six-Sigma%20Mikel%20Harry%20-%20%20Richard%20Schroeder.pdf#page=4">H&amp;S p. 4–5</a></h3>
-    <p>Hoort bij <a href="#d03-yield">03.9 De verborgen fabriek</a>.</p>
+    <p>Hoort bij <a href="#d03-yield">03.7 De verborgen fabriek</a>.</p>
     <p class="small">De cursus geeft alleen \(\sym{03:yield_opp}{\text{Yield}}=1-\sym{03:dpo}{\mathrm{DPO}}\) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=20">SPC p. 20</a>. De
     boeken werken yield verder uit; de rekentool heeft er een blok voor.</p>
     <div class="f">
@@ -148,6 +149,7 @@
     schaal), met één curve per yield per stap van 0.85 tot 0.99999. Bij 0.99 per stap is RTY na 100 stappen al
     sterk gedaald; pas bij 0.9999 en hoger blijft RTY hoog over honderden tot duizenden stappen.
     <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=150">Dummies p. 150</a></figcaption></figure>
+    <div class="calc-here" data-tool="sigma_extra" data-blocks="1 2 3"></div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
@@ -264,7 +266,7 @@
 
   <section class="unit" id="d14-03-sigmatabel" data-kw="sigmatabel; sigma table; sigma scale; Table 1-2; Table 6-3; Z-bench; Zst; Zlt; korte termijn; lange termijn; short term; long term; 1,5 sigma shift; 4,5 sigma; twee lezingen; Dummies; Harry Schroeder">
     <h3>14.4 De sigmatabellen van de boeken <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=41">Dummies p. 41</a> <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=157">Dummies p. 157–161</a> <a class="p" href="../source/course/Les%204/Six-Sigma%20Mikel%20Harry%20-%20%20Richard%20Schroeder.pdf#page=3">H&amp;S p. 3–7</a></h3>
-    <p>Hoort bij <a href="#d03-sigma">03.10 Sigmaniveau ↔ DPMO en de 1,5σ-verschuiving</a> (en <a href="#d03-ztabel">03.5 De Z-tabel lezen</a>).</p>
+    <p>Hoort bij <a href="#d03-sigma">03.8 Sigmaniveau ↔ DPMO en de 1,5σ-verschuiving</a> (en <a href="#d03-z">03.4 De standaardnormale verdeling, de Z-waarde en de Z-tabel</a>).</p>
     <p>Dummies <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=158">Dummies p. 158–160</a> maakt de \(1{,}5\sigma\)-verschuiving formeel. Met de korte-termijnspreiding \(\sigma_{\mathrm{ST}}\) bereken je de
     korte-termijnscore \(Z_{\mathrm{ST}}\); met de lange-termijnspreiding \(\sigma_{\mathrm{LT}}\) de lange-termijnscore
     \(Z_{\mathrm{LT}}\). Om de lange-termijndefecten te schatten, schuif je de korte-termijncurve \(1{,}5\sigma_{\mathrm{ST}}\) naar de
@@ -280,7 +282,7 @@
     Onder is de korte-termijnverdeling \(1{,}5\sigma_{\mathrm{ST}}\) naar SL verschoven (shifted short-term): haar staart
     voorbij SL benadert de defecten van de lange termijn.
     <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=159">Dummies p. 159–160</a></figcaption></figure>
-    <p>De sigmatabellen van de boeken werken zo, net als die van de cursus (<a href="#d03-sigma">03.10</a>): de DPMO is lange termijn, de Z is korte termijn. De nota bij
+    <p>De sigmatabellen van de boeken werken zo, net als die van de cursus (<a href="#d03-sigma">03.8</a>): de DPMO is lange termijn, de Z is korte termijn. De nota bij
     Tabel 6-3 zegt het letterlijk: "Paired table values are long-term for DPMO and short-term for Z", en "add 1.5 to
     corresponding Z values to obtain short-term equivalents" <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=161">Dummies p. 161</a>. Harry &amp; Schroeder <a class="p" href="../source/course/Les%204/Six-Sigma%20Mikel%20Harry%20-%20%20Richard%20Schroeder.pdf#page=7">H&amp;S p. 7</a>: wie
     \(6\sigma\)-processen claimt, bedoelt een korte-termijncapabiliteit van \(6\sigma\) en een lange-termijnprestatie van \(4{,}5\sigma\).</p>
@@ -312,7 +314,7 @@
     <ul>
       <li><b>"In de sigmatabel zijn DPMO en Z allebei lange termijn."</b> Fout: "Paired table values are long-term for DPMO and short-term for Z" <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=161">Dummies p. 161</a>. Daarom is \(\sym{03:sigma_level}{\text{sigmaniveau}}=\sym{03:z}{Z}+1{,}5\) in de lezing met verschuiving.</li>
       <li><b>Let op:</b> de richting van de 1,5: \(\sym{03:z_lt}{Z_{\mathrm{LT}}}=\sym{03:z_st}{Z_{\mathrm{ST}}}-1{,}5\). Van DPMO naar sigmaniveau tel je 1,5 <i>bij</i>; van sigmaniveau naar DPMO trek je eerst 1,5 <i>af</i> <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=160">Dummies p. 160</a>.</li>
-      <li><b>Let op:</b> de Z-tabel van de cursus stopt bij \(|\sym{03:z}{z}|=3{,}4\). De sigmatabel van Dummies gaat verder, maar is \(1{,}5\sigma\) verschoven: de rij \(\sym{03:z_st}{Z}=4{,}5\) (1350 DPMO) is de staart voorbij \(3\sigma\), niet voorbij \(4{,}5\sigma\) <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=160">Dummies p. 160</a>; zie <a href="#d03-sigma">03.10</a>.</li>
+      <li><b>Let op:</b> de Z-tabel van de cursus stopt bij \(|\sym{03:z}{z}|=3{,}4\). De sigmatabel van Dummies gaat verder, maar is \(1{,}5\sigma\) verschoven: de rij \(\sym{03:z_st}{Z}=4{,}5\) (1350 DPMO) is de staart voorbij \(3\sigma\), niet voorbij \(4{,}5\sigma\) <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=160">Dummies p. 160</a>.</li>
       <li><b>"Harry &amp; Schroeder rekenen altijd met de verschuiving."</b> Fout: op p. 3 noemen ze 271 DPMO "about 3.5 sigma" (zonder), op p. 5 noemen ze 2 500 DPMO "about 4.3 sigma" (met) <a class="p" href="../source/course/Les%204/Six-Sigma%20Mikel%20Harry%20-%20%20Richard%20Schroeder.pdf#page=3">H&amp;S p. 3</a>. Dezelfde 20 000 DPMO is 3,55 of 2,05 sigma <span class="computed">zelf berekend</span>: vermeld altijd welke lezing je gebruikt.</li>
     </ul></div>
 
@@ -332,14 +334,15 @@
         <label>c. \(\sym{03:z}{Z}\) van B zonder verschuiving (2 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
-      <details class="hint"><summary>Hint</summary><p>\(0{,}85^{\frac{1}{600}}\); dan \(\sym{03:z}{Z}=\operatorname{NORM.INV}\)(yield per opportuniteit;0;1).</p></details>
+      <div class="calc-here" data-tool="sigma_extra" data-blocks="4"></div>
+      <details class="hint"><summary>Hint</summary><p>\(0{,}85^{\frac{1}{600}}\); dan is \(\sym{03:z}{Z}\) de z-waarde met oppervlakte links = yield per opportuniteit (Z-tabel).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>a. \(0{,}85^{\frac{1}{600}}=0{,}99973=\) <b>99,97 %</b> (boek). Dat is 271 DPMO; zonder verschuiving
           \(\sym{03:z}{Z}=3{,}46\), "about 3.5 sigma" zoals het boek <span class="computed">zelf berekend</span>.</li>
           <li>b. \(0{,}968^{\frac{1}{48}}=0{,}99932=\) <b>99,93 %</b> <span class="computed">zelf berekend</span>. Het
           boek drukt hier ook 99,97 % af <a class="p" href="../source/course/Les%204/Six-Sigma%20Mikel%20Harry%20-%20%20Richard%20Schroeder.pdf#page=3">H&amp;S p. 3</a>; dat klopt niet.</li>
-          <li>c. \(\sym{03:z}{Z}=\operatorname{NORM.INV}(0{,}99932;0;1)=\) <b>3,20</b> <span class="computed">zelf berekend</span>, niet "about 3.5
+          <li>c. \(\sym{03:z}{Z}=z_{0{,}99932}=\) <b>3,20</b> <span class="computed">zelf berekend</span>, niet "about 3.5
           sigma". Met de verschuiving zou het 4,70 zijn.</li>
         </ol>
         <p>Het idee van het voorbeeld blijft wel overeind: door per opportuniteit te rekenen, vergelijk je producten van
@@ -467,11 +470,11 @@
         <label>b. Bovengrens (2 decimalen):</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
-      <details class="hint"><summary>Hint</summary><p>CHISQ.INV(0,975; 4) en CHISQ.INV(0,025; 4); \(\mathrm{BI}=\)
+      <details class="hint"><summary>Hint</summary><p>De \(\chi^{2}\)-waarden met 4 vrijheidsgraden en oppervlakte links 0,975 en 0,025 (\(\chi^{2}\)-tabel of de rekenmachine kwantielen); \(\mathrm{BI}=\)
       [√(\(4\cdot3{,}7^{2}/\)bovenste); √(\(4\cdot3{,}7^{2}/\)onderste)].</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
-          <li>CHISQ.INV(0,975; 4) = 11,143 en CHISQ.INV(0,025; 4) = 0,4844 <span class="computed">zelf berekend</span>.</li>
+          <li>Met 4 vrijheidsgraden: \(\chi^{2}\) met oppervlakte links 0,975 = 11,143 en met oppervlakte links 0,025 = 0,4844 <span class="computed">zelf berekend</span>.</li>
           <li>\(\mathrm{BI}=\left[\sqrt{\frac{54{,}76}{11{,}143}};\sqrt{\frac{54{,}76}{0{,}4844}}\right]=[2{,}217;10{,}63]\) <span class="computed">zelf berekend</span>.</li>
           <li>Dummies' [2,195; 10,907] is iets breder omdat het eigenlijk een 95,45%-interval is. (Met de afgeronde 0,460
           vind je 10,911; het boek rekende met de onafgeronde tabelwaarde.) Merk op hoe breed het interval is bij \(n=5\).</li>
@@ -480,35 +483,27 @@
     </div>
   </section>
 
-  <section class="unit" id="d14-04-f" data-kw="Dummies; extra; F-interval; F interval; verhouding varianties; ratio of variances; tabel 8-3; table 8-3; verwisselde F-waarden; swapped F values; 90 %; F.INV; nauwkeuriger; more precise">
+  <section class="unit" id="d14-04-f" data-kw="Dummies; extra; F-interval; F interval; verhouding varianties; ratio of variances; tabel 8-3; table 8-3; verwisselde F-waarden; swapped F values; 90 %; nauwkeuriger; more precise">
     <h3>14.8 Dummies: BI voor σ<sub>A</sub>²/σ<sub>B</sub>² met Tabel 8-3 <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=195">Dummies p. 195–196</a></h3>
     <p>Hoort bij <a href="#d04-f">04.8 BI voor de verhouding van twee varianties σ<sub>1</sub>²/σ<sub>2</sub>² (F)</a>.</p>
-    <div class="box warn"><span class="t">Verwisselde F-waarden</span>
-      <p>Dummies <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=195">Dummies p. 195–196</a> geeft het BI voor \(\frac{\sym{04:sigma1_sq}{\sigma_{A}^{2}}}{\sym{04:sigma2_sq}{\sigma_{B}^{2}}}\) als \(\left[\frac{\left(\frac{1}{F(\sym{04:n2}{n_{2}},\sym{04:n1}{n_{1}})}\right)\cdot\sym{04:s1_sq}{s_{A}^{2}}}{\sym{04:s2_sq}{s_{B}^{2}}};\frac{F(\sym{04:n1}{n_{1}},\sym{04:n2}{n_{2}})\cdot\sym{04:s1_sq}{s_{A}^{2}}}{\sym{04:s2_sq}{s_{B}^{2}}}\right]\),
-      met in Tabel 8-3 "F values for 95% confidence" die in werkelijkheid elk 5 % bovenstaart hebben (het interval is dus
-      een 90%-BI). In het voorbeeld (A: 10 punten, \(s_{A}^{2}=4\); B: 5 punten, \(s_{B}^{2}=7{,}5\)) staat
-      \(\left[\left(\frac{1}{3{,}633}\right)\left(\frac{4{,}0}{7{,}5}\right);5{,}999\left(\frac{4{,}0}{7{,}5}\right)\right]=[0{,}147;3{,}199]\). Met de stelling van <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=12">Recepten p. 12</a> horen de twee F-waarden
-      omgekeerd: [0,0889; 1,938] <span class="computed">zelf berekend</span>. Het besluit (1 ligt in het interval: geen
-      bewijs van verschillende spreidingen) blijft hetzelfde. De tabelwaarden zelf kloppen.</p>
-    </div>
     <figure class="fig"><img src="figures/14_tabel_8_3_f.png" alt="Tabel 8-3 van Dummies: F-waarden voor n1 en n2 = 2, 5, 10, 25, met de formule van het interval en het uitgewerkte voorbeeld [0.147, 3.199]">
     <figcaption>Figuur: Tabel 8-3 van Dummies ("F values for 95% confidence", per steekproefgrootte \(n_{1}\) en
     \(n_{2}\)), met de intervalformule van het boek en het voorbeeld met \(F(5,10)=3.633\) en \(F(10,5)=5.999\),
-    dat [0.147, 3.199] geeft. Zie het kader hierboven voor de verwisselde F-waarden.
+    dat [0.147, 3.199] geeft.
     <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=196">Dummies p. 196</a></figcaption></figure>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>Let op:</b> Dummies verwisselt de twee F-waarden en noemt "95 %" wat met 5 % per staart een 90%-BI is: [0,147; 3,199] in plaats van [0,0889; 1,938] <span class="computed">zelf berekend</span> <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=196">Dummies p. 196</a>.</li>
-      <li><b>Let op:</b> Tabel 8-3 staat per steekproefgrootte n, niet per vrijheidsgraden: \(F(\sym{04:n1}{n_{1}}=5,\sym{04:n2}{n_{2}}=10)=3{,}633=\operatorname{F.INV.RT}(0{,}05;4;9)\) <span class="computed">zelf berekend</span>.</li>
+      <li><b>Let op:</b> Tabel 8-3 staat per steekproefgrootte n, niet per vrijheidsgraden: \(F(\sym{04:n1}{n_{1}}=5,\sym{04:n2}{n_{2}}=10)=3{,}633\), de F-waarde met (4; 9) vrijheidsgraden en 5 % bovenstaart <span class="computed">zelf berekend</span>.</li>
     </ul></div>
 
-    <div class="exercise" id="ex-14-04-4" data-kw="F-interval; F interval; verhouding varianties; ratio of variances; Dummies; extra; F.INV; nauwkeuriger; more precise; S08-WE11">
+    <div class="exercise" id="ex-14-04-4" data-kw="F-interval; F interval; verhouding varianties; ratio of variances; Dummies; extra; nauwkeuriger; more precise; S08-WE11">
       <h4>Oefening 14.11 — Heeft verdeling A een kleinere spreiding dan B? <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=196">Dummies p. 196</a></h4>
       <p>Gegevens van Dummies: verdeling A, \(n_{A}=10\) punten, \(s_{A}^{2}=4\); verdeling B, \(n_{B}=5\)
       punten, \(s_{B}^{2}=7{,}5\). Gebruik \(\left(\frac{\sym{04:s1_sq}{s_{A}^{2}}}{\sym{04:s2_sq}{s_{B}^{2}}}\right)\left(\frac{\sym{04:sigma2_sq}{\sigma_{B}^{2}}}{\sym{04:sigma1_sq}{\sigma_{A}^{2}}}\right)\sim F(9;4)\).</p>
       <div class="q" data-answer="0.2752" data-tol="0.001">
-        <label>a. F.INV(0,05; 9; 4) = (4 decimalen)</label> <input type="text" inputmode="decimal">
+        <label>a. F-waarde met (9; 4) vrijheidsgraden en 5 % in de linkerstaart (4 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="0.0889" data-tol="0.001">
@@ -529,14 +524,14 @@
         <select><option value="">kies…</option><option value="ja">ja, de ondergrens ligt boven 1</option><option value="nee">nee, de ondergrens ligt onder 1</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
-      <details class="hint"><summary>Hint</summary><p>\(\operatorname{F.INV}(0{,}05;9;4)=\frac{1}{\operatorname{F.INV}(0{,}95;4;9)}=\frac{1}{3{,}633}\). Voor b en c:
-      \(\frac{\frac{\sym{04:s1_sq}{s_{A}^{2}}}{\sym{04:s2_sq}{s_{B}^{2}}}}{\operatorname{F.INV}(0{,}95;9;4)}\) en \(\frac{\frac{\sym{04:s1_sq}{s_{A}^{2}}}{\sym{04:s2_sq}{s_{B}^{2}}}}{\operatorname{F.INV}(0{,}05;9;4)}\).</p></details>
+      <details class="hint"><summary>Hint</summary><p>De F-waarde met (9; 4) vrijheidsgraden en 5 % linkerstaart is 1 gedeeld door de F-waarde met (4; 9) vrijheidsgraden en 5 % bovenstaart: \(\frac{1}{3{,}633}\) (F-tabel of de rekenmachine kwantielen). Voor b en c:
+      \(\frac{\frac{\sym{04:s1_sq}{s_{A}^{2}}}{\sym{04:s2_sq}{s_{B}^{2}}}}{F_{\text{boven}}}\) en \(\frac{\frac{\sym{04:s1_sq}{s_{A}^{2}}}{\sym{04:s2_sq}{s_{B}^{2}}}}{F_{\text{onder}}}\), met \(F_{\text{boven}}\) en \(F_{\text{onder}}\) de F-waarden met (9; 4) vrijheidsgraden en 5 % in de bovenstaart en in de linkerstaart.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
-          <li>a. F.INV(0,05; 9; 4) = <b>0,2752</b> = 1/3,633 (Tabel 8-3 van Dummies: \(F(\sym{04:n1}{n_{1}}=5,\sym{04:n2}{n_{2}}=10)=3{,}633=\operatorname{F.INV.RT}(0{,}05;4;9)\); \(F(10,5)=5{,}999=\operatorname{F.INV.RT}(0{,}05;9;4)\)) <span class="computed">zelf berekend</span>.</li>
+          <li>a. F-waarde met (9; 4) vrijheidsgraden en 5 % linkerstaart = <b>0,2752</b> = 1/3,633 (Tabel 8-3 van Dummies: \(F(\sym{04:n1}{n_{1}}=5,\sym{04:n2}{n_{2}}=10)=3{,}633\) is de F-waarde met (4; 9) vrijheidsgraden en 5 % bovenstaart; \(F(10,5)=5{,}999\) die met (9; 4) vrijheidsgraden) <span class="computed">zelf berekend</span>.</li>
           <li>b–c. \(\frac{\sym{04:s1_sq}{s_{A}^{2}}}{\sym{04:s2_sq}{s_{B}^{2}}}=\frac{4}{7{,}5}=0{,}5333\). \(\mathrm{BI}=\left[\frac{0{,}5333}{5{,}999};0{,}5333\cdot3{,}633\right]=[0{,}0889;1{,}938]\) <span class="computed">zelf berekend</span>. Dummies drukt [0,147; 3,199] af, met de twee F-waarden
           verwisseld.</li>
-          <li>d. \(\frac{\sym{04:sigma2_sq}{\sigma_{B}^{2}}}{\sym{04:sigma1_sq}{\sigma_{A}^{2}}}\ge\left(\frac{\sym{04:s2_sq}{s_{B}^{2}}}{\sym{04:s1_sq}{s_{A}^{2}}}\right)\cdot\operatorname{F.INV}(0{,}05;9;4)=1{,}875\cdot0{,}2752=\) <b>0,516</b>
+          <li>d. \(\frac{\sym{04:sigma2_sq}{\sigma_{B}^{2}}}{\sym{04:sigma1_sq}{\sigma_{A}^{2}}}\ge\left(\frac{\sym{04:s2_sq}{s_{B}^{2}}}{\sym{04:s1_sq}{s_{A}^{2}}}\right)\cdot F_{\text{onder}}=1{,}875\cdot0{,}2752=\) <b>0,516</b>
           <span class="computed">zelf berekend</span> (= 1/1,938: hetzelfde getal als in c, omgekeerd).</li>
           <li>e. <b>Nee</b>: de ondergrens 0,516 ligt onder 1; een verhouding 1 (gelijke spreidingen) is plausibel. Met zo
           weinig data (4 en 9 vrijheidsgraden) is een BI voor een verhouding van varianties erg breed.</li>
@@ -554,12 +549,8 @@
     <p>Dezelfde gegevens als het F-interval van Dummies (<a href="#d14-04-f">BI voor σ<sub>A</sub>²/σ<sub>B</sub>² met Tabel 8-3</a>),
     hier als klassieke F-toets volgens <a href="#d05-chi2-f">05.12</a>.</p>
 
-    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
-    <ul>
-      <li><b>Let op:</b> Tabel 8-3 van Dummies staat per steekproefgrootte n, niet per vrijheidsgraden: de kritische waarde voor \(\sym{05:f_stat}{F}=\frac{\sym{05:sb_sq}{s_{B}^{2}}}{\sym{05:sa_sq}{s_{A}^{2}}}\) met (4; 9) vrijheidsgraden staat bij \(n_{1}=5\), \(n_{2}=10\): F.INV.RT(0,05; 4; 9) = 3,633 <span class="computed">zelf berekend</span>.</li>
-    </ul></div>
 
-    <div class="exercise" id="ex-14-05-1" data-kw="F-toets; F-test; eenzijdig; one-sided; kleinere spreiding; smaller variance; nauwkeuriger; more precise; Dummies; extra; F.INV.RT; 3,633">
+    <div class="exercise" id="ex-14-05-1" data-kw="F-toets; F-test; eenzijdig; one-sided; kleinere spreiding; smaller variance; nauwkeuriger; more precise; Dummies; extra; 3,633">
       <h4>Oefening 14.12 — Heeft A een kleinere spreiding dan B? <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=196">Dummies p. 196</a></h4>
       <p>Gegevens van Dummies: \(\sym{05:n_a}{n_{A}}=10\), \(\sym{05:sa_sq}{s_{A}^{2}}=4\); \(\sym{05:n_b}{n_{B}}=5\), \(\sym{05:sb_sq}{s_{B}^{2}}=7{,}5\). Toets
       \(\sym{05:h0}{H_{0}}\): \(\sym{05:sigma_a}{\sigma_{A}}=\sym{05:sigma_b}{\sigma_{B}}\) tegen \(\sym{05:ha}{H_{A}}\): \(\sym{05:sigma_a}{\sigma_{A}}\lt\sym{05:sigma_b}{\sigma_{B}}\) bij \(\sym{05:alpha}{\alpha}=5\ \%\), met
@@ -584,9 +575,9 @@
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>a. \(\sym{05:f_stat}{F}=\frac{7{,}5}{4}=\) <b>1,875</b>, met \((\sym{05:n_b}{n_{B}}-1;\sym{05:n_a}{n_{A}}-1)=(4;9)\) vrijheidsgraden.</li>
-          <li>b. \(H_{A}\) zegt dat \(\sigma_{B}\) groter is: verwerp bij grote F. F.INV.RT(0,05; 4; 9) = <b>3,633</b> (de
+          <li>b. \(H_{A}\) zegt dat \(\sigma_{B}\) groter is: verwerp bij grote F. Kritische waarde = de F-waarde met (4; 9) vrijheidsgraden en 5 % bovenstaart = <b>3,633</b> (de
           waarde \(\sym{05:f_dist}{F}(\sym{05:n1}{n_{1}}=5,\sym{05:n2}{n_{2}}=10)\) in Tabel 8-3 van Dummies).</li>
-          <li>c. \(1-\operatorname{F.DIST}(1{,}875;4;9;\mathrm{TRUE})=\) <b>0,199</b> <span class="computed">zelf berekend</span>.</li>
+          <li>c. \(P(F\gt1{,}875)\) met (4; 9) vrijheidsgraden \(=\) <b>0,199</b> <span class="computed">zelf berekend</span>.</li>
           <li>d. 1,875 &lt; 3,633: <b>\(H_{0}\) niet verwerpen</b>. Zelfde besluit als het eenzijdige BI in <a href="#ex-14-04-4">de oefening over het F-interval</a> (ondergrens
           0,516 voor \(\frac{\sym{05:sigma_b}{\sigma_{B}}^{2}}{\sym{05:sigma_a}{\sigma_{A}}^{2}}\), onder 1): dualiteit.</li>
         </ol>
@@ -672,6 +663,7 @@
     <p>\(\sym{09:sigma_st}{\sigma_{\mathrm{ST}}}=\frac{\sym{09:mrbar}{\overline{\mathrm{MR}}}}{\sym{09:d2_n2}{1{,}128}}\) geeft Cp en Cpk (korte termijn); de s van alle waarden geeft Pp en Ppk.
     1,128 is de \(\sym{09:d2}{d_{2}}\) voor \(\sym{09:n_sub}{n}=2\) uit Table A <a class="p" href="../source/course/Les%204/___4.1%20tabellen%20SPC.pdf#page=1">Tabellen SPC p. 1</a>: een moving range
     overspant twee opeenvolgende metingen.</p>
+    <div class="calc-here" data-tool="regelkaart_extra" data-blocks="0"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>Let op:</b> bij individuele waarden is \(\sym{09:sigma_st}{\sigma_{\mathrm{ST}}}=\frac{\sym{09:mrbar}{\overline{\mathrm{MR}}}}{\sym{09:d2_n2}{1{,}128}}\), met \(\sym{09:d2_n2}{1{,}128}=\sym{09:d2}{d_{2}}\) voor \(\sym{09:n_sub}{n}=2\). Reken de moving ranges op de metingen in de volgorde waarin ze genomen zijn; sorteer ze niet <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=116">Dummies p. 116</a>.</li>
@@ -706,8 +698,8 @@
     <h3>14.14 Dummies: rationele subgroepen en 25 subgroepen <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=248">Dummies p. 248</a></h3>
     <p>Hoort bij <a href="#d10-opzet">10.3 SPC opzetten: stappen, PDCA-cirkel en OCAP</a>.</p>
     <p><b>25 subgroepen.</b> Dummies vraagt "a minimum of 25 subgroups of data (with 2 to 5 measurements in each
-    subgroup)" <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=244">Dummies p. 244</a>. De cursus zelf noemt 20 (het SPC-hoofdstuk) en 25 (het Minitab-rapport van oefening 2):
-    zie het kader "20 of 25 subgroepen?" in <a href="#d10-opzet">10.3</a>.</p>
+    subgroup)" <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=244">Dummies p. 244</a>. De cursus zelf noemt 20 (het SPC-hoofdstuk) en 25 (het Minitab-rapport van oefening 2)
+    (<a href="#d10-opzet">10.3</a>).</p>
     <p><b>Rationele subgroepen (rational subgroups)</b> <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=248">Dummies p. 248</a>: de stuks in één subgroep zijn onder zo
     gelijk mogelijke omstandigheden en kort na elkaar gemaakt, zodat er binnen een subgroep geen speciale oorzaak kan
     optreden; typisch 3 tot 5 metingen. Werken meerdere machines of operatoren aan hetzelfde kenmerk, maak dan een
@@ -809,7 +801,7 @@
     <ul>
       <li><b>Let op:</b> bij regels 2 en 3 tellen alleen punten aan dezelfde kant van de centrale lijn <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=245">Dummies p. 245–246</a>; Table 5.1 van de cursus zegt dat niet uitdrukkelijk (<a href="#d10-regels">10.6</a>).</li>
       <li><b>Let op:</b> een trend is zes punten op rij die stijgen of dalen in de cursus (Table 5.1, <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=68">SPC p. 68</a>), maar zeven of meer bij Dummies <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=246">Dummies p. 246–247</a>. Noem je bron.</li>
-      <li><b>"Wijkt een punt af van het doel, dan stuur je het proces bij."</b> Fout: een stabiel en capabel proces laat je met rust <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=245">Dummies p. 245</a>; zie ook tampering in <a href="#d10-regels">10.6</a>.</li>
+      <li><b>"Wijkt een punt af van het doel, dan stuur je het proces bij."</b> Fout: een stabiel en capabel proces laat je met rust <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=245">Dummies p. 245</a>.</li>
     </ul></div>
   </section>
 
@@ -828,9 +820,8 @@
       <div>MR-kaart: \[\sym{10:ucl_mr}{\mathrm{UCL}_{\mathrm{MR}}}=\sym{10:d4}{D_{4}}\cdot\sym{10:mrbar}{\overline{\mathrm{MR}}}\] , \[\sym{10:lcl_mr}{\mathrm{LCL}_{\mathrm{MR}}}=\sym{10:d3}{D_{3}}\cdot\sym{10:mrbar}{\overline{\mathrm{MR}}}\]  (constanten voor \[\sym{10:n}{n}=2\])</div>
     </div>
     <p>Met \(\sym{10:n}{n}=2\): \(\sym{10:e2}{E_{2}}=2{,}659\) (Dummies <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=250">Dummies p. 250</a>) of 2,660 (Six Sigma Demystified <a class="p" href="../source/course/Les%204/Control%20charts%20-%20constants.pdf#page=2">constants p. 2</a>),
-    \(\sym{10:d4}{D_{4}}=3{,}267\), \(\sym{10:d3}{D_{3}}=0\). De korte-termijnspreiding volgt uit de opeenvolgende ranges:
-    \(\sym{10:sigma_st}{\sigma_{\mathrm{ST}}}=\frac{\sym{10:mrbar}{\overline{\mathrm{MR}}}}{\sym{10:d2_n2}{1{,}128}}\), en dat mag alleen op metingen in de volgorde waarin ze genomen zijn <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=116">Dummies p. 116</a>
-    (zie ook <a href="#d09">Deel 09</a>, beslissing 1).</p>
+    \(\sym{10:d4}{D_{4}}=3{,}267\), \(\sym{10:d3}{D_{3}}=0\). De korte-termijnspreiding is
+    \(\sym{10:sigma_st}{\sigma_{\mathrm{ST}}}=\frac{\sym{10:mrbar}{\overline{\mathrm{MR}}}}{\sym{10:d2_n2}{1{,}128}}\) <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=116">Dummies p. 116</a>.</p>
     <div class="box warn"><span class="t">Minder gevoelig</span>
     <p>Omdat de I-MR-kaart met losse metingen werkt, is ze minder gevoelig voor procesveranderingen dan de \(\bar{X}\)-R- of
     \(\bar{X}\)-s-kaart <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=251">Dummies p. 251</a>, en de centrale limietstelling helpt hier niet: losse metingen zijn niet vanzelf normaal
@@ -840,13 +831,12 @@
     <p>Blad <b>Control charts</b>, deel 2 (vanaf rij 82): één waarde per rij; het blad geeft \(\mathrm{MR}_{i}\), \(\bar{X}\),
     MR̄, \(\sym{10:sigma_hat}{\hat{\sigma}}=\frac{\sym{10:mrbar}{\overline{\mathrm{MR}}}}{\sym{10:d2}{d_{2}}(2)}\) en de grenzen, met een vlag per punt.</p>
     </div>
+    <div class="calc-here" data-tool="regelkaart_extra" data-blocks="0"></div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"Eén meting per tijdstip: neem een \(\bar{X}\)-R-kaart met \(\sym{10:n}{n}=1\)."</b> Fout: met één meting is er geen range binnen de subgroep. Gebruik de I-MR-kaart; het bewegend bereik is het verschil tussen twee opeenvolgende metingen <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=251">Dummies p. 251</a>.</li>
       <li><b>Let op:</b> de constanten zijn die voor \(\sym{10:n}{n}=2\), want een moving range overspant twee metingen: \(\sym{10:e2}{E_{2}}=2{,}659\) of 2,660, \(\sym{10:d4}{D_{4}}=3{,}267\), \(\sym{10:d3}{D_{3}}=0\), \(\sym{10:d2}{d_{2}}=1{,}128\).</li>
-      <li><b>Let op:</b> \(\sym{10:mrbar}{\overline{\mathrm{MR}}}\) deel je door \(\sym{10:k_obs}{k}-1\): \(\sym{10:k_obs}{k}\) metingen geven \(\sym{10:k_obs}{k}-1\) moving ranges.</li>
-      <li><b>"\(\sym{10:sigma_st}{\sigma_{\mathrm{ST}}}=\frac{\sym{10:mrbar}{\overline{\mathrm{MR}}}}{\sym{10:d2_n2}{1{,}128}}\) mag ook op gesorteerde data."</b> Fout: alleen op metingen in de volgorde waarin ze genomen zijn <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=116">Dummies p. 116</a>.</li>
       <li><b>"De I-MR-kaart is even gevoelig als de \(\bar{X}\)-R-kaart."</b> Fout: ze is minder gevoelig voor procesveranderingen, en de centrale limietstelling helpt niet: losse metingen zijn niet vanzelf normaal verdeeld <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=251">Dummies p. 251</a>, <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=62">SPC p. 62</a>.</li>
     </ul></div>
     <div class="exercise" id="ex-14-10-2" data-kw="I-MR; Dummies Figure 10-8; individuals; moving range; E2; D4; extra">
@@ -925,6 +915,7 @@
     (u-kaart, vanaf rij 253: \(n_{i}\) en aantal defecten). Het blad geeft \(\bar{p}\) of \(\bar{u}\), de grenzen per subgroep en een
     vlag.</p>
     </div>
+    <div class="calc-here" data-tool="regelkaart_extra" data-blocks="1"></div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
@@ -1015,6 +1006,7 @@
         <label>Hoeveel subgroepen liggen buiten hun eigen grenzen?</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="regelkaart_extra" data-blocks="1"></div>
       <details class="hint"><summary>Hint</summary><p>\(\sym{10:ubar}{\bar{u}}\) is totaal defecten gedeeld door totaal formulieren (niet het
       gemiddelde van de \(\sym{10:u_i}{u_{i}}\)). Elke subgroep heeft eigen grenzen met zijn eigen \(n_{i}\).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
@@ -1052,18 +1044,4 @@
     </ul></div>
   </section>
 
-<!-- ===== uit Deel 13 ===== -->
-<p class="small extra-group">Hoort bij <a href="#d13">Deel 13 — Voorbeeldexamen</a>:</p>
-<section class="unit" id="d14-13-imr" data-kw="vraag 4; question 4; regelkaart; control chart; I-MR; I-MR kaart; individuals chart; individuele waarden; individual values; losse metingen; centrale limietstelling; central limit theorem; Dummies">
-    <h3>14.20 De centrale limietstelling en de I-MR-kaart <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=251">Dummies p. 251</a></h3>
-    <p>Hoort bij <a href="#d13-v4">13.4 Vraag 4 — Regelkaarten</a>.</p>
-    <p>Het antwoord op vraag 4a steunt op gemiddelden van steekproeven: die zijn bij benadering normaal verdeeld
-    (centrale limietstelling) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=62">SPC p. 62–63</a>. Op een I-MR-kaart (individuals and moving range chart) zet je losse metingen uit;
-    daar helpt de centrale limietstelling niet <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=251">Dummies p. 251</a>. Zie <a href="#d14-10-imr">de I-MR-kaart hierboven</a>.</p>
-
-    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
-    <ul>
-      <li><b>Let op:</b> de centrale limietstelling geldt voor gemiddelden, niet voor losse metingen: op een I-MR-kaart helpt ze niet <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=251">Dummies p. 251</a>. Zie <a href="#d14-10-imr">de I-MR-kaart hierboven</a>.</li>
-    </ul></div>
-  </section>
 </section>

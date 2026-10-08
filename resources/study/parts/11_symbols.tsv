@@ -12,7 +12,7 @@ dnu_cs	\(\Delta\nu_{\mathrm{Cs}}\)	Frequentie van de cesiumstraling: vaste natuu
 c_light	c	Lichtsnelheid in vacuüm (speed of light), vaste natuurconstante.	Vaste waarde 299 792 458 m/s (Meter unit p. 3).	d11-standaard
 l_block	L	Lengte van een eindmaat (gauge block).	Met laserinterferometrie: \(L=\frac{N\cdot\lambda}{2}\), bij exact 20,00 °C (Meter unit p. 4–5).	d11-standaard
 n_fringes	N	Aantal interferentiefranjes (fringes) bij de laserinterferometer.	Geteld bij de meting; gegeven in de opgave.	d11-standaard
-lambda	\(\lambda\)	Golflengte (wavelength) van het gebruikte licht (krypton-86, laser).	Gegeven; krypton-86: \(1\ \frac{m}{1}\ 650\ 763{,}73=605{,}78\) nm (Meter unit p. 3).	d11-standaard
+lambda	\(\lambda\)	Golflengte (wavelength) van het gebruikte licht (krypton-86, laser).	Gegeven; krypton-86: \(\frac{1\ m}{1\,650\,763{,}73}=605{,}78\) nm (Meter unit p. 3).	d11-standaard
 t_period	T	Periode (period) van een slinger: duur van een volledige heen-en-weerbeweging.	Gegeven: een secondeslinger heeft \(T=2\) s (Meter unit p. 1).	d11-standaard
 l_pend	l	Lengte van de slinger (pendulum length).	\(l=g\cdot\left(\frac{T}{2\pi}\right)^{2}\); voor \(T=2\) s en \(g=9{,}81\ \frac{m}{s^{2}}\) is dat 994 mm (Meter unit p. 1).	d11-standaard
 g_grav	g	Valversnelling (gravitational acceleration); niet overal op aarde gelijk.	Gegeven: ongeveer \(9{,}81\ \frac{m}{s^{2}}\) (Meter unit p. 1). Daarom werd de secondeslinger als definitie van de meter verworpen.	d11-standaard
@@ -55,8 +55,8 @@ tol	TOL	Tolerantie (tolerance): breedte van het specificatie-interval.	\(\mathrm
 sigma	\(\sigma\)	Standaardafwijking (standard deviation) van de individuele waarden van het proces of de meetreeks.	Gegeven, of geschat uit ranges: \(\frac{\bar{R}}{d_{2}}\), want \(E(R)=d_{2}\sigma\).	d11-d2ster
 x_r	\(X_{r}\), referentiewaarde	Referentiewaarde (reference value): aanvaarde vervanger van de onkenbare ware waarde.	Gemeten met hogere-orde, herleidbare apparatuur, of wettelijk of afgesproken; meestal gegeven. Niet hetzelfde als de ware waarde (MSA p. 9).	d11-standaard
 b_bias	b	Bias van het meetsysteem: systematische afwijking van de meting.	Gegeven, of geschat als gemiddelde meting min referentiewaarde (\(\bar{\bar{X}}-\) referentiewaarde).	d11-gpc
-beta_gpc	\(\beta\)	Kans op aanvaarding (probability of acceptance) van een onderdeel met referentiewaarde \(X_{r}\).	\(\Phi\left(\frac{\mathrm{USL}-(X_{r}+b)}{\sigma_{\mathrm{GRR}}}\right)-\Phi\left(\frac{\mathrm{LSL}-(X_{r}+b)}{\sigma_{\mathrm{GRR}}}\right)\); Excel NORM.S.DIST(…;TRUE). Niet de \(\beta\)-fout van een toets.	d11-gpc
-u1	\(u_{1}\)	Standaardonzekerheid door de kalibratie van het meetlint (type B).	Certificaat: 0,1 % van de aflezing bij dekkingsfactor 2, dus \(1834\times0{,}1\ \frac{\%}{2}=0{,}917\) mm (deel door 2).	d11-onzekerheid
+beta_gpc	\(\beta\)	Kans op aanvaarding (probability of acceptance) van een onderdeel met referentiewaarde \(X_{r}\).	\(\Phi\left(\frac{\mathrm{USL}-(X_{r}+b)}{\sigma_{\mathrm{GRR}}}\right)-\Phi\left(\frac{\mathrm{LSL}-(X_{r}+b)}{\sigma_{\mathrm{GRR}}}\right)\); \(\Phi\) uit de Z-tabel of de rekenmachine gauge performance curve. Niet de \(\beta\)-fout van een toets.	d11-gpc
+u1	\(u_{1}\)	Standaardonzekerheid door de kalibratie van het meetlint (type B).	Certificaat: 0,1 % van de aflezing bij dekkingsfactor 2, dus \(\frac{1834\times0{,}1\ \%}{2}=0{,}917\) mm (deel door 2).	d11-onzekerheid
 u2	\(u_{2}\)	Standaardonzekerheid door de resolutie van het meetlint (type B).	Aflezen tot op 1 mm: fout hoogstens 0,5 mm, uniform: \(\frac{0{,}5}{\sqrt{3}}=0{,}289\) mm.	d11-onzekerheid
 u3	\(u_{3}\)	Standaardonzekerheid doordat het lint niet haaks ligt (type B).	Uniform met halve breedte 0,917 mm: \(\frac{0{,}917}{\sqrt{3}}=0{,}529\) mm.	d11-onzekerheid
 u4	\(u_{4}\)	Standaardonzekerheid door de herhaalbaarheid, voor het gemiddelde van 3 metingen (type A).	\(\frac{\frac{R}{d_{2}}}{\sqrt{3}}=\frac{\frac{2}{1{,}693}}{\sqrt{3}}=0{,}682\) mm; vergeet de /\(\sqrt{3}\) niet.	d11-onzekerheid
@@ -76,7 +76,7 @@ lcl_x	\(\mathrm{LCL}_{\bar{X}}\)	Onderste regelgrens van de \(\bar{X}\)-kaart.	\
 bias	bias	Systematische fout (bias): gemiddelde meting min referentiewaarde.	bias = \(\bar{\bar{X}}-\) referentiewaarde (MSA p. 31); positief: het toestel meet te hoog. E(bias) is de ware bias.	d11-bias
 sigma_r	\(\sigma_{r}\), herhaalbaarheid	Herhaalbaarheid (repeatability) als standaardafwijking van één meting.	\(\frac{\bar{R}}{d_{2}}\) met \(d_{2}\) voor de subgroepgrootte (laatste rij tabel MSA of Table 18); niet \(\bar{R}\) zelf.	d11-biastoets
 t_stat	t	Toetsgrootheid (test statistic) van een t-toets.	Bias: (bias − E(bias))/\(\frac{\sigma_{r}\cdot\sqrt{\mathrm{gm}}\cdot d_{2}^{*}}{d_{2}}\); regressie: coëfficiënt / standaardfout. Vergelijk met \(t_{1-\alpha/2,\nu}\).	d11-biastoets
-t_crit	\(t_{1-\alpha/2,\nu}\)	Kritieke t-waarde (critical value), tweezijdig, met \(\nu\) vrijheidsgraden.	\(\operatorname{T.INV}\left(1-\frac{\alpha}{2};\nu\right)\) of \(\operatorname{T.INV.2T}(\alpha;\nu)\). Bij de bias-toets komt \(\nu\) uit de tabel MSA, niet gm − 1.	d11-biastoets
+t_crit	\(t_{1-\alpha/2,\nu}\)	Kritieke t-waarde (critical value), tweezijdig, met \(\nu\) vrijheidsgraden.	Uit de t-tabel of de rekenmachine kwantielen. Bij de bias-toets komt \(\nu\) uit de tabel MSA, niet gm − 1.	d11-biastoets
 g_sub	g	Aantal subgroepen (number of subgroups); in de lineariteitsstudie het aantal onderdelen.	Tellen. Rij van de tabel MSA (\(g=1\) tot 20); \(g\to\infty\) is de laatste rij \((d_{2})\). Voor \(K_{2}\) en \(K_{3}\): \(g=1\).	d11-d2ster
 d2star	\(d_{2}^{*}\)	Conversiefactor (Patnaik): als \(d_{2}\), maar voor de gemiddelde range van g subgroepen.	Tabel MSA, rij g, kolom m: het onderste getal in de cel. Altijd ≥ \(d_{2}\); \(d_{2}^{*}\to d_{2}\) als \(g\to\infty\).	d11-d2ster
 nu	\(\nu\)	Vrijheidsgraden (degrees of freedom) van Patnaiks benadering; meestal geen geheel getal.	Tabel MSA, rij g, kolom m: het bovenste getal in de cel (bv. 9,3 voor \(g=5\), \(m=3\)).	d11-d2ster
@@ -84,13 +84,13 @@ alpha	\(\alpha\)	Significantieniveau (significance level): kans op een type I-fo
 chi2	\(\chi^{2}\)	Chi-kwadraatverdeling (chi-square distribution) met \(\nu\) vrijheidsgraden.	Gemiddelde \(\nu\), variantie \(2\nu\) (GRR theory p. 1); hier alleen gebruikt in Patnaiks resultaat.	d11-biastoets
 z_stat	Z	Standaardnormale grootheid (standard normal variable), verdeeld als N(0, 1).	(schatter − verwachting)/standaardafwijking; hier (bias − E(bias))/(\(\frac{\sigma}{\sqrt{\mathrm{gm}}}\)).	d11-biastoets
 w_chi	W	Hulpgrootheid \(\frac{\nu\bar{R}^{2}}{{d_{2}^{*}}^{2}\sigma^{2}}\), \(\chi^{2}(\nu)\)-verdeeld volgens Patnaik.	Niet uitrekenen: alleen gebruikt in het bewijs dat t een t-verdeling volgt \(\left(t=\frac{Z}{\sqrt{\frac{W}{\nu}}}\right)\).	ex-11-17
-slope	helling	Helling (slope) van de regressie van de bias op de referentiewaarde.	Excel SLOPE of LINEST; toets \(H_{0}\): helling = 0 (lineariteit). Niet significant is niet bewezen lineair: plot altijd de biases (lack of fit).	d11-lineariteit
-intercept	intercept	Intercept van de regressie van de bias op de referentiewaarde: de bias bij referentiewaarde 0.	Excel INTERCEPT of LINEST; toets \(H_{0}\): intercept = 0 (constante bias). Ligt vaak buiten het meetbereik.	d11-lineariteit
+slope	helling	Helling (slope) van de regressie van de bias op de referentiewaarde.	Uit de enkelvoudige regressie van de bias op de referentiewaarde (rekenmachine regressie); toets \(H_{0}\): helling = 0 (lineariteit). Niet significant is niet bewezen lineair: plot altijd de biases (lack of fit).	d11-lineariteit
+intercept	intercept	Intercept van de regressie van de bias op de referentiewaarde: de bias bij referentiewaarde 0.	Uit dezelfde regressie; toets \(H_{0}\): intercept = 0 (constante bias). Ligt vaak buiten het meetbereik.	d11-lineariteit
 x_reg	x	Verklarende variabele (explanatory variable) van de regressie: hier de referentiewaarde.	Uit de opgave; elke meting levert een punt (in 11.19: 60 punten).	d11-lineariteit
 y_reg	y	Responsvariabele (response) van de regressie: hier de bias van één meting.	\(y=\) meting − referentiewaarde, per meting (niet per onderdeel gemiddeld).	d11-lineariteit
-p_value	p	p-waarde (p-value): kans op een minstens zo extreem resultaat als \(H_{0}\) waar is.	Uit de Excel-output (P-value); verwerp \(H_{0}\) als \(p\lt\alpha\).	d05-pwaarde
+p_value	p	p-waarde (p-value): kans op een minstens zo extreem resultaat als \(H_{0}\) waar is.	Uit de ANOVA- of regressietabel of de rekenmachine; verwerp \(H_{0}\) als \(p\lt\alpha\).	d05-pwaarde
 r2	\(R^{2}\)	Determinatiecoëfficiënt (coefficient of determination): aandeel verklaarde variatie.	Uit de regressie-output (Deel 7). Een lage \(R^{2}\) met een vlakke helling kan op een gebogen patroon wijzen.	d07-anova
-f_stat	F	F-toetsgrootheid (F statistic): verhouding van twee mean squares.	MS van de factor / \(\mathrm{MS}_{e}\); vergelijk met F crit uit de Excel-output of gebruik de p-waarde.	d08-ftoets
+f_stat	F	F-toetsgrootheid (F statistic): verhouding van twee mean squares.	MS van de factor / \(\mathrm{MS}_{e}\); vergelijk met de kritieke F-waarde (F-tabel of rekenmachine kwantielen) of gebruik de p-waarde.	d08-ftoets
 d3	\(d_{3}\)	Constante: standaardafwijking van de range van n normale waarden, in eenheden \(\sigma\).	Table A (bv. 0,8641 voor \(n=5\)); \(\sigma(R)=d_{3}\sigma\).	d11-d2ster
 x_ijl	\(X_{ijl}\)	Meting door operator i op onderdeel j bij herhaling l.	De ruwe data van de GRR-studie (k × n × r metingen).	d11-avgrange
 x_part	\(X_{.j.}\)	Ware (referentie)waarde van onderdeel j in het GRR-model.	Onbekend; het onderdeelgemiddelde \(\bar{X}_{j}\) schat ze.	d11-avgrange
@@ -111,14 +111,14 @@ k3	\(K_{3}\)	Factor voor PV: \(\frac{1}{d_{2}^{*}}\).	\(d_{2}^{*}\) voor 1 subgr
 k_ops	k	Aantal operatoren (appraisers) in de GRR-studie.	Tellen (3 in de oefening van slide 38). Bepaalt \(K_{2}\). Niet de dekkingsfactor k.	d11-avgrange
 n_parts	n	Aantal onderdelen (parts) in de GRR-studie.	Tellen (5 in de oefening van slide 38). Bepaalt \(K_{3}\). Niet de subgroepgrootte (dat is r).	d11-avgrange
 r_trials	r	Aantal herhalingen (trials) per operator en onderdeel.	Tellen (2 in de oefening van slide 38). Subgroepgrootte voor \(d_{2}\) en \(K_{1}\).	d11-avgrange
-ss_a	\(\mathrm{SS}_{a}\)	Kwadratensom (sum of squares) van de factor operator.	\(n\cdot r\cdot\Sigma(\bar{X}_{i}-\bar{\bar{X}})^{2}\); in Excels "Anova: Two-Factor With Replication" de rij Columns.	d11-anova
-ss_p	\(\mathrm{SS}_{p}\)	Kwadratensom van de factor onderdeel (part).	\(k\cdot r\cdot\Sigma(\bar{X}_{j}-\bar{\bar{X}})^{2}\); in de Excel-output de rij Sample.	d11-anova
+ss_a	\(\mathrm{SS}_{a}\)	Kwadratensom (sum of squares) van de factor operator.	\(n\cdot r\cdot\Sigma(\bar{X}_{i}-\bar{\bar{X}})^{2}\).	d11-anova
+ss_p	\(\mathrm{SS}_{p}\)	Kwadratensom van de factor onderdeel (part).	\(k\cdot r\cdot\Sigma(\bar{X}_{j}-\bar{\bar{X}})^{2}\).	d11-anova
 ss_e	\(\mathrm{SS}_{e}\)	Kwadratensom van de fout (error) in het model zonder interactie.	\(\mathrm{SS}_{T}-\mathrm{SS}_{a}-\mathrm{SS}_{p}=\) within-SS + interactie-SS.	d11-anova
 ss_t	\(\mathrm{SS}_{T}\)	Totale kwadratensom: \(\Sigma(X_{ijl}-\bar{\bar{X}})^{2}\) over alle metingen.	Over alle nkr metingen; df = nkr − 1.	d11-anova
 ss_w	within-SS	Kwadratensom binnen de cellen (within), in het model met interactie.	\(\Sigma\)(meting − celgemiddelde)²; df = nk(r − 1).	d11-anova
 df_a	\(\mathrm{df}_{a}\)	Vrijheidsgraden van de factor operator.	k − 1.	d11-anova
 df_p	\(\mathrm{df}_{p}\)	Vrijheidsgraden van de factor onderdeel.	n − 1.	d11-anova
-df_e	\(\mathrm{df}_{e}\)	Vrijheidsgraden van de fout in het model zonder interactie.	nk(r − 1) + (k − 1)(n − 1); 23 in de GRR-studie (Excels within alleen: nk(r − 1) = 15).	d11-anova
+df_e	\(\mathrm{df}_{e}\)	Vrijheidsgraden van de fout in het model zonder interactie.	nk(r − 1) + (k − 1)(n − 1); 23 in de GRR-studie (in het model met interactie is de within-df alleen nk(r − 1) = 15).	d11-anova
 df_t	\(\mathrm{df}_{T}\)	Totaal aantal vrijheidsgraden.	nkr − 1.	d11-anova
 ms_a	\(\mathrm{MS}_{a}\)	Mean square van de factor operator.	\(\frac{\mathrm{SS}_{a}}{\mathrm{df}_{a}}\); verwachting nr·\(\mathrm{AV}^{2}+\mathrm{EV}^{2}\).	d11-anova
 ms_p	\(\mathrm{MS}_{p}\)	Mean square van de factor onderdeel.	\(\frac{\mathrm{SS}_{p}}{\mathrm{df}_{p}}\); verwachting kr·\(\mathrm{PV}^{2}+\mathrm{EV}^{2}\).	d11-anova

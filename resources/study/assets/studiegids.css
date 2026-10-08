@@ -177,3 +177,5 @@ figure.fig figcaption { font: 13px/1.45 Arial, Helvetica, sans-serif; color: var
            justify-content: center; cursor: zoom-out; padding: 20px; }
 #figzoom img { max-width: 96vw; max-height: 92vh; background: #fff; border-radius: 4px; }
 @media print { figure.fig img { cursor: default; } #figzoom { display: none; } }
+/* a calculator placed where its theory or exercise is (calc-here markers, build_study.py) */
+details.tool.here { background: var(--tool); border: 1px solid #c9b6e0; border-left: 4px solid #7a52a8; }

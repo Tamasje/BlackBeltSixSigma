@@ -4,12 +4,7 @@
   steekproef te beslissen tussen twee uitspraken over een populatie, met gecontroleerde risico's op een verkeerde
   beslissing. Dit deel behandelt het toetsrecept, de twee soorten fouten en de OC-curve, de p-waarde, eenzijdige en
   tweezijdige toetsen en de catalogus van veelgebruikte toetsen. Het tegelvoorbeeld van de aanvaardingssteekproeven
-  loopt erdoorheen. Het verband tussen toetsen en betrouwbaarheidsintervallen staat in
-  <a href="#d04-dualiteit">Deel 04, 04.9</a>.</p>
-  <p class="small">Afkortingen bij de paginalinks: <b>TH</b> = slides "A primer on Testing of Hypotheses"; <b>TH FR</b> =
-  "Testen van hypothesen" (Further Reading, Dutch); <b>Recepten</b> = "Testen van hypothesen – Veelgebruikte specifieke
-  testrecepten" (Test Recipes, Further Reading, Dutch); <b>CI</b>, <b>CI FR</b> = de delen over betrouwbaarheidsintervallen
-  (<a href="#d04">Deel 04</a>); <b>TH.xlsx</b> = het oefenbestand.</p>
+  loopt erdoorheen.</p>
 
   <!-- ============================================================ 05.1 -->
   <section class="unit" id="d05-idee" data-kw="hypothese; hypothesis; nulhypothese; null hypothesis; H0; alternatieve hypothese; alternative hypothesis; HA; H1; status quo; speciale actie; special action; toetsen; testing; tegels; tiles; beeldbuizen; picture tubes">
@@ -119,7 +114,7 @@
         </li>
         <li>\(\alpha\) is 5 % in het grensgeval \(\sym{p_lot}{P}=\sym{aql}{\mathrm{AQL}}\); voor betere partijen is het risico kleiner <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=6">TH p. 6</a>.</li>
         <li>De kritische waarde wordt gelegd op de referentieverdeling onder \(H_{0}\) (de verdeling bij
-        \(\sym{p_lot}{P}=2\ \%\)). Is in werkelijkheid \(\sym{p_lot}{P}=8\ \%\), dan volgt daaruit \(\sym{beta}{\beta}=9\ \%\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=7">TH p. 7</a> (figuur hieronder). Meer over de OC-curve in 05.3.
+        \(\sym{p_lot}{P}=2\ \%\)). Is in werkelijkheid \(\sym{p_lot}{P}=8\ \%\), dan volgt daaruit \(\sym{beta}{\beta}=9\ \%\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=7">TH p. 7</a> (figuur hieronder).
         <figure class="fig"><img src="figures/05_tegels_oc_curve.png" alt="Links de verdelingen van d onder H0 en HA met c = 4, beta = 9 % en alfa = 5 %; rechts de OC-curve met AQL = 2 %">
         <figcaption>Figuur: links de verdelingen van d onder \(H_{0}\) en onder \(H_{A}\ (P=8\ \%)\) met \(c=4\): rechts van c ligt
         \(\alpha=5\ \%\) van de \(H_{0}\)-verdeling, links van c \((d\le4)\ \beta=9\ \%\) van de \(H_{A}\)-verdeling. Rechts de
@@ -146,16 +141,15 @@
       <tr><td class="n">7</td><td>vergelijk met de kritische waarde en besluit</td><td>4 is niet hoger dan 5: \(H_{0}\) niet verwerpen bij 5 %, partij aanvaard</td><td>1265 &lt; 1270: aanvaard \(H_{0}\)</td></tr>
     </table>
     <p>Dit recept is universeel voor elke enkelvoudige procedure. Toetsen verschillen alleen in de toetsingsgrootheid, haar
-    steekproevenverdeling en dus de kritische waarde (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=9">TH p. 9</a>). De catalogus van veelgebruikte toetsen staat
-    in <a href="#d05-recepten">05.9</a>.</p>
-    <p class="small">"2,3" is een afgeronde Z-waarde: Z voor 1 % in de rechter staart is 2,326 (NORM.S.INV(0,99)), en
-    \(1200+\sym{z_099}{2{,}326}\cdot30=1269{,}8\approx1270\) <span class="computed">zelf berekend</span>. Met 2,3 zelf vind je 1269. Z-waarden: zie
-    <a href="#d03">Deel 03</a>.</p>
+    steekproevenverdeling en dus de kritische waarde (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=9">TH p. 9</a>).</p>
+    <p class="small">"2,3" is een afgeronde Z-waarde: Z voor 1 % in de rechter staart is \(z_{0{,}99}=2{,}326\) (Z-tabel), en
+    \(1200+\sym{z_099}{2{,}326}\cdot30=1269{,}8\approx1270\) <span class="computed">zelf berekend</span>. Met 2,3 zelf vind je 1269.</p>
     <div class="box tool"><span class="t">Rekentool</span>
       <p>Werkblad <b>"Mean &amp; proportion"</b>, sectie 2: rijen "z-test (\(\sigma\) known)" voor \(\sym{ha}{H_{A}}\): \(\sym{mu}{\mu}\ne\), &gt; of &lt;
       \(\sym{mu0}{\mu_{0}}\), met statistiek, kritische waarde en p-waarde. Vul \(\alpha\) zelf in (beslissing 5: de cursus kent geen
       standaard-\(\alpha\)).</p>
     </div>
+    <div class="calc-here" data-tool="gemiddelde" data-blocks="0"></div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
@@ -163,8 +157,7 @@
       <li><b>"De kritische waarde leg je op de verdeling die hoort bij \(H_{A}\)."</b> Fout: altijd op de referentieverdeling onder \(H_{0}\); de ware verdeling ken je niet. \(\beta\) volgt pas daarna uit die kritische waarde (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=7">TH p. 7</a>).</li>
       <li><b>"Bij de tegels wordt elke goede partij met 5 % kans afgekeurd."</b> Fout: \(\sym{alpha}{\alpha}=5\ \%\) geldt in het grensgeval \(\sym{p_lot}{P}=\sym{aql}{\mathrm{AQL}}\); voor betere partijen is het risico kleiner <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=6">TH p. 6</a>.</li>
       <li><b>Let op de kant:</b> bij \(\sym{ha}{H_{A}}\): \(\sym{mu}{\mu}\gt\sym{mu0}{\mu_{0}}\) ligt de kritische waarde in de rechterstaart, bij \(\sym{ha}{H_{A}}\): \(\sym{mu}{\mu}\lt\sym{mu0}{\mu_{0}}\) in de linkerstaart; het recept zegt "afpassen \(\alpha\) op distributie statistiek onder H0 (juiste kant !)" <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=10">TH FR p. 10</a>.</li>
-      <li><b>Let op:</b> TH FR p. 10 rekent met de afgeronde 2,3, maar \(1200+\sym{z_099}{2{,}3}\cdot30=1269\) <span class="computed">zelf berekend</span>, niet de afgedrukte 1270. Reken met \(\operatorname{NORM.S.INV}(0{,}99)=\sym{z_099}{2{,}326}\): 1269,8 ≈ 1270 <span class="computed">zelf berekend</span>.</li>
-      <li><b>"Een significant verschil is een belangrijk verschil."</b> Fout: "significant" is een technisch woord voor het risico op een type-I-fout, onnodige of zelfs schadelijke actie (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=6">TH p. 6</a>). Of het verschil ertoe doet, lees je in <a href="#d05-valkuilen">05.6</a>.</li>
+      <li><b>"Een significant verschil is een belangrijk verschil."</b> Fout: "significant" is een technisch woord voor het risico op een type-I-fout, onnodige of zelfs schadelijke actie (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=6">TH p. 6</a>).</li>
     </ul></div>
 
     <div class="exercise" id="ex-05-2" data-kw="beeldbuizen; picture tubes; Z-toets; z-test; eenzijdig; one-sided; kritische waarde; critical value; 1270; sigma gekend; S03-WE10">
@@ -179,11 +172,12 @@
         <select><option value="">kies…</option><option value="verwerp">H0 verwerpen: het nieuwe procedé is beter</option><option value="aanvaard">H0 aanvaarden (niet verwerpen)</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="kwantielen" data-blocks="0"></div>
       <details class="hint"><summary>Hint</summary><p>Onder \(H_{0}\): \(\sym{xbar}{\bar{X}}\sim\sym{normal_dist}{N}\left(1200;\frac{300}{\sqrt{100}}\right)\). Leg 1 % in de rechter
       staart.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
-          <li>\(\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}=\frac{300}{10}=30\). \(\sym{z_crit}{Z}\) voor 1 % rechts = 2,326 (de cursus: 2,3).</li>
+          <li>\(\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}=\frac{300}{10}=30\). \(\sym{z_crit}{Z}\) voor 1 % rechts = \(z_{0{,}99}=2{,}326\) (Z-tabel; de cursus: 2,3).</li>
           <li>a. \(\sym{k_crit}{\text{Kritische waarde}}=1200+\sym{z_099}{2{,}326}\cdot30=1269{,}8\approx\) <b>1270</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=10">TH FR p. 10</a>.</li>
           <li>b. 1265 &lt; 1270: <b>aanvaard \(H_{0}\)</b>. Het nieuwe procedé is bij 1 % significantie niet aantoonbaar
           beter; je investeert (nog) niet.</li>
@@ -263,6 +257,7 @@
     \(\beta\). Kies de krachtigste toets. Is toets \(T_{1}\) krachtiger dan \(T_{2}\) bij dezelfde n, dan kan \(T_{1}\)
     met een kleinere steekproef m dezelfde kracht halen; \(\frac{\sym{n}{n}}{\sym{m_eff}{m}}\) is de relatieve efficiëntie (notities bij TH FR p. 8). In SPC
     is \(\alpha\) per test vaak maar 0,3 %, maar daar wordt periodiek opnieuw getoetst (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=8">TH p. 8</a>).</p>
+    <div class="calc-here" data-tool="onderscheidingsvermogen" data-blocks="0"></div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
@@ -288,6 +283,7 @@
         <label>c. \(\sym{n}{n}=195\), \(\sym{alpha}{\alpha}=1\ \%\), ware \(\sym{mu}{\mu}=1300\): \(\sym{beta}{\beta}\) (in %):</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="onderscheidingsvermogen" data-blocks="0"></div>
       <details class="hint"><summary>Hint</summary><p>Leg eerst de kritische waarde k op de referentieverdeling onder
       \(H_{0}\). Dan is \(\sym{beta}{\beta}=P[\sym{xbar}{\bar{X}}\le\sym{k_crit}{k}]\) onder de ware verdeling \(\sym{normal_dist}{N}\left(\sym{mu}{\mu};\frac{300}{\sqrt{\sym{n}{n}}}\right)\).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
@@ -346,7 +342,7 @@
       <li><b>"Een gepubliceerd significant resultaat bewijst het effect."</b> Fout: als \(H_{0}\) waar is en 100 onderzoekers toetsen bij 5 %, vinden er naar verwachting 5 <span class="computed">zelf berekend</span> een "significant" resultaat. Verschijnen alleen die artikels, dan lijkt het bewijs overtuigend (professor Brainstorm, notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=11">TH FR p. 11</a>).</li>
     </ul></div>
 
-    <div class="exercise" id="ex-05-4" data-kw="p-waarde; p-value; tegels; tiles; binomiaal; binomial; n = 130; BINOM.DIST; aanvaardingssteekproef">
+    <div class="exercise" id="ex-05-4" data-kw="p-waarde; p-value; tegels; tiles; binomiaal; binomial; n = 130; aanvaardingssteekproef">
       <h4>Oefening 05.4 — p-waarde voor de tegels <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=10">TH p. 10</a></h4>
       <p>De figuur hieronder toont de referentieverdeling (binomiaal, \(\sym{n}{n}=130\), \(\sym{pi}{\pi}=2\ \%\)) met de waargenomen \(\sym{d_def}{d}=4\) gemarkeerd, maar geeft
       geen getal. Bereken de p-waarde \(P[\sym{d_def}{d}\ge4]\) als \(H_{0}\ (\sym{pi}{\pi}=2\ \%)\) waar is.</p>
@@ -363,10 +359,11 @@
         <select><option value="">kies…</option><option value="verwerp">H0 verwerpen</option><option value="aanvaard">H0 niet verwerpen: partij aanvaarden</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
-      <details class="hint"><summary>Hint</summary><p>\(P[\sym{d_def}{d}\ge4]=1-P[\sym{d_def}{d}\le3]=1-\operatorname{BINOM.DIST}(3;130;0{,}02;\mathrm{TRUE})\).</p></details>
+      <div class="calc-here" data-tool="verdelingen" data-blocks="1"></div>
+      <details class="hint"><summary>Hint</summary><p>\(P[\sym{d_def}{d}\ge4]=1-P[\sym{d_def}{d}\le3]\), met d binomiaal verdeeld \((n=130;\ \pi=0{,}02)\).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
-          <li>a. \(1-\operatorname{BINOM.DIST}(3;130;0{,}02;\mathrm{TRUE})=0{,}263=\) <b>26,3 %</b> <span class="computed">zelf berekend</span>.</li>
+          <li>a. Binomiaal \((n=130;\ \pi=0{,}02)\): \(P[\sym{d_def}{d}\le3]=0{,}737\), dus \(P[\sym{d_def}{d}\ge4]=1-0{,}737=0{,}263=\) <b>26,3 %</b> <span class="computed">zelf berekend</span>.</li>
           <li>b. 26,3 % &gt; 5 %: <b>\(H_{0}\) niet verwerpen</b>, zoals met de kritische waarde 5 (4 ≤ 5) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=9">TH p. 9</a>.</li>
         </ol>
       </details>
@@ -440,13 +437,13 @@
         tweezijdig \((1-\sym{alpha}{\alpha})\)-BI (<a href="#d04-dualiteit">04.9</a>).</li>
       </ul>
     </div>
+    <div class="calc-here" data-tool="kwantielen" data-blocks="0"></div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"Tweezijdig bij \(\sym{alpha}{\alpha}=1\ \%\): kritische \(\sym{z_crit}{z}=\sym{z_099}{2{,}326}\)."</b> Fout: tweezijdig verdeel je \(\alpha\) over beide staarten, \(\frac{\sym{alpha}{\alpha}}{2}=0{,}5\ \%\) per staart: \(\operatorname{NORM.S.INV}(0{,}995)=\sym{z_0995}{2{,}576}\) <span class="computed">zelf berekend</span>. 2,326 hoort bij eenzijdig 1 %; zo ook bij 5 %: <var data-s="z_095">1,645</var> eenzijdig, <var data-s="z_0975">1,96</var> tweezijdig <span class="computed">zelf berekend</span> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=12">TH FR p. 12–13</a>.</li>
+      <li><b>"Tweezijdig bij \(\sym{alpha}{\alpha}=1\ \%\): kritische \(\sym{z_crit}{z}=\sym{z_099}{2{,}326}\)."</b> Fout: tweezijdig verdeel je \(\alpha\) over beide staarten, \(\frac{\sym{alpha}{\alpha}}{2}=0{,}5\ \%\) per staart: \(z_{0{,}995}=\sym{z_0995}{2{,}576}\) (Z-tabel) <span class="computed">zelf berekend</span>. 2,326 hoort bij eenzijdig 1 %; zo ook bij 5 %: <var data-s="z_095">1,645</var> eenzijdig, <var data-s="z_0975">1,96</var> tweezijdig <span class="computed">zelf berekend</span> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=12">TH FR p. 12–13</a>.</li>
       <li><b>"Ik kies eenzijdig in de richting waarin \(\bar{x}\) afwijkt; dat is krachtiger."</b> Fout: de richting volgt uit de vraag, vóór je de data bekijkt (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=9">TH p. 9</a>). Wie de kant pas na het zien van de data kiest, verwerpt in feite in twee staarten: het werkelijke risico is \(2\alpha\) in plaats van \(\alpha\). <span class="gen">algemeen</span></li>
       <li><b>"Een eenzijdige toets is altijd beter, want krachtiger."</b> Fout: alleen in de gekozen richting; in de andere richting detecteert ze niets \((\mathrm{OC}=100\ \%)\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=14">TH FR p. 14</a>.</li>
-      <li><b>Let op:</b> TH FR p. 13 rekent met de afgeronde 2,6: \(1200\mp\sym{z_0995}{2{,}6}\cdot30\) geeft 1122 en 1278 <span class="computed">zelf berekend</span>, niet de afgedrukte 1123 en 1277; die komen van <var data-s="z_0995">2,576</var> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=13">TH FR p. 13</a>.</li>
     </ul></div>
 
     <div class="exercise" id="ex-05-6" data-kw="tweezijdig; two-sided; beeldbuizen; picture tubes; kritische waarden; critical values; tweezijdige p-waarde; 1123; 1277; 3 %">
@@ -469,6 +466,7 @@
         <select><option value="">kies…</option><option value="verwerp">H0 verwerpen</option><option value="aanvaard">H0 aanvaarden</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="gemiddelde" data-blocks="0"></div>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>a–b. 0,5 % per staart: \(\sym{z_crit}{Z}=2{,}576\). \(1200\mp\sym{z_0995}{2{,}576}\cdot30=\) <b>1123</b> en <b>1277</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=13">TH FR p. 13</a>.</li>
@@ -554,7 +552,7 @@
   </section>
 
   <!-- ============================================================ 05.7 -->
-  <section class="unit" id="d05-ttoets" data-kw="t-toets; t-test; t test; gemiddelde; mean; procesgemiddelde; process mean; example t-test; T.INV; T.DIST; T.TEST; −2,95; p-waarde 0,4 %; eenzijdig; one-sided">
+  <section class="unit" id="d05-ttoets" data-kw="t-toets; t-test; t test; gemiddelde; mean; procesgemiddelde; process mean; example t-test; −2,95; p-waarde 0,4 %; eenzijdig; one-sided">
     <h3>05.7 Voorbeeld: t-toets voor het gemiddelde <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=12">TH p. 12</a></h3>
     <p>Dezelfde situatie als in <a href="#d04-mu">04.4</a>, nu als klassieke toets. Een maat is normaal verdeeld rond 10; na
     vervanging van een machineonderdeel vreest men dat de stukken kleiner zijn. 20 willekeurige stukken (data in
@@ -572,10 +570,9 @@
       <figcaption>Figuur: de referentieverdeling t(19) met de kritische waarde −2,20 (verticale lijn) en de toetsingsgrootheid −2,95
       (stip op de as), links van de kritische waarde: \(H_{0}\) verwerpen.
       <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=12">TH p. 12</a></figcaption></figure>
-      <p>In TH.xlsx: \(\sym{xbar}{\bar{x}}=\) AVERAGE = 9,9287 (F2), \(\sym{s}{s}=\) STDEV.\(S=0{,}10793\) (F3), \(\sym{t_stat}{t}=\) (F2 − 10)/F3·SQRT(20) = −2,9543 (F4),
-      \(\sym{k_crit}{\text{kritische waarde}}\ \operatorname{T.INV}(0{,}02;19)=-2{,}2047\) (F8), \(\sym{p_value}{\text{p-waarde}}\ \operatorname{T.DIST}(F4;19;\mathrm{TRUE})=0{,}00407\) (F10). Cel F11 controleert met
-      T.TEST(data; kolom met 10'en; 1; 1): een eenzijdige gepaarde t-toets tegen een kolom met de waarde 10 geeft precies dezelfde
-      p-waarde.</p>
+      <p>Met de onafgeronde data (TH.xlsx): \(\sym{xbar}{\bar{x}}=9{,}9287\), \(\sym{s}{s}=0{,}10793\) (deler n − 1),
+      \(\sym{t_stat}{t}=\frac{9{,}9287-10}{\frac{0{,}10793}{\sqrt{20}}}=-2{,}9543\);
+      \(\sym{k_crit}{\text{kritische waarde}}=t_{0{,}02;19}=-2{,}2047\) (2 % links in t(19)); \(\sym{p_value}{\text{p-waarde}}=P[t(19)\le-2{,}9543]=0{,}00407\).</p>
       <p class="small">Met de afgeronde data van TH p. 12 vind je \(\sym{t_stat}{t}=-2{,}98\) en \(\sym{p_value}{p}=0{,}38\ \%\) 
       <span class="computed">zelf berekend</span>: hetzelfde besluit. Het BI uit 04.4 (]−∞; 9,98[, 10 ligt er niet in) geeft hetzelfde besluit: dualiteit.</p>
     </div>
@@ -583,13 +580,14 @@
       <p>Werkblad <b>"Mean &amp; proportion"</b>, sectie 2, rijen "t-test (\(\sigma\) unknown)": plak de 20 waarden in kolom L, vul
       \(\sym{alpha}{\alpha}=0{,}02\) en \(\sym{mu0}{\mu_{0}}=10\) in en lees de rij "\(\sym{ha}{H_{A}}\): \(\sym{mu}{\mu}\lt\sym{mu0}{\mu_{0}}\)".</p>
     </div>
+    <div class="calc-here" data-tool="gemiddelde" data-blocks="0"></div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>Let op de noemer:</b> \(\sym{t_stat}{t}=\frac{\sym{xbar}{\bar{x}}-10}{\frac{\sym{s}{s}}{\sqrt{\sym{n}{n}}}}\): deel door de standaardfout \(\frac{s}{\sqrt{n}}\), niet door s; en \(s=\) STDEV.S, met deler n − 1 <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=12">TH p. 12</a> (TH.xlsx, cel F3).</li>
+      <li><b>Let op de noemer:</b> \(\sym{t_stat}{t}=\frac{\sym{xbar}{\bar{x}}-10}{\frac{\sym{s}{s}}{\sqrt{\sym{n}{n}}}}\): deel door de standaardfout \(\frac{s}{\sqrt{n}}\), niet door s; en s met deler n − 1 <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=12">TH p. 12</a>.</li>
       <li><b>Let op:</b> vrijheidsgraden \(\sym{n}{n}-1=19\), niet 20: referentieverdeling \(\sym{t_dist}{t}(19)\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=12">TH p. 12</a>.</li>
-      <li><b>"De kritische waarde is +2,20."</b> Fout: \(\sym{ha}{H_{A}}\): \(\sym{mu}{\mu}\lt10\) wijst naar links. T.INV(0,02; 19) = −2,2047 is al negatief en je verwerpt als \(\sym{t_stat}{t}\lt-2{,}20\) (TH.xlsx, cel F8). T.INV(0,98; 19) geeft dezelfde waarde met een plusteken: dat is de rechterstaart.</li>
-      <li><b>Let op de p-waarde in Excel:</b> T.DIST(t; 19; TRUE) is de linkerstaart, dus de p-waarde bij \(\sym{ha}{H_{A}}\): \(\sym{mu}{\mu}\lt\sym{mu0}{\mu_{0}}\) (TH.xlsx, cel F10). Bij \(\sym{ha}{H_{A}}\): \(\sym{mu}{\mu}\gt\sym{mu0}{\mu_{0}}\) neem je 1 − T.DIST(t; df; TRUE), tweezijdig het dubbele van de kleinste staart (<a href="#d05-pwaarde">05.4</a>).</li>
+      <li><b>"De kritische waarde is +2,20."</b> Fout: \(\sym{ha}{H_{A}}\): \(\sym{mu}{\mu}\lt10\) wijst naar links: de kritische waarde met 2 % links ervan in t(19) is −2,2047, en je verwerpt als \(\sym{t_stat}{t}\lt-2{,}20\). +2,2047 heeft 2 % rechts ervan: dat is de grens voor de rechterstaart.</li>
+      <li><b>Let op de staart van de p-waarde:</b> bij \(\sym{ha}{H_{A}}\): \(\sym{mu}{\mu}\lt\sym{mu0}{\mu_{0}}\) is de p-waarde de linkerstaart \(P[t(19)\le t]\); bij \(\sym{ha}{H_{A}}\): \(\sym{mu}{\mu}\gt\sym{mu0}{\mu_{0}}\) de rechterstaart \(P[t(\mathrm{df})\ge t]\); tweezijdig het dubbele van de kleinste staart.</li>
       <li><b>"Met s uit de steekproef gebruik je gewoon de z-waarden."</b> Fout: met een geschatte s volgt de grootheid een t(n − 1)-verdeling, iets breder dan N(0; 1); pas als \(n\to\infty\) wordt t gelijk aan Z (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=12">TH p. 12</a>). De Z-toets voor \(\mu\) veronderstelt \(\sigma\) gekend <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=17">TH FR p. 17</a>.</li>
     </ul></div>
 
@@ -615,11 +613,12 @@
         <select><option value="">kies…</option><option value="verwerp">H0 verwerpen: proces bijregelen</option><option value="aanvaard">H0 niet verwerpen</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="gemiddelde" data-blocks="0"></div>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>a. \(\sym{xbar}{\bar{x}}=9{,}9287\); \(\sym{s}{s}=0{,}10793\); \(\sym{t_stat}{t}=\frac{9{,}9287-10}{\frac{0{,}10793}{\sqrt{20}}}=\) <b>−2,954</b> (cursus: −2,95).</li>
-          <li>b. T.INV(0,02; 19) = <b>−2,205</b> (cursus: −2,20).</li>
-          <li>c. \(\operatorname{T.DIST}(-2{,}954;19;\mathrm{TRUE})=0{,}00407=\) <b>0,41 %</b> (cursus: 0,4 %).</li>
+          <li>b. 2 % in de linkerstaart van t(19): \(t_{0{,}02;19}=\) <b>−2,205</b> (t-tabel; cursus: −2,20).</li>
+          <li>c. \(P[t(19)\le-2{,}954]=0{,}00407=\) <b>0,41 %</b> (cursus: 0,4 %).</li>
           <li>d. −2,95 &lt; −2,20 en 0,4 % &lt; 2 %: <b>\(H_{0}\) verwerpen</b>, het proces moet bijgeregeld worden <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=12">TH p. 12</a>.</li>
         </ol>
       </details>
@@ -627,7 +626,7 @@
   </section>
 
   <!-- ============================================================ 05.8 -->
-  <section class="unit" id="d05-chi2toets" data-kw="chi-kwadraattoets; chi-square test; χ²-toets; standaardafwijking; standard deviation; spreiding; variance; procesvariabiliteit; process variability; CHISQ.INV; CHISQ.DIST; 33,69; 13,6 %; example chi²-test">
+  <section class="unit" id="d05-chi2toets" data-kw="chi-kwadraattoets; chi-square test; χ²-toets; standaardafwijking; standard deviation; spreiding; variance; procesvariabiliteit; process variability; 33,69; 13,6 %; example chi²-test">
     <h3>05.8 Voorbeeld: χ²-toets voor de standaardafwijking <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=13">TH p. 13</a></h3>
     <p>Dezelfde situatie als in <a href="#d04-sigma">04.7</a>. Een maat is normaal verdeeld met \(\sym{sigma}{\sigma}=0{,}01\); door slijtage vreest
     men dat het proces grilliger is geworden. 20 stuks (data in <a href="#ex-05-9">oefening 05.9</a> en in TH.xlsx, werkblad "example \(\mathrm{chi}^{2}\)-test").</p>
@@ -635,10 +634,10 @@
       <ol class="steps">
         <li>\(\sym{h0}{H_{0}}\): de procesvariabiliteit is niet veranderd; \(\sym{ha}{H_{A}}\): het proces is grilliger geworden
         \((\sym{sigma}{\sigma}\gt0{,}01)\). \(\sym{alpha}{\alpha}=2\ \%\).</li>
-        <li>Toetsingsgrootheid \(\frac{(\sym{n}{n}-1)\sym{s_sq}{s^{2}}}{\sym{sigma0}{\sigma_{0}}^{2}}\): de klassieke grootheid voor de variantie van een verdeling. In
-        TH.xlsx: 19·VAR.\(\frac{S}{0{,}01^{2}}=25{,}81\).</li>
-        <li>Referentieverdeling \(\sym{chi2_dist}{\chi^{2}}(19)\); kritische waarde 33,69 (rechter staart: CHISQ.INV(1 − 0,02; 19)).</li>
-        <li>\(\sym{p_value}{\text{p-waarde}}=13{,}6\ \%\) (1 − CHISQ.DIST(25,81; 19; TRUE)).</li>
+        <li>Toetsingsgrootheid \(\frac{(\sym{n}{n}-1)\sym{s_sq}{s^{2}}}{\sym{sigma0}{\sigma_{0}}^{2}}\): de klassieke grootheid voor de variantie van een verdeling. Hier:
+        \(\frac{19\cdot\sym{s_sq}{s^{2}}}{0{,}01^{2}}=25{,}81\).</li>
+        <li>Referentieverdeling \(\sym{chi2_dist}{\chi^{2}}(19)\); kritische waarde 33,69 (rechter staart: 2 % rechts ervan, \(\chi^{2}_{0{,}98;19}\)).</li>
+        <li>\(\sym{p_value}{\text{p-waarde}}=P[\chi^{2}(19)\ge25{,}81]=13{,}6\ \%\).</li>
         <li>Besluit: bij 2 % significantie kan \(H_{0}\) niet verworpen worden; de procesvariabiliteit wordt stabiel
         geacht. Dezelfde conclusie als het BI ]0,0088; +∞[ in 04.7.</li>
       </ol>
@@ -652,11 +651,12 @@
       <p>Werkblad <b>"Variance CI &amp; tests"</b>, sectie 2: plak de data in kolom H, \(\sym{sigma0}{\sigma_{0}}=0{,}01\), \(\sym{alpha}{\alpha}=0{,}02\); lees de
       rij "\(\sym{ha}{H_{A}}\): \(\sym{sigma}{\sigma}\gt\sym{sigma0}{\sigma_{0}}\) (e.g. 'more erratic')".</p>
     </div>
+    <div class="calc-here" data-tool="variantie" data-blocks="0"></div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>Let op:</b> de grootheid gebruikt varianties: \(\frac{(\sym{n}{n}-1)\sym{s_sq}{s^{2}}}{\sym{sigma0}{\sigma_{0}}^{2}}\), met \(s^{2}=\) VAR.S en \(\sigma_{0}^{2}=0{,}01^{2}=0{,}0001\), niet s en \(\sigma_{0}\) (TH.xlsx: 19·VAR.\(\frac{S}{0{,}01^{2}}\)) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=13">TH p. 13</a>.</li>
-      <li><b>"De \(\chi^{2}\)-verdeling is symmetrisch, dus de linker kritische waarde is −33,69."</b> Fout: \(\chi^{2}\) is asymmetrisch en neemt alleen positieve waarden aan (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=13">TH p. 13</a>). Rechts: \(\operatorname{CHISQ.INV}(1-\alpha;n-1)\); links: \(\operatorname{CHISQ.INV}(\alpha;n-1)\), een kleine positieve waarde; tweezijdig elk met \(\frac{\alpha}{2}\) (<a href="#d05-chi2-f">05.12</a>).</li>
+      <li><b>Let op:</b> de grootheid gebruikt varianties: \(\frac{(\sym{n}{n}-1)\sym{s_sq}{s^{2}}}{\sym{sigma0}{\sigma_{0}}^{2}}\), met \(s^{2}\) en \(\sigma_{0}^{2}=0{,}01^{2}=0{,}0001\), niet s en \(\sigma_{0}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=13">TH p. 13</a>.</li>
+      <li><b>"De \(\chi^{2}\)-verdeling is symmetrisch, dus de linker kritische waarde is −33,69."</b> Fout: \(\chi^{2}\) is asymmetrisch en neemt alleen positieve waarden aan (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=13">TH p. 13</a>). Rechts: de waarde met \(\alpha\) rechts ervan in \(\chi^{2}(n-1)\); links: de waarde met \(\alpha\) links ervan, een kleine positieve waarde; tweezijdig elk met \(\frac{\alpha}{2}\).</li>
       <li><b>"De \(\chi^{2}\)-toets is robuust, net als de t-toets."</b> Fout: ze is niet robuust; de verdeling van de statistiek "heeft sterk te lijden van de niet-normaliteit van X", dus X moet normaal verdeeld zijn <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=11">Recepten p. 11</a>.</li>
     </ul></div>
 
@@ -682,11 +682,12 @@
         <select><option value="">kies…</option><option value="verwerp">H0 verwerpen: proces grilliger</option><option value="aanvaard">H0 niet verwerpen: variabiliteit stabiel</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="variantie" data-blocks="0"></div>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
-          <li>a. \(\sym{s_sq}{s^{2}}=0{,}00013582\); \(\frac{19\cdot0{,}00013582}{0{,}0001}=\) <b>25,81</b> (TH.xlsx, cel E3).</li>
-          <li>b. CHISQ.INV(0,98; 19) = <b>33,69</b> (cursus).</li>
-          <li>c. \(1-\operatorname{CHISQ.DIST}(25{,}81;19;\mathrm{TRUE})=\) <b>13,6 %</b> (cursus).</li>
+          <li>a. \(\sym{s_sq}{s^{2}}=0{,}00013582\); \(\frac{19\cdot0{,}00013582}{0{,}0001}=\) <b>25,81</b> (TH.xlsx).</li>
+          <li>b. 2 % in de rechterstaart van \(\chi^{2}(19)\): \(\chi^{2}_{0{,}98;19}=\) <b>33,69</b> (\(\chi^{2}\)-tabel; cursus).</li>
+          <li>c. \(P[\chi^{2}(19)\ge25{,}81]=\) <b>13,6 %</b> (cursus).</li>
           <li>d. 25,81 &lt; 33,69 en 13,6 % &gt; 2 %: <b>\(H_{0}\) niet verwerpen</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=13">TH p. 13</a>.</li>
         </ol>
       </details>
@@ -727,7 +728,7 @@
     <ul>
       <li><b>"Twee metingen op dezelfde eenheden (paren)? Gebruik de niet-gepaarde t-toets."</b> Fout: paren vragen de gepaarde t-toets op de verschillen <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=7">Recepten p. 7</a>. Op de schoenzolen geeft gepaard \(\sym{p_value}{p}=0{,}0019\) en niet-gepaard \(\sym{p_value}{p}=0{,}074\) <span class="computed">zelf berekend</span>: paren is veel krachtiger bij positieve correlatie binnen een paar (<a href="#d05-t-recepten">05.10</a>, <a href="#d04-verschil">04.6</a>).</li>
       <li><b>"Fractie defectieven? Dan een t-toets op het gemiddelde."</b> Fout: voor een proportie is het de Z-toets voor \(\pi\), benaderd normaal met voorwaarde \(\sym{n}{n}\sym{pi0}{\pi_{0}}\gt5\), anders exact binomiaal <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=9">Recepten p. 9–10</a>.</li>
-      <li><b>"Is machine 1 nauwkeuriger dan machine 2? Vergelijk de gemiddelden."</b> Fout: nauwkeurigheid gaat over spreiding: \(\chi^{2}\)-toets voor één \(\sigma\) tegenover \(\sigma_{0}\), F-toets voor \(\sigma_{1}\) tegenover \(\sigma_{2}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=11">Recepten p. 11–14</a>; zie examenvraag 2 (<a href="#d13-v2">13.2</a>).</li>
+      <li><b>"Is machine 1 nauwkeuriger dan machine 2? Vergelijk de gemiddelden."</b> Fout: nauwkeurigheid gaat over spreiding: \(\chi^{2}\)-toets voor één \(\sigma\) tegenover \(\sigma_{0}\), F-toets voor \(\sigma_{1}\) tegenover \(\sigma_{2}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=11">Recepten p. 11–14</a>.</li>
       <li><b>"Robuust betekent: geen voorwaarden."</b> Fout: een robuuste toets blijft bruikbaar als een aanname niet helemaal klopt. De t-toetsen zijn robuust, behalve bij een klein RS én een sterk niet-normale verdeling <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=4">Recepten p. 4</a>; de \(\chi^{2}\)-toets voor \(\sigma\) en de F-toets zijn niet robuust <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=11">Recepten p. 11</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=14">Recepten p. 14</a>.</li>
     </ul></div>
   </section>
@@ -747,19 +748,19 @@
       <li>De niet-gepaarde toets vraagt bovendien \(\sym{sigma1}{\sigma_{1}}=\sym{sigma2}{\sigma_{2}}\); is dat manifest niet zo, dan pas je de toets aan
       (de recepten geven die aanpassing niet) <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=6">Recepten p. 6</a>. De gepaarde toets heeft die voorwaarde niet <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=8">Recepten p. 8</a>.</li>
       <li>Beide twee-steekproeftoetsen zijn toetsen over de <i>ligging</i> van de verdelingen.</li>
-      <li>Wanneer paren? Zie de schoenzolen in <a href="#d04-verschil">04.6</a>: paren is nauwkeuriger bij positieve correlatie
-      binnen een paar.</li>
+      <li>Paren is nauwkeuriger bij positieve correlatie binnen een paar (de schoenzolen, <a href="#d04-verschil">04.6</a>).</li>
     </ul>
     <div class="box tool"><span class="t">Rekentool</span>
       <p>Werkblad <b>"Mean &amp; proportion"</b>: sectie 2 (één steekproef), sectie 3 (niet-gepaard, met \(d_{0}\)) en
       sectie 4 (gepaard). Elke sectie geeft de drie alternatieven ≠, &gt;, &lt; met statistiek, kritische waarde en p-waarde.</p>
     </div>
+    <div class="calc-here" data-tool="tweegemiddelden" data-blocks="0 1"></div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>Let op:</b> gepoolde variantie \(\sym{sp_sq}{s_{p}^{2}}\) met noemer \(\sym{n1}{n_{1}}+\sym{n2}{n_{2}}-2\), en t met \(n_{1}+n_{2}-2\) vrijheidsgraden <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=5">Recepten p. 5</a>. CI FR p. 15 drukt − 1 af; dat is een fout (beslissing 8, <a href="#d04-verschil">04.6</a>).</li>
       <li><b>Let op bij gepaard:</b> \(n=\) aantal paren en de t-verdeling heeft \(\sym{n}{n}-1\) vrijheidsgraden (schoenzolen: 10 paren, t(9)), niet 2n − 2. \(\sym{s_v}{s_{v}}\) is de standaardafwijking van de verschillen zelf, niet te halen uit \(s_{1}\) en \(s_{2}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=7">Recepten p. 7–8</a>.</li>
-      <li><b>"De niet-gepaarde t-toets mag altijd."</b> Fout: ze vraagt normaliteit én \(\sym{sigma1}{\sigma_{1}}=\sym{sigma2}{\sigma_{2}}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=6">Recepten p. 6</a>; de gepaarde toets vraagt geen gelijke spreidingen <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=8">Recepten p. 8</a>. Ga je \(\sigma_{1}=\sigma_{2}\) na met de F-toets, lees dan eerst <a href="#d05-chi2-f">05.12</a>.</li>
+      <li><b>"De niet-gepaarde t-toets mag altijd."</b> Fout: ze vraagt normaliteit én \(\sym{sigma1}{\sigma_{1}}=\sym{sigma2}{\sigma_{2}}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=6">Recepten p. 6</a>; de gepaarde toets vraagt geen gelijke spreidingen <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=8">Recepten p. 8</a>.</li>
       <li><b>Let op de volgorde:</b> \(\sym{v_i}{v_{i}}=\sym{x1i}{x_{1i}}-\sym{x2i}{x_{2i}}\) en \(H_{0}\): \(\sym{mu1}{\mu_{1}}-\sym{mu2}{\mu_{2}}=\sym{d_diff}{d}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=7">Recepten p. 7</a>. Reken je \(x_{2}-x_{1}\), dan keert het teken van t om, en bij een eenzijdige toets dus ook de staart.</li>
     </ul></div>
 
@@ -780,12 +781,13 @@
         <select><option value="">kies…</option><option value="verwerp">H0 verwerpen</option><option value="aanvaard">H0 niet verwerpen</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="tweegemiddelden" data-blocks="0"></div>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>a. \(\sym{sp}{s_{p}}=6{,}59\); \(\sym{t_stat}{t}=\frac{28{,}7-34{,}3}{6{,}59\cdot\sqrt{0{,}2}}=-\frac{5{,}6}{2{,}948}=\) <b>−1,90</b>
           <span class="computed">zelf berekend</span>.</li>
-          <li>\(\sym{k_crit}{\text{Kritische waarden}}\pm\operatorname{T.INV}(0{,}975;18)=\pm2{,}10\).</li>
-          <li>b. \(\sym{p_value}{p}=2\cdot\)(1 − T.DIST(1,90; 18; TRUE)) = <b>0,074</b> <span class="computed">zelf berekend</span>.</li>
+          <li>\(\sym{k_crit}{\text{Kritische waarden}}\pm t_{0{,}975;18}=\pm2{,}10\) (2,5 % per staart; t-tabel).</li>
+          <li>b. \(\sym{p_value}{p}=2\cdot P[t(18)\ge1{,}90]=\) <b>0,074</b> <span class="computed">zelf berekend</span>.</li>
           <li>c. |−1,90| &lt; 2,10 en 0,074 &gt; 0,05: <b>\(H_{0}\) niet verwerpen</b>. Zelfde besluit als het BI
           −5,6 ± 6,19 dat 0 bevat (04.10): dualiteit.</li>
         </ol>
@@ -809,10 +811,11 @@
         <select><option value="">kies…</option><option value="verwerp">H0 verwerpen: de materialen verschillen</option><option value="aanvaard">H0 niet verwerpen</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="tweegemiddelden" data-blocks="1"></div>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>a. \(\sym{t_stat}{t}=-\frac{3{,}3}{\frac{2{,}406}{\sqrt{10}}}=\) <b>−4,34</b> <span class="computed">zelf berekend</span>; kritische waarden ±2,26.</li>
-          <li>b. \(\sym{p_value}{p}=2\cdot\operatorname{T.DIST}(-4{,}34;9;\mathrm{TRUE})=\) <b>0,0019</b> <span class="computed">zelf berekend</span>.</li>
+          <li>b. \(\sym{p_value}{p}=2\cdot P[t(9)\le-4{,}34]=\) <b>0,0019</b> <span class="computed">zelf berekend</span>.</li>
           <li>c. <b>\(H_{0}\) verwerpen</b>: materiaal 2 is sleetvaster, zoals het BI −3,3 ± 1,72 (04.11). Dezelfde vraag
           gaf niet-gepaard \(\sym{p_value}{p}=0{,}074\): paren maakt de toets veel krachtiger.</li>
         </ol>
@@ -837,6 +840,7 @@
       <p>Werkblad <b>"Mean &amp; proportion"</b>, sectie 5: n, aantal defecten x en \(\pi_{0}\); de sheet controleert
       \(\sym{n}{n}\sym{pi0}{\pi_{0}}\gt5\) en geeft de Z-toets voor ≠, &gt;, &lt;.</p>
     </div>
+    <div class="calc-here" data-tool="proportie" data-blocks="0"></div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
@@ -873,6 +877,7 @@
         <label>e. Kleinste steekproef waarvoor die kans onder 10 % zakt:</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="onderscheidingsvermogen" data-blocks="1"></div>
       <details class="hint"><summary>Hint</summary><p>d: leg de kritische fractie \(\sym{p_c}{p_{c}}=0{,}02+\sym{z_095}{1{,}645}\cdot\sqrt{\frac{0{,}02\cdot0{,}98}{400}}\)
       en bereken \(P[\sym{p_sample}{P}\le\sym{p_c}{p_{c}}]\) onder \(\sym{pi}{\pi}=0{,}03\) (normaal, met \(\sym{se_p1}{\sigma}=\sqrt{\frac{0{,}03\cdot0{,}97}{\sym{n}{n}}}\)). e: zoek n zodat die kans 10 % wordt:
       \(\sym{p_c}{p_{c}}=0{,}03-\sym{z_090}{1{,}282}\cdot\sqrt{\frac{0{,}03\cdot0{,}97}{\sym{n}{n}}}\).</p></details>
@@ -881,7 +886,7 @@
           <li>Voorwaarde: \(\sym{n}{n}\sym{pi0}{\pi_{0}}=400\cdot0{,}02=8\gt5\), de Z-toets mag <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=10">Recepten p. 10</a>.</li>
           <li>a. \(\sym{p_sample}{p}=\frac{10}{400}=0{,}025\); \(\sym{se_p0}{\sigma_{0}}=\sqrt{\frac{0{,}02\cdot0{,}98}{400}}=0{,}0070\); \(\sym{z_stat}{z}=\frac{0{,}005}{0{,}0070}=\) <b>0,714</b>
           <span class="computed">zelf berekend</span>.</li>
-          <li>b. \(\sym{p_value}{\text{p-waarde}}=1-\operatorname{NORM.S.DIST}(0{,}714;\mathrm{TRUE})=\) <b>0,238</b> <span class="computed">zelf berekend</span>. Met
+          <li>b. \(\sym{p_value}{\text{p-waarde}}=P[Z\ge0{,}714]=1-\Phi(0{,}714)=\) <b>0,238</b> <span class="computed">zelf berekend</span>. Met
           continuïteitscorrectie (rechts: \(\sym{p_sample}{p}-\frac{1}{2\sym{n}{n}}\)) is \(\sym{z_stat}{z}=0{,}536\) en \(\sym{p_value}{p}=0{,}296\); exact binomiaal \(P[\sym{d_def}{d}\ge10]=0{,}282\)
           <span class="computed">zelf berekend</span>.</li>
           <li>c. Elke versie geeft een p-waarde ver boven 5 %: <b>\(H_{0}\) niet verwerpen</b>. De kritische fractie is
@@ -898,41 +903,41 @@
   </section>
 
   <!-- ============================================================ 05.12 -->
-  <section class="unit" id="d05-chi2-f" data-kw="χ²-toets voor σ; chi-square test sigma; F-toets; F-test; F test; gelijke spreidingen; equal variances; verhouding varianties; variance ratio; F.INV; F.INV.RT; F.DIST; nauwkeuriger; more precise; niet robuust; not robust; tabellen; tables">
+  <section class="unit" id="d05-chi2-f" data-kw="χ²-toets voor σ; chi-square test sigma; F-toets; F-test; F test; gelijke spreidingen; equal variances; verhouding varianties; variance ratio; nauwkeuriger; more precise; niet robuust; not robust; tabellen; tables">
     <h3>05.12 De χ²-toets voor σ en de F-toets voor σ<sub>1</sub>/σ<sub>2</sub> <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=11">Recepten p. 11–14</a></h3>
     <p><b>\(\chi^{2}\)-toets voor \(\sigma\)</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=11">Recepten p. 11</a>: \(\sym{h0}{H_{0}}\): \(\sym{sigma}{\sigma}=\sym{sigma0}{\sigma_{0}}\) tegen (DZ) \(\sym{sigma}{\sigma}\ne\sym{sigma0}{\sigma_{0}}\) of (EZ) \(\sym{sigma}{\sigma}\gt(\lt)\ \sym{sigma0}{\sigma_{0}}\); statistiek \(\frac{(\sym{n}{n}-1)\sym{s_sq}{s^{2}}}{\sym{sigma0}{\sigma_{0}}^{2}}\sim\sym{chi2_dist}{\chi^{2}}(\sym{n}{n}-1)\) als X normaal verdeeld is. De toets is niet robuust: de
-    verdeling van de statistiek "heeft sterk te lijden" van niet-normaliteit. Kritische waarden in Excel:
-    \(\sym{ha}{H_{A}}\): \(\sym{sigma}{\sigma}\gt\sym{sigma0}{\sigma_{0}}\to\operatorname{CHISQ.INV}(1-\sym{alpha}{\alpha};\sym{n}{n}-1)\); \(\sym{ha}{H_{A}}\): \(\sym{sigma}{\sigma}\lt\sym{sigma0}{\sigma_{0}}\to\operatorname{CHISQ.INV}(\sym{alpha}{\alpha};\sym{n}{n}-1)\);
-    tweezijdig → beide met \(\frac{\sym{alpha}{\alpha}}{2}\). Voorbeeld: <a href="#d05-chi2toets">05.8</a>.</p>
-    <p><b>De F-verdeling</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=12">Recepten p. 12</a>: zie <a href="#d04-f">04.8</a> (definitie, stelling \(\frac{\frac{\sym{s1_sq}{s_{1}^{2}}}{\sym{sigma1}{\sigma_{1}}^{2}}}{\frac{\sym{s2_sq}{s_{2}^{2}}}{\sym{sigma2}{\sigma_{2}}^{2}}}\sim\sym{f_dist}{F}(\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\), \(\sym{f_crit}{F_{\alpha}}(\sym{df_n}{n},\sym{df_m}{m})=\frac{1}{\sym{f_crit}{F_{1-\alpha}}(\sym{df_m}{m},\sym{df_n}{n})}\)).</p>
+    verdeling van de statistiek "heeft sterk te lijden" van niet-normaliteit. Kritische waarden in \(\sym{chi2_dist}{\chi^{2}}(\sym{n}{n}-1)\):
+    \(\sym{ha}{H_{A}}\): \(\sym{sigma}{\sigma}\gt\sym{sigma0}{\sigma_{0}}\to\) de waarde met \(\sym{alpha}{\alpha}\) rechts ervan; \(\sym{ha}{H_{A}}\): \(\sym{sigma}{\sigma}\lt\sym{sigma0}{\sigma_{0}}\to\) de waarde met \(\sym{alpha}{\alpha}\) links ervan;
+    tweezijdig → beide met \(\frac{\sym{alpha}{\alpha}}{2}\).</p>
+    <p><b>De F-verdeling</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=12">Recepten p. 12</a> (definitie in <a href="#d04-f">04.8</a>): stelling \(\frac{\frac{\sym{s1_sq}{s_{1}^{2}}}{\sym{sigma1}{\sigma_{1}}^{2}}}{\frac{\sym{s2_sq}{s_{2}^{2}}}{\sym{sigma2}{\sigma_{2}}^{2}}}\sim\sym{f_dist}{F}(\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\), \(\sym{f_crit}{F_{\alpha}}(\sym{df_n}{n},\sym{df_m}{m})=\frac{1}{\sym{f_crit}{F_{1-\alpha}}(\sym{df_m}{m},\sym{df_n}{n})}\), met \(F_{\alpha}\) de waarde met kans \(\alpha\) rechts ervan.</p>
     <div class="f">
       <div><b>F-toets</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=13">Recepten p. 13–14</a>: \(\sym{h0}{H_{0}}\): \(\sym{sigma1}{\sigma_{1}}=\sym{sigma2}{\sigma_{2}}\) vs (DZ) \(\sym{sigma1}{\sigma_{1}}\ne\sym{sigma2}{\sigma_{2}}\) of (EZ) \(\sym{sigma1}{\sigma_{1}}\gt(\lt)\ \sym{sigma2}{\sigma_{2}}\)</div>
       <div>\(\sym{f_stat}{F}=\frac{\sym{s1_sq}{s_{1}^{2}}}{\sym{s2_sq}{s_{2}^{2}}}\sim\sym{f_dist}{F}(\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\)  of  \(\sym{f_stat}{F}=\frac{\sym{s2_sq}{s_{2}^{2}}}{\sym{s1_sq}{s_{1}^{2}}}\sim\sym{f_dist}{F}(\sym{n2}{n_{2}}-1;\sym{n1}{n_{1}}-1)\)  (onder \(H_{0}\), beide populaties normaal)</div>
-      <div>met \(\sym{f_stat}{F}=\frac{\sym{s1_sq}{s_{1}^{2}}}{\sym{s2_sq}{s_{2}^{2}}}\): \(\sym{ha}{H_{A}}\): \(\sym{sigma1}{\sigma_{1}}\gt\sym{sigma2}{\sigma_{2}}\) verwerp als \(\sym{f_stat}{F}\gt\operatorname{F.INV.RT}(\sym{alpha}{\alpha};\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\); \(\sym{ha}{H_{A}}\): \(\sym{sigma1}{\sigma_{1}}\lt\sym{sigma2}{\sigma_{2}}\) verwerp als \(\sym{f_stat}{F}\lt\operatorname{F.INV}(\sym{alpha}{\alpha};\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\)</div>
-      <div>tweezijdig: verwerp als \(\sym{f_stat}{F}\gt\operatorname{F.INV.RT}\left(\frac{\sym{alpha}{\alpha}}{2};\ldots\right)\) of \(\sym{f_stat}{F}\lt\operatorname{F.INV}\left(\frac{\sym{alpha}{\alpha}}{2};\ldots\right)\)</div>
+      <div>met \(\sym{f_stat}{F}=\frac{\sym{s1_sq}{s_{1}^{2}}}{\sym{s2_sq}{s_{2}^{2}}}\): \(\sym{ha}{H_{A}}\): \(\sym{sigma1}{\sigma_{1}}\gt\sym{sigma2}{\sigma_{2}}\) verwerp als \(\sym{f_stat}{F}\gt\sym{f_crit}{F_{\alpha}}(\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\); \(\sym{ha}{H_{A}}\): \(\sym{sigma1}{\sigma_{1}}\lt\sym{sigma2}{\sigma_{2}}\) verwerp als \(\sym{f_stat}{F}\lt\sym{f_crit}{F_{1-\alpha}}(\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\)</div>
+      <div>tweezijdig: verwerp als \(\sym{f_stat}{F}\gt\sym{f_crit}{F_{\alpha/2}}(\ldots)\) of \(\sym{f_stat}{F}\lt\sym{f_crit}{F_{1-\alpha/2}}(\ldots)\)</div>
     </div>
     <ul>
       <li><b>Welke verhouding?</b> Kies F zo dat de procedure eenvoudig blijft met de beschikbare tabellen, die alleen
       kritische waarden voor kleine staartkansen (&lt; 0,5) geven <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=14">Recepten p. 14</a>. Praktisch: zet de variantie waarvan \(H_{A}\)
-      zegt dat ze groter is in de teller; dan verwerp je bij een grote F en heb je alleen de bovenste kritische waarde nodig.
-      In Excel kan het ook rechtstreeks met F.INV en F.INV.RT (beslissing 7).</li>
+      zegt dat ze groter is in de teller; dan verwerp je bij een grote F en heb je alleen de bovenste kritische waarde nodig.</li>
       <li><b>Niet robuust</b>: wees voorzichtig als je de F-toets gebruikt om de voorwaarde \(\sym{sigma1}{\sigma_{1}}=\sym{sigma2}{\sigma_{2}}\) van de
       niet-gepaarde t-toets na te gaan <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=14">Recepten p. 14</a>.</li>
       <li>"Is machine 1 nauwkeuriger dan machine 2?" is \(\sym{ha}{H_{A}}\): \(\sym{sigma1}{\sigma_{1}}\lt\sym{sigma2}{\sigma_{2}}\). Met
       \(\sym{f_stat}{F}=\frac{\sym{s2_sq}{s_{2}^{2}}}{\sym{s1_sq}{s_{1}^{2}}}\sim\sym{f_dist}{F}(\sym{n2}{n_{2}}-1;\sym{n1}{n_{1}}-1)\) verwerp je \(H_{0}\) als
-      \(\sym{f_stat}{F}\gt\operatorname{F.INV.RT}(\sym{alpha}{\alpha};\sym{n2}{n_{2}}-1;\sym{n1}{n_{1}}-1)\). Dat is gelijkwaardig met "de eenzijdige \((1-\sym{alpha}{\alpha})\)-ondergrens voor
+      \(\sym{f_stat}{F}\gt\sym{f_crit}{F_{\alpha}}(\sym{n2}{n_{2}}-1;\sym{n1}{n_{1}}-1)\). Dat is gelijkwaardig met "de eenzijdige \((1-\sym{alpha}{\alpha})\)-ondergrens voor
       \(\frac{\sym{sigma2}{\sigma_{2}}^{2}}{\sym{sigma1}{\sigma_{1}}^{2}}\) ligt boven 1" uit <a href="#d04-f">04.8</a>.</li>
     </ul>
     <div class="box tool"><span class="t">Rekentool</span>
       <p>Werkblad <b>"Variance CI &amp; tests"</b>: sectie 2 (\(\chi^{2}\)-toets, rijen 27–29) en sectie 3 (F-toets met \(\sym{f_stat}{F}=\frac{\sym{s1_sq}{s1^{2}}}{\sym{s2_sq}{s2^{2}}}\),
       rijen 49–51 voor ≠, &gt;, &lt;), met statistiek, kritische waarde en p-waarde.</p>
     </div>
+    <div class="calc-here" data-tool="variantie" data-blocks="0 1"></div>
     <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-05-f">14 Dummies: eenzijdige F-toets op de verdelingen A en B</a>.</p>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>Let op:</b> F is een verhouding van <i>varianties</i>, \(\sym{f_stat}{F}=\frac{\sym{s1_sq}{s_{1}^{2}}}{\sym{s2_sq}{s_{2}^{2}}}\), niet \(\frac{s_{1}}{s_{2}}\). De vrijheidsgraden volgen dezelfde volgorde (teller; noemer): \(\sym{f_dist}{F}(\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\). Draai je de breuk om, dan draaien ze mee <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=13">Recepten p. 13–14</a>.</li>
-      <li><b>Let op de staart:</b> \(\operatorname{F.INV.RT}(\alpha;\ldots)\) geeft de bovenste kritische waarde, \(\operatorname{F.INV}(\alpha;\ldots)\) de onderste (beslissing 7). Zet de variantie die volgens \(H_{A}\) groter is in de teller: dan verwerp je alleen bij een grote F <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=14">Recepten p. 14</a>. "Is M1 nauwkeuriger?" betekent \(\sym{ha}{H_{A}}\): \(\sym{sigma1}{\sigma_{1}}\lt\sym{sigma2}{\sigma_{2}}\), dus \(\sym{f_stat}{F}=\frac{\sym{s2_sq}{s_{2}^{2}}}{\sym{s1_sq}{s_{1}^{2}}}\) (<a href="#d13-v2">13.2</a>).</li>
+      <li><b>Let op de staart:</b> \(\sym{f_crit}{F_{\alpha}}(\ldots)\) (kans \(\alpha\) rechts) is de bovenste kritische waarde, \(\sym{f_crit}{F_{1-\alpha}}(\ldots)\) de onderste. Zet de variantie die volgens \(H_{A}\) groter is in de teller: dan verwerp je alleen bij een grote F <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=14">Recepten p. 14</a>. "Is M1 nauwkeuriger?" betekent \(\sym{ha}{H_{A}}\): \(\sym{sigma1}{\sigma_{1}}\lt\sym{sigma2}{\sigma_{2}}\), dus \(\sym{f_stat}{F}=\frac{\sym{s2_sq}{s_{2}^{2}}}{\sym{s1_sq}{s_{1}^{2}}}\).</li>
       <li><b>"De F-toets verwerpt niet, dus \(\sigma_{1}=\sigma_{2}\) en de gepoolde t-toets is zeker in orde."</b> Fout: de F-toets is niet robuust; wees voorzichtig als je er de voorwaarde van de niet-gepaarde t-toets mee nagaat <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=14">Recepten p. 14</a>. Met 10 waarnemingen per groep is ze bovendien weinig krachtig (<a href="#ex-05-13">oefening 05.13</a>).</li>
       <li><b>Let op met tabellen:</b> \(\sym{f_crit}{F_{\alpha}}(\sym{df_n}{n},\sym{df_m}{m})=\frac{1}{\sym{f_crit}{F_{1-\alpha}}(\sym{df_m}{m},\sym{df_n}{n})}\): de onderste kritische waarde is 1 gedeeld door de bovenste met omgewisselde vrijheidsgraden <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=12">Recepten p. 12</a>; bij (9; 9) is dat 1/4,03 <span class="computed">zelf berekend</span>.</li>
     </ul></div>
@@ -947,7 +952,7 @@
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-answer="4.03" data-tol="0.02">
-        <label>b. Bovenste kritische waarde F.INV.RT(0,025; 9; 9) (2 decimalen):</label> <input type="text" inputmode="decimal">
+        <label>b. Bovenste kritische waarde \(F_{0{,}025}(9;9)\) (kans 2,5 % rechts; 2 decimalen):</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="q" data-type="choice" data-answer="aanvaard">
@@ -955,10 +960,11 @@
         <select><option value="">kies…</option><option value="verwerp">H0 verwerpen: spreidingen verschillen</option><option value="aanvaard">H0 niet verwerpen</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="variantie" data-blocks="1"></div>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>a. \(\sym{f_stat}{F}=\frac{7{,}53^{2}}{5{,}50^{2}}=\) <b>1,87</b> met (9; 9) vrijheidsgraden <span class="computed">zelf berekend</span>.</li>
-          <li>b. F.INV.RT(0,025; 9; 9) = <b>4,03</b> <span class="computed">zelf berekend</span>. Omdat de grootste variantie in
+          <li>b. \(F_{0{,}025}(9;9)=\) <b>4,03</b> (F-tabel) <span class="computed">zelf berekend</span>. Omdat de grootste variantie in
           de teller staat, volstaat de bovenste grens (de onderste is 1/4,03).</li>
           <li>c. 1,87 &lt; 4,03 (tweezijdige \(\sym{p_value}{p}=0{,}36\) <span class="computed">zelf berekend</span>): <b>\(H_{0}\) niet
           verwerpen</b>; geen bewijs tegen gelijke spreidingen. Maar let op: de F-toets is niet robuust en met 10 waarnemingen
@@ -1000,6 +1006,7 @@
     </div>
     <p class="small">De vrijheidsgraden: \(\sym{r}{r}\sym{s_y}{s}-\sym{g}{g}-1\) met \(\sym{g}{g}=(\sym{r}{r}-1)+(\sym{s_y}{s}-1)\) geschatte marginale kansen geeft \((\sym{r}{r}-1)(\sym{s_y}{s}-1)\)
     <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=20">Recepten p. 20</a>. De cursus geeft voor deze twee toetsen geen cijfervoorbeeld.</p>
+    <div class="calc-here" data-tool="chikwadraat" data-blocks="0 1"></div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
@@ -1069,6 +1076,7 @@
     <p>Te weinig runs wijst op trends of clusters, te veel op een systematische afwisseling. Verwerp je \(H_{0}\), dan weet
     je nog niet wat er schort <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=26">Recepten p. 26</a>.</p>
     <p class="small">De tabellen met kritische waarden voor kleine steekproeven (Wilcoxon) zitten niet in de cursusbestanden.</p>
+    <div class="calc-here" data-tool="nietparametrisch" data-blocks="0 1 2"></div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
@@ -1099,6 +1107,7 @@
         <label>d. \(\sigma(\sym{t_plus}{T^{+}})=\) (2 decimalen)</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="nietparametrisch" data-blocks="1"></div>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>a. Het verschil 0 valt weg: <b>\(\sym{n}{n}=9\)</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=24">Recepten p. 24</a>.</li>
@@ -1128,8 +1137,9 @@
         <label>c. \(\sigma(\sym{w_x1}{W_{X1}})=\) (2 decimalen)</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="nietparametrisch" data-blocks="0"></div>
       <details class="hint"><summary>Hint</summary><p>Zet de 20 waarden samen en rangschik ze; gelijke waarden krijgen de
-      gemiddelde rang (in Excel: RANK.AVG(waarde; alle 20; 1)).</p></details>
+      gemiddelde rang.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>a. Rangen van \(\mathrm{LD}_{1}\): 7,5; 9,5; 16; 12; 12; 2,5; 2,5; 4; 17,5; 1. Som = <b>84,5</b>
@@ -1158,6 +1168,7 @@
         <select><option value="">kies…</option><option value="verwerp">geen aselecte steekproef</option><option value="aanvaard">geen bewijs tegen een aselecte steekproef</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="nietparametrisch" data-blocks="2"></div>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>a. Runs: + | − − | + | − − | + + + | − − − | + | − | + + + | − | + | − ⇒ <b>\(\sym{runs_r}{R}=12\)</b>

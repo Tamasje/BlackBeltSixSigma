@@ -41,12 +41,12 @@
     Er zijn twee soorten data. <b>Kwalitatieve</b> data (<i>qualitative data</i>) zijn woorden en meningen, zoals
     "It's too expensive", "Unclear roles" of "Lack of motivation". <b>Kwantitatieve</b> data (<i>quantitative
     data</i>) zijn meetwaarden waarmee je kunt rekenen: losse getallen, een verdeling met \(\mu\) en \(\sigma\), een spreadsheet. Beide zijn nuttig; de criteria voor een goed project vragen "qualitative or quantitative
-    data" (zie Deel 1).</p>
+    data".</p>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"Measure = data verzamelen."</b> Fout: Measure heeft twee helften: het huidige proces begrijpen (issue tree, beschrijving van het as-is-proces) én het meten (dataverzameling plannen en uitvoeren, data valideren) <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=78">LSS p. 78</a>.</li>
       <li><b>"Meer data geeft altijd een betere beslissing."</b> Fout: wie slechte data niet herkent, beslist verkeerd op basis van een onvolledig of vertekend (<i>biased</i>) beeld <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=77">LSS p. 77</a>; daarom valideer je de data <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=78">LSS p. 78</a>.</li>
-      <li><b>"Kwalitatieve data (meningen, uitspraken) tellen niet mee."</b> Fout: beide soorten zijn nuttig <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=80">LSS p. 80</a>; de projectcriteria vragen "qualitative or quantitative data" (<a href="#d01-strategie">01.7</a>).</li>
+      <li><b>"Kwalitatieve data (meningen, uitspraken) tellen niet mee."</b> Fout: beide soorten zijn nuttig <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=80">LSS p. 80</a>; de projectcriteria vragen "qualitative or quantitative data".</li>
       <li><b>"Wie, waar en hoe gemeten wordt, beslis je achteraf."</b> Fout: het dataverzamelingsplan legt per grootheid vooraf vast: V- of A-data, definitie, methode of bron, stratificatie, wie, waar, wanneer, hoe en hoeveel <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=106">LSS p. 106</a>.</li>
     </ul></div>
   </section>
@@ -100,6 +100,7 @@
       <span class="small">extra (niet in de getoonde slides)</span>.</p>
     </div>
 
+    <div class="calc-here" data-tool="beschrijvend" data-blocks="0"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"Discreet hoort bij interval, continu bij ratio."</b> Fout: datatype en meetschaal staan los van elkaar. Geboortejaar is discreet en interval, aantal kinderen discreet en ratio; de koppeling in de voorbeelden is enkel illustratief <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=83">LSS p. 83</a>.</li>
@@ -264,7 +265,7 @@
     <div class="exercise" id="ex-02-3" data-kw="statistiek; kansrekening; statistics; probability; sampling; inference; inferentie; emmer; pail">
       <h4>Oefening 02.3 — Statistiek of kansrekening? <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=8">Data p. 8</a></h4>
       <p>Gaat de redenering van model naar data (kansrekening, sampling) of van data naar model (statistiek, inference)?
-      De voorbeelden a en b komen uit het klantenvoorbeeld van 02.5 (Data p. 9–10).</p>
+      De voorbeelden a en b komen uit het klantenvoorbeeld (Data p. 9–10).</p>
       <div class="q" data-type="choice" data-answer="statistiek">
         <label>a. Uit 1000 tellingen van klanten per minuut de parameter \(\lambda\) schatten:</label>
         <select><option value="">kies…</option><option value="kans">kansrekening (model → data)</option><option value="statistiek">statistiek (data → model)</option></select>
@@ -338,18 +339,20 @@
       families alleen; de formules op dat blad zijn de standaarddefinities, als zodanig gelabeld (beslissing 20 in
       <code>inventory/conventions.md</code>). Normaal: blad <b>Normal</b>.</p>
     </div>
+    <div class="calc-here" data-tool="verdelingen" data-blocks="4"></div>
+    <div class="calc-here" data-tool="normaal" data-blocks="0"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"\(\sym{pdf}{f}(\sym{x_val}{x})\) is de kans dat \(\sym{x_var}{X}\) precies \(\sym{x_val}{x}\) is."</b> Juist voor een discrete variabele, fout voor een continue: daar is de kans op één exacte waarde nul en is \(\sym{pdf}{f}(\sym{x_val}{x})\) een kansdichtheid. Zinvol is een kans op een interval, \(\sym{cdf}{F}(\sym{x_bound}{x_{2}})-\sym{cdf}{F}(\sym{x_bound}{x_{1}})\) <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=2">Data-notities p. 2</a>.</li>
       <li><b>"pdf en cdf zijn twee verschillende verdelingen."</b> Fout: het zijn twee voorstellingen van dezelfde verdeling; de cdf is de integraal van de pdf, de pdf de afgeleide van de cdf <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=5">Data p. 5</a>.</li>
-      <li><b>Let op ≤ of &lt;:</b> bij een continue variabele is \(P(\sym{x_var}{X}\le\sym{x_val}{x})=P(\sym{x_var}{X}\lt\sym{x_val}{x})\), want één punt heeft kans nul <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=2">Data-notities p. 2</a>. Bij een discrete variabele (Poisson, binomiaal) telt de grens wel mee, zie <a href="#d02-poisson">02.5</a> <span class="gen">algemeen</span>.</li>
+      <li><b>Let op ≤ of &lt;:</b> bij een continue variabele is \(P(\sym{x_var}{X}\le\sym{x_val}{x})=P(\sym{x_var}{X}\lt\sym{x_val}{x})\), want één punt heeft kans nul <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=2">Data-notities p. 2</a>. Bij een discrete variabele (Poisson, binomiaal) telt de grens wel mee <span class="gen">algemeen</span>.</li>
       <li><b>"Modus, mediaan en gemiddelde vallen altijd samen."</b> Fout: bij de normale verdeling wel <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=3">Data-notities p. 3</a>, bij een scheve niet: Beta(2, 8) heeft modus 0.125, mediaan 0.180 en gemiddelde 0.200 <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=4">Data-notities p. 4</a>.</li>
       <li><b>"Procesdata zijn normaal verdeeld."</b> Fout: niet alles is normaal. Wachttijden zijn exponentieel, afkeurcijfers tussen 0 en 100 % beta, tellingen per tijdseenheid Poisson <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=7">Data p. 7</a>, <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=3">Data-notities p. 3</a>.</li>
     </ul></div>
   </section>
 
   <!-- ============================================================ 02.5 -->
-  <section class="unit" id="d02-poisson" data-kw="Poisson; Poisson-verdeling; Poisson distribution; lambda; λ; klantenstromen; aankomsten; arrivals; tellingen; counts; voorspelling; prediction; inference; POISSON.DIST; POISSON.VERD; meer dan 7 klanten">
+  <section class="unit" id="d02-poisson" data-kw="Poisson; Poisson-verdeling; Poisson distribution; lambda; λ; klantenstromen; aankomsten; arrivals; tellingen; counts; voorspelling; prediction; inference; meer dan 7 klanten">
     <h3>02.5 Inference als voorspelling: klanten aan de kassa <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=9">Data p. 9–10</a></h3>
     <p class="small">Extra (niet in de getoonde slides), maar een cursusvoorbeeld met een getal dat je moet kunnen narekenen.</p>
     <p>Een winkel telt voor elke minuut hoeveel klanten aan de kassa komen
@@ -367,11 +370,12 @@
     <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=5">Data-notities p. 5</a>.
     De voorspelling: <b>"er is minder dan 2 % kans dat er meer dan 7 klanten per minuut arriveren"</b>.</p>
     <div class="box key"><span class="t">Hoe reken je dat na?</span>
-      <p>De cursus geeft geen formule voor de Poisson-verdeling. Reken met Excel. "Meer dan 7" betekent 8 of meer, dus
-      het complement van "hoogstens 7" (cdf, Data p. 5):</p>
+      <p>De cursus geeft geen formule voor de Poisson-verdeling; de standaardformule <span class="gen">algemeen</span>
+      (ook in de rekenmachine Poisson aan het einde van deze sectie) telt de kansen op precies 0, 1, …, k op.
+      "Meer dan 7" betekent 8 of meer, dus het complement van "hoogstens 7" (cdf, Data p. 5):</p>
       <div class="f">
+        <div>\(P(\sym{x_var}{X}\le\sym{k_count}{k})=\sym{cdf}{F}(\sym{k_count}{k})=\sum_{j=0}^{\sym{k_count}{k}}e^{-\sym{lambda}{\lambda}}\frac{\sym{lambda}{\lambda}^{j}}{j!}\)</div>
         <div>\(P(\sym{x_var}{X}\gt7)=1-P(\sym{x_var}{X}\le7)=1-\sym{cdf}{F}(7)\)</div>
-        <div>Nederlandstalige Excel: <code>=1-POISSON.VERD(7;2,959;WAAR)</code>; Engelstalige Excel: <code>=1-POISSON.DIST(7,2.959,TRUE)</code></div>
       </div>
       <p>Uitkomst: \(P(\sym{x_var}{X}\le7)=0.9890\) en \(P(\sym{x_var}{X}\gt7)=0.0110\), dus 1.1 % <span class="computed">zelf berekend</span>.
       Dat is inderdaad minder dan 2 %.</p>
@@ -381,16 +385,16 @@
       je \(P(\sym{x_var}{X}\ge\sym{k_count}{k})\) (B42); of \(\sym{k_count}{k}=7\) en neem je \(1-P(\sym{x_var}{X}\le\sym{k_count}{k})\) (B41).</p>
     </div>
 
+    <div class="calc-here" data-tool="verdelingen" data-blocks="3"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>Let op: "meer dan 7" is 8 of meer.</b> \(P(\sym{x_var}{X}\gt7)=1-\sym{cdf}{F}(7)=0.0110\) <span class="computed">zelf berekend</span>. "7 of meer" is \(1-\sym{cdf}{F}(6)=0.0315\) <span class="computed">zelf berekend</span>, en dat is méér dan de 2 % van de voorspelling <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=10">Data p. 10</a>. Lees "meer dan", "minstens", "hoogstens" en "minder dan" dus nauwkeurig.</li>
-      <li><b>Let op:</b> POISSON.DIST (POISSON.VERD) met TRUE/WAAR geeft de cumulatieve kans \(P(\sym{x_var}{X}\le\sym{k_count}{k})\), met FALSE/ONWAAR de kans op precies \(\sym{k_count}{k}\) <span class="gen">algemeen</span>.</li>
       <li><b>"De data zijn gesimuleerd met \(\sym{lambda}{\lambda}=3\), dus inference geeft \(\sym{lambda}{\lambda}=3\)."</b> Fout: uit 1000 tellingen schat inference \(\sym{lambda}{\lambda}=2.959\); een schatting ligt dicht bij de ware waarde, maar is ze niet <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=9">Data p. 9</a>.</li>
       <li><b>"Inference dient om het verleden te beschrijven."</b> Fout: het doel is uitspraken over de toekomst onderbouwen: data → inference → \(P(\sym{x_val}{x})\to\) voorspelling <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=10">Data p. 10</a>.</li>
       <li><b>Let op:</b> \(\sym{lambda}{\lambda}\) geldt per tijdseenheid van de data (hier per minuut); voor een andere periode schaal je \(\sym{lambda}{\lambda}\) mee <span class="gen">algemeen</span>.</li>
     </ul></div>
 
-    <div class="exercise" id="ex-02-4" data-kw="Poisson; lambda; λ = 2.959; klanten per minuut; customers per minute; meer dan 7; P(X>7); cdf; POISSON.DIST; POISSON.VERD; voorspelling">
+    <div class="exercise" id="ex-02-4" data-kw="Poisson; lambda; λ = 2.959; klanten per minuut; customers per minute; meer dan 7; P(X>7); cdf; voorspelling">
       <h4>Oefening 02.4 — Meer dan 7 klanten per minuut <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=10">Data p. 10</a></h4>
       <p>Het aantal klanten per minuut aan de kassa volgt een Poisson-verdeling met \(\sym{lambda}{\lambda}=2.959\) klanten per minuut
       (Data p. 9). Bereken de kansen.</p>
@@ -402,11 +406,12 @@
         <label>\(P(\sym{x_var}{X}\gt7)\) (als kans, 4 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
-      <details class="hint"><summary>Hint</summary><p>"Meer dan 7" = "niet hoogstens 7". Excel POISSON.VERD (Engels: POISSON.DIST)
-      met WAAR geeft de cumulatieve kans \(P(\sym{x_var}{X}\le\sym{k_count}{k})\).</p></details>
+      <div class="calc-here" data-tool="verdelingen" data-blocks="3"></div>
+      <details class="hint"><summary>Hint</summary><p>"Meer dan 7" = "niet hoogstens 7". De cdf
+      \(\sym{cdf}{F}(\sym{k_count}{k})=P(\sym{x_var}{X}\le\sym{k_count}{k})\) is de cumulatieve kans; de rekenmachine hierboven geeft ze.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
-          <li>\(P(\sym{x_var}{X}\le7)=\operatorname{POISSON.VERD}(7;2{,}959;\mathrm{WAAR})\) (Engels: POISSON.DIST) = 0.9890 <span class="computed">zelf berekend</span>.</li>
+          <li>\(P(\sym{x_var}{X}\le7)=\sym{cdf}{F}(7)=\sum_{j=0}^{7}e^{-2.959}\frac{2.959^{j}}{j!}=0.9890\) (rekenmachine Poisson met \(\sym{lambda}{\lambda}=2.959\) en \(\sym{k_count}{k}=7\)) <span class="computed">zelf berekend</span>.</li>
           <li>\(P(\sym{x_var}{X}\gt7)=1-0.9890=0.0110\), ongeveer 1.1 % <span class="computed">zelf berekend</span>.</li>
           <li>Vergelijk met de voorspelling in de cursus (Data p. 10; Data-notities p. 5): "minder dan 2 % kans". Klopt: 1.1 % &lt; 2 %.</li>
         </ol>
@@ -435,7 +440,7 @@
     <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=115">LSS p. 115</a></figcaption></figure>
     <p>Bij elk meetproces neem je typisch <b>vier assumpties</b> aan: de meetdata gedragen zich als (1) onafhankelijke
     trekkingen, (2) uit een vaste verdeling, (3) met een vaste locatie, (4) met een constante spreiding. Met EDA en de
-    4-plot kun je die testen (zie 02.8).</p>
+    4-plot kun je die testen.</p>
     <p><b>De ingenieursmethode</b> <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=118">LSS p. 118</a>.
     Het hart van het ingenieursvak is systematisch problemen oplossen (<i>problem solving</i>), in wisselwerking tussen het
     concrete (waarnemingen, het systeem) en het abstracte (beschrijving, model). Het voorbeeld van de lichtfilamenten
@@ -451,14 +456,13 @@
     beslissen kan hinderen. Statistische methoden ondersteunen dus de dataverzameling, de analyse en uiteindelijk het
     beslissingsproces <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=120">LSS p. 120</a>.</p>
     <p><b>Industriële statistiek</b> bestaat uit specifieke toepassingen die op de algemene statistiek steunen
-    <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=121">LSS p. 121</a>. Dit is meteen de
-    kaart van de rest van deze gids:</p>
+    <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=121">LSS p. 121</a>:</p>
     <table>
-      <tr><th>Algemene statistiek</th><th>Deel</th><th>Industriële (toegepaste) statistiek</th><th>Deel</th></tr>
-      <tr><td>distributies</td><td>2, 3</td><td>SPC: Statistical Process Control</td><td>10 (capabiliteit: 9)</td></tr>
-      <tr><td>steekproefdistributies, schattingen; betrouwbaarheidsintervallen</td><td>4</td><td>AS: Acceptance Sampling</td><td>6</td></tr>
-      <tr><td>hypothesetesten, "testing-recepten"</td><td>5</td><td>DOE: Design of Experiments</td><td>8</td></tr>
-      <tr><td>lineaire regressie; ANOVA</td><td>7, 8</td><td>MSA: Measurement Systems Analysis</td><td>11</td></tr>
+      <tr><th>Algemene statistiek</th><th>Industriële (toegepaste) statistiek</th></tr>
+      <tr><td>distributies</td><td>SPC: Statistical Process Control</td></tr>
+      <tr><td>steekproefdistributies, schattingen; betrouwbaarheidsintervallen</td><td>AS: Acceptance Sampling</td></tr>
+      <tr><td>hypothesetesten, "testing-recepten"</td><td>DOE: Design of Experiments</td></tr>
+      <tr><td>lineaire regressie; ANOVA</td><td>MSA: Measurement Systems Analysis</td></tr>
     </table>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
@@ -478,7 +482,7 @@
         deterministische model mist de <b>random component</b>. Het betere model is \(\sym{u}{U}=\sym{r_ohm}{R}\sym{i_ohm}{I}+\sym{eps}{\varepsilon}\), met \(\sym{eps}{\varepsilon}\) de meetfout of
         experimentele fout (LSS p. 114): respons = deterministische component + random component. Om met die \(\varepsilon\) te kunnen
         rekenen, neem je aan dat de metingen onafhankelijke trekkingen zijn uit een vaste verdeling met vaste locatie en
-        constante spreiding; die assumpties controleer je met een 4-plot (02.8).</p>
+        constante spreiding; die assumpties controleer je met een 4-plot.</p>
       </details>
     </div>
 
@@ -516,12 +520,11 @@
       worden getest tot ze falen of tot de maximale testduur van 120 uur (tweede figuur). Is aan de vereiste voldaan? Welk soort
       methode past hier?</p>
       <details class="solution"><summary>Toon oplossing</summary>
-        <p>a. Acceptance sampling: de cursus schrijft zelf "→ Acceptance sampling (AS)" (p. 123); zie Deel 6.
-        b. Design of experiments: "→ Design of experiments (DOE)" (p. 124); zie Deel 8.
-        c. Capabiliteit en SPC: "→ Capabiliteitsstudies en statistische procescontrole (SPC)" (p. 127); de berekening
-        van Cp en Cpk staat in Deel 9 (blad <b>Capability</b>), de \(\bar{X}\)-s-kaart in Deel 10.</p>
+        <p>a. Acceptance sampling: de cursus schrijft zelf "→ Acceptance sampling (AS)" (p. 123).
+        b. Design of experiments: "→ Design of experiments (DOE)" (p. 124).
+        c. Capabiliteit en SPC: "→ Capabiliteitsstudies en statistische procescontrole (SPC)" (p. 127).</p>
         <p>d en e: de cursus schrijft hier geen instrument bij. Modelantwoord: d vergelijkt twee gemiddelden, dus een
-        hypothesetest (Deel 5; de data staan alleen als grafiek op p. 125). e is ook een beslissing over een gemiddelde
+        hypothesetest (de data staan alleen als grafiek op p. 125). e is ook een beslissing over een gemiddelde
         ("is de levensduur minstens 100 uur?"), maar let op: de waarden 120 in de tabel van p. 126 zijn componenten die bij het
         afbreken van de test nog niet gefaald waren, dus hun echte levensduur is onbekend. De cursus werkt dit niet
         uit.</p>
@@ -567,12 +570,6 @@
       <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=137">LSS p. 137</a></figcaption></figure>
       <p><b>Les:</b> getallen alleen verliezen informatie; kijk altijd eerst naar een grafiek.</p>
     </div>
-    <div class="box warn"><span class="t">Kleine afrondingsverschillen op p. 136</span>
-      <p>De cursus zegt dat de statistieken voor alle vier datasets gelden. Op drie decimalen klopt dat niet helemaal:
-      de residuele standaardafwijking is 1.237, 1.237, 1.236 en 1.236 voor datasets 1–4, en de correlatie van dataset 4
-      is 0.8165, afgerond 0.817 <span class="computed">zelf berekend</span>. De boodschap van het voorbeeld verandert
-      daardoor niet.</p>
-    </div>
 
     <p><b>EDA versus klassieke analyse</b> <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=138">LSS p. 138</a>.
     Het verschil zit in de volgorde van "model" en "analyse":</p>
@@ -588,15 +585,16 @@
     voorwaardelijke kansen.</p>
 
     <div class="box tool"><span class="t">Rekentool</span>
-      <p>Blad <b>ANOVA DOE regression</b>, blok 3 (simple linear regression): plak x in kolom B en y in kolom C vanaf
-      rij 191. Je leest \(b_{1}\) (helling, B161), \(b_{0}\) (intercept, B162), \(\sym{sigma_hat}{\hat{\sigma}}=\sqrt{\sym{mse}{\mathrm{MS}_{E}}}\) (de
-      residuele standaardafwijking, B167) en \(R^{2}\) (B168). De correlatie is \(\sym{r_corr}{r}=\sqrt{\sym{r2}{R^{2}}}\), met het teken van de helling.</p>
+      <p>Blad <b>Regressie</b>: plak x in kolom B en y in kolom C onder de kop van de paren. Je leest \(b_{1}\) (helling),
+      \(b_{0}\) (intercept), \(\sym{sigma_hat}{\hat{\sigma}}=\sqrt{\sym{mse}{\mathrm{MS}_{E}}}\) (de
+      residuele standaardafwijking) en \(R^{2}\). De correlatie is \(\sym{r_corr}{r}=\sqrt{\sym{r2}{R^{2}}}\), met het teken van de helling.</p>
     </div>
 
+    <div class="calc-here" data-tool="beschrijvend" data-blocks="1"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"Zelfde gemiddelden, helling en correlatie, dus dezelfde soort data."</b> Fout: de vier datasets van Anscombe delen die statistieken en zien er totaal anders uit: lineair, gekromd, één uitschieter, één punt dat de helling bepaalt <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=136">LSS p. 136</a>, <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=137">LSS p. 137</a>. Teken eerst.</li>
-      <li><b>"\(\sym{r_corr}{r}=0.816\), dus het verband is lineair."</b> Fout: dataset 2 heeft dezelfde correlatie en is een kromme <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=137">LSS p. 137</a>. Een hoge correlatie bewijst geen lineair verband, en ook geen oorzaak (<a href="#d02-ladder">02.12</a>).</li>
+      <li><b>"\(\sym{r_corr}{r}=0.816\), dus het verband is lineair."</b> Fout: dataset 2 heeft dezelfde correlatie en is een kromme <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=137">LSS p. 137</a>. Een hoge correlatie bewijst geen lineair verband, en ook geen oorzaak.</li>
       <li><b>"Eén punt verandert weinig aan de rechte."</b> Fout: in dataset 4 bepaalt één punt \((\sym{x_val}{x}=19)\) de hele helling; in dataset 3 trekt één uitschieter de rechte omhoog <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=137">LSS p. 137</a>.</li>
       <li><b>"EDA is klassieke analyse met meer grafieken."</b> Fout: het verschil is de volgorde. Klassiek postuleer je eerst een model en analyseer je dan; in EDA analyseer je eerst en kies je daarna het model <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=138">LSS p. 138</a>. EDA is meer dan "statistical graphics" <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=133">LSS p. 133</a>.</li>
       <li><b>Let op:</b> de residuele standaardafwijking is \(\sqrt{\frac{\sym{sse}{\mathrm{SS}_{E}}}{\sym{n}{n}-2}}\), niet gedeeld door \(\sym{n}{n}\); en \(\sym{r_corr}{r}=\sqrt{\sym{r2}{R^{2}}}\) krijgt het teken van de helling.</li>
@@ -636,14 +634,15 @@
         <select><option value="">kies…</option><option value="1">dataset 1</option><option value="2">dataset 2</option><option value="3">dataset 3</option><option value="4">dataset 4</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
-      <details class="hint"><summary>Hint</summary><p>Excel: <code>HELLING</code>/<code>SLOPE</code>,
-      <code>SNIJPUNT</code>/<code>INTERCEPT</code>, <code>CORRELATIE</code>/<code>CORREL</code>, en
-      <code>STAND.FOUT.YX</code>/<code>STEYX</code> voor de residuele standaardafwijking; of het blad ANOVA DOE regression.</p></details>
+      <div class="calc-here" data-tool="regressie" data-blocks="0"></div>
+      <details class="hint"><summary>Hint</summary><p>Plak de 11 paren "x y" in de rekenmachine hierboven: die geeft de helling \(\sym{b1}{b_{1}}\), het
+      intercept \(\sym{b0}{b_{0}}\), \(\sym{sigma_hat}{\hat{\sigma}}=\sqrt{\sym{mse}{\mathrm{MS}_{E}}}\) (de residuele standaardafwijking) en
+      \(\sym{r2}{R^{2}}\); \(\sym{r_corr}{r}=\sqrt{\sym{r2}{R^{2}}}\) met het teken van de helling. Of gebruik het blad Regressie.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <p>Met de 11 punten: \(\sym{b1}{b_{1}}=0.4997\), \(\sym{b0}{b_{0}}=3.0025\), residuele standaardafwijking = 1.2363,
         \(\sym{r_corr}{r}=0.8163\ (\sym{r2}{R^{2}}=0.6663)\) <span class="computed">zelf berekend</span>. Afgerond: helling 0.5, intercept 3,
-        correlatie 0.816, zoals op p. 134 en 136; de residuele standaardafwijking rondt af op 1.236, niet op de gedrukte
-        1.237 (een afrondingsverschil, zie het kader hierboven).</p>
+        correlatie 0.816, zoals op p. 134 en 136; de residuele standaardafwijking rondt af op 1.236 (de cursus drukt
+        1.237).</p>
         <p>Grafisch (p. 137): dataset 3 ligt op een rechte, op één uitschieter na \((\sym{x_val}{x}=13,\sym{y_val}{y}=12.74)\); dataset 2 is een
         kromme. De les: dezelfde samenvattende statistieken, totaal verschillende data. Teken altijd eerst.</p>
       </details>
@@ -653,7 +652,7 @@
   <!-- ============================================================ 02.8 -->
   <section class="unit" id="d02-4plot" data-kw="4-plot; four-plot; run sequence plot; lag plot; histogram; normal probability plot; normaal-kansdiagram; assumpties; assumptions; onafhankelijkheid; independence; drift; vaste locatie; constante spreiding; residuen; residuals; modelvalidatie; model validation">
     <h3>02.8 De 4-plot, de vier assumpties en hun gevolgen <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=140">LSS p. 140–145</a></h3>
-    <p>De vier assumpties van het probabilistisch model (02.6) controleer je met één figuur, de <b>4-plot</b>
+    <p>De vier assumpties van het probabilistisch model controleer je met één figuur, de <b>4-plot</b>
     <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=140">LSS p. 140</a>:</p>
     <ol>
       <li><b>run sequence plot</b>: \(\sym{y_i}{Y_{i}}\) tegen het volgnummer i;</li>
@@ -823,6 +822,8 @@
       </ol>
     </div>
 
+    <div class="calc-here" data-tool="kruistabel" data-blocks="0"></div>
+    <div class="calc-here" data-tool="bayes" data-blocks="0"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"\(P(\sym{y_var}{Y}\mid\sym{x_var}{X})\) en \(P(\sym{x_var}{X}\mid\sym{y_var}{Y})\) zijn hetzelfde."</b> Fout: de noemer verschilt, \(P(\sym{y_var}{Y}\mid\sym{x_var}{X})=\frac{P(\sym{x_var}{X},\sym{y_var}{Y})}{P(\sym{x_var}{X})}\) <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=20">Data p. 20</a>. In de tabel van oefening 02.10 is P(\(\sym{k}{K}=\) Rejected \(\mid\sym{l}{L}=\) lijn 2) = \(\frac{40}{230}=0.174\), maar P(\(\sym{l}{L}=\) lijn \(2\mid\sym{k}{K}=\) Rejected) = \(\frac{40}{60}=0.667\) <span class="computed">zelf berekend</span>.</li>
@@ -830,7 +831,7 @@
       <li><b>"P(\(\sym{l}{L}=\) lijn 2, \(\sym{k}{K}=\) Accepted) = 0.30 is de kans dat een product van lijn 2 goedgekeurd wordt."</b> Fout: 0.30 is de gezamenlijke kans (150/500). De voorwaardelijke kans is P(\(\sym{k}{K}=\) Accepted \(\mid\sym{l}{L}=\) lijn 2) = \(\frac{150}{230}=0.652\) <span class="computed">zelf berekend</span>.</li>
       <li><b>"Onafhankelijk betekent: ze kunnen niet samen voorkomen."</b> Fout: dat is "elkaar uitsluiten". Onafhankelijk betekent dat kennis van X geen extra informatie over Y geeft, \(P(\sym{y_var}{Y}\mid\sym{x_var}{X})=P(\sym{y_var}{Y})\) <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=19">Data p. 19</a>, <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=22">Data p. 22</a>. Twee gebeurtenissen die elkaar uitsluiten (elk met kans &gt; 0) zijn juist afhankelijk <span class="gen">algemeen</span>.</li>
       <li><b>Let op:</b> \(P(\sym{x_var}{X},\sym{y_var}{Y})=P(\sym{x_var}{X})\cdot P(\sym{y_var}{Y})\) geldt alleen bij onafhankelijkheid; de productregel \(P(\sym{x_var}{X},\sym{y_var}{Y})=P(\sym{x_var}{X})\cdot P(\sym{y_var}{Y}\mid\sym{x_var}{X})\) geldt altijd <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=11">Data-notities p. 11</a>.</li>
-      <li><b>Let op:</b> de notities besluiten "niet onafhankelijk" uit de verdeling zelf (0.40 ≠ 0.378) <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=12">Data-notities p. 12</a>. Gaat het om een steekproef, dan toets je of zo'n verschil toeval kan zijn met een \(\chi^{2}\)-toets voor kruistabellen (<a href="#d05-frequenties">05.13</a>).</li>
+      <li><b>Let op:</b> de notities besluiten "niet onafhankelijk" uit de verdeling zelf (0.40 ≠ 0.378) <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=12">Data-notities p. 12</a>. Gaat het om een steekproef, dan toets je of zo'n verschil toeval kan zijn met een \(\chi^{2}\)-toets voor kruistabellen.</li>
     </ul></div>
 
     <div class="exercise" id="ex-02-9" data-kw="onafhankelijkheid; independence; geslacht; gewicht; gender; weight; P(M|G); voorwaardelijke verdeling; mannen en vrouwen">
@@ -898,6 +899,7 @@
         <select><option value="">kies…</option><option value="ja">ja</option><option value="nee">nee</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="kruistabel" data-blocks="0"></div>
       <details class="hint"><summary>Hint</summary><p>Gezamenlijk: cel / 500. Marginaal: kolomtotaal / 500.
       Voorwaardelijk op lijn 1: cel van lijn 1 / 270.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
@@ -928,7 +930,7 @@
       <div>\[E[\sym{y_var}{Y}\mid\sym{x_var}{X}=\sym{x_val}{x}]=\int_{\sym{y_val}{y}}\ \sym{y_val}{y}\cdot P(\sym{y_var}{Y}=\sym{y_val}{y}\mid\sym{x_var}{X}=\sym{x_val}{x})\] dy</div>
       <div>Een functie die enkel van x afhangt: de <b>regressielijn</b> (<i>regression line</i>)</div>
     </div>
-    <p>In woorden: filter de rijen waar \(\sym{x_var}{X}\approx\sym{x_val}{x}\ (02.10)\) en neem het gemiddelde van hun Y. Doe dat voor elke x en je krijgt
+    <p>In woorden: filter de rijen waar \(\sym{x_var}{X}\approx\sym{x_val}{x}\) en neem het gemiddelde van hun Y. Doe dat voor elke x en je krijgt
     een kromme, de regressielijn. Die hoeft niet recht te zijn: de figuur hieronder
     (<a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=27">Data p. 27</a>) toont een
     U-vormige gezamenlijke verdeling, met \(E[\sym{y_var}{Y}\mid\sym{x_var}{X}]\) als kromme door het midden van de wolk.</p>
@@ -948,13 +950,13 @@
     lineaire regressie tot diepe neurale netwerken (p. 27; notities p. 13). Lineaire regressie schat dezelfde
     grootheid met een rechte, \(\sym{mu_yx}{\mu_{Y\mid x}}=\sym{beta0}{\beta_{0}}+\sym{beta1}{\beta_{1}}\sym{x_val}{x}\).
     En: \(E[\sym{y_var}{Y}\mid\sym{x_var}{X}=\sym{x_val}{x}]\) beschrijft wat je <i>ziet</i> als X toevallig x is. Wat er gebeurt als je X zelf op x zet, is een
-    andere vraag (02.12–02.14).</p>
+    andere vraag.</p>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"De regressielijn is altijd een rechte."</b> Fout: \(E[\sym{y_var}{Y}\mid\sym{x_var}{X}=\sym{x_val}{x}]\) is het gemiddelde van Y per x en mag krom zijn, zoals de U-vorm op <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=27">Data p. 27</a>; lineaire regressie benadert ze met een rechte.</li>
       <li><b>"De regressielijn volgt de lange as van de puntenwolk."</b> Fout: ze loopt door het midden van elke verticale strook ("rijen filteren waar \(\sym{x_var}{X}\approx\sym{x_val}{x}\)") <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=20">Data p. 20</a>, <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=26">Data p. 26</a>; bij een schuine, brede wolk helt de lange as sterker <span class="gen">algemeen</span>.</li>
       <li><b>Let op:</b> \(E[\sym{y_var}{Y}\mid\sym{x_var}{X}]\) (Y voorspellen uit X) is een andere lijn dan \(E[\sym{x_var}{X}\mid\sym{y_var}{Y}]\) (X voorspellen uit Y): andere stroken, andere gemiddelden <span class="gen">algemeen</span>.</li>
-      <li><b>"Machine learning schat iets anders dan regressie."</b> Fout: vrijwel alle supervised machine learning, van lineaire regressie tot diepe neurale netwerken, is een schatting van \(E[\sym{y_var}{Y}\mid\sym{x_var}{X}]\) <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=27">Data p. 27</a>. Ook dat is associatie, geen effect van ingrijpen (<a href="#d02-ladder">02.12</a>).</li>
+      <li><b>"Machine learning schat iets anders dan regressie."</b> Fout: vrijwel alle supervised machine learning, van lineaire regressie tot diepe neurale netwerken, is een schatting van \(E[\sym{y_var}{Y}\mid\sym{x_var}{X}]\) <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=27">Data p. 27</a>. Ook dat is associatie, geen effect van ingrijpen.</li>
     </ul></div>
   </section>
 
@@ -996,7 +998,7 @@
       <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=33">Data p. 33</a></figcaption></figure>
       <p>Beide uitkomsten zijn perfect verenigbaar met de geobserveerde data en regressielijn (p. 34): de data alleen
       vertellen niet <i>waarom</i> X en Y samen bewegen. De notities vragen "Wat loopt er verkeerd in de redenering?
-      Denk hier zelf over na!" (p. 17); het antwoord volgt in 02.14.</p>
+      Denk hier zelf over na!" (p. 17).</p>
     </div>
     <p><b>IJsverkoop en reddingsacties</b> <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=35">Data p. 35</a>
     <span class="small">extra</span>. Een kustgemeente ziet: op dagen met veel ijsverkoop zijn er meer reddingsacties.
@@ -1099,12 +1101,6 @@
     uitkomst (notities p. 20). Het causale diagram:</p>
     <div class="f"><div>\[\sym{ernst}{\text{Ernst}}\to\sym{medicijn}{\text{Hoeveelheid medicijn}}\to\sym{uitkomst}{\text{Gezondheidsuitkomst}}\], en \[\sym{ernst}{\text{Ernst}}\to\sym{uitkomst}{\text{Gezondheidsuitkomst}}\]</div></div>
     <p>Wie de confounder negeert, ziet het omgekeerde teken.</p>
-    <div class="box warn"><span class="t">Fout in de cursus: niet "in elke" subgroep</span>
-      <p>De legende van de tweede figuur hierboven (p. 38; ook notities p. 20) geeft zes hellingen: −0.23 (zeer lage ernst), 0.39,
-      0.47, 0.58, 0.62 en −0.30 (zeer hoge ernst). Twee van de zes zijn negatief, dus "in elke subgroep … positieve
-      helling" klopt niet letterlijk. De boodschap (de totale helling is negatief, binnen de meeste groepen is ze
-      positief) blijft wel overeind.</p>
-    </div>
     <div class="box key"><span class="t">Te onthouden (Data p. 39)</span>
       <ul>
         <li>Een interventie op X heeft alleen invloed op Y als er een <b>causaal pad</b> van X naar Y is.</li>
@@ -1113,7 +1109,6 @@
         (notities p. 20).</li>
       </ul>
     </div>
-    <p>Een tweede Simpson-voorbeeld, met een tabel om zelf na te rekenen, staat in 02.17 (oefening 02.18).</p>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"De totale regressielijn daalt (helling −0.45), dus meer medicijn schaadt."</b> Fout: per ernstgroep stijgen de lijnen meestal. Ernst is een confounder: ernstiger zieken krijgen meer medicijn én hebben sowieso een slechtere uitkomst; wie dat negeert, ziet het omgekeerde teken <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=37">Data p. 37</a>, <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=38">Data p. 38</a>, <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=39">Data p. 39</a>.</li>
@@ -1175,7 +1170,7 @@
       <p>Vuistregel: kies bij een interventie tussen <b>"de strook bij \(x_{0}\)"</b> (X oorzaak van Y) en
       <b>"de hele hoogte van de wolk"</b> (X geen oorzaak van Y).</p>
     </div>
-    <p>Dit beantwoordt ook de vraag van het fabrieksvoorbeeld (02.12): de redenering "verlaag X, dan daalt Y" gebruikt de
+    <p>Dit beantwoordt ook de vraag van het fabrieksvoorbeeld: de redenering "verlaag X, dan daalt Y" gebruikt de
     regressielijn, dus \(P(\sym{y_var}{Y}\mid\sym{x_var}{X}=\sym{x_val}{x})\), terwijl je \(P(\sym{y_var}{Y}\mid\mathrm{do}(\sym{x_var}{X}=\sym{x_val}{x}))\) nodig hebt. Dat zijn alleen dezelfde als X een oorzaak
     van Y is zonder confounding.</p>
 
@@ -1195,12 +1190,6 @@
       <figure class="fig"><img src="figures/02_koper_staal.png" alt="Twee causale diagrammen: bij observatie wijst schroot naar Ni, Cu en Cr, die alle drie naar Sterkte wijzen; bij do(Cu = x) staat Cu los, zonder pijl vanuit schroot">
       <figcaption>Figuur: links het causale diagram bij observatie: schroot → Ni, Cu, Cr → Sterkte. Rechts bij de interventie do(Cu = x): de pijl schroot → Cu is verdwenen, Cu wordt van buitenaf vastgelegd. De achterdeur via schroot is gesloten.
       <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=46">Data p. 46</a></figcaption></figure>
-    </div>
-    <div class="box warn"><span class="t">Fout in de notities: richting van de pijl</span>
-      <p>Het antwoord op notities p. 23 schrijft de achterdeur als "\(\sym{cu}{\mathrm{Cu}}\to\sym{schroot}{\text{schroot}}\to\sym{ni}{\mathrm{Ni}}\to\sym{sterkte}{\text{Sterkte}}\)". Volgens het diagram
-      (p. 22) en de tekst op p. 23 zelf ("\(\sym{schroot}{\text{schroot}}\to\sym{cu}{\mathrm{Cu}}\)") loopt de eerste pijl van schroot naar koper:
-      <b>\(\sym{cu}{\mathrm{Cu}}\leftarrow\sym{schroot}{\text{schroot}}\to\sym{ni}{\mathrm{Ni}}\to\sym{sterkte}{\text{Sterkte}}\)</b>. Een achterdeurpad begint juist met een pijl die <i>in</i> de behandelde
-      variabele aankomt.</p>
     </div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
@@ -1231,8 +1220,7 @@
         <p>Modelantwoord (notities p. 23): als we staal met veel koper observeren, heeft dat vermoedelijk ook een andere
         schrootmix gehad, dus ook andere waarden van de andere elementen; schroot met veel koper heeft typisch ook meer
         nikkel. De 10 MPa per 100 ppm is dus deels het effect van koper zelf \((\sym{cu}{\mathrm{Cu}}\to\sym{sterkte}{\text{Sterkte}})\) en deels het effect van het
-        nikkel dat met dat schroot meekomt, via de achterdeur \(\sym{cu}{\mathrm{Cu}}\leftarrow\sym{schroot}{\text{schroot}}\to\sym{ni}{\mathrm{Ni}}\to\sym{sterkte}{\text{Sterkte}}\) (de notities schrijven de eerste
-        pijl verkeerd om, zie het kader hierboven).</p>
+        nikkel dat met dat schroot meekomt, via de achterdeur \(\sym{cu}{\mathrm{Cu}}\leftarrow\sym{schroot}{\text{schroot}}\to\sym{ni}{\mathrm{Ni}}\to\sym{sterkte}{\text{Sterkte}}\).</p>
         <p><b>Werkt misschien</b>: als koper zelf de sterkte verhoogt, geeft bijlegeren een deel van de winst.
         <b>Werkt misschien niet</b>: als de winst vooral via nikkel liep, dan verandert bijlegeren het nikkel niet en
         blijft de sterkte nagenoeg gelijk. Bij do(\(\sym{cu}{\mathrm{Cu}}=\sym{x_val}{x}\)) verdwijnt de pijl \(\sym{schroot}{\text{schroot}}\to\sym{cu}{\mathrm{Cu}}\); de achterdeur is dicht en je
@@ -1376,284 +1364,8 @@
   </section>
 
   <!-- ============================================================ 02.16 -->
-  <section class="unit" id="d02-staal" data-kw="regression dilution; attenuation bias; verdunning; meetfout; measurement error; staal; afkoeling; afkoelcoëfficiënt; staalpan; ladle; causaal model; OLS; covariantie; variantie; errors in variables">
-    <h3>02.16 Praktijkvoorbeeld: koelt warm staal sneller af? <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=53">Data p. 53–57</a></h3>
-    <p class="small">Extra (niet in de getoonde slides), wel uitgewerkt in de notities.</p>
-    <p>Een staalpan koelt een tijd af. De temperatuur wordt gemeten vóór \((M_{1})\) en na \((M_{2})\) de
-    afkoelperiode, maar met <b>meetfout</b> <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=54">Data p. 54</a>.
-    Koelt warm staal sneller af dan koud staal? Intuïtief zou de regressielijn \(E[\sym{m2}{M_{2}}\mid\sym{m1}{M_{1}}=\sym{m_val}{m}]\) dat
-    moeten vertellen (notities p. 27).</p>
-    <p>Een zinnig causaal model bevat zowel de werkelijke als de gemeten temperaturen
-    <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=55">Data p. 55</a>: \(\sym{t1}{\text{werkelijke}\ T_{1}}\to\sym{t2}{\text{werkelijke}\ T_{2}}\leftarrow\sym{w}{\text{wachtduur}}\); \(\sym{t1}{\text{werkelijke}\ T_{1}}\to\sym{m1}{\text{gemeten}\ T_{1}}\); \(\sym{t2}{\text{werkelijke}\ T_{2}}\to\sym{m2}{\text{gemeten}\ T_{2}}\). De werkelijke temperatuur is een zinnig begrip, maar zit zelf niet in de dataset
-    (notities p. 28).</p>
-    <figure class="fig"><img src="figures/02_staal_model.png" alt="Causaal diagram met knopen wachtduur, werkelijke T1, werkelijke T2, gemeten T1 en gemeten T2">
-    <figcaption>Figuur: het causale model van de staalpan: werkelijke \(T_{1}\) en de wachtduur bepalen werkelijke \(T_{2}\); in de dataset zitten alleen gemeten \(T_{1}\) en gemeten \(T_{2}\).
-    <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=55">Data p. 55</a></figcaption></figure>
-    <p>In formules <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=56">Data p. 56</a>:</p>
-    <div class="f">
-      <div>\[\sym{m1}{M_{1}}=\sym{t1}{T_{1}}+\sym{eps1}{\varepsilon_{1}}\ \sym{m2}{M_{2}}=\sym{t2}{T_{2}}+\sym{eps2}{\varepsilon_{2}}\]</div>
-      <div>\[\sym{t2}{T_{2}}=\sym{alpha}{\alpha}\ \sym{t1}{T_{1}}+\sym{beta_w}{\beta}\ \sym{w}{W}+\sym{eps0}{\varepsilon_{0}}\]  (\[\sym{w}{W}=\] wachtduur; \[\sym{alpha}{\alpha}=\] de afkoelcoëfficiënt die we willen schatten)</div>
-    </div>
-    <p>Lees \(\alpha\) zo: met \(\sym{alpha}{\alpha}=1\) daalt de temperatuur van warm en koud staal evenveel; met \(\sym{alpha}{\alpha}\lt1\) is de daling
-    \(\sym{t1}{T_{1}}-\sym{t2}{T_{2}}\) groter naarmate \(T_{1}\) hoger is, dus warm staal koelt sneller af.</p>
-    <p>Twee schatters <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=57">Data p. 57</a>:</p>
-    <div class="f">
-      <div>Met het correcte model: \[\sym{alpha}{\alpha}=\frac{\operatorname{Cov}(\sym{m1}{M_{1}},\sym{m2}{M_{2}})}{\operatorname{Var}(\sym{t1}{T_{1}})}\]</div>
-      <div>Naïef (klassieke OLS-regressie van \[M_{2}\] op \[M_{1}\]): \[\sym{alpha_n}{\alpha'}=\frac{\operatorname{Cov}(\sym{m1}{M_{1}},\sym{m2}{M_{2}})}{\operatorname{Var}(\sym{m1}{M_{1}})}\]</div>
-      <div>\[\operatorname{Var}(\sym{m1}{M_{1}})=\operatorname{Var}(\sym{t1}{T_{1}})+\operatorname{Var}(\sym{eps1}{\varepsilon_{1}})\gt\operatorname{Var}(\sym{t1}{T_{1}})\], dus \[\sym{alpha_n}{\alpha'}\lt\sym{alpha}{\alpha}\]</div>
-    </div>
-    <p>Zelfs als in werkelijkheid \(\sym{alpha}{\alpha}=1\) (warm en koud staal koelen even snel af), schat het naïeve model \(\sym{alpha_n}{\alpha'}\approx0.94\),
-    alsof warm staal significant sneller afkoelt. Dat is een artefact van de meetfout, geen fysisch effect. Dit heet
-    <b>regression dilution</b> of <b>attenuation bias</b>: meetfouten in de onafhankelijke variabele leiden
-    systematisch tot een onderschatting van de werkelijke relatie
-    <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=29">Data-notities p. 29</a>.</p>
-    <div class="box key"><span class="t">Te onthouden</span>
-      <p>Zelfs een eenvoudige regressie kan systematisch verkeerde conclusies geven zonder correct causaal model.
-      Domeinkennis blijft belangrijk, ook met big data (notities p. 29). En het toont waarom een goed meetsysteem telt.</p>
-    </div>
-    <div class="box warn"><span class="t">Wat de cursus niet geeft</span>
-      <p>De waarde 0.94 staat er zonder de varianties die erachter zitten; het getal zelf kun je dus niet narekenen.
-      Wel volgt uit de twee formules van p. 57 dat \(\frac{\sym{alpha_n}{\alpha'}}{\sym{alpha}{\alpha}}=\frac{\operatorname{Var}(\sym{t1}{T_{1}})}{\operatorname{Var}(\sym{m1}{M_{1}})}\); dat gebruik je in
-      de oefening.</p>
-    </div>
-
-    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
-    <ul>
-      <li><b>"Meetfout is ruis die uitmiddelt; de helling blijft zuiver."</b> Fout: meetfout in de verklarende variabele maakt de helling systematisch kleiner: \(\sym{alpha_n}{\alpha'}=\frac{\operatorname{Cov}(\sym{m1}{M_{1}},\sym{m2}{M_{2}})}{\operatorname{Var}(\sym{m1}{M_{1}})}\lt\sym{alpha}{\alpha}\), want \(\operatorname{Var}(\sym{m1}{M_{1}})=\operatorname{Var}(\sym{t1}{T_{1}})+\operatorname{Var}(\sym{eps1}{\varepsilon_{1}})\) <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=57">Data p. 57</a>. Dit heet regression dilution of attenuation bias.</li>
-      <li><b>"De regressie geeft \(\sym{alpha_n}{\alpha'}\approx0.94\lt1\), dus warm staal koelt sneller af."</b> Fout: zelfs met \(\sym{alpha}{\alpha}=1\) geeft de naïeve regressie ≈ 0.94, een artefact van meetfout en geen fysisch effect <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=57">Data p. 57</a>. Een meetfoutvariantie van 0.0638 keer \(\operatorname{Var}(\sym{t1}{T_{1}})\) volstaat daarvoor (oefening 02.15) <span class="computed">zelf berekend</span>.</li>
-      <li><b>Let op:</b> \(\sym{alpha}{\alpha}\) is hier de afkoelcoëfficiënt <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=56">Data p. 56</a>, niet het significantieniveau \(\alpha\) van de toetsen (<a href="#d05-fouten">05.3</a>).</li>
-      <li><b>Let op:</b> de cursus spreekt over meetfout in de <b>onafhankelijke</b> variabele <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=29">Data-notities p. 29</a>. Meetfout alleen in de uitkomst maakt de helling niet systematisch kleiner, wel onzekerder <span class="gen">algemeen</span>.</li>
-    </ul></div>
-
-    <div class="exercise" id="ex-02-15" data-kw="regression dilution; attenuation bias; meetfout; measurement error; staal; afkoelcoëfficiënt; alpha; variantie; Var(T1); Var(ε1)">
-      <h4>Oefening 02.15 — Hoe groot moet de meetfout zijn? <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=57">Data p. 57</a></h4>
-      <p>In werkelijkheid is \(\sym{alpha}{\alpha}=1\), en de naïeve regressie geeft \(\sym{alpha_n}{\alpha'}=0.94\) (notities p. 29). Hoe groot is de variantie van
-      de meetfout \(\varepsilon_{1}\), uitgedrukt als fractie van de variantie van de werkelijke temperatuur \(T_{1}\)?</p>
-      <div class="q" data-answer="0.0638" data-tol="0.002">
-        <label>\(\frac{\operatorname{Var}(\sym{eps1}{\varepsilon_{1}})}{\operatorname{Var}(\sym{t1}{T_{1}})}\) (als fractie, 4 decimalen) =</label> <input type="text" inputmode="decimal">
-        <button type="button" class="check">Controleer</button> <span class="fb"></span>
-      </div>
-      <p>Leg daarna uit waarom de naïeve schatter \(\alpha'\) altijd kleiner is dan \(\alpha\) als er meetfout op \(M_{1}\) zit.</p>
-      <details class="hint"><summary>Hint</summary><p>Deel \(\alpha'\) door \(\alpha\): de covariantie valt weg.</p></details>
-      <details class="solution"><summary>Toon oplossing</summary>
-        <ol class="steps">
-          <li>Uit p. 57: \(\frac{\sym{alpha_n}{\alpha'}}{\sym{alpha}{\alpha}}=\frac{\operatorname{Var}(\sym{t1}{T_{1}})}{\operatorname{Var}(\sym{m1}{M_{1}})}=\frac{\operatorname{Var}(\sym{t1}{T_{1}})}{\operatorname{Var}(\sym{t1}{T_{1}})+\operatorname{Var}(\sym{eps1}{\varepsilon_{1}})}\).</li>
-          <li>Met \(\sym{alpha}{\alpha}=1\) en \(\sym{alpha_n}{\alpha'}=0.94\): \(0.94=\frac{1}{1+\frac{\operatorname{Var}(\sym{eps1}{\varepsilon_{1}})}{\operatorname{Var}(\sym{t1}{T_{1}})}}\), dus
-          \(\frac{\operatorname{Var}(\sym{eps1}{\varepsilon_{1}})}{\operatorname{Var}(\sym{t1}{T_{1}})}=\frac{1}{0.94}-1=0.0638\) <span class="computed">zelf berekend</span>.</li>
-          <li>Een meetfoutvariantie van ongeveer 6 % van de echte temperatuurvariantie volstaat dus om een "effect" te
-          verzinnen dat er niet is.</li>
-        </ol>
-        <p>Waarom altijd kleiner: de noemer van \(\sym{alpha_n}{\alpha'}\) is \(\operatorname{Var}(\sym{m1}{M_{1}})=\operatorname{Var}(\sym{t1}{T_{1}})+\operatorname{Var}(\sym{eps1}{\varepsilon_{1}})\), die groter is
-        dan \(\operatorname{Var}(\sym{t1}{T_{1}})\) zodra \(\operatorname{Var}(\sym{eps1}{\varepsilon_{1}})\gt0\); de teller is dezelfde (p. 57). De meetfout in x "verdunt" de
-        helling naar nul toe.</p>
-      </details>
-    </div>
-  </section>
-
-  <!-- ============================================================ 02.17 -->
-  <section class="unit" id="d02-misleiding" data-kw="misleidende data; misleading data; datageletterdheid; data literacy; kritisch denken; y-as; survivorship bias; correlatie causaliteit; Simpson; cherry-picking; framing; relatief risico; absoluut risico; Goodhart; procentpunt; percentage point; gemiddelde mediaan">
-    <h3>02.17 Extra: wanneer data misleidt <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=85">LSS p. 85–100</a></h3>
-    <p class="small">Extra (niet in de getoonde slides). Dit blok bevat drie oefeningen uit de cursus en sluit aan bij
-    02.12–02.13.</p>
-    <p>Fact-based decisions beloven veel, maar data kan op drie manieren misleiden
-    <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=86">LSS p. 86</a>: <b>bewuste
-    misleiding</b> (data selectief inzetten voor een gewenste conclusie), <b>onbewuste fouten</b> (cognitieve biases,
-    verkeerde methoden, slechte visualisatie) en <b>structurele blinde vlekken</b> (meetmethoden die groepen of effecten
-    systematisch negeren of verkeerd inschatten). De voorbeelden:</p>
-    <ul>
-      <li><b>Misleidende y-as</b> (p. 87): een staafdiagram waarvan de as bij 31.5 % begint, laat een verschil van slechts
-      0.6 procentpunt enorm lijken. Laat de as bij 0 beginnen.</li>
-      <li><b>Survivorship bias</b> (p. 88): je telt alleen de overlevenden, zoals de bommenwerpers die terugkwamen; de
-      kwetsbare plekken zaten op de vliegtuigen die niet terugkwamen.</li>
-      <li><b>Correlatie ≠ causaliteit</b> (p. 90): ijsverkoop en verdrinkingen correleren sterk (de cursus noemt \(\sym{r_corr}{r}=0.97\))
-      omdat beide in de zomer stijgen (confounder: warme temperaturen). Zie 02.12.</li>
-      <li><b>Simpson's paradox</b> (p. 91): het totaal verbergt wat in de subgroepen gebeurt. Zie oefening 02.18.</li>
-      <li><b>Cherry-picking en framing</b> (p. 92): de keuze van het startpunt bepaalt het verhaal; en een daling van 2 %
-      naar 1 % is −50 % relatief maar slechts −1 procentpunt absoluut.</li>
-      <li><b>Goodhart's law</b> (p. 93): als een maatstaf een doel wordt, is het geen goede maatstaf meer.</li>
-    </ul>
-    <figure class="fig"><img src="figures/02_yas.png" alt="Twee staafdiagrammen van kandidaat A en B: links een y-as van 31.6 tot 32.2 procent, rechts een y-as vanaf 0 procent">
-    <figcaption>Figuur: dezelfde twee percentages, links met een y-as die bij 31.5 % begint (het verschil lijkt enorm), rechts met een as vanaf 0 (het werkelijke verschil is slechts 0.6 procentpunt).
-    <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=87">LSS p. 87</a></figcaption></figure>
-    <figure class="fig"><img src="figures/02_survivorship.png" alt="Bovenaanzicht van een bommenwerper met rode stippen voor inslagen op vleugels, romp en staart, maar niet op motoren en cockpit">
-    <figcaption>Figuur: inslagen op de bommenwerpers die terugkwamen. De plekken zonder inslagen (motoren, cockpit) zijn de kwetsbare: vliegtuigen die daar geraakt werden, kwamen niet terug.
-    <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=88">LSS p. 88</a></figcaption></figure>
-    <p>De checklist van <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=94">LSS p. 94</a>:
-    controleer de y-as; vraag wat er ontbreekt; onderscheid correlatie en causaliteit (plausibel mechanisme? confounders
-    uitgesloten?); disaggregeer (verbergt het totaal een Simpson's paradox?); controleer startpunt en tijdvenster; vraag
-    wie de data presenteert en wat die te winnen heeft.</p>
-
-    <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
-    <ul>
-      <li><b>"Het aandeel daalde van 43 % naar 39 %, dus met 4 %."</b> Fout: met 4 procentpunt; relatief is dat 9.3 %, en het <i>aantal</i> jongeren daalde maar 5.7 % omdat de populatie groeide <span class="computed">zelf berekend</span> (oefening 02.17, <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=100">LSS p. 100</a>).</li>
-      <li><b>"Van 2 % naar 1 % is een daling van 50 %."</b> Juist, relatief; absoluut is het maar 1 procentpunt. Framing kiest de indrukwekkendste versie <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=92">LSS p. 92</a>.</li>
-      <li><b>"Bladir verdient gemiddeld meer dan Abora (100 tegen 90), dus daar is minder armoede."</b> Fout: één inkomen van 820 trekt het gemiddelde op; de mediaan is 20 en 90 % verdient minder dan 50 <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=100">LSS p. 100</a>. Bij scheve data zegt de mediaan meer over de typische inwoner.</li>
-      <li><b>"Onder 50 jaar was 41 % van de doden gevaccineerd en 59 % niet, dus het vaccin beschermt."</b> Fout: dat is hoe de doden verdeeld zijn, geen sterftecijfer. Per miljoen: 21.48 gevaccineerd tegen 13.95 niet-gevaccineerd <span class="computed">zelf berekend</span>; alleen bij 50+ sterven gevaccineerden minder vaak <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=91">LSS p. 91</a>. Deel altijd door de groepsgrootte.</li>
-      <li><b>"Een groot hoogteverschil tussen de staven is een groot verschil."</b> Fout: kijk waar de y-as begint; op <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=87">LSS p. 87</a> start ze bij 31.5 % en lijkt 0.6 procentpunt enorm.</li>
-      <li><b>Let op (Goodhart's law):</b> als een maatstaf een doel wordt, is het geen goede maatstaf meer <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=93">LSS p. 93</a>.</li>
-    </ul></div>
-
-    <div class="exercise" id="ex-02-16" data-kw="dorpen; villages; Abora; Bladir; Curo; liefdadigheid; charity; gemiddelde; mediaan; modus; median; mean; inkomen; income; armoede; fact based decision making">
-      <h4>Oefening 02.16 — Welk dorp krijgt het liefdadigheidsgeld? <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=95">LSS p. 95–100</a></h4>
-      <p>De inkomens van de inwoners van drie dorpen (\(m=\) man, \(v=\) vrouw), LSS p. 100:</p>
-      <table>
-        <tr><th>Abora</th><td>m: 90, 88, 95, 87, 90; v: 90, 85, 92, 88, 95, 89, 91, 90, 90, 92, 88</td></tr>
-        <tr><th>Bladir</th><td>m: 820, 20, 20, 20, 20; v: 20, 20, 20, 20, 20</td></tr>
-        <tr><th>Curo</th><td>m: 241, 250, 258, 243, 258; v: 9, 10, 12, 8, 11</td></tr>
-      </table>
-      <figure class="fig"><img src="figures/02_dorpen_totaal.png" alt="Taartdiagram van het totale inkomen per dorp: Abora 1440, Bladir 1000, Curo 1300, met de inwoners als mannen- en vrouwenfiguurtjes">
-      <figcaption>Figuur: totaal inkomen per dorp: Abora 1440, Bladir 1000, Curo 1300. De figuurtjes rond de taart zijn de inwoners (mannen en vrouwen) van de drie dorpen.
-      <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=95">LSS p. 95</a></figcaption></figure>
-      <p>De cursus toont eerst het totale inkomen per dorp (1440 / 1000 / 1300, figuur hierboven), dan het gemiddelde,
-      en vraagt telkens opnieuw: "Anybody want to reconsider?"</p>
-      <div class="q" data-answer="100" data-tol="0.5">
-        <label>a. Gemiddeld inkomen in Bladir =</label> <input type="text" inputmode="decimal">
-        <button type="button" class="check">Controleer</button> <span class="fb"></span>
-      </div>
-      <div class="q" data-answer="20" data-tol="0.5">
-        <label>b. Mediaan inkomen in Bladir =</label> <input type="text" inputmode="decimal">
-        <button type="button" class="check">Controleer</button> <span class="fb"></span>
-      </div>
-      <div class="q" data-answer="90" data-tol="0.5">
-        <label>c. Percentage inwoners van Bladir met een inkomen onder 50 (in %) =</label> <input type="text" inputmode="decimal">
-        <button type="button" class="check">Controleer</button> <span class="fb"></span>
-      </div>
-      <div class="q" data-answer="126.5" data-tol="0.5">
-        <label>d. Mediaan inkomen in Curo =</label> <input type="text" inputmode="decimal">
-        <button type="button" class="check">Controleer</button> <span class="fb"></span>
-      </div>
-      <div class="q" data-answer="10" data-tol="0.5">
-        <label>e. Gemiddeld inkomen van de vrouwen in Curo =</label> <input type="text" inputmode="decimal">
-        <button type="button" class="check">Controleer</button> <span class="fb"></span>
-      </div>
-      <p>f. Welk dorp zou jij steunen, en welke maat gebruik je daarvoor?</p>
-      <details class="solution"><summary>Toon oplossing</summary>
-        <p>De samenvattende tabel van p. 100 (het script rekent ze alle 30 na uit de ruwe data: OK):</p>
-        <table>
-          <tr><th></th><th>Abora</th><th>Bladir</th><th>Curo</th></tr>
-          <tr><td>aantal inwoners</td><td class="n">16</td><td class="n">10</td><td class="n">10</td></tr>
-          <tr><td>totaal inkomen</td><td class="n">1440</td><td class="n">1000</td><td class="n">1300</td></tr>
-          <tr><td>gemiddelde</td><td class="n">90</td><td class="n">100</td><td class="n">130</td></tr>
-          <tr><td>mediaan</td><td class="n">90</td><td class="n">20</td><td class="n">126.5</td></tr>
-          <tr><td>modus</td><td class="n">90</td><td class="n">20</td><td class="n">258</td></tr>
-          <tr><td>% inkomens onder 50</td><td class="n">0</td><td class="n">90</td><td class="n">50</td></tr>
-          <tr><td>% inkomens onder 100</td><td class="n">100</td><td class="n">90</td><td class="n">50</td></tr>
-          <tr><td>gemiddelde mannen / vrouwen</td><td class="n">90 / 90</td><td class="n">180 / 20</td><td class="n">250 / 10</td></tr>
-        </table>
-        <figure class="fig"><img src="figures/02_dorpen_maten.png" alt="Vier staafdiagrammen voor Abora, Bladir en Curo: totaal inkomen, gemiddeld inkomen, percentage inkomens onder 50 en onder 100">
-        <figcaption>Figuur: dezelfde drie dorpen (Abora / Bladir / Curo) volgens vier maten: totaal inkomen 1440 / 1000 / 1300, gemiddeld inkomen 90 / 100 / 130, % inkomens onder 50: 0 / 90 / 50, % inkomens onder 100: 100 / 90 / 50. Elke maat zet een ander dorp bovenaan.
-        <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=97">LSS p. 97–98</a></figcaption></figure>
-        <p>(Aantal inwoners zelf geteld.) a. \(\frac{1000}{10}=100\). b. Gesorteerd staan negen keer 20 en één keer 820: de mediaan
-        is 20. c. 9 van de 10: 90 %. d. Gesorteerd: 8, 9, 10, 11, 12, 241, 243, 250, 258, 258; de mediaan is
-        \(\frac{12+241}{2}=126.5\). e. \(\frac{9+10+12+8+11}{5}=10\).</p>
-        <p>f. De cursus geeft geen "juist" antwoord; het punt is dat elke maat een ander dorp aanwijst. Het totaal
-        hangt af van het aantal inwoners (Abora heeft er 16). Het gemiddelde van Bladir wordt opgetrokken door één
-        inkomen van 820; de mediaan (20) en "90 % onder 50" tonen dat bijna iedereen er arm is. In Curo verbergt een
-        gemiddelde van 130 dat de vrouwen gemiddeld 10 verdienen. Een verdedigbaar antwoord: Bladir als je "zo veel
-        mogelijk arme mensen" wil helpen, met de vrouwen van Curo als tweede doelgroep. Kies de maat die bij je doel
-        past en kijk naar de verdeling en de subgroepen, niet alleen naar één getal.</p>
-      </details>
-    </div>
-
-    <div class="exercise" id="ex-02-17" data-kw="percentage; procent; procentpunt; percentage point; relatieve verandering; relative change; absolute verandering; aantal; conclusies; kinderen op vakantie; rapportering">
-      <h4>Oefening 02.17 — Conclusies uit percentages <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=100">LSS p. 100</a></h4>
-      <p>In 2019 mocht 43 % van de 14- tot 17-jarigen zonder ouders op vakantie; in 2023 was dat 39 %. Er waren 1 092 979
-      jongeren van 14–17 jaar in 2019 en 1 136 495 in 2023. Welke conclusie over het <b>aantal</b> jongeren dat zonder
-      ouders mocht reizen klopt?</p>
-      <ol>
-        <li>dropped by 1 % per year</li>
-        <li>dropped by 4 %</li>
-        <li>dropped by 9.3 %</li>
-        <li>dropped by 27 748</li>
-        <li>dropped by 5.7 %</li>
-      </ol>
-      <div class="q" data-answer="26748" data-tol="2">
-        <label>a. Daling van het aantal jongeren (afgerond op een eenheid) =</label> <input type="text" inputmode="decimal">
-        <button type="button" class="check">Controleer</button> <span class="fb"></span>
-      </div>
-      <div class="q" data-answer="5.69" data-tol="0.02">
-        <label>b. Die daling in % van het aantal in 2019 (2 decimalen) =</label> <input type="text" inputmode="decimal">
-        <button type="button" class="check">Controleer</button> <span class="fb"></span>
-      </div>
-      <div class="q" data-type="choice" data-answer="5">
-        <label>c. Welke conclusie klopt?</label>
-        <select><option value="">kies…</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select>
-        <button type="button" class="check">Controleer</button> <span class="fb"></span>
-      </div>
-      <details class="hint"><summary>Hint</summary><p>Reken eerst de aantallen uit: aandeel × populatie, voor elk jaar.
-      Let op het verschil tussen "procent" en "procentpunt", en tussen het aandeel en het aantal.</p></details>
-      <details class="solution"><summary>Toon oplossing</summary>
-        <p>De cursus markeert geen juist antwoord; de uitwerking is <span class="computed">zelf berekend</span>.</p>
-        <ol class="steps">
-          <li>2019: \(0.43\times1\ 092\ 979=469\ 981\). 2023: \(0.39\times1\ 136\ 495=443\ 233\).</li>
-          <li>Daling: 469 981 − 443 233 = 26 748, of \(26\ \frac{748}{469}\ 981=5.69\ \%\approx5.7\ \%\). Conclusie 5 klopt.</li>
-          <li>Conclusie 4 drukt 27 748: dat is 1000 te veel (mogelijk een tikfout, mogelijk een bewuste valstrik; de cursus
-          zegt het niet).</li>
-          <li>Conclusies 1–3 gaan over het <b>aandeel</b>, niet over het aantal: het aandeel daalt met 4 procentpunt (niet
-          "4 %"), dat is 1 procentpunt per jaar over 2019–2023, en relatief \(\frac{4}{43}=9.3\ \%\). Omdat de populatie tegelijk
-          groeide, daalt het aantal minder sterk dan het aandeel.</li>
-        </ol>
-      </details>
-    </div>
-
-    <div class="exercise" id="ex-02-18" data-kw="Simpson's paradox; COVID-19; vaccin; vaccine; sterfgevallen; deaths; sterftecijfer; death rate; per miljoen; leeftijdsgroep; age group; aggregatie; aandeel; rate; confounder">
-      <h4>Oefening 02.18 — Simpson's paradox met vaccinatiecijfers <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=91">LSS p. 91</a></h4>
-      <p>De tabel uit de cursus (COVID-19, VK, september 2021):</p>
-      <table>
-        <tr><th>Groep</th><th>Gevaccineerd: sterfgevallen</th><th>Niet-gevaccineerd: sterfgevallen</th><th>% sterfgevallen gevaccineerd</th></tr>
-        <tr><td>&lt; 50 jaar</td><td>33 op 1 536 353</td><td>48 op 3 440 479</td><td class="n">41 %</td></tr>
-        <tr><td>50+ jaar</td><td>1 671 op 3 501 456</td><td>324 op 486 670</td><td class="n">84 %</td></tr>
-        <tr><td>Totaal</td><td>1 704 op 5 037 809</td><td>372 op 3 927 149</td><td class="n">82 %</td></tr>
-      </table>
-      <p>Bereken het sterftecijfer per miljoen personen in elke cel.</p>
-      <div class="q" data-answer="21.48" data-tol="0.1">
-        <label>&lt; 50 jaar, gevaccineerd (per miljoen, 2 decimalen) =</label> <input type="text" inputmode="decimal">
-        <button type="button" class="check">Controleer</button> <span class="fb"></span>
-      </div>
-      <div class="q" data-answer="13.95" data-tol="0.1">
-        <label>&lt; 50 jaar, niet-gevaccineerd (per miljoen) =</label> <input type="text" inputmode="decimal">
-        <button type="button" class="check">Controleer</button> <span class="fb"></span>
-      </div>
-      <div class="q" data-answer="477.2" data-tol="1">
-        <label>50+ jaar, gevaccineerd (per miljoen, 1 decimaal) =</label> <input type="text" inputmode="decimal">
-        <button type="button" class="check">Controleer</button> <span class="fb"></span>
-      </div>
-      <div class="q" data-answer="665.7" data-tol="1">
-        <label>50+ jaar, niet-gevaccineerd (per miljoen) =</label> <input type="text" inputmode="decimal">
-        <button type="button" class="check">Controleer</button> <span class="fb"></span>
-      </div>
-      <div class="q" data-type="choice" data-answer="50plus">
-        <label>In welke leeftijdsgroep is het sterftecijfer van gevaccineerden lager, met deze cijfers?</label>
-        <select><option value="">kies…</option><option value="beide">in beide groepen</option><option value="50plus">alleen bij 50+</option><option value="min50">alleen bij &lt; 50</option><option value="geen">in geen enkele</option></select>
-        <button type="button" class="check">Controleer</button> <span class="fb"></span>
-      </div>
-      <details class="hint"><summary>Hint</summary><p>Een percentage van de sterfgevallen zegt niets zolang je niet weet
-      hoeveel mensen in elke groep zitten. Deel het aantal sterfgevallen door het aantal personen.</p></details>
-      <details class="solution"><summary>Toon oplossing</summary>
-        <p>Sterftecijfers per miljoen <span class="computed">zelf berekend</span>:</p>
-        <table>
-          <tr><th>Groep</th><th>gevaccineerd</th><th>niet-gevaccineerd</th><th>aandeel gevaccineerd in de groep</th></tr>
-          <tr><td>&lt; 50 jaar</td><td class="n">21.48</td><td class="n">13.95</td><td class="n">30.9 %</td></tr>
-          <tr><td>50+ jaar</td><td class="n">477.2</td><td class="n">665.7</td><td class="n">87.8 %</td></tr>
-          <tr><td>Totaal</td><td class="n">338.2</td><td class="n">94.7</td><td class="n">56.2 %</td></tr>
-        </table>
-        <p>De paradox: in het totaal sterven gevaccineerden ruim drie keer zo vaak (338 tegen 95 per miljoen), maar bij de
-        50-plussers, waar de meeste doden vallen, sterven gevaccineerden minder vaak (477 tegen 666). De verklaring in de
-        cursus klopt: ouderen werden eerst gevaccineerd én hebben een hoger sterfterisico, dus leeftijd is een confounder.
-        Het totaal is misleidend.</p>
-        <p><b>Maar</b> de cursus zegt ook: "binnen elke leeftijdsgroep beschermt het vaccin juist (41 % vs. 59 % in groep
-        &lt; 50 jaar)". Met de gedrukte cijfers klopt dat niet voor de groep onder 50: daar is het sterftecijfer van
-        gevaccineerden hoger (21.5 tegen 14.0 per miljoen). De "41 % tegen 59 %" vergelijkt hoe de doden verdeeld zijn,
-        niet hoe vaak mensen sterven; omdat maar 31 % van de onder-50-jarigen gevaccineerd was, zijn gevaccineerden bij de
-        doden (41 %) zelfs oververtegenwoordigd. Dit is opgenomen in de foutenlijst. Het juiste antwoord op de keuzevraag
-        is dus "alleen bij 50+".</p>
-      </details>
-    </div>
-  </section>
-
-  <!-- ============================================================ 02.18 -->
   <section class="unit" id="d02-studiewijzer" data-kw="studiewijzer; study guide; wat moet ik kennen; leerdoelen; learning objectives; examenstof; exam; checklist; overzicht">
-    <h3>02.18 Studiewijzer: wat moet je kunnen? <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=58">Data p. 58</a></h3>
+    <h3>02.16 Studiewijzer: wat moet je kunnen? <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=58">Data p. 58</a></h3>
     <p>De studiewijzer bij dit onderwerp (Data p. 58; <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=29">Data-notities p. 29</a>),
     met waar elk punt in deze gids staat:</p>
     <table>

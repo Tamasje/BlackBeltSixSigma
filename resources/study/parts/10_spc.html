@@ -3,8 +3,7 @@
   <p class="intro">Statistische procesbeheersing (statistical process control, SPC) bewaakt of een proces stabiel
   blijft: je neemt regelmatig een kleine steekproef, zet het resultaat uit op een regelkaart en grijpt pas in als de
   kaart een signaal geeft. Dit deel behandelt de regelkaarten voor metingen (\(\bar{X}\)-R en \(\bar{X}\)-s), de regels om een kaart te
-  lezen en zes SPC-oefeningen met hun uitgewerkte rekenbladen (deck "Capabiliteit – SPC", SPC p. 54–89). Je hebt de normale
-  verdeling nodig (<a href="#d03">Deel 03</a>) en Cp/Cpk en stabiliteit (<a href="#d09">Deel 09</a>). De I-MR-, p- en u-kaart staan alleen in Six Sigma For Dummies en
+  lezen en zes SPC-oefeningen met hun uitgewerkte rekenbladen (deck "Capabiliteit – SPC", SPC p. 54–89). De I-MR-, p- en u-kaart staan alleen in Six Sigma For Dummies en
   zijn niet te kennen voor het examen.</p>
 
   <!-- ====================================================================================== 10.1 -->
@@ -35,8 +34,6 @@
     gearceerde gebieden boven de UCL en onder de LCL horen bij speciale oorzaken (special cause).</p>
     <figure class="fig"><img src="figures/10_gewone_speciale_oorzaak.png" alt="Schema van een regelkaart in de tijd: tussen UCL en LCL de zone common cause, boven UCL en onder LCL gearceerde zones special cause">
     <figcaption>Figuur: de regelgrenzen scheiden op basis van kansen de gewone variatie (common cause, tussen UCL en LCL) van de speciale oorzaken (special cause, de gearceerde zones erbuiten). Horizontaal staat de tijd (time). <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=57">SPC p. 57</a></figcaption></figure>
-    <p>Wat gewone en speciale oorzaken zijn, en waarom een stabiel proces voorspelbaar is, staat in
-    <a href="#d09">Deel 09</a> (<a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=30">SPC p. 30–32</a>).</p>
 
     <h4>Enkele opmerkingen over SPC <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=62">SPC p. 62</a></h4>
     <ul>
@@ -72,6 +69,16 @@
       <tr><td>Getekend op</td><td>regelkaarten</td><td>histogrammen (niet op regelkaarten)</td></tr>
       <tr><td>Stem van</td><td>het proces (voice of the process)</td><td>de klant (voice of the customer)</td></tr>
     </table>
+    <p>Rond een reeks metingen bestaan drie soorten grenzen (figuur hieronder, <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=14">SPC p. 14</a>): <b>waarschuwingsgrenzen</b>
+    (warning limits, UWL/LWL: "krijgt het proces de nodige aandacht?"), <b>regelgrenzen</b> (control limits,
+    UCL/LCL: "is het proces onder controle?") en <b>specificatiegrenzen</b> (specification limits, USL/LSL: "aanvaarden
+    of afkeuren we het stuk?"). De eerste twee komen uit het proces en horen bij regelkaarten;
+    de laatste komen van de klant en horen bij capabiliteit.</p>
+    <figure class="fig"><img src="figures/03_grenzen_waarschuwing_regel_specificatie.png" alt="Reeks metingen rond het gemiddelde X met van binnen naar buiten waarschuwingsgrenzen UWL/LWL, regelgrenzen UCL/LCL en specificatiegrenzen USL/LSL">
+    <figcaption>Figuur: metingen rond het gemiddelde X met, van binnen naar buiten, de waarschuwingsgrenzen (UWL/LWL:
+    "increase attention?"), de regelgrenzen (UCL/LCL: "out of control?") en de specificatiegrenzen (USL/LSL: een
+    punt erbuiten wordt afgekeurd, "reject?").
+    <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=14">SPC p. 14</a></figcaption></figure>
     <p>De figuur hieronder toont een kaart met UCL en LCL op 3 s en, verder naar buiten, USL en LSL op 6 s.</p>
     <figure class="fig"><img src="figures/10_regelgrenzen_vs_specs.png" alt="Lijngrafiek van dagwaarden van 2 februari tot 1 maart tussen UCL en LCL (3 s), met verder naar buiten USL en LSL (6 s)">
     <figcaption>Figuur: een reeks dagwaarden (2-Feb tot 1-Mar) met de regelgrenzen UCL en LCL op 3 s rond het gemiddelde en de specificatiegrenzen USL en LSL verder naar buiten, op 6 s. Alle punten liggen binnen de regelgrenzen, en de specificaties liggen ruim daarbuiten. <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=56">SPC p. 56</a></figcaption></figure>
@@ -83,7 +90,7 @@
     specificaties; (4) out of control en buiten de specificaties. Ook <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=66">SPC p. 66</a> zet "in control", "out of control"
     en "capable of meeting specification" (histogram met LCL en UCL ruim binnen de specificaties) naast elkaar
     (tweede figuur onder dit kader).
-    Stabiliteit zegt dus niets over capabiliteit: daarvoor heb je Cp/Cpk nodig (<a href="#d09">Deel 09</a>).</p>
+    Stabiliteit zegt dus niets over capabiliteit: daarvoor heb je Cp/Cpk nodig.</p>
     </div>
     <figure class="fig"><img src="figures/10_vier_toestanden.png" alt="Vier kleine regelkaarten met histogram: in control en binnen specificatie, in control maar buiten specificatie, out of control binnen specificatie, out of control buiten specificatie">
     <figcaption>Figuur: de vier toestanden van een proces. 1: in control en binnen de specificaties (upper/lower spec liggen buiten UCL/LCL). 2: in control, maar de specificaties liggen binnen UCL/LCL, dus een deel van de verdeling valt buiten specificatie. 3: out of control (een dalend verloop), maar nog binnen de specificaties. 4: out of control en buiten de specificaties. <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=70">SPC p. 70</a></figcaption></figure>
@@ -100,7 +107,7 @@
     correctie niet verder uit.</p>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"Het proces is onder controle, dus (bijna) alles ligt binnen de specificaties."</b> Fout: "Process in Statistical Control ≠ Process Satisfies Customer Requirements" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=70">SPC p. 70</a>. Een stabiel proces kan breder zijn dan de tolerantie (toestand 2): dat beoordeel je met Cp/Cpk, zie <a href="#d09-cp">09.2</a>. SPC-oefening 1a (<a href="#ex-10-4">oefening 10.4</a>).</li>
+      <li><b>"Het proces is onder controle, dus (bijna) alles ligt binnen de specificaties."</b> Fout: "Process in Statistical Control ≠ Process Satisfies Customer Requirements" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=70">SPC p. 70</a>. Een stabiel proces kan breder zijn dan de tolerantie (toestand 2): dat beoordeel je met Cp/Cpk. SPC-oefening 1a (<a href="#ex-10-4">oefening 10.4</a>).</li>
       <li><b>"Een punt buiten de regelgrenzen betekent een defect stuk."</b> Fout: regelgrenzen zijn de stem van het proces, specificaties de stem van de klant <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=56">SPC p. 56</a>. Een proces kan out of control zijn en toch (nog) binnen de specificaties blijven (toestand 3) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=70">SPC p. 70</a>.</li>
       <li><b>"De regelgrenzen legt de klant of de ingenieur vast."</b> Fout: ze komen uit de prestatie van het proces zelf, ±3 geschatte standaardafwijkingen rond het gemiddelde <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=56">SPC p. 56</a>.</li>
       <li><b>"Zet USL en LSL op de \(\bar{X}\)-kaart en vergelijk de gemiddelden ermee."</b> Fout: de \(\bar{X}\)-kaart toont gemiddelden, de specificaties gelden voor individuele stuks; volgens de cursus en het rekenblad horen ze niet op een regelkaart <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=70">SPC p. 70</a>, <a class="p" href="../source/course/Les%204/__Xbar%20R%20kaart%20data%20-%20berekeningen%20oefening%202.xlsx">werkboek oefening 2</a>.</li>
@@ -119,16 +126,6 @@
       meet; laat het proces ongemoeid lopen volgens de standaardprocedures; "effective control charts need at least
       20 subgroups of data".</li>
     </ol>
-
-    <div class="box warn"><span class="t">20 of 25 subgroepen?</span>
-    <p>De cursus noemt twee minima (beslissing 13: ken ze allebei):</p>
-    <ul>
-      <li><b>20 subgroepen</b>: het SPC-deck <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=58">SPC p. 58</a>. Oefening 2 werkt ook met 20 "voorbereidende samples"
-      <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=75">SPC p. 75</a>.</li>
-      <li><b>25 subgroepen</b>: het Minitab-rapport van oefening 2 voor een capabiliteitsanalyse: "You only have 20
-      subgroups … collect at least 25 subgroups" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=80">SPC p. 80</a> (extra, verborgen dia).</li>
-    </ul>
-    </div>
 
     <h4>De PDCA-cirkel van SPC <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=59">SPC p. 59</a></h4>
     <p>SPC kent twee fasen: <b>controle bereiken (achieving control)</b> en
@@ -157,10 +154,7 @@
     <figcaption>Figuur: de spreiding door het meetinstrument. De smalle piek is de meetvariatie (meten, m), de middelste de procesvariatie (proces, P), de breedste wat je waarneemt (totaal, T). Onderaan de breedte R&amp;R, het totale spreidingsinterval (TV) en, het breedst, de tolerantie tussen OTG en BTG. <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=60">SPC p. 60</a></figcaption></figure>
     <p>Daarom geldt (<a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=61">SPC p. 61</a>):</p>
     <div class="f"><div>\[\sym{var_total}{\sigma^{2}_{\text{Total}}}=\sym{var_pp}{\sigma^{2}_{\text{Part-Part}}}+\sym{var_rr}{\sigma^{2}_{\text{R\&R}}}\]</div></div>
-    <p>met als aanbeveling: resolutie ≤ 10 % van de tolerantie en Gauge R&amp;\(R\le20\ \%\) van de tolerantie.
-    Herhaalbaarheid (repeatability, equipment variation) is de variatie bij één toestel, één operator, hetzelfde
-    stuk; reproduceerbaarheid (reproducibility, appraiser variation) de variatie tussen operatoren met hetzelfde
-    toestel; stabiliteit of drift (stability, drift) de variatie op een referentie over een lange periode.</p>
+    <p>met als aanbeveling: resolutie ≤ 10 % van de tolerantie en Gauge R&amp;\(R\le20\ \%\) van de tolerantie.</p>
 
     <h4>SPC in de praktijk: OSPC bij ArcelorMittal Gent <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=88">SPC p. 88–89</a></h4>
     <p>Een voorbeeld uit de praktijk zijn de online SPC-schermen ("OSPC controle door productie – bewaking
@@ -175,7 +169,7 @@
       <li><b>Let op:</b> de cursus noemt twee minima: 20 subgroepen <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=58">SPC p. 58</a> en 25 in het Minitab-rapport bij een capabiliteitsanalyse <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=80">SPC p. 80</a>. Noem op het examen allebei, met de bron (beslissing 13).</li>
       <li><b>"Tijdens het verzamelen van leerdata stuur je het proces extra zorgvuldig bij."</b> Fout: laat het proces ongemoeid lopen volgens de standaardprocedures <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=58">SPC p. 58</a>.</li>
       <li><b>"Wat je op de kaart ziet, is de procesvariatie."</b> Fout: het is procesvariatie plus meetvariatie, \(\sym{var_total}{\sigma^{2}_{\text{Total}}}=\sym{var_pp}{\sigma^{2}_{\text{Part-Part}}}+\sym{var_rr}{\sigma^{2}_{\text{R\&R}}}\) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=61">SPC p. 61</a>. Het zijn de varianties die optellen, niet de standaardafwijkingen.</li>
-      <li><b>Let op:</b> het SPC-deck vraagt Gauge R&amp;\(R\le20\ \%\) van de tolerantie <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=61">SPC p. 61</a>; de meetsysteemanalyse (MSA) gebruikt 10 % / 30 % (<a href="#d11-avgrange">11.17</a>). Vermeld welke drempel je gebruikt.</li>
+      <li><b>Let op:</b> het SPC-deck vraagt Gauge R&amp;\(R\le20\ \%\) van de tolerantie <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=61">SPC p. 61</a>; de meetsysteemanalyse (MSA) gebruikt 10 % / 30 %. Vermeld welke drempel je gebruikt.</li>
       <li><b>"Bij een alarm onderzoekt het management meteen de oorzaak."</b> Fout: eerst doorloopt de operator het OCAP (diagnosefase); pas als dat geen antwoord geeft, onderzoekt het management het geval en past het OCAP aan (engineeringfase) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=59">SPC p. 59</a>.</li>
     </ul></div>
   </section>
@@ -218,9 +212,9 @@
     <p><b>Waarom \(3\sigma\)?</b> Binnen ±3 standaardafwijkingen ligt 99,7 % van een normale verdeling
     <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=19">SPC p. 19</a>; buiten \(3\sigma\) ligt "0,30 % totaal" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=18">SPC p. 18</a>. De kans dat een punt van een stabiel
     proces buiten de grenzen valt, is dus maar 0,3 %. Een punt erbuiten is daarom zo onwaarschijnlijk dat je een
-    speciale oorzaak vermoedt: de grenzen scheiden op basis van kansen gewone en speciale oorzaken <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=57">SPC p. 57</a>. Hoe je zo'n
-    kans uitrekent, staat in <a href="#d03">Deel 03</a>.</p>
+    speciale oorzaak vermoedt: de grenzen scheiden op basis van kansen gewone en speciale oorzaken <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=57">SPC p. 57</a>.</p>
     <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-10-formules">14 Dummies: de X̄-R- en X̄-s-kaart</a>.</p>
+    <div class="calc-here" data-tool="regelkaart" data-blocks="3"></div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
@@ -229,7 +223,6 @@
       <li><b>"Grotere steekproeven geven bredere grenzen."</b> Fout: \(\sym{sigma_xbar}{\sigma_{\bar{x}}}=\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\) daalt, dus de grenzen worden smaller en een verschuiving valt sneller op (<a href="#ex-10-8">oefening 10.8</a>).</li>
       <li><b>"Bij een stabiel proces valt nooit een punt buiten de \(3\sigma\)-grenzen."</b> Fout: binnen ±3 standaardafwijkingen ligt 99,7 %; de kans op een punt erbuiten is 0,3 % <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=18">SPC p. 18–19</a>. Klein genoeg om een speciale oorzaak te vermoeden, maar niet nul.</li>
       <li><b>Let op:</b> rond \(\sym{sigma_xbar}{\sigma_{\bar{x}}}\) niet tussentijds af: de figuur rekent met 0,0671 en drukt 1,7013 en 1,2987; exact is het 1,70125 en 1,29875 <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=64">SPC p. 64</a>.</li>
-      <li><b>Let op in Excel:</b> het rekenblad van oefening 2 schrijft <code>=R31*(5)^1/2</code> voor \(\sym{sigma_xbar}{\sigma_{\bar{x}}}\cdot\sqrt{5}\); Excel leest dat als ·5/2 en geeft 0,18925 in plaats van 0,16927 <a class="p" href="../source/course/Les%204/__Xbar%20R%20kaart%20data%20-%20berekeningen%20oefening%202.xlsx">werkboek oefening 2</a>.</li>
     </ul></div>
     <div class="exercise" id="ex-10-1" data-kw="X-bar kaart; regelgrenzen; control limits; sigma xbar; σx̄; centrale limietstelling; UCL; LCL; n = 5">
       <h4>Oefening 10.1 — Regelgrenzen bij gekende μ en σ <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=64">SPC p. 64</a></h4>
@@ -247,6 +240,7 @@
         <label><var data-s="lcl">LCL</var> (4 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="regelkaart" data-blocks="3"></div>
       <details class="hint"><summary>Hint</summary><p>De grenzen gelden voor gemiddelden van 5 stuks: gebruik
       \(\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\), niet \(\sym{sigma}{\sigma}\).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
@@ -269,9 +263,9 @@
     gemiddelde, de range (spreidingsbreedte, grootste − kleinste) en de standaardafwijking van steekproef i.</p>
     <div class="f">
       <div>\[\sym{xbarbar}{\bar{\bar{X}}}=\left(\frac{1}{\sym{k}{k}}\right)\ \Sigma\ \sym{xbar_i}{\bar{x}_{i}}\] ;  \[\sym{rbar}{\bar{R}}=\left(\frac{1}{\sym{k}{k}}\right)\ \Sigma\ \sym{r_i}{R_{i}}\] ;  \[\sym{sbar}{\bar{s}}=\left(\frac{1}{\sym{k}{k}}\right)\ \Sigma\ \sym{s_i}{s_{i}}\]</div>
-      <div><b>\[\frac{\bar{X}}{R}\]-kaart</b>: \[\bar{X}\]-kaart \[\sym{cl}{\mathrm{CL}}=\sym{xbarbar}{\bar{\bar{X}}}\], \[\sym{ucl}{\mathrm{UCL}}=\sym{xbarbar}{\bar{\bar{X}}}+\sym{a2}{A_{2}}\sym{rbar}{\bar{R}}\], \[\sym{lcl}{\mathrm{LCL}}=\sym{xbarbar}{\bar{\bar{X}}}-\sym{a2}{A_{2}}\sym{rbar}{\bar{R}}\] ;
+      <div><b>\(\bar{X}\)-R-kaart</b>: \(\bar{X}\)-kaart \[\sym{cl}{\mathrm{CL}}=\sym{xbarbar}{\bar{\bar{X}}}\], \[\sym{ucl}{\mathrm{UCL}}=\sym{xbarbar}{\bar{\bar{X}}}+\sym{a2}{A_{2}}\sym{rbar}{\bar{R}}\], \[\sym{lcl}{\mathrm{LCL}}=\sym{xbarbar}{\bar{\bar{X}}}-\sym{a2}{A_{2}}\sym{rbar}{\bar{R}}\] ;
       R-kaart \[\sym{cl_r}{\mathrm{CL}}=\sym{rbar}{\bar{R}}\], \[\sym{ucl_r}{\mathrm{UCL}}=\sym{d4}{D_{4}}\sym{rbar}{\bar{R}}\], \[\sym{lcl_r}{\mathrm{LCL}}=\sym{d3}{D_{3}}\sym{rbar}{\bar{R}}\]</div>
-      <div><b>\[\frac{\bar{X}}{s}\]-kaart</b>: \[\bar{X}\]-kaart \[\sym{cl}{\mathrm{CL}}=\sym{xbarbar}{\bar{\bar{X}}}\], \[\sym{ucl}{\mathrm{UCL}}=\sym{xbarbar}{\bar{\bar{X}}}+\sym{a3}{A_{3}}\sym{sbar}{\bar{s}}\], \[\sym{lcl}{\mathrm{LCL}}=\sym{xbarbar}{\bar{\bar{X}}}-\sym{a3}{A_{3}}\sym{sbar}{\bar{s}}\] ;
+      <div><b>\(\bar{X}\)-s-kaart</b>: \(\bar{X}\)-kaart \[\sym{cl}{\mathrm{CL}}=\sym{xbarbar}{\bar{\bar{X}}}\], \[\sym{ucl}{\mathrm{UCL}}=\sym{xbarbar}{\bar{\bar{X}}}+\sym{a3}{A_{3}}\sym{sbar}{\bar{s}}\], \[\sym{lcl}{\mathrm{LCL}}=\sym{xbarbar}{\bar{\bar{X}}}-\sym{a3}{A_{3}}\sym{sbar}{\bar{s}}\] ;
       s-kaart \[\sym{cl_s}{\mathrm{CL}}=\sym{sbar}{\bar{s}}\], \[\sym{ucl_s}{\mathrm{UCL}}=\sym{b4}{B_{4}}\sym{sbar}{\bar{s}}\], \[\sym{lcl_s}{\mathrm{LCL}}=\sym{b3}{B_{3}}\sym{sbar}{\bar{s}}\]</div>
       <div><b>Variabele steekproefgrootte</b> \[\sym{n_i}{n_{i}}\]: \[\sym{cl}{\mathrm{CL}}=\sym{xbarbar}{\bar{\bar{X}}}\], \[\sym{ucl}{\mathrm{UCL}}/\sym{lcl}{\mathrm{LCL}}=\sym{xbarbar}{\bar{\bar{X}}}\pm3\ \frac{\sym{sigma_hat}{\hat{\sigma}}}{\sqrt{\sym{n_i}{n_{i}}}}\], met
       \[\sym{sigma_hat}{\hat{\sigma}}=\left(\frac{1}{\sym{k}{k}}\right)\ \Sigma\ \sym{sigma_hat_i}{\hat{\sigma}_{i}}\] en \[\sym{sigma_hat_i}{\hat{\sigma}_{i}}=\frac{\sym{r_i}{R_{i}}}{\sym{d2}{d_{2}}}\]</div>
@@ -303,14 +297,9 @@
 <tr><td class="n">9</td><td class="n">0,337</td><td class="n">2,970</td><td class="n">0,184</td><td class="n">1,816</td><td class="n">1,032</td><td class="n">0,239</td><td class="n">1,761</td><td class="n">0,9693</td></tr>
 <tr><td class="n">10</td><td class="n">0,308</td><td class="n">3,078</td><td class="n">0,223</td><td class="n">1,777</td><td class="n">0,975</td><td class="n">0,284</td><td class="n">1,716</td><td class="n">0,9727</td></tr>
 </table>
-    <div class="box warn"><span class="t">De tabellen verschillen in de derde decimaal</span>
-    <p>Table 18 geeft \(\sym{d4}{D_{4}}=2{,}115\ (\sym{n}{n}=5)\) en \(2{,}575\ (\sym{n}{n}=3)\); Six Sigma Demystified <a class="p" href="../source/course/Les%204/Control%20charts%20-%20constants.pdf#page=2">constants p. 2</a> geeft
-    2,114 en 2,574. De uitgewerkte oefeningen rekenen met 2,115 en 2,575 (Table 18). Een verschil in de derde decimaal
-    van \(\mathrm{UCL}_{R}\) is dus geen fout; vermeld welke tabel je gebruikt.</p>
     <p>Table 18 heeft geen kolom \(A_{3}\). Table 7.2 in hetzelfde bestand <a class="p" href="../source/course/Les%204/___4.1%20tabellen%20SPC.pdf#page=2">tabellen SPC p. 2</a> schrijft de \(\bar{X}\)-kaart met
     \(\bar{s}\) als \(\sym{xbarbar}{\bar{\bar{X}}}\pm\sym{a1}{A_{1}}\ \sym{sbar}{\bar{s}}\ \sqrt{\frac{\sym{n}{n}-1}{\sym{n}{n}}}\); dat is hetzelfde: voor \(\sym{n}{n}=5\) is \(1{,}596\cdot\sqrt{\frac{4}{5}}=1{,}4275\approx\sym{a3}{A_{3}}=1{,}427\) <span class="computed">zelf berekend</span>. Table 7.2 geeft ook de varianten met gegeven \(\mu\) en \(\sigma\)
     (\(\sym{mu}{\mu}\pm\sym{a_sigma}{A}\sym{sigma}{\sigma}\); R-kaart \(\sym{d1_sigma}{D_{1}}\sym{sigma}{\sigma}\) tot \(\sym{d2_sigma}{D_{2}}\sym{sigma}{\sigma}\)).</p>
-    </div>
 
     <h4>R-kaart of s-kaart?</h4>
     <ul>
@@ -341,6 +330,7 @@
     </div>
 
     <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-10-formules">14 Dummies: de X̄-R- en X̄-s-kaart</a>.</p>
+    <div class="calc-here" data-tool="regelkaart" data-blocks="0 1"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>Let op:</b> \(\sym{a2}{A_{2}}\), \(\sym{d2}{d_{2}}\), \(\sym{d3}{D_{3}}\) en \(\sym{d4}{D_{4}}\) lees je bij de subgroepgrootte \(\sym{n}{n}\), niet bij het aantal subgroepen \(\sym{k}{k}\) (20 of 25) <a class="p" href="../source/course/Les%204/___4.1%20tabellen%20SPC.pdf#page=2">tabellen SPC p. 2</a>.</li>
@@ -359,6 +349,7 @@
         <label>\(\sym{n}{n}=\)</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="regelkaart" data-blocks="2"></div>
       <details class="hint"><summary>Hint</summary><p>Reken \(\sym{a2}{A_{2}}=\frac{\sym{ucl}{\mathrm{UCL}}-\sym{lcl}{\mathrm{LCL}}}{2\sym{rbar}{\bar{R}}}\) en
       \(\sym{d4}{D_{4}}=\frac{\sym{ucl_r}{\mathrm{UCL}_{R}}}{\sym{rbar}{\bar{R}}}\) uit en zoek ze in de tabel.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
@@ -433,6 +424,7 @@
     </div>
 
     <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-10-regels">14 Dummies: regels en patronen op een regelkaart</a>.</p>
+    <div class="calc-here" data-tool="regelkaart" data-blocks="4"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"Geen enkel punt ligt buiten de grenzen, dus het proces is onder controle."</b> Fout: ook patronen binnen de grenzen zijn signalen (regels 2–4: 2 van 3 voorbij \(2\sigma\), 4 van 5 voorbij \(1\sigma\), 8 op rij aan één kant) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=68">SPC p. 68</a>. In SPC-oefening 1 ligt geen punt buiten de grenzen en toch is het proces niet onder controle <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=72">SPC p. 72</a>.</li>
@@ -496,7 +488,7 @@
       <p><b>a.</b> Nee. "Process in Statistical Control ≠ Process Satisfies Customer Requirements" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=70">SPC p. 70</a>:
       regelgrenzen zijn de stem van het proces, specificaties de stem van de klant <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=56">SPC p. 56</a>. Een stabiel proces
       kan een spreiding hebben die breder is dan de tolerantie (toestand 2 op <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=70">SPC p. 70</a>). Of het binnen specificatie
-      blijft, beoordeel je met Cp/Cpk (<a href="#d09">Deel 09</a>).</p>
+      blijft, beoordeel je met Cp/Cpk.</p>
       <p><b>b.</b> De cursus geeft geen oplossing; dit is een eigen aflezing <span class="computed">zelf
       berekend</span>.</p>
       <ul>
@@ -523,7 +515,7 @@
     <p>De data van oefeningen 2 en 3 staan in <a class="p" href="../source/course/Les%204/__Gegevens%20oefeningen.xlsx">__Gegevens oefeningen.xlsx</a>; de uitgewerkte oplossingen in <a class="p" href="../source/course/Les%204/__Xbar%20R%20kaart%20data%20-%20berekeningen%20oefening%202.xlsx">werkboek oefening 2</a>, <a class="p" href="../source/course/Les%204/__Xbar%20R%20kaart%20data%20-%20berekeningen%20oefening%203.xlsx">werkboek oefening 3</a> (ook
     oefening 4) en <a class="p" href="../source/course/Les%204/__Xbar%20R%20kaart%20data%20-%20berekeningen%20oefening%205.xlsx">werkboek oefening 5</a>. Oefening 6 is in het deck zelf opgelost <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=87">SPC p. 87</a>. Alle oefeningen gebruiken \(\sym{n}{n}=5\) en
     de constanten van Table 18: \(\sym{a2}{A_{2}}=0{,}577\), \(\sym{d3}{D_{3}}=0\), \(\sym{d4}{D_{4}}=2{,}115\),
-    \(\sym{d2}{d_{2}}=2{,}326\). Cp en Cpk worden uitgelegd in <a href="#d09">Deel 09</a> (<a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=34">SPC p. 34–35</a>):
+    \(\sym{d2}{d_{2}}=2{,}326\). Voor Cp en Cpk gelden (<a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=34">SPC p. 34–35</a>):
     \(\sym{cp}{C_{p}}=\frac{\sym{usl}{\mathrm{USL}}-\sym{lsl}{\mathrm{LSL}}}{6\sym{sigma}{\sigma}}\) en \(\sym{cpk}{C_{pk}}=\min\left[\frac{\sym{xbarbar}{\bar{\bar{X}}}-\sym{lsl}{\mathrm{LSL}}}{3\sym{sigma}{\sigma}};\frac{\sym{usl}{\mathrm{USL}}-\sym{xbarbar}{\bar{\bar{X}}}}{3\sym{sigma}{\sigma}}\right]\), met \(\sym{sigma_hat}{\hat{\sigma}}=\frac{\sym{rbar}{\bar{R}}}{\sym{d2}{d_{2}}}\).</p>
     <p>De dia's <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=76">SPC p. 76–83</a> ("Oefening 2 in Minitab") zijn verborgen in het deck; ze staan hier als
     <b>extra (verborgen dia)</b> bij oefening 2.</p>
@@ -586,6 +578,7 @@
         <select><option value="">kies…</option><option value="geen">geen enkele regel</option><option value="r2">regel 2</option><option value="r3">regel 3</option><option value="r4">regel 4</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="regelkaart" data-blocks="1 4"></div>
       <details class="hint"><summary>Hint</summary><p>Per rij: \(\sym{xbar_i}{\bar{x}}=\) gemiddelde, \(\sym{r_i}{R}=\) grootste − kleinste. Dan
       \(\sym{xbarbar}{\bar{\bar{X}}}=\) gemiddelde van de \(20\ \sym{xbar_i}{\bar{x}}'\)s, \(\sym{rbar}{\bar{R}}=\) gemiddelde van de \(20\ \sym{r_i}{R}'\)s. Voor de zones: \(\sym{sigma_xbar}{\sigma_{\bar{x}}}=\frac{\sym{a2}{A_{2}}\sym{rbar}{\bar{R}}}{3}\).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
@@ -664,16 +657,9 @@
       gebruikt in de capabiliteitsanalyse \(\sym{stdev_within}{\text{StDev}(\text{within})}=0{,}20982\), niet de \(0{,}20636\ \left(\frac{\sym{rbar}{\bar{R}}}{\sym{d2}{d_{2}}}\right)\) van zijn eigen
       \(\bar{X}\)-R-kaart <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=79">SPC p. 79</a>; de cursus legt niet uit waarom. (Ter vergelijking: de gepoolde standaardafwijking van
       de 20 steekproeven, √(gemiddelde \(\sym{s_i}{s_{i}}^{2}\)), is 0,2092.) Verder meldt Minitab dat de data de
-      normaliteitstoets niet halen (Anderson-Darling, \(\sym{p_value}{P}\lt0{,}005\)) en dat 20 subgroepen weinig is (25 aanbevolen).
-      Pp/Ppk en het onderscheid korte/lange termijn: <a href="#d09">Deel 09</a>.</p>
+      normaliteitstoets niet halen (Anderson-Darling, \(\sym{p_value}{P}\lt0{,}005\)) en dat 20 subgroepen weinig is (25 aanbevolen).</p>
       <figure class="fig"><img src="figures/10_oefening2_capabiliteit.png" alt="Minitab Process Performance Report van oefening 2: histogram tussen LSL en USL met twee normale curven, en tabellen met Pp 0,82, Ppk 0,72, Cp 0,79, Cpk 0,69">
     <figcaption>Figuur: het Minitab-capabiliteitsrapport (process performance report) van oefening 2. Het histogram van de 100 metingen ligt tussen LSL en USL, met de curve voor overall (volle lijn) en within (stippellijn). Rechts: mean 16,266, standard deviation (overall) 0,20212 en (within) 0,20982; actual (overall) Pp = 0,82, Ppk = 0,72, 1,84 % buiten specificatie (expected); potential (within) Cp = 0,79, Cpk = 0,69, 2,28 %. <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=81">SPC p. 81 (verborgen dia)</a></figcaption></figure>
-      <div class="box warn"><span class="t">Formulefout in het rekenblad</span>
-      <p>Het rekenblad toont ook \(\sym{sigma_xbar}{\sigma_{\bar{x}}}=\) STDEV van de 20 gemiddelden = 0,0757 en daaruit
-      \(\sym{sigma}{\sigma}=0{,}0757\cdot\sqrt{5}=0{,}16927\) (cel W31). Cel W32 ("sigma individuele metingen") rekent hetzelfde met de formule
-      <code>=R31*(5)^1/2</code>; Excel leest dat als \(\frac{0{,}0757\cdot5}{2}=0{,}18925\). <span class="computed">zelf
-      berekend</span> Bedoeld is \(\sqrt{5}\), dus 0,16927.</p>
-      </div>
       </details>
     </div>
 
@@ -737,6 +723,7 @@
         <label>herziene <var data-s="ucl_r">UCL</var> van de R-kaart (gecodeerd) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="regelkaart" data-blocks="0 4"></div>
       <details class="hint"><summary>Hint</summary><p>Met gecodeerde getallen reken je net zo: gemiddelden van de
       kolommen, dan \(\sym{a2}{A_{2}}=0{,}577\) en \(\sym{d4}{D_{4}}=2{,}115\). Pas op het einde terugrekenen naar mm.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
@@ -809,6 +796,7 @@
         <label>c. \(\sym{n}{n}=8\): dezelfde kans =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="regelkaart" data-blocks="0 3"></div>
       <details class="hint"><summary>Hint</summary><p>Het proces verandert niet, alleen de steekproef. \(\sym{sigma_hat}{\hat{\sigma}}=\frac{\sym{rbar}{\bar{R}}}{\sym{d2}{d_{2}}(5)}\) blijft dus hetzelfde. Bij een nieuwe n verwacht je een andere gemiddelde range:
       \(\sym{rbar_new}{\bar{R}_{\text{nieuw}}}=\sym{d2}{d_{2}}(\sym{n_new}{n_{\text{nieuw}}})\cdot\sym{sigma_hat}{\hat{\sigma}}\). Voor c: de verschuiving \(2\sym{sigma}{\sigma}\) is \(2\sqrt{\sym{n}{n}}\) keer
       \(\sym{sigma_xbar}{\sigma_{\bar{x}}}\). Denk na over de vraag: "bij een kleiner sample vergroten de limieten, maar ook de
@@ -830,16 +818,10 @@
         \(\sym{n}{n}=8\): 0,996. Kleinere steekproeven geven bredere grenzen en ontdekken een verschuiving dus later; grotere
         steekproeven ontdekken ze sneller, maar kosten meer metingen.</li>
       </ol>
-      <div class="box warn"><span class="t">Opgelet in het rekenblad</span>
-      <p>Het rekenblad berekent bij \(\sym{n}{n}=3\) en \(\sym{n}{n}=8\) een "sigma" als \(\frac{\sym{rbar}{\bar{R}}}{\sym{d2}{d_{2}}(3)}=0{,}000103\) mm en
-      \(\frac{\sym{rbar}{\bar{R}}}{\sym{d2}{d_{2}}(8)}=0{,}0000614\) mm. Maar \(\sym{rbar}{\bar{R}}=0{,}000175\) mm komt uit steekproeven van 5; de processpreiding is
-      \(\sym{sigma_hat}{\hat{\sigma}}=\frac{\sym{rbar}{\bar{R}}}{\sym{d2}{d_{2}}(5)}=0{,}0000751\) mm en hangt niet af van de toekomstige steekproefgrootte
-      <span class="computed">zelf berekend</span>. Gebruik die getallen dus niet als \(\sigma\).</p>
-      </div>
       </details>
     </div>
 
-    <div class="exercise" id="ex-10-9" data-kw="SPC oefening 5; procescapabiliteit; Cp; Cpk; percentage niet-conform; percent defective; uitval; centreren; standaardnormale verdeling; NORM.S.DIST; 26,40">
+    <div class="exercise" id="ex-10-9" data-kw="SPC oefening 5; procescapabiliteit; Cp; Cpk; percentage niet-conform; percent defective; uitval; centreren; standaardnormale verdeling; 26,40">
       <h4>Oefening 10.9 — SPC oefening 5: capabiliteit en uitval <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=86">SPC p. 86</a></h4>
       <p>Elk uur wordt een steekproef van \(\sym{n}{n}=5\) genomen; het kenmerk is normaal verdeeld. Na \(\sym{k}{m}=25\) steekproeven:
       \(\Sigma\ \sym{xbar_i}{\bar{x}_{i}}=662{,}50\) en \(\Sigma\ \sym{r_i}{R_{i}}=9{,}00\). Beide kaarten zijn onder controle. De specificaties zijn
@@ -878,8 +860,6 @@
         <li>Gecentreerd (gemiddelde 26,40): \(\sym{cpk}{C_{pk}}=\sym{cp}{C_{p}}=1{,}077\), \(\sym{z}{Z}=3{,}231\) aan elke kant, 0,000618 per kant, totaal
         0,001235 = <b>0,1235 %</b>.</li>
       </ol>
-      <p class="small">Het rekenblad gebruikt <code>1-NORMDIST(z;0;1;TRUE)</code> en noteert: "in percent! Anders x 100
-      doen". Excel-functies voor de normale verdeling: <a href="#d03">Deel 03</a>.</p>
       <div class="box tool"><span class="t">Rekentool</span>
       <p>Blad <b>Capability</b> (rij met \(\sym{sigma_hat}{\hat{\sigma}}=\frac{\sym{rbar}{\bar{R}}}{\sym{d2}{d_{2}}}\)) voor Cp, Cpk en % buiten specificatie; blad
       <b>Normal</b> voor de staartkansen.</p>

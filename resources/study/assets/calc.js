@@ -96,86 +96,143 @@ var Calc = (function () {
     return { stat: stat, ne: { crit: [-c2, c2], p: two, d: decide(two, alpha) },
              gt: { crit: [c1], p: sf, d: decide(sf, alpha) }, lt: { crit: [-c1], p: cdf, d: decide(cdf, alpha) } };
   }
-  function oneMean(n, xbar, s, sigma, mu0, alpha) {
-    if (!all(n, xbar, alpha) || n < 1) return null;
-    var out = { n: n, xbar: xbar, df: n - 1 };
-    if (num(sigma) && sigma > 0) {
-      out.seZ = sigma / Math.sqrt(n);
-      out.ciZ = intervals(xbar, out.seZ, S.normInv(1 - alpha / 2), S.normInv(1 - alpha));
-      if (num(mu0)) out.testZ = tests((xbar - mu0) / out.seZ, null, alpha);
+  // One mean (CI FR p. 3, 9-15; TH p. 12): everything the inputs allow. n with σ (z) or s (t) gives the standard
+  // error; a distance d gives it in standard errors and P(|X̄ − µ| ≤ d); α gives the critical values and half widths
+  // ("x̄ ± h", even before x̄ is known); x̄ gives the intervals; µ0 the tests. Missing inputs leave their part empty.
+  function oneMean(n, xbar, s, sigma, mu0, alpha, d) {
+    if (!num(n) || n < 1) return null;
+    var a = num(alpha) && alpha > 0 && alpha < 1, out = { n: n, xbar: num(xbar) ? xbar : null, df: n - 1 };
+    function part(spread, df) {   // df null: z (σ known); a number: t with df
+      var se = spread / Math.sqrt(n), cdf = function (x) { return df ? S.tCdf(x, df) : S.normCdf(x); }, r = { se: se };
+      if (num(d) && d > 0) { r.k = d / se; r.within = 2 * cdf(r.k) - 1; r.beyond = 1 - cdf(r.k); }
+      if (a) {
+        r.c2 = df ? S.tInv(1 - alpha / 2, df) : S.normInv(1 - alpha / 2); r.c1 = df ? S.tInv(1 - alpha, df) : S.normInv(1 - alpha);
+        r.half2 = r.c2 * se; r.half1 = r.c1 * se;
+        if (num(xbar)) r.ci = intervals(xbar, se, r.c2, r.c1);
+        if (num(xbar) && num(mu0)) r.test = tests((xbar - mu0) / se, df, alpha);
+      }
+      return r;
     }
-    if (num(s) && s > 0 && n > 1) {
-      out.seT = s / Math.sqrt(n);
-      out.ciT = intervals(xbar, out.seT, S.tInv(1 - alpha / 2, n - 1), S.tInv(1 - alpha, n - 1));
-      if (num(mu0)) out.testT = tests((xbar - mu0) / out.seT, n - 1, alpha);
-    }
-    return out;
+    if (num(sigma) && sigma > 0) { out.z = part(sigma, null); out.seZ = out.z.se; out.ciZ = out.z.ci; out.testZ = out.z.test; }
+    if (num(s) && s > 0 && n > 1) { out.t = part(s, n - 1); out.seT = out.t.se; out.ciT = out.t.ci; out.testT = out.t.test; }
+    return out.z || out.t ? out : null;
   }
+  // Two independent means with the pooled s (CI FR p. 15; TR p. 5): s_p and the standard error from n and s of both
+  // samples; with α the critical t and half width; with both means the interval and the test.
   function twoMeansPooled(n1, m1, s1, n2, m2, s2, d0, alpha) {
-    if (!all(n1, m1, s1, n2, m2, s2, alpha) || n1 + n2 <= 2) return null;
+    if (!all(n1, s1, n2, s2) || n1 + n2 <= 2) return null;
     var df = n1 + n2 - 2, sp = Math.sqrt(((n1 - 1) * s1 * s1 + (n2 - 1) * s2 * s2) / df);
-    var se = sp * Math.sqrt(1 / n1 + 1 / n2), diff = m1 - m2;
-    return { sp: sp, df: df, se: se, diff: diff,
-             ci: intervals(diff, se, S.tInv(1 - alpha / 2, df), S.tInv(1 - alpha, df)),
-             test: tests((diff - (num(d0) ? d0 : 0)) / se, df, alpha) };
+    var out = { sp: sp, df: df, se: sp * Math.sqrt(1 / n1 + 1 / n2) };
+    if (num(alpha) && alpha > 0 && alpha < 1) {
+      out.c2 = S.tInv(1 - alpha / 2, df); out.c1 = S.tInv(1 - alpha, df); out.half2 = out.c2 * out.se; out.half1 = out.c1 * out.se;
+      if (all(m1, m2)) {
+        out.diff = m1 - m2;
+        out.ci = intervals(out.diff, out.se, out.c2, out.c1);
+        out.test = tests((out.diff - (num(d0) ? d0 : 0)) / out.se, df, alpha);
+      }
+    }
+    if (all(m1, m2)) out.diff = m1 - m2;
+    return out;
   }
+  // Paired observations: the differences as one sample (CI FR p. 17-18): s.e. and df from n and s_v; α adds the
+  // critical t and half width; v̄ the interval and the test.
   function paired(n, dbar, sd, d0, alpha) {
-    if (!all(n, dbar, sd, alpha) || n < 2 || sd <= 0) return null;
-    var se = sd / Math.sqrt(n), df = n - 1;
-    return { se: se, df: df, dbar: dbar, ci: intervals(dbar, se, S.tInv(1 - alpha / 2, df), S.tInv(1 - alpha, df)),
-             test: tests((dbar - (num(d0) ? d0 : 0)) / se, df, alpha) };
-  }
-  function oneProportion(n, x, pi0, alpha) {
-    if (!all(n, x, alpha) || n <= 0 || x < 0 || x > n) return null;
-    var p = x / n, se = Math.sqrt(p * (1 - p) / n);
-    var out = { p: p, se: se, ci: intervals(p, se, S.normInv(1 - alpha / 2), S.normInv(1 - alpha)) };
-    // exact (Clopper-Pearson) = R binom.test, CI Further Reading p. 20; BETA.INV as in the workbook
-    out.exact = {
-      two: [x === 0 ? 0 : S.betaInv(alpha / 2, x, n - x + 1), x === n ? 1 : S.betaInv(1 - alpha / 2, x + 1, n - x)],
-      lower: [x === 0 ? 0 : S.betaInv(alpha, x, n - x + 1), Infinity],
-      upper: [0, x === n ? 1 : S.betaInv(1 - alpha, x + 1, n - x)]
-    };
-    if (num(pi0) && pi0 > 0 && pi0 < 1) {
-      out.condition = n * pi0 > 5;
-      out.test = tests((p - pi0) / Math.sqrt(pi0 * (1 - pi0) / n), null, alpha);
+    if (!all(n, sd) || n < 2 || sd <= 0) return null;
+    var out = { se: sd / Math.sqrt(n), df: n - 1, dbar: num(dbar) ? dbar : null };
+    if (num(alpha) && alpha > 0 && alpha < 1) {
+      out.c2 = S.tInv(1 - alpha / 2, out.df); out.c1 = S.tInv(1 - alpha, out.df);
+      out.half2 = out.c2 * out.se; out.half1 = out.c1 * out.se;
+      if (num(dbar)) {
+        out.ci = intervals(dbar, out.se, out.c2, out.c1);
+        out.test = tests((dbar - (num(d0) ? d0 : 0)) / out.se, out.df, alpha);
+      }
     }
     return out;
   }
+  // One proportion (CI p. 20; Test Recipes p. 9-10): with π0 the test's standard error under H0 (and with α the critical p);
+  // with x the estimate and its standard error; with α also the intervals; with π0 and α the Z-test.
+  function oneProportion(n, x, pi0, alpha) {
+    if (!num(n) || n <= 0) return null;
+    var a = num(alpha) && alpha > 0 && alpha < 1, h0 = num(pi0) && pi0 > 0 && pi0 < 1, out = {};
+    var z2 = a ? S.normInv(1 - alpha / 2) : null, z1 = a ? S.normInv(1 - alpha) : null;
+    if (h0) {
+      out.se0 = Math.sqrt(pi0 * (1 - pi0) / n);
+      out.condition = n * pi0 > 5;
+      if (a) out.critical = { ne: [pi0 - z2 * out.se0, pi0 + z2 * out.se0], gt: pi0 + z1 * out.se0, lt: pi0 - z1 * out.se0 };
+    }
+    if (num(x) && x >= 0 && x <= n) {
+      var p = x / n, se = Math.sqrt(p * (1 - p) / n);
+      out.p = p; out.se = se;
+      if (a) {
+        out.ci = intervals(p, se, z2, z1);
+        // exact (Clopper-Pearson) = R binom.test, CI Further Reading p. 20; BETA.INV as in the workbook
+        out.exact = {
+          two: [x === 0 ? 0 : S.betaInv(alpha / 2, x, n - x + 1), x === n ? 1 : S.betaInv(1 - alpha / 2, x + 1, n - x)],
+          lower: [x === 0 ? 0 : S.betaInv(alpha, x, n - x + 1), Infinity],
+          upper: [0, x === n ? 1 : S.betaInv(1 - alpha, x + 1, n - x)]
+        };
+      }
+      if (a && h0) out.test = tests((p - pi0) / out.se0, null, alpha);
+    }
+    return Object.keys(out).length ? out : null;
+  }
+  // Two proportions: with x1 and x2 the difference and its standard error; with α also the intervals.
   function twoProportions(n1, x1, n2, x2, alpha) {
-    if (!all(n1, x1, n2, x2, alpha) || n1 <= 0 || n2 <= 0) return null;
+    if (!all(n1, x1, n2, x2) || n1 <= 0 || n2 <= 0) return null;
     var p1 = x1 / n1, p2 = x2 / n2, se = Math.sqrt(p1 * (1 - p1) / n1 + p2 * (1 - p2) / n2);
-    return { p1: p1, p2: p2, diff: p1 - p2, se: se,
-             ci: intervals(p1 - p2, se, S.normInv(1 - alpha / 2), S.normInv(1 - alpha)) };
+    var out = { p1: p1, p2: p2, diff: p1 - p2, se: se };
+    if (num(alpha) && alpha > 0 && alpha < 1) {
+      out.c2 = S.normInv(1 - alpha / 2); out.c1 = S.normInv(1 - alpha);
+      out.ci = intervals(p1 - p2, se, out.c2, out.c1);
+    }
+    return out;
   }
 
   /* ---------- variances (sheet_variance.py) ---------- */
+  // One variance (CI FR p. 21; TR p. 11): with n and α the χ² critical values; with σ0 also the s beyond which H0 is
+  // rejected; with s the intervals and the test.
   function oneVariance(n, s, sigma0, alpha) {
-    if (!all(n, s, alpha) || n < 2 || s <= 0) return null;
-    var df = n - 1, q = df * s * s;
-    var ci = { two: [q / S.chi2Isf(alpha / 2, df), q / S.chi2Inv(alpha / 2, df)],
-               lower: [q / S.chi2Isf(alpha, df), Infinity], upper: [0, q / S.chi2Inv(alpha, df)] };
-    var out = { df: df, s2: s * s, ci: ci };
-    if (num(sigma0) && sigma0 > 0) {
+    if (!num(n) || n < 2) return null;
+    var df = n - 1, out = { df: df };
+    var a = num(alpha) && alpha > 0 && alpha < 1;
+    if (a) out.crit = { lo2: S.chi2Inv(alpha / 2, df), hi2: S.chi2Isf(alpha / 2, df), lo1: S.chi2Inv(alpha, df), hi1: S.chi2Isf(alpha, df) };
+    if (a && num(sigma0) && sigma0 > 0) {   // (n − 1)s²/σ0² beyond a critical value  ⇔  s beyond σ0·√(χ²/(n − 1))
+      var sAt = function (x) { return sigma0 * Math.sqrt(x / df); };
+      out.sLimits = { ne: [sAt(out.crit.lo2), sAt(out.crit.hi2)], gt: sAt(out.crit.hi1), lt: sAt(out.crit.lo1) };
+    }
+    if (!num(s) || s <= 0) return out;
+    var q = df * s * s;
+    out.s2 = s * s;
+    if (a) out.ci = { two: [q / out.crit.hi2, q / out.crit.lo2], lower: [q / out.crit.hi1, Infinity], upper: [0, q / out.crit.lo1] };
+    if (a && num(sigma0) && sigma0 > 0) {
       var x2 = q / (sigma0 * sigma0), lo = S.chi2Cdf(x2, df), hi = S.chi2Sf(x2, df), two = 2 * Math.min(lo, hi);
       out.test = { stat: x2,
-                   ne: { crit: [S.chi2Inv(alpha / 2, df), S.chi2Isf(alpha / 2, df)], p: two, d: decide(two, alpha) },
-                   gt: { crit: [S.chi2Isf(alpha, df)], p: hi, d: decide(hi, alpha) },
-                   lt: { crit: [S.chi2Inv(alpha, df)], p: lo, d: decide(lo, alpha) } };
+                   ne: { crit: [out.crit.lo2, out.crit.hi2], p: two, d: decide(two, alpha) },
+                   gt: { crit: [out.crit.hi1], p: hi, d: decide(hi, alpha) },
+                   lt: { crit: [out.crit.lo1], p: lo, d: decide(lo, alpha) } };
     }
     return out;
   }
+  // Two variances (TR p. 12-14; exam Q2): with n1, n2 and α the F critical values; with s1 and s2 the ratio, the
+  // intervals in both orientations and the F-test.
   function twoVariances(n1, s1, n2, s2, alpha) {
-    if (!all(n1, s1, n2, s2, alpha) || n1 < 2 || n2 < 2 || s1 <= 0 || s2 <= 0) return null;
-    var v1 = n1 - 1, v2 = n2 - 1, F = s1 * s1 / (s2 * s2);
-    var ci = { two: [F / S.fIsf(alpha / 2, v1, v2), F / S.fInv(alpha / 2, v1, v2)],
-               lower: [F / S.fIsf(alpha, v1, v2), Infinity], upper: [0, F / S.fInv(alpha, v1, v2)] };
+    if (!all(n1, n2) || n1 < 2 || n2 < 2) return null;
+    var v1 = n1 - 1, v2 = n2 - 1, a = num(alpha) && alpha > 0 && alpha < 1, out = { v1: v1, v2: v2 };
+    if (a) out.crit = { lo2: S.fInv(alpha / 2, v1, v2), hi2: S.fIsf(alpha / 2, v1, v2), lo1: S.fInv(alpha, v1, v2), hi1: S.fIsf(alpha, v1, v2) };
+    if (!all(s1, s2) || s1 <= 0 || s2 <= 0) return out;
+    var F = s1 * s1 / (s2 * s2);
+    out.F = F;
+    if (!a) return out;
+    var c = out.crit;
+    var ci = { two: [F / c.hi2, F / c.lo2], lower: [F / c.hi1, Infinity], upper: [0, F / c.lo1] };
     var inv = function (r) { return [r[1] === Infinity ? 0 : 1 / r[1], r[0] === 0 ? Infinity : 1 / r[0]]; };
     var lo = S.fCdf(F, v1, v2), hi = S.fSf(F, v1, v2), two = 2 * Math.min(lo, hi);
-    return { v1: v1, v2: v2, F: F, ci: ci, ciInv: { two: inv(ci.two), lower: inv(ci.upper), upper: inv(ci.lower) },
-             test: { stat: F,
-                     ne: { crit: [S.fInv(alpha / 2, v1, v2), S.fIsf(alpha / 2, v1, v2)], p: two, d: decide(two, alpha) },
-                     gt: { crit: [S.fIsf(alpha, v1, v2)], p: hi, d: decide(hi, alpha) },
-                     lt: { crit: [S.fInv(alpha, v1, v2)], p: lo, d: decide(lo, alpha) } } };
+    out.ci = ci; out.ciInv = { two: inv(ci.two), lower: inv(ci.upper), upper: inv(ci.lower) };
+    out.test = { stat: F,
+                 ne: { crit: [c.lo2, c.hi2], p: two, d: decide(two, alpha) },
+                 gt: { crit: [c.hi1], p: hi, d: decide(hi, alpha) },
+                 lt: { crit: [c.lo1], p: lo, d: decide(lo, alpha) } };
+    return out;
   }
 
   /* ---------- discrete and continuous distributions (sheet_distributions.py) ---------- */
@@ -731,13 +788,15 @@ var Calc = (function () {
     var d = 1 - zA * zA / (2 * n), r = 1 / n + zB * zB / (2 * n) - zA * zA / (2 * n * n);
     return d > 0 && r >= 0 ? (zB + zA * Math.sqrt(r)) / d : null;
   }
+  // Tolerance factors (CI FR p. 22-23) from n, α and β alone; with Ȳ and σ (or s) also the limits.
   function tolerance(n, mean, sd, alpha, beta, known) {
-    if (!all(n, mean, sd, alpha, beta) || n < 2 || sd <= 0) return null;
+    if (!all(n, alpha, beta) || n < 2) return null;
     var z = S.normInv, k1, k2;
     if (known) { k1 = z(1 - alpha) / Math.sqrt(n) + z(1 - beta); k2 = z(1 - alpha / 2) / Math.sqrt(n) + z(1 - beta / 2); }
     else { k1 = toleranceFactor(z(1 - alpha), z(1 - beta), n); k2 = toleranceFactor(z(1 - alpha / 2), z(1 - beta / 2), n); }
-    return { k1: k1, ltl: num(k1) ? mean - k1 * sd : null, utl: num(k1) ? mean + k1 * sd : null,
-             k2: k2, two: num(k2) ? [mean - k2 * sd, mean + k2 * sd] : null };
+    var ok = all(mean, sd) && sd > 0;
+    return { k1: k1, ltl: ok && num(k1) ? mean - k1 * sd : null, utl: ok && num(k1) ? mean + k1 * sd : null,
+             k2: k2, two: ok && num(k2) ? [mean - k2 * sd, mean + k2 * sd] : null };
   }
   // distribution-free [x(1); x(n)] (CI FR p. 23): smallest n with (1 − β/2)^n − ½(1 − β)^n ≤ α/2
   function toleranceFree(alpha, beta, n) {
@@ -750,12 +809,12 @@ var Calc = (function () {
   }
   // β and power of the Z-test for µ (TH FR p. 7–9, 14): critical values on the H0 distribution, β under the true mean
   function powerMean(mu0, mu1, sigma, n, alpha, targetBeta) {
-    if (!all(mu0, mu1, sigma, n, alpha) || sigma <= 0 || n <= 0) return null;
+    if (!all(mu0, sigma, n, alpha) || sigma <= 0 || n <= 0) return null;
     var se = sigma / Math.sqrt(n), z1 = S.normInv(1 - alpha), z2 = S.normInv(1 - alpha / 2), F = S.normCdf;
     var gt = mu0 + z1 * se, lt = mu0 - z1 * se, lo = mu0 - z2 * se, hi = mu0 + z2 * se;
-    var out = { se: se,
-      gt: { crit: [gt], beta: F((gt - mu1) / se) }, lt: { crit: [lt], beta: 1 - F((lt - mu1) / se) },
-      ne: { crit: [lo, hi], beta: F((hi - mu1) / se) - F((lo - mu1) / se) } };
+    var out = { se: se, gt: { crit: [gt] }, lt: { crit: [lt] }, ne: { crit: [lo, hi] } };   // critical x̄ without µ1
+    if (!num(mu1)) return out;
+    out.gt.beta = F((gt - mu1) / se); out.lt.beta = 1 - F((lt - mu1) / se); out.ne.beta = F((hi - mu1) / se) - F((lo - mu1) / se);
     ['gt', 'lt', 'ne'].forEach(function (s) { out[s].power = 1 - out[s].beta; });
     if (num(targetBeta) && targetBeta > 0 && targetBeta < 1 && mu1 !== mu0) {
       out.nOneSided = Math.pow((z1 + S.normInv(1 - targetBeta)) * sigma / Math.abs(mu1 - mu0), 2);

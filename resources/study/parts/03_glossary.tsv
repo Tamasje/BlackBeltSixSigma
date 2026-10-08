@@ -5,11 +5,10 @@ steekproefgrootte	sample size	d03-intro
 dataverzameling	data collection	d03-intro
 populatie	population	d03-populatie
 steekproef	sample	d03-populatie
-Galton-plank	Galton board	d03-populatie
 centrale limietstelling	central limit theorem	d03-populatie
 spreiding van gemiddelden (σ/√n)	standard deviation of the mean	d03-populatie
-waarschuwingsgrens	warning limit (UWL, LWL)	d03-populatie
-regelgrens	control limit (UCL, LCL)	d03-populatie
+waarschuwingsgrens	warning limit (UWL, LWL)	d10-grenzen
+regelgrens	control limit (UCL, LCL)	d10-grenzen
 normale verdeling	normal distribution	d03-normaal
 kansverdeling	probability distribution	d03-normaal
 buigpunt	inflection point	d03-normaal
@@ -21,11 +20,11 @@ standaardnormale verdeling	standard normal distribution	d03-z
 Z-waarde	z-score	d03-z
 normaliseren	standardize	d03-z
 sigmascore	sigma score	d03-z
-Z-tabel	standard normal table (Z table)	d03-ztabel
-oppervlakte links van z	area to the left of z	d03-ztabel
-cumulatieve kans	cumulative probability	d03-excel
-kwantiel (grenswaarde bij een kans)	quantile	d03-excel
-σ uit een staartfractie	sigma from a tail fraction	d03-excel
+Z-tabel	standard normal table (Z table)	d03-z
+oppervlakte links van z	area to the left of z	d03-z
+cumulatieve kans	cumulative probability	d03-z
+kwantiel (grenswaarde bij een kans)	quantile	d03-z
+σ uit een staartfractie	sigma from a tail fraction	d03-z
 stem van de klant	voice of the customer (VOC)	d03-voc
 stem van het proces	voice of the process (VOP)	d03-voc
 specificatiegrens	specification limit (LSL, USL)	d03-voc

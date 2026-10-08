@@ -216,6 +216,41 @@ def test_one_mean_ci_and_tests_match_scipy() -> None:
         assert r["testT"][key]["p"] == pytest.approx(expected.pvalue, rel=1e-7)
 
 
+def test_one_mean_partial_results_before_xbar() -> None:
+    # arrange -- exercise 04.1 (CI FR p. 3): σ = 5, n = 10, "hoogstens 5 van µ", 95 %; x̄ is not known
+    n, sigma, alpha, d = 10, 5.0, 0.05, 5.0
+    # act
+    r = run_js([("Calc.oneMean", [n, None, None, sigma, None, alpha, d])])[0]
+    # assert -- standard error, d in standard errors, P(|x̄ − µ| ≤ d) and the half width, without an interval
+    se = sigma / math.sqrt(n)
+    assert r["z"]["se"] == pytest.approx(se, rel=1e-12)
+    assert r["z"]["k"] == pytest.approx(d / se, rel=1e-12)
+    assert r["z"]["within"] == pytest.approx(2 * stats.norm.cdf(d / se) - 1, rel=1e-9)
+    assert r["z"]["half2"] == pytest.approx(stats.norm.ppf(1 - alpha / 2) * se, rel=1e-9)
+    assert r["z"].get("ci") is None and r.get("t") is None
+
+
+def test_partial_results_of_proportion_variance_power_and_tolerance() -> None:
+    # arrange -- only the inputs that fix the critical values; the sample statistic is still missing
+    n, pi0, sigma0, alpha = 200, 0.02, 0.01, 0.05
+    # act
+    prop, prop_no_alpha, var, power, tol = run_js([
+        ("Calc.oneProportion", [n, None, pi0, alpha]), ("Calc.oneProportion", [n, 7, None, None]),
+        ("Calc.oneVariance", [20, None, sigma0, alpha]), ("Calc.powerMean", [1200, None, 300, 100, alpha, None]),
+        ("Calc.tolerance", [20, None, None, alpha, 0.10, False])])
+    # assert
+    se0 = math.sqrt(pi0 * (1 - pi0) / n)
+    assert prop["se0"] == pytest.approx(se0, rel=1e-12)
+    assert prop["critical"]["gt"] == pytest.approx(pi0 + stats.norm.ppf(1 - alpha) * se0, rel=1e-9)
+    assert "ci" not in prop and "test" not in prop
+    assert prop_no_alpha["p"] == pytest.approx(7 / n) and "ci" not in prop_no_alpha
+    assert var["sLimits"]["gt"] == pytest.approx(sigma0 * math.sqrt(stats.chi2.isf(alpha, 19) / 19), rel=1e-9)
+    assert "ci" not in var and "test" not in var
+    assert power["gt"]["crit"][0] == pytest.approx(1200 + stats.norm.ppf(1 - alpha) * 30, rel=1e-9)
+    assert "beta" not in power["gt"]
+    assert tol["k1"] is not None and tol["ltl"] is None and tol["two"] is None
+
+
 def test_unpaired_shoe_soles_s03_we13(oracle: dict[str, Any]) -> None:
     # arrange -- CI Further Reading p. 16-17: LD1 and LD2 of the unpaired experiment
     given, stated = oracle["S03-WE13"]["given"], oracle["S03-WE13"]["stated_answers"]

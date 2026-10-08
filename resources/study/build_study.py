@@ -530,6 +530,35 @@ def tools_panel(number: str) -> str:
             'dezelfde formules als <code>bb_toolkit.xlsx</code> (naast deze gids).</p>' + "".join(items) + "</details>")
 
 
+# A calculator where its theory or exercise is: <div class="calc-here" data-tool="sigma" data-blocks="0"></div> in a
+# part becomes a fold-out with only those blocks (all blocks without data-blocks); tools.js mounts it like the panels.
+CALC_HERE = re.compile(r'<div class="calc-here" data-tool="([a-z_]+)"(?: data-blocks="([0-9 ]+)")?></div>')
+
+
+def calculators_here(part_html: str, number: str) -> str:
+    """Expand every calc-here marker of a part into a fold-out calculator; unknown tools are a build error."""
+    count = 0
+
+    def expand(match: re.Match[str]) -> str:
+        nonlocal count
+        name, blocks = match.group(1), match.group(2)
+        if name not in TOOLS:
+            raise ValueError(f"part {number}: calc-here names unknown tool {name!r}")
+        count += 1
+        known = {int(index) for tool_name, index, _ in formula_blocks()[0] if tool_name == name}
+        if blocks and not {int(b) for b in blocks.split()} <= known:
+            raise ValueError(f"part {number}: calc-here {name} has no block {blocks} (blocks: {sorted(known)})")
+        tool = TOOLS[name]
+        attr = f' data-blocks="{blocks}"' if blocks else ""
+        sheet = f' · werkblad <i>{html.escape(tool.sheet)}</i>' if tool.sheet else ""
+        return (f'<details class="tool here" id="calc-d{number}-{count}" data-tool="{name}"{attr} '
+                f'data-kw="{html.escape(tool.keywords)}"><summary>Rekenmachine: {html.escape(tool.title)}</summary>'
+                f'<p class="src">hier ingevoegd; ook in Hulpmiddelen bovenaan het deel{sheet}</p>'
+                '<div class="tool-body"></div></details>')
+
+    return CALC_HERE.sub(expand, part_html)
+
+
 def with_tools(part_html: str, number: str) -> str:
     """Insert the part's Hulpmiddelen panel after its title and introduction."""
     panel = tools_panel(number)
@@ -932,7 +961,7 @@ def render(parts: list[Part], table: dict[str, dict[str, str]]) -> tuple[str, li
     css = (STUDY / "assets" / "studiegids.css").read_text(encoding="utf-8")
     js = "\n".join((STUDY / "assets" / name).read_text(encoding="utf-8")
                    for name in ("stats.js", "calc.js", "studiegids.js", "tools.js"))
-    body = "\n".join(with_tools(qualify(p.html, p.number), p.number) for p in parts)
+    body = "\n".join(with_tools(calculators_here(qualify(p.html, p.number), p.number), p.number) for p in parts)
     page = f"""<!DOCTYPE html>
 <html lang="nl">
 <head>

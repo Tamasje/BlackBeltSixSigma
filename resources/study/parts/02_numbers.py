@@ -133,17 +133,6 @@ def anscombe() -> None:
             show("R^2 dataset 3", float(fit.rvalue**2), "zelf berekend")
 
 
-def steel_dilution() -> None:
-    """Measurement-error variance implied by alpha = 1 and alpha' = 0.94: Naert p. 57, notities p. 28-29."""
-    print("Regression dilution staal (Naert p. 57; notities p. 28-29)")
-    alpha, alpha_naive = 1.0, 0.94  # notities p. 29: "zelfs als alpha = 1 ... alpha' ~ 0.94"
-    # alpha' = alpha Var(T1) / (Var(T1) + Var(e1))  =>  Var(e1)/Var(T1) = alpha/alpha' - 1
-    ratio = alpha / alpha_naive - 1
-    show("Var(T1)/Var(M1) = alpha'/alpha", alpha_naive / alpha, "zelf berekend")
-    show("Var(e1)/Var(T1) = alpha/alpha' - 1", answer("ex-02-15", ratio), "zelf berekend")
-    show("Var(e1)/Var(T1) in %", 100 * ratio, "zelf berekend")
-
-
 def naert_simpson_slopes() -> None:
     """Sign of the subgroup slopes printed in the Simpson figure (Naert p. 38, notities p. 20)."""
     print("Simpson's paradox medicijn (Naert p. 37-38; notities p. 19-20)")
@@ -156,100 +145,6 @@ def naert_simpson_slopes() -> None:
     negative = [name for name, slope in slopes.items() if slope < 0]
     status = "OK" if not negative else "MISMATCH"
     print(f"  {status:<8} 'In elke subgroep helpt het medicijn wel' (p. 38): negatieve hellingen bij {negative}")
-
-
-def covid_simpson() -> None:
-    """Shares and death rates of the COVID-19 table on Van Volsem p. 91 (S01-WE09), extra."""
-    print("Simpson COVID-19 (VV p. 91, extra)")
-    table = {r["Groep"]: r for r in rows("S01_simpson_s_paradox_covid_19_vaccineffectiviteit_uk_sept_2021")}
-
-    def parse(cell: str) -> tuple[float, float]:
-        """'33 op 1.536.353' -> (33, 1536353); the slide uses '.' as thousands separator."""
-        deaths, people = cell.split(" op ")
-        return float(deaths.replace(".", "")), float(people.replace(".", ""))
-
-    rates = {}
-    for group, printed in (("< 50 jaar", "41"), ("50+ jaar", "84"), ("Totaal (simpel)", "82")):
-        dv, nv = parse(table[group]["Gevaccineerd – sterfgevallen"])
-        du, nu = parse(table[group]["Niet-gevaccineerd – sterfgevallen"])
-        share = 100 * dv / (dv + du)
-        check(f"{group}: % sterfgevallen gevaccineerd", share, printed)
-        rates[group] = (1e6 * dv / nv, 1e6 * du / nu)
-        show(f"{group}: aandeel gevaccineerd in de groep (%)", 100 * nv / (nv + nu), "zelf berekend")
-        show(f"{group}: sterfte per miljoen gevaccineerd", rates[group][0], "zelf berekend")
-        show(f"{group}: sterfte per miljoen niet-gevaccineerd", rates[group][1], "zelf berekend")
-        if group == "< 50 jaar":
-            check("< 50 jaar: % sterfgevallen niet-gevaccineerd (p. 91: 59%)", 100 * du / (dv + du), "59")
-    show("totaal: verhouding sterfte gevaccineerd / niet-gevaccineerd",
-         rates["Totaal (simpel)"][0] / rates["Totaal (simpel)"][1], "zelf berekend")
-    for group in ("< 50 jaar", "50+ jaar"):
-        answer("ex-02-18", rates[group][0])
-        answer("ex-02-18", rates[group][1])
-    lower = all(v < u for v, u in (rates["< 50 jaar"], rates["50+ jaar"]))
-    print(f"  {'OK' if lower else 'MISMATCH':<8} p. 91: 'binnen elke leeftijdsgroep beschermt het vaccin' "
-          f"(sterfte gevaccineerd < niet-gevaccineerd in beide groepen: {lower})")
-    # The totals of the table must be the sums of the two groups.
-    for col in ("Gevaccineerd – sterfgevallen", "Niet-gevaccineerd – sterfgevallen"):
-        a, b, t = (parse(table[g][col]) for g in ("< 50 jaar", "50+ jaar", "Totaal (simpel)"))
-        ok = a[0] + b[0] == t[0] and a[1] + b[1] == t[1]
-        print(f"  {'OK' if ok else 'MISMATCH':<8} totaal = som van de groepen ({col})")
-
-
-def village_income() -> None:
-    """Recompute the printed summary of the charity-village exercise from its raw data: VV p. 100 (S01-WE07)."""
-    print("Dorpen Abora / Bladir / Curo (VV p. 95-100, extra)")
-    raw = rows("S01_village_income_exercise_ruwe_data_per_geslacht_m_f_per_dorp")
-    summary = {r["Metric"]: r for r in rows("S01_village_income_exercise_samenvattende_statistieken_per_dorp")}
-    for village in ("Abora", "Bladir", "Curo"):
-        data = [(r["gender"], float(r[village])) for r in raw if r[village].strip()]
-        values = np.array([v for _, v in data])
-        men = np.array([v for g, v in data if g == "m"])
-        women = np.array([v for g, v in data if g == "f"])
-        counts = {v: list(values).count(v) for v in values}
-        computed = {
-            "total village income": values.sum(),
-            "average income": values.mean(),
-            "median income": float(np.median(values)),
-            "mode income": max(counts, key=counts.get),
-            "max income": values.max(),
-            "min income": values.min(),
-            "% incomes below 50": 100 * np.mean(values < 50),
-            "% incomes below 100": 100 * np.mean(values < 100),
-            "average income m": men.mean(),
-            "average income f": women.mean(),
-        }
-        show(f"{village}: aantal inwoners", float(len(values)), "zelf geteld")
-        for metric, value in computed.items():
-            check(f"{village}: {metric}", float(value), summary[metric][village])
-        if village == "Bladir":
-            answer("ex-02-16", float(values.mean()))
-            answer("ex-02-16", float(np.median(values)))
-            answer("ex-02-16", float(100 * np.mean(values < 50)))
-        if village == "Curo":
-            answer("ex-02-16", float(np.median(values)))
-            answer("ex-02-16", float(women.mean()))
-
-
-def holiday_percentages() -> None:
-    """The five candidate conclusions about 14-to-17-year-olds: VV p. 100 (S01-WE08), extra."""
-    print("Kinderen op vakantie zonder ouders (VV p. 100, extra)")
-    share_2019, share_2023 = 0.43, 0.39  # p. 100: 43 % in 2019, 39 % in 2023
-    pop_2019, pop_2023 = 1_092_979, 1_136_495  # p. 100: number of 14-to-17-year-olds
-    kids_2019, kids_2023 = share_2019 * pop_2019, share_2023 * pop_2023
-    drop = kids_2019 - kids_2023
-    show("aantal 2019 = 0,43 x 1 092 979", kids_2019, "zelf berekend")
-    show("aantal 2023 = 0,39 x 1 136 495", kids_2023, "zelf berekend")
-    show("daling van het aantal", answer("ex-02-17", drop), "zelf berekend")
-    show("daling van het aantal in % van 2019", answer("ex-02-17", 100 * drop / kids_2019), "zelf berekend")
-    show("daling van het aandeel (procentpunt)", 100 * (share_2019 - share_2023), "zelf berekend")
-    show("daling van het aandeel per jaar (pp/jaar, 2019-2023)", 100 * (share_2019 - share_2023) / 4,
-         "zelf berekend")
-    show("relatieve daling van het aandeel (%)", 100 * (share_2019 - share_2023) / share_2019, "zelf berekend")
-    check("conclusie 4: 'dropped by 27 748'", drop, "27748")
-    show("verschil gedrukt 27 748 - berekend", 27748 - round(drop), "zelf berekend")
-    check("conclusie 5: 'dropped by 5.7 %'", 100 * drop / kids_2019, "5.7")
-    check("conclusie 3: '9.3%' = relatieve daling van het aandeel", 100 * (share_2019 - share_2023) / share_2019,
-          "9.3")
 
 
 def pitfall_numbers() -> None:
@@ -314,11 +209,7 @@ def main() -> int:
     poisson_customers()
     beta_figure()
     anscombe()
-    steel_dilution()
     naert_simpson_slopes()
-    covid_simpson()
-    village_income()
-    holiday_percentages()
     pitfall_numbers()
     choice_answers()
     return 0 if consistency() else 1
