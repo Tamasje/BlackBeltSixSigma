@@ -3,8 +3,7 @@
   <p class="intro">Procescapabiliteit (process capability) zet de stem van het proces naast de stem van de klant: past
   de spreiding binnen de specificatie, en ligt het proces op de juiste plaats? Als extra volgt een volledig
   capabiliteitsrapport uit Minitab (<a href="#d09-minitab">09.10</a>). Je hebt de normale verdeling,
-  de Z-waarde en het sigmaniveau uit <a href="#d03">Deel 03</a> nodig. Regelkaarten, die aantonen dat een proces
-  stabiel is, en de capabiliteitsberekeningen in de SPC-oefeningen staan in <a href="#d10">Deel 10</a>.</p>
+  de Z-waarde en het sigmaniveau uit <a href="#d03">Deel 03</a> nodig.</p>
 
   <p class="small">Paginaverwijzingen zijn PDF-paginanummers (= dianummer in de .pptx; het nummer onderaan de dia is
   meestal één lager). Waarden met <span class="computed">zelf berekend</span> komen uit <code>study/parts/09_numbers.py</code>.</p>
@@ -50,13 +49,13 @@
 
     <p><b>Waarom het nodig is.</b> "Basic laws of physics" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=27">SPC p. 27</a>: een stabiel proces heeft een minimale spreiding;
     elk proces dat op zichzelf draait, wordt uiteindelijk instabiel; de spreiding neemt op een natuurlijke maar
-    onvermijdelijke manier toe; en ooit komen er problemen door die instabiliteit. SPC (<a href="#d10">Deel 10</a>)
+    onvermijdelijke manier toe; en ooit komen er problemen door die instabiliteit. SPC
     is het middel om een proces stabiel te houden en zo de capabiliteit te verbeteren. Of een proces stabiel is,
     toon je aan met een regelkaart, niet met een capabiliteitsindex.</p>
     <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-09-termijn">14 Dummies: korte- en lange-termijnvariatie en entitlement</a>.</p>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"Een capabel proces is ook stabiel."</b> Fout: stabiliteit en capabiliteit zijn aparte vragen (<a href="#d09-matrix">09.8</a>). Stabiliteit toon je aan met een regelkaart (<a href="#d10">Deel 10</a>), niet met Cp of Cpk.</li>
+      <li><b>"Een capabel proces is ook stabiel."</b> Fout: stabiliteit en capabiliteit zijn aparte vragen (<a href="#d09-matrix">09.8</a>). Stabiliteit toon je aan met een regelkaart, niet met Cp of Cpk.</li>
       <li><b>"Stabiel betekent dat de spreiding klein is."</b> Fout: stabiel betekent dat alleen gewone oorzaken spelen, zodat de verdeling in de tijd dezelfde blijft <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=32">SPC p. 32</a>. Een stabiel proces kan te breed zijn: "Stable but not Capable" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=42">SPC p. 42</a>.</li>
       <li><b>"Een stabiel proces is voorspelbaar: je weet wat de volgende meting wordt."</b> Fout: voorspelbaar betekent over de tijd, niet stuk per stuk <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=39">SPC p. 39</a>.</li>
       <li><b>"Een systematische oorzaak is een abrupte wijziging."</b> Fout: een systematische oorzaak is een geleidelijk verloop (slijtage); een aanwijsbare oorzaak is een abrupte wijziging (nieuwe machine, ander materiaal). Beide zijn speciale oorzaken <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=30">SPC p. 30</a>.</li>
@@ -199,7 +198,7 @@
     <table>
       <tr><th>\(\sigma\)-schatting</th><th>Wanneer</th><th>Waar in de cursus</th><th>Geeft</th></tr>
       <tr><td>\(\sigma\) gegeven</td><td>de vraag geeft \(\sigma\) (of "sd")</td><td>examenvragen</td><td>Cp, Cpk</td></tr>
-      <tr><td>\(\frac{\sym{rbar}{\bar{R}}}{\sym{d2}{d_{2}}}\)</td><td>subgroepen met ranges (\(\bar{X}\)-R-kaart)</td><td>notities bij <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=64">SPC p. 64</a>; SPC-oefeningen (<a href="#d10-oefeningen">10.7</a>)</td><td>Cp, Cpk (within)</td></tr>
+      <tr><td>\(\frac{\sym{rbar}{\bar{R}}}{\sym{d2}{d_{2}}}\)</td><td>subgroepen met ranges (\(\bar{X}\)-R-kaart)</td><td>notities bij <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=64">SPC p. 64</a></td><td>Cp, Cpk (within)</td></tr>
       <tr><td>\(\bar{s}\) rechtstreeks</td><td>subgroepen met s (\(\bar{X}\)-s-kaart), zoals de oefening doet</td><td><a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=46">SPC p. 46</a></td><td>Cp, Cpk</td></tr>
       <tr><td>\(\frac{\sym{sbar}{\bar{s}}}{\sym{c4}{c_{4}}}\)</td><td>idem, zuivere schatting</td><td>Table A <a class="p" href="../source/course/Les%204/___4.1%20tabellen%20SPC.pdf#page=1">Tabellen SPC p. 1</a></td><td>Cp, Cpk (within)</td></tr>
       <tr><td>s van alle waarden (STDEV, \(\sym{n_total}{n}-1\))</td><td>alle data samen</td><td><a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=33">SPC p. 33</a></td><td>Pp, Ppk (lange termijn)</td></tr>
@@ -211,8 +210,7 @@
       <tr><th>\(d_{2}\)</th><td class="n">1,128</td><td class="n">1,693</td><td class="n">2,059</td><td class="n">2,326</td><td class="n">2,534</td><td class="n">2,704</td><td class="n">2,847</td><td class="n">2,970</td><td class="n">3,078</td></tr>
       <tr><th>\(c_{4}\)</th><td class="n">0,7979</td><td class="n">0,8862</td><td class="n">0,9213</td><td class="n">0,9400</td><td class="n">0,9515</td><td class="n">0,9594</td><td class="n">0,9650</td><td class="n">0,9693</td><td class="n">0,9727</td></tr>
     </table>
-    <p class="small">Meer constanten \((A_{2},D_{3},D_{4},\ldots)\) en de verschillen tussen de
-    gedrukte tabellen: <a href="#d10-formules">10.5</a> en werkblad <b>Tables</b>.</p>
+    <p class="small">Meer constanten \((A_{2},D_{3},D_{4},\ldots)\): werkblad <b>Tables</b>.</p>
     <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-09-mr">14 Dummies: σ<sub>ST</sub> uit individuele waarden, MR̄/1,128</a>.</p>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
@@ -756,8 +754,8 @@
       omgekeerd: de lange termijn bevat ook de verschuivingen tussen de groepen en is daardoor breder (figuur in <a href="#d09-ppk">09.4</a>,
       <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=25">SPC p. 25</a>).
       De Report Card verklaart het: een systematische bron van variatie binnen de subgroepen blaast \(\sigma\)(within) op.</li>
-      <li>Minstens 25 subgroepen voor capabiliteit (Minitab Report Card, <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=49">SPC p. 49</a>) tegenover minstens 20 voor een regelkaart
-      (<a href="#d10">Deel 10</a>): beide getallen staan in de cursus (beslissing 13), zie <a href="#d10-opzet">10.3</a>.</li>
+      <li>Minstens 25 subgroepen voor capabiliteit (Minitab Report Card, <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=49">SPC p. 49</a>) tegenover minstens 20 voor een regelkaart:
+      beide getallen staan in de cursus (beslissing 13).</li>
     </ul>
     </div>
 
@@ -817,8 +815,8 @@
     <p>Een samenvatting van dit deel als werkwijze. Vraag 3 van het voorbeeldexamen (<a href="#d13">Deel 13</a>) volgt
     precies deze stappen.</p>
     <ol class="steps">
-      <li><b>Is het proces stabiel en normaal?</b> Capabiliteit veronderstelt een beheerst proces (regelkaart,
-      <a href="#d10">Deel 10</a>) en een normale verdeling (<a href="#d03-normaal">03.3</a>). Vermeld de aanname.</li>
+      <li><b>Is het proces stabiel en normaal?</b> Capabiliteit veronderstelt een beheerst proces (regelkaart)
+      en een normale verdeling (<a href="#d03-normaal">03.3</a>). Vermeld de aanname.</li>
       <li><b>Verzamel LSL, USL, \(\bar{x}\) en \(\sigma\).</b> Welke \(\sigma\)? Korte termijn (within: \(\sigma\) gegeven, \(\frac{\sym{rbar}{\bar{R}}}{\sym{d2}{d_{2}}}\), \(\bar{s}\) of
       \(\frac{\sym{sbar}{\bar{s}}}{\sym{c4}{c_{4}}}\)) geeft Cp, Cpk; de totale s geeft Pp, Ppk (<a href="#d09-ppk">09.4</a>).</li>
       <li><b><var data-s="cp">Cp</var></b> = \(\frac{\sym{ul}{\mathrm{USL}}-\sym{ll}{\mathrm{LSL}}}{6\sym{sigma}{\sigma}}\) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=34">SPC p. 34</a>.</li>
@@ -839,5 +837,16 @@
     beide lezingen), blok 5 (oordeelsgrenzen) en blok 6 (verbeteren). Voor losse kansen: werkblad <b>Normal</b>; voor
     \(d_{2}\) en \(c_{4}\): werkblad <b>Tables</b>.</p>
     </div>
+  </section>
+
+  <!-- ============================================================ 09.12 -->
+  <section class="unit" id="d09-studiewijzer" data-kw="studiewijzer; study guide; wat moet ik kennen; leerdoelen; learning objectives; examenstof; exam; checklist; overzicht">
+    <h3>09.12 Studiewijzer: wat moet je kunnen? <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=6">SPC p. 6</a></h3>
+    <p>De leerdoelstelling bij dit onderwerp (SPC p. 6), met waar ze in deze gids staat:</p>
+    <table>
+      <tr><th>Je moet …</th><th>Zie</th></tr>
+      <tr><td>weten wat capabiliteit van een proces is en het kunnen toepassen</td><td><a href="#d09-cp">09.2</a>, <a href="#d09-cpk">09.3</a>, <a href="#d09-uitval">09.5</a>, <a href="#d09-verbeteren">09.7</a></td></tr>
+    </table>
+    <p>Voorbeeldexamen: vraag 3 (<a href="#d13-v3">13.3</a>) toetst Cp, Cpk, het % buiten specificatie uit de normale verdeling, het verbeteren van de capabiliteit en het \(6\sigma\)-criterium; zie ook het stappenplan in <a href="#d09-stappen">09.11</a>.</p>
   </section>
 </section>

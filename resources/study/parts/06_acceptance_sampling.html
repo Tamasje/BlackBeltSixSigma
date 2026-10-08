@@ -14,7 +14,7 @@
 <ul>
 <li><b>Eén output</b> is conform (0) of <b>defect (defective, non-conform)</b> (1). Die 0/1-variabele P heeft een <b>Bernoulli-verdeling</b> met \(E[\sym{p_bernoulli}{P}]=0\cdot(1-\sym{pi}{\pi})+1\cdot\sym{pi}{\pi}=\sym{pi}{\pi}\): \(\pi\) is de verwachte fractie non-conforme outputs van het proces.</li>
 <li><b>Een meetbaar kenmerk X</b> (bv. de lengte van een tegel) heeft een verdeling. De fractie van die verdeling buiten het specificatie-interval \([\sym{xl}{X_{L}},\sym{xu}{X_{U}}]\) is de fractie defecten voor dat kenmerk.</li>
-<li>Ligt het centrum van de verdeling naast de doelwaarde \(X_{T}\), dan heeft het proces <b>bias</b> (systematische fout). Bias corrigeren is meestal eenvoudig; de <b>variabiliteit verkleinen</b> is het eigenlijke werk van Six Sigma. Daarvoor moet het meetsysteem de variatie goed kunnen zien (MSA, Deel 11) en moet het proces stabiel blijven (SPC, Deel 10).</li>
+<li>Ligt het centrum van de verdeling naast de doelwaarde \(X_{T}\), dan heeft het proces <b>bias</b> (systematische fout). Bias corrigeren is meestal eenvoudig; de <b>variabiliteit verkleinen</b> is het eigenlijke werk van Six Sigma. Daarvoor moet het meetsysteem de variatie goed kunnen zien (MSA) en moet het proces stabiel blijven (SPC).</li>
 </ul>
 <p>De figuur hieronder zet beide beschrijvingen naast elkaar: de 0/1-variabele van één output en de verdeling van een meetbaar kenmerk met het non-conforme deel buiten de specificatiegrenzen.</p>
 <figure class="fig"><img src="figures/06_bernoulli_specificatie.png" alt="Staafdiagram van de 0/1-variabele P met kansen 1 − π en π, en de verdeling van een kenmerk X met specificatiegrenzen X_L en X_U en doelwaarde X_T; het deel buiten de grenzen is non-conform">
@@ -26,8 +26,8 @@
 <tr><th>Trede</th><th>Managementaanpak</th><th>Statistisch gereedschap</th></tr>
 <tr><td class="n">I</td><td>Brandjes blussen (fire fighting)</td><td>"public relations": losse rapporten op vraag</td></tr>
 <tr><td class="n">II</td><td>Productinspectie (product inspection)</td><td><b>steekproefplannen (sampling plans)</b></td></tr>
-<tr><td class="n">III</td><td>Procesbeheersing (process control)</td><td>regelkaarten (control charts), Deel 10</td></tr>
-<tr><td class="n">IV</td><td>Kwaliteit door ontwerp (quality by design)</td><td>proefopzet (design of experiments), Deel 8</td></tr>
+<tr><td class="n">III</td><td>Procesbeheersing (process control)</td><td>regelkaarten (control charts)</td></tr>
+<tr><td class="n">IV</td><td>Kwaliteit door ontwerp (quality by design)</td><td>proefopzet (design of experiments)</td></tr>
 </table>
 <p>Aanvaardingssteekproeven staan dus op trede II: ze kijken naar het product, niet naar het proces dat het maakt. Deming vond inspectie om kwaliteit te verbeteren "te laat, ineffectief en duur": bouw kwaliteit in het product in. Je kunt geen trede overslaan <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=8">AS p. 8</a>.</p>
 
@@ -83,7 +83,7 @@
 <p>De figuur hieronder toont het gecentreerde geval: de standaardnormale verdeling met de specificatiegrenzen op ±\(3\sigma\).</p>
 <figure class="fig"><img src="figures/06_capabiliteit_normaal.png" alt="Standaardnormale verdeling met specificatiegrenzen op −3 en +3 en de fracties conform en defect voor X_U − X_L = 6σ (Cpk = 1) en 8σ (Cpk = 1,33)">
 <figcaption>Figuur: standaardnormale verdeling \((\mu=0,\sigma=1)\) met \(X_{L}\) en \(X_{U}\) op ±\(3\sigma\). Bij \(X_{U}-X_{L}=6\sigma\) is 99,73 % van de output conform en 0,27 % defect \((C_{\mathrm{pk}}=1)\); bij \(8\sigma\) is 99,9937 % conform en 63 ppm defect \((C_{\mathrm{pk}}=1{,}33)\). <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=10">AS p. 10</a></figcaption></figure>
-<p>In massaproductie is \(\sym{cpk}{C_{\mathrm{pk}}}=1{,}33\) een gangbare drempel. \(\mu\) en \(\sigma\) zijn schattingen uit metingen binnen subgroepen; dat wordt bij SPC uitgelegd (Deel 9 en 10). In Excel: <code>=NORM.DIST(x, <var data-s="mu">μ</var>, <var data-s="sigma">σ</var>, FALSE)</code> geeft de dichtheid, <code>=NORM.DIST(x, <var data-s="mu">μ</var>, <var data-s="sigma">σ</var>, TRUE)</code> de cumulatieve kans \(\Phi\), <code>=NORM.INV(p, <var data-s="mu">μ</var>, <var data-s="sigma">σ</var>)</code> het kwantiel, en <code>=NORM.INV(RAND(), <var data-s="mu">μ</var>, <var data-s="sigma">σ</var>)</code> een normaal verdeeld toevalsgetal <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=11">AS p. 11</a>. De figuur hieronder toont waar elke functie op de dichtheid en op de cumulatieve curve aangrijpt.</p>
+<p>In massaproductie is \(\sym{cpk}{C_{\mathrm{pk}}}=1{,}33\) een gangbare drempel. \(\mu\) en \(\sigma\) zijn schattingen uit metingen binnen subgroepen. In Excel: <code>=NORM.DIST(x, <var data-s="mu">μ</var>, <var data-s="sigma">σ</var>, FALSE)</code> geeft de dichtheid, <code>=NORM.DIST(x, <var data-s="mu">μ</var>, <var data-s="sigma">σ</var>, TRUE)</code> de cumulatieve kans \(\Phi\), <code>=NORM.INV(p, <var data-s="mu">μ</var>, <var data-s="sigma">σ</var>)</code> het kwantiel, en <code>=NORM.INV(RAND(), <var data-s="mu">μ</var>, <var data-s="sigma">σ</var>)</code> een normaal verdeeld toevalsgetal <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=11">AS p. 11</a>. De figuur hieronder toont waar elke functie op de dichtheid en op de cumulatieve curve aangrijpt.</p>
 <figure class="fig"><img src="figures/06_normaal_excel.png" alt="Normale dichtheid en cumulatieve verdelingsfunctie, met aangeduid wat NORM.DIST(…, FALSE), NORM.DIST(…, TRUE) en NORM.INV teruggeven">
 <figcaption>Figuur: links de dichtheid \(\varphi\): <code>NORM.DIST(x<sub>1</sub>, μ, σ, FALSE)</code> geeft de hoogte \(\varphi(x_{1})\), <code>NORM.DIST(x<sub>2</sub>, μ, σ, TRUE)</code> het oppervlak \(\Phi(x_{2})\) links van \(x_{2}\). Rechts de cumulatieve curve: <code>NORM.DIST(x<sub>2</sub>, μ, σ, TRUE)</code> geeft \(p=\Phi(x_{2})\), en <code>NORM.INV(p, μ, σ)</code> gaat terug van p naar het kwantiel \(x_{2}=\Phi^{-1}(p)=X_{p}\). <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=11">AS p. 11</a></figcaption></figure>
 
@@ -1588,5 +1588,12 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <li>Deming: bij een stabiel proces is geen of volledige inspectie optimaal (break-even \(\frac{\sym{k1_cost}{k_{1}}}{\sym{k2_cost}{k_{2}}}\)).</li>
 </ul>
 </div>
+</section>
+
+<!-- =========================================================== 06.17 -->
+<section class="unit" id="d06-studiewijzer" data-kw="studiewijzer; study guide; wat moet ik kennen; leerdoelen; learning objectives; examenstof; exam; checklist; overzicht">
+<h3>06.17 Studiewijzer: wat moet je kunnen?</h3>
+<p>De cursus geeft voor dit onderwerp geen studiewijzer of leerdoelen.</p>
+<p>Voorbeeldexamen: vraag 1 (<a href="#d13-v1">13.1</a>) toetst onder meer of clustersteekproeven non-response bias kunnen vertonen; zie <a href="#d06-cluster">06.6</a> en <a href="#d06-bias">06.7</a>.</p>
 </section>
 </section>
