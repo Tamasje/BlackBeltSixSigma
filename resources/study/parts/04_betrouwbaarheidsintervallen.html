@@ -3,9 +3,8 @@
   <p class="intro">Een betrouwbaarheidsinterval (confidence interval; BI in het Nederlands, CI in het Engels) geeft
   niet alleen een schatting, maar ook hoe ver de ware waarde ervan kan liggen en hoe zeker je daarvan bent. Dit deel
   behandelt betrouwbaarheidsintervallen voor een gemiddelde, een proportie en een variantie, voor verschillen en
-  verhoudingen daarvan, het verband met toetsen en tolerantie-intervallen. Hypothesetoetsen
-  (<a href="#d05">Deel 05</a>) steunen er rechtstreeks op. Voor de normale verdeling en Z-waarden: zie
-  <a href="#d03">Deel 03</a>; voor OC-curven en steekproefplannen: <a href="#d06">Deel 06</a>.</p>
+  verhoudingen daarvan, het verband met toetsen en tolerantie-intervallen. Voor de normale verdeling en Z-waarden: zie
+  <a href="#d03">Deel 03</a>.</p>
   <p class="small">Afkortingen bij de paginalinks: <b>CI</b> = slides "A primer on Confidence Intervals"; <b>CI FR</b> =
   "Betrouwbaarheidsintervallen" (Further Reading, Dutch); <b>TH</b> en <b>TH FR</b> = idem voor "Testing of
   Hypotheses"; <b>Recepten</b> = "Test Recipes – Further Reading (Dutch)"; <b>CI.xlsx</b> en <b>TH.xlsx</b> = de
@@ -19,7 +18,7 @@
     is 2 % defectieven. Men trekt een steekproef van 100 tegels; bij een significantie \(\alpha=5\ \%\) hoort een kritische
     waarde 4. Er worden 4 defecte tegels gevonden: de schatting van het percentage defectieven is dus 4 %, het dubbele
     van de AQL. Toch wordt de partij aanvaard (4 is niet groter dan de kritische waarde). Statistisch klopt dat
-    volledig (zie <a href="#d05">Deel 05</a> en <a href="#d06">Deel 06</a>), maar leg het maar eens uit aan iemand die
+    volledig, maar leg het maar eens uit aan iemand die
     geen statistiek kent.</p>
     <p>Het probleem zit in de <b>puntschatting</b> (point estimate) "4 %":</p>
     <ul>
@@ -411,8 +410,7 @@
       </ol>
       <p class="small">Twee details. (1) CI.xlsx deelt in cel F13 door \(\sqrt{19}\) in plaats van \(\sqrt{20}\) en toont 9,9833; met \(\sqrt{20}\)
       krijg je 9,9819. Beide ronden af op 9,98, dus het besluit blijft (beslissing 9 in <code>inventory/conventions.md</code>). (2) CI p. 15 drukt de data afgerond op 2 decimalen af; met die
-      afgeronde waarden is \(\bar{x}=9{,}928\), \(s=0{,}10788\) en de bovengrens 9,9812 <span class="computed">zelf berekend</span>.
-      Dezelfde data worden in <a href="#d05-ttoets">05.7</a> klassiek getoetst.</p>
+      afgeronde waarden is \(\bar{x}=9{,}928\), \(s=0{,}10788\) en de bovengrens 9,9812 <span class="computed">zelf berekend</span>.</p>
     </div>
     <div class="box tool"><span class="t">Rekentool</span>
       <p>Werkblad <b>"Mean &amp; proportion"</b>, sectie 2 "One mean \(\mu\)": vul \(\alpha\) in, plak de data in kolom L (of typ n,
@@ -610,7 +608,7 @@
       <li><b>Gepaard</b> (paired): elke jongen van één steekproef draagt een "gemengd" paar: één schoen van elk materiaal,
       at random toegewezen aan links en rechts. De jongen is een <b>blokfactor</b> (blocking factor); de toevallige
       toewijzing binnen een blok heet <b>randomisatie</b> (notities bij p. 11). Dit is een randomized block design (RDB)
-      <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=14">CI FR p. 14</a>, zie <a href="#d08">Deel 08</a>.</li>
+      <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=14">CI FR p. 14</a>.</li>
     </ul>
     <p>Waarom gepaard beter kan zijn: een jongen met "hoog sleetgedrag" verslijt beide schoenen sneller. De LD-waarden van
     dezelfde jongen zijn dus <b>positief gecorreleerd</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=10">CI FR p. 10</a> (notities bij p. 13). Door per jongen het verschil
@@ -787,7 +785,7 @@
         <li>HA wijst naar boven, dus je wilt weten hoe <i>laag</i> \(\sigma\) kan zijn: eenzijdig 98%-BI voor \(\sym{sigma}{\sigma}=\)
         ]\(\sqrt{\frac{19\cdot\sym{s_sq}{s^{2}}}{\sym{chi2_upper}{\chi^{2}_{0{,}98;19}}}}\); +∞[ = <b>]0,0088; +∞[</b>.</li>
         <li>\(0{,}01\in\mathrm{BI}\): \(H_{0}\) kan niet verworpen worden bij 2 % significantie; het proces hoeft niet bijgesteld te
-        worden. Dezelfde data worden in <a href="#d05-chi2toets">05.8</a> klassiek getoetst.</li>
+        worden.</li>
       </ol>
     </div>
     <div class="box tool"><span class="t">Rekentool</span>
@@ -881,8 +879,7 @@
         <li>Ligt die ondergrens <b>boven 1</b>, dan is machine 1 met \((1-\sym{alpha}{\alpha})\) betrouwbaarheid nauwkeuriger. Ligt ze onder 1,
         dan bevat het BI de waarde 1 en kun je het niet besluiten.</li>
         <li>Let op de volgorde van de vrijheidsgraden: teller hoort bij \(s_{1}^{2}\), noemer bij \(s_{2}^{2}\). Draai je
-        de verhouding om, dan draaien ook de vrijheidsgraden om \(\left(\sym{f_q}{F_{\alpha}}(\sym{df_n}{n},\sym{df_m}{m})=\frac{1}{\sym{f_q}{F_{1-\alpha}}(\sym{df_m}{m},\sym{df_n}{n})}\right)\). De F-toets
-        voor hetzelfde probleem staat in <a href="#d05-chi2-f">05.12</a>.</li>
+        de verhouding om, dan draaien ook de vrijheidsgraden om \(\left(\sym{f_q}{F_{\alpha}}(\sym{df_n}{n},\sym{df_m}{m})=\frac{1}{\sym{f_q}{F_{1-\alpha}}(\sym{df_m}{m},\sym{df_n}{n})}\right)\).</li>
       </ol>
     </div>
     <div class="box tool"><span class="t">Rekentool</span>
@@ -938,7 +935,7 @@
     eenzijdige 90%-BI ]\(\sym{pi_l}{\pi_{L}}\); 100 %], dan bevat het de AQL precies voor \(P=0\ \%\ \ldots\ 4\ \%\), en dat zijn juist de
     uitkomsten \((\sym{d}{d}\le4)\) waarvoor het plan de partij aanvaardt. De tabel in de figuur hieronder: \(P=1\ \%\to\) ]0,30 %; 100 %], 2 % →
     ]0,85 %], 3 % → ]1,45 %], 4 % → ]2,10 %], 5 % → ]2,85 %], 6 % → ]3,60 %] (afgelezen uit de grafiek, normale
-    benadering). OC-curven zelf: <a href="#d06">Deel 06</a>.</p>
+    benadering).</p>
     <figure class="fig"><img src="figures/04_oc_bi_equivalentie.png" alt="OC-curve van het plan (100, 4) met drie gemarkeerde punten, tabel van eenzijdige 90%-BI's en uitvergrote BI-krommen">
     <figcaption>Figuur: links de OC-curve van het plan (100, 4) met de punten (1,30 %; 99 %), (2,45 %; 90 %) en (7,85 %; 10 %); in het
     midden de eenzijdige 90%-BI's voor \(P=0\ \%\) tot 6 %; rechts een uitvergroting van de BI-krommen met de horizontale
@@ -964,7 +961,7 @@
         een tweezijdig 98%-BI: beide gebruiken \(Z=2{,}326\) (NORM.S.INV(0,99) <span class="computed">zelf berekend</span>).</li>
         <li>Het BI is een <b>alternatief</b> voor de klassieke toets, met dezelfde OC-curve <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=12">CI p. 12</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=14">CI p. 14</a>; je bent
         niet verplicht er een te berekenen. Het voordeel van het BI: het toont ook <i>hoe groot</i> het verschil kan zijn,
-        wat je nodig hebt om over praktische relevantie te oordelen (<a href="#d05-valkuilen">05.6</a>).</li>
+        wat je nodig hebt om over praktische relevantie te oordelen.</li>
       </ul>
     </div>
 
@@ -1177,5 +1174,16 @@
       <tr><td>\(\frac{\sym{sigma2_sq}{\sigma_{2}^{2}}}{\sym{sigma1_sq}{\sigma_{1}^{2}}}\)</td><td>\(\left[\left(\frac{\sym{s2_sq}{s_{2}^{2}}}{\sym{s1_sq}{s_{1}^{2}}}\right)\cdot\sym{f_lo}{F_{\alpha/2}};\left(\frac{\sym{s2_sq}{s_{2}^{2}}}{\sym{s1_sq}{s_{1}^{2}}}\right)\cdot\sym{f_hi}{F_{1-\alpha/2}}\right]\), F met \((\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\)</td><td>F; beide normaal (niet robuust)</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=12">Recepten p. 12</a></td><td>Variance CI &amp; tests §3</td></tr>
       <tr><td>percentielpunt (tolerantie)</td><td>\(\sym{ybar}{\bar{Y}}-\sym{k_tol}{k}\sym{sigma}{\sigma}\), \(\sym{k_tol}{k}=\frac{\sym{z_1ma}{z_{1-\alpha}}}{\sqrt{\sym{n}{n}}}+\sym{z_1mb}{z_{1-\beta}}\)</td><td>normaal; \(\sigma\) gekend</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=22">CI FR p. 22</a></td><td>—</td></tr>
     </table>
+  </section>
+
+  <!-- ============================================================ 04.12 -->
+  <section class="unit" id="d04-studiewijzer" data-kw="studiewijzer; study guide; wat moet ik kennen; leerdoelen; learning objectives; examenstof; exam; checklist; overzicht">
+    <h3>04.12 Studiewijzer: wat moet je kunnen?</h3>
+    <p>De cursus geeft voor dit onderwerp geen studiewijzer of leerdoelen.</p>
+    <p>Voorbeeldexamen: vraag 1 (<a href="#d13-v1">13.1</a>) toetst onder meer de interpretatie van een BI voor een proportie
+    (b; zie <a href="#d04-pi">04.5</a> en <a href="#d04-dualiteit">04.9</a>), nauwkeurigheid tegenover steekproefgrootte (c; zie
+    <a href="#d04-nauwkeurigheid">04.2</a>) en de dualiteit tussen toetsen en BI's (e; zie <a href="#d04-dualiteit">04.9</a>). Vraag 2
+    (<a href="#d13-v2">13.2</a>) vraagt de F-verdeling en een eenzijdig BI voor een verhouding van varianties; zie
+    <a href="#d04-f">04.8</a> en <a href="#d04-inversie">04.3</a>.</p>
   </section>
 </section>

@@ -4,7 +4,7 @@
   steekproef te beslissen tussen twee uitspraken over een populatie, met gecontroleerde risico's op een verkeerde
   beslissing. Dit deel behandelt het toetsrecept, de twee soorten fouten en de OC-curve, de p-waarde, eenzijdige en
   tweezijdige toetsen en de catalogus van veelgebruikte toetsen. Het tegelvoorbeeld van de aanvaardingssteekproeven
-  loopt erdoorheen; OC-curven en steekproefplannen staan in <a href="#d06">Deel 06</a>. Het verband tussen toetsen en betrouwbaarheidsintervallen staat in
+  loopt erdoorheen. Het verband tussen toetsen en betrouwbaarheidsintervallen staat in
   <a href="#d04-dualiteit">Deel 04, 04.9</a>.</p>
   <p class="small">Afkortingen bij de paginalinks: <b>TH</b> = slides "A primer on Testing of Hypotheses"; <b>TH FR</b> =
   "Testen van hypothesen" (Further Reading, Dutch); <b>Recepten</b> = "Testen van hypothesen – Veelgebruikte specifieke
@@ -119,8 +119,7 @@
         </li>
         <li>\(\alpha\) is 5 % in het grensgeval \(\sym{p_lot}{P}=\sym{aql}{\mathrm{AQL}}\); voor betere partijen is het risico kleiner <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=6">TH p. 6</a>.</li>
         <li>De kritische waarde wordt gelegd op de referentieverdeling onder \(H_{0}\) (de verdeling bij
-        \(\sym{p_lot}{P}=2\ \%\)). Is in werkelijkheid \(\sym{p_lot}{P}=8\ \%\), dan volgt daaruit \(\sym{beta}{\beta}=9\ \%\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=7">TH p. 7</a> (figuur hieronder). Meer over de OC-curve in 05.3 en
-        <a href="#d06">Deel 06</a>.
+        \(\sym{p_lot}{P}=2\ \%\)). Is in werkelijkheid \(\sym{p_lot}{P}=8\ \%\), dan volgt daaruit \(\sym{beta}{\beta}=9\ \%\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=7">TH p. 7</a> (figuur hieronder). Meer over de OC-curve in 05.3.
         <figure class="fig"><img src="figures/05_tegels_oc_curve.png" alt="Links de verdelingen van d onder H0 en HA met c = 4, beta = 9 % en alfa = 5 %; rechts de OC-curve met AQL = 2 %">
         <figcaption>Figuur: links de verdelingen van d onder \(H_{0}\) en onder \(H_{A}\ (P=8\ \%)\) met \(c=4\): rechts van c ligt
         \(\alpha=5\ \%\) van de \(H_{0}\)-verdeling, links van c \((d\le4)\ \beta=9\ \%\) van de \(H_{A}\)-verdeling. Rechts de
@@ -208,7 +207,7 @@
       <li>De twee fouten sluiten elkaar uit, maar je weet niet welke je zou kunnen maken; je moet je dus tegen beide
       indekken. Gelukkig zijn beide risico's berekenbaar en beheersbaar.</li>
       <li>Bij aanvaardingssteekproeven heet \(\alpha\) het <b>producentenrisico</b> (producer's risk) en \(\beta\) het
-      <b>consumentenrisico</b> (consumer's risk) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=4">TH p. 4</a>; zie <a href="#d06">Deel 06</a>.</li>
+      <b>consumentenrisico</b> (consumer's risk) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=4">TH p. 4</a>.</li>
       <li>De betrokken partijen moeten de risico's vooraf afspreken, eigenlijk: de hele OC-curve (notities bij TH p. 4).</li>
       <li>Beeldbuizen <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=6">TH FR p. 6–7</a>: een type-I-fout is investeren in een procedé dat niet beter is (\(\alpha\) moet dus klein zijn); een
       type-II-fout is een mogelijk interessante investering missen.</li>
@@ -263,8 +262,7 @@
     \(\sym{psi}{\psi}=1-\sym{oc}{\mathrm{OC}}\) is de kans om \(H_{0}\) terecht te verwerpen. Alle toetsen hebben dezelfde \(\alpha\); ze verschillen dus alleen in
     \(\beta\). Kies de krachtigste toets. Is toets \(T_{1}\) krachtiger dan \(T_{2}\) bij dezelfde n, dan kan \(T_{1}\)
     met een kleinere steekproef m dezelfde kracht halen; \(\frac{\sym{n}{n}}{\sym{m_eff}{m}}\) is de relatieve efficiëntie (notities bij TH FR p. 8). In SPC
-    is \(\alpha\) per test vaak maar 0,3 %, maar daar wordt periodiek opnieuw getoetst (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=8">TH p. 8</a>; zie
-    <a href="#d10">Deel 10</a>).</p>
+    is \(\alpha\) per test vaak maar 0,3 %, maar daar wordt periodiek opnieuw getoetst (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=8">TH p. 8</a>).</p>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
@@ -500,7 +498,7 @@
       de plannen (5000, 111) en (100, 4) voor partijen van 10 000 met \(\sym{aql}{\mathrm{AQL}}=2\ \%\).</td></tr>
       <tr><td><b>Het efficiëntie-argument vergeten</b></td><td>Verschillende procedures kunnen (bijna) dezelfde OC-curve hebben
       en dus statistisch gelijkwaardig zijn, terwijl de werklast verschilt: (175, 8) en (90, 2, 7) + (90, 8) zijn gelijkwaardig,
-      maar het tweede is efficiënter (<a href="#d06">Deel 06</a>). Ook de keuze van de statistiek telt: toetsen op variabelen is
+      maar het tweede is efficiënter. Ook de keuze van de statistiek telt: toetsen op variabelen is
       veel efficiënter dan op attributen, en de t-toets is efficiënter dan een niet-parametrische toets zoals Wilcoxon
       (notities bij TH p. 11).</td></tr>
     </table>
@@ -521,7 +519,7 @@
         <li>Of een verschil <b>praktisch relevant</b> is, beoordeel je met de grootte van het effect (een betrouwbaarheidsinterval
         toont die, <a href="#d04-dualiteit">04.9</a>) en de economische gevolgen: kost van de actie tegenover de winst. Toetsen is
         een instrument voor risicobeheer (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=10">TH p. 10</a>). Ook bij regressie moet een resultaat praktische betekenis
-        hebben <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=11">REG p. 11</a> (<a href="#d07">Deel 07</a>).</li>
+        hebben <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=11">REG p. 11</a>.</li>
         <li>Een significant resultaat is dus geen automatisch argument voor een dure procesaanpassing: kijk eerst hoe groot het
         verschil is en wat het oplevert.</li>
       </ul>
@@ -648,8 +646,7 @@
       <figcaption>Figuur: de referentieverdeling \(\chi^{2}(19)\) met de kritische waarde 33,69 (verticale lijn) en de toetsingsgrootheid 25,81
       (stip op de as), links van de kritische waarde: \(H_{0}\) niet verwerpen.
       <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=13">TH p. 13</a></figcaption></figure>
-      <p class="small">In SPC gebruikt men voor de procesvariabiliteit meestal de R- of s-kaart (notities bij TH p. 13; zie
-      <a href="#d10">Deel 10</a>). De \(\chi^{2}\)-toets is niet robuust: ze vraagt een normale verdeling <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=11">Recepten p. 11</a>.</p>
+      <p class="small">In SPC gebruikt men voor de procesvariabiliteit meestal de R- of s-kaart (notities bij TH p. 13). De \(\chi^{2}\)-toets is niet robuust: ze vraagt een normale verdeling <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=11">Recepten p. 11</a>.</p>
     </div>
     <div class="box tool"><span class="t">Rekentool</span>
       <p>Werkblad <b>"Variance CI &amp; tests"</b>, sectie 2: plak de data in kolom H, \(\sym{sigma0}{\sigma_{0}}=0{,}01\), \(\sym{alpha}{\alpha}=0{,}02\); lees de
@@ -1172,5 +1169,14 @@
         </ol>
       </details>
     </div>
+  </section>
+
+  <!-- ============================================================ 05.15 -->
+  <section class="unit" id="d05-studiewijzer" data-kw="studiewijzer; study guide; wat moet ik kennen; leerdoelen; learning objectives; examenstof; exam; checklist; overzicht">
+    <h3>05.15 Studiewijzer: wat moet je kunnen?</h3>
+    <p>De cursus geeft voor dit onderwerp geen studiewijzer of leerdoelen.</p>
+    <p>Voorbeeldexamen: vraag 1 (<a href="#d13-v1">13.1</a>) toetst onder meer statistische tegenover praktische significantie
+    (a; zie <a href="#d05-valkuilen">05.6</a>). Vraag 2 (<a href="#d13-v2">13.2</a>) toetst onder meer de F-toets voor twee
+    varianties en de keuze van de kant van H<sub>A</sub>; zie <a href="#d05-chi2-f">05.12</a> en <a href="#d05-zijdig">05.5</a>.</p>
   </section>
 </section>
