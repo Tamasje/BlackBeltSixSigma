@@ -265,6 +265,12 @@
   <!-- ============================================================ 05.3 -->
   <section class="unit" id="d05-fouten" data-kw="type-I-fout; type I error; type-II-fout; type II error; alpha; beta; α; β; producentenrisico; producer's risk; consumentenrisico; consumer's risk; OC-curve; operating characteristic; kracht; power; onderscheidingsvermogen; sensitiviteit; steekproefgrootte; sample size">
     <h3>05.3 Twee soorten fouten: α, β, de OC-curve en de kracht <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=4">TH p. 4</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=5">TH FR p. 5</a></h3>
+    <p>05.2 legde \(\alpha\) vast en liet de kritische waarde daaruit volgen. Maar \(\alpha\) is maar één van de twee manieren
+    waarop een toets zich kan vergissen. Deze unit legt beide fouten uit, hoe ze met elkaar samenhangen en wat je kunt
+    doen om ze klein te houden.</p>
+    <p>Een toets beslist op basis van een steekproef. Ze is dus niet foutloos en niet deterministisch: een nieuwe steekproef
+    kan tot een ander besluit leiden. De fouten zijn toevallig, met een berekenbaar risico <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=4">TH p. 4</a>. Welke vergissing mogelijk is,
+    hangt af van wat in werkelijkheid waar is:</p>
     <table>
       <tr><th rowspan="2">ons besluit</th><th colspan="2">de realiteit</th></tr>
       <tr><th>\(H_{0}\) waar</th><th>\(H_{A}\) waar</th></tr>
@@ -272,32 +278,36 @@
       <tr><td>\(H_{0}\) verwerpen \((H_{A})\)</td><td>type-I-fout, risico \(\alpha\)</td><td>OK</td></tr>
     </table>
     <ul>
-      <li>De procedure is niet foutloos en niet deterministisch: een nieuwe steekproef kan tot een ander besluit leiden. De
-      fouten zijn toevallig, met een risico <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=4">TH p. 4</a>.</li>
-      <li>De twee fouten sluiten elkaar uit, maar je weet niet welke je zou kunnen maken; je moet je dus tegen beide
-      indekken. Gelukkig zijn beide risico's berekenbaar en beheersbaar.</li>
-      <li>Bij aanvaardingssteekproeven heet \(\alpha\) het <b>producentenrisico</b> (producer's risk) en \(\beta\) het
-      <b>consumentenrisico</b> (consumer's risk) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=4">TH p. 4</a>.</li>
-      <li>De betrokken partijen moeten de risico's vooraf afspreken, eigenlijk: de hele OC-curve (notities bij TH p. 4).</li>
-      <li>Beeldbuizen <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=6">TH FR p. 6–7</a>: een type-I-fout is investeren in een procedé dat niet beter is (\(\alpha\) moet dus klein zijn); een
-      type-II-fout is een mogelijk interessante investering missen.</li>
+      <li>Een <b>type-I-fout</b> (type I error) is \(H_{0}\) verwerpen terwijl \(H_{0}\) waar is. Het risico daarop is
+      \(\sym{alpha}{\alpha}\) (de significantie, significance level). Je kiest het zelf, vooraf. Bij de beeldbuizen is het investeren in een
+      procedé dat niet beter is <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=6">TH FR p. 6–7</a>; daarom moet \(\alpha\) klein zijn. Bij de tegels is het een goede
+      partij afkeuren.</li>
+      <li>Een <b>type-II-fout</b> (type II error) is \(H_{0}\) aanvaarden terwijl \(H_{A}\) waar is. Het risico daarop is
+      \(\sym{beta}{\beta}\). Je kiest het niet rechtstreeks: het volgt uit de kritische waarde en uit de ware waarde die je veronderstelt.
+      Bij de beeldbuizen is het een mogelijk interessante investering missen; bij de tegels een slechte partij aanvaarden.</li>
+      <li>Je weet niet welke van de twee werkelijkheden de echte is, dus je weet ook niet welke fout je zou kunnen
+      maken. Je dekt je daarom tegen beide in. Gelukkig zijn beide risico's berekenbaar en beheersbaar. De betrokken partijen
+      spreken ze vooraf af, eigenlijk zelfs de hele OC-curve (zie hieronder).</li>
     </ul>
     <p><b>Waarom niet gewoon \(\alpha=0\)?</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=7">TH FR p. 7</a> Omdat \(\beta\) dan onaanvaardbaar groot wordt: er is een
-    <b>trade-off \(\sym{alpha}{\alpha}\)↓ ⇔ \(\sym{beta}{\beta}\)↑</b>. In de figuur hieronder legt \(\sym{alpha}{\alpha}=5\ \%\) de kritische waarde bij ongeveer 1250; als het ware gemiddelde 1270
-    is, wordt \(H_{0}\) toch nog in \(\sym{beta}{\beta}=25\ \%\) van de gevallen aanvaard. Als grap: een rechter die nooit een onschuldige
-    veroordeelt, moet alle verdachten vrijlaten, ook de schuldige (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=8">TH p. 8</a>).</p>
+    <b>trade-off \(\sym{alpha}{\alpha}\)↓ ⇔ \(\sym{beta}{\beta}\)↑</b>. Een kleinere \(\alpha\) legt de kritische waarde verder van \(\mu_{0}\), dus
+    aanvaard je \(H_{0}\) ook vaker als \(H_{A}\) waar is. In de figuur hieronder legt \(\alpha=5\ \%\) de kritische waarde bij ongeveer 1250; als het
+    ware gemiddelde 1270 is, wordt \(H_{0}\) toch nog in \(\beta=25\ \%\) van de gevallen aanvaard. Vergelijk het met een rechter die nooit
+    een onschuldige veroordeelt: die moet alle verdachten vrijlaten, ook de schuldige (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=8">TH p. 8</a>).</p>
     <figure class="fig"><img src="figures/05_alfa_beta_afweging.png" alt="Referentieverdeling rond 1200 en werkelijke verdeling rond 1270 met kritische waarde 1250, alfa = 5 % en beta = 25 %">
     <figcaption>Figuur: de referentieverdeling (\(H_{0}\), rond 1200) en de werkelijke, onbekende verdeling (\(H_{A}\) geldt,
     rond 1270). De kritische waarde 1250 laat \(\alpha=5\ \%\) in de rechterstaart van de referentieverdeling; het deel van
     de werkelijke verdeling links van 1250 is \(\beta=25\ \%\).
     <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=7">TH FR p. 7</a></figcaption></figure>
-    <p><b>Waar hangt \(\beta\) van af?</b></p>
+    <p><b>Waar hangt \(\beta\) van af?</b> Van drie dingen. Dat zie je aan de beeldbuizen, met de kritische waarde op de
+    referentieverdeling onder \(H_{0}\) en de ware verdeling daarnaast:</p>
     <ol class="steps">
       <li>van <b>\(\alpha\)</b> (bij gegeven n): kleinere \(\alpha\), grotere \(\beta\);</li>
-      <li>van de <b>afstand tussen \(H_{0}\) en de realiteit</b>: hoe slechter de partij of hoe verder het ware \(\mu\) van
-      \(\mu_{0}\), hoe kleiner \(\beta\). Het verloop van \(\beta\) als functie van die afstand is de <b>OC-curve</b> (operating
-      characteristic curve) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=8">TH FR p. 8</a>; de figuur hieronder toont OC-curven tegen \(\sym{lambda_dist}{\lambda}=\frac{\sym{mu}{\mu}-\sym{mu0}{\mu_{0}}}{\sym{sigma}{\sigma}}\) voor \(\sym{n}{n}=100\) en \(\sym{alpha}{\alpha}=5\ \%\),
-      1 % en 0,1 %;
+      <li>van de <b>afstand tussen \(H_{0}\) en de realiteit</b>: hoe verder het ware \(\mu\) van \(\mu_{0}\) ligt, hoe kleiner \(\beta\)
+      (een groot verschil herken je gemakkelijk). Zet je de kans om \(H_{0}\) te aanvaarden uit tegen die afstand, dan krijg je de
+      <b>OC-curve</b> (operating characteristic curve) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=8">TH FR p. 8</a>. De figuur hieronder zet haar uit tegen
+      \(\sym{lambda_dist}{\lambda}=\frac{\sym{mu}{\mu}-\sym{mu0}{\mu_{0}}}{\sym{sigma}{\sigma}}\): het verschil tussen het ware gemiddelde en \(\mu_{0}\), uitgedrukt in standaardafwijkingen \(\sigma\).
+      Ze geldt voor \(\sym{n}{n}=100\) en \(\alpha=5\ \%\), 1 % en 0,1 %;
       <figure class="fig"><img src="figures/05_oc_curven_lambda.png" alt="OC-curven tegen lambda voor n = 100 en alfa = 5 %, 1 % en 0,1 %">
       <figcaption>Figuur: OC-curven (kans om \(H_{0}\) te aanvaarden) tegen \(\lambda=\frac{\mu-\mu_{0}}{\sigma}\), voor \(n=100\) en \(\alpha=5\ \%\), 1 %
       en 0,1 %. Bij \(\lambda=0\) begint de curve voor \(\alpha=5\ \%\) op 0,95; hoe kleiner \(\alpha\), hoe verder naar rechts de curve ligt,
@@ -313,14 +323,16 @@
       <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=9">TH FR p. 9</a></figcaption></figure>
       </li>
     </ol>
-    <p>Hetzelfde bij de tegels <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=7">TH p. 7–8</a>. De functie \(\sym{p_lot}{P}\to P[\sym{d_def}{d}\le\sym{c}{c}]=P\)[aanvaard \(H_{0}\)] is de OC-curve van het plan
-    (figuur in 05.2). Ze laat zich samenvatten in vier zinnen:</p>
+    <p><b>De OC-curve bij de tegels</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=7">TH p. 7–8</a>. Bij de tegels is de ware waarde de fractie defectieven P van
+    de partij. De kans dat de partij wordt aanvaard is \(P[\sym{d_def}{d}\le\sym{c}{c}]\): het aantal defectieven d in de steekproef is hoogstens het
+    aanvaardingsgetal c. Als functie van P is dat de OC-curve van het plan (figuur in 05.2). Ze leert je vier dingen:</p>
     <ul>
-      <li>\(\beta\) wordt vanzelf kleiner als P groter wordt: "this we get for free";</li>
-      <li>\(\sym{alpha}{\alpha}\cong0\) kiezen geeft een enorm risico op type-II-fouten: "this we must be aware of";</li>
-      <li>voor een partij net boven de AQL is \(\sym{beta}{\beta}\) net iets kleiner dan \(1-\sym{alpha}{\alpha}\); dat is meestal niet erg: "this we have to accept";</li>
-      <li>\(\beta\) klein maken waar het telt, met behoud van \(\alpha\), kost een grotere steekproef: "this is how we control \(\beta\)". Met \(\sym{n}{n}=130\) en
-      \(\sym{c}{c}=5\) blijft \(\alpha\) op 5 % en daalt \(\beta\) tot 5 % voor partijen met 8 % defectieven (4,7 % en 4,7 %
+      <li>\(\beta\) wordt vanzelf kleiner als P groter wordt: hoe slechter de partij, hoe kleiner de kans dat ze toch wordt aanvaard;</li>
+      <li>\(\sym{alpha}{\alpha}\cong0\) kiezen geeft een enorm risico op type-II-fouten: let daarop;</li>
+      <li>voor een partij net boven de grens van een goede partij is \(\sym{beta}{\beta}\) net iets kleiner dan \(1-\sym{alpha}{\alpha}\). Dat is meestal niet erg: zo'n partij verschilt
+      nauwelijks van een partij net onder die grens, dus je moet het aanvaarden;</li>
+      <li>\(\beta\) klein maken waar het telt, met behoud van \(\alpha\), kost een grotere steekproef. Met \(\sym{n}{n}=130\) en
+      \(c=5\) blijft \(\alpha\) op 5 % en daalt \(\beta\) tot 5 % voor partijen met 8 % defectieven (4,7 % en 4,7 %
       <span class="computed">zelf berekend</span>).</li>
     </ul>
     <figure class="fig"><img src="figures/05_oc_100_4_vs_130_5.png" alt="OC-curven van de plannen (100, 4) en (130, 5): aanvaardingskans tegen de partijfractie defectieven">
@@ -328,19 +340,19 @@
     partijfractie defectieven P. Met de grotere steekproef en \(c=5\) blijft \(\alpha\) op 5 % en daalt \(\beta\) tot 5 % voor
     partijen met 8 % defectieven.
     <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=8">TH p. 8</a></figcaption></figure>
-    <p><b>Kracht</b> (power, sensitiviteit) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=8">TH FR p. 8</a>: de OC is een "negatieve" maat (risico op een type-II-fout). De kracht
-    \(\sym{psi}{\psi}=1-\sym{oc}{\mathrm{OC}}\) is de kans om \(H_{0}\) terecht te verwerpen. Alle toetsen hebben dezelfde \(\alpha\); ze verschillen dus alleen in
-    \(\beta\). Kies de krachtigste toets. Is toets \(T_{1}\) krachtiger dan \(T_{2}\) bij dezelfde n, dan kan \(T_{1}\)
-    met een kleinere steekproef m dezelfde kracht halen; \(\frac{\sym{n}{n}}{\sym{m_eff}{m}}\) is de relatieve efficiëntie (notities bij TH FR p. 8). In SPC
-    is \(\alpha\) per test vaak maar 0,3 %, maar daar wordt periodiek opnieuw getoetst (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=8">TH p. 8</a>).</p>
+    <p><b>Kracht</b> (power, sensitiviteit) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=8">TH FR p. 8</a>. De OC is een "negatieve" maat: ze geeft het risico op een type-II-fout. De kracht
+    \(\sym{psi}{\psi}=1-\sym{oc}{\mathrm{OC}}\) draait dat om: de kans om \(H_{0}\) terecht te verwerpen als \(H_{A}\) waar is. Net als \(\beta\) hangt ze af van de ware waarde, dus ze is een curve en geen vast getal.
+    Vergelijk je twee toetsen met dezelfde \(\alpha\), dan verschillen ze alleen in \(\beta\): kies de krachtigste. Is toets \(T_{1}\) krachtiger dan
+    \(T_{2}\) bij dezelfde n, dan haalt \(T_{1}\) dezelfde kracht met een kleinere steekproef m; \(\frac{\sym{n}{n}}{\sym{m_eff}{m}}\) is de relatieve efficiëntie
+    (notities bij TH FR p. 8).</p>
     <div class="calc-here" data-tool="onderscheidingsvermogen" data-blocks="0"></div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"\(\sym{beta}{\beta}=1-\sym{alpha}{\alpha}\)."</b> Fout: \(\alpha\) en \(\beta\) horen bij verschillende werkelijkheden (\(H_{0}\) waar, resp. \(H_{A}\) waar). \(\beta\) hangt af van \(\alpha\), van de afstand tussen \(H_{0}\) en de werkelijkheid en van de steekproefgrootte <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=8">TH FR p. 8–9</a>. Alleen voor een partij net boven de AQL is \(\beta\) net iets kleiner dan \(1-\alpha\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=8">TH p. 8</a>.</li>
+      <li><b>"\(\sym{beta}{\beta}=1-\sym{alpha}{\alpha}\)."</b> Fout: \(\alpha\) en \(\beta\) horen bij verschillende werkelijkheden (\(H_{0}\) waar, resp. \(H_{A}\) waar). \(\beta\) hangt af van \(\alpha\), van de afstand tussen \(H_{0}\) en de werkelijkheid en van de steekproefgrootte <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=8">TH FR p. 8–9</a>. Alleen voor een partij net boven de grens van een goede partij is \(\beta\) net iets kleiner dan \(1-\alpha\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=8">TH p. 8</a>.</li>
       <li><b>"De kracht van de toets is \(1-\alpha\)."</b> Fout: de kracht \(\sym{psi}{\psi}=1-\sym{oc}{\mathrm{OC}}\) is de kans om \(H_{0}\) terecht te verwerpen; ze hangt af van de ware waarde \((\sym{lambda_dist}{\lambda})\), dus het is een curve, geen vast getal <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=8">TH FR p. 8</a>.</li>
-      <li><b>"Kies \(\alpha\) zo klein mogelijk, liefst 0."</b> Fout: trade-off \(\alpha\)↓ ⇔ \(\beta\)↑; met \(\sym{alpha}{\alpha}\cong0\) wordt \(\beta\) onaanvaardbaar groot <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=7">TH FR p. 7</a>. De rechter die nooit een onschuldige veroordeelt, moet iedereen vrijlaten (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=8">TH p. 8</a>).</li>
-      <li><b>Let op wie welk risico draagt:</b> type \(I=H_{0}\) ten onrechte verwerpen = goede partij afkeuren = producentenrisico \(\alpha\); type \(\mathrm{II}=H_{0}\) ten onrechte aanvaarden = slechte partij aanvaarden = consumentenrisico \(\beta\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=4">TH p. 4</a>.</li>
+      <li><b>"Kies \(\alpha\) zo klein mogelijk, liefst 0."</b> Fout: trade-off \(\alpha\)↓ ⇔ \(\beta\)↑; met \(\sym{alpha}{\alpha}\cong0\) wordt \(\beta\) onaanvaardbaar groot <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=7">TH FR p. 7</a>.</li>
+      <li><b>Let op welke fout wat is:</b> type I is \(H_{0}\) ten onrechte verwerpen (risico \(\alpha\)), bij de tegels een goede partij afkeuren; type II is \(H_{0}\) ten onrechte aanvaarden (risico \(\beta\)), bij de tegels een slechte partij aanvaarden <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=4">TH p. 4</a>.</li>
       <li><b>"Een grotere steekproef verkleint \(\alpha\)."</b> Fout: \(\alpha\) kies je zelf; een grotere n houdt \(\alpha\) vast en verkleint \(\beta\). Bij \(\sym{alpha}{\alpha}=1\ \%\) en een ware \(\sym{mu}{\mu}=1300\) daalt \(\sym{beta}{\beta}\) van \(16\ \%\ (\sym{n}{n}=100)\) naar \(1\ \%\ (\sym{n}{n}=195)\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=9">TH FR p. 9</a>.</li>
     </ul></div>
 
@@ -379,41 +391,45 @@
   <!-- ============================================================ 05.4 -->
   <section class="unit" id="d05-pwaarde" data-kw="p-waarde; p-value; overschrijdingskans; significantie; significance; beslissen; decision; tweezijdige p-waarde; two-sided p-value; spiegelen; mirror; risicobeheer; risk management">
     <h3>05.4 De p-waarde <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=10">TH p. 10</a></h3>
-    <p>De <b>p-waarde</b> drukt uit hoe goed de waargenomen toetsingsgrootheid \(H_{0}\) ondersteunt. Technisch: de kans
-    op een waarde die minstens even ver afwijkt als de waarneming, <b>als \(H_{0}\) waar is</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=10">TH p. 10</a>. Ze wordt van
-    de referentieverdeling afgelezen, net als de significantie (figuur hieronder).</p>
+    <p>In 05.2 beslis je met een kritische waarde: ligt de toetsingsgrootheid voorbij die grens, dan verwerp je \(H_{0}\). De
+    p-waarde geeft hetzelfde besluit, maar vertelt ook hoe overtuigend de waarneming is.</p>
+    <p>De <b>toetsingsgrootheid</b> (test statistic) is het getal dat je uit de steekproef berekent, bij de beeldbuizen het
+    gemiddelde \(\bar{x}=1265\). De <b>p-waarde</b> (p-value) is de kans om, <b>als \(H_{0}\) waar is</b>, een waarde te krijgen die minstens
+    even ver van \(H_{0}\) afligt als jouw waarneming <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=10">TH p. 10</a>. Je leest ze af van de referentieverdeling onder \(H_{0}\): het is de
+    oppervlakte van de staart voorbij de waarneming (figuur hieronder). Een kleine p-waarde zegt dus: zo'n extreme
+    waarneming komt zelden voor als \(H_{0}\) klopt.</p>
     <figure class="fig"><img src="figures/05_pwaarde_definitie.png" alt="Referentieverdeling rond 1200 met de gearceerde staart voorbij de waargenomen waarde 1265: p-waarde 1,5 %">
     <figcaption>Figuur: definitie van de p-waarde: de oppervlakte onder de referentieverdeling (rond 1200) voorbij de waargenomen
     waarde 1265 van de statistiek, hier 1,5 %.
     <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=11">TH FR p. 11</a></figcaption></figure>
+    <p>De beslissing vergelijkt de p-waarde met de significantie \(\alpha\) die je vooraf koos:</p>
     <div class="f">
       <div>\(\sym{p_value}{\text{p-waarde}}\lt\sym{alpha}{\alpha}\Rightarrow H_{0}\) verwerpen;  \(\sym{p_value}{\text{p-waarde}}\ge\sym{alpha}{\alpha}\Rightarrow H_{0}\) niet verwerpen</div>
       <div>kleine <var data-s="p_value">p-waarde</var>: \(H_{0}\) niet plausibel; grote <var data-s="p_value">p-waarde</var>: \(H_{0}\) wel plausibel <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=11">TH FR p. 11</a></div>
     </div>
     <ul>
-      <li>De toetsingsgrootheid met de kritische waarde vergelijken is gelijkwaardig met de p-waarde met \(\alpha\) vergelijken; je hoeft
-      geen kritische waarde meer te bepalen.</li>
-      <li>Statistische software geeft de p-waarde standaard. Het grote voordeel: iedereen kiest zijn eigen significantie.
-      Rapporteer dus de p-waarde, niet alleen "significant of niet" (notities bij TH p. 10).</li>
-      <li>Toetsen is risicobeheer: bij een investeringsdossier (\(\sym{h0}{H_{0}}\): de investering brengt niets op) kiest een
-      voorzichtige investeerder een kleine \(\alpha\), een risico-investeerder een grotere. Met dezelfde data kan de ene \(H_{0}\)
-      aanvaarden en de andere verwerpen. \(\alpha\) is een ontwerpparameter.</li>
+      <li>De toetsingsgrootheid met de kritische waarde vergelijken is gelijkwaardig met de p-waarde met \(\alpha\) vergelijken. Met de p-waarde
+      hoef je geen kritische waarde meer te bepalen.</li>
       <li>Beeldbuizen <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=11">TH FR p. 11</a>: de p-waarde van \(\sym{xbar}{\bar{x}}=1265\) is 1,5 %. Bij \(\sym{alpha}{\alpha}=1\ \%\) is 1,5 % &gt; 1 %: \(H_{0}\) aanvaarden,
       zoals met de kritische waarde 1270.</li>
-      <li><b>Tweezijdige p-waarde</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=15">TH FR p. 15</a>: spiegel de meetwaarde ten opzichte van het gemiddelde (1265 → 1135) en tel
-      beide staarten op: 1,5 % + 1,5 % = 3,0 % (figuur hieronder).
+      <li><b>Tweezijdige p-waarde</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=15">TH FR p. 15</a>: bij een tweezijdige toets zit de significantie in twee staarten, dus de p-waarde ook. Spiegel de
+      meetwaarde ten opzichte van het gemiddelde (1265 → 1135) en tel beide staarten op: 1,5 % + 1,5 % = 3,0 %, en vergelijk dat met \(\alpha\) (figuur hieronder).
       <figure class="fig"><img src="figures/05_pwaarde_tweezijdig.png" alt="Dubbelzijdige p-waarde: twee staarten van 1,5 % voorbij 1135 en 1265 rond het gemiddelde 1200">
       <figcaption>Figuur: dubbelzijdige p-waarde: de meetwaarde 1265 wordt gespiegeld ten opzichte van het gemiddelde 1200 (naar 1135);
       de twee staarten van elk 1,5 % worden opgeteld.
       <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=15">TH FR p. 15</a></figcaption></figure>
       </li>
+      <li>Statistische software geeft de p-waarde standaard. Het grote voordeel: iedereen kiest zijn eigen significantie.
+      Rapporteer dus de p-waarde, niet alleen "significant of niet" (notities bij TH p. 10). Toetsen is namelijk risicobeheer:
+      bij een investeringsdossier (\(\sym{h0}{H_{0}}\): de investering brengt niets op) kiest een voorzichtige investeerder een kleine \(\alpha\), een
+      risico-investeerder een grotere. Met dezelfde data kan de ene \(H_{0}\) aanvaarden en de andere verwerpen. \(\alpha\) is een
+      ontwerpparameter.</li>
     </ul>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"De p-waarde is de kans dat \(H_{0}\) waar is."</b> Fout: de p-waarde wordt berekend <i>alsof</i> \(H_{0}\) waar is: de kans op een waarde die minstens even ver afwijkt als de waarneming <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=10">TH p. 10</a>. Het is geen kans op \(H_{0}\) zelf. <span class="gen">algemeen</span></li>
       <li><b>"\(\sym{p_value}{\text{p-waarde}}=1{,}5\ \%\) is klein, dus verwerp \(H_{0}\) bij \(\sym{alpha}{\alpha}=1\ \%\)."</b> Fout: verwerp alleen als \(\sym{p_value}{\text{p-waarde}}\lt\sym{alpha}{\alpha}\); 1,5 % &gt; 1 %, dus \(H_{0}\) aanvaarden (beeldbuizen, <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=11">TH FR p. 11</a>).</li>
-      <li><b>Let op bij tweezijdig:</b> verdeel de p-waarde net als \(\alpha\) over beide staarten: spiegel en tel op, tweezijdige \(\sym{p_value}{\text{p-waarde}}=2\times1{,}5\ \%=3{,}0\ \%\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=15">TH FR p. 15</a>; vergelijk die met \(\alpha\) (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=10">TH p. 10</a>).</li>
       <li><b>"Twee analisten met dezelfde data komen tot een ander besluit, dus één van beiden rekende fout."</b> Fout: elk mag zijn eigen \(\alpha\) kiezen (toetsen is risicobeheer); daarom rapporteer je de p-waarde en niet alleen "significant of niet" (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=10">TH p. 10</a>).</li>
       <li><b>"Een gepubliceerd significant resultaat bewijst het effect."</b> Fout: als \(H_{0}\) waar is en 100 onderzoekers toetsen bij 5 %, vinden er naar verwachting 5 <span class="computed">zelf berekend</span> een "significant" resultaat. Verschijnen alleen die artikels, dan lijkt het bewijs overtuigend (professor Brainstorm, notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=11">TH FR p. 11</a>).</li>
     </ul></div>
@@ -630,17 +646,28 @@
   <!-- ============================================================ 05.7 -->
   <section class="unit" id="d05-ttoets" data-kw="t-toets; t-test; t test; gemiddelde; mean; procesgemiddelde; process mean; example t-test; −2,95; p-waarde 0,4 %; eenzijdig; one-sided">
     <h3>05.7 Voorbeeld: t-toets voor het gemiddelde <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=12">TH p. 12</a></h3>
-    <p>Dezelfde situatie als in <a href="#d04-mu">04.4</a>, nu als klassieke toets. Een maat is normaal verdeeld rond 10; na
-    vervanging van een machineonderdeel vreest men dat de stukken kleiner zijn. 20 willekeurige stukken (data in
-    <a href="#ex-05-8">oefening 05.8</a>, afgerond in TH p. 12, en in <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.xlsx">TH.xlsx</a>, werkblad "example t-test").</p>
+    <p>05.2 voerde het toetsrecept uit voor het gemiddelde met \(\sigma\) gekend (de Z-toets). In de praktijk ken je \(\sigma\) zelden. Dan
+    schat je ze met de steekproefstandaardafwijking s, en de toetsingsgrootheid volgt een t-verdeling in plaats van een
+    normale verdeling. Hier doorloop je het recept voor die <b>t-toets</b> (t-test), op dezelfde situatie als in <a href="#d04-mu">04.4</a>: een maat is normaal
+    verdeeld rond 10 en na het vervangen van een machineonderdeel vreest men dat de stukken kleiner zijn. Je meet 20 willekeurige stukken
+    (data in <a href="#ex-05-8">oefening 05.8</a> en in <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.xlsx">TH.xlsx</a>, werkblad "example t-test").</p>
+    <p>De toetsingsgrootheid meet hoeveel standaardfouten het steekproefgemiddelde van de waarde uit \(H_{0}\) af ligt:</p>
+    <div class="f">
+      <div>\[\sym{t_stat}{t}=\frac{\sym{xbar}{\bar{x}}-\sym{mu0}{\mu_{0}}}{\frac{\sym{s}{s}}{\sqrt{\sym{n}{n}}}}\]</div>
+    </div>
+    <p>Daarin is \(\bar{x}\) het gemiddelde van je data, \(\mu_{0}\) de waarde uit \(H_{0}\) (gegeven in de opgave) en n het aantal waarnemingen. s is de
+    standaardafwijking van je data, berekend met deler \(n-1\). \(\frac{s}{\sqrt{n}}\) is de geschatte standaardfout van \(\bar{x}\). Als \(H_{0}\) waar is, is t
+    <b>t-verdeeld met \(n-1\) vrijheidsgraden</b> (degrees of freedom): de referentieverdeling \(\sym{t_dist}{t}(n-1)\). Die lijkt op de
+    standaardnormale verdeling maar heeft dikkere staarten, omdat ook s van steekproef tot steekproef varieert. De methode veronderstelt normaal
+    verdeelde metingen, maar is robuust (04.4). De kritische waarde lees je in de t-tabel; de rekenmachine kwantielen geeft ze ook.</p>
     <div class="box ex"><span class="t">Uitgewerkt voorbeeld <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=12">TH p. 12</a></span>
       <ol class="steps">
         <li>\(\sym{h0}{H_{0}}\): het proces is nog goed gecentreerd \((\sym{mu}{\mu}=10)\); \(\sym{ha}{H_{A}}\): het proces is naar beneden verschoven
-        \((\sym{mu}{\mu}\lt10)\). \(\sym{alpha}{\alpha}=2\ \%\) ("rather conservative choice, only adjust process if evidence is strong").</li>
-        <li>Toetsingsgrootheid \(\sym{t_stat}{t}=\frac{\sym{xbar}{\bar{x}}-10}{\frac{\sym{s}{s}}{\sqrt{\sym{n}{n}}}}=-2{,}95\): de klassieke grootheid voor het gemiddelde van een verdeling.</li>
-        <li>Referentieverdeling \(\sym{t_dist}{t}(19)\); kritische waarde −2,20 (linker staart, want \(H_{A}\) wijst naar beneden).</li>
+        \((\sym{mu}{\mu}\lt10)\). Je kiest \(\sym{alpha}{\alpha}=2\ \%\): een voorzichtige keuze, want je regelt het proces pas bij als het bewijs sterk is.</li>
+        <li>Toetsingsgrootheid \(\sym{t_stat}{t}=\frac{\sym{xbar}{\bar{x}}-10}{\frac{\sym{s}{s}}{\sqrt{\sym{n}{n}}}}=-2{,}95\).</li>
+        <li>Referentieverdeling \(\sym{t_dist}{t}(19)\); kritische waarde −2,20 (linkerstaart, want \(H_{A}\) wijst naar beneden).</li>
         <li>\(\sym{p_value}{\text{p-waarde}}=0{,}4\ \%\).</li>
-        <li>Besluit: \(H_{0}\) "cannot be accepted" bij 2 % significantie; het proces moet bijgeregeld worden.</li>
+        <li>Besluit: −2,95 ligt voorbij −2,20 en 0,4 % is kleiner dan 2 %, dus verwerp je \(H_{0}\). Het proces moet bijgeregeld worden.</li>
       </ol>
       <figure class="fig"><img src="figures/05_ttoets_t19.png" alt="Dichtheid van t(19) met een verticale lijn bij de kritische waarde en een stip bij de toetsingsgrootheid links ervan">
       <figcaption>Figuur: de referentieverdeling t(19) met de kritische waarde −2,20 (verticale lijn) en de toetsingsgrootheid −2,95
@@ -649,8 +676,7 @@
       <p>Met de onafgeronde data (TH.xlsx): \(\sym{xbar}{\bar{x}}=9{,}9287\), \(\sym{s}{s}=0{,}10793\) (deler n − 1),
       \(\sym{t_stat}{t}=\frac{9{,}9287-10}{\frac{0{,}10793}{\sqrt{20}}}=-2{,}9543\);
       \(\sym{k_crit}{\text{kritische waarde}}=t_{0{,}02;19}=-2{,}2047\) (2 % links in t(19)); \(\sym{p_value}{\text{p-waarde}}=P[t(19)\le-2{,}9543]=0{,}00407\).</p>
-      <p class="small">Met de afgeronde data van TH p. 12 vind je \(\sym{t_stat}{t}=-2{,}98\) en \(\sym{p_value}{p}=0{,}38\ \%\) 
-      <span class="computed">zelf berekend</span>: hetzelfde besluit. Het BI uit 04.4 (]−∞; 9,98[, 10 ligt er niet in) geeft hetzelfde besluit: dualiteit.</p>
+      <p class="small">Het eenzijdige BI uit 04.4 (]−∞; 9,98[) bevat 10 niet en geeft dus hetzelfde besluit.</p>
     </div>
     <div class="box tool"><span class="t">Rekentool</span>
       <p>Werkblad <b>Gemiddelde &amp; proportie</b>, sectie "Eén gemiddelde \(\mu\)", rijen "t-toets (\(\sigma\) ongekend)": plak de 20
@@ -704,24 +730,33 @@
   <!-- ============================================================ 05.8 -->
   <section class="unit" id="d05-chi2toets" data-kw="chi-kwadraattoets; chi-square test; χ²-toets; standaardafwijking; standard deviation; spreiding; variance; procesvariabiliteit; process variability; 33,69; 13,6 %; example chi²-test">
     <h3>05.8 Voorbeeld: χ²-toets voor de standaardafwijking <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=13">TH p. 13</a></h3>
-    <p>Dezelfde situatie als in <a href="#d04-sigma">04.7</a>. Een maat is normaal verdeeld met \(\sym{sigma}{\sigma}=0{,}01\); door slijtage vreest
-    men dat het proces grilliger is geworden. 20 stuks (data in <a href="#ex-05-9">oefening 05.9</a> en in TH.xlsx, werkblad "example \(\mathrm{chi}^{2}\)-test").</p>
+    <p>05.7 toetste het gemiddelde van een proces. Je kunt ook toetsen of de <i>spreiding</i> van het proces veranderd is, met de
+    \(\chi^{2}\)-toets (chi-kwadraattoets, chi-square test). De situatie is dezelfde als in <a href="#d04-sigma">04.7</a>: een maat is normaal verdeeld met
+    \(\sym{sigma}{\sigma}=0{,}01\); door slijtage vreest men dat het proces grilliger is geworden. Je meet 20 stuks (data in <a href="#ex-05-9">oefening 05.9</a> en in
+    TH.xlsx, werkblad "example \(\mathrm{chi}^{2}\)-test").</p>
+    <p>De toetsingsgrootheid vergelijkt de variantie van je data met de variantie die \(H_{0}\) veronderstelt:</p>
+    <div class="f">
+      <div>\[\chi^{2}=\frac{(\sym{n}{n}-1)\,\sym{s_sq}{s^{2}}}{\sym{sigma0}{\sigma_{0}}^{2}}\]</div>
+    </div>
+    <p>Daarin is n het aantal waarnemingen, \(s^{2}\) de steekproefvariantie (berekend uit de data, deler \(n-1\)) en \(\sigma_{0}\) de standaardafwijking uit \(H_{0}\)
+    (gegeven in de opgave). Let op: je rekent met varianties, dus met \(s^{2}\) en \(\sigma_{0}^{2}\). Is \(H_{0}\) waar en zijn de metingen normaal verdeeld, dan is
+    deze grootheid \(\chi^{2}\)-verdeeld met \(n-1\) vrijheidsgraden. Die verdeling is scheef en neemt alleen positieve waarden aan. Een grote waarde van
+    de grootheid betekent dat de data meer spreiden dan \(H_{0}\) verwacht.</p>
     <div class="box ex"><span class="t">Uitgewerkt voorbeeld <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=13">TH p. 13</a></span>
       <ol class="steps">
-        <li>\(\sym{h0}{H_{0}}\): de procesvariabiliteit is niet veranderd; \(\sym{ha}{H_{A}}\): het proces is grilliger geworden
+        <li>\(\sym{h0}{H_{0}}\): de procesvariabiliteit is niet veranderd \((\sigma=0{,}01)\); \(\sym{ha}{H_{A}}\): het proces is grilliger geworden
         \((\sym{sigma}{\sigma}\gt0{,}01)\). \(\sym{alpha}{\alpha}=2\ \%\).</li>
-        <li>Toetsingsgrootheid \(\frac{(\sym{n}{n}-1)\sym{s_sq}{s^{2}}}{\sym{sigma0}{\sigma_{0}}^{2}}\): de klassieke grootheid voor de variantie van een verdeling. Hier:
-        \(\frac{19\cdot\sym{s_sq}{s^{2}}}{0{,}01^{2}}=25{,}81\).</li>
-        <li>Referentieverdeling \(\sym{chi2_dist}{\chi^{2}}(19)\); kritische waarde 33,69 (rechter staart: 2 % rechts ervan, \(\chi^{2}_{0{,}98;19}\)).</li>
+        <li>Toetsingsgrootheid \(\frac{(\sym{n}{n}-1)\sym{s_sq}{s^{2}}}{\sym{sigma0}{\sigma_{0}}^{2}}=\frac{19\cdot\sym{s_sq}{s^{2}}}{0{,}01^{2}}=25{,}81\).</li>
+        <li>Referentieverdeling \(\sym{chi2_dist}{\chi^{2}}(19)\); kritische waarde 33,69 (rechterstaart: 2 % rechts ervan, \(\chi^{2}_{0{,}98;19}\)).</li>
         <li>\(\sym{p_value}{\text{p-waarde}}=P[\chi^{2}(19)\ge25{,}81]=13{,}6\ \%\).</li>
-        <li>Besluit: bij 2 % significantie kan \(H_{0}\) niet verworpen worden; de procesvariabiliteit wordt stabiel
+        <li>Besluit: 25,81 ligt niet voorbij 33,69 en 13,6 % is groter dan 2 %. Je kunt \(H_{0}\) dus niet verwerpen: de procesvariabiliteit wordt stabiel
         geacht. Dezelfde conclusie als het BI ]0,0088; +∞[ in 04.7.</li>
       </ol>
       <figure class="fig"><img src="figures/05_chi2toets_chi2_19.png" alt="Dichtheid van chi-kwadraat met 19 vrijheidsgraden met de kritische waarde en de toetsingsgrootheid links ervan">
       <figcaption>Figuur: de referentieverdeling \(\chi^{2}(19)\) met de kritische waarde 33,69 (verticale lijn) en de toetsingsgrootheid 25,81
       (stip op de as), links van de kritische waarde: \(H_{0}\) niet verwerpen.
       <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=13">TH p. 13</a></figcaption></figure>
-      <p class="small">In SPC gebruikt men voor de procesvariabiliteit meestal de R- of s-kaart (notities bij TH p. 13). De \(\chi^{2}\)-toets is niet robuust: ze vraagt een normale verdeling <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=11">Recepten p. 11</a>.</p>
+      <p class="small">De \(\chi^{2}\)-toets is niet robuust: ze vraagt een normale verdeling <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=11">Recepten p. 11</a>.</p>
     </div>
     <div class="box tool"><span class="t">Rekentool</span>
       <p>Werkblad <b>Varianties BI &amp; toetsen</b>, sectie "Eén steekproef: \(\sigma^{2}\) en \(\sigma\)": plak de data in de kolom "Data
@@ -773,20 +808,29 @@
   <!-- ============================================================ 05.9 -->
   <section class="unit" id="d05-recepten" data-kw="toetsrecepten; test recipes; welke toets; which test; beslisschema; decision table; parametrisch; parametric; niet-parametrisch; non-parametric; robuust; robust; voorwaarden; assumptions; conditions; overzicht; overview">
     <h3>05.9 De toetsrecepten: welke toets wanneer? <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=1">Recepten p. 1–3</a></h3>
-    <p>Elke toets volgt hetzelfde recept (05.2); de specifieke vorm hangt af van het aspect van de populatie waarover de
-    hypothese gaat, en dus van de gekozen statistiek <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=2">Recepten p. 2</a>. De catalogus behandelt: de t-toets voor \(\mu\) en voor
-    \(\sym{mu1}{\mu_{1}}-\sym{mu2}{\mu_{2}}\) (gepaard en niet), de Z-toets voor \(\pi\), de \(\chi^{2}\)-toets voor \(\sigma\), de F-toets voor
-    \(\frac{\sym{sigma1}{\sigma_{1}}}{\sym{sigma2}{\sigma_{2}}}\), de \(\chi^{2}\)-toetsen "goodness of fit" en "contingency tables", de Wilcoxon-Mann-Whitney-toets,
-    de Wilcoxon signed ranks-toets en de runs-toets (Wald-Wolfowitz).</p>
-    <p><b>Voorwaarden</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=3">Recepten p. 3</a>. De referentieverdeling kan vaak maar afgeleid worden onder extra aannames (buiten
-    \(H_{0}\)), bv. gelijke varianties voor de niet-gepaarde t-toets. Speelt de vorm van de populatieverdeling een rol,
-    dan is de toets <b>parametrisch</b> (bv. \(\chi^{2}\)-toets voor \(\sigma\): normale populatie). Soms is de referentieverdeling maar
-    benaderd, en dan geldt een voorwaarde opdat de benadering goed genoeg is (bv. Z-toets voor \(\pi\): \(\sym{e_k}{\text{verwachte frequentie}}\ge5\)).
-    Een toets is <b>robuust</b> als ze bruikbaar blijft wanneer een aanname niet helemaal klopt.</p>
+    <p>05.7 en 05.8 werkten twee toetsen volledig uit. Er zijn er meer, voor andere vragen. Dit overzicht helpt je de juiste toets te
+    kiezen; 05.10 tot 05.14 werken ze daarna uit.</p>
+    <p>Elke toets volgt hetzelfde recept (05.2). Wat verschilt is de populatiegrootheid waarover de hypothese gaat, en dus de
+    toetsingsgrootheid en haar referentieverdeling <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=2">Recepten p. 2</a>. De catalogus behandelt:</p>
+    <ul>
+      <li>een gemiddelde: de t-toets voor \(\mu\), en voor een verschil \(\sym{mu1}{\mu_{1}}-\sym{mu2}{\mu_{2}}\) (gepaard en niet-gepaard);</li>
+      <li>een proportie: de Z-toets voor \(\pi\);</li>
+      <li>een spreiding: de \(\chi^{2}\)-toets voor \(\sigma\) en de F-toets voor \(\frac{\sym{sigma1}{\sigma_{1}}}{\sym{sigma2}{\sigma_{2}}}\);</li>
+      <li>een verdeling: de \(\chi^{2}\)-toetsen "goodness of fit" en "contingency tables";</li>
+      <li>de ligging of de aselectheid zonder verdelingsaanname: de Wilcoxon-Mann-Whitney-toets, de Wilcoxon signed ranks-toets en de runs-toets (Wald-Wolfowitz).</li>
+    </ul>
+    <p><b>Voorwaarden</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=3">Recepten p. 3</a>. Je kent de referentieverdeling vaak alleen onder extra aannames, naast \(H_{0}\) zelf. Een paar begrippen:</p>
+    <ul>
+      <li>Een toets is <b>parametrisch</b> als de vorm van de populatieverdeling een rol speelt, bv. de \(\chi^{2}\)-toets voor \(\sigma\) (normale populatie).</li>
+      <li>Soms is de referentieverdeling maar een benadering. Dan geldt een voorwaarde opdat ze goed genoeg is, bv. bij de Z-toets voor \(\pi\): de verwachte frequentie \(\sym{e_k}{e_{k}}\ge5\).</li>
+      <li>Soms moet je iets aannemen over de populaties, bv. gelijke varianties bij de niet-gepaarde t-toets.</li>
+      <li>Een toets is <b>robuust</b> (robust) als ze bruikbaar blijft wanneer een aanname niet helemaal klopt.</li>
+    </ul>
+    <p>De tabel zet per vraag de toets, de statistiek, de referentieverdeling en de voorwaarden naast elkaar.</p>
     <table>
       <tr><th>vraag</th><th>toets</th><th>statistiek</th><th>referentieverdeling</th><th>voorwaarden</th><th>bron</th><th>werkblad</th></tr>
       <tr><td>\(\sym{mu}{\mu}=\sym{mu0}{\mu_{0}}\)?, \(\sigma\) onbekend</td><td>t-toets</td><td>\(\frac{\sym{xbar}{\bar{x}}-\sym{mu0}{\mu_{0}}}{\frac{\sym{s}{s}}{\sqrt{\sym{n}{n}}}}\)</td><td>\(\sym{t_dist}{t}(\sym{n}{n}-1)\)</td><td>X normaal; robuust tenzij klein n én sterk niet-normaal</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=4">Recepten p. 4</a></td><td>Gemiddelde &amp; proportie</td></tr>
-      <tr><td>\(\sym{mu}{\mu}=\sym{mu0}{\mu_{0}}\)?, \(\sigma\) gekend</td><td>Z-toets</td><td>\(\frac{\sym{xbar}{\bar{x}}-\sym{mu0}{\mu_{0}}}{\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}}\)</td><td>\(\sym{normal_dist}{N}(0;1)\)</td><td>"niet courant voor \(\mu\)"</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=17">TH FR p. 17</a></td><td>Gemiddelde &amp; proportie</td></tr>
+      <tr><td>\(\sym{mu}{\mu}=\sym{mu0}{\mu_{0}}\)?, \(\sigma\) gekend</td><td>Z-toets</td><td>\(\frac{\sym{xbar}{\bar{x}}-\sym{mu0}{\mu_{0}}}{\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}}\)</td><td>\(\sym{normal_dist}{N}(0;1)\)</td><td>zelden gebruikt voor \(\mu\), omdat \(\sigma\) zelden gekend is</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=17">TH FR p. 17</a></td><td>Gemiddelde &amp; proportie</td></tr>
       <tr><td>\(\sym{mu1}{\mu_{1}}=\sym{mu2}{\mu_{2}}\)?, twee onafhankelijke steekproeven</td><td>niet-gepaarde t-toets</td><td>\(\frac{\sym{xbar1}{\bar{x}_{1}}-\sym{xbar2}{\bar{x}_{2}}-\sym{d_diff}{d}}{\sym{sp}{s_{p}}\sqrt{\frac{1}{\sym{n1}{n_{1}}}+\frac{1}{\sym{n2}{n_{2}}}}}\)</td><td>\(\sym{t_dist}{t}(\sym{n1}{n_{1}}+\sym{n2}{n_{2}}-2)\)</td><td>normaal; \(\sym{sigma1}{\sigma_{1}}=\sym{sigma2}{\sigma_{2}}\)</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=5">Recepten p. 5–6</a></td><td>Gemiddelde &amp; proportie</td></tr>
       <tr><td>\(\sym{mu1}{\mu_{1}}=\sym{mu2}{\mu_{2}}\)?, paren</td><td>gepaarde t-toets</td><td>\(\frac{\sym{vbar}{\bar{v}}-\sym{d_diff}{d}}{\frac{\sym{s_v}{s_{v}}}{\sqrt{\sym{n}{n}}}}\)</td><td>\(\sym{t_dist}{t}(\sym{n}{n}-1)\)</td><td>normaal; \(\sigma'\)s mogen verschillen</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=7">Recepten p. 7–8</a></td><td>Gemiddelde &amp; proportie</td></tr>
       <tr><td>\(\sym{pi}{\pi}=\sym{pi0}{\pi_{0}}\)?</td><td>Z-toets voor \(\pi\)</td><td>\(\frac{\sym{p_sample}{p}-\sym{pi0}{\pi_{0}}}{\sqrt{\frac{\sym{pi0}{\pi_{0}}(1-\sym{pi0}{\pi_{0}})}{\sym{n}{n}}}}\)</td><td>\(\sym{normal_dist}{N}(0;1)\), benaderd</td><td>\(\sym{n}{n}\sym{pi0}{\pi_{0}}\gt5\); anders exact</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=9">Recepten p. 9–10</a></td><td>Gemiddelde &amp; proportie</td></tr>
@@ -903,15 +947,25 @@
   <!-- ============================================================ 05.11 -->
   <section class="unit" id="d05-z-pi" data-kw="Z-toets proportie; z-test proportion; pi; π; fractie defectieven; defect rate; continuïteitscorrectie; continuity correction; voorwaarde n·π0; exact binomiaal; steekproefgrootte; sample size; kwaliteitsdienst">
     <h3>05.11 De Z-toets voor een proportie π <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=9">Recepten p. 9–10</a></h3>
+    <p>05.10 toetste gemiddelden. Heel wat vragen gaan over een fractie: is het percentage defecte stukken van een proces nog 2 %? Daarvoor
+    gebruik je de <b>Z-toets voor een proportie</b>. Het recept van 05.2 blijft hetzelfde; alleen de toetsingsgrootheid en haar
+    referentieverdeling zijn anders <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=9">Recepten p. 9–10</a>.</p>
+    <p>Je toetst \(\sym{h0}{H_{0}}\): \(\sym{pi}{\pi}=\sym{pi0}{\pi_{0}}\) tegen \(\sym{ha}{H_{A}}\): \(\pi\ne\pi_{0}\) (tweezijdig) of \(\pi\gt\pi_{0}\), \(\pi\lt\pi_{0}\) (eenzijdig).
+    Daarin is \(\pi\) de ware fractie defectieven van de populatie (onbekend) en \(\pi_{0}\) de waarde uit \(H_{0}\) (gegeven in de opgave). Uit de steekproef
+    van n stuks tel je het aantal defecte stukken d; de steekproeffractie is \(\sym{p_sample}{p}=\frac{d}{n}\), als fractie (0,025) en niet in procent.</p>
+    <p>Is \(H_{0}\) waar, dan schommelt p rond \(\pi_{0}\) met standaardfout \(\sqrt{\frac{\pi_{0}(1-\pi_{0})}{n}}\). Voor een voldoende grote steekproef is p bij benadering
+    normaal verdeeld, dus standaardiseer je zoals bij de Z-toets voor \(\mu\):</p>
     <div class="f">
-      <div>\[\sym{h0}{H_{0}}\]: \[\sym{pi}{\pi}=\sym{pi0}{\pi_{0}}\] vs (DZ) \[\sym{pi}{\pi}\ne\sym{pi0}{\pi_{0}}\] of (EZ) \[\sym{pi}{\pi}\gt(\lt)\ \sym{pi0}{\pi_{0}}\]  (\[\sym{pi}{\pi}=\] populatieproportie, gemiddelde van een Bernoulli-kenmerk)</div>
-      <div>\[\sym{z_stat}{z}=\frac{\sym{p_sample}{p}-\sym{pi0}{\pi_{0}}}{\sqrt{\frac{\sym{pi0}{\pi_{0}}(1-\sym{pi0}{\pi_{0}})}{\sym{n}{n}}}}\sim\sym{normal_dist}{N}(0;1)\], slechts benaderd: voorwaarde \[\sym{n}{n}\sym{pi0}{\pi_{0}}\gt5\]</div>
-      <div>met continuïteitscorrectie: \[\sym{z_stat}{z}=\frac{\sym{p_sample}{p}\pm\frac{1}{2\sym{n}{n}}-\sym{pi0}{\pi_{0}}}{\sqrt{\frac{\sym{pi0}{\pi_{0}}(1-\sym{pi0}{\pi_{0}})}{\sym{n}{n}}}}\], "+" links, "−" rechts (let op bij DZ)</div>
+      <div>\[\sym{z_stat}{z}=\frac{\sym{p_sample}{p}-\sym{pi0}{\pi_{0}}}{\sqrt{\frac{\sym{pi0}{\pi_{0}}(1-\sym{pi0}{\pi_{0}})}{\sym{n}{n}}}}\sim\sym{normal_dist}{N}(0;1)\]</div>
+      <div>voorwaarde voor de benadering: \[\sym{n}{n}\sym{pi0}{\pi_{0}}\gt5\]</div>
+      <div>met continuïteitscorrectie: \[\sym{z_stat}{z}=\frac{\sym{p_sample}{p}\pm\frac{1}{2\sym{n}{n}}-\sym{pi0}{\pi_{0}}}{\sqrt{\frac{\sym{pi0}{\pi_{0}}(1-\sym{pi0}{\pi_{0}})}{\sym{n}{n}}}}\]</div>
     </div>
     <ul>
-      <li>Let op: onder de wortel staat \(\pi_{0}\) (de waarde onder \(H_{0}\)), niet p zoals in het BI van 04.5.</li>
-      <li>Is \(\sym{n}{n}\sym{pi0}{\pi_{0}}\lt5\), werk dan met de exacte verdeling van P onder \(H_{0}\) (binomiaal); dat kan bewerkelijk
-      zijn; een tweezijdige toets doe je dan via het (exacte) BI <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=10">Recepten p. 10</a>.</li>
+      <li>Onder de wortel staat \(\pi_{0}\), niet p. Je rekent onder \(H_{0}\). Het BI in 04.5 gebruikt wel p, omdat daar geen \(H_{0}\) is.</li>
+      <li>De continuïteitscorrectie houdt rekening met het feit dat p alleen in stapjes van \(\frac{1}{n}\) kan veranderen (d is een geheel getal). Je schuift p een halve stap naar
+      \(\pi_{0}\) toe: "+" als p links van \(\pi_{0}\) ligt, "−" als p rechts ligt (let op bij een tweezijdige toets).</li>
+      <li>Is \(\sym{n}{n}\sym{pi0}{\pi_{0}}\lt5\), werk dan met de exacte verdeling van d onder \(H_{0}\) (binomiaal); dat kan bewerkelijk
+      zijn. Een tweezijdige toets doe je dan via het (exacte) BI <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=10">Recepten p. 10</a>.</li>
     </ul>
     <div class="box tool"><span class="t">Rekentool</span>
       <p>Werkblad <b>Gemiddelde &amp; proportie</b>, sectie "Eén proportie \(\pi\)": n, aantal defecten x en \(\pi_{0}\); het werkblad
@@ -922,7 +976,7 @@
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"Onder de wortel komt p, zoals in het BI."</b> Fout: bij de toets reken je onder \(H_{0}\), dus \(\sqrt{\frac{\sym{pi0}{\pi_{0}}(1-\sym{pi0}{\pi_{0}})}{\sym{n}{n}}}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=9">Recepten p. 9</a>; het BI van <a href="#d04-pi">04.5</a> gebruikt p.</li>
-      <li><b>Let op de voorwaarde:</b> \(\sym{n}{n}\sym{pi0}{\pi_{0}}\gt5\), met \(\pi_{0}\) en niet met p; in oefening 05.12 is dat \(400\cdot0{,}02=8\). Anders werk je met de exacte binomiale verdeling, en een tweezijdige toets via het BI <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=10">Recepten p. 10</a>. Recepten p. 3 schrijft de voorwaarde als "verwachte frequentie ≥ 5".</li>
+      <li><b>Let op de voorwaarde:</b> \(\sym{n}{n}\sym{pi0}{\pi_{0}}\gt5\), met \(\pi_{0}\) en niet met p; in oefening 05.12 is dat \(400\cdot0{,}02=8\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=10">Recepten p. 10</a>.</li>
       <li><b>Let op de continuïteitscorrectie:</b> "+ links, − rechts": \(\sym{p_sample}{p}\pm\frac{1}{2\sym{n}{n}}\) schuift p naar \(\pi_{0}\) toe, en bij een tweezijdige toets aan de kant waar p ligt <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=10">Recepten p. 10</a>. In oefening 05.12: zonder correctie \(\sym{z_stat}{z}=0{,}714\) en \(\sym{p_value}{p}=0{,}238\), met correctie \(\sym{z_stat}{z}=0{,}536\) en \(\sym{p_value}{p}=0{,}296\) <span class="computed">zelf berekend</span>.</li>
       <li><b>Let op de eenheden:</b> reken p en \(\pi_{0}\) als fracties (0,025 en 0,02), niet als percentages; \(\sqrt{\frac{\pi_{0}(1-\pi_{0})}{n}}\) met \(\pi_{0}=2\) geeft onzin. <span class="gen">algemeen</span></li>
     </ul></div>
@@ -982,27 +1036,36 @@
   <!-- ============================================================ 05.12 -->
   <section class="unit" id="d05-chi2-f" data-kw="χ²-toets voor σ; chi-square test sigma; F-toets; F-test; F test; gelijke spreidingen; equal variances; verhouding varianties; variance ratio; nauwkeuriger; more precise; niet robuust; not robust; tabellen; tables">
     <h3>05.12 De χ²-toets voor σ en de F-toets voor σ<sub>1</sub>/σ<sub>2</sub> <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=11">Recepten p. 11–14</a></h3>
-    <p><b>\(\chi^{2}\)-toets voor \(\sigma\)</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=11">Recepten p. 11</a>: \(\sym{h0}{H_{0}}\): \(\sym{sigma}{\sigma}=\sym{sigma0}{\sigma_{0}}\) tegen (DZ) \(\sym{sigma}{\sigma}\ne\sym{sigma0}{\sigma_{0}}\) of (EZ) \(\sym{sigma}{\sigma}\gt(\lt)\ \sym{sigma0}{\sigma_{0}}\); statistiek \(\frac{(\sym{n}{n}-1)\sym{s_sq}{s^{2}}}{\sym{sigma0}{\sigma_{0}}^{2}}\sim\sym{chi2_dist}{\chi^{2}}(\sym{n}{n}-1)\) als X normaal verdeeld is. De toets is niet robuust: de
-    verdeling van de statistiek "heeft sterk te lijden" van niet-normaliteit. Kritische waarden in \(\sym{chi2_dist}{\chi^{2}}(\sym{n}{n}-1)\):
-    \(\sym{ha}{H_{A}}\): \(\sym{sigma}{\sigma}\gt\sym{sigma0}{\sigma_{0}}\to\) de waarde met \(\sym{alpha}{\alpha}\) rechts ervan; \(\sym{ha}{H_{A}}\): \(\sym{sigma}{\sigma}\lt\sym{sigma0}{\sigma_{0}}\to\) de waarde met \(\sym{alpha}{\alpha}\) links ervan;
-    tweezijdig → beide met \(\frac{\sym{alpha}{\alpha}}{2}\).</p>
-    <p><b>De F-verdeling</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=12">Recepten p. 12</a> (definitie in <a href="#d04-f">04.8</a>): stelling \(\frac{\frac{\sym{s1_sq}{s_{1}^{2}}}{\sym{sigma1}{\sigma_{1}}^{2}}}{\frac{\sym{s2_sq}{s_{2}^{2}}}{\sym{sigma2}{\sigma_{2}}^{2}}}\sim\sym{f_dist}{F}(\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\), \(\sym{f_crit}{F_{\alpha}}(\sym{df_n}{n},\sym{df_m}{m})=\frac{1}{\sym{f_crit}{F_{1-\alpha}}(\sym{df_m}{m},\sym{df_n}{n})}\), met \(F_{\alpha}\) de waarde met kans \(\alpha\) rechts ervan.</p>
+    <p>05.8 voerde de \(\chi^{2}\)-toets voor één spreiding uit. Hier staat het algemene recept ervan, en daarna de F-toets, waarmee je de
+    spreidingen van twee processen vergelijkt ("is machine 1 nauwkeuriger dan machine 2?"). Beide gaan over varianties, niet over gemiddelden.</p>
+    <p><b>\(\chi^{2}\)-toets voor \(\sigma\)</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=11">Recepten p. 11</a>.</p>
+    <ul>
+      <li>Hypothesen: \(\sym{h0}{H_{0}}\): \(\sym{sigma}{\sigma}=\sym{sigma0}{\sigma_{0}}\) tegen (tweezijdig) \(\sigma\ne\sigma_{0}\) of (eenzijdig) \(\sigma\gt\sigma_{0}\), \(\sigma\lt\sigma_{0}\).
+      Daarin is \(\sigma_{0}\) de waarde uit \(H_{0}\) (gegeven in de opgave).</li>
+      <li>Toetsingsgrootheid: \(\frac{(\sym{n}{n}-1)\sym{s_sq}{s^{2}}}{\sigma_{0}^{2}}\), met \(s^{2}\) de variantie van je data (deler \(n-1\)). Als X normaal verdeeld is en \(H_{0}\) klopt, is ze
+      \(\sym{chi2_dist}{\chi^{2}}(n-1)\)-verdeeld.</li>
+      <li>De toets is niet robuust: de verdeling van de statistiek heeft sterk te lijden van niet-normaliteit.</li>
+      <li>Kritische waarde in \(\chi^{2}(n-1)\): bij \(\sym{ha}{H_{A}}\): \(\sigma\gt\sigma_{0}\) de waarde met \(\sym{alpha}{\alpha}\) rechts ervan; bij \(H_{A}\): \(\sigma\lt\sigma_{0}\) de waarde met \(\alpha\)
+      links ervan; tweezijdig beide met \(\frac{\alpha}{2}\).</li>
+    </ul>
+    <p><b>De F-toets voor twee spreidingen</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=13">Recepten p. 13–14</a>. Je hebt twee onafhankelijke steekproeven uit normale populaties,
+    met varianties \(s_{1}^{2}\) en \(s_{2}^{2}\) (uit je data, deler \(n_{1}-1\) en \(n_{2}-1\)). Je toetst \(\sym{h0}{H_{0}}\): \(\sym{sigma1}{\sigma_{1}}=\sym{sigma2}{\sigma_{2}}\) tegen \(\sigma_{1}\ne\sigma_{2}\) of een eenzijdige variant.
+    Is \(H_{0}\) waar, dan ligt de verhouding \(s_{1}^{2}/s_{2}^{2}\) dicht bij 1. De verhouding volgt een F-verdeling (definitie in <a href="#d04-f">04.8</a>)
+    <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=12">Recepten p. 12</a>:</p>
     <div class="f">
-      <div><b>F-toets</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=13">Recepten p. 13–14</a>: \(\sym{h0}{H_{0}}\): \(\sym{sigma1}{\sigma_{1}}=\sym{sigma2}{\sigma_{2}}\) vs (DZ) \(\sym{sigma1}{\sigma_{1}}\ne\sym{sigma2}{\sigma_{2}}\) of (EZ) \(\sym{sigma1}{\sigma_{1}}\gt(\lt)\ \sym{sigma2}{\sigma_{2}}\)</div>
-      <div>\(\sym{f_stat}{F}=\frac{\sym{s1_sq}{s_{1}^{2}}}{\sym{s2_sq}{s_{2}^{2}}}\sim\sym{f_dist}{F}(\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\)  of  \(\sym{f_stat}{F}=\frac{\sym{s2_sq}{s_{2}^{2}}}{\sym{s1_sq}{s_{1}^{2}}}\sim\sym{f_dist}{F}(\sym{n2}{n_{2}}-1;\sym{n1}{n_{1}}-1)\)  (onder \(H_{0}\), beide populaties normaal)</div>
-      <div>met \(\sym{f_stat}{F}=\frac{\sym{s1_sq}{s_{1}^{2}}}{\sym{s2_sq}{s_{2}^{2}}}\): \(\sym{ha}{H_{A}}\): \(\sym{sigma1}{\sigma_{1}}\gt\sym{sigma2}{\sigma_{2}}\) verwerp als \(\sym{f_stat}{F}\gt\sym{f_crit}{F_{\alpha}}(\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\); \(\sym{ha}{H_{A}}\): \(\sym{sigma1}{\sigma_{1}}\lt\sym{sigma2}{\sigma_{2}}\) verwerp als \(\sym{f_stat}{F}\lt\sym{f_crit}{F_{1-\alpha}}(\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\)</div>
-      <div>tweezijdig: verwerp als \(\sym{f_stat}{F}\gt\sym{f_crit}{F_{\alpha/2}}(\ldots)\) of \(\sym{f_stat}{F}\lt\sym{f_crit}{F_{1-\alpha/2}}(\ldots)\)</div>
+      <div>\[\sym{f_stat}{F}=\frac{\sym{s1_sq}{s_{1}^{2}}}{\sym{s2_sq}{s_{2}^{2}}}\sim\sym{f_dist}{F}(\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\] of omgekeerd \[F=\frac{s_{2}^{2}}{s_{1}^{2}}\sim F(n_{2}-1;n_{1}-1)\] (onder \(H_{0}\), beide populaties normaal)</div>
+      <div>\(\sym{f_crit}{F_{\alpha}}(\sym{df_n}{n},\sym{df_m}{m})\) is de waarde met kans \(\alpha\) <i>rechts</i> ervan (bovenste kritische waarde); de onderste is \(F_{1-\alpha}(n,m)=\frac{1}{F_{\alpha}(m,n)}\), bv. \(\frac{1}{4{,}03}\) bij (9; 9) <span class="computed">zelf berekend</span></div>
+      <div>met \(F=\frac{s_{1}^{2}}{s_{2}^{2}}\): \(\sym{ha}{H_{A}}\): \(\sigma_{1}\gt\sigma_{2}\) verwerp als \(F\gt F_{\alpha}(n_{1}-1;n_{2}-1)\); \(H_{A}\): \(\sigma_{1}\lt\sigma_{2}\) verwerp als \(F\lt F_{1-\alpha}(n_{1}-1;n_{2}-1)\)</div>
+      <div>tweezijdig: verwerp als \(F\gt F_{\alpha/2}(\ldots)\) of \(F\lt F_{1-\alpha/2}(\ldots)\)</div>
     </div>
     <ul>
-      <li><b>Welke verhouding?</b> Kies F zo dat de procedure eenvoudig blijft met de beschikbare tabellen, die alleen
-      kritische waarden voor kleine staartkansen (&lt; 0,5) geven <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=14">Recepten p. 14</a>. Praktisch: zet de variantie waarvan \(H_{A}\)
-      zegt dat ze groter is in de teller; dan verwerp je bij een grote F en heb je alleen de bovenste kritische waarde nodig.</li>
-      <li><b>Niet robuust</b>: wees voorzichtig als je de F-toets gebruikt om de voorwaarde \(\sym{sigma1}{\sigma_{1}}=\sym{sigma2}{\sigma_{2}}\) van de
+      <li><b>Welke verhouding?</b> De F-tabellen geven alleen kritische waarden voor kleine staartkansen (&lt; 0,5) <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=14">Recepten p. 14</a>. Zet daarom de variantie waarvan \(H_{A}\)
+      zegt dat ze groter is in de teller: dan verwerp je bij een grote F en heb je alleen de bovenste kritische waarde nodig.</li>
+      <li>"Is machine 1 nauwkeuriger dan machine 2?" is \(H_{A}\): \(\sigma_{1}\lt\sigma_{2}\). Neem dan
+      \(F=\frac{s_{2}^{2}}{s_{1}^{2}}\sim F(n_{2}-1;n_{1}-1)\) en verwerp \(H_{0}\) als \(F\gt F_{\alpha}(n_{2}-1;n_{1}-1)\). Dat is gelijkwaardig met "de eenzijdige \((1-\alpha)\)-ondergrens voor
+      \(\frac{\sigma_{2}^{2}}{\sigma_{1}^{2}}\) ligt boven 1" uit <a href="#d04-f">04.8</a>.</li>
+      <li><b>Niet robuust</b>: wees voorzichtig als je de F-toets gebruikt om de voorwaarde \(\sigma_{1}=\sigma_{2}\) van de
       niet-gepaarde t-toets na te gaan <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=14">Recepten p. 14</a>.</li>
-      <li>"Is machine 1 nauwkeuriger dan machine 2?" is \(\sym{ha}{H_{A}}\): \(\sym{sigma1}{\sigma_{1}}\lt\sym{sigma2}{\sigma_{2}}\). Met
-      \(\sym{f_stat}{F}=\frac{\sym{s2_sq}{s_{2}^{2}}}{\sym{s1_sq}{s_{1}^{2}}}\sim\sym{f_dist}{F}(\sym{n2}{n_{2}}-1;\sym{n1}{n_{1}}-1)\) verwerp je \(H_{0}\) als
-      \(\sym{f_stat}{F}\gt\sym{f_crit}{F_{\alpha}}(\sym{n2}{n_{2}}-1;\sym{n1}{n_{1}}-1)\). Dat is gelijkwaardig met "de eenzijdige \((1-\sym{alpha}{\alpha})\)-ondergrens voor
-      \(\frac{\sym{sigma2}{\sigma_{2}}^{2}}{\sym{sigma1}{\sigma_{1}}^{2}}\) ligt boven 1" uit <a href="#d04-f">04.8</a>.</li>
     </ul>
     <div class="box tool"><span class="t">Rekentool</span>
       <p>Werkblad <b>Varianties BI &amp; toetsen</b>: sectie "Eén steekproef: \(\sigma^{2}\) en \(\sigma\)" (\(\chi^{2}\)-toets) en sectie
@@ -1015,9 +1078,7 @@
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>Let op:</b> F is een verhouding van <i>varianties</i>, \(\sym{f_stat}{F}=\frac{\sym{s1_sq}{s_{1}^{2}}}{\sym{s2_sq}{s_{2}^{2}}}\), niet \(\frac{s_{1}}{s_{2}}\). De vrijheidsgraden volgen dezelfde volgorde (teller; noemer): \(\sym{f_dist}{F}(\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\). Draai je de breuk om, dan draaien ze mee <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=13">Recepten p. 13–14</a>.</li>
-      <li><b>Let op de staart:</b> \(\sym{f_crit}{F_{\alpha}}(\ldots)\) (kans \(\alpha\) rechts) is de bovenste kritische waarde, \(\sym{f_crit}{F_{1-\alpha}}(\ldots)\) de onderste. Zet de variantie die volgens \(H_{A}\) groter is in de teller: dan verwerp je alleen bij een grote F <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=14">Recepten p. 14</a>. "Is M1 nauwkeuriger?" betekent \(\sym{ha}{H_{A}}\): \(\sym{sigma1}{\sigma_{1}}\lt\sym{sigma2}{\sigma_{2}}\), dus \(\sym{f_stat}{F}=\frac{\sym{s2_sq}{s_{2}^{2}}}{\sym{s1_sq}{s_{1}^{2}}}\).</li>
       <li><b>"De F-toets verwerpt niet, dus \(\sigma_{1}=\sigma_{2}\) en de gepoolde t-toets is zeker in orde."</b> Fout: de F-toets is niet robuust; wees voorzichtig als je er de voorwaarde van de niet-gepaarde t-toets mee nagaat <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=14">Recepten p. 14</a>. Met 10 waarnemingen per groep is ze bovendien weinig krachtig (<a href="#ex-05-13">oefening 05.13</a>).</li>
-      <li><b>Let op met tabellen:</b> \(\sym{f_crit}{F_{\alpha}}(\sym{df_n}{n},\sym{df_m}{m})=\frac{1}{\sym{f_crit}{F_{1-\alpha}}(\sym{df_m}{m},\sym{df_n}{n})}\): de onderste kritische waarde is 1 gedeeld door de bovenste met omgewisselde vrijheidsgraden <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=12">Recepten p. 12</a>; bij (9; 9) is dat 1/4,03 <span class="computed">zelf berekend</span>.</li>
     </ul></div>
 
     <div class="exercise" id="ex-05-13" data-kw="F-toets; F-test; gelijke varianties; equal variances; schoenzolen; shoe soles; voorwaarde t-toets; tweezijdig; two-sided">
@@ -1056,34 +1117,37 @@
   <!-- ============================================================ 05.13 -->
   <section class="unit" id="d05-frequenties" data-kw="chi-kwadraat goodness of fit; chi-square goodness of fit; aanpassingstoets; kruistabel; contingency table; onafhankelijkheid; independence; verwachte frequentie; expected frequency; waargenomen frequentie; observed frequency; klassen; classes; Yates; vrijheidsgraden; degrees of freedom; Kolmogorov-Smirnov; Shapiro-Wilk">
     <h3>05.13 χ²-toetsen voor frequenties: goodness of fit en kruistabellen <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=15">Recepten p. 15–20</a></h3>
+    <p>Tot nu toe toetste je één populatiegrootheid (\(\mu\), \(\pi\), \(\sigma\)). Hier toets je de <i>verdeling</i> zelf, met de
+    \(\chi^{2}\)-toetsen voor frequenties. Het idee is steeds hetzelfde: tel hoeveel waarnemingen je in elke klasse (categorie of interval) ziet, bereken hoeveel
+    je er zou verwachten als \(H_{0}\) waar was, en maak van het verschil één getal. Zijn de waargenomen en verwachte aantallen ver uit elkaar, dan is dat getal groot
+    en klopt \(H_{0}\) waarschijnlijk niet. Er zijn twee varianten: <i>goodness of fit</i> (past een vooropgestelde verdeling?) en kruistabellen (zijn twee kenmerken onafhankelijk?).</p>
     <p><b>Goodness of fit</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=15">Recepten p. 15–17</a>: heeft X de vooropgestelde verdeling? \(\sym{h0}{H_{0}}\): de verdeling van X heeft de
-    vooropgestelde gedaante; \(\sym{ha}{H_{A}}\): niet. Voorbeelden: volledig gespecificeerd (\(\sym{x_rv}{X}\sim\sym{normal_dist}{N}(\sym{mu0}{\mu_{0}};\sym{sigma0}{\sigma_{0}})\),
-    \(\sym{x_rv}{X}\sim U(\sym{unif_a}{a},\sym{unif_b}{b})\), \(\sym{x_rv}{X}\sim\) Poisson(\(\sym{pois_m}{m}\))) of onvolledig, met te schatten parameters (\(\sym{x_rv}{X}\sim\sym{normal_dist}{N}\) met \(\mu\) en \(\sigma\) geschat; \(\sym{x_rv}{X}\sim\) Exp met \(\lambda\) geschat).</p>
+    vooropgestelde gedaante; \(\sym{ha}{H_{A}}\): niet. De verdeling kan volledig gespecificeerd zijn (\(\sym{x_rv}{X}\sim\sym{normal_dist}{N}(\sym{mu0}{\mu_{0}};\sym{sigma0}{\sigma_{0}})\),
+    \(\sym{x_rv}{X}\sim U(\sym{unif_a}{a},\sym{unif_b}{b})\) of \(\sym{x_rv}{X}\sim\) Poisson(\(\sym{pois_m}{m}\))), of parameters bevatten die je uit de data schat (\(X\sim N\) met \(\mu\) en \(\sigma\) geschat; \(X\sim\) Exp met \(\lambda\) geschat).</p>
     <ol class="steps">
-      <li>Verdeel de n waarnemingen in r klassen; tel per klasse de waargenomen frequentie \(n_{k}\) (het histogram).</li>
+      <li>Verdeel de n waarnemingen in r klassen en tel per klasse de waargenomen frequentie \(\sym{n_k}{n_{k}}\) (het histogram).</li>
       <li>Bereken de verwachte frequentie \(\sym{e_k}{e_{k}}=\sym{n}{n}\cdot\sym{pi_k}{\pi_{k}}\), met \(\sym{pi_k}{\pi_{k}}=P\)[\(\sym{x_rv}{X}\) in klasse k] onder
       \(H_{0}\) (het theoretische histogram).</li>
       <li>Statistiek \(\Sigma_{k}\ \frac{(\sym{e_k}{e_{k}}-\sym{n_k}{n_{k}})^{2}}{\sym{e_k}{e_{k}}}\): de "kwadratische afwijking" tussen de
-      histogrammen; benaderd \(\sym{chi2_dist}{\chi^{2}}(\sym{r}{r}-\sym{g}{g}-1)\) met \(\sym{g}{g}=\) aantal geschatte parameters (momentenmethode); voorwaarde \(\sym{e_k}{e_{k}}\gt5\).</li>
+      twee histogrammen. Ze is bij benadering \(\sym{chi2_dist}{\chi^{2}}(\sym{r}{r}-\sym{g}{g}-1)\)-verdeeld, met \(\sym{g}{g}\) het aantal parameters dat je uit de data schatte (momentenmethode; 0 bij een volledig gespecificeerde verdeling). Voorwaarde: \(e_{k}\gt5\).</li>
     </ol>
     <ul>
-      <li>De statistiek is een kwadratische afwijking, dus de toets is altijd eenzijdig (rechts) <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=17">Recepten p. 17</a>.</li>
+      <li>De statistiek is een kwadratische afwijking, dus alleen een grote waarde wijst op een slechte aanpassing: de toets is altijd eenzijdig (rechts) <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=17">Recepten p. 17</a>.</li>
       <li>Zwak punt: er is geen duidelijk voorschrift voor de klassen. Richtlijnen: vanaf ordinale schaal zijn klassen
       aaneengesloten; bij discrete X start je met de individuele waarden; bij continue X een compromis (doorgaans \(5\ a\ 15\)
-      klassen); is \(\sym{e_k}{e_{k}}\gt5\) niet voldaan, voeg dan klassen samen.</li>
-      <li>Het is een algemene toets; voor een specifieke verdeling bestaan krachtigere toetsen, bv. de "Shapiro-Wilks-test" voor de
-      normale verdeling. De notities verwijzen ook naar de Kolmogorov-Smirnov-toets.</li>
+      klassen); is \(e_{k}\gt5\) niet voldaan, voeg dan klassen samen.</li>
     </ul>
-    <p><b>Kruistabellen</b> (contingency tables) <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=18">Recepten p. 18–20</a>: zijn twee kenmerken X en Y op dezelfde populatie onafhankelijk?
-    Bij onafhankelijkheid is de gezamenlijke verdeling het product van de marginale verdelingen. \(\sym{h0}{H_{0}}\): X en Y
-    onafhankelijk; \(\sym{ha}{H_{A}}\): niet.</p>
+    <p><b>Kruistabellen</b> (contingency tables) <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=18">Recepten p. 18–20</a>: zijn twee kenmerken X en Y, gemeten op dezelfde eenheden, onafhankelijk?
+    \(\sym{h0}{H_{0}}\): X en Y zijn onafhankelijk; \(\sym{ha}{H_{A}}\): niet. Je telt de n paren in een tabel met r rijen (klassen van X) en s kolommen (klassen van Y):
+    \(n_{kl}\) is het aantal paren in rij k en kolom l, \(n_{k\cdot}\) het rijtotaal en \(n_{\cdot l}\) het kolomtotaal. Bij onafhankelijkheid is de gezamenlijke verdeling het
+    product van de marginale verdelingen. Het verwachte aantal in een cel is dus het aandeel van rij k maal het aandeel van kolom l, maal n.</p>
     <div class="f">
       <div>\[\sym{n}{n}\] paren in \[\sym{r}{r}\times\sym{s_y}{s}\] klassen; waargenomen \[\sym{n_kl}{n_{kl}}\]; verwacht onder \[H_{0}\]: \[\sym{e_kl}{e_{kl}}=\frac{\sym{n_kdot}{n_{k\cdot}}\cdot\sym{n_dotl}{n_{\cdot l}}}{\sym{n}{n}}\] (marginale kansen geschat met de marginale relatieve frequenties)</div>
-      <div>statistiek \[\Sigma_{k}\Sigma_{l}\ \frac{(\sym{n_kl}{n_{kl}}-\sym{e_kl}{e_{kl}})^{2}}{\sym{e_kl}{e_{kl}}}\sim\sym{chi2_dist}{\chi^{2}}((\sym{r}{r}-1)(\sym{s_y}{s}-1))\], benaderd; voorwaarde \[\sym{e_kl}{e_{kl}}\gt5\]; eenzijdig</div>
+      <div>statistiek \[\Sigma_{k}\Sigma_{l}\ \frac{(\sym{n_kl}{n_{kl}}-\sym{e_kl}{e_{kl}})^{2}}{\sym{e_kl}{e_{kl}}}\sim\sym{chi2_dist}{\chi^{2}}((\sym{r}{r}-1)(\sym{s_y}{s}-1))\], benaderd; voorwaarde \[e_{kl}\gt5\]; eenzijdig</div>
       <div>2×2-tabel: continuïteitscorrectie van Yates: \[\sym{n_kl}{n_{ij}}\lt\sym{e_kl}{e_{ij}}\Rightarrow\] gebruik \[\sym{n_kl}{n_{ij}}+\tfrac{1}{2}\]; \[\sym{n_kl}{n_{ij}}\gt\sym{e_kl}{e_{ij}}\Rightarrow\sym{n_kl}{n_{ij}}-\tfrac{1}{2}\]</div>
     </div>
-    <p class="small">De vrijheidsgraden: \(\sym{r}{r}\sym{s_y}{s}-\sym{g}{g}-1\) met \(\sym{g}{g}=(\sym{r}{r}-1)+(\sym{s_y}{s}-1)\) geschatte marginale kansen geeft \((\sym{r}{r}-1)(\sym{s_y}{s}-1)\)
-    <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=20">Recepten p. 20</a>. De cursus geeft voor deze twee toetsen geen cijfervoorbeeld.</p>
+    <p class="small">De vrijheidsgraden: \(rs-g-1\) met \(g=(r-1)+(s-1)\) geschatte marginale kansen geeft \((r-1)(s-1)\)
+    <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=20">Recepten p. 20</a>.</p>
     <div class="calc-here" data-tool="chikwadraat" data-blocks="0 1"></div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
@@ -1126,34 +1190,41 @@
   <!-- ============================================================ 05.14 -->
   <section class="unit" id="d05-nietparam" data-kw="niet-parametrisch; non-parametric; nonparametric; Wilcoxon; Mann-Whitney; rangsom; rank sum; signed ranks; tekenrangtoets; runs-toets; runs test; Wald-Wolfowitz; mediaan; median; rangen; ranks; ties; gelijke waarden; aselecte steekproef; random sample">
     <h3>05.14 Niet-parametrische toetsen: Wilcoxon en runs <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=21">Recepten p. 21–26</a></h3>
-    <p>Niet-parametrische toetsen leggen de vorm van de verdeling niet vast; ze werken met rangen. De notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=11">TH p. 11</a>
-    noemen ze minder efficiënt dan de t-toets (bv. Wilcoxon signed ranks tegenover de t-toets).</p>
-    <p><b>Wilcoxon-Mann-Whitney</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=21">Recepten p. 21–22</a> (tegenhanger van de niet-gepaarde t-toets): \(\sym{h0}{H_{0}}\): \(\sym{nu1}{\nu_{1}}=\sym{nu2}{\nu_{2}}\) (medianen) vs (DZ) ≠ of (EZ) &gt; (&lt;). Twee onafhankelijke steekproeven; rangschik <i>alle</i>
-    \(\sym{n_total}{N}=\sym{n1}{n_{1}}+\sym{n2}{n_{2}}\) waarden van klein (rang 1) naar groot (rang \(\sym{n_total}{N}\)); statistiek \(\sym{w_x1}{W_{X1}}=\) som van de
-    rangen van de \(X_{1}\)-waarden. Gelijke waarden (ties) krijgen de gemiddelde rang.</p>
+    <p>De t-toetsen van 05.10 veronderstellen normaal verdeelde metingen. <b>Niet-parametrische toetsen</b> (non-parametric tests) leggen de vorm van de verdeling niet vast.
+    Ze werken met <b>rangen</b>: de positie van een waarde als je alle waarden van klein (rang 1) naar groot rangschikt. Daardoor
+    tellen uitschieters minder zwaar mee. De prijs: ze zijn minder efficiënt dan de t-toets, bv. Wilcoxon signed ranks tegenover de
+    gepaarde t-toets (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=11">TH p. 11</a>). Hier staan twee tegenhangers van de t-toetsen en een toets op aselectheid.</p>
+    <p><b>Wilcoxon-Mann-Whitney</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=21">Recepten p. 21–22</a> (tegenhanger van de niet-gepaarde t-toets). Je toetst \(\sym{h0}{H_{0}}\): \(\sym{nu1}{\nu_{1}}=\sym{nu2}{\nu_{2}}\)
+    (de medianen van de twee populaties zijn gelijk) tegen \(\ne\) (tweezijdig) of \(\gt\), \(\lt\) (eenzijdig). Zo ga je te werk met twee onafhankelijke steekproeven:</p>
+    <ol class="steps">
+      <li>Rangschik <i>alle</i> \(\sym{n_total}{N}=\sym{n1}{n_{1}}+\sym{n2}{n_{2}}\) waarden samen van klein (rang 1) naar groot (rang N). Gelijke waarden (ties) krijgen de gemiddelde rang.</li>
+      <li>Statistiek \(\sym{w_x1}{W_{X1}}\) = de som van de rangen van de waarden uit steekproef 1.</li>
+      <li>Vergelijk met wat je onder \(H_{0}\) verwacht, en beslis met de tabel of de normale benadering (zie hieronder).</li>
+    </ol>
     <div class="f">
-      <div>\[E(\sym{w_x1}{W_{X1}})=\frac{\sym{n1}{n_{1}}(\sym{n_total}{N}+1)}{2}\],  \[\sigma^{2}(\sym{w_x1}{W_{X1}})=\frac{\sym{n1}{n_{1}}\sym{n2}{n_{2}}(\sym{n_total}{N}+1)}{12}\]</div>
-      <div>\[\sym{n1}{n_{1}}\], \[\sym{n2}{n_{2}}\le10\]: tabel met kritische waarden (notatie in de tabel: \[\sym{n1}{n_{1}}=\sym{wmw_m}{m}\], \[\sym{n2}{n_{2}}=\sym{wmw_n}{n}\], \[\sym{wmw_m}{m}\le\sym{wmw_n}{n}\]); groter: \[\sym{w_x1}{W_{X1}}\] benaderd normaal ⇒ Z-toets (+ continuïteitscorrectie)</div>
+      <div>onder \(H_{0}\): \[E(\sym{w_x1}{W_{X1}})=\frac{\sym{n1}{n_{1}}(\sym{n_total}{N}+1)}{2}\],  \[\sigma^{2}(\sym{w_x1}{W_{X1}})=\frac{\sym{n1}{n_{1}}\sym{n2}{n_{2}}(\sym{n_total}{N}+1)}{12}\]</div>
+      <div>\[\sym{n1}{n_{1}}\], \[\sym{n2}{n_{2}}\le10\]: tabel met kritische waarden (notatie in de tabel: \[\sym{n1}{n_{1}}=\sym{wmw_m}{m}\], \[\sym{n2}{n_{2}}=\sym{wmw_n}{n}\], \[\sym{wmw_m}{m}\le\sym{wmw_n}{n}\]); groter: \[\sym{w_x1}{W_{X1}}\] benaderd normaal ⇒ Z-toets (+ continuïteitscorrectie) <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=22">Recepten p. 22</a></div>
     </div>
-    <p><b>Wilcoxon signed ranks</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=23">Recepten p. 23–24</a> (tegenhanger van de gepaarde t-toets): vorm de verschillen
-    \(\sym{v_i}{v_{i}}=\sym{x1i}{x_{1i}}-\sym{x2i}{x_{2i}}\), rangschik ze naar <i>absolute waarde</i>; \(\sym{t_plus}{T^{+}}=\) som van de
-    rangen van de positieve verschillen. Verschillen gelijk aan 0 laat je weg (en je past n aan); gelijke absolute waarden
-    krijgen de gemiddelde rang.</p>
+    <p><b>Wilcoxon signed ranks</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=23">Recepten p. 23–24</a> (tegenhanger van de gepaarde t-toets). Je werkt met de verschillen binnen elk paar:</p>
+    <ol class="steps">
+      <li>Vorm de verschillen \(\sym{v_i}{v_{i}}=\sym{x1i}{x_{1i}}-\sym{x2i}{x_{2i}}\). Verschillen gelijk aan 0 laat je weg; n is dan het aantal overblijvende verschillen.</li>
+      <li>Rangschik de verschillen naar <i>absolute waarde</i>. Gelijke absolute waarden krijgen de gemiddelde rang.</li>
+      <li>\(\sym{t_plus}{T^{+}}\) = de som van de rangen van de positieve verschillen.</li>
+    </ol>
     <div class="f">
-      <div>\[E(\sym{t_plus}{T^{+}})=\frac{\sym{n}{n}(\sym{n}{n}+1)}{4}\],  \[\sigma^{2}(\sym{t_plus}{T^{+}})=\frac{\sym{n}{n}(\sym{n}{n}+1)(2\sym{n}{n}+1)}{24}\]</div>
-      <div>\[\sym{n}{n}\le15\]: tabel met kritische waarden (notatie in de tabel: \[\sym{n}{n}=\sym{sr_ntab}{N}\]); \[\sym{n}{n}\gt15\]: benaderd normaal ⇒ Z-toets (+ continuïteitscorrectie)</div>
+      <div>onder \(H_{0}\): \[E(\sym{t_plus}{T^{+}})=\frac{\sym{n}{n}(\sym{n}{n}+1)}{4}\],  \[\sigma^{2}(\sym{t_plus}{T^{+}})=\frac{\sym{n}{n}(\sym{n}{n}+1)(2\sym{n}{n}+1)}{24}\]</div>
+      <div>\[\sym{n}{n}\le15\]: tabel met kritische waarden (notatie in de tabel: \[\sym{n}{n}=\sym{sr_ntab}{N}\]); \[\sym{n}{n}\gt15\]: benaderd normaal ⇒ Z-toets (+ continuïteitscorrectie) <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=24">Recepten p. 24</a></div>
     </div>
-    <p>Beide toetsen veronderstellen wel dat \(X_{1}\) en \(X_{2}\) dezelfde vorm hebben; het zijn toetsen over de
-    ligging van de verdelingen.</p>
-    <p><b>Runs-toets</b> (Wald-Wolfowitz) <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=25">Recepten p. 25–26</a>: is de steekproef echt aselect? Bij een RS zijn alle \(X_{i}\)
-    onafhankelijk en hebben ze dezelfde verdeling als X; dat is een aanname van de meeste toetsen. Een <b>run</b> is een reeks
-    opeenvolgende waarden aan dezelfde kant van de mediaan; \(\sym{runs_r}{R}=\) aantal runs.</p>
+    <p>De tabellen met kritische waarden voor kleine steekproeven zitten niet in de cursusbestanden. Beide Wilcoxon-toetsen veronderstellen wel dat \(X_{1}\) en \(X_{2}\)
+    dezelfde vorm hebben; ze toetsen alleen de ligging van de verdelingen.</p>
+    <p><b>Runs-toets</b> (Wald-Wolfowitz) <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=25">Recepten p. 25–26</a>: is de steekproef echt aselect? Bij een aselecte steekproef zijn alle \(X_{i}\)
+    onafhankelijk en hebben ze dezelfde verdeling als X; de meeste toetsen veronderstellen dat. Zet een + boven en een − onder de mediaan van de data. Een <b>run</b> is een reeks
+    opeenvolgende waarden aan dezelfde kant van de mediaan; \(\sym{runs_r}{R}\) is het aantal runs.</p>
     <div class="f">
-      <div>\[E(\sym{runs_r}{R})\approx\frac{\sym{n}{n}+2}{2}\],  \[\sigma^{2}(\sym{runs_r}{R})\approx\frac{\sym{n}{n}-1}{4}\]; bij voldoende grote n is R benaderd normaal ⇒ Z-toets</div>
+      <div>onder \(H_{0}\): \[E(\sym{runs_r}{R})\approx\frac{\sym{n}{n}+2}{2}\],  \[\sigma^{2}(\sym{runs_r}{R})\approx\frac{\sym{n}{n}-1}{4}\]; bij voldoende grote n is R benaderd normaal ⇒ Z-toets</div>
     </div>
     <p>Te weinig runs wijst op trends of clusters, te veel op een systematische afwisseling. Verwerp je \(H_{0}\), dan weet
     je nog niet wat er schort <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=26">Recepten p. 26</a>.</p>
-    <p class="small">De tabellen met kritische waarden voor kleine steekproeven (Wilcoxon) zitten niet in de cursusbestanden.</p>
     <div class="calc-here" data-tool="nietparametrisch" data-blocks="0 1 2"></div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
@@ -1162,7 +1233,6 @@
       <li><b>"Bij Mann-Whitney rangschik je elke steekproef apart."</b> Fout: rangschik alle \(\sym{n_total}{N}=\sym{n1}{n_{1}}+\sym{n2}{n_{2}}\) waarden samen; \(\sym{w_x1}{W_{X1}}\) is de som van de rangen van de \(X_{1}\)-waarden, en gelijke waarden krijgen de gemiddelde rang <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=21">Recepten p. 21–22</a>.</li>
       <li><b>Let op bij signed ranks:</b> rangschik de verschillen naar absolute waarde en tel de rangen van de positieve; verschillen 0 laat je weg en je past n aan (schoenzolen: \(\sym{n}{n}=9\), niet 10) <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=23">Recepten p. 23–24</a>.</li>
       <li><b>"Niet-parametrisch is altijd de veiligste keuze."</b> Fout: deze toetsen zijn minder efficiënt dan de t-toets (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=11">TH p. 11</a>): mag de t-toets, dan haalt die dezelfde kracht met minder waarnemingen (<a href="#d05-valkuilen">05.6</a>).</li>
-      <li><b>Let op bij kleine steekproeven:</b> bij \(\sym{n1}{n_{1}}\), \(\sym{n2}{n_{2}}\le10\) (Mann-Whitney) of \(\sym{n}{n}\le15\) (signed ranks) schrijft de cursus de tabel met kritische waarden voor; die zit niet in de cursusbestanden. De normale benadering is voor grotere steekproeven <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=22">Recepten p. 22</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=24">Recepten p. 24</a>.</li>
       <li><b>"De runs-toets verwerpt, dus er zit een trend in de data."</b> Fout: als je \(H_{A}\) aanvaardt, weet je nog niet wat er schort <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=26">Recepten p. 26</a>.</li>
     </ul></div>
 
