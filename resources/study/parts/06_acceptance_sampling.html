@@ -100,7 +100,7 @@
 </div>
 <p><b>Kern:</b> kent men de capabiliteit van het proces (trede III), dan volgt de kwaliteit van elk lot daaruit en is inspectie overbodig. Kent men ze niet (trede II), dan moet men het lot bemonsteren. Dat is het onderwerp van de rest van dit deel.</p>
 <div class="box tool"><span class="t">Rekentool</span>
-<p>Blad <b>Distributions</b> van <code>bb_toolkit.xlsx</code>, blok 2 (binomiaal): \(n=\sym{n_lot}{N}=10\ 000\), \(p=\sym{pi}{\pi}\), \(k=\) het aantal defecten; je krijgt \(P(X=k)\), \(P(X\le k)\), E[X] en \(\sigma\). Het blad <b>Normal</b> geeft \(\pi\) uit \(\mu\), \(\sigma\) en de specificatiegrenzen.</p>
+<p>Blad <b>Verdelingen</b> van <code>bb_toolkit.xlsx</code>, sectie "Binomiaal": \(n=\sym{n_lot}{N}=10\ 000\), \(p=\sym{pi}{\pi}\), \(k=\) het aantal defecten; je krijgt \(P(X=k)\), \(P(X\le k)\), E[X] en \(\sigma\). Het blad <b>Normaal</b> (sectie "Kans tussen twee waarden a &lt; b") geeft \(\pi\) uit \(\mu\), \(\sigma\) en de specificatiegrenzen.</p>
 </div>
 <div class="calc-here" data-tool="verdelingen" data-blocks="1"></div>
 
@@ -212,7 +212,7 @@
 <p>Binnen een lot is \(\pi\) vast. Alle toevalligheid in P komt van de steekproef. Een SRS is <b>zuiver</b>: gemiddeld over alle mogelijke steekproeven geeft ze precies \(\pi\). Een grotere steekproef verkleint de toevallige fout, nooit een systematische.</p>
 </div>
 <div class="box tool"><span class="t">Rekentool</span>
-<p>Blad <b>Distributions</b>: blok 3 (hypergeometrisch: N, D, n, k) voor de exacte kansen, blok 2 (binomiaal: n, p, k) voor de benadering.</p>
+<p>Blad <b>Verdelingen</b>: sectie "Hypergeometrisch" (N, D, n, k) voor de exacte kansen, sectie "Binomiaal" (n, p, k) voor de benadering.</p>
 </div>
 <div class="calc-here" data-tool="verdelingen" data-blocks="1 2"></div>
 
@@ -746,7 +746,7 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <figure class="fig"><img src="figures/06_oc_curves_n_c.png" alt="OC-curves van de plannen (10,0), (160,2) en (390,4) voor fracties defecten van 0 tot 0,15">
 <figcaption>Figuur: OC-curves van (10, 0) (volle lijn), (160, 2) (streepjeslijn) en (390, 4) (stippellijn), aanvaardingskans tegen de fractie defecten. Het kleine plan (10, 0) daalt traag en aanvaardt bij 0,14 nog ongeveer een vijfde van de lots; de grote plannen dalen steil en scheiden goede en slechte lots veel scherper. <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=4">AS-FR p. 4</a></figcaption></figure>
 <div class="box tool"><span class="t">Rekentool</span>
-<p>Blad <b>Acceptance sampling</b>, sectie 1: vul n (B9), c (B10), AQL (B12), LQL (B13), \(\alpha\) (B14) en \(\beta\) (B15) in; vul N (B11) in voor de exacte hypergeometrische OC. Sectie 2 geeft \(\sym{oc}{\mathrm{OC}}(\sym{aql}{\mathrm{AQL}})\), \(\sym{alpha}{\alpha}=1-\sym{oc}{\mathrm{OC}}(\sym{aql}{\mathrm{AQL}})\), \(\sym{beta}{\beta}=\sym{oc}{\mathrm{OC}}(\sym{lql}{\mathrm{LQL}})\) en of het plan beide doelen haalt. Sectie 5 maakt een OC-tabel over een reeks p.</p>
+<p>Blad <b>Aanvaardingssteekproeven</b>, sectie "Het plan (n, c) en de kwaliteitsniveaus": vul n, c, AQL, LQL, \(\alpha\) en \(\beta\) in; vul N in voor de exacte hypergeometrische OC. Sectie "Risico's van het plan" geeft \(\sym{oc}{\mathrm{OC}}(\sym{aql}{\mathrm{AQL}})\), \(\sym{alpha}{\alpha}=1-\sym{oc}{\mathrm{OC}}(\sym{aql}{\mathrm{AQL}})\), \(\sym{beta}{\beta}=\sym{oc}{\mathrm{OC}}(\sym{lql}{\mathrm{LQL}})\) en of het plan beide doelen haalt. Sectie "OC-curve, AOQ en ATI over een reeks p" maakt een OC-tabel over een reeks p.</p>
 </div>
 <div class="calc-here" data-tool="steekproefplan" data-blocks="0 3"></div>
 
@@ -868,7 +868,7 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <p>Controle <span class="computed">zelf berekend</span> (binomiaal): (164, 2) geeft \(\sym{oc}{\mathrm{OC}}(0{,}5\ \%)=0{,}950\) en \(\sym{oc}{\mathrm{OC}}(3{,}5\ \%)=7{,}1\ \%\). De curve gaat dus door het eerste punt, maar bij 3,5 % is \(\sym{beta}{\beta}=7{,}1\ \%\) en niet 5 %; \(\sym{oc}{\mathrm{OC}}=5\ \%\) wordt pas bereikt bij \(\sym{pi}{p}=3{,}79\ \%\). (160, 2) geeft 0,953 en 7,9 %. Peach is een benaderende methode, zoals de Further Reading zelf zegt.</p>
 </div>
 <div class="box warn"><span class="t">De tabel van Peach zit niet in de cursusbestanden</span>
-<p>De Further Reading verwijst naar "tabellen AS.pdf"; dat bestand staat niet in de cursusmap. Zonder tabel kun je een plan wel <b>controleren</b>: kies \(\sym{c_accept}{c}=0\), 1, 2, …, zoek voor elke c de kleinste n met \(\sym{oc}{\mathrm{OC}}(\sym{lql}{\mathrm{LQL}})\le\sym{beta}{\beta}\) en kijk of \(\sym{oc}{\mathrm{OC}}(\sym{aql}{\mathrm{AQL}})\ge1-\sym{alpha}{\alpha}\) nog klopt. Het blad <b>Acceptance sampling</b> (secties 1–2) rekent dat voor elke poging.</p>
+<p>De Further Reading verwijst naar "tabellen AS.pdf"; dat bestand staat niet in de cursusmap. Zonder tabel kun je een plan wel <b>controleren</b>: kies \(\sym{c_accept}{c}=0\), 1, 2, …, zoek voor elke c de kleinste n met \(\sym{oc}{\mathrm{OC}}(\sym{lql}{\mathrm{LQL}})\le\sym{beta}{\beta}\) en kijk of \(\sym{oc}{\mathrm{OC}}(\sym{aql}{\mathrm{AQL}})\ge1-\sym{alpha}{\alpha}\) nog klopt. Het werkblad <b>Aanvaardingssteekproeven</b> (secties "Het plan (n, c) en de kwaliteitsniveaus" en "Risico's van het plan") rekent dat voor elke poging.</p>
 </div>
 <p>De OC-curve van een steekproefplan heeft de klassieke betekenis uit de toetstheorie: ze toont het risico op een type-II-fout als je de inspectie als hypothesetoets ziet <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=4">AS-FR p. 4</a>.</p>
 <div class="calc-here" data-tool="planontwerp" data-blocks="0"></div>
@@ -1189,7 +1189,7 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 </ul>
 </div>
 <div class="box tool"><span class="t">Rekentool</span>
-<p>Blad <b>Acceptance sampling</b>, sectie 4: met AQL (B12), LQL (B13), \(\alpha\) (B14) en \(\beta\) (B15) krijg je k, n (ook naar boven afgerond) en de OC bij AQL en LQL. Voor \(\sym{t_tol}{t}(1-\sym{alpha}{\alpha},\sym{aql}{p_{0}},\sym{n}{n})\) bij een opgelegde n is er geen blad: reken met de z-waarden van het blad <b>Normal</b>.</p>
+<p>Blad <b>Aanvaardingssteekproeven</b>, sectie "Plan voor variabelen": met AQL, LQL, \(\alpha\) en \(\beta\) krijg je k, n (ook naar boven afgerond) en de OC bij AQL en LQL. \(\sym{t_tol}{t}(1-\sym{alpha}{\alpha},\sym{aql}{p_{0}},\sym{n}{n})\) bij een opgelegde n staat niet op dat blad: gebruik de rekenmachine plan voor variabelen met gegeven n hierboven, of reken met de z-waarden van het blad <b>Normaal</b>.</p>
 </div>
 <div class="calc-here" data-tool="steekproefplan" data-blocks="4"></div>
 
@@ -1329,7 +1329,7 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <figcaption>Figuur: OC (volle lijn, linkeras) en AOQ (streepjeslijn, rechteras) van (250, 5) bij \(N=1000\). De AOQ stijgt, bereikt net onder \(p=0{,}02\) haar top van ongeveer 0,013 en daalt dan weer, omdat slechte lots steeds vaker afgekeurd en gesorteerd worden. <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=10">AS-FR p. 10</a></figcaption></figure>
 <p>Dodge en Romig ontwikkelden enkelvoudige en dubbele plannen met een opgegeven AOQL en een minimale ATI bij een opgegeven p: een gegarandeerde kwaliteitsbescherming tegen minimale inspectiekost <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=10">AS-FR p. 10</a>.</p>
 <div class="box tool"><span class="t">Rekentool</span>
-<p>Blad <b>Acceptance sampling</b>: vul n, c en N in (sectie 1) en p in B27 (sectie 3): je krijgt OC, AOQ exact, \(\sym{aoq}{\mathrm{AOQ}}\cong\sym{pi}{p}\cdot\sym{oc}{\mathrm{OC}}\) en ATI. Sectie 5 zoekt de AOQL in een tabel; zet de stap (B48) op 0,001 om het maximum bij 1,7 % te zien.</p>
+<p>Blad <b>Aanvaardingssteekproeven</b>: vul n, c en N in (sectie "Het plan (n, c) en de kwaliteitsniveaus") en p (sectie "Eén lotkwaliteit p"): je krijgt OC, AOQ exact, \(\sym{aoq}{\mathrm{AOQ}}\cong\sym{pi}{p}\cdot\sym{oc}{\mathrm{OC}}\) en ATI. Sectie "OC-curve, AOQ en ATI over een reeks p" zoekt de AOQL in een tabel; zet de stapgrootte van p op 0,001 om het maximum bij 1,7 % te zien.</p>
 </div>
 <div class="calc-here" data-tool="steekproefplan" data-blocks="1 2"></div>
 
@@ -1564,7 +1564,7 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <button type="button" class="check">Controleer</button> <span class="fb"></span>
 </div>
 <div class="calc-here" data-tool="planontwerp" data-blocks="0"></div>
-<details class="hint"><summary>Hint</summary><p>Vul in het blad Acceptance sampling \(\sym{aql}{\mathrm{AQL}}=0{,}02\), \(\sym{lql}{\mathrm{LQL}}=0{,}04\), \(\sym{alpha}{\alpha}=0{,}05\), \(\sym{beta}{\beta}=0{,}05\) in. Probeer een c, zoek de kleinste n met \(\sym{beta}{\beta}\le5\ \%\) en kijk of \(\sym{alpha}{\alpha}\le5\ \%\). Hoe dichter AQL en LQL bij elkaar liggen \((\sym{r0}{R_{0}}=2)\), hoe groter het plan. Sectie 4 geeft k en n.</p></details>
+<details class="hint"><summary>Hint</summary><p>Vul in het werkblad Aanvaardingssteekproeven \(\sym{aql}{\mathrm{AQL}}=0{,}02\), \(\sym{lql}{\mathrm{LQL}}=0{,}04\), \(\sym{alpha}{\alpha}=0{,}05\), \(\sym{beta}{\beta}=0{,}05\) in. Probeer een c, zoek de kleinste n met \(\sym{beta}{\beta}\le5\ \%\) en kijk of \(\sym{alpha}{\alpha}\le5\ \%\). Hoe dichter AQL en LQL bij elkaar liggen \((\sym{r0}{R_{0}}=2)\), hoe groter het plan. Sectie 4 geeft k en n.</p></details>
 <details class="solution"><summary>Toon oplossing</summary>
 <ol class="steps">
 <li>Voor \(\sym{c_accept}{c}=0\), 1, …, 21 haalt de kleinste n met \(\sym{oc}{\mathrm{OC}}(4\ \%)\le5\ \%\) het doel \(\sym{oc}{\mathrm{OC}}(2\ \%)\ge95\ \%\) niet. Bij \(\sym{c_accept}{c}=22\) lukt het vanaf \(\sym{n}{n}=781\): \(\sym{oc}{\mathrm{OC}}(2\ \%)=0{,}954\) en \(\sym{oc}{\mathrm{OC}}(4\ \%)=0{,}0497\). Plannen tot \(\sym{n}{n}=789\) (met \(\sym{c_accept}{c}=22\)) halen beide doelen.</li>

@@ -1051,7 +1051,7 @@
       </div>
       <div class="calc-here" data-tool="regelkaart" data-blocks="1"></div>
       <details class="hint"><summary>Hint</summary><p>\(\bar{X}\)-grenzen: \(\sym{xbarbar}{\bar{\bar{X}}}\pm\sym{a2}{A_{2}}\sym{rbar}{\bar{R}}\); R-grenzen: \(\sym{d3_r}{D_{3}}\sym{rbar}{\bar{R}}\) en
-      \(\sym{d4_r}{D_{4}}\sym{rbar}{\bar{R}}\). Of typ de subgroepen in de rekentool (werkblad Control charts).</p></details>
+      \(\sym{d4_r}{D_{4}}\sym{rbar}{\bar{R}}\). Of typ de subgroepen in de rekentool (werkblad Regelkaarten).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <table>
           <tr><th></th><th class="n">origineel (1/1000 inch)</th><th class="n">afgerond (1/100 inch)</th></tr>
@@ -1394,7 +1394,7 @@
     Manual van DaimlerChrysler, Ford en GM, 2002): rijen \(\sym{g_sub}{g}=\) aantal subgroepen (1 tot 20), kolommen \(\sym{n_sample}{m}=\) subgroepgrootte (2
     tot 20). Elke cel heeft twee getallen: <b>boven \(\nu\)</b>, <b>onder \(d_{2}^{*}\)</b>. De laatste rij geeft
     \(\sym{d2}{d_{2}}\ (\sym{g_sub}{g}\to\infty)\) en cd (waarmee je \(\nu\) voor grotere g kunt opbouwen). In de rekentool staat de tabel op het werkblad
-    Tables, gesplitst in een \(\nu\)-rooster en een \(d_{2}^{*}\)-rooster. De figuur hieronder toont een uitsnede, zodat je ziet
+    Tabellen, gesplitst in een \(\nu\)-rooster en een \(d_{2}^{*}\)-rooster. De figuur hieronder toont een uitsnede, zodat je ziet
     hoe een cel eruitziet.</p>
     <figure class="fig"><img src="figures/11_tabel_msa_uitsnede.png" alt="Uitsnede van de tabel MSA: kolommen 2 tot 10, rijen 1 tot 5 met in elke cel twee getallen, en daaronder de rijen d2 en cd">
     <figcaption>Figuur: uitsnede uit de tabel MSA (Values associated with the Distribution of the Average Range). Kolommen =
@@ -1635,13 +1635,13 @@
         <tr><td>5</td><td class="n">45</td><td class="n">40</td><td class="n">35</td><td class="n">40</td><td class="n">40</td><td class="n">40</td></tr>
       </table>
     <div class="box tool"><span class="t">Rekentool: werkblad Gage R&amp;R</span>
-    <p>In <code>bb_toolkit.xlsx</code>, werkblad <b>Gage R&amp;R</b>: typ de metingen in de gele cellen B13:K21 (één
-    rij per operator en herhaling: A trial 1, A trial 2, …; één kolom per onderdeel, tot 3 operatoren × 3 herhalingen × 10
-    onderdelen). Optioneel de tolerantie \(\sym{usl}{\mathrm{USL}}-\sym{lsl}{\mathrm{LSL}}\) (B9) voor %GRR t.o.v. de tolerantie, en \(\alpha\) (B10) voor de F-toetsen. Het
-    blad geeft de gemiddelde-en-spreidingsbreedte-methode (sectie 4: \(\bar{\bar{R}}\), \(\bar{X}_{\mathrm{DIFF}}\), \(R_{p}\), K's, EV, AV, PV,
-    GRR, TV, %GRR), de ANOVA-methode zonder interactie zoals de cursus (sectie 5), de ANOVA met interactie (sectie 6) en
-    het oordeel met de 10/30 %-regel (sectie 7). De constanten \(d_{2}\) en \(d_{2}^{*}\) komen uit de tabel MSA op het
-    werkblad <b>Tables</b>. Het blad is getest tegen de oplossing in het GRR-werkboek.</p>
+    <p>In <code>bb_toolkit.xlsx</code>, werkblad <b>Gage R&amp;R</b>: typ de metingen in het blok "Studiedata" onderaan (één
+    rij per operator en herhaling: A trial 1, A trial 2, …; de naam van de operator ervoor; één kolom per onderdeel). Het blad telt
+    zelf het aantal operatoren, onderdelen en herhalingen. Optioneel de tolerantie \(\sym{usl}{\mathrm{USL}}-\sym{lsl}{\mathrm{LSL}}\) voor %GRR t.o.v. de tolerantie, en \(\alpha\) voor de F-toetsen. Het
+    blad geeft de gemiddelde-en-spreidingsbreedte-methode (\(\bar{\bar{R}}\), \(\bar{X}_{\mathrm{DIFF}}\), \(R_{p}\), K's, EV, AV, PV,
+    GRR, TV, %GRR), de ANOVA-methode zonder interactie zoals de cursus, de ANOVA met interactie en
+    het oordeel met de 10/30 %-regel ("Aanvaarding van het meetsysteem"). De constanten \(d_{2}\) en \(d_{2}^{*}\) komen uit de tabel MSA op het
+    werkblad <b>Tabellen</b>. Het blad is getest tegen de oplossing in het GRR-werkboek.</p>
     </div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>

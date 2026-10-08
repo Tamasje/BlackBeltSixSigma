@@ -551,8 +551,9 @@ def calculators_here(part_html: str, number: str) -> str:
         tool = TOOLS[name]
         attr = f' data-blocks="{blocks}"' if blocks else ""
         sheet = f' · werkblad <i>{html.escape(tool.sheet)}</i>' if tool.sheet else ""
+        title = re.sub(r"^Rekenmachines?\s+", "", tool.title)   # the summary already starts with "Rekenmachine:"
         return (f'<details class="tool here" id="calc-d{number}-{count}" data-tool="{name}"{attr} '
-                f'data-kw="{html.escape(tool.keywords)}"><summary>Rekenmachine: {html.escape(tool.title)}</summary>'
+                f'data-kw="{html.escape(tool.keywords)}"><summary>Rekenmachine: {html.escape(title)}</summary>'
                 f'<p class="src">hier ingevoegd; ook in Hulpmiddelen bovenaan het deel{sheet}</p>'
                 '<div class="tool-body"></div></details>')
 

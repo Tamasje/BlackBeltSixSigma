@@ -755,12 +755,11 @@ eerst de aslabels. Met klasse k als positief geldt:</p>
 <p>De andere klassen werk je zelf uit in oefening 12.7.</p>
 </div>
 <div class="box tool"><span class="t">Rekentool: blad "Confusion matrix" in <a class="p" href="../../bb_toolkit.xlsx">bb_toolkit.xlsx</a></span>
-<p>Per model (A, B en C) vul je de vier tellingen van de <b>trainingsmatrix</b> en van de <b>testmatrix</b> in (model A:
-training in B14:C15, test in E14:F15), met <b>rijen = werkelijke klasse en kolommen = voorspelde klasse</b> (zoals
+<p>Per model (A, B en C) vul je de vier tellingen van de <b>trainingsmatrix</b> en van de <b>testmatrix</b> in, met <b>rijen = werkelijke klasse en kolommen = voorspelde klasse</b> (zoals
 <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=31">ML p. 31</a>). Je kunt de klassen een naam geven (bv. Goed / Slecht). Het blad geeft accuracy, recall, precision en F1 met
-<b>klasse 1 én klasse 2 als positieve klasse</b>, training en test naast elkaar, en de kolom "Test − training".</p>
+<b>klasse 1 én klasse 2 als positieve klasse</b>, training en test naast elkaar, en de kolom "Testset − trainingsset".</p>
 <p>Status UNVERIFIED: er bestaat geen uitgewerkt cursusvoorbeeld met deze metrics, maar de onafhankelijke controle
-(stats-auditor) bevestigde dat de formules overeenkomen met <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=31">ML p. 31</a>. De rij "\(\sym{error_rate}{\text{Error rate}}=1-\sym{accuracy}{\text{accuracy}}\)" staat
+(stats-auditor) bevestigde dat de formules overeenkomen met <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=31">ML p. 31</a>. De rij foutenpercentage "\(\sym{error_rate}{\text{Error rate}}=1-\sym{accuracy}{\text{accuracy}}\)" staat
 <b>niet</b> in de cursus; het is gewoon het aandeel foute voorspellingen. Een 4 × 4-matrix past niet rechtstreeks: maak
 er eerst per klasse een 2 × 2 "klasse k tegen de rest" van (oefening 12.8).</p>
 </div>

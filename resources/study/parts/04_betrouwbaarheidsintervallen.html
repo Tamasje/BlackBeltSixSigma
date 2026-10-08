@@ -314,7 +314,7 @@
     grenzen van het BI aan: [0,53; 0,67].
     <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=20">TH FR p. 20</a></figcaption></figure>
     <div class="box tool"><span class="t">Rekentool</span>
-      <p>Werkblad <b>"Mean &amp; proportion"</b>, sectie 5, in bb_toolkit.xlsx geeft het exacte binomiale BI naast
+      <p>Werkblad <b>Gemiddelde &amp; proportie</b>, sectie "Eén proportie \(\pi\)", in bb_toolkit.xlsx geeft het exacte binomiale BI naast
       het benaderde. De krommen zelf (exact en normale benadering, \(n=100\), 95 %) staan in werkblad "Nomogram fraction
       defectives" van <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.xlsx">CI.xlsx</a>.</p>
     </div>
@@ -398,9 +398,9 @@
       afgeronde waarden is \(\bar{x}=9{,}928\), \(s=0{,}10788\) en de bovengrens 9,9812 <span class="computed">zelf berekend</span>.</p>
     </div>
     <div class="box tool"><span class="t">Rekentool</span>
-      <p>Werkblad <b>"Mean &amp; proportion"</b>, sectie 2 "One mean \(\mu\)": vul \(\alpha\) in, plak de data in kolom L (of typ n,
-      \(\bar{x}\), s of \(\sigma\)). De rijen geven het tweezijdige BI en elke eenzijdige grens ("lower bound only", "upper bound only"),
-      zowel met z (\(\sigma\) gekend) als met t.</p>
+      <p>Werkblad <b>Gemiddelde &amp; proportie</b>, sectie "Eén gemiddelde \(\mu\)": vul \(\alpha\) in, plak de data in de kolom
+      "Steekproef 1" (of typ n, \(\bar{x}\), s of \(\sigma\)). De rijen geven het tweezijdige BI en elke eenzijdige grens ("alleen
+      ondergrens", "alleen bovengrens"), zowel met z (\(\sigma\) gekend) als met t.</p>
     </div>
     <div class="calc-here" data-tool="gemiddelde" data-blocks="0"></div>
     <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-04-mu">14 Dummies: z of t, en "95 %" = ±2σ in de tabellen</a>.</p>
@@ -509,8 +509,8 @@
       later beter kan, zegt het BI niet: dat is een uitspraak over een ander (verbeterd) proces.</p>
     </div>
     <div class="box tool"><span class="t">Rekentool</span>
-      <p>Werkblad <b>"Mean &amp; proportion"</b>: sectie 5 "One proportion \(\pi\)" (normale benadering én exact binomiaal,
-      met de controle \(\sym{n}{n}\sym{pi0}{\pi_{0}}\gt5\)) en sectie 6 "Two proportions".</p>
+      <p>Werkblad <b>Gemiddelde &amp; proportie</b>: sectie "Eén proportie \(\pi\)" (normale benadering én exact binomiaal,
+      met de controle \(\sym{n}{n}\sym{pi0}{\pi_{0}}\gt5\)) en sectie "Twee proporties".</p>
     </div>
     <div class="calc-here" data-tool="proportie" data-blocks="0 1"></div>
     <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-04-proporties">14 Dummies: BI voor een proportie en voor het verschil van twee proporties</a>.</p>
@@ -642,9 +642,9 @@
       cursus zegt niet hoe \(\rho=0{,}93\) bepaald werd.</p>
     </div>
     <div class="box tool"><span class="t">Rekentool</span>
-      <p>Werkblad <b>"Mean &amp; proportion"</b>, sectie 3 (twee onafhankelijke steekproeven, gepoolde \(s_{p}\) met
-      \(\sym{n1}{n_{1}}+\sym{n2}{n_{2}}-2\); plak de data in kolommen L en M) en sectie 4 (gepaard; plak de paren naast
-      elkaar in L en M).</p>
+      <p>Werkblad <b>Gemiddelde &amp; proportie</b>, sectie "Twee gemiddelden, ongepaarde steekproeven" (gepoolde \(s_{p}\) met
+      \(\sym{n1}{n_{1}}+\sym{n2}{n_{2}}-2\); plak de data in de kolommen "Steekproef 1" en "Steekproef 2") en sectie "Twee
+      gemiddelden, gepaarde steekproeven" (plak de paren naast elkaar in dezelfde twee kolommen).</p>
     </div>
     <div class="calc-here" data-tool="tweegemiddelden" data-blocks="0 1"></div>
 
@@ -773,8 +773,9 @@
       </ol>
     </div>
     <div class="box tool"><span class="t">Rekentool</span>
-      <p>Werkblad <b>"Variance CI &amp; tests"</b>, sectie 2 "One sample: \(\sigma^{2}\) and \(\sigma\)": \(\alpha\), n en s (of plak de data in kolom
-      H). De rijen geven het tweezijdige BI en de eenzijdige grenzen ("lower bound only; goes with HA: \(\sigma\gt\sigma_{0}\)").</p>
+      <p>Werkblad <b>Varianties BI &amp; toetsen</b>, sectie "Eén steekproef: \(\sigma^{2}\) en \(\sigma\)": \(\alpha\), n en s (of plak
+      de data in de kolom "Data steekproef 1"). De rijen geven het tweezijdige BI en de eenzijdige grenzen ("alleen ondergrens
+      (\(\sigma\) minstens …; hoort bij HA: \(\sigma\gt\sigma_{0}\))").</p>
     </div>
     <div class="calc-here" data-tool="variantie" data-blocks="0"></div>
     <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-04-sigma">14 Dummies: BI voor σ met Tabel 8-2</a>.</p>
@@ -845,7 +846,7 @@
     </div>
     <p><b>Het interval</b>. De cursus drukt geen kant-en-klaar BI voor een verhouding van varianties af; je krijgt het door
     de F-uitspraak om te keren, net zoals bij \(\sigma^{2}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=21">CI FR p. 21</a> (beslissing 7 in <code>inventory/conventions.md</code>; zo
-    werkt ook werkblad "Variance CI &amp; tests"). Schrijf \(\sym{f_lo}{F_{\mathrm{lo}}}\) voor het \(\frac{\sym{alpha}{\alpha}}{2}\)-kwantiel en \(\sym{f_hi}{F_{\mathrm{hi}}}\) voor het \(\left(1-\frac{\sym{alpha}{\alpha}}{2}\right)\)-kwantiel
+    werkt ook werkblad "Varianties BI &amp; toetsen"). Schrijf \(\sym{f_lo}{F_{\mathrm{lo}}}\) voor het \(\frac{\sym{alpha}{\alpha}}{2}\)-kwantiel en \(\sym{f_hi}{F_{\mathrm{hi}}}\) voor het \(\left(1-\frac{\sym{alpha}{\alpha}}{2}\right)\)-kwantiel
     van \(F(\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\) (kwantielnotatie: kans eronder). Dan is
     \(P\left[\sym{f_lo}{F_{\mathrm{lo}}}\le\left(\frac{\sym{s1_sq}{s_{1}^{2}}}{\sym{s2_sq}{s_{2}^{2}}}\right)\left(\frac{\sym{sigma2_sq}{\sigma_{2}^{2}}}{\sym{sigma1_sq}{\sigma_{1}^{2}}}\right)\le\sym{f_hi}{F_{\mathrm{hi}}}\right]=1-\sym{alpha}{\alpha}\), dus:</p>
     <div class="f">
@@ -868,9 +869,10 @@
       </ol>
     </div>
     <div class="box tool"><span class="t">Rekentool</span>
-      <p>Werkblad <b>"Variance CI &amp; tests"</b>, sectie 3 "Two samples: ratio of variances (F)": n en s per steekproef
-      (of plak de data in kolommen H en I). Rij 44 = tweezijdig; rij 45 = "\(\frac{\sigma_{1}^{2}}{\sigma_{2}^{2}}\) at least … (\(\frac{\sigma_{2}^{2}}{\sigma_{1}^{2}}\) at most …)"; rij 46
-      = "\(\frac{\sigma_{1}^{2}}{\sigma_{2}^{2}}\) at most … (\(\frac{\sigma_{2}^{2}}{\sigma_{1}^{2}}\) at least …)". Voor "is machine 1 nauwkeuriger?" lees je rij 46.</p>
+      <p>Werkblad <b>Varianties BI &amp; toetsen</b>, sectie "Twee steekproeven: verhouding van varianties (F)": n en s per
+      steekproef (of plak de data in de kolommen "Data steekproef 1" en "Data steekproef 2"). De rijen: "tweezijdig"; "eenzijdig:
+      \(\frac{\sigma_{1}^{2}}{\sigma_{2}^{2}}\) minstens … (\(\frac{\sigma_{2}^{2}}{\sigma_{1}^{2}}\) hoogstens …)"; "eenzijdig: \(\frac{\sigma_{1}^{2}}{\sigma_{2}^{2}}\)
+      hoogstens … (\(\frac{\sigma_{2}^{2}}{\sigma_{1}^{2}}\) minstens …)". Voor "is machine 1 nauwkeuriger?" lees je die laatste rij.</p>
     </div>
     <div class="calc-here" data-tool="variantie" data-blocks="1"></div>
     <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-04-f">14 Dummies: BI voor σ<sub>A</sub>²/σ<sub>B</sub>² met Tabel 8-3</a>.</p>
@@ -1145,15 +1147,15 @@
     kant die je nodig hebt en zet de andere grens op ±∞ (of 0 en 1 voor een proportie, 0 voor een spreiding).</p>
     <table>
       <tr><th>grootheid</th><th>BI</th><th>verdeling, voorwaarden</th><th>bron</th><th>werkblad</th></tr>
-      <tr><td>\(\sym{mu}{\mu}\), \(\sym{sigma}{\sigma}\) gekend</td><td>\(\sym{xbar}{\bar{x}}\pm\frac{\sym{z_1ma2}{z_{1-\alpha/2}}\cdot\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\)</td><td>N(0;1)</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=3">CI FR p. 3</a></td><td>Mean &amp; proportion §2</td></tr>
-      <tr><td>\(\sym{mu}{\mu}\), \(\sym{sigma}{\sigma}\) onbekend</td><td>\(\sym{xbar}{\bar{x}}\pm\frac{\sym{t_crit}{t_{1-\alpha/2;n-1}}\cdot\sym{s}{s}}{\sqrt{\sym{n}{n}}}\)</td><td>\(t(\sym{n}{n}-1)\); X normaal of n niet te klein</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=9">CI p. 9</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=8">CI FR p. 8</a></td><td>Mean &amp; proportion §2</td></tr>
-      <tr><td>\(\sym{mu1}{\mu_{1}}-\sym{mu2}{\mu_{2}}\), niet-gepaard</td><td>\((\sym{xbar1}{\bar{x}_{1}}-\sym{xbar2}{\bar{x}_{2}})\pm\sym{t_crit}{t_{1-\alpha/2;n1+n2-2}}\cdot\sym{sp}{s_{p}}\cdot\sqrt{\frac{1}{\sym{n1}{n_{1}}}+\frac{1}{\sym{n2}{n_{2}}}}\)</td><td>\(\sym{sigma1}{\sigma_{1}}=\sym{sigma2}{\sigma_{2}}\); \(\sym{sp_sq}{s_{p}^{2}}\) met noemer \(\sym{n1}{n_{1}}+\sym{n2}{n_{2}}-2\)</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=15">CI FR p. 15</a></td><td>Mean &amp; proportion §3</td></tr>
-      <tr><td>\(\sym{mu1}{\mu_{1}}-\sym{mu2}{\mu_{2}}\), gepaard</td><td>\(\sym{vbar}{\bar{v}}\pm\frac{\sym{t_crit}{t_{1-\alpha/2;n-1}}\cdot\sym{s_v}{s_{V}}}{\sqrt{\sym{n}{n}}}\)</td><td>\(t(\sym{n}{n}-1)\) op de verschillen</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=16">CI FR p. 16</a></td><td>Mean &amp; proportion §4</td></tr>
-      <tr><td>\(\sym{pi}{\pi}\), grote n</td><td>\(\sym{p}{p}\pm\sym{z_1ma2}{z_{1-\alpha/2}}\cdot\sqrt{\frac{\sym{p}{p}(1-\sym{p}{p})}{\sym{n}{n}}}\)</td><td>minstens 5 defectieven</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=10">CI p. 10</a></td><td>Mean &amp; proportion §5</td></tr>
-      <tr><td>\(\sym{pi}{\pi}\), exact</td><td>nomogram / binomiale inversie</td><td>binomiaal (hypergeometrisch bij eindige partij)</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=20">TH FR p. 20</a></td><td>Mean &amp; proportion §5</td></tr>
-      <tr><td>\(\sym{pi1}{\pi_{1}}-\sym{pi2}{\pi_{2}}\)</td><td>\((\sym{p1}{p_{1}}-\sym{p2}{p_{2}})\pm\sym{z_1ma2}{z_{1-\alpha/2}}\cdot\sqrt{\frac{\sym{p1}{p_{1}}(1-\sym{p1}{p_{1}})}{\sym{n1}{n_{1}}}+\frac{\sym{p2}{p_{2}}(1-\sym{p2}{p_{2}})}{\sym{n2}{n_{2}}}}\)</td><td>grote steekproeven</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=20">CI FR p. 20</a></td><td>Mean &amp; proportion §6</td></tr>
-      <tr><td><var data-s="sigma_sq">σ²</var></td><td>\(\left[\frac{(\sym{n}{n}-1)\sym{s_sq}{s^{2}}}{\sym{chi2_upper}{\chi^{2}_{1-\alpha/2;n-1}}};\frac{(\sym{n}{n}-1)\sym{s_sq}{s^{2}}}{\sym{chi2_lower}{\chi^{2}_{\alpha/2;n-1}}}\right]\)</td><td>\(\chi^{2}(\sym{n}{n}-1)\); X normaal (niet robuust)</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=21">CI FR p. 21</a></td><td>Variance CI &amp; tests §2</td></tr>
-      <tr><td>\(\frac{\sym{sigma2_sq}{\sigma_{2}^{2}}}{\sym{sigma1_sq}{\sigma_{1}^{2}}}\)</td><td>\(\left[\left(\frac{\sym{s2_sq}{s_{2}^{2}}}{\sym{s1_sq}{s_{1}^{2}}}\right)\cdot\sym{f_lo}{F_{\alpha/2}};\left(\frac{\sym{s2_sq}{s_{2}^{2}}}{\sym{s1_sq}{s_{1}^{2}}}\right)\cdot\sym{f_hi}{F_{1-\alpha/2}}\right]\), F met \((\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\)</td><td>F; beide normaal (niet robuust)</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=12">Recepten p. 12</a></td><td>Variance CI &amp; tests §3</td></tr>
+      <tr><td>\(\sym{mu}{\mu}\), \(\sym{sigma}{\sigma}\) gekend</td><td>\(\sym{xbar}{\bar{x}}\pm\frac{\sym{z_1ma2}{z_{1-\alpha/2}}\cdot\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\)</td><td>N(0;1)</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=3">CI FR p. 3</a></td><td>Gemiddelde &amp; proportie</td></tr>
+      <tr><td>\(\sym{mu}{\mu}\), \(\sym{sigma}{\sigma}\) onbekend</td><td>\(\sym{xbar}{\bar{x}}\pm\frac{\sym{t_crit}{t_{1-\alpha/2;n-1}}\cdot\sym{s}{s}}{\sqrt{\sym{n}{n}}}\)</td><td>\(t(\sym{n}{n}-1)\); X normaal of n niet te klein</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=9">CI p. 9</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=8">CI FR p. 8</a></td><td>Gemiddelde &amp; proportie</td></tr>
+      <tr><td>\(\sym{mu1}{\mu_{1}}-\sym{mu2}{\mu_{2}}\), niet-gepaard</td><td>\((\sym{xbar1}{\bar{x}_{1}}-\sym{xbar2}{\bar{x}_{2}})\pm\sym{t_crit}{t_{1-\alpha/2;n1+n2-2}}\cdot\sym{sp}{s_{p}}\cdot\sqrt{\frac{1}{\sym{n1}{n_{1}}}+\frac{1}{\sym{n2}{n_{2}}}}\)</td><td>\(\sym{sigma1}{\sigma_{1}}=\sym{sigma2}{\sigma_{2}}\); \(\sym{sp_sq}{s_{p}^{2}}\) met noemer \(\sym{n1}{n_{1}}+\sym{n2}{n_{2}}-2\)</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=15">CI FR p. 15</a></td><td>Gemiddelde &amp; proportie</td></tr>
+      <tr><td>\(\sym{mu1}{\mu_{1}}-\sym{mu2}{\mu_{2}}\), gepaard</td><td>\(\sym{vbar}{\bar{v}}\pm\frac{\sym{t_crit}{t_{1-\alpha/2;n-1}}\cdot\sym{s_v}{s_{V}}}{\sqrt{\sym{n}{n}}}\)</td><td>\(t(\sym{n}{n}-1)\) op de verschillen</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=16">CI FR p. 16</a></td><td>Gemiddelde &amp; proportie</td></tr>
+      <tr><td>\(\sym{pi}{\pi}\), grote n</td><td>\(\sym{p}{p}\pm\sym{z_1ma2}{z_{1-\alpha/2}}\cdot\sqrt{\frac{\sym{p}{p}(1-\sym{p}{p})}{\sym{n}{n}}}\)</td><td>minstens 5 defectieven</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=10">CI p. 10</a></td><td>Gemiddelde &amp; proportie</td></tr>
+      <tr><td>\(\sym{pi}{\pi}\), exact</td><td>nomogram / binomiale inversie</td><td>binomiaal (hypergeometrisch bij eindige partij)</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=20">TH FR p. 20</a></td><td>Gemiddelde &amp; proportie</td></tr>
+      <tr><td>\(\sym{pi1}{\pi_{1}}-\sym{pi2}{\pi_{2}}\)</td><td>\((\sym{p1}{p_{1}}-\sym{p2}{p_{2}})\pm\sym{z_1ma2}{z_{1-\alpha/2}}\cdot\sqrt{\frac{\sym{p1}{p_{1}}(1-\sym{p1}{p_{1}})}{\sym{n1}{n_{1}}}+\frac{\sym{p2}{p_{2}}(1-\sym{p2}{p_{2}})}{\sym{n2}{n_{2}}}}\)</td><td>grote steekproeven</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=20">CI FR p. 20</a></td><td>Gemiddelde &amp; proportie</td></tr>
+      <tr><td><var data-s="sigma_sq">σ²</var></td><td>\(\left[\frac{(\sym{n}{n}-1)\sym{s_sq}{s^{2}}}{\sym{chi2_upper}{\chi^{2}_{1-\alpha/2;n-1}}};\frac{(\sym{n}{n}-1)\sym{s_sq}{s^{2}}}{\sym{chi2_lower}{\chi^{2}_{\alpha/2;n-1}}}\right]\)</td><td>\(\chi^{2}(\sym{n}{n}-1)\); X normaal (niet robuust)</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=21">CI FR p. 21</a></td><td>Varianties BI &amp; toetsen</td></tr>
+      <tr><td>\(\frac{\sym{sigma2_sq}{\sigma_{2}^{2}}}{\sym{sigma1_sq}{\sigma_{1}^{2}}}\)</td><td>\(\left[\left(\frac{\sym{s2_sq}{s_{2}^{2}}}{\sym{s1_sq}{s_{1}^{2}}}\right)\cdot\sym{f_lo}{F_{\alpha/2}};\left(\frac{\sym{s2_sq}{s_{2}^{2}}}{\sym{s1_sq}{s_{1}^{2}}}\right)\cdot\sym{f_hi}{F_{1-\alpha/2}}\right]\), F met \((\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\)</td><td>F; beide normaal (niet robuust)</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=12">Recepten p. 12</a></td><td>Varianties BI &amp; toetsen</td></tr>
       <tr><td>percentielpunt (tolerantie)</td><td>\(\sym{ybar}{\bar{Y}}-\sym{k_tol}{k}\sym{sigma}{\sigma}\), \(\sym{k_tol}{k}=\frac{\sym{z_1ma}{z_{1-\alpha}}}{\sqrt{\sym{n}{n}}}+\sym{z_1mb}{z_{1-\beta}}\)</td><td>normaal; \(\sigma\) gekend</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=22">CI FR p. 22</a></td><td>—</td></tr>
     </table>
   </section>

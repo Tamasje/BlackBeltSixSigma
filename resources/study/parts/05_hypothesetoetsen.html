@@ -145,7 +145,7 @@
     <p class="small">"2,3" is een afgeronde Z-waarde: Z voor 1 % in de rechter staart is \(z_{0{,}99}=2{,}326\) (Z-tabel), en
     \(1200+\sym{z_099}{2{,}326}\cdot30=1269{,}8\approx1270\) <span class="computed">zelf berekend</span>. Met 2,3 zelf vind je 1269.</p>
     <div class="box tool"><span class="t">Rekentool</span>
-      <p>Werkblad <b>"Mean &amp; proportion"</b>, sectie 2: rijen "z-test (\(\sigma\) known)" voor \(\sym{ha}{H_{A}}\): \(\sym{mu}{\mu}\ne\), &gt; of &lt;
+      <p>Werkblad <b>Gemiddelde &amp; proportie</b>, sectie "Eén gemiddelde \(\mu\)": rijen "z-toets (\(\sigma\) gekend)" voor \(\sym{ha}{H_{A}}\): \(\sym{mu}{\mu}\ne\), &gt; of &lt;
       \(\sym{mu0}{\mu_{0}}\), met statistiek, kritische waarde en p-waarde. Vul \(\alpha\) zelf in (beslissing 5: de cursus kent geen
       standaard-\(\alpha\)).</p>
     </div>
@@ -577,8 +577,8 @@
       <span class="computed">zelf berekend</span>: hetzelfde besluit. Het BI uit 04.4 (]−∞; 9,98[, 10 ligt er niet in) geeft hetzelfde besluit: dualiteit.</p>
     </div>
     <div class="box tool"><span class="t">Rekentool</span>
-      <p>Werkblad <b>"Mean &amp; proportion"</b>, sectie 2, rijen "t-test (\(\sigma\) unknown)": plak de 20 waarden in kolom L, vul
-      \(\sym{alpha}{\alpha}=0{,}02\) en \(\sym{mu0}{\mu_{0}}=10\) in en lees de rij "\(\sym{ha}{H_{A}}\): \(\sym{mu}{\mu}\lt\sym{mu0}{\mu_{0}}\)".</p>
+      <p>Werkblad <b>Gemiddelde &amp; proportie</b>, sectie "Eén gemiddelde \(\mu\)", rijen "t-toets (\(\sigma\) ongekend)": plak de 20
+      waarden in de kolom "Steekproef 1", vul \(\sym{alpha}{\alpha}=0{,}02\) en \(\sym{mu0}{\mu_{0}}=10\) in en lees de rij "\(\sym{ha}{H_{A}}\): \(\sym{mu}{\mu}\lt\sym{mu0}{\mu_{0}}\)".</p>
     </div>
     <div class="calc-here" data-tool="gemiddelde" data-blocks="0"></div>
 
@@ -648,8 +648,8 @@
       <p class="small">In SPC gebruikt men voor de procesvariabiliteit meestal de R- of s-kaart (notities bij TH p. 13). De \(\chi^{2}\)-toets is niet robuust: ze vraagt een normale verdeling <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=11">Recepten p. 11</a>.</p>
     </div>
     <div class="box tool"><span class="t">Rekentool</span>
-      <p>Werkblad <b>"Variance CI &amp; tests"</b>, sectie 2: plak de data in kolom H, \(\sym{sigma0}{\sigma_{0}}=0{,}01\), \(\sym{alpha}{\alpha}=0{,}02\); lees de
-      rij "\(\sym{ha}{H_{A}}\): \(\sym{sigma}{\sigma}\gt\sym{sigma0}{\sigma_{0}}\) (e.g. 'more erratic')".</p>
+      <p>Werkblad <b>Varianties BI &amp; toetsen</b>, sectie "Eén steekproef: \(\sigma^{2}\) en \(\sigma\)": plak de data in de kolom "Data
+      steekproef 1", \(\sym{sigma0}{\sigma_{0}}=0{,}01\), \(\sym{alpha}{\alpha}=0{,}02\); lees de rij "\(\sym{ha}{H_{A}}\): \(\sym{sigma}{\sigma}\gt\sym{sigma0}{\sigma_{0}}\) (bv. 'more erratic')".</p>
     </div>
     <div class="calc-here" data-tool="variantie" data-blocks="0"></div>
 
@@ -709,13 +709,13 @@
     Een toets is <b>robuust</b> als ze bruikbaar blijft wanneer een aanname niet helemaal klopt.</p>
     <table>
       <tr><th>vraag</th><th>toets</th><th>statistiek</th><th>referentieverdeling</th><th>voorwaarden</th><th>bron</th><th>werkblad</th></tr>
-      <tr><td>\(\sym{mu}{\mu}=\sym{mu0}{\mu_{0}}\)?, \(\sigma\) onbekend</td><td>t-toets</td><td>\(\frac{\sym{xbar}{\bar{x}}-\sym{mu0}{\mu_{0}}}{\frac{\sym{s}{s}}{\sqrt{\sym{n}{n}}}}\)</td><td>\(\sym{t_dist}{t}(\sym{n}{n}-1)\)</td><td>X normaal; robuust tenzij klein n én sterk niet-normaal</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=4">Recepten p. 4</a></td><td>Mean &amp; proportion §2</td></tr>
-      <tr><td>\(\sym{mu}{\mu}=\sym{mu0}{\mu_{0}}\)?, \(\sigma\) gekend</td><td>Z-toets</td><td>\(\frac{\sym{xbar}{\bar{x}}-\sym{mu0}{\mu_{0}}}{\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}}\)</td><td>\(\sym{normal_dist}{N}(0;1)\)</td><td>"niet courant voor \(\mu\)"</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=17">TH FR p. 17</a></td><td>Mean &amp; proportion §2</td></tr>
-      <tr><td>\(\sym{mu1}{\mu_{1}}=\sym{mu2}{\mu_{2}}\)?, twee onafhankelijke steekproeven</td><td>niet-gepaarde t-toets</td><td>\(\frac{\sym{xbar1}{\bar{x}_{1}}-\sym{xbar2}{\bar{x}_{2}}-\sym{d_diff}{d}}{\sym{sp}{s_{p}}\sqrt{\frac{1}{\sym{n1}{n_{1}}}+\frac{1}{\sym{n2}{n_{2}}}}}\)</td><td>\(\sym{t_dist}{t}(\sym{n1}{n_{1}}+\sym{n2}{n_{2}}-2)\)</td><td>normaal; \(\sym{sigma1}{\sigma_{1}}=\sym{sigma2}{\sigma_{2}}\)</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=5">Recepten p. 5–6</a></td><td>Mean &amp; proportion §3</td></tr>
-      <tr><td>\(\sym{mu1}{\mu_{1}}=\sym{mu2}{\mu_{2}}\)?, paren</td><td>gepaarde t-toets</td><td>\(\frac{\sym{vbar}{\bar{v}}-\sym{d_diff}{d}}{\frac{\sym{s_v}{s_{v}}}{\sqrt{\sym{n}{n}}}}\)</td><td>\(\sym{t_dist}{t}(\sym{n}{n}-1)\)</td><td>normaal; \(\sigma'\)s mogen verschillen</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=7">Recepten p. 7–8</a></td><td>Mean &amp; proportion §4</td></tr>
-      <tr><td>\(\sym{pi}{\pi}=\sym{pi0}{\pi_{0}}\)?</td><td>Z-toets voor \(\pi\)</td><td>\(\frac{\sym{p_sample}{p}-\sym{pi0}{\pi_{0}}}{\sqrt{\frac{\sym{pi0}{\pi_{0}}(1-\sym{pi0}{\pi_{0}})}{\sym{n}{n}}}}\)</td><td>\(\sym{normal_dist}{N}(0;1)\), benaderd</td><td>\(\sym{n}{n}\sym{pi0}{\pi_{0}}\gt5\); anders exact</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=9">Recepten p. 9–10</a></td><td>Mean &amp; proportion §5</td></tr>
-      <tr><td>\(\sym{sigma}{\sigma}=\sym{sigma0}{\sigma_{0}}\)?</td><td>\(\chi^{2}\)-toets</td><td>\(\frac{(\sym{n}{n}-1)\sym{s_sq}{s^{2}}}{\sym{sigma0}{\sigma_{0}}^{2}}\)</td><td>\(\sym{chi2_dist}{\chi^{2}}(\sym{n}{n}-1)\)</td><td>normaal; niet robuust</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=11">Recepten p. 11</a></td><td>Variance CI &amp; tests §2</td></tr>
-      <tr><td>\(\sym{sigma1}{\sigma_{1}}=\sym{sigma2}{\sigma_{2}}\)?</td><td>F-toets</td><td>\(\frac{\sym{s1_sq}{s_{1}^{2}}}{\sym{s2_sq}{s_{2}^{2}}}\) (of omgekeerd)</td><td>\(\sym{f_dist}{F}(\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\)</td><td>normaal; niet robuust</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=13">Recepten p. 13–14</a></td><td>Variance CI &amp; tests §3</td></tr>
+      <tr><td>\(\sym{mu}{\mu}=\sym{mu0}{\mu_{0}}\)?, \(\sigma\) onbekend</td><td>t-toets</td><td>\(\frac{\sym{xbar}{\bar{x}}-\sym{mu0}{\mu_{0}}}{\frac{\sym{s}{s}}{\sqrt{\sym{n}{n}}}}\)</td><td>\(\sym{t_dist}{t}(\sym{n}{n}-1)\)</td><td>X normaal; robuust tenzij klein n én sterk niet-normaal</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=4">Recepten p. 4</a></td><td>Gemiddelde &amp; proportie</td></tr>
+      <tr><td>\(\sym{mu}{\mu}=\sym{mu0}{\mu_{0}}\)?, \(\sigma\) gekend</td><td>Z-toets</td><td>\(\frac{\sym{xbar}{\bar{x}}-\sym{mu0}{\mu_{0}}}{\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}}\)</td><td>\(\sym{normal_dist}{N}(0;1)\)</td><td>"niet courant voor \(\mu\)"</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=17">TH FR p. 17</a></td><td>Gemiddelde &amp; proportie</td></tr>
+      <tr><td>\(\sym{mu1}{\mu_{1}}=\sym{mu2}{\mu_{2}}\)?, twee onafhankelijke steekproeven</td><td>niet-gepaarde t-toets</td><td>\(\frac{\sym{xbar1}{\bar{x}_{1}}-\sym{xbar2}{\bar{x}_{2}}-\sym{d_diff}{d}}{\sym{sp}{s_{p}}\sqrt{\frac{1}{\sym{n1}{n_{1}}}+\frac{1}{\sym{n2}{n_{2}}}}}\)</td><td>\(\sym{t_dist}{t}(\sym{n1}{n_{1}}+\sym{n2}{n_{2}}-2)\)</td><td>normaal; \(\sym{sigma1}{\sigma_{1}}=\sym{sigma2}{\sigma_{2}}\)</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=5">Recepten p. 5–6</a></td><td>Gemiddelde &amp; proportie</td></tr>
+      <tr><td>\(\sym{mu1}{\mu_{1}}=\sym{mu2}{\mu_{2}}\)?, paren</td><td>gepaarde t-toets</td><td>\(\frac{\sym{vbar}{\bar{v}}-\sym{d_diff}{d}}{\frac{\sym{s_v}{s_{v}}}{\sqrt{\sym{n}{n}}}}\)</td><td>\(\sym{t_dist}{t}(\sym{n}{n}-1)\)</td><td>normaal; \(\sigma'\)s mogen verschillen</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=7">Recepten p. 7–8</a></td><td>Gemiddelde &amp; proportie</td></tr>
+      <tr><td>\(\sym{pi}{\pi}=\sym{pi0}{\pi_{0}}\)?</td><td>Z-toets voor \(\pi\)</td><td>\(\frac{\sym{p_sample}{p}-\sym{pi0}{\pi_{0}}}{\sqrt{\frac{\sym{pi0}{\pi_{0}}(1-\sym{pi0}{\pi_{0}})}{\sym{n}{n}}}}\)</td><td>\(\sym{normal_dist}{N}(0;1)\), benaderd</td><td>\(\sym{n}{n}\sym{pi0}{\pi_{0}}\gt5\); anders exact</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=9">Recepten p. 9–10</a></td><td>Gemiddelde &amp; proportie</td></tr>
+      <tr><td>\(\sym{sigma}{\sigma}=\sym{sigma0}{\sigma_{0}}\)?</td><td>\(\chi^{2}\)-toets</td><td>\(\frac{(\sym{n}{n}-1)\sym{s_sq}{s^{2}}}{\sym{sigma0}{\sigma_{0}}^{2}}\)</td><td>\(\sym{chi2_dist}{\chi^{2}}(\sym{n}{n}-1)\)</td><td>normaal; niet robuust</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=11">Recepten p. 11</a></td><td>Varianties BI &amp; toetsen</td></tr>
+      <tr><td>\(\sym{sigma1}{\sigma_{1}}=\sym{sigma2}{\sigma_{2}}\)?</td><td>F-toets</td><td>\(\frac{\sym{s1_sq}{s_{1}^{2}}}{\sym{s2_sq}{s_{2}^{2}}}\) (of omgekeerd)</td><td>\(\sym{f_dist}{F}(\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\)</td><td>normaal; niet robuust</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=13">Recepten p. 13–14</a></td><td>Varianties BI &amp; toetsen</td></tr>
       <tr><td>heeft X de vooropgestelde verdeling?</td><td>\(\chi^{2}\) goodness of fit</td><td>\(\Sigma\ \frac{(\sym{e_k}{e_{k}}-\sym{n_k}{n_{k}})^{2}}{\sym{e_k}{e_{k}}}\)</td><td>\(\sym{chi2_dist}{\chi^{2}}(\sym{r}{r}-\sym{g}{g}-1)\)</td><td>\(\sym{e_k}{e_{k}}\gt5\)</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=15">Recepten p. 15–17</a></td><td>—</td></tr>
       <tr><td>zijn X en Y onafhankelijk?</td><td>\(\chi^{2}\) kruistabel (contingency table)</td><td>\(\Sigma\Sigma\ \frac{(\sym{n_kl}{n_{kl}}-\sym{e_kl}{e_{kl}})^{2}}{\sym{e_kl}{e_{kl}}}\)</td><td>\(\sym{chi2_dist}{\chi^{2}}((\sym{r}{r}-1)(\sym{s_y}{s}-1))\)</td><td>\(\sym{e_kl}{e_{kl}}\gt5\); Yates bij 2×2</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=18">Recepten p. 18–20</a></td><td>—</td></tr>
       <tr><td>medianen gelijk?, onafhankelijk</td><td>Wilcoxon-Mann-Whitney</td><td>\(\sym{w_x1}{W_{X1}}=\) rangsom</td><td>tabel \((\sym{n1}{n_{1}},\sym{n2}{n_{2}}\le10)\) of normaal</td><td>zelfde vorm van \(X_{1}\), \(X_{2}\)</td><td><a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=21">Recepten p. 21–22</a></td><td>—</td></tr>
@@ -751,8 +751,9 @@
       <li>Paren is nauwkeuriger bij positieve correlatie binnen een paar (de schoenzolen, <a href="#d04-verschil">04.6</a>).</li>
     </ul>
     <div class="box tool"><span class="t">Rekentool</span>
-      <p>Werkblad <b>"Mean &amp; proportion"</b>: sectie 2 (één steekproef), sectie 3 (niet-gepaard, met \(d_{0}\)) en
-      sectie 4 (gepaard). Elke sectie geeft de drie alternatieven ≠, &gt;, &lt; met statistiek, kritische waarde en p-waarde.</p>
+      <p>Werkblad <b>Gemiddelde &amp; proportie</b>: secties "Eén gemiddelde \(\mu\)", "Twee gemiddelden, ongepaarde steekproeven"
+      (met \(d_{0}\)) en "Twee gemiddelden, gepaarde steekproeven". Elke sectie geeft de drie alternatieven ≠, &gt;, &lt; met statistiek,
+      kritische waarde en p-waarde.</p>
     </div>
     <div class="calc-here" data-tool="tweegemiddelden" data-blocks="0 1"></div>
 
@@ -837,8 +838,8 @@
       zijn; een tweezijdige toets doe je dan via het (exacte) BI <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=10">Recepten p. 10</a>.</li>
     </ul>
     <div class="box tool"><span class="t">Rekentool</span>
-      <p>Werkblad <b>"Mean &amp; proportion"</b>, sectie 5: n, aantal defecten x en \(\pi_{0}\); de sheet controleert
-      \(\sym{n}{n}\sym{pi0}{\pi_{0}}\gt5\) en geeft de Z-toets voor ≠, &gt;, &lt;.</p>
+      <p>Werkblad <b>Gemiddelde &amp; proportie</b>, sectie "Eén proportie \(\pi\)": n, aantal defecten x en \(\pi_{0}\); het werkblad
+      controleert \(\sym{n}{n}\sym{pi0}{\pi_{0}}\gt5\) en geeft de Z-toets voor ≠, &gt;, &lt;.</p>
     </div>
     <div class="calc-here" data-tool="proportie" data-blocks="0"></div>
 
@@ -928,8 +929,9 @@
       \(\frac{\sym{sigma2}{\sigma_{2}}^{2}}{\sym{sigma1}{\sigma_{1}}^{2}}\) ligt boven 1" uit <a href="#d04-f">04.8</a>.</li>
     </ul>
     <div class="box tool"><span class="t">Rekentool</span>
-      <p>Werkblad <b>"Variance CI &amp; tests"</b>: sectie 2 (\(\chi^{2}\)-toets, rijen 27–29) en sectie 3 (F-toets met \(\sym{f_stat}{F}=\frac{\sym{s1_sq}{s1^{2}}}{\sym{s2_sq}{s2^{2}}}\),
-      rijen 49–51 voor ≠, &gt;, &lt;), met statistiek, kritische waarde en p-waarde.</p>
+      <p>Werkblad <b>Varianties BI &amp; toetsen</b>: sectie "Eén steekproef: \(\sigma^{2}\) en \(\sigma\)" (\(\chi^{2}\)-toets) en sectie
+      "Twee steekproeven: verhouding van varianties (F)" (F-toets met \(\sym{f_stat}{F}=\frac{\sym{s1_sq}{s1^{2}}}{\sym{s2_sq}{s2^{2}}}\)), elk voor ≠, &gt;, &lt;,
+      met statistiek, kritische waarde en p-waarde.</p>
     </div>
     <div class="calc-here" data-tool="variantie" data-blocks="0 1"></div>
     <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-05-f">14 Dummies: eenzijdige F-toets op de verdelingen A en B</a>.</p>

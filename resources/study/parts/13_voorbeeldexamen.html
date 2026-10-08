@@ -115,8 +115,8 @@
           en is het vermoeden gerechtvaardigd. Ligt ze onder 1, dan kun je het niet besluiten (het BI bevat dan 1).</li>
           <li>De formules voor F-intervallen en de F-toets staan in de toetsrecepten
           <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=12">Recepten p. 12–14</a>;
-          in de rekentool: werkblad "Variance CI &amp; tests",
-          rij "one-sided: \(\frac{\sym{sigma1}{\sigma_{1}}^{2}}{\sym{sigma2}{\sigma_{2}}^{2}}\) at most …" (die toont \(\frac{\sym{sigma2}{\sigma_{2}}^{2}}{\sym{sigma1}{\sigma_{1}}^{2}}\) "at least …").</li>
+          in de rekentool: werkblad "Varianties BI &amp; toetsen",
+          rij "eenzijdig: \(\frac{\sym{sigma1}{\sigma_{1}}^{2}}{\sym{sigma2}{\sigma_{2}}^{2}}\) hoogstens …" (die toont \(\frac{\sym{sigma2}{\sigma_{2}}^{2}}{\sym{sigma1}{\sigma_{1}}^{2}}\) "minstens …").</li>
         </ol>
       </details>
     </div>
@@ -165,8 +165,8 @@
           <li><b>d.</b> De cursus geeft twee lezingen van het \(6\sigma\)-criterium, en de gids toont ze allebei (beslissing 2):
           <b>3,4 ppm</b> (= 0,00034 %) met de \(1{,}5\sigma\)-verschuiving op lange termijn, of <b>0,002 ppm</b> (\(\sym{cp}{C_{p}}=2\), korte termijn,
           geen verschuiving): "\(\sym{cp}{C_{p}}=2\): 6 Sigma quality level – 2 defect per billion of opportunities (short term)" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a>, <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a>.
-          Rekentool: werkblad "Capability", rijen
-          "\(6\sigma\) criterion".</li>
+          Rekentool: werkblad "Capabiliteit", sectie
+          "Het '6 sigma'-criterium".</li>
         </ol>
       </details>
     </div>
@@ -176,7 +176,7 @@
       <li><b>Let op:</b> <var data-s="cp">Cp</var> deelt de hele tolerantie door \(6\sym{sigma}{\sigma}\), <var data-s="cpk">Cpk</var> de afstand tot de dichtste grens door \(3\sym{sigma}{\sigma}\): (1460 − 1440)/30, niet /60.</li>
       <li><b>Let op:</b> de uitval zijn beide staarten samen (2,275 % + 0,0032 %); hier is de onderste staart verwaarloosbaar, maar bij twee grenzen tel je ze altijd op.</li>
       <li><b>"Het \(6\sigma\)-criterium betekent 3,4 % uitval."</b> Fout: 3,4 ppm = 0,00034 % (lange termijn, met de \(1{,}5\sigma\)-verschuiving) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a>; de cursus geeft ook 2 per miljard = 0,002 ppm (\(\sym{cp}{C_{p}}=2\), korte termijn) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a>. Geef beide (beslissing 2).</li>
-      <li><b>"De capabiliteit verbeter je door de specificaties ruimer te maken."</b> Fout: de specificaties zijn de stem van de klant. De twee hefbomen van de cursus zijn centreren en de spreiding verkleinen <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=25">SPC p. 25–26</a>.</li>
+      <li><b>"De capabiliteit verbeter je door de specificaties ruimer te maken."</b> Niet op eigen houtje: de specificaties zijn de stem van de klant, dus ruimer kan alleen met de klant samen (de cursus noemt "widen specification limits" als teamwerk, <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=23">SPC p. 23</a>). De twee hefbomen in het proces zelf zijn centreren en de spreiding verkleinen <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=25">SPC p. 25–26</a>.</li>
     </ul></div>
   </section>
 
@@ -319,7 +319,7 @@
         productierun of hetzelfde lot zijn niet onafhankelijk: een probleem in de machine raakt veel stuks tegelijk).</p>
         <p><b>c.</b> \(P(\sym{c_cap}{C}\lt720)=0{,}05\), dus \(\frac{720-820}{\sym{sigma_c}{\sigma}}=\sym{z005}{z_{0{,}05}}=-1{,}645\to\sym{sigma_c}{\sigma}=\frac{100}{1{,}645}=60{,}8\) µF en
         <b>\(\operatorname{Var}[\sym{c_cap}{C}]=\sym{sigma_c}{\sigma}^{2}\approx3696\) µF²</b> <span class="computed">zelf berekend</span>. (Met \(\sym{z005}{z}=1{,}64\) uit de tabel krijg je
-        ongeveer 3718.) Rekentool: werkblad "Normal", rij "\(\sigma\) uit een staartfractie".</p>
+        ongeveer 3718.) Rekentool: werkblad "Normaal", sectie "\(\sigma\) uit een staartfractie".</p>
       </details>
     </div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
