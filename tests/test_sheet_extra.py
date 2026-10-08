@@ -261,7 +261,7 @@ def test_dummies_u_chart_s08_we21(oracle: dict[str, Any], evaluate: Evaluate) ->
     last = FIRST_U + 19
     # act / assert -- printed 'ubar = 1.870' and '-3.0SL = 1.361'
     assert agrees_at_printed_precision(ws[U_CHART["ubar"]].value, str(answers["ubar"]))
-    assert agrees_at_printed_precision(ws[f"E{last}"].value, str(answers["LCL_neg3.0SL"]))
+    assert agrees_at_printed_precision(ws[f"{U_COLUMNS['lcl']}{last}"].value, str(answers["LCL_neg3.0SL"]))
 
 
 @libreoffice
