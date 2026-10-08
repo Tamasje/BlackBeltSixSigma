@@ -564,24 +564,23 @@
 
   <section class="unit" id="d07-residuen" data-kw="residuen; residuals; modelcontrole; model adequacy; residuplot; residual plot; normaal-kansplot; normal probability plot; trechter; funnel; niet-lineair; nonlinear; transformatie; transformation; gestandaardiseerd residu; standardized residual; uitschieter; outlier; invloedrijke waarneming; influential observation">
     <h3>07.8 Het model controleren: residuen en uitschieters <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=40">REG p. 40–45</a></h3>
-    <p>De aannames zijn: het model is lineair in x, de fouten \(\varepsilon_{i}\) zijn onafhankelijk, en ze zijn allemaal
-    normaal met gemiddelde 0 en dezelfde variantie <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=40">REG p. 40</a>. Dat geldt niet voor elke dataset. Controleer het achteraf
-    (post hoc) met de <b>residuen (residuals)</b> \(\sym{e_i}{e_{i}}=\sym{y}{y_{i}}-\sym{y_hat}{\hat{y}_{i}}\) als benadering van de fouten.
-    Strikt genomen zijn residuen licht gecorreleerd en hebben ze licht verschillende varianties, maar ze liggen dicht
-    genoeg bij de fouten om visueel te controleren <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=41">REG p. 41</a>:</p>
+    <p>07.4 tot 07.7 rekenden met de regressielijn alsof het model klopt: toetsen, intervallen en voorspellingen zijn alleen betrouwbaar als de aannames van het model
+    kloppen. Dat controleer je achteraf (post hoc) met de residuen.</p>
+    <p><b>De aannames.</b> Het model is lineair in x, de fouten \(\varepsilon_{i}\) zijn onafhankelijk, en ze zijn allemaal normaal verdeeld met gemiddelde 0 en dezelfde variantie
+    <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=40">REG p. 40</a>. Dat geldt niet voor elke dataset. De fouten \(\varepsilon_{i}\) zelf ken je niet, maar je kunt ze benaderen met de <b>residuen (residuals)</b>:
+    \(\sym{e_i}{e_{i}}=\sym{y}{y_{i}}-\sym{y_hat}{\hat{y}_{i}}\). Dat is het verschil tussen de gemeten waarde en de waarde die de lijn voorspelt: een positief residu is een punt boven de lijn <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=25">REG p. 25</a>.
+    Strikt genomen zijn residuen licht gecorreleerd en hebben ze licht verschillende varianties, maar ze liggen dicht genoeg bij de fouten om visueel te controleren
+    <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=41">REG p. 41</a>. Je kijkt naar drie plots:</p>
     <ul>
-      <li><b>Residuen tegen geschatte waarden</b> \((\sym{y_hat}{\hat{Y}_{i}},\sym{e_i}{e_{i}})\), of tegen y of x: geen duidelijk patroon,
-      overal ongeveer dezelfde spreiding.</li>
-      <li><b>Scale-location plot</b> \(\left(\sym{y_hat}{\hat{Y}_{i}},\frac{\sym{e_i}{e_{i}}}{\sqrt{\sym{sigma2_hat}{\hat{\sigma}^{2}}}}\right)\): de meeste punten tussen −2 en 2.</li>
-      <li><b>Normaal-kansplot (normal probability plot)</b> van de residuen: punten dicht bij de diagonaal.</li>
-      <li>Residuen tegen leverages \(h_{ii}\): de cursus noemt dit plot, maar legt leverage niet verder uit <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=41">REG p. 41</a>.</li>
+      <li><b>Residuen tegen geschatte waarden</b> \((\sym{y_hat}{\hat{Y}_{i}},\sym{e_i}{e_{i}})\), of tegen y of x: je wilt geen duidelijk patroon zien en overal ongeveer dezelfde spreiding.</li>
+      <li><b>Scale-location plot</b> \(\left(\sym{y_hat}{\hat{Y}_{i}},\frac{\sym{e_i}{e_{i}}}{\sqrt{\sym{sigma2_hat}{\hat{\sigma}^{2}}}}\right)\): de meeste punten liggen tussen −2 en 2. Hierin is \(\hat{\sigma}^{2}\) de geschatte variantie van de fouten (07.5).</li>
+      <li><b>Normaal-kansplot (normal probability plot)</b> van de residuen: de punten liggen dicht bij de diagonaal als de fouten normaal verdeeld zijn.</li>
     </ul>
-    <p><b>Slechte patronen</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=42">REG p. 42</a> (Figuur 11-9): (a) bevredigend, (b) <b>trechter</b> (funnel: de spreiding groeit),
-    (c) <b>dubbele boog</b> (double bow), (d) <b>niet-lineair</b> (nonlinear). Zulke patronen betekenen dat een beter
-    model bestaat: met extra of andere x-variabelen (voor een niet-lineair verband), of met een getransformeerde respons
-    \(\left(\sqrt{\sym{y}{y}},\ln\sym{y}{y},\frac{1}{\sym{y}{y}},\ldots\right)\) om de variantie te stabiliseren. Gestandaardiseerde residuen (standardized residuals)
-    \(\sym{d_i}{d_{i}}=\frac{\sym{e_i}{e_{i}}}{\sqrt{\sym{sigma2_hat}{\hat{\sigma}^{2}}}}\): bij normale fouten valt ongeveer 95 % tussen −2 en +2; punten ver daarbuiten
-    zijn mogelijke uitschieters <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=42">REG p. 42</a>.</p>
+    <p><b>Slechte patronen en wat je eraan doet</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=42">REG p. 42</a> (Figuur 11-9): (a) bevredigend, (b) <b>trechter</b> (funnel: de spreiding groeit),
+    (c) <b>dubbele boog</b> (double bow), (d) <b>niet-lineair</b> (nonlinear). Zulke patronen betekenen dat een beter model bestaat. Bij een gebogen patroon voeg je extra of andere x-variabelen toe.
+    Bij ongelijke variantie (trechter) transformeer je de respons, bv. \(\left(\sqrt{\sym{y}{y}},\ln\sym{y}{y},\frac{1}{\sym{y}{y}},\ldots\right)\), om de variantie te stabiliseren.</p>
+    <p>Voor uitschieters gebruik je <b>gestandaardiseerde residuen (standardized residuals)</b> \(\sym{d_i}{d_{i}}=\frac{\sym{e_i}{e_{i}}}{\sqrt{\sym{sigma2_hat}{\hat{\sigma}^{2}}}}\): het residu uitgedrukt in geschatte standaardafwijkingen.
+    Bij normale fouten valt ongeveer 95 % tussen −2 en +2; punten ver daarbuiten zijn mogelijke uitschieters <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=42">REG p. 42</a>.</p>
     <figure class="fig"><img src="figures/07_residupatronen.png" alt="Vier residuplots: (a) punten willekeurig rond nul in een band van gelijke breedte, (b) een spreiding die naar rechts groter wordt, (c) een dubbele boog, (d) een U-vorm">
     <figcaption>Figuur: patronen in residuplots (Figure 11-9). (a) bevredigend: een horizontale band van gelijke breedte rond 0;
     (b) trechter: de spreiding groeit; (c) dubbele boog; (d) niet-lineair: de residuen vormen een kromme.
@@ -593,10 +592,10 @@
     rechte. Rechts de residuen tegen \(\hat{y}\) (Figure 11-11) en onderaan tegen x (Figure 11-12): een band rond 0 zonder duidelijk
     patroon, met residuen tussen ongeveer −2 en +2.
     <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=43">REG p. 43–44</a></figcaption></figure>
-    <p><b>\(R^{2}\) met voorzichtigheid</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=44">REG p. 44</a>: \(R^{2}\) stijgt altijd als je termen toevoegt; met een polynoom van graad
+    <p><b>Voorzichtig met \(R^{2}\).</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=44">REG p. 44</a> \(R^{2}\) stijgt altijd als je termen toevoegt; met een polynoom van graad
     \(\sym{n}{n}-1\) door n punten krijg je zelfs een "perfecte" fit. Een hoge \(R^{2}\) alleen bewijst dus niet dat het model goed is
     (zie ook 07.11).</p>
-    <p><b>Uitschieters (outliers)</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=45">REG p. 45</a>:</p>
+    <p><b>Uitschieters (outliers)</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=45">REG p. 45</a>. Een uitschieter is een punt dat sterk van de rest afwijkt. Wat het met de lijn doet, hangt af van waar het ligt:</p>
     <ul>
       <li>Een uitschieter <b>dicht bij \(\bar{x}\)</b> heft vooral de lijn op. In het voorbeeld van de figuur hieronder (zoutconcentratie
       tegen wegoppervlak) wordt waarneming 12 gewijzigd naar 28,8 in plaats van 20,8: residu 11,51, gestandaardiseerd
@@ -615,12 +614,15 @@
       <li><b>"Een trechter in het residuplot: voeg een \(x^{2}\)-term toe."</b> Fout: een trechter (de spreiding groeit) wijst op ongelijke variantie; de remedie is een getransformeerde respons zoals \(\sqrt{\sym{y}{y}}\), \(\ln\sym{y}{y}\) of \(\frac{1}{\sym{y}{y}}\). Extra of andere x-termen zijn de remedie voor een niet-lineair, gebogen patroon <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=42">REG p. 42</a>.</li>
       <li><b>"Een gestandaardiseerd residu buiten ±2 is altijd een fout punt."</b> Fout: ook bij normale fouten valt ongeveer 5 % van de \(\sym{d_i}{d_{i}}\) buiten −2 en 2, ongeveer 1 punt op 20. Zo'n punt is een <i>mogelijke</i> uitschieter die je nagaat <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=42">REG p. 42</a>.</li>
       <li><b>"Een uitschieter doet de lijn altijd kantelen."</b> Fout: een uitschieter dicht bij \(\bar{x}\) heft vooral de lijn op (helling 17,5467 → 17,516, intercept 2,6765 → 3,102); een uitschieter aan een uiteinde van het x-bereik kan haar wel kantelen: een invloedrijke waarneming (influential observation) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=45">REG p. 45</a>.</li>
-      <li><b>Let op:</b> residu = gemeten − geschat: \(\sym{e_i}{e_{i}}=\sym{y}{y_{i}}-\sym{y_hat}{\hat{y}_{i}}\), niet omgekeerd. Een positief residu is een punt <i>boven</i> de lijn <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=25">REG p. 25</a>.</li>
     </ul></div>
   </section>
 
   <section class="unit" id="d07-meervoudig" data-kw="meervoudige lineaire regressie; multiple linear regression; tweevoudig regressiemodel; regressievlak; regression plane; richtingscoëfficiënten; foutterm; geschatte respons; estimated response; k+2 parameters; confounding; verwarring; enkelvoudige regressie; simple regression; b0; b1; b2">
     <h3>07.9 Meervoudige lineaire regressie (multiple linear regression) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=46">REG p. 46–50</a></h3>
+    <p>Tot nu toe verklaarde één variabele x de respons Y. In de praktijk hangt Y vaak van meerdere variabelen tegelijk af, bv. het olieverbruik van een huis van de temperatuur én van de
+    isolatie. Daarvoor breid je het model uit tot <b>meervoudige lineaire regressie (multiple linear regression)</b> met k verklarende variabelen \(x_{1},\ldots,x_{k}\).</p>
+    <p>Je bouwt het model uit dezelfde delen als in 07.2. \(\beta_{0}\) is het intercept. Elke \(\beta_{j}\) is de richtingscoëfficiënt van \(x_{j}\): hoeveel Y gemiddeld verandert als \(x_{j}\) met één eenheid stijgt en de andere x'en gelijk blijven.
+    \(\varepsilon_{i}\) is de fout van waarneming i, en n is het aantal waarnemingen. Ook hier zijn alle fouten normaal verdeeld rond 0 met standaardafwijking \(\sigma\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=46">REG p. 46</a>.</p>
     <div class="f">
       <div>\(\sym{y}{Y_{i}}=\sym{beta0}{\beta_{0}}+\sym{beta1}{\beta_{1}}\sym{x}{x_{1i}}+\sym{beta_j}{\beta_{2}}\sym{x}{x_{2i}}+\ldots+\sym{beta_j}{\beta_{k}}\sym{x}{x_{ki}}+\sym{epsilon}{\varepsilon_{i}}\),
       \(i=1\), …, \(\sym{n}{n}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=46">REG p. 46</a></div>
@@ -629,11 +631,9 @@
       <div>Geschatte respons \((\sym{k}{k}=2)\): \(\sym{y_hat}{\hat{Y}}=\sym{b0}{b_{0}}+\sym{b1}{b_{1}}\sym{x}{X_{1}}+\sym{b2}{b_{2}}\sym{x}{X_{2}}\); een waarneming is
       \(\sym{y}{Y_{i}}=\sym{b0}{b_{0}}+\sym{b1}{b_{1}}\sym{x}{X_{1i}}+\sym{b2}{b_{2}}\sym{x}{X_{2i}}+\sym{e_i}{e_{i}}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=48">REG p. 48–49</a></div>
     </div>
-    <p>Met twee x'en is het model een <b>vlak</b> boven het \((X_{1},X_{2})\)-grondvlak, het "tweevoudig
-    regressiemodel": het populatievlak \(\mu_{Y\mid X}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=47">REG p. 47</a> en het geschatte vlak \(\hat{Y}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=48">REG p. 48</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=49">REG p. 49</a>. Alles van de
-    enkelvoudige regressie blijft gelden: kleinste kwadraten, \(\sym{sst}{\mathrm{SS}_{T}}=\sym{ssr}{\mathrm{SS}_{R}}+\sym{sse}{\mathrm{SS}_{E}}\), \(R^{2}\), de
-    F-toets, t-toetsen en BI's per coëfficiënt. Nieuw is hoe je de coëfficiënten leest (07.10) en hoe je variabelen kiest
-    (07.11–07.13).</p>
+    <p>Met twee x'en is het model een <b>vlak</b> boven het \((X_{1},X_{2})\)-grondvlak, het "tweevoudig regressiemodel": het populatievlak \(\mu_{Y\mid X}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=47">REG p. 47</a> en het geschatte vlak
+    \(\hat{Y}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=48">REG p. 48</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=49">REG p. 49</a>. Alles van de enkelvoudige regressie blijft gelden: kleinste kwadraten, \(\sym{sst}{\mathrm{SS}_{T}}=\sym{ssr}{\mathrm{SS}_{R}}+\sym{sse}{\mathrm{SS}_{E}}\), \(R^{2}\), de F-toets, t-toetsen en BI's per coëfficiënt.
+    Nieuw is hoe je de coëfficiënten leest (07.10) en hoe je variabelen kiest (07.11–07.13).</p>
     <figure class="fig"><img src="figures/07_regressievlak_geschat.png" alt="Schuin vlak boven het X1-X2-grondvlak met één waargenomen punt erboven, verbonden met het vlak door een verticaal lijnstuk e_i">
     <figcaption>Figuur: het tweevoudig regressiemodel. Boven het punt \((X_{1i},X_{2i})\) in het grondvlak ligt de
     waargenomen \(Y_{i}=b_{0}+b_{1}X_{1i}+b_{2}X_{2i}+e_{i}\) (rode bol);
@@ -652,13 +652,13 @@
     <ul>
       <li><b>Let op:</b> een model met \(\sym{k}{k}\) x-variabelen heeft \(\sym{k}{k}+2\) parameters (\(\sym{beta0}{\beta_{0}}\ \ldots\ \sym{beta_j}{\beta_{k}}\) en \(\sym{sigma}{\sigma}\)), dus \(\sym{sse}{\mathrm{SS}_{E}}\) heeft \(\sym{n}{n}-\sym{k}{k}-1\) vrijheidsgraden: \(\sym{sigma_hat}{\hat{\sigma}}=\sqrt{\frac{\sym{sse}{\mathrm{SS}_{E}}}{\sym{n}{n}-\sym{k}{k}-1}}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=46">REG p. 46</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=57">REG p. 57</a>. Met \(\sym{k}{k}=1\) krijg je de \(\sym{n}{n}-2\) van de enkelvoudige regressie.</li>
       <li><b>"De coëfficiënt van \(X_{1}\) in het meervoudige model is de helling die je krijgt als je Y alleen op \(X_{1}\) regresseert."</b> Fout: in een enkelvoudig model bevat de coëfficiënt ook de impact van andere variabelen die met \(X_{1}\) én Y gecorreleerd zijn (confounding). In het meervoudige model is het effect van één eenheid \(X_{1}\) meer <b>bij gelijke andere x'en</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=50">REG p. 50</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=53">REG p. 53</a>.</li>
-      <li><b>"Doe liever per x-variabele een aparte enkelvoudige regressie; dat is even goed."</b> Fout: de cursus noemt het juist een voordeel om alle variabelen samen in één model te steken, zowel om de respons te verklaren als om nieuwe metingen te voorspellen <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=50">REG p. 50</a>.</li>
       <li><b>Let op:</b> twee notaties. In 07.2 telt \(\sym{p_param}{p}\) de \(\beta'\)s mét intercept, in 07.9 telt \(\sym{k}{k}\) alleen de x-variabelen: \(\sym{p_param}{p}=\sym{k}{k}+1\), dus \(\sym{n}{n}-\sym{p_param}{p}=\sym{n}{n}-\sym{k}{k}-1\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=4">REG p. 4</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=46">REG p. 46</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=61">REG p. 61</a>.</li>
     </ul></div>
   </section>
 
   <section class="unit" id="d07-stookolie" data-kw="stookolie; heating oil; olieverbruik; oil consumption; isolatie; insulation; temperatuur; Excel output; Regression; Adjusted R Square; Significance F; coëfficiënt interpreteren; interpret coefficient; beduidende cijfers; significant digits; voorspelling; prediction; sigma-hat">
     <h3>07.10 Uitgewerkt voorbeeld: stookolie (heating oil) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=51">REG p. 51–53, 57</a></h3>
+    <p>07.9 gaf het model. Hier pas je het toe op echte data en leer je de uitvoer van Excel lezen: welke regel je waarvoor gebruikt en wat een coëfficiënt in een meervoudig model betekent.</p>
     <div class="box ex"><span class="t">Uitgewerkt voorbeeld</span>
       <p>Bouw een model voor het olieverbruik Y (gallons) voor de verwarming van een ééngezinswoning in januari, met
       \(\sym{x}{X_{1}}=\) gemiddelde maandtemperatuur (°F) en \(\sym{x}{X_{2}}=\) isolatiedikte (inches); data voor 15 huizen
@@ -688,14 +688,11 @@
         <tr><td>Insulation</td><td class="n">−20.012321</td><td>\(\sym{b2}{b_{2}}\) (Standard Error 2.343, t Stat −8.54, 95 % van −25.12 tot −14.91)</td></tr>
       </table>
       <ul>
-        <li><b>Vergelijking</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=53">REG p. 53</a>: \(\sym{y_hat}{\hat{Y}}=562{,}15-5{,}44\ \sym{x}{X_{1}}-20{,}01\ \sym{x}{X_{2}}\). "Voor een toename van de
-        temperatuur met 1 °F daalt het geschatte olieverbruik met 5,44 gallons, bij gelijke isolatiedikte"; voor 1 inch
-        extra isolatie daalt het met 20,01 gallons, bij gelijke temperatuur. Een coëfficiënt is dus het effect van één
+        <li><b>Vergelijking</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=53">REG p. 53</a>: \(\sym{y_hat}{\hat{Y}}=562{,}15-5{,}44\ \sym{x}{X_{1}}-20{,}01\ \sym{x}{X_{2}}\). Per °F warmer daalt het geschatte olieverbruik met 5,44 gallons, bij gelijke isolatiedikte;
+        per inch extra isolatie daalt het met 20,01 gallons, bij gelijke temperatuur. Een coëfficiënt is dus het effect van één
         eenheid meer van die x, <b>terwijl de andere x'en gelijk blijven</b>.</li>
-        <li><b>Beduidende cijfers (significant digits)</b>: "Excel trekt zich daar niks van aan, maar een ingenieur wél"
-        <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=53">REG p. 53</a>. Rapporteer alleen zinvolle cijfers.</li>
-        <li><b>Voorspelling</b> voor een huis bij 30 °F met 6 inches isolatie: de cursus geeft 278,97 gallons <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=57">REG p. 57</a>.
-        De exacte waarde is 278,98 <span class="computed">zelf berekend</span>; daar staat 5,43 in plaats van 5,44 in de berekening.</li>
+        <li><b>Beduidende cijfers (significant digits)</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=53">REG p. 53</a>: Excel geeft veel decimalen, maar een ingenieur rapporteert alleen zinvolle cijfers.</li>
+        <li><b>Voorspelling</b> voor een huis bij 30 °F met 6 inches isolatie: \(562{,}15-5{,}44\cdot30-20{,}01\cdot6\approx279\) gallons <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=57">REG p. 57</a> (met de exacte coëfficiënten 278,98 <span class="computed">zelf berekend</span>).</li>
         <li><b>Schatting van \(\sigma\)</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=57">REG p. 57</a>: \(\sym{sigma_hat}{\hat{\sigma}}=\sqrt{\sym{mse}{\mathrm{MS}_{E}}}=\sqrt{\frac{\sym{sse}{\mathrm{SS}_{E}}}{\sym{n}{n}-\sym{k}{k}-1}}=\sqrt{\frac{8120{,}6}{15-2-1}}=26{,}0\). Je kunt \(\hat{\sigma}\) zien als (min of meer) de standaarddeviatie van zo'n voorspelling: hoeveel onzekerheid erop zit.</li>
       </ul>
     </div>
@@ -711,7 +708,6 @@
       <li><b>"Multiple \(R=0.98265476\) is de fractie verklaarde variatie."</b> Fout: Multiple \(R=\sqrt{\sym{r2}{R^{2}}}\). De fractie verklaarde variatie is \(\sym{r2}{R\ \text{Square}}=0.96561037\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=52">REG p. 52</a>.</li>
       <li><b>"\(|\sym{b2}{b_{2}}|=20{,}01\) is groter dan \(|\sym{b1}{b_{1}}|=5{,}44\), dus isolatie is de belangrijkste factor."</b> Fout: een coëfficiënt is het effect per eenheid (per inch, per °F) en hangt dus af van de gekozen eenheden. Vergelijk effecten over een realistische verandering van elke x, en hun significantie met de t-toetsen (t Stat −16.17 voor Temp, −8.54 voor Insulation <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=52">REG p. 52</a>). <span class="gen">algemeen</span></li>
       <li><b>"\(\sym{p_value}{\text{Significance F}}=1{,}65\times10^{-9}\), dus elke variabele is significant."</b> Fout: Significance F is de p-waarde van de F-toets van het hele model (\(H_{0}\): alle hellingen zijn 0). Of elke x apart bijdraagt, lees je in de t-toetsen (P-value) per coëfficiënt <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=52">REG p. 52</a>.</li>
-      <li><b>Let op:</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=57">REG p. 57</a> rekent met 5,43 in plaats van 5,44 en geeft 278,97; met de exacte coëfficiënten is de voorspelling 278,98 <span class="computed">zelf berekend</span>. Rapporteer zinvolle cijfers: ongeveer 279 gallons <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=53">REG p. 53</a>.</li>
     </ul></div>
     <div class="exercise" id="ex-07-6" data-kw="stookolie; heating oil; voorspelling; prediction; 30 °F; 6 inches; sigma-hat; MSE; coëfficiënt interpreteren; interpretation coefficient; meervoudige regressie">
       <h4>Oefening 07.6 — Voorspel het olieverbruik <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=57">REG p. 57</a></h4>
@@ -745,21 +741,22 @@
 
   <section class="unit" id="d07-radj" data-kw="aangepaste R²; adjusted R²; R²adj; R-Sq(adj); verklarende kracht; explanatory power; modellen vergelijken; compare models; n-k-1; n-k-2; vrijheidsgraden; overfitting">
     <h3>07.11 R² en aangepaste R² (adjusted R²) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=54">REG p. 54–56</a></h3>
-    <p>De kwadratensom van een model \((\mathrm{SS}_{R})\) meet zijn <b>verklarende kracht</b>; \(\sym{r2}{R^{2}}=\frac{\sym{ssr}{\mathrm{SS}_{R}}}{\sym{sst}{\mathrm{SS}_{T}}}\)
+    <p>07.8 waarschuwde al dat een hoge \(R^{2}\) niet bewijst dat een model goed is. Met meer dan één x-variabele (07.9) wordt die vraag praktisch: je wilt weten of een extra variabele het model echt beter maakt. Hier zie je waarom \(R^{2}\) daarvoor niet volstaat en wat je in de plaats gebruikt.</p>
+    <p>De kwadratensom van een model \((\mathrm{SS}_{R})\) meet zijn <b>verklarende kracht</b>. \(\sym{r2}{R^{2}}=\frac{\sym{ssr}{\mathrm{SS}_{R}}}{\sym{sst}{\mathrm{SS}_{T}}}\)
     is de fractie van de totale variabiliteit die het model (dus de variabelen in dat model) verklaart <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=54">REG p. 54</a>. Voeg je
     een variabele toe, dan stijgt \(\mathrm{SS}_{R}\) en dus \(R^{2}\) <b>altijd</b>, ook als die variabele nutteloos is <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=55">REG p. 55</a>.
-    De toegevoegde variabelen zijn niet altijd significant: hun bijdrage aan \(\mathrm{SS}_{R}\) is dan klein en we zijn niet
-    zeker dat hun coëfficiënten echt van 0 verschillen <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=56">REG p. 56</a>.</p>
+    De toegevoegde variabelen zijn immers niet altijd significant: hun bijdrage aan \(\mathrm{SS}_{R}\) is dan klein en je weet niet
+    zeker of hun coëfficiënten echt van 0 verschillen <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=56">REG p. 56</a>.</p>
     <figure class="fig"><img src="figures/07_verklarende_kracht.png" alt="Twee Venn-diagrammen: links overlapt de cirkel Y (Oil) met de cirkel X1 (Temperature), rechts ook met een derde cirkel X2 (Insulation), waardoor het rode overlapgebied SSR groter wordt">
     <figcaption>Figuur: verklarende kracht als overlap. De cirkel Y (Oil) is alle variabiliteit van het olieverbruik, SST. Links
     (enkelvoudig model met \(X_{1}\), temperatuur) is het overlapgebied met \(X_{1}\) SSR: variabiliteit in Y verklaard
     door \(X_{1}\); de rest van de cirkel Y is SSE, onverklaard. Rechts (meervoudig model met \(X_{1}\) en \(X_{2}\),
     isolatie) omvat het verklaarde gebied ook de overlap met \(X_{2}\): SSR wordt groter, dus \(R^{2}=\mathrm{SSR}/\)SST stijgt.
     <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=54">REG p. 54–55</a></figcaption></figure>
-    <p>Daarom gebruik je liever de <b>aangepaste \(R^{2}\) (adjusted \(R^{2}\))</b>: die stijgt alleen als je een variabele toevoegt die
-    voldoende significant is. Ze is nuttig om modellen te vergelijken: hoe hoger, hoe beter <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=56">REG p. 56</a>.</p>
+    <p>Daarom gebruik je liever de <b>aangepaste \(R^{2}\) (adjusted \(R^{2}\))</b>: die straft extra variabelen af en stijgt alleen als je een variabele toevoegt die
+    voldoende bijdraagt. Ze is nuttig om modellen te vergelijken: hoe hoger, hoe beter <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=56">REG p. 56</a>.</p>
     <div class="f"><div>\[\sym{r2_adj}{R^{2}_{\mathrm{adj}}}=1-\frac{(1-\sym{r2}{R^{2}})(\sym{n}{n}-1)}{\sym{n}{n}-\sym{k}{k}-1}\]</div></div>
-    <p>met k het aantal x-variabelen. Zo rekenen alle outputs van de cursus: Excel voor de olie-data,
+    <p>Daarin is n het aantal waarnemingen en k het aantal x-variabelen (zonder intercept). Zo rekenen alle outputs van de cursus: Excel voor de olie-data,
     \(1-\frac{(1-0{,}96561)\cdot14}{12}=0{,}95988\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=52">REG p. 52</a>; Minitab voor de zuurstofdata, \(\sym{r2_adj}{\text{R-Sq(adj)}}=87{,}1\ \%\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=22">REG p. 22</a>.</p>
     <div class="calc-here" data-tool="regressie" data-blocks="5"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
@@ -772,9 +769,12 @@
 
   <section class="unit" id="d07-polynoom" data-kw="polynoommodel; polynomial model; tweede-ordemodel; second-order model; kwadratische term; quadratic term; interactieterm; partiële F-toets; partial F-test; extra sum of squares; gereduceerd model; reduced model; volledig model; full model; acetyleen; acetylene; centreren; centering; VIF">
     <h3>07.12 Polynoommodellen en de partiële F-toets <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=58">REG p. 58–62</a></h3>
+    <p>07.9 voegde meer x-variabelen toe. Soms is het verband tussen Y en een x niet recht maar gekromd, zoals een gebogen residuplot in 07.8 laat zien. Dan voeg je machten en producten van de variabelen toe als extra termen: een <b>polynoommodel</b>.
+    Je beslist dan met een toets of die extra termen de moeite waard zijn: de partiële F-toets.</p>
     <p>Termen als \(\sym{temp_t}{T}^{2}\), \(\sym{ratio_r}{R}^{2}\) en \(\sym{temp_t}{T}\times\sym{ratio_r}{R}\) houden het model lineair in de \(\beta'\)s (07.2), dus je past het nog altijd met gewone kleinste
-    kwadraten <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=58">REG p. 58</a>. Het tweede-ordemodel in twee regressoren is \(\sym{y}{Y}=\sym{beta0}{\beta_{0}}+\sym{beta1}{\beta_{1}}\sym{x}{x_{1}}+\sym{beta_j}{\beta_{2}}\sym{x}{x_{2}}+\sym{beta_j}{\beta_{12}}\sym{x}{x_{1}}\sym{x}{x_{2}}+\sym{beta_j}{\beta_{11}}\sym{x}{x_{1}}^{2}+\sym{beta_j}{\beta_{22}}\sym{x}{x_{2}}^{2}+\sym{epsilon}{\varepsilon}\)
-    <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=60">REG p. 60</a>.</p>
+    kwadraten <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=58">REG p. 58</a>. Het tweede-ordemodel in twee regressoren \(x_{1}\) en \(x_{2}\) bevat de variabelen zelf, hun product (interactie) en hun kwadraten
+    <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=60">REG p. 60</a>:</p>
+    <div class="f"><div>\[\sym{y}{Y}=\sym{beta0}{\beta_{0}}+\sym{beta1}{\beta_{1}}\sym{x}{x_{1}}+\sym{beta_j}{\beta_{2}}\sym{x}{x_{2}}+\sym{beta_j}{\beta_{12}}\sym{x}{x_{1}}\sym{x}{x_{2}}+\sym{beta_j}{\beta_{11}}\sym{x}{x_{1}}^{2}+\sym{beta_j}{\beta_{22}}\sym{x}{x_{2}}^{2}+\sym{epsilon}{\varepsilon}\]</div></div>
     <div class="box ex"><span class="t">Uitgewerkt voorbeeld: acetyleenopbrengst (acetylene yield)</span>
       <p>16 runs; \(\sym{y}{Y}=\) opbrengst, \(\sym{temp_t}{T}=\) temperatuur (1100, 1200 of 1300), \(\sym{ratio_r}{R}=\) verhouding (ratio); data op <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=58">REG p. 58</a>.</p>
       <ul>
@@ -789,11 +789,11 @@
       R-Sq(adj) = 99.2 %, Residual Error SS 11.37 met 10 df; alle vijf termen hebben \(P\lt0{,}05\).
       <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=59">REG p. 59</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=62">REG p. 62</a></figcaption></figure>
       <p class="small">1212,5 en 12,444 zijn de gemiddelden van T en R in de data <span class="computed">zelf berekend</span>; centreren verandert de
-      kwadratensommen niet. De Minitab-output drukt ook een kolom VIF; de cursus legt die niet uit.</p>
+      kwadratensommen niet.</p>
       <p><b>Zijn de drie extra termen de moeite waard?</b> Gebruik de <b>partiële F-toets (partial F-test)</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=61">REG p. 61</a>.
+      Je vergelijkt twee modellen: het <b>volledige model</b> (FM, full model) met alle termen en het <b>gereduceerde model</b> (RM, reduced model) zonder de r + 1, …, k extra termen.
       \(H_{0}\): \(\sym{beta_j}{\beta_{r+1}}=\ldots=\sym{beta_j}{\beta_{k}}=0\) (alle extra \(\beta'\)s zijn 0); \(H_{1}\): minstens één ervan ≠ 0.
-      De toets vergelijkt hoeveel de error-kwadratensom daalt per extra term met de error-kwadratensom van het volledige
-      model (FM, full model) tegenover het gereduceerde model (RM, reduced model):</p>
+      De toets zet de daling van de error-kwadratensom per extra term af tegen de error-kwadratensom van het volledige model (\(\mathrm{SS}_{E}\), uit 07.5):</p>
       <div class="f"><div>\[\sym{f0_partial}{F_{0}}=\frac{\frac{\sym{sse_rm}{\mathrm{SS}_{E}(\mathrm{RM})}-\sym{sse_fm}{\mathrm{SS}_{E}(\mathrm{FM})}}{\sym{k}{k}-\sym{r_reduced}{r}}}{\frac{\sym{sse_fm}{\mathrm{SS}_{E}(\mathrm{FM})}}{\sym{n}{n}-\sym{p_param}{p}}}\]</div></div>
       <p>Hier is \(\sym{k}{k}-\sym{r_reduced}{r}=3\) extra termen en \(\sym{n}{n}-\sym{p_param}{p}=16-6=10\). Dat geeft \(\sym{f0_partial}{F_{0}}=\frac{\frac{170{,}73-11{,}37}{3}}{\frac{11{,}37}{10}}=\) <b>46,7</b>, ver boven \(\sym{f_crit}{F_{0{,}05;3;10}}=3{,}71\): <b>houd de tweede-ordetermen</b> <span class="computed">zelf berekend</span>. De data
       opnieuw passen geeft beide gedrukte \(\mathrm{SS}_{E}\)-waarden terug.</p>
@@ -837,8 +837,16 @@
 
   <section class="unit" id="d07-selectie" data-kw="variabelen selecteren; variable selection; best subsets; backward elimination; achterwaartse eliminatie; forward selection; voorwaartse selectie; stepwise regression; stapsgewijze regressie; alpha-to-remove; alpha-to-enter; Mallows Cp; shampoo; Foam; Residue; Region">
     <h3>07.13 Welke variabelen houd je? <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=63">REG p. 63–66</a></h3>
-    <p>Shampoodata \((N=24)\): kwaliteit (Quality) tegen Foam, Scent, Color, Residue en Region. De Minitab-tabellen tonen
-    vier procedures:</p>
+    <p>07.11 en 07.12 vergeleken modellen met \(R^{2}_{\mathrm{adj}}\) en met de partiële F-toets. Heb je veel mogelijke x-variabelen, dan zijn er te veel modellen om ze allemaal met de hand te vergelijken.
+    Statistische software kiest dan een model met een vaste procedure. De cursus laat vier procedures zien <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=63">REG p. 63–66</a>:</p>
+    <ul>
+      <li><b>Best subsets</b> toont per aantal variabelen de beste modellen, zodat je zelf kiest.</li>
+      <li><b>Backward elimination</b> (achterwaartse eliminatie) begint met alle variabelen en verwijdert telkens de minst significante, zolang haar p-waarde boven de drempel <i>alpha-to-remove</i> ligt.</li>
+      <li><b>Forward selection</b> (voorwaartse selectie) begint leeg en voegt telkens de meest significante toe, zolang haar p-waarde onder de drempel <i>alpha-to-enter</i> ligt.</li>
+      <li><b>Stepwise</b> doet voorwaartse stappen, maar controleert na elke stap ook of een variabele er weer uit moet.</li>
+    </ul>
+    <p>De drempels zijn p-waarden van één variabele in die stap; ze hebben niets te maken met \(R^{2}\) of \(R^{2}_{\mathrm{adj}}\). Het voorbeeld zijn de shampoodata \((N=24)\): kwaliteit (Quality) tegen Foam, Scent, Color, Residue en Region.
+    De Minitab-tabellen geven:</p>
     <table>
       <tr><th>Procedure</th><th>Hoe ze werkt (zoals de tabellen tonen)</th><th>Resultaat</th></tr>
       <tr><td>Best subsets <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=63">REG p. 63</a></td><td>toont de beste modellen van elke grootte, met \(R^{2}\), \(R^{2}_{\mathrm{adj}}\), Mallows \(C_{p}\) en S</td><td>beste model met 3 variabelen (Foam, Residue, Region): \(R^{2}\ 77{,}6\), \(R^{2}_{\mathrm{adj}}\ 74{,}2\); met 4 (plus Scent): \(R^{2}\ 79{,}9\), \(R^{2}_{\mathrm{adj}}\ 75{,}7\)</td></tr>
@@ -846,16 +854,13 @@
       <tr><td>Forward selection <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=65">REG p. 65</a> (alpha-to-enter 0,25)</td><td>begin leeg en voeg telkens de meest significante toe: Foam, Residue, Region, dan Scent \((\sym{p_value}{P}\ 0{,}155\lt0{,}25)\)</td><td>4 variabelen; \(R^{2}_{\mathrm{adj}}\ 75{,}65\)</td></tr>
       <tr><td>Stepwise <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=66">REG p. 66</a> (alpha-to-enter 0,15, alpha-to-remove 0,15)</td><td>voorwaartse stappen die ook controleren of iets eruit moet</td><td>Foam, Residue, Region; Scent blijft eruit (0,155 &gt; 0,15)</td></tr>
     </table>
-    <p>Besluit: het gekozen model hangt af van de procedure en haar drempels. Vergelijk kandidaten op \(R^{2}_{\mathrm{adj}}\)
-    (en, zoals Minitab die afdrukt, Mallows \(C_{p}\); de cursus legt \(C_{p}\) niet verder uit). De vier tabellen
-    zelf staan bij <a href="#ex-07-8">oefening 07.8</a>. De gedrukte
-    \(R^{2}_{\mathrm{adj}}\)-waarden volgen opnieuw de formule met n − k − 1 (07.11) <span class="computed">zelf berekend</span>.</p>
+    <p>Besluit: het gekozen model hangt af van de procedure en haar drempels. Vergelijk kandidaten op \(R^{2}_{\mathrm{adj}}\) (hoe hoger, hoe beter) en op Mallows' \(C_{p}\), een kwaliteitsmaat die Minitab bij best subsets afdrukt
+    (niet de capabiliteitsindex). De vier tabellen zelf staan bij <a href="#ex-07-8">oefening 07.8</a>.</p>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"Backward elimination, forward selection en stepwise geven altijd hetzelfde model."</b> Fout: bij de shampoodata eindigen backward en stepwise met drie variabelen, forward selection met vier (Scent erbij). Het verschil komt alleen van de drempels <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=64">REG p. 64</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=65">REG p. 65</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=66">REG p. 66</a>.</li>
       <li><b>"Stepwise voegt alleen variabelen toe."</b> Fout: stepwise zet voorwaartse stappen, maar controleert ook telkens of een variabele er weer uit moet; daarom heeft het twee drempels, alpha-to-enter en alpha-to-remove <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=66">REG p. 66</a>.</li>
       <li><b>"Backward elimination heeft Scent verwijderd, dus Scent is waardeloos."</b> Fout: Scent \((\sym{p_value}{P}=0{,}155)\) valt maar net boven de drempel 0,1. Volgens best subsets heeft het model mét Scent de hoogste \(R^{2}_{\mathrm{adj}}\) (75,7 tegen 74,2) en een bijna even kleine \(C_{p}\) (4,1 tegen 4,2): twee bijna even goede kandidaten <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=63">REG p. 63</a>.</li>
-      <li><b>Let op:</b> alpha-to-enter en alpha-to-remove zijn drempels voor de p-waarde van één variabele in die stap, niet voor \(R^{2}\) of \(R^{2}_{\mathrm{adj}}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=64">REG p. 64</a>.</li>
     </ul></div>
     <div class="exercise" id="ex-07-8" data-kw="shampoo; backward elimination; forward selection; stepwise; best subsets; alpha-to-remove; alpha-to-enter; variabelen selecteren; variable selection; Minitab tabellen lezen">
       <h4>Oefening 07.8 — De selectietabellen lezen <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=64">REG p. 63–66</a></h4>
@@ -918,17 +923,20 @@
 
   <section class="unit" id="d07-demo" data-kw="Regression_demo; oefeningen; exercises; demowerkboek; Simple 1; Simple 2; Multiple 1; model kiezen; choose model; kwadratisch; quadratic; derdegraads; cubic; polynoom; extrapolatie; extrapolation; voorspelling; prediction; multicollineariteit; multicollinearity">
     <h3>07.14 Oefeningen met het regressie-demowerkboek <a class="p" href="../source/course/Les%203/20260605_devuyst_Regression_demo.xlsx">Regression_demo.xlsx</a></h3>
-    <p>Het werkboek <a class="p" href="../source/course/Les%203/20260605_devuyst_Regression_demo.xlsx">20260605_devuyst_Regression_demo.xlsx</a> bevat drie opgaven zonder oplossing. De oplossingen
-    hieronder zijn <span class="computed">zelf berekend</span> met <code>07_numbers.py</code>. Een polynoom is een meervoudige regressie
-    met extra kolommen \(x^{2}\), \(x^{3}\) (07.12); kijk ook naar het residuplot (07.8). Een rechte kun je ook met de rekentool doen
-    (werkblad Regressie).</p>
+    <p>07.2 tot 07.13 gaven de methoden van dit deel. Hier pas je ze toe op de opgaven van het demowerkboek
+    <a class="p" href="../source/course/Les%203/20260605_devuyst_Regression_demo.xlsx">20260605_devuyst_Regression_demo.xlsx</a>. Dat bevat drie opgaven zonder oplossing: kies een model en voorspel. De oplossingen hieronder zijn
+    <span class="computed">zelf berekend</span>.</p>
+    <p>Zo ga je te werk:</p>
+    <ol class="steps">
+      <li>Maak een spreidingsdiagram en pas eerst de eenvoudigste rechte aan (07.3). Een rechte kun je ook met de rekentool doen (werkblad Regressie).</li>
+      <li>Kijk naar het residuplot (07.8): een kromme patroon vraagt om extra x-termen, een trechter om een andere variantie.</li>
+      <li>Voeg indien nodig termen toe: een polynoom is een meervoudige regressie met extra kolommen \(x^{2}\), \(x^{3}\) (07.12). Vergelijk modellen met \(R^{2}_{\mathrm{adj}}\) (07.11) en de t-toets of partiële F-toets van de extra term.</li>
+      <li>Houd het eenvoudigste model dat goed genoeg past, en voorspel alleen binnen het gebied van je data (zie de waarschuwing hieronder).</li>
+    </ol>
     <div class="box warn"><span class="t">Extrapolatie (extrapolation)</span>
-      <p>Een regressiemodel beschrijft het verband alleen in het gebied waar je data hebt. Een voorspelling ver buiten
-      het x-bereik van de data is een extrapolatie: je weet niet of het verband daar nog geldt, en verschillende modellen
-      die binnen het bereik even goed passen, geven daar totaal verschillende antwoorden. De cursus gebruikt het woord
-      extrapolatie niet; wel zegt de gescande tekstboekpagina op <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=6">REG p. 6</a> dat een lineair regressiemodel vaak een benaderende
-      functie is die "over certain ranges" van de x-variabelen volstaat. De oefeningen hieronder tonen het effect met
-      getallen.</p>
+      <p>Een regressiemodel beschrijft het verband alleen in het gebied waar je data hebt. Een lineair regressiemodel is vaak een benaderende functie die "over certain ranges" van de x-variabelen volstaat
+      <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=6">REG p. 6</a>. Een voorspelling ver buiten het x-bereik van de data is een extrapolatie: je weet niet of het verband daar nog geldt, en verschillende modellen
+      die binnen het bereik even goed passen, geven daar totaal verschillende antwoorden. De oefeningen hieronder tonen het effect met getallen.</p>
     </div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>

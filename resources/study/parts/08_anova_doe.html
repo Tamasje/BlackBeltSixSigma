@@ -942,10 +942,12 @@
 
   <section class="unit" id="d08-effect" data-kw="grootte van een effect; effect size; hoofdeffect; main effect; interactie-effect; interaction effect; [A]; [B]; [AB]; gemiddelde bij +1; gemiddelde bij -1; productkolom; 2^2 voorbeeld">
     <h3>08.15 De grootte van een effect <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=48">DOE p. 48–50, 63</a></h3>
+    <p>08.14 zette de runs in een ontwerpmatrix met kolommen van −1 en +1. Daaruit lees je nu het effect van een factor af. Het <b>effect</b> van een factor of interactie Q, geschreven \(\sym{effect}{[Q]}\), meet hoeveel de gemiddelde respons verandert als Q van het lage niveau (−1) naar het hoge niveau (+1)
+    gaat. Je gebruikt alleen de kolom van Q in de ontwerpmatrix en alle gemeten waarden:</p>
     <div class="f"><div>\(\sym{effect}{[Q]}=\) (gemiddelde respons bij \(\sym{col}{Q}=+1\)) − (gemiddelde respons bij \(\sym{col}{Q}=-1\)) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=48">DOE p. 48</a></div></div>
     <p>Dit werkt voor een factor (een <b>hoofdeffect, main effect</b>) en voor een interactie op dezelfde manier. Voor een
-    interactie zoals AB maak je eerst de kolom \(\sym{col}{\mathrm{AB}}=\sym{col}{A}\times\sym{col}{B}\) en pas je dan dezelfde regel toe <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=50">DOE p. 50</a>. Voor drie factoren
-    geldt hetzelfde: \(\sym{effect}{A}=\sym{ybar_plus}{\bar{y}_{A+}}-\sym{ybar_minus}{\bar{y}_{A-}}\), enzovoort <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=63">DOE p. 63</a>.</p>
+    interactie zoals AB maak je eerst de kolom \(\sym{col}{\mathrm{AB}}=\sym{col}{A}\times\sym{col}{B}\) (het product van de kolommen van A en B) en pas je dan dezelfde regel toe <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=50">DOE p. 50</a>. Voor drie factoren
+    geldt hetzelfde: \(\sym{effect}{A}=\sym{ybar_plus}{\bar{y}_{A+}}-\sym{ybar_minus}{\bar{y}_{A-}}\), de gemiddelden van alle responsen met A op +1 en op −1, enzovoort <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=63">DOE p. 63</a>.</p>
     <figure class="fig"><img src="figures/08_contrasten_kubus.png" alt="Zeven kubussen: voor A, B en C een gearceerd vlak met plus- en minkant, voor AB, AC en BC een diagonaal vlak, en voor ABC een kubus met vier zwarte en vier witte hoekpunten">
     <figcaption>Figuur: welke hoekpunten van de \(2^{3}\)-kubus tegen welke worden vergeleken (Figure 6-5). (a) Hoofdeffecten:
     het gemiddelde van de vier hoekpunten aan de +kant van A, B of C min dat van de vier aan de −kant. (b) Tweefactorinteracties
@@ -1002,8 +1004,8 @@
 
   <section class="unit" id="d08-interactie" data-kw="interactie; interaction; interactieplot; interaction plot; evenwijdige lijnen; parallel lines; hoofdeffect misleidend; hoekpunten; corners; factor effect definitie">
     <h3>08.16 Interactie <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=53">DOE p. 53–54</a></h3>
-    <p>Twee factoren <b>interageren</b> als het effect van de ene afhangt van het niveau van de andere. In een
-    interactieplot lopen de lijnen dan niet evenwijdig. De twee figuren hieronder tonen beide gevallen, telkens met links de
+    <p>08.15 berekende [AB] als een effect zoals elk ander. Wat zegt een groot [AB] eigenlijk? Twee factoren <b>interageren</b> als het effect van de ene afhangt van het niveau van de andere. In een
+    interactieplot (de gemiddelde respons tegen het niveau van A, met een lijn per niveau van B) lopen de lijnen dan niet evenwijdig. De twee figuren hieronder tonen beide gevallen, telkens met links de
     responsen in de hoekpunten van het (A, B)-vierkant en rechts de interactieplot.</p>
     <figure class="fig"><img src="figures/08_zonder_interactie.png" alt="Links een vierkant met responsen 20, 40, 30 en 52 in de hoeken; rechts een interactieplot met twee bijna evenwijdige stijgende lijnen voor B laag en B hoog">
     <figcaption>Figuur: zonder interactie. Hoekpunten \((A-,B-)=20\), (A+, B−) = 40, (A−, B+) = 30, (A+, B+) = 52 (Figure 5-1).
@@ -1073,8 +1075,9 @@
 
   <section class="unit" id="d08-contrast" data-kw="contrast; contrasten; kwadratensom van een effect; sum of squares of an effect; SS_A; effect = contrast / n2^(k-1); SS = contrast² / n2^k; tekentabel; sign table; totalen; totals; (1) a b ab">
     <h3>08.17 Contrasten en kwadratensommen <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=55">DOE p. 55–58, 64–66</a></h3>
-    <p>Laat (1), a, b, ab ook staan voor de <b>totalen</b> van de n waarnemingen in die runs <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=55">DOE p. 55</a>. Vermenigvuldig
-    elk totaal met zijn teken in de kolom van het effect en tel op: die som is het <b>contrast</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=57">DOE p. 57</a>.</p>
+    <p>08.15 berekende een effect als verschil van twee gemiddelden. Voor de ANOVA-tabel (08.4) heb je ook de kwadratensom van een effect nodig. Beide volgen uit een <b>contrast</b>, een som van run-totalen met plus- en mintekens. Dat werkt sneller dan gemiddelden uitschrijven.</p>
+    <p>Laat (1), a, b, ab ook staan voor de <b>totalen</b> van de n waarnemingen in die runs <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=55">DOE p. 55</a> (n is het aantal replicaties per run). Vermenigvuldig
+    elk totaal met zijn teken in de kolom van het effect en tel op: die som is het <b>contrast</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=57">DOE p. 57</a>. Het effect is het contrast gedeeld door het aantal waarnemingen per niveau; de kwadratensom is het gekwadrateerde contrast gedeeld door het totale aantal waarnemingen.</p>
     <div class="f">
       <div>\(\sym{contrast}{C_{A}}=\sym{run_total}{a}+\sym{run_total}{\mathrm{ab}}-\sym{run_total}{b}-\sym{run_total}{(1)}\),  \(\sym{contrast}{C_{B}}=\sym{run_total}{\mathrm{ab}}+\sym{run_total}{b}-\sym{run_total}{a}-\sym{run_total}{(1)}\),  \(\sym{contrast}{C_{\mathrm{AB}}}=\sym{run_total}{\mathrm{ab}}+\sym{run_total}{(1)}-\sym{run_total}{a}-\sym{run_total}{b}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=57">DOE p. 57</a></div>
       <div>\(2^{2}\): \(\sym{effect}{A}=\frac{\sym{run_total}{a}+\sym{run_total}{\mathrm{ab}}-\sym{run_total}{b}-\sym{run_total}{(1)}}{2\sym{n_rep}{n}}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=55">DOE p. 55</a>; \(\sym{effect}{B}=\frac{\sym{run_total}{b}+\sym{run_total}{\mathrm{ab}}-\sym{run_total}{a}-\sym{run_total}{(1)}}{2\sym{n_rep}{n}}\) en
@@ -1102,6 +1105,8 @@
 
   <section class="unit" id="d08-chemisch" data-kw="chemisch proces; chemical process; reactantconcentratie; reactant concentration; katalysator; catalyst; recovery; conversion; Design-Expert; ANOVA 2^2; pure error; zuivere fout; model F; R-Squared; Adj R-Squared; Prob F; contrast; SS">
     <h3>08.18 Uitgewerkt voorbeeld: chemisch proces <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=59">DOE p. 59–61</a></h3>
+    <p>08.15 en 08.17 gaven de formules voor effecten, contrasten en kwadratensommen. Hier gebruik je ze in een volledige analyse van een \(2^{2}\)-ontwerp met replicaties: van de ruwe data tot de ANOVA-tabel en de vraag welke effecten significant zijn.
+    De fout (de ruis) schat je uit de replicaties binnen elke run; dat is de binnen-groepenfout van 08.3, met de vier runs als groepen.</p>
     <div class="box ex"><span class="t">Uitgewerkt voorbeeld</span>
       <p>\(\sym{col}{A}=\) reactantconcentratie (15 % / 25 %), \(\sym{col}{B}=\) hoeveelheid katalysator (1 / 2 pound), respons = recovery, \(\sym{n_rep}{n}=3\)
       replicaties <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=59">DOE p. 59</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=60">DOE p. 60</a>.</p>
@@ -1139,11 +1144,10 @@
       <ul>
         <li><b>A en B zijn significant, de interactie niet.</b> Meer concentratie verhoogt de recovery gemiddeld met 8,33;
         meer katalysator verlaagt ze met 5.</li>
-        <li>De regel <b>Model</b> toetst alle effecten samen, zoals de globale F-toets van een regressie (07.10): is A, B, AB
+        <li>De regel <b>Model</b> toetst alle effecten samen, zoals de globale F-toets van een regressie (<a href="#d07-anova">07.5</a>): is A, B, AB
         of een combinatie belangrijk <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=61">DOE p. 61</a>?</li>
         <li>\(\sym{r2}{R^{2}}=\frac{291{,}67}{323{,}00}=0{,}9030\) en \(\sym{r2_adj}{\text{Adj R-Squared}}=0{,}8666\), met dezelfde betekenis als in regressie
-        (<a href="#d07-anova">07.5</a>, <a href="#d07-radj">07.11</a>); \(\sym{sigma_hat}{\mathrm{Std}.\ \mathrm{Dev}.}\ 1{,}98=\sqrt{\sym{ms_e}{\mathrm{MS}_{E}}}\). De cursus legt de
-        andere Design-Expert-regels (Pred R-Squared, PRESS, Adeq Precision, C.V.) niet uit.</li>
+        (<a href="#d07-anova">07.5</a>, <a href="#d07-radj">07.11</a>); \(\sym{sigma_hat}{\mathrm{Std}.\ \mathrm{Dev}.}\ 1{,}98=\sqrt{\sym{ms_e}{\mathrm{MS}_{E}}}\).</li>
       </ul>
     </div>
     <div class="box tool"><span class="t">Rekentool</span>
@@ -1207,11 +1211,11 @@
 
   <section class="unit" id="d08-significant" data-kw="standaardfout van een effect; standard error of an effect; s.e.(effect); effect ± 2 s.e.; betrouwbaarheidsinterval effect; confidence interval effect; oppervlakteafwerking; surface finish; feed rate; depth of cut; tool angle; 2^3; significant effect">
     <h3>08.19 Welke effecten zijn echt? <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=67">DOE p. 67–71</a></h3>
-    <p>Er zijn twee wegen:</p>
+    <p>Een effect uit een proef is een schatting en schommelt van proef tot proef. Hoe groot moet een effect zijn om echt te zijn (&ldquo;How large is large?&rdquo;, 08.14)? 08.18 beantwoordde dat met de ANOVA-tabel. Er zijn twee gelijkwaardige wegen, beide met de fout \(\sym{ms_e}{\mathrm{MS}_{E}}\) die je uit replicaties schat:</p>
     <ol>
-      <li><b>ANOVA</b> (zoals 08.4): elk effect heeft 1 df, en \(\sym{f0}{F_{0}}=\frac{\sym{ss_eff}{\mathrm{SS}_{\text{effect}}}}{\sym{ms_e}{\mathrm{MS}_{E}}}\).</li>
+      <li><b>ANOVA</b> (zoals 08.4): elk effect heeft 1 df, en \(\sym{f0}{F_{0}}=\frac{\sym{ss_eff}{\mathrm{SS}_{\text{effect}}}}{\sym{ms_e}{\mathrm{MS}_{E}}}\). Een klein \(F_{0}\) betekent dat het effect niet uit de ruis opvalt.</li>
       <li>De <b>standaardfout van een effect (standard error)</b>, vergelijkbaar met de standaardfouten van de
-      coëfficiënten in <a href="#d07-toetsen">07.6</a>:</li>
+      coëfficiënten in <a href="#d07-toetsen">07.6</a>. Ze meet hoe sterk een geschat effect door de ruis schommelt:</li>
     </ol>
     <div class="f">
       <div>\(\sym{se_eff}{s.e.(\text{effect})}=\sqrt{\frac{\sym{sigma2_hat}{\hat{\sigma}^{2}}}{\sym{n_rep}{n}\cdot2^{\sym{k_factors}{k}-2}}}\), met \(\sym{sigma2_hat}{\hat{\sigma}^{2}}=\sym{ms_e}{\mathrm{MS}_{E}}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=67">DOE p. 67</a></div>
@@ -1236,13 +1240,12 @@
       </table>
       <p><b>Alleen de voedingssnelheid (A) is significant.</b> Via de standaardfout (<span class="computed">zelf berekend</span>): \(\sym{se_eff}{s.e.}=\sqrt{\frac{2{,}4375}{2\cdot2}}=0{,}78\), dus \(\sym{effect}{A}=3{,}375\pm1{,}56=[1{,}81;4{,}94]\), en dat bevat 0 niet.</p>
       <p><b>Opgelet bij randgevallen.</b> Voor \(\sym{effect}{B}\) is 1,625 ± 1,56 = [0,06; 3,19]: dat sluit 0 net uit, terwijl de F-toets
-      \(\sym{p_value}{P}=0{,}07\) geeft. De "± 2" is een benadering (de cursus noemt het interval benaderend). Met maar 8 df voor de fout is de
+      \(\sym{p_value}{P}=0{,}07\) geeft. De "± 2" is een benadering (de cursus noemt het interval benaderend, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=68">DOE p. 68</a>). Met maar 8 df voor de fout is de
       bijhorende t-waarde 2,31 <span class="computed">zelf berekend</span>, dus ±2 is iets te smal.</p>
     </div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>Let op:</b> \(\sym{se_eff}{s.e.(\text{effect})}=\sqrt{\frac{\sym{sigma2_hat}{\hat{\sigma}^{2}}}{\sym{n_rep}{n}\cdot2^{\sym{k_factors}{k}-2}}}\): de exponent is \(\sym{k_factors}{k}-2\), niet \(\sym{k_factors}{k}-1\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=67">DOE p. 67</a>. Oppervlakteafwerking: \(\sqrt{\frac{2{,}4375}{2\cdot2}}=0{,}78\).</li>
-      <li><b>"\(\sym{effect}{\text{effect}}\pm2\ \sym{se_eff}{s.e.}\) is een exact 95 %-betrouwbaarheidsinterval."</b> Fout: het is benaderend <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=68">DOE p. 68</a>. Met 8 foutvrijheidsgraden hoort er de t-waarde 2,31 bij <span class="computed">zelf berekend</span>, dus ± 2 is te smal: het interval van B sluit 0 net uit, terwijl de F-toets \(\sym{p_value}{P}=0{,}07\) geeft.</li>
       <li><b>"Het interval bevat 0, dus het effect is precies nul."</b> Fout: het effect is niet significant op \(\sym{alpha}{\alpha}=0{,}05\) ("essentially zero", <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=68">DOE p. 68</a>); een klein effect kan bestaan zonder dat deze data het aantonen (<a href="#d05-valkuilen">05.6</a>) <span class="gen">algemeen</span>.</li>
     </ul></div>
     <div class="exercise" id="ex-08-12" data-kw="oppervlakteafwerking; surface finish; 2^3; s.e. effect; effect ± 2 s.e.; benaderend 95% interval; feed rate; significant">
@@ -1286,7 +1289,7 @@
 
   <section class="unit" id="d08-enkel" data-kw="één replicatie; single replicate; unreplicated; sparsity of effects; spaarzaamheid van effecten; hogere interacties poolen; pool higher-order interactions; verzadigd model; saturated model; NaN; etch rate; plasma; nitride; gap; power; R anova lm">
     <h3>08.20 Eén replicatie: hogere interacties poolen <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=72">DOE p. 72–77</a></h3>
-    <p>Met veel factoren voer je elke combinatie vaak maar één keer uit \((\sym{n_rep}{n}=1)\), bijvoorbeeld voor \(\sym{k_factors}{k}\gt5\). Dan zijn er
+    <p>08.18 en 08.19 schatten de fout uit replicaties. Met veel factoren voer je elke combinatie vaak maar één keer uit \((\sym{n_rep}{n}=1)\), bijvoorbeeld voor \(\sym{k_factors}{k}\gt5\). Dan zijn er
     geen replicaties om de fout te schatten. De uitweg is het <b>sparsity-of-effects principle</b>: meestal doen maar
     enkele effecten ertoe, en hogere-orde-interacties zijn verwaarloosbaar. Je <b>poolt de hogere-orde-interacties</b>
     en gebruikt ze als schatting van de fout <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=72">DOE p. 72</a>.</p>
@@ -1362,10 +1365,10 @@
 
   <section class="unit" id="d08-fractie" data-kw="fractioneel factorieel ontwerp; fractional factorial design; halve fractie; half fraction; one-half fraction; 2^(k-1); definiërende relatie; defining relation; I = ABC; generator; alias; aliassen; aliasing; tekentabel; sign table; identiteitskolom; identity column; projectie; projection; screening">
     <h3>08.21 De halve fractie en aliassen <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=78">DOE p. 78–83</a></h3>
-    <p><b>Waarom</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=78">DOE p. 78</a>: het aantal runs groeit als \(2^{\sym{k_factors}{k}}\). Als je mag aannemen dat sommige
+    <p>08.20 loste het ontbreken van replicaties op door hogere interacties te poolen. Een tweede probleem is het aantal runs: het groeit als \(2^{\sym{k_factors}{k}}\) (k factoren, elk op 2 niveaus). <b>Waarom een fractie</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=78">DOE p. 78</a>: als je mag aannemen dat sommige
     hogere-orde-interacties verwaarloosbaar zijn (het sparsity-of-effects principle van 08.20), dan geeft een
-    <b>fractioneel factorieel ontwerp (fractional factorial design)</b> nog altijd informatie over de hoofdeffecten en de
-    lage-orde-interacties.</p>
+    <b>fractioneel factorieel ontwerp (fractional factorial design)</b>, dat slechts een deel van de runs uitvoert, nog altijd informatie over de hoofdeffecten en de
+    lage-orde-interacties. De prijs is dat sommige effecten niet meer te scheiden zijn.</p>
     <p><b>De halve fractie (one-half fraction)</b> van een \(2^{\sym{k_factors}{k}}\) bevat \(2^{\sym{k_factors}{k}-1}\) runs en heet een
     \(2^{\sym{k_factors}{k}-1}\)-ontwerp; bv. de \(2^{3-1}\), de helft van een \(2^{3}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=79">DOE p. 79</a>. Neem de volledige
     tekentabel van de \(2^{3}\), met de identiteitskolom I (overal +), en houd alleen de 4 runs waar \(\sym{col}{\mathrm{ABC}}=+\) (de runs
@@ -1426,16 +1429,15 @@
 
   <section class="unit" id="d08-resolutie" data-kw="resolutie; resolution; resolution III; resolution IV; resolution V; Romeinse cijfers; kortste woord; shortest word; woordlengte; word length; 2^(3-1)_III; aliasstructuur">
     <h3>08.22 Resolutie (resolution) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=84">DOE p. 84–86, 91</a></h3>
-    <p>De resolutie van een ontwerp, met Romeinse cijfers geschreven, vat de aliasstructuur samen; vooral III, IV en V zijn
-    belangrijk <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=84">DOE p. 84</a>.</p>
+    <p>08.21 liet zien dat een fractie effecten vermengt (alias). De <b>resolutie</b> van een ontwerp, met Romeinse cijfers geschreven, vat samen hoe erg dat is: welke soorten effecten nog met elkaar vermengd zijn. Vooral III, IV en V zijn
+    belangrijk <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=84">DOE p. 84</a>. Hoe hoger de resolutie, hoe veiliger de lage-orde-effecten.</p>
     <table>
       <tr><th>Resolutie</th><th>Hoofdeffecten zijn vermengd met …</th><th>Tweefactorinteracties zijn vermengd met …</th></tr>
       <tr><td><b>III</b></td><td>tweefactorinteracties (niet met elkaar)</td><td>hoofdeffecten</td></tr>
       <tr><td><b>IV</b></td><td>driefactorinteracties (niet met hoofdeffecten of tweefactorinteracties)</td><td>elkaar</td></tr>
       <tr><td><b>V</b></td><td>vierfactorinteracties</td><td>driefactorinteracties (niet met elkaar)</td></tr>
     </table>
-    <p class="small">De cursus geeft de delen over hoofdeffecten en tweefactorinteracties <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=85">DOE p. 85</a>; de vermelding "drie-"
-    en "vierfactorinteracties" bij IV en V volgt uit de woordlengteregel hieronder.</p>
+    <p class="small">De rijen voor hoofdeffecten en tweefactorinteracties staan op <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=85">DOE p. 85</a>; de vermelding "drie-" en "vierfactorinteracties" bij IV en V volgt uit de woordlengteregel hieronder.</p>
     <div class="f"><div><b>Resolutie = lengte van het kortste "woord" in de definiërende relatie</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=91">DOE p. 91</a>. Notatie:
     \(\sym{frac_notation}{2^{3-1}_{\mathrm{III}}}\) is een halve fractie van een \(2^{3}\) met resolutie III: \(\sym{i_col}{I}=\sym{word}{\mathrm{ABC}}\) is een woord van 3
     letters <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=86">DOE p. 86</a>.</div></div>
@@ -1449,7 +1451,7 @@
 
   <section class="unit" id="d08-generatoren" data-kw="kleinere fracties; smaller fractions; 2^(k-p); generator; design generator; ontwerpgenerator; basisfactoren; base factors; volledige definiërende relatie; complete defining relation; ABCE BCDF ADEF; 2^(6-2); Montgomery Table 13.23; screening; 11 factoren 32 runs">
     <h3>08.23 Kleinere fracties: 2<sup>k−p</sup> en generatoren <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=87">DOE p. 87–93</a></h3>
-    <p>Soms is zelfs de halve fractie te groot. Met \(\sym{k_factors}{k}=11\) factoren vraagt een volledig \(2^{\sym{k_factors}{k}}\)-ontwerp \(2^{11}=2048\) runs en een
+    <p>08.21 gebruikte één generator (de halve fractie). Soms is zelfs de halve fractie te groot, en gebruik je meer generatoren voor een kleinere fractie. Met \(\sym{k_factors}{k}=11\) factoren vraagt een volledig \(2^{\sym{k_factors}{k}}\)-ontwerp \(2^{11}=2048\) runs en een
     halve fractie nog 1024. Een ontwerp voor 11 factoren in \(32=2^{5}\) runs is een fractie \(2^{-6}=\frac{1}{64}\)
     van het volledige ontwerp. Algemeen: k factoren screenen met \(2^{\sym{r_base}{r}}\) runs is een \(2^{-\sym{k_factors}{k}+\sym{r_base}{r}}=2^{-\sym{p_gen}{p}}\)-fractie <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=87">DOE p. 87</a>. Een \(2^{\sym{k_factors}{k}-\sym{p_gen}{p}}\) opstellen gaat in twee stappen <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=88">DOE p. 88</a>:</p>
     <ol class="steps">
@@ -1521,9 +1523,9 @@
 
   <section class="unit" id="d08-demo" data-kw="DOE_demo; demowerkboek; 2^5 full rep; 2^5-1 fract rep; 2^5-2 fract rep; volledig 2^5; fractie; resolutie; generatoren; significante effecten; significant effects; aliassen; Y=A+B+C+D+E+BCDE; oefeningen">
     <h3>08.24 Oefeningen met het DOE-demowerkboek <a class="p" href="../source/course/Les%203/20260605_devuyst_DOE_demo.xlsx">DOE_demo.xlsx</a></h3>
-    <p>Het werkboek <a class="p" href="../source/course/Les%203/20260605_devuyst_DOE_demo.xlsx">20260605_devuyst_DOE_demo.xlsx</a> bevat naast '1ANOVA', '2ANOVA' en '2ANOVArep' (08.6 en 08.9) drie
-    bladen over \(2^{\sym{k_factors}{k}}\)-ontwerpen, met dezelfde soort meetwaarden ("Meting"). De cursus geeft geen oplossingen; alles
-    hieronder is <span class="computed">zelf berekend</span> met <code>08_numbers.py</code>.</p>
+    <p>08.14 tot 08.23 gaven de methoden voor \(2^{\sym{k_factors}{k}}\)-ontwerpen en hun fracties: effecten berekenen, ze toetsen met de fout uit replicaties, en aliassen en resolutie lezen. Hier oefen je dat op de bladen van het
+    werkboek <a class="p" href="../source/course/Les%203/20260605_devuyst_DOE_demo.xlsx">20260605_devuyst_DOE_demo.xlsx</a>. Naast de bladen '1ANOVA', '2ANOVA' en '2ANOVArep' (08.6 en 08.9) bevat het drie
+    bladen over \(2^{k}\)-ontwerpen, met dezelfde soort meetwaarden ("Meting"). De opgaven hebben geen oplossing in het werkboek; alles hieronder is <span class="computed">zelf berekend</span>.</p>
     <div class="box tool"><span class="t">Rekentool voor deze bladen</span>
       <p>Werkblad <b>DOE 2^k</b> (\(\sym{k_factors}{k}=5\), \(\sym{n_rep}{n}=3\) kan). De runs in het werkboek staan <i>niet</i> in
       standaardvolgorde (daar wisselt D het snelst en E het traagst): typ elke respons in de rij van de rekentool met
