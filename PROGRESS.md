@@ -42,11 +42,13 @@ where the theory is; mean calculator shows partial results (se, d in se, P(|x̄�
 rewritten fluently (bouwstenen box, W absolute/relative); new Deel 15 "Van gegevens naar methode".
 
 **IN PROGRESS / NOT yet committed (working tree) — check `git status` first:**
-1. Fluent rewrite of parts 05–14 (user: "same kind of rewrite as for part 4 for all following parts"). Eight helper
-   agents were started and all died on the rate limit; their partial edits are in the working tree for parts
-   05, 06, 07, 08, 09, 12, 13 (10, 11, 14 untouched). `build_study.py --check` reported missing symbol keys
-   (05:chi2_crit, 05:t_crit, 06:xt): add rows to the part's `NN_symbols.tsv`. Review each partial part, finish or revert
-   (`git checkout -- file`) before committing. Do not leave the tree unbuildable.
+1. Fluent rewrite of parts 05–14: main (1d8153a) is fully tested (368 passed, 29 xfail). Three Sonnet helpers were started
+   (2026-10-08 ~20:40 UTC) on the unrewritten units: (a) part 10 + book-only units of part 14, (b) part 11, (c) parts 05–09 and 12
+   remaining units (brief: `.claude/handoff/rewrite_brief.md`, incl. addendum). When they report: run `python3 study/build_study.py --check`,
+   all `study/parts/NN_numbers.py`, `forward_scan.py`, the guide tests, rebuild the guide, commit, push (branch, then main).
+   If a helper died on the limit: `git diff` shows its partial edits; finish or `git checkout -- <file>` the half-edited unit.
+   Unit-level status check: compare each unit with commit b02d3cd (script idea in this file's history: split on
+   `<section class="unit" id=`, compare text).
 2. **Logical order (user request 2026-10-08) — DONE for parts 04–08, remaining: other parts.** Part 04 is now estimation-only:
    the test/CI duality unit (was 04.9, ex-04-16) moved to part 05 as 05.15 `d05-dualiteit` / ex-05-19 (studiewijzer is 05.16);
    its OC-curve paragraph moved to 06.9; the general test-inversion block (TH FR p. 19) moved with it; part-04 units renumbered
