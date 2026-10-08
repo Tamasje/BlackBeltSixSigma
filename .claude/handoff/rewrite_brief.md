@@ -43,3 +43,19 @@ of the various symbols more clear in the text. Now it's very vague." Part 04 has
   `python3 study/parts/NN_numbers.py` (exit code 0; it checks the answers in your part).
 - Report briefly: per unit what you changed (one line), anything you deleted that was not trivial, any new symbol rows,
   any computed values, and anything you were unsure about.
+
+
+## Addendum (2026-10-08, after the first helper run hit the rate limit)
+- **Only rewrite the units listed in your task**; the other units of the part were already rewritten (or are not yours).
+  A unit is rewritten when its text no longer opens with a bare list of facts but connects to the previous unit,
+  defines its symbols in words, and has no copied note fragments.
+- **Logical order (user request):** a concept is explained where it first appears in the course; a unit must not rely
+  on a concept whose home part comes later. Course order and homes: 01 DMAIC/kader · 02 data, kansen, verdelingen ·
+  03 normaal, Z, DPMO · 04 betrouwbaarheidsintervallen (estimation only: no H0/HA/p-value) · 05 toetsen (H0, HA, α, β,
+  p-waarde, kritieke waarde, recepten, 05.15 BI-dualiteit) · 06 aanvaardingssteekproeven · 07 regressie (ANOVA-tabel of een
+  regressie is defined once in 07.5) · 08 ANOVA en proefopzet (home of ANOVA) · 09 capabiliteit · 10 SPC · 11 MSA/GRR ·
+  12 machine learning. If your unit needs something from a later part: replace it by a one-sentence plain-words gloss
+  or drop it; do not add "zie deel N" pointers to later parts. Backward references (to earlier parts) are fine, short.
+- Check with `python3 ../.claude/handoff/forward_scan.py NN` (from resources/) and fix what it flags in your units.
+- The exercises, `data-answer` values, figures, calc-here markers and Rekentool boxes stay untouched.
+- Model for helpers: sonnet (cheaper on the usage limit); run at most 3 helpers at the same time.

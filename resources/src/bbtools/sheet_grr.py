@@ -134,7 +134,7 @@ def _instructions(ws: Worksheet) -> None:
         "eronder zonder naam horen bij dezelfde operator. Een naam op elke rij mag ook.",
         "• Kolommen B en verder: alleen GETALLEN. Houd de rijen van één operator bij elkaar (eerst alle herhalingen van "
         "operator A, dan B, …). Geen lege rij binnen een operator.",
-        f"• Het blad telt zelf het aantal operators k (tot {MAX_OPERATORS}), delen n (tot {MAX_PARTS}) en herhalingen r "
+        f"• Het blad telt zelf het aantal operatoren k (tot {MAX_OPERATORS}), delen n (tot {MAX_PARTS}) en herhalingen r "
         f"(tot {DATA_ROWS} rijen samen). Sectie 3 zegt of de studie volledig is.",
         "• Plak je uit een ander bestand: Plakken speciaal → Waarden. Leegmaken: selecteer het blok en druk Delete.",
     )):
