@@ -2,8 +2,7 @@
   <h2>Deel 03 — Normale verdeling, sigmaniveau en DPMO</h2>
   <p class="intro">Dit deel behandelt waarom data en statistiek de basis zijn, de normale verdeling en de
   standaardnormale Z-waarde, de Z-tabel en de Excel-functies, en de maten voor discrete data (DPO, DPMO, yield) met het sigmaniveau en de
-  \(1{,}5\sigma\)-verschuiving. Het is de basis voor procescapabiliteit (<a href="#d09">Deel 09</a>) en regelkaarten
-  (<a href="#d10">Deel 10</a>). Algemene kansbegrippen en andere verdelingen staan in <a href="#d02">Deel 02</a>.</p>
+  \(1{,}5\sigma\)-verschuiving. Algemene kansbegrippen en andere verdelingen staan in <a href="#d02">Deel 02</a>.</p>
 
   <p class="small">Paginaverwijzingen zijn PDF-paginanummers. In de SPC-slides is dat het dianummer van de .pptx; het
   nummer onderaan de dia zelf is meestal één lager. Waarden met <span class="computed">zelf berekend</span> komen uit
@@ -13,13 +12,8 @@
   <section class="unit" id="d03-intro" data-kw="statistiek; statistics; data; statistisch denken; statistical thinking; spreiding; dispersion; variatie; variation; Lean; Six Sigma; methodologieën; methodologies landscape; steekproefgrootte; sample size; data collection; dataverzameling">
     <h3>03.1 Waarom statistiek: data als basis <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=1">SPC p. 1–13</a></h3>
     <p>Data zijn de basis. In een staalbedrijf als ArcelorMittal Gent vormen ze al sinds de jaren 1970 de basis voor
-    automatisering en modellen <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=2">SPC p. 2</a>. Het onderwerp heeft drie luiken: procescapabiliteit
-    (dit deel en <a href="#d09">Deel 09</a>), statistische procesbeheersing met regelkaarten (<a href="#d10">Deel 10</a>)
-    en oefeningen <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=5">SPC p. 5</a>. De lijn doorheen het geheel <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=3">SPC p. 3</a>: data en basisstatistiek (de normale verdeling, spreiding
-    minimaliseren), stabiliteit, capabiliteit tegenover de klanteisen (Cp, Cpk) en beheersing met SPC-regelkaarten.
-    De leerdoelen <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=6">SPC p. 6</a>: weten wat de capabiliteit van een proces is en die kunnen
-    berekenen; het concept SPC kennen, een eenvoudige regelkaart opstellen, weten wat "out of control" is en hoe je
-    bijstuurt. Kort samengevat <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=4">SPC p. 4</a>: data zijn de basis, en statistiek dient
+    automatisering en modellen <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=2">SPC p. 2</a>. De lijn doorheen het geheel <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=3">SPC p. 3</a> begint bij data en
+    basisstatistiek (de normale verdeling, spreiding minimaliseren). Kort samengevat <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=4">SPC p. 4</a>: data zijn de basis, en statistiek dient
     "niet om de statistiek, maar als middel om verbeteringen te doen", als deel van DMAIC.</p>
 
     <div class="box key"><span class="t">Kernidee: spreiding</span>
@@ -35,7 +29,7 @@
     preventieve werking gaan, data naar de mensen brengen, minder verliezen, lagere kosten en snellere verbetering,
     minder energieverlies. De figuur hieronder toont twee voorbeelden: een reeks met speciale oorzaken en een
     systeemverandering die het niveau en de spreiding verlaagt, en de evolutie van de spreiding bij ArcelorMittal
-    Belgium, waar enkele uitschieters als "aanwijsbare oorzaken" omcirkeld zijn (zie <a href="#d09-stabiliteit">09.1</a>).</p>
+    Belgium, waar enkele uitschieters als "aanwijsbare oorzaken" omcirkeld zijn.</p>
     <figure class="fig"><img src="figures/03_spreiding_slimme_data.png" alt="Boven: tijdreeks van afval met twee pieken (special causes) en een daling naar een lager, smaller niveau (system change), met rechts de brede en de smalle verdeling. Onder: staafdiagram van de spreiding bij ArcelorMittal Belgium in 2018, 2019 en per maand van 2019, met drie omcirkelde staven.">
     <figcaption>Figuur: bovenaan een reeks afvalcijfers (waste) met speciale oorzaken (special causes) als pieken en
     daarna een systeemverandering (system change) naar een lager niveau met minder spreiding; rechts de verdeling
@@ -57,15 +51,13 @@
     <p><b>Wat is Six Sigma?</b> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=10">SPC p. 10</a> Six Sigma For Dummies, geciteerd in de cursus, geeft vier definities: een
     kwaliteitsniveau van 3,4 defecten per miljoen mogelijkheden, een verbeterpercentage van 70 % of meer, een datagestuurde
     probleemoplossende methode (Define-Measure-Analyze-Improve-Control) en een initiatief voor winstgevende
-    doorbraakveranderingen. Uit het "Six Sigma-landschap" van tools en methodes horen deze onderwerpen bij dit
-    deel van de cursus: meetsysteemanalyse en Gauge R&amp;R (<a href="#d11">Deel 11</a>), sigmascore Z
-    (<a href="#d03-sigma">03.10</a>), Cp, Cpk, Pp, Ppk (<a href="#d09">Deel 09</a>) en regelkaarten/SPC
-    (<a href="#d10">Deel 10</a>). DMAIC zelf staat in <a href="#d01">Deel 01</a>.</p>
+    doorbraakveranderingen. Uit het "Six Sigma-landschap" van tools en methodes behandelt dit deel de sigmascore Z
+    (<a href="#d03-sigma">03.10</a>). DMAIC zelf staat in <a href="#d01">Deel 01</a>.</p>
 
     <p><b>Het statistische standpunt</b> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=11">SPC p. 11</a> in vier punten: spreiding is overal; spreiding beheersen leidt
     naar nul defecten; statistiek is beschrijvend en analyserend; de standaardnormale verdeling is het werkpaard
     (naast andere verdelingen). En: <b>niets is zeker</b>, er is altijd een kans dat een hypothese fout is (zoals bij
-    een weerbericht; zie <a href="#d05">Deel 05</a>).</p>
+    een weerbericht).</p>
 
     <p><b>Data verzamelen</b> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=12">SPC p. 12</a> gebeurt in vier stappen: (1) goed definiëren wat je wil meten (wat telt,
     welke onafhankelijke variabelen); (2) een methode kiezen (experimenten, online metingen, maar ook enquêtes en
@@ -107,8 +99,7 @@
     <p><b>Populatie en steekproef</b> (population, sample) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=16">SPC p. 16</a>. De <b>populatie</b> heeft een echt gemiddelde
     \(\mu\) en een echte standaardafwijking \(\sigma\), die je niet kent. Via een steekproefplan neem je een <b>steekproef</b>, je
     meet, en uit de data bereken je \(\bar{x}\) en s. Daarmee zeg je iets over de populatie ("check the reality").
-    Hoe je \(\bar{x}\) en s berekent (met \(\sym{n}{n}-1\) in de noemer van s) staat in <a href="#d02">Deel 02</a>; hoe zeker zo'n
-    schatting is, in <a href="#d04">Deel 04</a>.</p>
+    Hoe je \(\bar{x}\) en s berekent (met \(\sym{n}{n}-1\) in de noemer van s) staat in <a href="#d02">Deel 02</a>.</p>
     <figure class="fig"><img src="figures/03_populatie_steekproef.png" alt="Schema: populatie (µ, σ), via een steekproefplan naar een steekproef (x̄, s), meten geeft data, een pijl gaat terug naar de populatie">
     <figcaption>Figuur: van de populatie (population, \(\mu\) en \(\sigma\)) via een steekproefplan (sampling scheme) naar de
     steekproef (sample, \(\bar{x}\) en s); meten (measure) levert data, en die data zeggen weer iets over de populatie (de
@@ -117,7 +108,7 @@
     <div class="f">
       <div>Centrale limietstelling (central limit theorem) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=28">SPC p. 28</a>: gemiddelden van steekproeven met \(\sym{n}{n}\) metingen
       zijn normaal verdeeld,</div>
-      <div>\(\sym{sigma_xbar}{\sigma_{\bar{x}}}=\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\)  (spreiding van de gemiddelden = spreiding van de populatie gedeeld door \(\sqrt{\sym{n}{n}}\); zie ook <a href="#d10-xbar">10.4</a>)</div>
+      <div>\(\sym{sigma_xbar}{\sigma_{\bar{x}}}=\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\)  (spreiding van de gemiddelden = spreiding van de populatie gedeeld door \(\sqrt{\sym{n}{n}}\))</div>
     </div>
 
     <div class="box warn"><span class="t">Opgelet: specificaties gelden voor individuele waarden</span>
@@ -127,8 +118,8 @@
     <p>Rond een reeks metingen bestaan drie soorten grenzen (figuur hieronder, <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=14">SPC p. 14</a>): <b>waarschuwingsgrenzen</b>
     (warning limits, UWL/LWL: "krijgt het proces de nodige aandacht?"), <b>regelgrenzen</b> (control limits,
     UCL/LCL: "is het proces onder controle?") en <b>specificatiegrenzen</b> (specification limits, USL/LSL: "aanvaarden
-    of afkeuren we het stuk?"). De eerste twee komen uit het proces en horen bij regelkaarten
-    (<a href="#d10-grenzen">10.2</a>); de laatste komen van de klant en horen bij capabiliteit (<a href="#d09">Deel 09</a>).</p>
+    of afkeuren we het stuk?"). De eerste twee komen uit het proces en horen bij regelkaarten;
+    de laatste komen van de klant en horen bij capabiliteit.</p>
     </div>
     <figure class="fig"><img src="figures/03_grenzen_waarschuwing_regel_specificatie.png" alt="Reeks metingen rond het gemiddelde X met van binnen naar buiten waarschuwingsgrenzen UWL/LWL, regelgrenzen UCL/LCL en specificatiegrenzen USL/LSL">
     <figcaption>Figuur: metingen rond het gemiddelde X met, van binnen naar buiten, de waarschuwingsgrenzen (UWL/LWL:
@@ -140,7 +131,7 @@
     <ul>
       <li><b>"Liggen de steekproefgemiddelden binnen de specificatie, dan voldoet het proces."</b> Fout: de specificaties van de klant gelden altijd voor individuele waarden, niet voor gemiddelden. Gemiddelden spreiden minder \(\left(\sym{sigma_xbar}{\sigma_{\bar{x}}}=\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\right)\), dus het proces lijkt beter dan het is (notities bij <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=14">SPC p. 14</a>).</li>
       <li><b>"Uit de steekproef bereken je \(\mu\) en \(\sigma\)."</b> Fout: \(\mu\) en \(\sigma\) van de populatie ken je niet. Uit de steekproef bereken je \(\bar{x}\) en s; dat zijn schattingen van \(\mu\) en \(\sigma\) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=16">SPC p. 16</a>.</li>
-      <li><b>"Een punt buiten de regelgrenzen betekent dat het stuk afgekeurd wordt."</b> Fout: regelgrenzen (UCL/LCL) zeggen of het proces onder controle is; over aanvaarden of afkeuren beslissen de specificatiegrenzen (USL/LSL) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=14">SPC p. 14</a>. Zie ook <a href="#d10-grenzen">10.2</a>.</li>
+      <li><b>"Een punt buiten de regelgrenzen betekent dat het stuk afgekeurd wordt."</b> Fout: regelgrenzen (UCL/LCL) zeggen of het proces onder controle is; over aanvaarden of afkeuren beslissen de specificatiegrenzen (USL/LSL) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=14">SPC p. 14</a>.</li>
       <li><b>Let op:</b> in \(\sym{sigma_xbar}{\sigma_{\bar{x}}}=\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\) deel je door \(\sqrt{\sym{n}{n}}\), niet door \(\sym{n}{n}\): vier keer zoveel metingen halveert de spreiding van het gemiddelde <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=28">SPC p. 28</a>. <span class="gen">algemeen</span></li>
     </ul></div>
 
@@ -211,8 +202,8 @@
     \(\mu\pm3\sigma\ 99{,}7\ \%\) van de verdeling.
     <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=18">SPC p. 18</a></figcaption></figure>
     <p>Denk bij voorkeur <b>eenzijdig</b> (notities bij <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=18">SPC p. 18</a>): de verdeling is symmetrisch, dus de
-    kans buiten \(\sym{mu}{\mu}\pm\sym{k_sigma}{k}\sym{sigma}{\sigma}\) is twee keer de kans aan één kant. Eenzijdig maakt de zaken eenvoudiger; dat heb je nodig bij
-    capabiliteit, waar de twee specificatiegrenzen elk hun eigen staart hebben (<a href="#d09-uitval">09.5</a>).</p>
+    kans buiten \(\sym{mu}{\mu}\pm\sym{k_sigma}{k}\sym{sigma}{\sigma}\) is twee keer de kans aan één kant. Eenzijdig maakt de zaken eenvoudiger, bijvoorbeeld
+    bij twee specificatiegrenzen die elk hun eigen staart hebben.</p>
 
     <div class="box warn"><span class="t">Fout in de slide: buiten \(3\sigma\)</span>
     <p><a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=18">SPC p. 18</a> zegt: "Hoeveel nog buiten 3 Sigma? 0,30 % totaal, dus 0,15 % links/rechts". Dat is 100 % − 99,7 %,
@@ -298,8 +289,8 @@
     Dat getal heet in Six Sigma de <b>sigmascore</b> (sigma score) Z: het Six Sigma-landschap op <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=10">SPC p. 10</a> noemt
     "Sigmascore (Z)" als een aparte tool. Het is de Z-waarde van <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=19">SPC p. 19</a> met een specificatiegrens als waarde:</p>
     <div class="f"><div>\[\sym{z}{Z}=\frac{|\sym{sl}{\mathrm{SL}}-\sym{xbar}{\bar{x}}|}{\sym{sigma}{\sigma}}\],  \[\sym{sl}{\mathrm{SL}}=\] een specificatiegrens (<var data-s="lsl">LSL</var> of <var data-s="usl">USL</var>)</div></div>
-    <p>Hoe groter Z, hoe kleiner de staart voorbij de grens, hoe minder defecten. Daarop zijn het sigmaniveau
-    (<a href="#d03-sigma">03.10</a>) en de capabiliteitsindices (<a href="#d09">Deel 09</a>) gebouwd. Een
+    <p>Hoe groter Z, hoe kleiner de staart voorbij de grens, hoe minder defecten. Daarop is het sigmaniveau
+    (<a href="#d03-sigma">03.10</a>) gebouwd. Een
     "6-sigmaproces" heeft \(6\sigma\) van het gemiddelde tot elke grens ("\(6\sigma\) to LSL", "\(6\sigma\) to USL" op <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a>).</p>
     </div>
     <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-03-sigmawoord">14 "Sigma": standaardafwijking of sigmascore</a>.</p>
@@ -438,11 +429,10 @@
       <div>fractie \(\sym{f}{f}\) <b>boven</b> \(\sym{l}{L}\):  \(\sym{sigma}{\sigma}=\frac{\sym{l}{L}-\sym{mu}{\mu}}{\sym{z_p}{z_{1-f}}}\)  en  \(\sym{mu}{\mu}=\sym{l}{L}-\sym{z_p}{z_{1-f}}\cdot\sym{sigma}{\sigma}\)</div>
       <div>fractie \(\sym{f}{f}\) <b>onder</b> \(\sym{l}{L}\):  \(\sym{sigma}{\sigma}=\frac{\sym{l}{L}-\sym{mu}{\mu}}{\sym{z_p}{z_{f}}}\)  (\(\sym{z_p}{z_{f}}\) is negatief, dus \(\sym{sigma}{\sigma}=\frac{\sym{mu}{\mu}-\sym{l}{L}}{\sym{z_p}{z_{1-f}}}\))</div>
     </div>
-    <p>Dat heb je nodig voor vraag 6c van het voorbeeldexamen (<a href="#d13">Deel 13</a>).</p>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"<code>NORM.VERD(<var data-s="x">x</var>;<var data-s="mu">µ</var>;<var data-s="sigma">σ</var>;ONWAAR)</code> geeft \(P(\sym{x_rv}{X}\le\sym{x}{x})\)."</b> Fout: met cumulatief = ONWAAR geeft NORM.VERD de kansdichtheid, de hoogte van de curve; voor een kans zet je WAAR <a class="p" href="../source/course/Les%204/___1.2%20statistische%20functionaliteit%20in%20excel.pdf#page=1">Excel-functies p. 1</a>. Het werkboek van de as-oefening gebruikt ONWAAR alleen om de curve te tekenen (<a href="#d09-as">09.9</a>).</li>
+      <li><b>"<code>NORM.VERD(<var data-s="x">x</var>;<var data-s="mu">µ</var>;<var data-s="sigma">σ</var>;ONWAAR)</code> geeft \(P(\sym{x_rv}{X}\le\sym{x}{x})\)."</b> Fout: met cumulatief = ONWAAR geeft NORM.VERD de kansdichtheid, de hoogte van de curve; voor een kans zet je WAAR <a class="p" href="../source/course/Les%204/___1.2%20statistische%20functionaliteit%20in%20excel.pdf#page=1">Excel-functies p. 1</a>.</li>
       <li><b>"NORM.VERD geeft de kans boven een grens."</b> Fout: altijd de kans links, \(P(\sym{x_rv}{X}\le\sym{x}{x})\). Erboven is <code>1 − NORM.VERD(<var data-s="x">x</var>;<var data-s="mu">µ</var>;<var data-s="sigma">σ</var>;WAAR)</code> <a class="p" href="../source/course/Les%204/___1.2%20statistische%20functionaliteit%20in%20excel.pdf#page=1">Excel-functies p. 1</a>.</li>
       <li><b>"De grens met 1 % afkeur aan de bovenkant is <code>NORM.INV(0,01;20;0,5)</code>."</b> Fout: dat is de grens met 1 % eronder (18,837 <span class="computed">zelf berekend</span>). Met 1 % erboven ligt 99 % eronder: <code>NORM.INV(0,99;20;0,5)</code> = 21,1632 (cel B5 van <a class="p" href="../source/course/Les%204/__NormVerdeling%20Excel%20functies.xlsx">__NormVerdeling Excel functies.xlsx</a>).</li>
       <li><b>Let op:</b> <code>NORM.INV(<var data-s="p">p</var>;<var data-s="mu">µ</var>;<var data-s="sigma">σ</var>)</code> geeft een grens in de eenheid van de meting, geen z. De z krijg je met <code>NORM.INV(<var data-s="p">p</var>;0;1)</code> (in andere delen ook NORM.S.INV) of met \(\sym{z}{z}=\frac{\sym{x}{x}-\sym{mu}{\mu}}{\sym{sigma}{\sigma}}\). <span class="gen">algemeen</span></li>
@@ -526,7 +516,7 @@
     </ul>
     <p>Wat buiten LSL of USL valt, is een defect: de twee staarten van de curve (figuur hieronder). Belangrijk:
     <b>"The Voice of the Process is independent of the Voice of the Customer"</b>. Het proces weet niet wat de klant
-    vraagt; het maakt zijn eigen spreiding. Capabiliteit (<a href="#d09">Deel 09</a>) zet de twee naast elkaar.</p>
+    vraagt; het maakt zijn eigen spreiding.</p>
     <figure class="fig"><img src="figures/03_voc_vop.png" alt="Normale curve met LSL en USL; de staarten erbuiten zijn defecten; de stem van de klant is de breedte tussen LSL en USL, de stem van het proces de breedte van de curve">
     <figcaption>Figuur: de stem van de klant (voice of customer) is het gebied tussen LSL en USL, de stem van het
     proces (voice of process) de breedte van de verdeling. Hier is het proces breder dan de specificatie: de
@@ -564,9 +554,7 @@
     (shift mean), zodat ook de lange-termijnverdeling smal blijft en ruim binnen LSL en USL valt.
     <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=26">SPC p. 26</a></figcaption></figure>
     <div class="box key"><span class="t">Korte en lange termijn</span>
-    <p>Dit onderscheid komt drie keer terug: bij het sigmaniveau met de \(1{,}5\sigma\)-verschuiving (<a href="#d03-sigma">03.10</a>),
-    bij Cp/Cpk (korte termijn) tegenover Pp/Ppk (lange termijn) (<a href="#d09-ppk">09.4</a>) en bij gewone tegenover
-    speciale oorzaken (<a href="#d09-stabiliteit">09.1</a>).</p>
+    <p>Dit onderscheid komt terug bij het sigmaniveau met de \(1{,}5\sigma\)-verschuiving (<a href="#d03-sigma">03.10</a>).</p>
     </div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
@@ -669,7 +657,7 @@
       <li><b>zonder verschuiving</b>: \(\sym{sigma_level}{\text{sigmaniveau}}=\sym{z}{Z}\).</li>
     </ul>
     <p>De tabel van SPC p. 21 rekent met de verschuiving, maar <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a> noemt een gecentreerd proces met
-    \(\sym{cp}{C_{p}}=2\) "6 Sigma quality level – 2 defect per billion" (zonder verschuiving, zie <a href="#d09-sixsigma">09.6</a>), en bij de tweede
+    \(\sym{cp}{C_{p}}=2\) "6 Sigma quality level – 2 defect per billion" (zonder verschuiving), en bij de tweede
     sigmatabel (figuur onder "Afrondingen in de tabellen") staat niet welke lezing ze gebruikt. Vermeld bij een examenantwoord dus altijd welke lezing je gebruikt.</p>
     </div>
 
@@ -694,8 +682,7 @@
 
     <p>De figuur hieronder ("Technical Definition of Six Sigma", <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a>) toont hetzelfde met Cp en Cpk: een gecentreerd
     proces met \(6\sigma\) ruimte aan elke kant \((\sym{cp}{C_{p}}=\sym{cpk}{C_{pk}}=2)\) dat \(1{,}5\sigma\) verschuift, houdt \(\sym{cp}{C_{p}}=2\) maar zakt naar \(\sym{cpk}{C_{pk}}=1{,}5\) en
-    geeft dan 3,4 DPMO aan de kant waarheen het schoof. Dat werkt <a href="#d09-sixsigma">09.6</a> verder uit, samen
-    met de tweede lezing van het \(6\sigma\)-criterium (2 per miljard).</p>
+    geeft dan 3,4 DPMO aan de kant waarheen het schoof.</p>
     <figure class="fig"><img src="figures/03_technische_definitie_6sigma.png" alt="Gecentreerde curve met 6σ tot LSL en tot USL (Cp = Cpk = 2) en twee curves verschoven met ±1,5σ (Cp = 2, Cpk = 1,5), met 3,4 DPMO voorbij elke grens">
     <figcaption>Figuur: de technische definitie van Six Sigma. Het gecentreerde proces heeft \(6\sigma\) tot LSL en \(6\sigma\) tot
     USL (Cp = Cpk = 2). Verschuift het gemiddelde ±\(1{,}5\sigma\), dan blijft Cp = 2 maar wordt Cpk = 1,5, en voorbij de grens
@@ -748,5 +735,17 @@
     <p>Werkblad <b>Sigma &amp; DPMO</b>: blok 2 (van DPMO naar sigmaniveau) en blok 3 (van sigmaniveau naar DPMO),
     telkens met en zonder \(1{,}5\sigma\)-verschuiving.</p>
     </div>
+  </section>
+
+  <!-- ============================================================ 03.11 -->
+  <section class="unit" id="d03-studiewijzer" data-kw="studiewijzer; study guide; wat moet ik kennen; leerdoelen; learning objectives; examenstof; exam; checklist; overzicht">
+    <h3>03.11 Studiewijzer: wat moet je kunnen? <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=6">SPC p. 6</a></h3>
+    <p>De leerdoelstellingen van de SPC-slides (SPC p. 6) geven voor dit deel de algemene doelstelling,
+    met waar ze in deze gids staat:</p>
+    <table>
+      <tr><th>Je moet …</th><th>Zie</th></tr>
+      <tr><td>het belang van data verzamelen en data-analyse kennen en kunnen toepassen</td><td><a href="#d03-intro">03.1</a>, <a href="#d03-populatie">03.2</a></td></tr>
+    </table>
+    <p>Voorbeeldexamen: vraag 3 (<a href="#d13-v3">13.3</a>) vraagt onder meer de verwachte uitval in % uit de normale verdeling en het \(6\sigma\)-criterium met de \(1{,}5\sigma\)-verschuiving; zie <a href="#d03-normaal">03.3</a>, <a href="#d03-ztabel">03.5</a>, <a href="#d03-excel">03.6</a> en <a href="#d03-sigma">03.10</a>. Vraag 4a (<a href="#d13-v4">13.4</a>) vraagt waarom je bij regelkaarten de normale verdeling mag veronderstellen (centrale limietstelling); zie <a href="#d03-populatie">03.2</a>. Vraag 6c (<a href="#d13-v6">13.6</a>) vraagt \(\sigma\) uit een staartfractie, met een kwantiel van de normale verdeling; zie <a href="#d03-excel">03.6</a>.</p>
   </section>
 </section>
