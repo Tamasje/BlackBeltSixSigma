@@ -263,6 +263,10 @@ Decisions 18-20 (2026-10-05) in inventory/conventions.md; oracle updated once wi
 - Constants where they are used: Regelkaarten (A2, D3, D4, A3, B3, B4, d2, c4), Capabiliteit (d2, c4) and Gage R&R
   (tabel MSA d2*) show the values the sheet computes with (lookups into Tabellen; tested against the printed
   tables). Guide: the constants table also in parts 11 and 13.
+- Layout for sharing (user request 2026-10-08): the top of the folder holds only studiegids.html and bb_toolkit.xlsx;
+  everything else moved (git mv) into resources/ (source/, study/, src/, tests/, inventory/, build/). Guide links are
+  written relative to study/, checked there, and rebased on output (resources/source/…). Claude files (CLAUDE.md,
+  .claude/, PROGRESS.md) are git-ignored and no longer tracked; run builds and tests from resources/.
 
 ## Answered questions (inventory-review STOP; decisions in inventory/conventions.md)
 Convention questions (details and sources in inventory/conventions.md, "Conflicts and gaps"):

@@ -13,6 +13,7 @@ Run: python3 -m bbtools.build_index   (from the project root, with src/ on PYTHO
 """
 from __future__ import annotations
 
+import os
 import html
 import json
 from itertools import groupby
@@ -101,7 +102,8 @@ def calculators_section() -> str:
     rows = "".join(
         f"<tr><td><b>{e(m.SHEET)}</b></td><td>{e(m.HEADER.tool)}</td><td>{e(m.HEADER.source)}</td>"
         f"<td>{e(m.HEADER.status.value)}</td></tr>" for m in TOOL_SHEETS)
-    return (f'<h2 id="calculators">Calculators</h2><p>Workbook: <a href="{WORKBOOK.name}">{WORKBOOK.name}</a> '
+    workbook = Path(os.path.relpath(WORKBOOK, INDEX.parent)).as_posix()
+    return (f'<h2 id="calculators">Calculators</h2><p>Workbook: <a href="{workbook}">{WORKBOOK.name}</a> '
             f"(one sheet per tool; yellow = input, green = result). Details per sheet: README.md.</p>"
             f'<table><colgroup><col class="sheet"><col class="tool"><col class="source"><col class="status"></colgroup>'
             f"<tr><th>Sheet</th><th>Tool</th><th>Course source</th><th>Status</th></tr>{rows}</table>")

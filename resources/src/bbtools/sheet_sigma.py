@@ -32,7 +32,7 @@ HEADER = HeaderBlock(
     convention="Beslissing 3: sigmaniveau ↔ DPMO getoond met de 1,5σ-verschuiving (zoals in elke cursustabel) en zonder.",
     status=Status.VERIFIED,
     status_detail="getest tegen de uitgewerkte voorbeelden S08-WE05 tot S08-WE08 en S09-WE03 en tegen de sigmatabellen "
-                  "van de cursus (deck p. 21, Van Volsem p. 7); één gedrukte waarde wijkt af (zie build/README.md)",
+                  "van de cursus (deck p. 21, Van Volsem p. 7); één gedrukte waarde wijkt af (zie resources/build/README.md)",
 )
 
 DOC = SheetDoc(

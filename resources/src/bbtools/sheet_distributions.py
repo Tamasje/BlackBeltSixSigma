@@ -20,7 +20,7 @@ from bbtools.xlsx_style import HeaderBlock, Status, font, input_row, result_row,
 
 SHEET = "Verdelingen"
 STANDARD = ("standaarddefinitie, niet gedrukt in de cursus (beslissing 20); geen uitgewerkt cursusvoorbeeld; "
-            "gecontroleerd door de stats-auditor (build/README.md)")
+            "gecontroleerd door de stats-auditor (resources/build/README.md)")
 STANDARD_POISSON = ("standaarddefinitie, niet gedrukt in de cursus (beslissing 20); cursusvoorbeeld "
                     "Naert Les 1 p. 9-10 (λ = 2,959) getest")
 

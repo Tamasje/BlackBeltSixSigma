@@ -42,7 +42,7 @@ HEADER = HeaderBlock(
     status=Status.VERIFIED,
     status_detail="getest tegen de uitgewerkte voorbeelden S06-WE01, S06-WE02, S06-WE04, S06-WE07, S06-WE08, "
                   "S06-WE12, S06-WE13 uit de cursus; enkele gedrukte waarden op deck p. 46 en 50 wijken af van de "
-                  "berekening (zie build/README.md)",
+                  "berekening (zie resources/build/README.md)",
 )
 
 DOC = SheetDoc(

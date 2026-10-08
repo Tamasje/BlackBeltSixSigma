@@ -6,7 +6,7 @@ Offline rekenbladen (calculators) voor het Black Belt-examen. Gemaakt door `src/
 
 **Extra (boeken):** het blad *Extra (boeken)* bevat de rekenblokken die alleen uit Six Sigma For Dummies en Harry & Schroeder komen. Die boeken zijn niet te kennen voor het examen.
 
-**Cursusindex:** `index.html` naast dit bestand linkt elk onderwerp, elke formule en elke vraag van het voorbeeldexamen naar de pagina in de cursus (`PYTHONPATH=src python3 -m bbtools.build_index`). Houd `source/` naast `build/`.
+**Cursusindex:** `index.html` naast dit bestand linkt elk onderwerp, elke formule en elke vraag van het voorbeeldexamen naar de pagina in de cursus (`PYTHONPATH=src python3 -m bbtools.build_index`). Houd `source/` naast `build/` (beide in `resources/`); het werkboek `bb_toolkit.xlsx` staat bovenaan, naast `studiegids.html`.
 
 ## Capabiliteit: Procescapabiliteit (process capability): Cp, Cpk (Pp, Ppk) en % buiten specificatie (out of spec)
 
@@ -14,7 +14,7 @@ Offline rekenbladen (calculators) voor het Black Belt-examen. Gemaakt door `src/
 - **Invoer:** LSL en/of USL, gemiddelde; dan eender welke van: σ gegeven, R̄ (+ n), s̄ (+ n), totale s. Elke spreiding krijgt haar eigen resultaatrij, met de cursuspagina die ze gebruikt. MR̄ / 1,128 (alleen in Six Sigma For Dummies) staat op blad Extra (boeken).
 - **Bron in de cursus:** source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 18-21, 32-47, 50, 64, 83; ___4.1 tabellen SPC.pdf p. 1-2; __Xbar R kaart data - berekeningen oefening 2.xlsx
 - **Conventie:** Beslissingen 1-2: één resultaatrij per σ-schatting die de cursus gebruikt (er wordt niet voor je gekozen); het '6 sigma'-criterium in beide lezingen van de cursus.
-- **Status:** GEVERIFIEERD (VERIFIED): getest tegen de uitgewerkte voorbeelden S06-WE01, S06-WE02, S06-WE04, S06-WE07, S06-WE08, S06-WE12, S06-WE13 uit de cursus; enkele gedrukte waarden op deck p. 46 en 50 wijken af van de berekening (zie build/README.md)
+- **Status:** GEVERIFIEERD (VERIFIED): getest tegen de uitgewerkte voorbeelden S06-WE01, S06-WE02, S06-WE04, S06-WE07, S06-WE08, S06-WE12, S06-WE13 uit de cursus; enkele gedrukte waarden op deck p. 46 en 50 wijken af van de berekening (zie resources/build/README.md)
 - **Audit:** niet nodig (er bestaan uitgewerkte voorbeelden in de cursus)
 - **Gedrukte cursuswaarden die niet kloppen met de berekening** (zoals gedrukt bewaard in het orakel; getest als strikte verwachte mislukkingen, strict xfail):
   - deck p. 46 (S06-WE01): Cp gedrukt als '1,166' (1,4/1,2 = 1,1667 rondt af op 1,167); gecentreerde Cpk idem.
@@ -37,7 +37,7 @@ Offline rekenbladen (calculators) voor het Black Belt-examen. Gemaakt door `src/
 - **Invoer:** per blok: defecten, eenheden en kansen per eenheid; een DPMO; een sigmaniveau. De rekenblokken die alleen uit de boeken komen (DPU, throughput yield, FTY, RTY, genormaliseerde yield) staan op blad Extra (boeken).
 - **Bron in de cursus:** source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 19-21, 37-40; Les 1/20260521_van volsem.pdf p. 7
 - **Conventie:** Beslissing 3: sigmaniveau ↔ DPMO getoond met de 1,5σ-verschuiving (zoals in elke cursustabel) en zonder.
-- **Status:** GEVERIFIEERD (VERIFIED): getest tegen de uitgewerkte voorbeelden S08-WE05 tot S08-WE08 en S09-WE03 en tegen de sigmatabellen van de cursus (deck p. 21, Van Volsem p. 7); één gedrukte waarde wijkt af (zie build/README.md)
+- **Status:** GEVERIFIEERD (VERIFIED): getest tegen de uitgewerkte voorbeelden S08-WE05 tot S08-WE08 en S09-WE03 en tegen de sigmatabellen van de cursus (deck p. 21, Van Volsem p. 7); één gedrukte waarde wijkt af (zie resources/build/README.md)
 - **Audit:** niet nodig (er bestaan uitgewerkte voorbeelden in de cursus)
 - **Gedrukte cursuswaarden die niet kloppen met de berekening** (zoals gedrukt bewaard in het orakel; getest als strikte verwachte mislukkingen, strict xfail):
   - deck p. 21 en Harry & Schroeder (samenvatting p. 2, outline p. 1): 2σ = '308,537' DPMO; 308 537,5 rondt af op 308 538 (zoals Dummies drukt). Van Volsem p. 7: '308,000' (308 538 op duizendtallen is 309 000).
@@ -48,7 +48,7 @@ Offline rekenbladen (calculators) voor het Black Belt-examen. Gemaakt door `src/
 - **Invoer:** α; n en s per steekproef, of de ruwe waarden geplakt in kolommen H (steekproef 1) en I (steekproef 2); σ0 voor de χ²-toets.
 - **Bron in de cursus:** source/course/Les 2/20260529_ottoy_Confidence Intervals - Further Reading (Dutch).pdf p. 21; Confidence Intervals.pdf p. 16; Testing of Hypotheses.pdf p. 13; Test Recipes - Further Reading (Dutch).pdf p. 11-14
 - **Conventie:** Conventiebeslissingen 5-7: invoer α vooraf ingevuld op 0,05; tweezijdig, alleen ondergrens en alleen bovengrens naast elkaar; F uit F.INV / F.INV.RT, zowel σ1²/σ2² als σ2²/σ1².
-- **Status:** GEVERIFIEERD (VERIFIED): getest tegen uitgewerkte cursusvoorbeelden (worked examples) S03-WE03, S03-WE05; ook tegen S08-WE10 en de χ²- en F-tabellen van Dummies (p. 194, 196) (extra, Dummies; niet te kennen); het F-intervalvoorbeeld S08-WE11 van Dummies klopt niet (build/README.md)
+- **Status:** GEVERIFIEERD (VERIFIED): getest tegen uitgewerkte cursusvoorbeelden (worked examples) S03-WE03, S03-WE05; ook tegen S08-WE10 en de χ²- en F-tabellen van Dummies (p. 194, 196) (extra, Dummies; niet te kennen); het F-intervalvoorbeeld S08-WE11 van Dummies klopt niet (resources/build/README.md)
 - **Audit:** stats-auditor PASS (2026-09-28) voor het F-deel: alle 28 waarden (BI's in beide richtingen, F-toetsen ≠, >, <) voor één invoer kloppen met een onafhankelijke berekening uit Test Recipes p. 12-14, CI Further Reading p. 21 en de hint van examenvraag Q2. Opmerking: de cursus drukt geen expliciet BI voor de verhouding van twee varianties; het volgt uit de F-pivot van p. 12, omgekeerd zoals op p. 21.
 - **Gedrukte cursuswaarden die niet kloppen met de berekening** (zoals gedrukt bewaard in het orakel; getest als strikte verwachte mislukkingen, strict xfail):
   - Dummies p. 196 (S08-WE11): BI voor σA²/σB² gedrukt als '[(1/3.633)(4/7.5), 5.999(4/7.5)] = [0.147, 3.199]'. Met (sA²/σA²)/(sB²/σB²) ~ F(nA−1, nB−1) (Test Recipes p. 12, hint van examenvraag Q2) geven dezelfde staartwaarden van 5 % [0,0889; 1,938]: het boek verwisselt de twee F-waarden. De tabelwaarden zelf (Table 8-3) kloppen wel (extra, Dummies; niet te kennen).
@@ -61,7 +61,7 @@ Offline rekenbladen (calculators) voor het Black Belt-examen. Gemaakt door `src/
 - **Invoer:** optioneel de klassenamen; per model de vier aantallen van de matrix van de trainingsset en van de testset (rijen = werkelijke klasse, kolommen = voorspelde klasse).
 - **Bron in de cursus:** source/course/Les 2/20260529_naert.pdf p. 19-32 (train/test, underfitting/overfitting, bias-variance, confusion matrix en haar maten)
 - **Conventie:** Sensitiviteit (recall), precisie en F1 getoond met elke klasse als de positieve klasse (de cursus laat die keuze aan het domein); geen automatisch bias/variance-label.
-- **Status:** NIET GEVERIFIEERD (UNVERIFIED): geen uitgewerkt cursusvoorbeeld drukt deze maten af; gecontroleerd tegen een onafhankelijke berekening en door de stats-auditor (build/README.md)
+- **Status:** NIET GEVERIFIEERD (UNVERIFIED): geen uitgewerkt cursusvoorbeeld drukt deze maten af; gecontroleerd tegen een onafhankelijke berekening en door de stats-auditor (resources/build/README.md)
 - **Audit:** stats-auditor PASS (2026-09-28): alle 26 waarden voor één invoer (model A, trainingsset en testset) komen overeen met een onafhankelijke berekening uit 20260529_naert.pdf p. 29-32. Opmerking: 'foutenpercentage' (error rate) staat niet op die pagina's; het blad toont het als 1 − nauwkeurigheid.
 
 ## Verdelingen: Verdelingen (distributions): E[X], Var[X] en kansen (Bernoulli, binomiaal, hypergeometrisch, Poisson, exponentieel, uniform)
@@ -92,7 +92,7 @@ Offline rekenbladen (calculators) voor het Black Belt-examen. Gemaakt door `src/
 - **Invoer:** subgroepen als ruwe waarden (tot 10 per rij) of als getypte x̄ en R (en s) met n.
 - **Bron in de cursus:** source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 54-58, 62-74; ___4.1 tabellen SPC.pdf p. 1-2; Les 5/20260619_ottoy_Rheostat Knob Data.xls
 - **Conventie:** Beslissing 4: constanten uit Table 18 (A2, D3, D4, B3, B4, d2), Table A (c4), Six Sigma Demystified (A3); 3σ-grenzen. I-MR-, p- en u-kaart: blad Extra (boeken), niet te kennen.
-- **Status:** GEVERIFIEERD (VERIFIED): getest tegen de uitgewerkte voorbeelden van de cursus S06-WE03, S06-WE05, S06-WE06, S10-WE04a, S10-WE04b (en S08-WE18 uit Dummies; extra, niet te kennen); enkele gedrukte waarden wijken af (build/README.md)
+- **Status:** GEVERIFIEERD (VERIFIED): getest tegen de uitgewerkte voorbeelden van de cursus S06-WE03, S06-WE05, S06-WE06, S10-WE04a, S10-WE04b (en S08-WE18 uit Dummies; extra, niet te kennen); enkele gedrukte waarden wijken af (resources/build/README.md)
 - **Audit:** niet nodig (er bestaan uitgewerkte voorbeelden in de cursus)
 - **Gedrukte cursuswaarden die niet kloppen met de berekening** (zoals gedrukt bewaard in het orakel; getest als strikte verwachte mislukkingen, strict xfail):
   - Rheostat Knob Data.xls (Les 5, S10-WE04a/b) rekent UCL_R met D4 = 2,114 (Six Sigma Demystified); de oefenwerkboeken van Les 4 gebruiken 2,115 (Table 18), wat het blad gebruikt (beslissing 4). De X̄-grenzen komen overeen.
@@ -135,7 +135,7 @@ Offline rekenbladen (calculators) voor het Black Belt-examen. Gemaakt door `src/
 - **Invoer:** α; k, optioneel de orde vanaf waar gepoold wordt; tot 20 herhalingen per run in standaardvolgorde.
 - **Bron in de cursus:** source/course/Les 3/20260605_de vuyst_BB_DOE.pdf p. 46-92
 - **Conventie:** Invoer α vooraf ingevuld op 0,05 (beslissing 5); factoren gecodeerd −1/+1 in standaardvolgorde (standard order; DOE p. 46, 70, 74); één herhaling (single replicate): interacties van een gekozen orde en hoger in de fout poolen (DOE p. 72, 77); R²_adj op beide manieren getoond.
-- **Status:** GEVERIFIEERD (VERIFIED): getest tegen uitgewerkte voorbeelden van de cursus S05-WE05 tot S05-WE09, en tegen S08-WE16 (extra, Dummies; niet te kennen); gedrukte waarden die niet kloppen staan in build/README.md
+- **Status:** GEVERIFIEERD (VERIFIED): getest tegen uitgewerkte voorbeelden van de cursus S05-WE05 tot S05-WE09, en tegen S08-WE16 (extra, Dummies; niet te kennen); gedrukte waarden die niet kloppen staan in resources/build/README.md
 - **Audit:** niet nodig (er bestaan uitgewerkte voorbeelden in de cursus)
 - **Gedrukte cursuswaarden die niet kloppen met de berekening** (zoals gedrukt bewaard in het orakel; getest als strikte verwachte mislukkingen, strict xfail):
   - DOE p. 50 (S05-WE05): '[AB] = 5,78 – 4,92 = 0,857'; het exacte effect is 0,8583 (gemiddelden 5,7767 en 4,9183).
@@ -170,7 +170,7 @@ Offline rekenbladen (calculators) voor het Black Belt-examen. Gemaakt door `src/
 - **Invoer:** per blok: defecten en eenheden; eenheden in, uit, afgekeurd, herwerkt; tot 10 stapyields; een RTY en het aantal stappen; één stapyield en k; een eindyield en het aantal kansen; LSL, USL, gemiddelde en MR̄; individuele waarden; subgroepgroottes met defecte stuks (p) of defecten (u). Yields als fracties (0,95 = 95 %).
 - **Bron in de cursus:** source/course/Les 4/Six Sigma For Dummies.pdf p. 38-39, 114-116, 147-156, 249-256; source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf p. 3-5
 - **Conventie:** Formules zoals in het boek; yields als fracties (0,95 = 95 %). Sigmaniveau met de 1,5σ-verschuiving (1.5σ shift) van de cursus (deck p. 37, beslissing 3); d2, D3, D4 voor n = 2 uit Tabel 18, E2 uit Six Sigma Demystified (beslissing 4); een negatieve ondergrens wordt 0.
-- **Status:** GEVERIFIEERD (VERIFIED): getest tegen de uitgewerkte voorbeelden uit de boeken S07-WE01, S08-WE01 tot S08-WE04, S08-WE21, S09-WE01, S09-WE03 tot S09-WE06; enkele gedrukte waarden wijken af (zie build/README.md)
+- **Status:** GEVERIFIEERD (VERIFIED): getest tegen de uitgewerkte voorbeelden uit de boeken S07-WE01, S08-WE01 tot S08-WE04, S08-WE21, S09-WE01, S09-WE03 tot S09-WE06; enkele gedrukte waarden wijken af (zie resources/build/README.md)
 - **Audit:** niet nodig (er bestaan uitgewerkte voorbeelden in de boeken)
 - **Gedrukte cursuswaarden die niet kloppen met de berekening** (zoals gedrukt bewaard in het orakel; getest als strikte verwachte mislukkingen, strict xfail):
   - Dummies p. 148 (S08-WE02): verborgen fabriek '98.6% - 70.7% = 27.9%' trekt afgeronde waarden af; niet afgerond 27,84 %.

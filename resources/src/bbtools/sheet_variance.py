@@ -48,7 +48,7 @@ HEADER = HeaderBlock(
     status=Status.VERIFIED,
     status_detail="getest tegen uitgewerkte cursusvoorbeelden (worked examples) S03-WE03, S03-WE05; ook tegen "
                   "S08-WE10 en de χ²- en F-tabellen van Dummies (p. 194, 196) (extra, Dummies; niet te kennen); het "
-                  "F-intervalvoorbeeld S08-WE11 van Dummies klopt niet (build/README.md)",
+                  "F-intervalvoorbeeld S08-WE11 van Dummies klopt niet (resources/build/README.md)",
 )
 
 DOC = SheetDoc(

@@ -35,7 +35,7 @@ HEADER = HeaderBlock(
                "laat die keuze aan het domein); geen automatisch bias/variance-label.",
     status=Status.UNVERIFIED,
     status_detail="geen uitgewerkt cursusvoorbeeld drukt deze maten af; gecontroleerd tegen een onafhankelijke "
-                  "berekening en door de stats-auditor (build/README.md)",
+                  "berekening en door de stats-auditor (resources/build/README.md)",
 )
 
 DOC = SheetDoc(

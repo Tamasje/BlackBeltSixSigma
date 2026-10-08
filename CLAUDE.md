@@ -17,11 +17,16 @@ usable by a human under time pressure.
   the source page.
 
 ## Layout
-- `source/course/`, `source/exam/`: read-only. Never modify, move or delete. Gitignored.
+The top of the project folder holds only the two deliverables, `studiegids.html` and `bb_toolkit.xlsx`
+(generated, never hand-edited). Everything else lives in `resources/`; paths below and in `.claude/` are relative to
+it (run tests and builds from `resources/`).
+- `source/course/`, `source/exam/`: read-only. Never modify, move or delete.
 - `inventory/`: extraction output (`raw/` per slice; merged files at top level).
 - `src/bbtools/`: Python package that generates the workbook and the index.
+- `study/`: the study guide's parts and build script (writes `../studiegids.html`).
 - `tests/`: pytest.
-- `build/`: generated `bb_toolkit.xlsx`, `index.html`, `README.md`. Never hand-edited.
+- `build/`: generated `index.html` and `README.md`. Never hand-edited.
+- Claude files (`CLAUDE.md`, `.claude/`, `PROGRESS.md`) are git-ignored: local only.
 
 ## Excel rules
 - `.xlsx`, formulas only. No VBA, no external links. No spilling/dynamic-array functions (LET,

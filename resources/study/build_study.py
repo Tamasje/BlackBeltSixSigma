@@ -21,6 +21,7 @@ import base64
 import csv
 import html
 import json
+import os
 import re
 import subprocess
 import sys
@@ -32,7 +33,8 @@ from urllib.parse import quote, unquote
 STUDY = Path(__file__).resolve().parent
 PARTS = STUDY / "parts"
 FIGURES = STUDY / "figures"
-OUTPUT = STUDY / "studiegids.html"
+# the guide sits at the top of the project folder; the parts link relative to study/ and are rebased on output
+OUTPUT = STUDY.parent.parent / "studiegids.html"
 FRAGMENT = re.compile(r"^(\d\d)_(?!numbers).+\.html$")
 sys.path.insert(0, str(STUDY.parent / "src"))
 
@@ -276,6 +278,15 @@ PART_TOOLS: dict[str, tuple[str, ...]] = {
 }
 
 
+def rebase_links(page: str) -> str:
+    """Rewrite the links to files, written relative to study/ (where the parts live and are checked), relative to the
+    folder of OUTPUT: '../source/…' becomes 'resources/source/…', '../../bb_toolkit.xlsx' becomes 'bb_toolkit.xlsx'."""
+    def rebase(match: re.Match[str]) -> str:
+        target = os.path.normpath(os.path.relpath(STUDY / match.group(1), OUTPUT.parent))
+        return f'href="{Path(target).as_posix()}'
+    return re.sub(r'href="(\.\./[^"#]*)', rebase, page)
+
+
 def pdf_link(doc: str, page: int, label: str) -> str:
     """Link to a page of a course PDF, relative to study/studiegids.html."""
     return f'<a class="p" href="../source/course/{quote(DOCS[doc], safe="/()")}#page={page}">{html.escape(label)}</a>'
@@ -516,7 +527,7 @@ def tools_panel(number: str) -> str:
             'rekenmachine uit de andere berekent, wordt <b>rood</b> en gaat op slot: dat heb je niet ingevuld. Wis een '
             'ingevuld veld (of klik "Wis alles") om het weer vrij te maken. Lijsten: getallen '
             'gescheiden door spaties, tabs of nieuwe regels; je kunt kolommen uit Excel plakken. De rekenmachines gebruiken '
-            'dezelfde formules als <code>build/bb_toolkit.xlsx</code>.</p>' + "".join(items) + "</details>")
+            'dezelfde formules als <code>bb_toolkit.xlsx</code> (naast deze gids).</p>' + "".join(items) + "</details>")
 
 
 def with_tools(part_html: str, number: str) -> str:
@@ -998,7 +1009,7 @@ def main() -> None:
     if "--check" in sys.argv:
         print("check only: no problems")
         return
-    OUTPUT.write_text(inline_figures(page), encoding="utf-8", newline="\n")
+    OUTPUT.write_text(rebase_links(inline_figures(page)), encoding="utf-8", newline="\n")
     exercises = page.count('<div class="exercise"')
     words = len(re.sub(r"<[^>]+>", " ", page.split("<!--APP-->")[0]).split())
     print(f"{OUTPUT}: {len(parts)} parts, {exercises} exercises, {words} words, "

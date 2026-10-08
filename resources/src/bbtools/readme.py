@@ -75,7 +75,8 @@ def write_readme(sheets: list[tuple[HeaderBlock, SheetDoc]], path: Path = README
         "Harry & Schroeder komen. Die boeken zijn niet te kennen voor het examen.", "",
         "**Cursusindex:** `index.html` naast dit bestand linkt elk onderwerp, elke formule en elke vraag van het "
         "voorbeeldexamen naar de pagina in de cursus (`PYTHONPATH=src python3 -m bbtools.build_index`). Houd `source/` "
-        "naast `build/`.", "",
+        "naast `build/` (beide in `resources/`); het werkboek `bb_toolkit.xlsx` staat bovenaan, naast "
+        "`studiegids.html`.", "",
     ]
     for header, doc in sheets:
         lines += _sheet_section(header, doc)

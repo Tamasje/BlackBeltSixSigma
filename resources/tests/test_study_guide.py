@@ -1,4 +1,4 @@
-"""The study guide (study/studiegids.html) assembles without problems.
+"""The study guide (studiegids.html, at the top of the project folder) assembles without problems.
 
 study/build_study.py --check validates the whole page without writing it: links to existing files and PDF pages in
 range, unique ids, no http, every exercise with a solution and a numeric answer, every clickable variable defined in

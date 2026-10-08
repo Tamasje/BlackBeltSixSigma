@@ -42,7 +42,7 @@ HEADER = HeaderBlock(
                "in de fout poolen (DOE p. 72, 77); R²_adj op beide manieren getoond.",
     status=Status.VERIFIED,
     status_detail="getest tegen uitgewerkte voorbeelden van de cursus S05-WE05 tot S05-WE09, en tegen S08-WE16 (extra, "
-                  "Dummies; niet te kennen); gedrukte waarden die niet kloppen staan in build/README.md",
+                  "Dummies; niet te kennen); gedrukte waarden die niet kloppen staan in resources/build/README.md",
 )
 
 DOC = SheetDoc(

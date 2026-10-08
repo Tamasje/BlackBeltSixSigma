@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """PreToolUse guard for Edit/Write/MultiEdit.
 
-Blocks (exit 2) any write inside `source/`, and any write to
-`inventory/worked_examples.json` once the git tag `oracle-approved` exists.
+Blocks (exit 2) any write inside `resources/source/`, and any write to
+`resources/inventory/worked_examples.json` once the git tag `oracle-approved` exists.
 """
 import json
 import os
 import subprocess
 import sys
 
-ORACLE_REL = os.path.join("inventory", "worked_examples.json")
+ORACLE_REL = os.path.join("resources", "inventory", "worked_examples.json")
 ORACLE_TAG = "oracle-approved"
 
 
@@ -56,7 +56,7 @@ def main() -> None:
     target = canonical(os.path.join(project_dir, file_path))
     root = canonical(project_dir)
 
-    if is_inside(target, os.path.join(root, "source")):
+    if is_inside(target, os.path.join(root, "resources", "source")):
         block(f"{file_path} is inside source/, which is read-only (CLAUDE.md).")
 
     if target == os.path.join(root, ORACLE_REL.casefold()) and oracle_tag_exists(project_dir):

@@ -49,7 +49,7 @@ HEADER = HeaderBlock(
                "Sigma Demystified (beslissing 4); een negatieve ondergrens wordt 0.",
     status=Status.VERIFIED,
     status_detail="getest tegen de uitgewerkte voorbeelden uit de boeken S07-WE01, S08-WE01 tot S08-WE04, S08-WE21, "
-                  "S09-WE01, S09-WE03 tot S09-WE06; enkele gedrukte waarden wijken af (zie build/README.md)",
+                  "S09-WE01, S09-WE03 tot S09-WE06; enkele gedrukte waarden wijken af (zie resources/build/README.md)",
 )
 
 DOC = SheetDoc(

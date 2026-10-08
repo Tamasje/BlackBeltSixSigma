@@ -1,5 +1,5 @@
 ---
-description: Add one approved calculator sheet to build/bb_toolkit.xlsx (build, test, review, commit, audit)
+description: Add one approved calculator sheet to bb_toolkit.xlsx (top of the project; all other paths here are relative to resources/) (build, test, review, commit, audit)
 argument-hint: <tool name as listed in inventory/approved_tools.md>
 ---
 Add the calculator named "$ARGUMENTS" to the toolkit, following CLAUDE.md. Work on this one tool only.
