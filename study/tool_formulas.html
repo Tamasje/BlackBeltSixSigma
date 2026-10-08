@@ -1,0 +1,1145 @@
+<!-- Formulas behind every calculator block of the Hulpmiddelen panels (study/assets/tools.js).
+
+One <section data-block="tool.index" data-uitleg="unit-id"> per block; index = position of the block in TOOLS[tool],
+data-uitleg = the unit of the guide that explains the topic (the "Meer uitleg" link of every symbol pop-up).
+Formulas in LaTeX (\[ … \]); every symbol is \sym{key}{TeX}, clickable as in the formula sheet. Each <li> of the
+list defines the symbols written before its first colon: the text after the colon is the meaning, data-hoe says how
+to get the value (both shown in the pop-up). Formulas the course does not print are marked algemeen.
+study/build_study.py turns each section into a <template id="fx-tool-index">; tests/test_study_tools.py checks that
+every block has a section, every section a block, and every symbol a definition. -->
+
+<section data-block="normaal.0" data-uitleg="d03-z">
+\[\sym{z}{z}=\frac{\sym{x}{x}-\sym{mu}{\mu}}{\sym{sigma}{\sigma}}\qquad \sym{x}{x}=\sym{mu}{\mu}+\sym{z}{z}\,\sym{sigma}{\sigma}\qquad
+\sym{mu}{\mu}=\sym{x}{x}-\sym{z}{z}\,\sym{sigma}{\sigma}\qquad \sym{sigma}{\sigma}=\frac{\sym{x}{x}-\sym{mu}{\mu}}{\sym{z}{z}}\]
+\[P(\sym{X}{X}\le\sym{x}{x})=\sym{Phi}{\Phi}(\sym{z}{z})\qquad P(\sym{X}{X}\gt\sym{x}{x})=1-\sym{Phi}{\Phi}(\sym{z}{z})\qquad
+\sym{z}{z}=\sym{Phi}{\Phi}^{-1}\big(P(\sym{X}{X}\le\sym{x}{x})\big)\]
+<ul class="fx-vars">
+<li data-hoe="De grootheid uit de opgave: de lengte, het gewicht, de levensduur van één stuk.">\(\sym{X}{X}\): de normaal verdeelde grootheid (één meting, één stuk).</li>
+<li data-hoe="Gegeven, of het gemiddelde van de data (AVERAGE).">\(\sym{mu}{\mu}\): het gemiddelde van de verdeling.</li>
+<li data-hoe="Gegeven, of de standaardafwijking van de data (STDEV.S). Niet de variantie: neem de wortel als σ² gegeven is.">\(\sym{sigma}{\sigma}\): de standaardafwijking van de verdeling (\(\sigma^{2}\) is de variantie).</li>
+<li data-hoe="De grens of waarde uit de vraag: 'meer dan 45 kg' geeft x = 45.">\(\sym{x}{x}\): een bepaalde waarde of grens (bv. een specificatiegrens).</li>
+<li data-hoe="Reken (x − µ)/σ, of zoek de kans in de Z-tabel en lees z af aan rij en kolom.">\(\sym{z}{z}\): hoeveel standaardafwijkingen \(x\) van \(\mu\) ligt (negatief: links van \(\mu\)).</li>
+<li data-hoe="Z-tabel (oppervlakte links van z) of NORM.S.DIST(z; TRUE); omgekeerd NORM.S.INV(kans).">\(\sym{Phi}{\Phi}\): de kans links van \(z\) onder de standaardnormale verdeling; \(\Phi^{-1}\) is de omgekeerde (kans → \(z\)).</li>
+</ul>
+<p class="fx-src">SPC p. 16–19, 27; Excel-functies p. 1–3; Z-tabel p. 1–2.</p>
+</section>
+
+<section data-block="normaal.1" data-uitleg="d03-normaal">
+\[P(\sym{a}{a}\lt\sym{X}{X}\lt\sym{b}{b})=\sym{Phi}{\Phi}\left(\frac{\sym{b}{b}-\sym{mu}{\mu}}{\sym{sigma}{\sigma}}\right)-\sym{Phi}{\Phi}\left(\frac{\sym{a}{a}-\sym{mu}{\mu}}{\sym{sigma}{\sigma}}\right)\qquad
+P(\sym{X}{X}\gt\sym{b}{b})=1-\sym{Phi}{\Phi}\left(\frac{\sym{b}{b}-\sym{mu}{\mu}}{\sym{sigma}{\sigma}}\right)\]
+\[\sym{a}{a}=\sym{mu}{\mu}-\sym{k}{k}\sym{sigma}{\sigma},\quad \sym{b}{b}=\sym{mu}{\mu}+\sym{k}{k}\sym{sigma}{\sigma}:\qquad \sym{P}{P_{\text{binnen}}}=2\,\sym{Phi}{\Phi}(\sym{k}{k})-1\qquad
+\sym{k}{k}=\sym{Phi}{\Phi}^{-1}\left(1-\frac{1-\sym{P}{P_{\text{binnen}}}}{2}\right)\qquad \sym{mu}{\mu}=\frac{\sym{a}{a}+\sym{b}{b}}{2},\ \ \sym{sigma}{\sigma}=\frac{\sym{b}{b}-\sym{a}{a}}{2\sym{k}{k}}\]
+<ul class="fx-vars">
+<li data-hoe="De grenzen uit de vraag, bv. de specificatiegrenzen LSL en USL.">\(\sym{a}{a}\), \(\sym{b}{b}\): de onder- en bovengrens van het interval.</li>
+<li data-hoe="Gegeven ('binnen ±3σ'), of uit de kans: k = NORM.S.INV(1 − (1 − kans)/2).">\(\sym{k}{k}\): het aantal standaardafwijkingen van \(\mu\) tot elke grens; \(k=1,2,3\) geeft ongeveer 68 %, 95 % en 99,7 %.</li>
+<li data-hoe="Uit de opgave ('95 % van de stuks'), of berekend uit µ, σ, a en b. Buiten = 1 − binnen.">\(\sym{P}{P_{\text{binnen}}}\): de kans dat \(X\) tussen \(a\) en \(b\) ligt.</li>
+<li data-hoe="De grootheid uit de opgave (één meting).">\(\sym{X}{X}\): de normaal verdeelde grootheid.</li>
+<li data-hoe="Gegeven, of AVERAGE van de data; zonder µ neemt de rekenmachine het midden van a en b.">\(\sym{mu}{\mu}\): het gemiddelde.</li>
+<li data-hoe="Gegeven, of STDEV.S van de data.">\(\sym{sigma}{\sigma}\): de standaardafwijking.</li>
+<li data-hoe="Z-tabel of NORM.S.DIST(z; TRUE).">\(\sym{Phi}{\Phi}\): de kans links van een \(z\)-waarde (standaardnormaal).</li>
+</ul>
+<p class="fx-src">SPC p. 17–19.</p>
+</section>
+
+<section data-block="normaal.2" data-uitleg="d10-xbar">
+\[\sym{se}{\sigma_{\bar{x}}}=\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\qquad \sym{sigma}{\sigma}=\sym{se}{\sigma_{\bar{x}}}\sqrt{\sym{n}{n}}\qquad \sym{n}{n}=\left(\frac{\sym{sigma}{\sigma}}{\sym{se}{\sigma_{\bar{x}}}}\right)^{2}\]
+<ul class="fx-vars">
+<li data-hoe="Gegeven, of STDEV.S van de losse metingen.">\(\sym{sigma}{\sigma}\): de standaardafwijking van één waarneming.</li>
+<li data-hoe="Het aantal metingen per gemiddelde, bv. de subgroepgrootte van een X̄-kaart.">\(\sym{n}{n}\): het aantal waarnemingen waarvan je het gemiddelde neemt.</li>
+<li data-hoe="σ/√n; gebruik dit als σ voor kansen op een gemiddelde.">\(\sym{se}{\sigma_{\bar{x}}}\): de standaardafwijking van het gemiddelde \(\bar{x}\) (de standaardfout).</li>
+</ul>
+<p class="fx-src">SPC p. 28, 62–64 (centrale limietstelling).</p>
+</section>
+
+<section data-block="sigma.0" data-uitleg="d03-sigma">
+\[\sym{dpo}{\mathrm{DPO}}=\frac{\sym{D}{D}}{\sym{N}{N}\cdot\sym{O}{O}}\qquad \sym{dpmo}{\mathrm{DPMO}}=\sym{dpo}{\mathrm{DPO}}\cdot10^{6}\qquad \sym{y}{\text{yield}}=1-\sym{dpo}{\mathrm{DPO}}\]
+\[\sym{Z}{Z}=\sym{Phi}{\Phi}^{-1}(1-\sym{dpo}{\mathrm{DPO}})\qquad \sym{L}{\text{sigmaniveau}}=\sym{Z}{Z}+1{,}5\qquad \sym{dpo}{\mathrm{DPO}}=1-\sym{Phi}{\Phi}(\sym{L}{\text{sigmaniveau}}-1{,}5)\]
+\[\text{zonder verschuiving:}\quad \sym{dpmo}{\mathrm{DPMO}}_{\text{één staart}}=10^{6}\big(1-\sym{Phi}{\Phi}(\sym{L}{\text{niveau}})\big)\qquad
+\sym{dpmo}{\mathrm{DPMO}}_{\text{twee staarten}}=2\cdot10^{6}\big(1-\sym{Phi}{\Phi}(\sym{L}{\text{niveau}})\big)\]
+<ul class="fx-vars">
+<li data-hoe="Tel alle gevonden defecten (een stuk kan er meer dan één hebben).">\(\sym{D}{D}\): het aantal gevonden defecten.</li>
+<li data-hoe="Het aantal gecontroleerde stuks, formulieren, facturen, …">\(\sym{N}{N}\): het aantal eenheden.</li>
+<li data-hoe="Tel per eenheid de plaatsen waar iets fout kan gaan (velden van een formulier, soldeerpunten, …).">\(\sym{O}{O}\): het aantal kansen op een defect per eenheid (opportunities).</li>
+<li data-hoe="D/(N·O), of DPMO/10⁶.">\(\sym{dpo}{\mathrm{DPO}}\): de fractie defecten per kans.</li>
+<li data-hoe="DPO maal een miljoen, of af te lezen in de sigmatabel bij een sigmaniveau.">\(\sym{dpmo}{\mathrm{DPMO}}\): het aantal defecten per miljoen kansen.</li>
+<li data-hoe="1 − DPO; de sigmatabellen geven het in %.">\(\sym{y}{\text{yield}}\): de fractie kansen zonder defect.</li>
+<li data-hoe="NORM.S.INV(1 − DPO), of de Z-tabel omgekeerd gelezen.">\(\sym{Z}{Z}\): de sigmascore: het aantal \(\sigma\) tussen het gemiddelde en de grens waarbuiten een fractie DPO valt.</li>
+<li data-hoe="Z + 1,5, of af te lezen in de sigmatabel: 3,4 DPMO is 6 sigma.">\(\sym{L}{\text{sigmaniveau}}\): \(Z\) plus de 1,5σ-verschuiving van de lange termijn (beslissing 3, zoals de sigmatabellen van de cursus).</li>
+<li data-hoe="Z-tabel of NORM.S.DIST(z; TRUE); omgekeerd NORM.S.INV.">\(\sym{Phi}{\Phi}\): de kans links van \(z\) (standaardnormaal); \(\Phi^{-1}\): kans → \(z\).</li>
+</ul>
+<p class="fx-src">SPC p. 20–21, 37–40.</p>
+</section>
+
+<section data-block="kwantielen.0" data-uitleg="d05-pwaarde">
+\[\text{links: }P(\sym{X}{X}\le\sym{qL}{q_{L}})=\sym{alpha}{\alpha}\qquad \text{rechts: }P(\sym{X}{X}\gt\sym{qR}{q_{R}})=\sym{alpha}{\alpha}\qquad
+\text{tweezijdig: }\sym{alpha}{\alpha}/2\ \text{in elke staart}\]
+\[\sym{p}{p}_{\text{links}}=P(\sym{X}{X}\le\sym{w}{w})\qquad \sym{p}{p}_{\text{rechts}}=P(\sym{X}{X}\gt\sym{w}{w})\qquad
+\sym{p}{p}_{\text{tweezijdig}}=2\min\left(\sym{p}{p}_{\text{links}},\sym{p}{p}_{\text{rechts}}\right)\qquad \text{verwerp }H_{0}\text{ als }\sym{p}{p}\lt\sym{alpha}{\alpha}\]
+\[F_{\sym{alpha}{\alpha}}(\sym{nu}{\nu_{1}},\sym{nu}{\nu_{2}})=\frac{1}{F_{1-\sym{alpha}{\alpha}}(\sym{nu}{\nu_{2}},\sym{nu}{\nu_{1}})}\]
+<ul class="fx-vars">
+<li data-hoe="Kies de verdeling van het toetsrecept: z (σ gekend, proportie), t (σ onbekend), χ² (één variantie), F (twee varianties).">\(\sym{X}{X}\): de toetsgrootheid onder \(H_{0}\): \(z\), \(t(\nu)\), \(\chi^{2}(\nu)\) of \(F(\nu_{1},\nu_{2})\).</li>
+<li data-hoe="Uit het toetsrecept: bv. n − 1 bij één steekproef, n1 + n2 − 2 bij twee gepoolde steekproeven.">\(\sym{nu}{\nu}\): het aantal vrijheidsgraden (bij \(F\): \(\nu_{1}\) van de teller, \(\nu_{2}\) van de noemer).</li>
+<li data-hoe="Gegeven in de opgave; zonder vermelding meestal 5 %.">\(\sym{alpha}{\alpha}\): het significantieniveau, de kans op een type-I-fout.</li>
+<li data-hoe="Excel: links NORM.S.INV(α), T.INV(α; ν), CHISQ.INV(α; ν), F.INV(α; ν1; ν2).">\(\sym{qL}{q_{L}}\): de linkse kritieke waarde.</li>
+<li data-hoe="Excel: NORM.S.INV(1 − α), T.INV(1 − α; ν), CHISQ.INV.RT(α; ν), F.INV.RT(α; ν1; ν2).">\(\sym{qR}{q_{R}}\): de rechtse kritieke waarde.</li>
+<li data-hoe="Reken de toetsgrootheid uit met de formule van het toetsrecept.">\(\sym{w}{w}\): de berekende waarde van de toetsgrootheid.</li>
+<li data-hoe="De staartkans voorbij w in de richting van H_A; tweezijdig het dubbele van de kleinste staart.">\(\sym{p}{p}\): de p-waarde.</li>
+</ul>
+<p class="fx-src">Test Recipes p. 4–14; TH p. 10.</p>
+</section>
+
+<section data-block="gemiddelde.0" data-uitleg="d04-mu">
+\[\sym{sigma}{\sigma}\text{ gekend: }\sym{xbar}{\bar{x}}\pm \sym{z}{z}_{1-\sym{alpha}{\alpha}/2}\,\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}},\qquad
+\sym{z}{z}=\frac{\sym{xbar}{\bar{x}}-\sym{mu0}{\mu_{0}}}{\sym{sigma}{\sigma}/\sqrt{\sym{n}{n}}}\sim N(0,1)\]
+\[\sym{sigma}{\sigma}\text{ onbekend: }\sym{xbar}{\bar{x}}\pm \sym{t}{t}_{1-\sym{alpha}{\alpha}/2;\,\sym{n}{n}-1}\,\frac{\sym{s}{s}}{\sqrt{\sym{n}{n}}},\qquad
+\sym{t}{t}=\frac{\sym{xbar}{\bar{x}}-\sym{mu0}{\mu_{0}}}{\sym{s}{s}/\sqrt{\sym{n}{n}}}\sim t(\sym{n}{n}-1)\]
+\[\text{eenzijdig: ondergrens }\sym{xbar}{\bar{x}}-\sym{z}{z}_{1-\sym{alpha}{\alpha}}\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\ \ (\text{of }\sym{t}{t}_{1-\sym{alpha}{\alpha};\,\sym{n}{n}-1}\tfrac{\sym{s}{s}}{\sqrt{\sym{n}{n}}}),\ \text{bovengrens met }+\]
+<ul class="fx-vars">
+<li data-hoe="Tel de metingen.">\(\sym{n}{n}\): de steekproefgrootte.</li>
+<li data-hoe="AVERAGE van de data.">\(\sym{xbar}{\bar{x}}\): het steekproefgemiddelde.</li>
+<li data-hoe="STDEV.S van de data (deler n − 1).">\(\sym{s}{s}\): de standaardafwijking van de steekproef.</li>
+<li data-hoe="Alleen als de opgave de spreiding van de populatie geeft ('σ is gekend').">\(\sym{sigma}{\sigma}\): de gekende standaardafwijking van de populatie.</li>
+<li data-hoe="De waarde in H₀ ('is het gemiddelde 10?' geeft µ₀ = 10).">\(\sym{mu0}{\mu_{0}}\): de waarde van \(\mu\) onder \(H_{0}\).</li>
+<li data-hoe="Gegeven; 95 %-betrouwbaarheid is α = 5 %.">\(\sym{alpha}{\alpha}\): het significantieniveau; betrouwbaarheid \(1-\alpha\).</li>
+<li data-hoe="NORM.S.INV(q); z₀,₉₇₅ = 1,96.">\(\sym{z}{z}\): de standaardnormale toetsgrootheid; \(z_{q}\) is het \(q\)-kwantiel.</li>
+<li data-hoe="T.INV(q; n − 1).">\(\sym{t}{t}\): de t-toetsgrootheid; \(t_{q;\,\nu}\) is het \(q\)-kwantiel van \(t(\nu)\).</li>
+</ul>
+<p class="fx-src">CI FR p. 3, 5–8; Test Recipes p. 4; TH FR p. 10–14.</p>
+</section>
+
+<section data-block="tweegemiddelden.0" data-uitleg="d04-verschil">
+\[\sym{sp}{s_{p}}^{2}=\frac{(\sym{n1}{n_{1}}-1)\sym{s1}{s_{1}}^{2}+(\sym{n2}{n_{2}}-1)\sym{s2}{s_{2}}^{2}}{\sym{n1}{n_{1}}+\sym{n2}{n_{2}}-2}\]
+\[(\sym{x1}{\bar{x}_{1}}-\sym{x2}{\bar{x}_{2}})\pm \sym{t}{t}_{1-\sym{alpha}{\alpha}/2;\,\sym{n1}{n_{1}}+\sym{n2}{n_{2}}-2}\;\sym{sp}{s_{p}}\sqrt{\frac{1}{\sym{n1}{n_{1}}}+\frac{1}{\sym{n2}{n_{2}}}}\qquad
+\sym{t}{t}=\frac{\sym{x1}{\bar{x}_{1}}-\sym{x2}{\bar{x}_{2}}-\sym{d0}{d_{0}}}{\sym{sp}{s_{p}}\sqrt{\frac{1}{\sym{n1}{n_{1}}}+\frac{1}{\sym{n2}{n_{2}}}}}\sim t(\sym{n1}{n_{1}}+\sym{n2}{n_{2}}-2)\]
+<ul class="fx-vars">
+<li data-hoe="Tel de metingen in elke steekproef.">\(\sym{n1}{n_{1}}\), \(\sym{n2}{n_{2}}\): de groottes van de twee onafhankelijke steekproeven.</li>
+<li data-hoe="AVERAGE van elke reeks.">\(\sym{x1}{\bar{x}_{1}}\), \(\sym{x2}{\bar{x}_{2}}\): de twee steekproefgemiddelden.</li>
+<li data-hoe="STDEV.S van elke reeks.">\(\sym{s1}{s_{1}}\), \(\sym{s2}{s_{2}}\): de twee standaardafwijkingen.</li>
+<li data-hoe="Uit de formule erboven; de rekenmachine geeft het.">\(\sym{sp}{s_{p}}\): de gepoolde standaardafwijking (beide populaties dezelfde \(\sigma\)); noemer \(n_{1}+n_{2}-2\) (beslissing 8; CI FR p. 15 drukt \(n_{1}+n_{2}-1\)).</li>
+<li data-hoe="Meestal 0 ('is er een verschil?').">\(\sym{d0}{d_{0}}\): het verschil \(\mu_{1}-\mu_{2}\) onder \(H_{0}\).</li>
+<li data-hoe="Gegeven; meestal 5 %.">\(\sym{alpha}{\alpha}\): het significantieniveau.</li>
+<li data-hoe="T.INV(q; n1 + n2 − 2).">\(\sym{t}{t}\): de t-toetsgrootheid; \(t_{q;\,\nu}\) is het \(q\)-kwantiel.</li>
+</ul>
+<p class="fx-src">CI FR p. 15–17; Test Recipes p. 5.</p>
+</section>
+
+<section data-block="tweegemiddelden.1" data-uitleg="d04-verschil">
+\[\sym{v}{v_{i}}=\sym{xa}{x_{1,i}}-\sym{xb}{x_{2,i}}\qquad \sym{vbar}{\bar{v}}\pm \sym{t}{t}_{1-\sym{alpha}{\alpha}/2;\,\sym{n}{n}-1}\,\frac{\sym{sv}{s_{v}}}{\sqrt{\sym{n}{n}}}\qquad
+\sym{t}{t}=\frac{\sym{vbar}{\bar{v}}-\sym{d0}{d_{0}}}{\sym{sv}{s_{v}}/\sqrt{\sym{n}{n}}}\sim t(\sym{n}{n}-1)\]
+<ul class="fx-vars">
+<li data-hoe="De twee metingen op hetzelfde stuk of dezelfde persoon (voor/na, methode 1/2).">\(\sym{xa}{x_{1,i}}\), \(\sym{xb}{x_{2,i}}\): de twee metingen van paar \(i\).</li>
+<li data-hoe="Trek per paar af, altijd in dezelfde volgorde.">\(\sym{v}{v_{i}}\): het verschil van paar \(i\).</li>
+<li data-hoe="Tel de paren.">\(\sym{n}{n}\): het aantal paren.</li>
+<li data-hoe="AVERAGE van de verschillen.">\(\sym{vbar}{\bar{v}}\): het gemiddelde verschil.</li>
+<li data-hoe="STDEV.S van de verschillen.">\(\sym{sv}{s_{v}}\): de standaardafwijking van de verschillen.</li>
+<li data-hoe="Meestal 0.">\(\sym{d0}{d_{0}}\): het gemiddelde verschil onder \(H_{0}\).</li>
+<li data-hoe="Gegeven; meestal 5 %.">\(\sym{alpha}{\alpha}\): het significantieniveau.</li>
+<li data-hoe="T.INV(q; n − 1).">\(\sym{t}{t}\): de t-toetsgrootheid; \(t_{q;\,\nu}\) is het \(q\)-kwantiel.</li>
+</ul>
+<p class="fx-src">CI FR p. 16; Test Recipes p. 7.</p>
+</section>
+
+<section data-block="proportie.0" data-uitleg="d04-pi">
+\[\sym{p}{p}=\frac{\sym{x}{x}}{\sym{n}{n}}\qquad \sym{p}{p}\pm \sym{z}{z}_{1-\sym{alpha}{\alpha}/2}\sqrt{\frac{\sym{p}{p}(1-\sym{p}{p})}{\sym{n}{n}}}\qquad
+\sym{z}{z}=\frac{\sym{p}{p}-\sym{pi0}{\pi_{0}}}{\sqrt{\sym{pi0}{\pi_{0}}(1-\sym{pi0}{\pi_{0}})/\sym{n}{n}}}\ \ (\sym{n}{n}\,\sym{pi0}{\pi_{0}}\gt5)\]
+\[\text{exact: }\left[\,\sym{B}{B^{-1}}\!\left(\tfrac{\sym{alpha}{\alpha}}{2};\,\sym{x}{x},\,\sym{n}{n}-\sym{x}{x}+1\right);\ \sym{B}{B^{-1}}\!\left(1-\tfrac{\sym{alpha}{\alpha}}{2};\,\sym{x}{x}+1,\,\sym{n}{n}-\sym{x}{x}\right)\right]\]
+<ul class="fx-vars">
+<li data-hoe="Tel de gecontroleerde stuks.">\(\sym{n}{n}\): de steekproefgrootte.</li>
+<li data-hoe="Tel de stuks met de eigenschap (bv. defect).">\(\sym{x}{x}\): het aantal successen (bv. defectieven) in de steekproef; het benaderde interval vraagt er minstens 5 (CI p. 10).</li>
+<li data-hoe="x/n.">\(\sym{p}{p}\): de fractie in de steekproef.</li>
+<li data-hoe="De waarde in H₀ ('hoogstens 2 % defect' geeft π₀ = 0,02).">\(\sym{pi0}{\pi_{0}}\): de fractie onder \(H_{0}\).</li>
+<li data-hoe="Gegeven; meestal 5 %.">\(\sym{alpha}{\alpha}\): het significantieniveau.</li>
+<li data-hoe="NORM.S.INV(q).">\(\sym{z}{z}\): de standaardnormale toetsgrootheid; \(z_{q}\) is het \(q\)-kwantiel.</li>
+<li data-hoe="BETA.INV(q; a; b) in Excel.">\(\sym{B}{B^{-1}}\): het kwantiel van de Beta-verdeling; zo is het exacte interval gelijk aan R binom.test.</li>
+</ul>
+<p class="fx-src">CI p. 10; CI FR p. 20; Test Recipes p. 9–10; TH FR p. 20.</p>
+</section>
+
+<section data-block="proportie.1" data-uitleg="d04-pi">
+\[(\sym{p1}{p_{1}}-\sym{p2}{p_{2}})\pm \sym{z}{z}_{1-\sym{alpha}{\alpha}/2}\sqrt{\frac{\sym{p1}{p_{1}}(1-\sym{p1}{p_{1}})}{\sym{n1}{n_{1}}}+\frac{\sym{p2}{p_{2}}(1-\sym{p2}{p_{2}})}{\sym{n2}{n_{2}}}}\qquad
+\sym{p1}{p_{1}}=\frac{\sym{x1}{x_{1}}}{\sym{n1}{n_{1}}},\ \ \sym{p2}{p_{2}}=\frac{\sym{x2}{x_{2}}}{\sym{n2}{n_{2}}}\]
+<ul class="fx-vars">
+<li data-hoe="Tel de stuks in elke steekproef.">\(\sym{n1}{n_{1}}\), \(\sym{n2}{n_{2}}\): de twee steekproefgroottes.</li>
+<li data-hoe="Tel de successen (defectieven) in elke steekproef.">\(\sym{x1}{x_{1}}\), \(\sym{x2}{x_{2}}\): het aantal successen.</li>
+<li data-hoe="x/n per steekproef.">\(\sym{p1}{p_{1}}\), \(\sym{p2}{p_{2}}\): de twee fracties.</li>
+<li data-hoe="Gegeven; meestal 5 %.">\(\sym{alpha}{\alpha}\): 1 − betrouwbaarheid.</li>
+<li data-hoe="NORM.S.INV(1 − α/2); 1,96 bij 95 %.">\(\sym{z}{z}\): het kwantiel van de standaardnormale verdeling.</li>
+</ul>
+<p class="fx-src">CI FR p. 20.</p>
+</section>
+
+<section data-block="variantie.0" data-uitleg="d04-sigma">
+\[\left[\frac{(\sym{n}{n}-1)\sym{s}{s}^{2}}{\sym{chi}{\chi^{2}}_{1-\sym{alpha}{\alpha}/2;\,\sym{n}{n}-1}}\ ;\ \frac{(\sym{n}{n}-1)\sym{s}{s}^{2}}{\sym{chi}{\chi^{2}}_{\sym{alpha}{\alpha}/2;\,\sym{n}{n}-1}}\right]\ \text{voor }\sigma^{2}\ \ (\text{wortels: voor }\sigma)\qquad
+\sym{chi}{\chi^{2}}=\frac{(\sym{n}{n}-1)\sym{s}{s}^{2}}{\sym{s0}{\sigma_{0}}^{2}}\sim\chi^{2}(\sym{n}{n}-1)\]
+<ul class="fx-vars">
+<li data-hoe="Tel de metingen.">\(\sym{n}{n}\): de steekproefgrootte.</li>
+<li data-hoe="STDEV.S van de data.">\(\sym{s}{s}\): de standaardafwijking van de steekproef.</li>
+<li data-hoe="De waarde in H₀ ('is σ hoogstens 0,1?').">\(\sym{s0}{\sigma_{0}}\): de standaardafwijking onder \(H_{0}\).</li>
+<li data-hoe="Gegeven; meestal 5 %. Eenzijdig: α aan één kant, de andere grens is 0 of +∞.">\(\sym{alpha}{\alpha}\): het significantieniveau.</li>
+<li data-hoe="CHISQ.INV(q; n − 1); de grootste kwantiel in de noemer geeft de ondergrens.">\(\sym{chi}{\chi^{2}}\): de χ²-toetsgrootheid; \(\chi^{2}_{q;\,\nu}\) is het \(q\)-kwantiel van \(\chi^{2}(\nu)\). De toets vraagt normale data.</li>
+</ul>
+<p class="fx-src">CI FR p. 21; Test Recipes p. 11.</p>
+</section>
+
+<section data-block="variantie.1" data-uitleg="d04-f">
+\[\sym{F}{F}=\frac{\sym{s1}{s_{1}}^{2}}{\sym{s2}{s_{2}}^{2}}\sim F(\sym{n1}{n_{1}}-1,\,\sym{n2}{n_{2}}-1)\ \text{onder }H_{0}:\sigma_{1}=\sigma_{2}\qquad
+\frac{\sigma_{1}^{2}}{\sigma_{2}^{2}}\in\left[\frac{\sym{F}{F}}{\sym{Fq}{F}_{1-\sym{alpha}{\alpha}/2}(\sym{nu1}{\nu_{1}},\sym{nu2}{\nu_{2}})}\ ;\ \frac{\sym{F}{F}}{\sym{Fq}{F}_{\sym{alpha}{\alpha}/2}(\sym{nu1}{\nu_{1}},\sym{nu2}{\nu_{2}})}\right]\]
+<ul class="fx-vars">
+<li data-hoe="STDEV.S van elke reeks.">\(\sym{s1}{s_{1}}\), \(\sym{s2}{s_{2}}\): de standaardafwijkingen van de twee steekproeven.</li>
+<li data-hoe="Tel de metingen in elke reeks.">\(\sym{n1}{n_{1}}\), \(\sym{n2}{n_{2}}\): de twee steekproefgroottes.</li>
+<li data-hoe="n1 − 1 en n2 − 1.">\(\sym{nu1}{\nu_{1}}\), \(\sym{nu2}{\nu_{2}}\): de vrijheidsgraden van teller en noemer.</li>
+<li data-hoe="s1²/s2².">\(\sym{F}{F}\): de verhouding van de twee steekproefvarianties.</li>
+<li data-hoe="F.INV(q; ν1; ν2).">\(\sym{Fq}{F_{q}}\): het \(q\)-kwantiel van de F-verdeling. Het interval voor \(\sigma_{2}^{2}/\sigma_{1}^{2}\) is het omgekeerde.</li>
+<li data-hoe="Gegeven; meestal 5 %.">\(\sym{alpha}{\alpha}\): het significantieniveau.</li>
+</ul>
+<p class="fx-src">Test Recipes p. 12–14.</p>
+</section>
+
+<section data-block="verdelingen.0" data-uitleg="d06-srs">
+\[P(\sym{X}{X}=1)=\sym{p}{p},\quad P(\sym{X}{X}=0)=1-\sym{p}{p}\qquad E[\sym{X}{X}]=\sym{p}{p}\qquad \operatorname{Var}[\sym{X}{X}]=\sym{p}{p}(1-\sym{p}{p})\]
+<ul class="fx-vars">
+<li data-hoe="Eén stuk: 1 als het defect is, 0 als het goed is.">\(\sym{X}{X}\): de uitkomst van één item (0 of 1).</li>
+<li data-hoe="De fractie defect van het proces of het lot.">\(\sym{p}{p}\): de kans op 1.</li>
+</ul>
+<p class="fx-src">AS p. 6; momenten <span class="gen">algemeen</span>.</p>
+</section>
+
+<section data-block="verdelingen.1" data-uitleg="d06-srs">
+\[P(\sym{X}{X}=\sym{k}{k})=\binom{\sym{n}{n}}{\sym{k}{k}}\sym{p}{p}^{\sym{k}{k}}(1-\sym{p}{p})^{\sym{n}{n}-\sym{k}{k}}\qquad
+P(\sym{X}{X}\le\sym{k}{k})=\sum_{j=0}^{\sym{k}{k}}P(\sym{X}{X}=j)\qquad P(\sym{X}{X}\ge\sym{k}{k})=1-P(\sym{X}{X}\le\sym{k}{k}-1)\]
+\[E[\sym{X}{X}]=\sym{n}{n}\sym{p}{p}\qquad \operatorname{Var}[\sym{X}{X}]=\sym{n}{n}\sym{p}{p}(1-\sym{p}{p})\qquad
+\binom{\sym{n}{n}}{\sym{k}{k}}=\frac{\sym{n}{n}!}{\sym{k}{k}!\,(\sym{n}{n}-\sym{k}{k})!}\ \ (\text{cursus: }C_{n}^{k})\]
+<ul class="fx-vars">
+<li data-hoe="De steekproefgrootte, of het aantal herhalingen van het experiment.">\(\sym{n}{n}\): het aantal onafhankelijke pogingen.</li>
+<li data-hoe="De fractie defect, of de kans op succes per poging; gegeven of uit het verleden.">\(\sym{p}{p}\): de kans op succes bij elke poging.</li>
+<li data-hoe="Niet invullen: dit is wat het toeval bepaalt.">\(\sym{X}{X}\): het aantal successen in de \(n\) pogingen (een toevalsveranderlijke).</li>
+<li data-hoe="Het aantal uit de vraag: 'precies 2 defecten' geeft k = 2; 'hoogstens 3' geeft P(X ≤ 3). Omgekeerd: BINOM.INV geeft de kleinste k bij een kans.">\(\sym{k}{k}\): een bepaald aantal successen, het aantal waarvan je de kans wilt (\(0\le k\le n\)).</li>
+</ul>
+<p class="fx-src">AS p. 12, 16; Excel: BINOM.DIST(k; n; p; FALSE/TRUE).</p>
+</section>
+
+<section data-block="verdelingen.2" data-uitleg="d06-srs">
+\[P(\sym{X}{X}=\sym{k}{k})=\frac{\binom{\sym{D}{D}}{\sym{k}{k}}\binom{\sym{N}{N}-\sym{D}{D}}{\sym{n}{n}-\sym{k}{k}}}{\binom{\sym{N}{N}}{\sym{n}{n}}}\qquad P(\sym{X}{X}\le\sym{k}{k})=\sum_{j=0}^{\sym{k}{k}}P(\sym{X}{X}=j)\]
+\[E[\sym{X}{X}]=\sym{n}{n}\frac{\sym{D}{D}}{\sym{N}{N}}\qquad \operatorname{Var}[\sym{X}{X}]=\sym{n}{n}\frac{\sym{D}{D}}{\sym{N}{N}}\left(1-\frac{\sym{D}{D}}{\sym{N}{N}}\right)\frac{\sym{N}{N}-\sym{n}{n}}{\sym{N}{N}-1}\]
+<ul class="fx-vars">
+<li data-hoe="Het aantal stuks in het hele lot, bv. 10 000 tegels.">\(\sym{N}{N}\): de lotgrootte.</li>
+<li data-hoe="Gegeven, of fractie defect × N (cursus: M_p = [Np], naar beneden afgerond).">\(\sym{D}{D}\): het aantal defecte stuks in het lot.</li>
+<li data-hoe="Het aantal stuks dat je uit het lot trekt en controleert, bv. 100.">\(\sym{n}{n}\): de steekproefgrootte, getrokken zonder teruglegging.</li>
+<li data-hoe="Niet invullen: dit is het aantal dat de steekproef toevallig bevat.">\(\sym{X}{X}\): het aantal defecte stuks in de steekproef.</li>
+<li data-hoe="Het aantal uit de vraag: 'precies 2 defecten in de steekproef' geeft k = 2. Kan niet groter zijn dan n of D.">\(\sym{k}{k}\): een bepaald aantal defecten in de steekproef, het aantal waarvan je de kans wilt.</li>
+</ul>
+<p class="fx-sub">Lees de teller als: het aantal manieren om \(k\) van de \(D\) defecte stuks te kiezen, maal het aantal manieren om de
+andere \(n-k\) stuks uit de \(N-D\) goede te kiezen; de noemer telt alle mogelijke steekproeven. \(\binom{D}{k}=\frac{D!}{k!\,(D-k)!}\)
+(cursus: \(C_{D}^{k}\)). Voor \(n\ll N\) is dit bijna binomiaal met \(p=D/N\).</p>
+<p class="fx-src">AS p. 16; AS FR p. 4; variantie <span class="gen">algemeen</span>; Excel: HYPGEOM.DIST(k; n; D; N; FALSE/TRUE).</p>
+</section>
+
+<section data-block="verdelingen.3" data-uitleg="d02-poisson">
+\[P(\sym{X}{X}=\sym{k}{k})=e^{-\sym{lam}{\lambda}}\frac{\sym{lam}{\lambda}^{\sym{k}{k}}}{\sym{k}{k}!}\qquad P(\sym{X}{X}\le\sym{k}{k})=\sum_{j=0}^{\sym{k}{k}}P(\sym{X}{X}=j)\qquad E[\sym{X}{X}]=\operatorname{Var}[\sym{X}{X}]=\sym{lam}{\lambda}\]
+<ul class="fx-vars">
+<li data-hoe="Het gemiddelde aantal per interval, bv. 2,959 klanten per minuut (Data p. 9). Andere intervallengte: herschaal λ.">\(\sym{lam}{\lambda}\): het gemiddelde aantal gebeurtenissen per interval.</li>
+<li data-hoe="Niet invullen: het toevallige aantal.">\(\sym{X}{X}\): het aantal gebeurtenissen in één interval.</li>
+<li data-hoe="Het aantal uit de vraag: 'meer dan 7' is 1 − P(X ≤ 7).">\(\sym{k}{k}\): een bepaald aantal gebeurtenissen.</li>
+</ul>
+<p class="fx-src">Data p. 7–10 (de verdeling); formules <span class="gen">algemeen</span>; Excel: POISSON.DIST(k; λ; FALSE/TRUE).</p>
+</section>
+
+<section data-block="verdelingen.4" data-uitleg="d02-verdelingen">
+\[P(\sym{T}{T}\le\sym{t}{t})=1-e^{-\sym{lam}{\lambda}\sym{t}{t}}\qquad \sym{t}{t}=\frac{-\ln\big(1-P(\sym{T}{T}\le\sym{t}{t})\big)}{\sym{lam}{\lambda}}\qquad
+\sym{lam}{\lambda}=\frac{-\ln\big(1-P(\sym{T}{T}\le\sym{t}{t})\big)}{\sym{t}{t}}\qquad E[\sym{T}{T}]=\frac{1}{\sym{lam}{\lambda}}\qquad \operatorname{Var}[\sym{T}{T}]=\frac{1}{\sym{lam}{\lambda}^{2}}\]
+<ul class="fx-vars">
+<li data-hoe="Niet invullen: de toevallige wachttijd.">\(\sym{T}{T}\): de wachttijd tot de volgende gebeurtenis.</li>
+<li data-hoe="De tijd uit de vraag ('binnen 10 minuten').">\(\sym{t}{t}\): een bepaalde tijd.</li>
+<li data-hoe="Gebeurtenissen per tijdseenheid; is de gemiddelde wachttijd gegeven, dan λ = 1/gemiddelde.">\(\sym{lam}{\lambda}\): het gemiddelde aantal gebeurtenissen per tijdseenheid.</li>
+</ul>
+<p class="fx-src">Data p. 7 (wachttijden zijn exponentieel); formules <span class="gen">algemeen</span>.</p>
+</section>
+
+<section data-block="verdelingen.5" data-uitleg="d11-onzekerheid">
+\[P(\sym{X}{X}\le\sym{x}{x})=\frac{\sym{x}{x}-\sym{a}{a}}{\sym{b}{b}-\sym{a}{a}}\quad(\sym{a}{a}\le\sym{x}{x}\le\sym{b}{b})\qquad \sym{x}{x}=\sym{a}{a}+P\,(\sym{b}{b}-\sym{a}{a})\qquad
+E[\sym{X}{X}]=\frac{\sym{a}{a}+\sym{b}{b}}{2}\qquad \operatorname{Var}[\sym{X}{X}]=\frac{(\sym{b}{b}-\sym{a}{a})^{2}}{12}\]
+<ul class="fx-vars">
+<li data-hoe="De kleinste en de grootste mogelijke waarde; bij een afleesfout van ±0,5 mm: a = −0,5, b = 0,5.">\(\sym{a}{a}\), \(\sym{b}{b}\): de grenzen; elke waarde ertussen is even waarschijnlijk.</li>
+<li data-hoe="Niet invullen: de toevallige waarde.">\(\sym{X}{X}\): de uniform verdeelde grootheid.</li>
+<li data-hoe="De waarde uit de vraag.">\(\sym{x}{x}\): een bepaalde waarde.</li>
+</ul>
+<p class="fx-src"><span class="gen">algemeen</span> (een uniforme meetfout: MSA p. 28, stalen band).</p>
+</section>
+
+<section data-block="kruistabel.0" data-uitleg="d02-kansen">
+\[P(\sym{A}{A_{i}}\text{ en }\sym{B}{B_{j}})=\frac{\sym{nij}{n_{ij}}}{\sym{N}{N}}\qquad P(\sym{A}{A_{i}})=\frac{\sym{ni}{n_{i\cdot}}}{\sym{N}{N}}\qquad P(\sym{B}{B_{j}})=\frac{\sym{nj}{n_{\cdot j}}}{\sym{N}{N}}\]
+\[P(\sym{B}{B_{j}}\mid \sym{A}{A_{i}})=\frac{\sym{nij}{n_{ij}}}{\sym{ni}{n_{i\cdot}}}\qquad P(\sym{A}{A_{i}}\mid \sym{B}{B_{j}})=\frac{\sym{nij}{n_{ij}}}{\sym{nj}{n_{\cdot j}}}\qquad
+\text{onafhankelijk}\iff P(\sym{A}{A_{i}}\text{ en }\sym{B}{B_{j}})=P(\sym{A}{A_{i}})\,P(\sym{B}{B_{j}})\]
+<ul class="fx-vars">
+<li data-hoe="De rijen van de tabel, bv. geslacht of machine.">\(\sym{A}{A_{i}}\): categorie \(i\) van de eerste variabele (rij \(i\)).</li>
+<li data-hoe="De kolommen van de tabel, bv. goed/defect.">\(\sym{B}{B_{j}}\): categorie \(j\) van de tweede variabele (kolom \(j\)).</li>
+<li data-hoe="Het getal in de cel van rij i en kolom j.">\(\sym{nij}{n_{ij}}\): het aantal in rij \(i\) en kolom \(j\).</li>
+<li data-hoe="Tel rij i op.">\(\sym{ni}{n_{i\cdot}}\): het rijtotaal.</li>
+<li data-hoe="Tel kolom j op.">\(\sym{nj}{n_{\cdot j}}\): het kolomtotaal.</li>
+<li data-hoe="Tel alle cellen op.">\(\sym{N}{N}\): het totaal van de tabel.</li>
+</ul>
+<p class="fx-src">Data p. 18–23.</p>
+</section>
+
+<section data-block="steekproefplan.0" data-uitleg="d06-oc">
+\[\sym{OC}{\mathrm{OC}}(\sym{p}{p})=P(\sym{X}{X}\le\sym{c}{c}\mid\sym{p}{p})=\sum_{j=0}^{\sym{c}{c}}\binom{\sym{n}{n}}{j}\sym{p}{p}^{j}(1-\sym{p}{p})^{\sym{n}{n}-j}\ \ \text{(binomiaal)}\qquad
+\sym{OC}{\mathrm{OC}}(\sym{p}{p})=\sym{H}{H}(\sym{c}{c};\,\sym{N}{N},\sym{M}{M_{p}},\sym{n}{n}),\ \ \sym{M}{M_{p}}=[\sym{N}{N}\sym{p}{p}]\]
+\[\sym{alpha}{\alpha}=1-\sym{OC}{\mathrm{OC}}(\sym{aql}{\mathrm{AQL}})\qquad \sym{beta}{\beta}=\sym{OC}{\mathrm{OC}}(\sym{lql}{\mathrm{LQL}})\]
+<ul class="fx-vars">
+<li data-hoe="Het plan uit de opgave of uit een tabel (ISO 2859, Peach).">\(\sym{n}{n}\): de steekproefgrootte.</li>
+<li data-hoe="Het tweede getal van het plan (n, c).">\(\sym{c}{c}\): het aanvaardingsgetal: aanvaard het lot als de steekproef hoogstens \(c\) defecten heeft.</li>
+<li data-hoe="Niet invullen: het toevallige aantal defecten in de steekproef.">\(\sym{X}{X}\): het aantal defecten in de steekproef.</li>
+<li data-hoe="De kwaliteit van het lot waarvoor je de kans op aanvaarden wilt (vaak de AQL of de LQL).">\(\sym{p}{p}\): de fractie defect in het lot.</li>
+<li data-hoe="Alleen nodig voor de exacte (hypergeometrische) OC.">\(\sym{N}{N}\): de lotgrootte.</li>
+<li data-hoe="N·p, naar beneden afgerond.">\(\sym{M}{M_{p}}\): het aantal defecten in een lot met fractie \(p\).</li>
+<li data-hoe="HYPGEOM.DIST(c; n; M; N; TRUE).">\(\sym{H}{H}\): de cumulatieve hypergeometrische kans \(P(X\le c)\).</li>
+<li data-hoe="Reken de som uit, BINOM.DIST(c; n; p; TRUE), of lees de OC-curve.">\(\sym{OC}{\mathrm{OC}}\): de kans dat een lot met fractie defect \(p\) aanvaard wordt (operating characteristic).</li>
+<li data-hoe="Afgesproken met de klant; bv. 2 % in het tegelvoorbeeld (TH p. 3).">\(\sym{aql}{\mathrm{AQL}}\): een goede kwaliteit die je bijna altijd wilt aanvaarden.</li>
+<li data-hoe="Afgesproken; de kwaliteit die de klant zeker wil afkeuren (LTPD).">\(\sym{lql}{\mathrm{LQL}}\): een slechte kwaliteit die je bijna altijd wilt afkeuren.</li>
+<li data-hoe="1 − OC(AQL); het doel is meestal 5 %.">\(\sym{alpha}{\alpha}\): het producentenrisico: een goed lot afkeuren.</li>
+<li data-hoe="OC(LQL); het doel is meestal 10 %.">\(\sym{beta}{\beta}\): het consumentenrisico: een slecht lot aanvaarden.</li>
+</ul>
+<p class="fx-src">AS FR p. 2, 4.</p>
+</section>
+
+<section data-block="steekproefplan.1" data-uitleg="d06-aoq">
+\[\sym{aoq}{\mathrm{AOQ}}(\sym{p}{p})=\sym{p}{p}\cdot\sym{OC}{\mathrm{OC}}(\sym{p}{p})\cdot\left(1-\frac{\sym{n}{n}}{\sym{N}{N}}\sym{R}{R_{s}^{*}}\right)\approx \sym{p}{p}\cdot\sym{OC}{\mathrm{OC}}(\sym{p}{p})\qquad
+\sym{ati}{\mathrm{ATI}}(\sym{p}{p})=\sym{n}{n}\cdot\sym{OC}{\mathrm{OC}}(\sym{p}{p})+\sym{N}{N}\big(1-\sym{OC}{\mathrm{OC}}(\sym{p}{p})\big)\]
+\[\sym{R}{R_{s}^{*}}=\frac{H(\sym{c}{c}-1;\,\sym{N}{N}-1,[\sym{N}{N}\sym{p}{p}]-1,\,\sym{n}{n}-1)}{H(\sym{c}{c};\,\sym{N}{N},[\sym{N}{N}\sym{p}{p}],\,\sym{n}{n})}\]
+<ul class="fx-vars">
+<li data-hoe="De kwaliteit van het binnenkomende lot.">\(\sym{p}{p}\): de fractie defect van het lot.</li>
+<li data-hoe="Uit het plan (n, c).">\(\sym{n}{n}\), \(\sym{c}{c}\): de steekproefgrootte en het aanvaardingsgetal.</li>
+<li data-hoe="Uit de opgave.">\(\sym{N}{N}\): de lotgrootte.</li>
+<li data-hoe="Zie het eerste blok: de kans op aanvaarden.">\(\sym{OC}{\mathrm{OC}}\): de kans dat het lot aanvaard wordt.</li>
+<li data-hoe="Uit de formule; met H de cumulatieve hypergeometrische kans.">\(\sym{R}{R_{s}^{*}}\): de correctie voor de defecten die al in de steekproef gevonden en vervangen zijn; verwaarloosbaar als \(n\ll N\).</li>
+<li data-hoe="p·OC(p) bij een groot lot.">\(\sym{aoq}{\mathrm{AOQ}}\): de gemiddelde uitgaande kwaliteit: fractie defect na de controle (afgekeurde loten worden volledig gesorteerd).</li>
+<li data-hoe="Uit de formule.">\(\sym{ati}{\mathrm{ATI}}\): het gemiddelde aantal gecontroleerde stuks per lot.</li>
+</ul>
+<p class="fx-src">AS FR p. 10.</p>
+</section>
+
+<section data-block="steekproefplan.2" data-uitleg="d06-aoq">
+\[\sym{aoql}{\mathrm{AOQL}}=\max_{\sym{p}{p}}\ \sym{aoq}{\mathrm{AOQ}}(\sym{p}{p})\]
+<ul class="fx-vars">
+<li data-hoe="Lees de top van de AOQ-curve, of laat de rekenmachine zoeken.">\(\sym{aoql}{\mathrm{AOQL}}\): de slechtste gemiddelde uitgaande kwaliteit, over alle binnenkomende kwaliteiten \(p\).</li>
+<li data-hoe="Zie het blok 'Eén lotkwaliteit p'.">\(\sym{aoq}{\mathrm{AOQ}}\): de gemiddelde uitgaande kwaliteit bij lotkwaliteit \(p\).</li>
+<li data-hoe="Met N: alle lotfracties M/N; zonder N: stappen van 0,0001 (binomiaal).">\(\sym{p}{p}\): de fractie defect van het binnenkomende lot.</li>
+</ul>
+<p class="fx-src">AS FR p. 10.</p>
+</section>
+
+<section data-block="steekproefplan.3" data-uitleg="d06-oc">
+\[\sym{OC}{\mathrm{OC}}(\sym{p}{p}),\ \mathrm{AOQ}(\sym{p}{p}),\ \mathrm{ATI}(\sym{p}{p})\ \ \text{voor}\ \ \sym{p}{p}=0,\ \sym{dp}{\Delta p},\ 2\,\sym{dp}{\Delta p},\ \ldots\]
+<ul class="fx-vars">
+<li data-hoe="Een reeks lotkwaliteiten.">\(\sym{p}{p}\): de fractie defect van het lot.</li>
+<li data-hoe="Kies bv. 0,01 tot 0,1 voor een OC-curve.">\(\sym{dp}{\Delta p}\): de stap tussen twee lotkwaliteiten.</li>
+<li data-hoe="Dezelfde formules als in de twee eerste blokken.">\(\sym{OC}{\mathrm{OC}}\): de kans op aanvaarden; AOQ en ATI zoals in het blok 'Eén lotkwaliteit p'.</li>
+</ul>
+<p class="fx-src">AS FR p. 4, 10.</p>
+</section>
+
+<section data-block="steekproefplan.4" data-uitleg="d06-variabelen">
+\[\sym{k}{k}=\frac{\sym{z}{z}_{\sym{pt}{p_{t}}}\,\sym{z}{z}_{\sym{alpha}{\alpha}}+\sym{z}{z}_{\sym{p0}{p_{0}}}\,\sym{z}{z}_{\sym{beta}{\beta}}}{\sym{z}{z}_{1-\sym{alpha}{\alpha}}+\sym{z}{z}_{1-\sym{beta}{\beta}}}\qquad
+\sym{n}{n}=\frac{\left(\sym{z}{z}_{1-\sym{alpha}{\alpha}}+\sym{z}{z}_{1-\sym{beta}{\beta}}\right)^{2}\left(1+\frac{\sym{k}{k}^{2}}{2}\right)}{\left(\sym{z}{z}_{\sym{pt}{p_{t}}}-\sym{z}{z}_{\sym{p0}{p_{0}}}\right)^{2}}\qquad
+\mathrm{OC}(p)\approx1-\Phi\left(\frac{(\sym{z}{z}_{p}+\sym{k}{k})\sqrt{\sym{n}{n}}}{\sqrt{1+\sym{k}{k}^{2}/2}}\right)\]
+<ul class="fx-vars">
+<li data-hoe="De goede kwaliteit uit de opgave.">\(\sym{p0}{p_{0}}\): de AQL.</li>
+<li data-hoe="De slechte kwaliteit uit de opgave.">\(\sym{pt}{p_{t}}\): de LQL.</li>
+<li data-hoe="Meestal 5 %.">\(\sym{alpha}{\alpha}\): het producentenrisico.</li>
+<li data-hoe="Meestal 10 %.">\(\sym{beta}{\beta}\): het consumentenrisico.</li>
+<li data-hoe="NORM.S.INV(q); voor een kleine fractie negatief (z₀,₀₁ = −2,33).">\(\sym{z}{z}\): \(z_{q}\) is het \(q\)-kwantiel van de standaardnormale verdeling.</li>
+<li data-hoe="Uit de formule.">\(\sym{k}{k}\): de aanvaardingsfactor: aanvaard als \((\bar{X}-\xi)/s\ge k\).</li>
+<li data-hoe="Uit de formule, naar boven afronden.">\(\sym{n}{n}\): de steekproefgrootte.</li>
+</ul>
+<p class="fx-src">AS FR p. 9; AS p. 26–27.</p>
+</section>
+
+<section data-block="steekproefplan.5" data-uitleg="d06-oc">
+\[\sym{OC}{\mathrm{OC}}(\sym{p}{p})=1-\alpha\ \Rightarrow\ \sym{p}{p}=\text{AQL van het plan}\qquad \sym{OC}{\mathrm{OC}}(\sym{p}{p})=\beta\ \Rightarrow\ \sym{p}{p}=\text{LQL van het plan}\qquad
+\sym{c}{c}=0:\ \sym{p}{p}=1-\sym{OC}{\mathrm{OC}}^{1/\sym{n}{n}}\]
+<ul class="fx-vars">
+<li data-hoe="Uit het plan.">\(\sym{n}{n}\), \(\sym{c}{c}\): de steekproefgrootte en het aanvaardingsgetal.</li>
+<li data-hoe="1 − α (bv. 0,95) voor de AQL, β (bv. 0,10) voor de LQL.">\(\sym{OC}{\mathrm{OC}}\): de gevraagde kans op aanvaarden (binomiaal).</li>
+<li data-hoe="De rekenmachine zoekt p door bisectie.">\(\sym{p}{p}\): de lotkwaliteit waarbij het plan die kans op aanvaarden heeft.</li>
+</ul>
+<p class="fx-src">AS FR p. 4, 17.</p>
+</section>
+
+<section data-block="regressie.0" data-uitleg="d07-kk">
+\[\sym{Y}{Y}=\sym{b0t}{\beta_{0}}+\sym{b1t}{\beta_{1}}\sym{x}{x}+\sym{eps}{\varepsilon}\qquad \sym{b1}{\hat{\beta}_{1}}=\frac{\sym{Sxy}{S_{xy}}}{\sym{Sxx}{S_{xx}}}\qquad \sym{b0}{\hat{\beta}_{0}}=\sym{ybar}{\bar{y}}-\sym{b1}{\hat{\beta}_{1}}\sym{xbar}{\bar{x}}\]
+\[\sym{Sxx}{S_{xx}}=\sum(x_{i}-\sym{xbar}{\bar{x}})^{2}\qquad \sym{Sxy}{S_{xy}}=\sum(x_{i}-\sym{xbar}{\bar{x}})(y_{i}-\sym{ybar}{\bar{y}})\qquad
+\sym{sst}{\mathrm{SS}_{T}}=\sum(y_{i}-\sym{ybar}{\bar{y}})^{2}=\sym{ssr}{\mathrm{SS}_{R}}+\sym{sse}{\mathrm{SS}_{E}},\ \ \sym{ssr}{\mathrm{SS}_{R}}=\sym{b1}{\hat{\beta}_{1}}\sym{Sxy}{S_{xy}}\]
+\[\sym{mse}{\mathrm{MS}_{E}}=\frac{\sym{sse}{\mathrm{SS}_{E}}}{\sym{n}{n}-2}\qquad \sym{r2}{R^{2}}=\frac{\sym{ssr}{\mathrm{SS}_{R}}}{\sym{sst}{\mathrm{SS}_{T}}}\qquad
+\sym{r2a}{R^{2}_{\mathrm{adj}}}=1-\frac{(1-\sym{r2}{R^{2}})(\sym{n}{n}-1)}{\sym{n}{n}-2}\qquad \sym{F0}{F_{0}}=\frac{\sym{ssr}{\mathrm{SS}_{R}}/1}{\sym{mse}{\mathrm{MS}_{E}}}\sim F(1,\sym{n}{n}-2)\]
+\[\sym{t0}{t_{0}}=\frac{\sym{b1}{\hat{\beta}_{1}}-\sym{h1}{\beta_{1,0}}}{\sqrt{\sym{mse}{\mathrm{MS}_{E}}/\sym{Sxx}{S_{xx}}}}\qquad \sym{t0}{t_{0}}=\frac{\sym{b0}{\hat{\beta}_{0}}-\sym{h0}{\beta_{0,0}}}{\sqrt{\sym{mse}{\mathrm{MS}_{E}}\left(\frac{1}{\sym{n}{n}}+\frac{\sym{xbar}{\bar{x}}^{2}}{\sym{Sxx}{S_{xx}}}\right)}}\qquad\sim t(\sym{n}{n}-2)\]
+\[\sym{y0}{\hat{y}_{0}}\pm t_{1-\alpha/2;\,\sym{n}{n}-2}\sqrt{\sym{mse}{\mathrm{MS}_{E}}\left(\frac{1}{\sym{n}{n}}+\frac{(\sym{x0}{x_{0}}-\sym{xbar}{\bar{x}})^{2}}{\sym{Sxx}{S_{xx}}}\right)}\ \text{(BI)}\qquad
+\sym{y0}{\hat{y}_{0}}\pm t_{1-\alpha/2;\,\sym{n}{n}-2}\sqrt{\sym{mse}{\mathrm{MS}_{E}}\left(1+\frac{1}{\sym{n}{n}}+\frac{(\sym{x0}{x_{0}}-\sym{xbar}{\bar{x}})^{2}}{\sym{Sxx}{S_{xx}}}\right)}\ \text{(PI)}\]
+<ul class="fx-vars">
+<li data-hoe="De paren (x, y) uit de opgave; tel ze.">\(\sym{x}{x}\), \(\sym{Y}{Y}\): de verklarende variabele en de respons; \(\sym{n}{n}\): het aantal paren.</li>
+<li data-hoe="AVERAGE van de x- en van de y-waarden.">\(\sym{xbar}{\bar{x}}\), \(\sym{ybar}{\bar{y}}\): de gemiddelden.</li>
+<li data-hoe="Onbekend; ze worden geschat.">\(\sym{b0t}{\beta_{0}}\), \(\sym{b1t}{\beta_{1}}\): het ware intercept en de ware helling.</li>
+<li data-hoe="Onbekend; N(0, σ²).">\(\sym{eps}{\varepsilon}\): de toevallige fout.</li>
+<li data-hoe="DEVSQ van de x-waarden, of Σx² − n·x̄².">\(\sym{Sxx}{S_{xx}}\): de kwadratensom van de x-waarden.</li>
+<li data-hoe="Σxy − n·x̄·ȳ.">\(\sym{Sxy}{S_{xy}}\): de som van de kruisproducten.</li>
+<li data-hoe="SLOPE en INTERCEPT in Excel; 'Coef' in Minitab.">\(\sym{b1}{\hat{\beta}_{1}}\), \(\sym{b0}{\hat{\beta}_{0}}\): de kleinste-kwadratenschattingen (\(b_{1}\), \(b_{0}\)).</li>
+<li data-hoe="ANOVA-tabel van de output.">\(\sym{sst}{\mathrm{SS}_{T}}\), \(\sym{ssr}{\mathrm{SS}_{R}}\), \(\sym{sse}{\mathrm{SS}_{E}}\): totale, verklaarde en onverklaarde kwadratensom.</li>
+<li data-hoe="SS_E/(n − 2); Minitab S = √MS_E.">\(\sym{mse}{\mathrm{MS}_{E}}\): de residuele variantie \(\hat{\sigma}^{2}\).</li>
+<li data-hoe="SS_R/SS_T; 'R-Sq' in Minitab.">\(\sym{r2}{R^{2}}\): de fractie verklaarde variatie.</li>
+<li data-hoe="REG p. 56 drukt de noemer n − k − 2; de outputs gebruiken n − k − 1 (hier k = 1).">\(\sym{r2a}{R^{2}_{\mathrm{adj}}}\): de aangepaste \(R^{2}\).</li>
+<li data-hoe="MS_R/MS_E; bij één x gelijk aan t₀² van de helling.">\(\sym{F0}{F_{0}}\): de F-toetsgrootheid van de regressie.</li>
+<li data-hoe="Uit de formule; vergelijk met T.INV(1 − α/2; n − 2).">\(\sym{t0}{t_{0}}\): de t-toetsgrootheid voor de helling of het intercept.</li>
+<li data-hoe="Meestal 0 ('is er een verband?').">\(\sym{h1}{\beta_{1,0}}\), \(\sym{h0}{\beta_{0,0}}\): de waarden onder \(H_{0}\).</li>
+<li data-hoe="De x-waarde uit de vraag ('bij 1,5 % koolwaterstof').">\(\sym{x0}{x_{0}}\): de x-waarde waar je voorspelt.</li>
+<li data-hoe="b₀ + b₁·x₀.">\(\sym{y0}{\hat{y}_{0}}\): de voorspelling; BI voor de gemiddelde respons, PI (breder) voor één nieuwe waarneming.</li>
+</ul>
+<p class="fx-src">REG p. 4, 17–38, 56.</p>
+</section>
+
+<section data-block="regressie.1" data-uitleg="d07-kk">
+\[\sym{xbar}{\bar{x}}=\frac{\sym{sx}{\textstyle\sum x}}{\sym{n}{n}},\ \ \sym{ybar}{\bar{y}}=\frac{\sym{sy}{\textstyle\sum y}}{\sym{n}{n}}\qquad
+\sym{Sxx}{S_{xx}}=\sym{sxx}{\textstyle\sum x^{2}}-\sym{n}{n}\sym{xbar}{\bar{x}}^{2}\qquad \sym{Sxy}{S_{xy}}=\sym{sxy}{\textstyle\sum xy}-\sym{n}{n}\sym{xbar}{\bar{x}}\sym{ybar}{\bar{y}}\qquad
+\sym{b1}{b_{1}}=\frac{\sym{Sxy}{S_{xy}}}{\sym{Sxx}{S_{xx}}}\qquad \sym{b0}{b_{0}}=\sym{ybar}{\bar{y}}-\sym{b1}{b_{1}}\sym{xbar}{\bar{x}}\]
+\[\mathrm{SS}_{T}=\sym{syy}{\textstyle\sum y^{2}}-\sym{n}{n}\sym{ybar}{\bar{y}}^{2}\qquad \mathrm{SS}_{R}=\sym{b1}{b_{1}}\sym{Sxy}{S_{xy}}\qquad \mathrm{SS}_{E}=\mathrm{SS}_{T}-\mathrm{SS}_{R}\qquad \mathrm{MS}_{E}=\frac{\mathrm{SS}_{E}}{\sym{n}{n}-2}\]
+<ul class="fx-vars">
+<li data-hoe="Tel de paren.">\(\sym{n}{n}\): het aantal paren.</li>
+<li data-hoe="Uit de opgave, of SUM van de kolommen.">\(\sym{sx}{\textstyle\sum x}\), \(\sym{sy}{\textstyle\sum y}\): de sommen van de x- en de y-waarden.</li>
+<li data-hoe="SUMSQ van de x-waarden.">\(\sym{sxx}{\textstyle\sum x^{2}}\): de som van de kwadraten van x.</li>
+<li data-hoe="SUMPRODUCT van x en y.">\(\sym{sxy}{\textstyle\sum xy}\): de som van de producten.</li>
+<li data-hoe="SUMSQ van de y-waarden (optioneel).">\(\sym{syy}{\textstyle\sum y^{2}}\): de som van de kwadraten van y.</li>
+<li data-hoe="Uit de sommen.">\(\sym{xbar}{\bar{x}}\), \(\sym{ybar}{\bar{y}}\): de gemiddelden; \(\sym{Sxx}{S_{xx}}\), \(\sym{Sxy}{S_{xy}}\): de gecentreerde sommen.</li>
+<li data-hoe="Uit de formule.">\(\sym{b1}{b_{1}}\), \(\sym{b0}{b_{0}}\): de helling en het intercept.</li>
+</ul>
+<p class="fx-src">REG p. 18, 27–28.</p>
+</section>
+
+<section data-block="regressie.2" data-uitleg="d07-anova">
+\[\sym{sst}{\mathrm{SS}_{T}}=\sym{ssr}{\mathrm{SS}_{R}}+\sym{sse}{\mathrm{SS}_{E}}\qquad \sym{r2}{R^{2}}=\frac{\sym{ssr}{\mathrm{SS}_{R}}}{\sym{sst}{\mathrm{SS}_{T}}}\qquad
+\sym{msr}{\mathrm{MS}_{R}}=\frac{\sym{ssr}{\mathrm{SS}_{R}}}{\sym{k}{k}}\qquad \sym{mse}{\mathrm{MS}_{E}}=\frac{\sym{sse}{\mathrm{SS}_{E}}}{\sym{n}{n}-\sym{k}{k}-1}\qquad \sym{s}{\hat{\sigma}}=\sqrt{\sym{mse}{\mathrm{MS}_{E}}}\]
+\[\sym{F0}{F_{0}}=\frac{\sym{msr}{\mathrm{MS}_{R}}}{\sym{mse}{\mathrm{MS}_{E}}}\sim F(\sym{k}{k},\,\sym{n}{n}-\sym{k}{k}-1)\qquad R^{2}_{\mathrm{adj}}=1-\frac{(1-\sym{r2}{R^{2}})(\sym{n}{n}-1)}{\sym{n}{n}-\sym{k}{k}-1}\]
+<ul class="fx-vars">
+<li data-hoe="De kolom SS van de ANOVA-tabel (Regression, Residual Error).">\(\sym{ssr}{\mathrm{SS}_{R}}\), \(\sym{sse}{\mathrm{SS}_{E}}\): de verklaarde en de onverklaarde kwadratensom; \(\sym{sst}{\mathrm{SS}_{T}}\): de totale.</li>
+<li data-hoe="Tel de waarnemingen.">\(\sym{n}{n}\): het aantal waarnemingen.</li>
+<li data-hoe="Het aantal x-kolommen; 1 bij enkelvoudige regressie.">\(\sym{k}{k}\): het aantal regressoren.</li>
+<li data-hoe="SS gedeeld door de vrijheidsgraden.">\(\sym{msr}{\mathrm{MS}_{R}}\), \(\sym{mse}{\mathrm{MS}_{E}}\): de mean squares.</li>
+<li data-hoe="Minitab S, Excel 'Standard Error'.">\(\sym{s}{\hat{\sigma}}\): de residuele standaardafwijking.</li>
+<li data-hoe="Vergelijk met F.INV.RT(α; k; n − k − 1).">\(\sym{F0}{F_{0}}\): de F-toetsgrootheid van het model.</li>
+<li data-hoe="SS_R/SS_T; REG p. 56 drukt R²adj met n − k − 2, beide staan in de uitkomst.">\(\sym{r2}{R^{2}}\): de fractie verklaarde variatie.</li>
+</ul>
+<p class="fx-src">REG p. 27–33, 56–57.</p>
+</section>
+
+<section data-block="regressie.3" data-uitleg="d07-toetsen">
+\[\sym{se1}{\mathrm{se}(b_{1})}=\sqrt{\frac{\sym{mse}{\mathrm{MS}_{E}}}{\sym{Sxx}{S_{xx}}}}\qquad \sym{se0}{\mathrm{se}(b_{0})}=\sqrt{\sym{mse}{\mathrm{MS}_{E}}\left(\frac{1}{\sym{n}{n}}+\frac{\sym{xbar}{\bar{x}}^{2}}{\sym{Sxx}{S_{xx}}}\right)}\qquad
+t_{0}=\frac{\sym{b}{b}-\sym{bh}{\beta_{H_{0}}}}{\mathrm{se}(\sym{b}{b})}\sim t(\sym{n}{n}-2)\qquad \sym{b}{b}\pm t_{1-\alpha/2;\,\sym{n}{n}-2}\,\mathrm{se}(\sym{b}{b})\]
+\[\sym{y0}{\hat{y}_{0}}=b_{0}+b_{1}\sym{x0}{x_{0}}\qquad
+\mathrm{se}_{\text{gem}}=\sqrt{\sym{mse}{\mathrm{MS}_{E}}\left(\frac{1}{\sym{n}{n}}+\frac{(\sym{x0}{x_{0}}-\sym{xbar}{\bar{x}})^{2}}{\sym{Sxx}{S_{xx}}}\right)}\qquad
+\mathrm{se}_{\text{nieuw}}=\sqrt{\sym{mse}{\mathrm{MS}_{E}}\left(1+\frac{1}{\sym{n}{n}}+\frac{(\sym{x0}{x_{0}}-\sym{xbar}{\bar{x}})^{2}}{\sym{Sxx}{S_{xx}}}\right)}\]
+<ul class="fx-vars">
+<li data-hoe="Uit de output (Coef) of uit de sommen.">\(\sym{b}{b}\): de geschatte helling \(b_{1}\) of het intercept \(b_{0}\).</li>
+<li data-hoe="Uit de ANOVA-tabel (MS van Residual).">\(\sym{mse}{\mathrm{MS}_{E}}\): de residuele variantie.</li>
+<li data-hoe="Σx² − n·x̄², of DEVSQ van de x-waarden.">\(\sym{Sxx}{S_{xx}}\): de kwadratensom van x.</li>
+<li data-hoe="Tel de paren; AVERAGE van x.">\(\sym{n}{n}\): het aantal paren; \(\sym{xbar}{\bar{x}}\): het gemiddelde van x.</li>
+<li data-hoe="Uit de formule; 'SE Coef' in Minitab.">\(\sym{se1}{\mathrm{se}(b_{1})}\), \(\sym{se0}{\mathrm{se}(b_{0})}\): de standaardfouten.</li>
+<li data-hoe="Meestal 0.">\(\sym{bh}{\beta_{H_{0}}}\): de waarde onder \(H_{0}\).</li>
+<li data-hoe="De x-waarde uit de vraag.">\(\sym{x0}{x_{0}}\): waar je voorspelt; \(\sym{y0}{\hat{y}_{0}}\): de voorspelling. BI: \(\hat{y}_{0}\pm t\cdot\mathrm{se}_{\text{gem}}\); PI: \(\hat{y}_{0}\pm t\cdot\mathrm{se}_{\text{nieuw}}\).</li>
+</ul>
+<p class="fx-src">REG p. 30–38.</p>
+</section>
+
+<section data-block="regressie.4" data-uitleg="d07-polynoom">
+\[\sym{F0}{F_{0}}=\frac{\big(\sym{rm}{\mathrm{SS}_{E}(\mathrm{RM})}-\sym{fm}{\mathrm{SS}_{E}(\mathrm{FM})}\big)/(\sym{kr}{k-r})}{\sym{fm}{\mathrm{SS}_{E}(\mathrm{FM})}/(\sym{np}{n-p})}\sim F(\sym{kr}{k-r},\,\sym{np}{n-p})\]
+<ul class="fx-vars">
+<li data-hoe="De residuele SS van de output van het kleinere model.">\(\sym{rm}{\mathrm{SS}_{E}(\mathrm{RM})}\): de foutkwadratensom van het gereduceerde model (zonder de extra termen).</li>
+<li data-hoe="De residuele SS van de output van het grotere model.">\(\sym{fm}{\mathrm{SS}_{E}(\mathrm{FM})}\): de foutkwadratensom van het volledige model.</li>
+<li data-hoe="Tel de termen die erbij komen (bv. x² erbij: 1).">\(\sym{kr}{k-r}\): het aantal toegevoegde termen.</li>
+<li data-hoe="De df van Residual in de output van het volledige model.">\(\sym{np}{n-p}\): de vrijheidsgraden van de fout van het volledige model.</li>
+<li data-hoe="Vergelijk met F.INV.RT(α; k − r; n − p).">\(\sym{F0}{F_{0}}\): groot (p-waarde \(\lt\alpha\)): de extra termen verklaren significant meer.</li>
+</ul>
+<p class="fx-src">REG p. 61.</p>
+</section>
+
+<section data-block="regressie.5" data-uitleg="d07-radj">
+\[\sym{r2a}{R^{2}_{\mathrm{adj}}}=1-\frac{(1-\sym{r2}{R^{2}})(\sym{n}{n}-1)}{\sym{n}{n}-\sym{k}{k}-1}\]
+<ul class="fx-vars">
+<li data-hoe="Uit de output ('R-Sq'), als fractie.">\(\sym{r2}{R^{2}}\): de determinatiecoëfficiënt.</li>
+<li data-hoe="Tel de waarnemingen.">\(\sym{n}{n}\): het aantal waarnemingen.</li>
+<li data-hoe="Het aantal x-termen in het model.">\(\sym{k}{k}\): het aantal regressoren.</li>
+<li data-hoe="Uit de formule; REG p. 56 drukt de noemer n − k − 2.">\(\sym{r2a}{R^{2}_{\mathrm{adj}}}\): de aangepaste \(R^{2}\) (straft extra termen af).</li>
+</ul>
+<p class="fx-src">REG p. 56.</p>
+</section>
+
+<section data-block="anova.0" data-uitleg="d08-opsplitsing">
+\[\sym{Y}{Y_{ij}}=\sym{mu}{\mu}+\sym{tau}{\tau_{i}}+\sym{eps}{\varepsilon_{ij}}\qquad \sym{sst}{\mathrm{SS}_{T}}=\sum_{i}\sum_{j}(\sym{Y}{y_{ij}}-\sym{gm}{\bar{y}_{\cdot\cdot}})^{2}\qquad
+\sym{sstr}{\mathrm{SS}_{\mathrm{Tr}}}=\sum_{i}\sym{ni}{n_{i}}(\sym{yi}{\bar{y}_{i\cdot}}-\sym{gm}{\bar{y}_{\cdot\cdot}})^{2}\qquad \sym{sse}{\mathrm{SS}_{E}}=\sym{sst}{\mathrm{SS}_{T}}-\sym{sstr}{\mathrm{SS}_{\mathrm{Tr}}}\]
+\[\sym{mstr}{\mathrm{MS}_{\mathrm{Tr}}}=\frac{\sym{sstr}{\mathrm{SS}_{\mathrm{Tr}}}}{\sym{a}{a}-1}\qquad \sym{mse}{\mathrm{MS}_{E}}=\frac{\sym{sse}{\mathrm{SS}_{E}}}{\sym{N}{N}-\sym{a}{a}}\qquad
+\sym{F}{F}=\frac{\sym{mstr}{\mathrm{MS}_{\mathrm{Tr}}}}{\sym{mse}{\mathrm{MS}_{E}}}\sim F(\sym{a}{a}-1,\,\sym{N}{N}-\sym{a}{a})\qquad s_{p}=\sqrt{\sym{mse}{\mathrm{MS}_{E}}}\]
+<ul class="fx-vars">
+<li data-hoe="Het aantal niveaus (machines, temperaturen, …).">\(\sym{a}{a}\): het aantal groepen (behandelingen).</li>
+<li data-hoe="Tel de metingen per groep.">\(\sym{ni}{n_{i}}\): het aantal waarnemingen in groep \(i\).</li>
+<li data-hoe="Tel alle metingen (bij gelijke groepen N = a·n).">\(\sym{N}{N}\): het totale aantal waarnemingen.</li>
+<li data-hoe="Een meting uit de data.">\(\sym{Y}{y_{ij}}\): waarneming \(j\) van groep \(i\).</li>
+<li data-hoe="AVERAGE per groep.">\(\sym{yi}{\bar{y}_{i\cdot}}\): het groepsgemiddelde.</li>
+<li data-hoe="AVERAGE van alle metingen.">\(\sym{gm}{\bar{y}_{\cdot\cdot}}\): het algemeen gemiddelde.</li>
+<li data-hoe="Onbekend; schat ze met de groepsgemiddelden min het algemeen gemiddelde.">\(\sym{mu}{\mu}\): het algemeen gemiddelde van de populatie; \(\sym{tau}{\tau_{i}}\): het effect van groep \(i\) (\(H_{0}\): alle \(\tau_{i}=0\)).</li>
+<li data-hoe="Onbekend; N(0, σ²).">\(\sym{eps}{\varepsilon_{ij}}\): de toevallige fout.</li>
+<li data-hoe="Uit de formules; de ANOVA-tabel van Excel of Minitab.">\(\sym{sst}{\mathrm{SS}_{T}}\), \(\sym{sstr}{\mathrm{SS}_{\mathrm{Tr}}}\), \(\sym{sse}{\mathrm{SS}_{E}}\): totale, behandelings- en foutkwadratensom; \(\sym{mstr}{\mathrm{MS}_{\mathrm{Tr}}}\), \(\sym{mse}{\mathrm{MS}_{E}}\): de mean squares.</li>
+<li data-hoe="Verwerp H₀ als F &gt; F.INV.RT(α; a − 1; N − a).">\(\sym{F}{F}\): de F-toetsgrootheid.</li>
+</ul>
+<p class="fx-src">DOE p. 3–15.</p>
+</section>
+
+<section data-block="factorieel.0" data-uitleg="d08-contrast">
+\[\sym{C}{\text{Contrast}_{Q}}=\sum_{\text{runs}}(\pm1)\cdot\sym{yr}{y_{\text{run}}}\qquad
+\sym{E}{\text{effect}_{Q}}=\frac{\sym{C}{\text{Contrast}_{Q}}}{\sym{n}{n}\cdot2^{\sym{k}{k}-1}}\qquad
+\sym{SS}{\mathrm{SS}_{Q}}=\frac{\sym{C}{\text{Contrast}_{Q}}^{2}}{\sym{n}{n}\cdot2^{\sym{k}{k}}}\ (1\ \mathrm{df})\]
+\[\text{coëfficiënt}=\frac{\sym{E}{\text{effect}}}{2}\qquad \mathrm{s.e.}(\sym{E}{\text{effect}})=\sqrt{\frac{\sym{s2}{\hat{\sigma}^{2}}}{\sym{n}{n}\cdot2^{\sym{k}{k}-2}}}\qquad
+\sym{E}{\text{effect}}\pm2\,\mathrm{s.e.}\qquad F_{0}=\frac{\sym{SS}{\mathrm{SS}_{Q}}}{\sym{s2}{\hat{\sigma}^{2}}}\sim F(1,\mathrm{df}_{E})\]
+<ul class="fx-vars">
+<li data-hoe="Het aantal factoren in het ontwerp.">\(\sym{k}{k}\): het aantal factoren; \(2^{k}\) runs in standaardvolgorde (1), a, b, ab, c, …</li>
+<li data-hoe="Het aantal metingen per run.">\(\sym{n}{n}\): het aantal herhalingen per run.</li>
+<li data-hoe="Tel de herhalingen van die run op.">\(\sym{yr}{y_{\text{run}}}\): het totaal van een run.</li>
+<li data-hoe="Teken uit de tekentabel: + als de run het effect op hoog heeft (bij een interactie: product van de tekens).">\(\sym{C}{\text{Contrast}_{Q}}\): de som van de runtotalen met het teken van de kolom van effect \(Q\) (A, B, AB, …).</li>
+<li data-hoe="Gemiddelde bij + min gemiddelde bij −.">\(\sym{E}{\text{effect}_{Q}}\): het effect van \(Q\).</li>
+<li data-hoe="Uit het contrast.">\(\sym{SS}{\mathrm{SS}_{Q}}\): de kwadratensom van \(Q\).</li>
+<li data-hoe="MS van de fout: zuivere fout (herhalingen) plus eventueel gepoolde hogere interacties.">\(\sym{s2}{\hat{\sigma}^{2}}\): de foutvariantie \(\mathrm{MS}_{E}\).</li>
+</ul>
+<p class="fx-src">DOE p. 46–79.</p>
+</section>
+
+<section data-block="aliassen.0" data-uitleg="d08-fractie">
+\[\sym{g}{D=ABC}\ \Rightarrow\ \sym{I}{I=ABCD}\qquad A\cdot A=I\qquad \text{alias van }E:\ E\cdot\text{woord}\qquad 2^{\sym{k}{k}-\sym{p}{p}}\ \text{runs}\qquad \text{resolutie}=\text{lengte van het kortste woord}\]
+<ul class="fx-vars">
+<li data-hoe="Uit de opgave, of kies de hoogste interactie van de basisfactoren.">\(\sym{g}{D=ABC}\): een generator: een extra factor gelijkgesteld aan een interactie van basisfactoren.</li>
+<li data-hoe="Vermenigvuldig beide kanten met D: D·D = I.">\(\sym{I}{I=ABCD}\): de definiërende relatie; met meer generatoren ook alle producten van hun woorden.</li>
+<li data-hoe="Tel de factoren.">\(\sym{k}{k}\): het aantal factoren.</li>
+<li data-hoe="Tel de generatoren.">\(\sym{p}{p}\): het aantal generatoren; \(2^{k-p}\) runs is een \(2^{-p}\)-fractie.</li>
+</ul>
+<p class="fx-src">DOE p. 80–92.</p>
+</section>
+
+<section data-block="capabiliteit.0" data-uitleg="d09-uitval">
+\[\sym{cp}{C_{p}}=\frac{\sym{usl}{\mathrm{USL}}-\sym{lsl}{\mathrm{LSL}}}{6\sym{sigma}{\sigma}}\qquad \sym{cpu}{\mathrm{CPU}}=\frac{\sym{usl}{\mathrm{USL}}-\sym{xbar}{\bar{x}}}{3\sym{sigma}{\sigma}}\qquad
+\sym{cpl}{\mathrm{CPL}}=\frac{\sym{xbar}{\bar{x}}-\sym{lsl}{\mathrm{LSL}}}{3\sym{sigma}{\sigma}}\qquad \sym{cpk}{C_{pk}}=\min(\sym{cpu}{\mathrm{CPU}},\sym{cpl}{\mathrm{CPL}})\]
+\[\sym{sigma}{\sigma}=\frac{\sym{rbar}{\bar{R}}}{\sym{d2}{d_{2}}}\ \text{of}\ \frac{\sym{sbar}{\bar{s}}}{\sym{c4}{c_{4}}}\ \text{of}\ \sym{sbar}{\bar{s}}\ (\text{korte termijn: }C_{p},C_{pk})\qquad \sym{sigma}{\sigma}=s_{\text{totaal}}\ (\text{lange termijn: }P_{p},P_{pk})\]
+\[\sym{zl}{z_{L}}=3\cdot\sym{cpl}{\mathrm{CPL}},\ \ \sym{zu}{z_{U}}=3\cdot\sym{cpu}{\mathrm{CPU}}\qquad \text{uitval}=\big(1-\Phi(\sym{zl}{z_{L}})\big)+\big(1-\Phi(\sym{zu}{z_{U}})\big)\qquad \mathrm{ppm}=\text{uitval}\cdot10^{6}\]
+<ul class="fx-vars">
+<li data-hoe="De specificatie van de klant (tolerantie).">\(\sym{lsl}{\mathrm{LSL}}\), \(\sym{usl}{\mathrm{USL}}\): de onderste en de bovenste specificatiegrens.</li>
+<li data-hoe="AVERAGE van de data, of X̿ van de regelkaart.">\(\sym{xbar}{\bar{x}}\): het procesgemiddelde.</li>
+<li data-hoe="Kies de schatting die de vraag bedoelt; de rekenmachine zet ze naast elkaar (beslissing 1).">\(\sym{sigma}{\sigma}\): de spreiding van het proces.</li>
+<li data-hoe="Gemiddelde van de spreidingsbreedtes (max − min) van de subgroepen.">\(\sym{rbar}{\bar{R}}\): de gemiddelde spreidingsbreedte.</li>
+<li data-hoe="Gemiddelde van de standaardafwijkingen van de subgroepen.">\(\sym{sbar}{\bar{s}}\): de gemiddelde standaardafwijking.</li>
+<li data-hoe="Tabel Constanten bij de subgroepgrootte n (Table 18, Table A).">\(\sym{d2}{d_{2}}\), \(\sym{c4}{c_{4}}\): constanten voor subgroepgrootte \(n\).</li>
+<li data-hoe="Uit de formules.">\(\sym{cp}{C_{p}}\): wat het proces kan als het gecentreerd is; \(\sym{cpu}{\mathrm{CPU}}\), \(\sym{cpl}{\mathrm{CPL}}\): de index per grens; \(\sym{cpk}{C_{pk}}\): de slechtste van de twee (\(\ge1{,}33\): "good", SPC p. 41).</li>
+<li data-hoe="3 × de index van die kant.">\(\sym{zl}{z_{L}}\), \(\sym{zu}{z_{U}}\): het aantal \(\sigma\) van het gemiddelde tot LSL en tot USL.</li>
+</ul>
+<p class="fx-src">SPC p. 33–47; Tabellen SPC p. 1–2.</p>
+</section>
+
+<section data-block="capabiliteit.1" data-uitleg="d09-cpk">
+\[\sym{cp}{C_{p}}=\frac{\sym{usl}{\mathrm{USL}}-\sym{lsl}{\mathrm{LSL}}}{6\sym{sigma}{\sigma}}\qquad \sym{cpu}{\mathrm{CPU}}=\frac{\sym{usl}{\mathrm{USL}}-\sym{mu}{\mu}}{3\sym{sigma}{\sigma}}\qquad
+\sym{cpl}{\mathrm{CPL}}=\frac{\sym{mu}{\mu}-\sym{lsl}{\mathrm{LSL}}}{3\sym{sigma}{\sigma}}\qquad \sym{cpk}{C_{pk}}=\min(\sym{cpu}{\mathrm{CPU}},\sym{cpl}{\mathrm{CPL}})\qquad \sym{cpu}{\mathrm{CPU}}+\sym{cpl}{\mathrm{CPL}}=2\,\sym{cp}{C_{p}}\]
+\[\sym{u}{\text{uitval}}=\Phi(-3\,\sym{cpu}{\mathrm{CPU}})+\Phi(-3\,\sym{cpl}{\mathrm{CPL}})\qquad \text{gecentreerd: }\sym{u}{\text{uitval}}=2\,\Phi(-3\,\sym{cp}{C_{p}})\qquad \text{één grens: }\sym{u}{\text{uitval}}=\Phi(-3\,\sym{cpk}{C_{pk}})\]
+\[\sym{cpk}{C_{pk}}=-\frac{\Phi^{-1}(\sym{ppm}{\mathrm{ppm}}/10^{6})}{3}\ (\text{één grens})\qquad \sym{cp}{C_{p}}=-\frac{\Phi^{-1}\big(\sym{ppm}{\mathrm{ppm}}/(2\cdot10^{6})\big)}{3}\ (\text{gecentreerd})\qquad
+\sym{mu}{\mu}=\sym{usl}{\mathrm{USL}}-3\sym{cpk}{C_{pk}}\sym{sigma}{\sigma}\ \text{of}\ \sym{lsl}{\mathrm{LSL}}+3\sym{cpk}{C_{pk}}\sym{sigma}{\sigma}\]
+<ul class="fx-vars">
+<li data-hoe="De specificatie; laat er één leeg bij een eenzijdige specificatie.">\(\sym{lsl}{\mathrm{LSL}}\), \(\sym{usl}{\mathrm{USL}}\): de specificatiegrenzen.</li>
+<li data-hoe="Gegeven, of AVERAGE van de data.">\(\sym{mu}{\mu}\): het procesgemiddelde.</li>
+<li data-hoe="Gegeven, of een schatting (R̄/d₂, s̄/c₄, STDEV.S).">\(\sym{sigma}{\sigma}\): de processpreiding.</li>
+<li data-hoe="Uit de opgave of uit de andere velden.">\(\sym{cp}{C_{p}}\): de capabiliteit als het proces gecentreerd is.</li>
+<li data-hoe="Uit de opgave of uit de andere velden.">\(\sym{cpu}{\mathrm{CPU}}\), \(\sym{cpl}{\mathrm{CPL}}\): de index naar USL en naar LSL; \(\sym{cpk}{C_{pk}}\): de kleinste. Met alleen \(C_{p}\) en \(C_{pk}\) is de andere index \(2C_{p}-C_{pk}\), maar niet aan welke kant: \(\mu\) heeft dan twee mogelijke waarden.</li>
+<li data-hoe="Uit de opgave ('300 ppm buiten specificatie').">\(\sym{ppm}{\mathrm{ppm}}\): de uitval maal \(10^{6}\).</li>
+<li data-hoe="Φ is de Z-tabel: Φ(−z) = 1 − Φ(z).">\(\sym{u}{\text{uitval}}\): de fractie buiten LSL en USL samen.</li>
+</ul>
+<p class="fx-src">SPC p. 33–41.</p>
+</section>
+
+<section data-block="regelkaart.0" data-uitleg="d10-formules">
+\[\bar{X}\text{-kaart: }\sym{xbb}{\bar{\bar{X}}}\pm \sym{A2}{A_{2}}\sym{rbar}{\bar{R}}\ \text{of}\ \sym{xbb}{\bar{\bar{X}}}\pm \sym{A3}{A_{3}}\sym{sbar}{\bar{s}}\qquad
+R\text{-kaart: }\sym{D3}{D_{3}}\sym{rbar}{\bar{R}},\ \sym{rbar}{\bar{R}},\ \sym{D4}{D_{4}}\sym{rbar}{\bar{R}}\qquad s\text{-kaart: }\sym{B3}{B_{3}}\sym{sbar}{\bar{s}},\ \sym{sbar}{\bar{s}},\ \sym{B4}{B_{4}}\sym{sbar}{\bar{s}}\]
+\[\sym{sh}{\hat{\sigma}}=\frac{\sym{rbar}{\bar{R}}}{\sym{d2}{d_{2}}}\ \text{of}\ \frac{\sym{sbar}{\bar{s}}}{\sym{c4}{c_{4}}}\qquad \sigma_{\bar{x}}=\frac{\sym{sh}{\hat{\sigma}}}{\sqrt{\sym{n}{n}}}\qquad \sym{A2}{A_{2}}\sym{rbar}{\bar{R}}=\frac{3\sym{sh}{\hat{\sigma}}}{\sqrt{\sym{n}{n}}}\]
+<ul class="fx-vars">
+<li data-hoe="Gemiddelde van de subgroepgemiddelden.">\(\sym{xbb}{\bar{\bar{X}}}\): de centrale lijn (CL) van de \(\bar{X}\)-kaart.</li>
+<li data-hoe="Gemiddelde van max − min per subgroep.">\(\sym{rbar}{\bar{R}}\): de gemiddelde spreidingsbreedte.</li>
+<li data-hoe="Gemiddelde van STDEV.S per subgroep.">\(\sym{sbar}{\bar{s}}\): de gemiddelde standaardafwijking.</li>
+<li data-hoe="Het aantal metingen per subgroep.">\(\sym{n}{n}\): de subgroepgrootte.</li>
+<li data-hoe="Tabel Constanten in de rij van n (Table 18; A3 uit Six Sigma Demystified).">\(\sym{A2}{A_{2}}\), \(\sym{A3}{A_{3}}\): constanten van de \(\bar{X}\)-kaart.</li>
+<li data-hoe="Tabel Constanten, rij n.">\(\sym{D3}{D_{3}}\), \(\sym{D4}{D_{4}}\): constanten van de R-kaart; \(\sym{B3}{B_{3}}\), \(\sym{B4}{B_{4}}\): van de s-kaart.</li>
+<li data-hoe="Tabel Constanten, rij n (c4 uit Table A).">\(\sym{d2}{d_{2}}\), \(\sym{c4}{c_{4}}\): de constanten om \(\sigma\) te schatten.</li>
+<li data-hoe="R̄/d₂ of s̄/c₄.">\(\sym{sh}{\hat{\sigma}}\): de geschatte spreiding van één meting.</li>
+</ul>
+<p class="fx-src">SPC p. 64, 74; Tabellen SPC p. 1–2.</p>
+</section>
+
+<section data-block="regelkaart.1" data-uitleg="d10-formules">
+\[\sym{xi}{\bar{x}_{i}}=\frac{1}{\sym{n}{n}}\sum_{j}\sym{x}{x_{ij}}\qquad \sym{R}{R_{i}}=\max_{j}\sym{x}{x_{ij}}-\min_{j}\sym{x}{x_{ij}}\qquad \sym{s}{s_{i}}=\sqrt{\frac{\sum_{j}(\sym{x}{x_{ij}}-\sym{xi}{\bar{x}_{i}})^{2}}{\sym{n}{n}-1}}\]
+\[\bar{\bar{X}}=\frac{1}{\sym{k}{k}}\sum_{i}\sym{xi}{\bar{x}_{i}}\qquad \bar{R}=\frac{1}{\sym{k}{k}}\sum_{i}\sym{R}{R_{i}}\qquad \bar{s}=\frac{1}{\sym{k}{k}}\sum_{i}\sym{s}{s_{i}}\qquad \text{signaal: punt}\gt\mathrm{UCL}\ \text{of}\ \lt\mathrm{LCL}\]
+<ul class="fx-vars">
+<li data-hoe="Plak de subgroepen, één per regel.">\(\sym{x}{x_{ij}}\): meting \(j\) van subgroep \(i\).</li>
+<li data-hoe="Tel de regels.">\(\sym{k}{k}\): het aantal subgroepen.</li>
+<li data-hoe="Tel de metingen per regel (alle even veel).">\(\sym{n}{n}\): de subgroepgrootte.</li>
+<li data-hoe="AVERAGE, MAX − MIN en STDEV.S per subgroep.">\(\sym{xi}{\bar{x}_{i}}\), \(\sym{R}{R_{i}}\), \(\sym{s}{s_{i}}\): gemiddelde, spreidingsbreedte en standaardafwijking van subgroep \(i\). De grenzen volgen uit het eerste blok.</li>
+</ul>
+<p class="fx-src">SPC p. 74.</p>
+</section>
+
+<section data-block="regelkaart.2" data-uitleg="d10-formules">
+\[\sym{xbb}{\bar{\bar{X}}}=\frac{\sym{ucl}{\mathrm{UCL}}+\sym{lcl}{\mathrm{LCL}}}{2}\qquad \sym{ucl}{\mathrm{UCL}}-\sym{xbb}{\bar{\bar{X}}}=\sym{A2}{A_{2}}\bar{R}=\sym{A3}{A_{3}}\bar{s}=\frac{3\hat{\sigma}}{\sqrt{\sym{n}{n}}}\qquad
+\bar{R}=\frac{\sym{uclr}{\mathrm{UCL}_{R}}}{\sym{D4}{D_{4}}}\qquad \bar{s}=\frac{\sym{ucls}{\mathrm{UCL}_{s}}}{\sym{B4}{B_{4}}}\qquad \hat{\sigma}=\frac{\bar{R}}{\sym{d2}{d_{2}}}=\frac{\bar{s}}{\sym{c4}{c_{4}}}\]
+<ul class="fx-vars">
+<li data-hoe="Afgelezen op de regelkaart of gegeven.">\(\sym{ucl}{\mathrm{UCL}}\), \(\sym{lcl}{\mathrm{LCL}}\): de grenzen van de \(\bar{X}\)-kaart; \(\sym{xbb}{\bar{\bar{X}}}\): de centrale lijn.</li>
+<li data-hoe="Afgelezen op de R-kaart of de s-kaart.">\(\sym{uclr}{\mathrm{UCL}_{R}}\), \(\sym{ucls}{\mathrm{UCL}_{s}}\): de bovengrens van de R- of s-kaart.</li>
+<li data-hoe="Het aantal metingen per subgroep.">\(\sym{n}{n}\): de subgroepgrootte.</li>
+<li data-hoe="Tabel Constanten, rij n.">\(\sym{A2}{A_{2}}\), \(\sym{A3}{A_{3}}\), \(\sym{D4}{D_{4}}\), \(\sym{B4}{B_{4}}\), \(\sym{d2}{d_{2}}\), \(\sym{c4}{c_{4}}\): de constanten voor \(n\).</li>
+</ul>
+<p class="fx-src">SPC p. 64, 74 (achterstevoren gelezen).</p>
+</section>
+
+<section data-block="regelkaart.3" data-uitleg="d10-xbar">
+\[\bar{X}\text{-kaart: }\sym{mu}{\mu}\pm\frac{3\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}=\sym{mu}{\mu}\pm \sym{A}{A}\sym{sigma}{\sigma}\qquad R\text{-kaart: }\sym{D1}{D_{1}}\sym{sigma}{\sigma},\ \sym{d2}{d_{2}}\sym{sigma}{\sigma},\ \sym{D2}{D_{2}}\sym{sigma}{\sigma}\]
+\[s\text{-kaart (s met deler }n-1\text{): }\sym{B1}{B_{1}}\sqrt{\tfrac{\sym{n}{n}}{\sym{n}{n}-1}}\,\sym{sigma}{\sigma},\ \ \sym{c2}{c_{2}}\sqrt{\tfrac{\sym{n}{n}}{\sym{n}{n}-1}}\,\sym{sigma}{\sigma},\ \ \sym{B2}{B_{2}}\sqrt{\tfrac{\sym{n}{n}}{\sym{n}{n}-1}}\,\sym{sigma}{\sigma}\]
+<ul class="fx-vars">
+<li data-hoe="Gegeven als standaard- of doelwaarde.">\(\sym{mu}{\mu}\): het gekende procesgemiddelde.</li>
+<li data-hoe="Gegeven als standaardwaarde.">\(\sym{sigma}{\sigma}\): de gekende spreiding van één meting.</li>
+<li data-hoe="Het aantal metingen per subgroep.">\(\sym{n}{n}\): de subgroepgrootte.</li>
+<li data-hoe="Table 18 in de rij van n.">\(\sym{A}{A}\), \(\sym{D1}{D_{1}}\), \(\sym{D2}{D_{2}}\), \(\sym{d2}{d_{2}}\), \(\sym{c2}{c_{2}}\), \(\sym{B1}{B_{1}}\), \(\sym{B2}{B_{2}}\): constanten uit Table 18. Table 18 rekent \(s\) met deler \(n\); de factor \(\sqrt{n/(n-1)}\) zet om naar STDEV.S.</li>
+</ul>
+<p class="fx-src">SPC p. 63–64; Tabellen SPC p. 2 (Table 18, Table 7.2).</p>
+</section>
+
+<section data-block="regelkaart.4" data-uitleg="d10-regels">
+\[\sym{z}{z_{i}}=\frac{\sym{x}{x_{i}}-\sym{cl}{\mathrm{CL}}}{\sym{sigma}{\sigma}}\qquad \sym{sigma}{\sigma}=\frac{\sym{ucl}{\mathrm{UCL}}-\sym{cl}{\mathrm{CL}}}{3}\qquad \text{zone C: }|\sym{z}{z}|\le1,\ \ \text{B: }1\lt|\sym{z}{z}|\le2,\ \ \text{A: }2\lt|\sym{z}{z}|\le3\]
+<ul class="fx-vars">
+<li data-hoe="De punten van de kaart in volgorde (bv. de subgroepgemiddelden).">\(\sym{x}{x_{i}}\): het \(i\)-de uitgezette punt.</li>
+<li data-hoe="Afgelezen op de kaart.">\(\sym{cl}{\mathrm{CL}}\): de centrale lijn; \(\sym{ucl}{\mathrm{UCL}}\): de bovenste controlegrens.</li>
+<li data-hoe="Gegeven, of (UCL − CL)/3. Bij een X̄-kaart is dat σ/√n.">\(\sym{sigma}{\sigma}\): de standaardafwijking van de uitgezette grootheid.</li>
+<li data-hoe="Uit de formule; de rekenmachine geeft per punt z en de zone.">\(\sym{z}{z_{i}}\): het aantal \(\sigma\) van punt \(i\) tot de centrale lijn. Regel 1: een punt voorbij \(\pm3\sigma\); 2: 2 van 3 voorbij \(2\sigma\); 3: 4 van 5 voorbij \(1\sigma\); 4: 8 op rij aan één kant; 5: 6 op rij stijgend of dalend; 6: 15 op rij in zone C; 7: 14 op rij afwisselend op en neer; 8: 8 op rij aan beide kanten zonder één in zone C.</li>
+</ul>
+<p class="fx-src">SPC p. 68–69.</p>
+</section>
+
+<section data-block="grr.0" data-uitleg="d11-avgrange">
+\[\sym{ev}{\mathrm{EV}}=\frac{\sym{rbb}{\bar{\bar{R}}}}{\sym{d2}{d_{2}}}\qquad
+\sym{av}{\mathrm{AV}}=\sqrt{\left(\frac{\sym{xd}{\bar{X}_{\mathrm{DIFF}}}}{\sym{d2s}{d_{2}^{*}}(m=\sym{k}{k})}\right)^{2}-\frac{\sym{ev}{\mathrm{EV}}^{2}}{\sym{n}{n}\sym{r}{r}}}\qquad
+\sym{pv}{\mathrm{PV}}=\sqrt{\left(\frac{\sym{rp}{R_{p}}}{\sym{d2s}{d_{2}^{*}}(m=\sym{n}{n})}\right)^{2}-\frac{\sym{ev}{\mathrm{EV}}^{2}}{\sym{k}{k}\sym{r}{r}}}\]
+\[\mathrm{ANOVA:}\ \ \sym{ev}{\mathrm{EV}}=\sqrt{\sym{mse}{\mathrm{MS}_{e}}}\qquad \sym{av}{\mathrm{AV}}=\sqrt{\frac{\sym{msa}{\mathrm{MS}_{a}}-\sym{mse}{\mathrm{MS}_{e}}}{\sym{n}{n}\sym{r}{r}}}\qquad
+\sym{pv}{\mathrm{PV}}=\sqrt{\frac{\sym{msp}{\mathrm{MS}_{p}}-\sym{mse}{\mathrm{MS}_{e}}}{\sym{k}{k}\sym{r}{r}}}\]
+\[\sym{grr}{\mathrm{GRR}}=\sqrt{\sym{ev}{\mathrm{EV}}^{2}+\sym{av}{\mathrm{AV}}^{2}}\qquad \sym{tv}{\mathrm{TV}}=\sqrt{\sym{grr}{\mathrm{GRR}}^{2}+\sym{pv}{\mathrm{PV}}^{2}}\qquad
+\%\mathrm{GRR}=\frac{\sym{grr}{\mathrm{GRR}}}{\sym{tv}{\mathrm{TV}}}\qquad \%\mathrm{GRR}_{\mathrm{tol}}=\frac{6\,\sym{grr}{\mathrm{GRR}}}{\sym{tol}{\mathrm{USL}-\mathrm{LSL}}}\]
+<ul class="fx-vars">
+<li data-hoe="Het aantal operatoren (appraisers) in de studie.">\(\sym{k}{k}\): het aantal operatoren.</li>
+<li data-hoe="Het aantal gemeten delen.">\(\sym{n}{n}\): het aantal delen.</li>
+<li data-hoe="Hoe vaak elke operator elk deel meet.">\(\sym{r}{r}\): het aantal herhalingen.</li>
+<li data-hoe="Per operator en deel: max − min over de r herhalingen; neem het gemiddelde van alle.">\(\sym{rbb}{\bar{\bar{R}}}\): de gemiddelde spreidingsbreedte.</li>
+<li data-hoe="Hoogste min laagste operatorgemiddelde.">\(\sym{xd}{\bar{X}_{\mathrm{DIFF}}}\): het verschil tussen de operatorgemiddelden.</li>
+<li data-hoe="Hoogste min laagste deelgemiddelde.">\(\sym{rp}{R_{p}}\): de spreidingsbreedte van de deelgemiddelden.</li>
+<li data-hoe="Tabel MSA, laatste rij (g → ∞), kolom m = r.">\(\sym{d2}{d_{2}}\): de constante voor subgroepgrootte \(r\).</li>
+<li data-hoe="Tabel MSA, rij g = 1, kolom m = k (voor AV) of m = n (voor PV).">\(\sym{d2s}{d_{2}^{*}}\): de constante voor één subgroep van grootte \(m\).</li>
+<li data-hoe="De kolom MS van de ANOVA zonder interactie (operator, deel, fout).">\(\sym{msa}{\mathrm{MS}_{a}}\), \(\sym{msp}{\mathrm{MS}_{p}}\), \(\sym{mse}{\mathrm{MS}_{e}}\): de mean squares van operator, deel en fout.</li>
+<li data-hoe="Uit de formules.">\(\sym{ev}{\mathrm{EV}}\): herhaalbaarheid (meettoestel); \(\sym{av}{\mathrm{AV}}\): reproduceerbaarheid (operatoren); \(\sym{pv}{\mathrm{PV}}\): variatie van de delen.</li>
+<li data-hoe="Uit EV, AV en PV.">\(\sym{grr}{\mathrm{GRR}}\): de meetsysteemvariatie; \(\sym{tv}{\mathrm{TV}}\): de totale variatie. Oordeel: \(\%\mathrm{GRR}\le10\,\%\) aanvaardbaar, 10–30 % misschien, boven 30 % niet.</li>
+<li data-hoe="De specificatiebreedte (optioneel).">\(\sym{tol}{\mathrm{USL}-\mathrm{LSL}}\): de tolerantie.</li>
+</ul>
+<p class="fx-src">MSA p. 18, 34–37; tabel MSA.</p>
+</section>
+
+<section data-block="confusion.0" data-uitleg="d12-confusion">
+\[\text{accuracy}=\frac{\sym{tp}{\mathrm{TP}}+\sym{tn}{\mathrm{TN}}}{\sym{N}{N}}\qquad \text{precision}=\frac{\sym{tp}{\mathrm{TP}}}{\sym{tp}{\mathrm{TP}}+\sym{fp}{\mathrm{FP}}}\qquad
+\text{recall}=\frac{\sym{tp}{\mathrm{TP}}}{\sym{tp}{\mathrm{TP}}+\sym{fn}{\mathrm{FN}}}\qquad F_{1}=\frac{2\cdot\text{precision}\cdot\text{recall}}{\text{precision}+\text{recall}}\]
+<ul class="fx-vars">
+<li data-hoe="Klasse 1: a (rij 1, kolom 1); klasse 2: d.">\(\sym{tp}{\mathrm{TP}}\): juist positief: werkelijk de klasse en ook zo voorspeld.</li>
+<li data-hoe="Klasse 1: c (werkelijk 2, voorspeld 1); klasse 2: b.">\(\sym{fp}{\mathrm{FP}}\): vals positief: voorspeld als de klasse, maar werkelijk niet.</li>
+<li data-hoe="Klasse 1: b (werkelijk 1, voorspeld 2); klasse 2: c.">\(\sym{fn}{\mathrm{FN}}\): vals negatief: werkelijk de klasse, maar anders voorspeld.</li>
+<li data-hoe="Klasse 1: d; klasse 2: a.">\(\sym{tn}{\mathrm{TN}}\): juist negatief.</li>
+<li data-hoe="a + b + c + d. Invoer a b c d: rij 1 = werkelijk klasse 1, rij 2 = werkelijk klasse 2; kolommen = voorspelling.">\(\sym{N}{N}\): het totale aantal waarnemingen. Foutratio \(=1-\) accuracy (niet in de cursus).</li>
+</ul>
+<p class="fx-src">ML p. 29–32.</p>
+</section>
+
+<section data-block="confusion.1" data-uitleg="d12-confusion">
+\[\sym{tp}{\mathrm{TP}_{i}}=\sym{m}{m_{ii}}\qquad \sym{fn}{\mathrm{FN}_{i}}=\sum_{j\ne i}\sym{m}{m_{ij}}\qquad \sym{fp}{\mathrm{FP}_{i}}=\sum_{j\ne i}\sym{m}{m_{ji}}\qquad
+\mathrm{TN}_{i}=\sym{N}{N}-\sym{tp}{\mathrm{TP}_{i}}-\sym{fn}{\mathrm{FN}_{i}}-\sym{fp}{\mathrm{FP}_{i}}\qquad \text{accuracy}=\frac{\sum_{i}\sym{m}{m_{ii}}}{\sym{N}{N}}\]
+<ul class="fx-vars">
+<li data-hoe="De cellen van de matrix; kies of de rijen de werkelijke of de voorspelde klasse zijn.">\(\sym{m}{m_{ij}}\): het aantal met werkelijke klasse \(i\) en voorspelde klasse \(j\).</li>
+<li data-hoe="De diagonaalcel van klasse i.">\(\sym{tp}{\mathrm{TP}_{i}}\): juist voorspeld als klasse \(i\).</li>
+<li data-hoe="De rest van rij i (werkelijk i).">\(\sym{fn}{\mathrm{FN}_{i}}\): werkelijk \(i\), anders voorspeld; support \(=\mathrm{TP}_{i}+\mathrm{FN}_{i}\).</li>
+<li data-hoe="De rest van kolom i (voorspeld i).">\(\sym{fp}{\mathrm{FP}_{i}}\): voorspeld als \(i\), maar werkelijk een andere klasse.</li>
+<li data-hoe="Som van alle cellen.">\(\sym{N}{N}\): het totaal. Precision, recall en \(F_{1}\) per klasse zoals in het blok hierboven.</li>
+</ul>
+<p class="fx-src">ML p. 30–31; notities Les 2 p. 15.</p>
+</section>
+
+<section data-block="steekproefgrootte.0" data-uitleg="d04-nauwkeurigheid">
+\[\text{proportie: }\sym{W}{W}=2\,\sym{z}{z}\sqrt{\frac{\sym{p}{p}(1-\sym{p}{p})}{\sym{n}{n}}}\ \Rightarrow\ \sym{n}{n}=\left(\frac{2\,\sym{z}{z}\sqrt{\sym{p}{p}(1-\sym{p}{p})}}{\sym{W}{W}}\right)^{2}\qquad
+\text{gemiddelde: }\sym{W}{W}=\frac{2\,\sym{z}{z}\,\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\ \Rightarrow\ \sym{n}{n}=\left(\frac{2\,\sym{z}{z}\,\sym{sigma}{\sigma}}{\sym{W}{W}}\right)^{2}\]
+\[\sym{z}{z}=\sym{z}{z}_{1-\sym{alpha}{\alpha}/2}\qquad \text{omgekeerd: }\sym{z}{z}=\frac{\sym{W}{W}\sqrt{\sym{n}{n}}}{2\sqrt{\sym{p}{p}(1-\sym{p}{p})}}\ \text{of}\ \frac{\sym{W}{W}\sqrt{\sym{n}{n}}}{2\sym{sigma}{\sigma}},\qquad 1-\sym{alpha}{\alpha}=2\,\Phi(\sym{z}{z})-1\]
+<ul class="fx-vars">
+<li data-hoe="Bovengrens min ondergrens. ± 5 % is W = 10 %; 10 % van 10 % is W = 2 % (CI p. 7).">\(\sym{W}{W}\): de VOLLEDIGE breedte van het interval (de "nauwkeurigheid" van de cursus).</li>
+<li data-hoe="Gevraagd of gegeven; naar boven afronden.">\(\sym{n}{n}\): de steekproefgrootte.</li>
+<li data-hoe="Een schatting uit het verleden; onbekend: 0,5 (het slechtste geval, de grootste n).">\(\sym{p}{p}\): de verwachte fractie.</li>
+<li data-hoe="Gegeven (de spreiding van één meting).">\(\sym{sigma}{\sigma}\): de gekende standaardafwijking (voor een gemiddelde).</li>
+<li data-hoe="95 % betrouwbaarheid: α = 5 %.">\(\sym{alpha}{\alpha}\): 1 − de betrouwbaarheid.</li>
+<li data-hoe="NORM.S.INV(1 − α/2); 1,96 bij 95 %.">\(\sym{z}{z}\): het kwantiel van de standaardnormale verdeling.</li>
+</ul>
+<p class="fx-src">CI p. 7, 10; CI FR p. 3.</p>
+</section>
+
+<section data-block="tolerantie.0" data-uitleg="d04-tolerantie">
+\[\sym{k}{k}=\frac{\sym{z}{z}_{1-\sym{alpha}{\alpha}}}{\sqrt{\sym{n}{n}}}+\sym{z}{z}_{1-\sym{beta}{\beta}}\qquad \sym{ltl}{\mathrm{LTL}}=\sym{ybar}{\bar{Y}}-\sym{k}{k}\sym{sigma}{\sigma}\qquad \sym{utl}{\mathrm{UTL}}=\sym{ybar}{\bar{Y}}+\sym{k}{k}\sym{sigma}{\sigma}\qquad
+\text{tweezijdig: }\sym{k2}{k^{*}}=\frac{\sym{z}{z}_{1-\sym{alpha}{\alpha}/2}}{\sqrt{\sym{n}{n}}}+\sym{z}{z}_{1-\sym{beta}{\beta}/2}\]
+<ul class="fx-vars">
+<li data-hoe="Tel de metingen.">\(\sym{n}{n}\): de steekproefgrootte.</li>
+<li data-hoe="AVERAGE van de (eventueel getransformeerde, bv. ln) data.">\(\sym{ybar}{\bar{Y}}\): het steekproefgemiddelde.</li>
+<li data-hoe="Gegeven.">\(\sym{sigma}{\sigma}\): de gekende standaardafwijking.</li>
+<li data-hoe="1 − de betrouwbaarheid, bv. 5 %.">\(\sym{alpha}{\alpha}\): het risico dat de grens niet klopt.</li>
+<li data-hoe="'90 % van de stuks' geeft β = 0,10. Niet het type-II-risico!">\(\sym{beta}{\beta}\): de staartfractie van de populatie buiten de grens.</li>
+<li data-hoe="NORM.S.INV(q).">\(\sym{z}{z}\): \(z_{q}\) is het \(q\)-kwantiel van de standaardnormale verdeling.</li>
+<li data-hoe="Uit de formule.">\(\sym{k}{k}\): de tolerantiefactor (eenzijdig); \(\sym{k2}{k^{*}}\): tweezijdig.</li>
+<li data-hoe="Ȳ ∓ kσ.">\(\sym{ltl}{\mathrm{LTL}}\), \(\sym{utl}{\mathrm{UTL}}\): de onderste en bovenste tolerantiegrens.</li>
+</ul>
+<p class="fx-src">CI FR p. 22.</p>
+</section>
+
+<section data-block="tolerantie.1" data-uitleg="d04-tolerantie">
+\[\sym{k}{k}=t(\sym{alpha}{\alpha},\sym{beta}{\beta},\sym{n}{n})=\frac{\sym{z}{z}_{1-\sym{beta}{\beta}}+\sym{z}{z}_{1-\sym{alpha}{\alpha}}\sqrt{\frac{1}{\sym{n}{n}}+\frac{\sym{z}{z}_{1-\sym{beta}{\beta}}^{2}}{2\sym{n}{n}}-\frac{\sym{z}{z}_{1-\sym{alpha}{\alpha}}^{2}}{2\sym{n}{n}^{2}}}}{1-\frac{\sym{z}{z}_{1-\sym{alpha}{\alpha}}^{2}}{2\sym{n}{n}}}\qquad
+\sym{ybar}{\bar{Y}}\pm\sym{k}{k}\,\sym{s}{s}\qquad \text{tweezijdig: }\sym{k2}{k'}=t\left(\tfrac{\sym{alpha}{\alpha}}{2},\tfrac{\sym{beta}{\beta}}{2},\sym{n}{n}\right)\]
+<ul class="fx-vars">
+<li data-hoe="Tel de metingen.">\(\sym{n}{n}\): de steekproefgrootte.</li>
+<li data-hoe="AVERAGE en STDEV.S van de data.">\(\sym{ybar}{\bar{Y}}\), \(\sym{s}{s}\): gemiddelde en standaardafwijking van de steekproef.</li>
+<li data-hoe="1 − de betrouwbaarheid.">\(\sym{alpha}{\alpha}\): het risico.</li>
+<li data-hoe="'90 % van de stuks' geeft 0,10.">\(\sym{beta}{\beta}\): de staartfractie van de populatie.</li>
+<li data-hoe="NORM.S.INV(q).">\(\sym{z}{z}\): kwantielen van de standaardnormale verdeling.</li>
+<li data-hoe="Uit de formule.">\(\sym{k}{k}\), \(\sym{k2}{k'}\): de tolerantiefactor eenzijdig en tweezijdig.</li>
+</ul>
+<p class="fx-src">CI FR p. 23.</p>
+</section>
+
+<section data-block="tolerantie.2" data-uitleg="d04-tolerantie">
+\[\left(1-\frac{\sym{beta}{\beta}}{2}\right)^{\sym{n}{n}}-\frac{1}{2}(1-\sym{beta}{\beta})^{\sym{n}{n}}\le\frac{\sym{alpha}{\alpha}}{2}\qquad
+\text{betrouwbaarheid bij }\sym{n}{n}:\ 1-2\left(1-\frac{\sym{beta}{\beta}}{2}\right)^{\sym{n}{n}}+(1-\sym{beta}{\beta})^{\sym{n}{n}}\]
+<ul class="fx-vars">
+<li data-hoe="De kleinste n die de ongelijkheid haalt, of gegeven.">\(\sym{n}{n}\): de steekproefgrootte; het interval is \([x_{(1)};x_{(n)}]\), de kleinste tot de grootste waarneming.</li>
+<li data-hoe="'90 % van de populatie ertussen' geeft 0,10.">\(\sym{beta}{\beta}\): de fractie van de populatie buiten het interval.</li>
+<li data-hoe="1 − de betrouwbaarheid.">\(\sym{alpha}{\alpha}\): het risico. Geen normaliteit nodig.</li>
+</ul>
+<p class="fx-src">CI FR p. 23.</p>
+</section>
+
+<section data-block="onderscheidingsvermogen.0" data-uitleg="d05-fouten">
+\[\sym{c}{c}=\sym{mu0}{\mu_{0}}+\sym{z}{z}_{1-\sym{alpha}{\alpha}}\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\ (H_{A}:\mu\gt\mu_{0})\qquad
+\sym{beta}{\beta}=\Phi\left(\frac{\sym{c}{c}-\sym{mu1}{\mu_{1}}}{\sym{sigma}{\sigma}/\sqrt{\sym{n}{n}}}\right)\qquad \text{power}=1-\sym{beta}{\beta}\]
+\[\text{tweezijdig: }\sym{beta}{\beta}=\Phi\left(\frac{\sym{c}{c}_{\text{hoog}}-\sym{mu1}{\mu_{1}}}{\sym{sigma}{\sigma}/\sqrt{\sym{n}{n}}}\right)-\Phi\left(\frac{\sym{c}{c}_{\text{laag}}-\sym{mu1}{\mu_{1}}}{\sym{sigma}{\sigma}/\sqrt{\sym{n}{n}}}\right)\qquad
+\sym{n}{n}=\left(\frac{(\sym{z}{z}_{1-\sym{alpha}{\alpha}}+\sym{z}{z}_{1-\sym{beta}{\beta}})\,\sym{sigma}{\sigma}}{|\sym{mu1}{\mu_{1}}-\sym{mu0}{\mu_{0}}|}\right)^{2}\qquad
+|\sym{mu1}{\mu_{1}}-\sym{mu0}{\mu_{0}}|=\frac{(\sym{z}{z}_{1-\sym{alpha}{\alpha}}+\sym{z}{z}_{1-\sym{beta}{\beta}})\,\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\]
+<ul class="fx-vars">
+<li data-hoe="De waarde in H₀.">\(\sym{mu0}{\mu_{0}}\): het gemiddelde onder \(H_{0}\).</li>
+<li data-hoe="Het gemiddelde dat je wilt ontdekken ('de nieuwe methode haalt 1300').">\(\sym{mu1}{\mu_{1}}\): het ware gemiddelde.</li>
+<li data-hoe="Gegeven.">\(\sym{sigma}{\sigma}\): de gekende standaardafwijking.</li>
+<li data-hoe="Gegeven, of gevraagd.">\(\sym{n}{n}\): de steekproefgrootte.</li>
+<li data-hoe="Gegeven; meestal 5 %.">\(\sym{alpha}{\alpha}\): het significantieniveau (type-I-risico).</li>
+<li data-hoe="Uit de formule; of het doel voor n of voor de kleinste µ₁.">\(\sym{beta}{\beta}\): de kans om \(H_{0}\) ten onrechte te aanvaarden (type-II-risico).</li>
+<li data-hoe="NORM.S.INV(q).">\(\sym{z}{z}\): \(z_{q}\) is het \(q\)-kwantiel van de standaardnormale verdeling.</li>
+<li data-hoe="Op de verdeling onder H₀; tweezijdig µ₀ ∓ z₁₋α/₂·σ/√n.">\(\sym{c}{c}\): de kritieke waarde van \(\bar{x}\).</li>
+</ul>
+<p class="fx-src">TH FR p. 7–9, 14.</p>
+</section>
+
+<section data-block="onderscheidingsvermogen.1" data-uitleg="d05-z-pi">
+\[\sym{c}{c}=\sym{pi0}{\pi_{0}}+\sym{z}{z}_{1-\sym{alpha}{\alpha}}\sqrt{\frac{\sym{pi0}{\pi_{0}}(1-\sym{pi0}{\pi_{0}})}{\sym{n}{n}}}\qquad
+\sym{beta}{\beta}=\Phi\left(\frac{\sym{c}{c}-\sym{pi1}{\pi_{1}}}{\sqrt{\sym{pi1}{\pi_{1}}(1-\sym{pi1}{\pi_{1}})/\sym{n}{n}}}\right)\qquad
+\sym{n}{n}=\left(\frac{\sym{z}{z}_{1-\sym{alpha}{\alpha}}\sqrt{\sym{pi0}{\pi_{0}}(1-\sym{pi0}{\pi_{0}})}+\sym{z}{z}_{1-\sym{beta}{\beta}}\sqrt{\sym{pi1}{\pi_{1}}(1-\sym{pi1}{\pi_{1}})}}{|\sym{pi1}{\pi_{1}}-\sym{pi0}{\pi_{0}}|}\right)^{2}\]
+<ul class="fx-vars">
+<li data-hoe="De fractie in H₀.">\(\sym{pi0}{\pi_{0}}\): de fractie onder \(H_{0}\); voorwaarde \(n\pi_{0}\gt5\).</li>
+<li data-hoe="De fractie die je wilt ontdekken.">\(\sym{pi1}{\pi_{1}}\): de ware fractie.</li>
+<li data-hoe="Gegeven, of gevraagd (de rekenmachine zoekt ook de kleinste n met β onder het doel).">\(\sym{n}{n}\): de steekproefgrootte.</li>
+<li data-hoe="Gegeven; meestal 5 %.">\(\sym{alpha}{\alpha}\): het significantieniveau.</li>
+<li data-hoe="Uit de formule, of het doel.">\(\sym{beta}{\beta}\): het type-II-risico.</li>
+<li data-hoe="NORM.S.INV(q).">\(\sym{z}{z}\): kwantielen van de standaardnormale verdeling.</li>
+<li data-hoe="Met π₀ onder de wortel.">\(\sym{c}{c}\): de kritieke fractie (voor \(H_{A}:\pi\gt\pi_{0}\); links met −).</li>
+</ul>
+<p class="fx-src">Test Recipes p. 9–10; TH FR p. 22.</p>
+</section>
+
+<section data-block="chikwadraat.0" data-uitleg="d05-frequenties">
+\[\sym{e}{e_{k}}=\sym{n}{n}\,\sym{pi}{\pi_{k}}\qquad \sym{chi}{\chi^{2}}=\sum_{k}\frac{(\sym{nk}{n_{k}}-\sym{e}{e_{k}})^{2}}{\sym{e}{e_{k}}}\sim\chi^{2}(\sym{r}{r}-\sym{g}{g}-1)\qquad \text{verwerp }H_{0}\text{ als }\sym{chi}{\chi^{2}}\gt\chi^{2}_{1-\alpha}\]
+<ul class="fx-vars">
+<li data-hoe="De getelde aantallen per klasse.">\(\sym{nk}{n_{k}}\): het waargenomen aantal in klasse \(k\); \(\sym{n}{n}\): het totaal.</li>
+<li data-hoe="Uit het model van H₀ (bv. Poisson, gelijke kansen).">\(\sym{pi}{\pi_{k}}\): de kans op klasse \(k\) onder \(H_{0}\).</li>
+<li data-hoe="n·π_k; elk moet groter dan 5 zijn, anders klassen samenvoegen.">\(\sym{e}{e_{k}}\): het verwachte aantal in klasse \(k\).</li>
+<li data-hoe="Tel de klassen na samenvoegen.">\(\sym{r}{r}\): het aantal klassen.</li>
+<li data-hoe="Bv. 1 als je λ uit de data schat; 0 als het model volledig gegeven is.">\(\sym{g}{g}\): het aantal geschatte parameters.</li>
+<li data-hoe="Uit de formule; CHISQ.TEST past de vrijheidsgraden niet aan voor g.">\(\sym{chi}{\chi^{2}}\): de toetsgrootheid (alleen de rechterstaart).</li>
+</ul>
+<p class="fx-src">Test Recipes p. 15–17.</p>
+</section>
+
+<section data-block="chikwadraat.1" data-uitleg="d05-frequenties">
+\[\sym{e}{e_{kl}}=\frac{\sym{nk}{n_{k\cdot}}\,\sym{nl}{n_{\cdot l}}}{\sym{n}{n}}\qquad \sym{chi}{\chi^{2}}=\sum_{k}\sum_{l}\frac{(\sym{nkl}{n_{kl}}-\sym{e}{e_{kl}})^{2}}{\sym{e}{e_{kl}}}\sim\chi^{2}\big((\sym{r}{r}-1)(\sym{s}{s}-1)\big)\qquad
+\text{Yates (2}\times\text{2): }\sum\frac{(|\sym{nkl}{n_{kl}}-\sym{e}{e_{kl}}|-\tfrac{1}{2})^{2}}{\sym{e}{e_{kl}}}\]
+<ul class="fx-vars">
+<li data-hoe="De cellen van de kruistabel.">\(\sym{nkl}{n_{kl}}\): het waargenomen aantal in rij \(k\), kolom \(l\).</li>
+<li data-hoe="Tel de rij en de kolom op.">\(\sym{nk}{n_{k\cdot}}\), \(\sym{nl}{n_{\cdot l}}\): het rij- en het kolomtotaal; \(\sym{n}{n}\): het totaal.</li>
+<li data-hoe="Rijtotaal × kolomtotaal / totaal; elk groter dan 5.">\(\sym{e}{e_{kl}}\): het verwachte aantal bij onafhankelijkheid.</li>
+<li data-hoe="Tel de rijen en de kolommen.">\(\sym{r}{r}\), \(\sym{s}{s}\): het aantal rijen en kolommen.</li>
+<li data-hoe="Uit de formule; groot = afhankelijk.">\(\sym{chi}{\chi^{2}}\): de toetsgrootheid.</li>
+</ul>
+<p class="fx-src">Test Recipes p. 18–20.</p>
+</section>
+
+<section data-block="nietparametrisch.0" data-uitleg="d05-nietparam">
+\[\sym{W}{W}=\sum\text{rangen van steekproef 1}\qquad E(\sym{W}{W})=\frac{\sym{n1}{n_{1}}(\sym{N}{N}+1)}{2}\qquad \sigma^{2}(\sym{W}{W})=\frac{\sym{n1}{n_{1}}\sym{n2}{n_{2}}(\sym{N}{N}+1)}{12}\qquad
+\sym{z}{z}=\frac{\sym{W}{W}-E(\sym{W}{W})}{\sigma(\sym{W}{W})}\]
+<ul class="fx-vars">
+<li data-hoe="Tel de waarden in elke steekproef.">\(\sym{n1}{n_{1}}\), \(\sym{n2}{n_{2}}\): de twee steekproefgroottes; \(\sym{N}{N}\): het totaal \(n_{1}+n_{2}\).</li>
+<li data-hoe="Rangschik alle waarden samen (gelijke waarden: gemiddelde rang) en tel de rangen van steekproef 1 op.">\(\sym{W}{W}\): de rangsom van steekproef 1; groot \(W\) betekent mediaan 1 groter dan mediaan 2.</li>
+<li data-hoe="Uit de formule; met continuïteitscorrectie schuift W een halve eenheid naar E(W).">\(\sym{z}{z}\): de normale benadering (kleine steekproeven: de cursus vraagt een tabel).</li>
+</ul>
+<p class="fx-src">Test Recipes p. 21–22.</p>
+</section>
+
+<section data-block="nietparametrisch.1" data-uitleg="d05-nietparam">
+\[\sym{v}{v_{i}}=x_{1,i}-x_{2,i}\ (\sym{v}{v_{i}}=0\text{ weglaten})\qquad \sym{T}{T^{+}}=\sum_{\sym{v}{v_{i}}\gt0}\text{rang}(|\sym{v}{v_{i}}|)\qquad
+E(\sym{T}{T^{+}})=\frac{\sym{n}{n}(\sym{n}{n}+1)}{4}\qquad \sigma^{2}(\sym{T}{T^{+}})=\frac{\sym{n}{n}(\sym{n}{n}+1)(2\sym{n}{n}+1)}{24}\]
+<ul class="fx-vars">
+<li data-hoe="Trek per paar af.">\(\sym{v}{v_{i}}\): het verschil van paar \(i\).</li>
+<li data-hoe="Tel de paren met een verschil verschillend van 0.">\(\sym{n}{n}\): het aantal paren na weglaten van de nullen.</li>
+<li data-hoe="Rangschik |v| (gelijke: gemiddelde rang) en tel de rangen van de positieve verschillen op.">\(\sym{T}{T^{+}}\): de som van de positieve rangen; \(z=(T^{+}-E)/\sigma\).</li>
+</ul>
+<p class="fx-src">Test Recipes p. 23–24.</p>
+</section>
+
+<section data-block="nietparametrisch.2" data-uitleg="d05-nietparam">
+\[\sym{R}{R}=\text{aantal runs boven en onder de mediaan}\qquad E(\sym{R}{R})\approx\frac{\sym{n}{n}+2}{2}\qquad \sigma^{2}(\sym{R}{R})\approx\frac{\sym{n}{n}-1}{4}\qquad \sym{z}{z}=\frac{\sym{R}{R}-E(\sym{R}{R})}{\sigma(\sym{R}{R})}\]
+<ul class="fx-vars">
+<li data-hoe="Schrijf + boven en − onder de mediaan, in de volgorde van de steekproef; tel de reeksen van gelijke tekens.">\(\sym{R}{R}\): het aantal runs.</li>
+<li data-hoe="Tel de waarden (waarden gelijk aan de mediaan weggelaten).">\(\sym{n}{n}\): het aantal waarden.</li>
+<li data-hoe="Uit de formule; te weinig runs: trend of clusters, te veel: afwisseling.">\(\sym{z}{z}\): de normale benadering.</li>
+</ul>
+<p class="fx-src">Test Recipes p. 25–26.</p>
+</section>
+
+<section data-block="steekproefmethoden.0" data-uitleg="d06-strat">
+\[\sigma^{2}[P]=\frac{\sym{pi}{\pi}(1-\sym{pi}{\pi})}{\sym{n}{n}}\ \text{(SRS)}\qquad \sigma^{2}[P_{s}]=\frac{\sym{WA}{W_{A}}\sym{sA}{\sigma_{A}^{2}}+\sym{WB}{W_{B}}\sym{sB}{\sigma_{B}^{2}}}{\sym{n}{n}}\ \text{(proportioneel gestratificeerd)}\qquad
+\sym{sA}{\sigma_{A}^{2}}=\sym{piA}{\pi_{A}}(1-\sym{piA}{\pi_{A}})\]
+\[\sym{pi}{\pi}=\sym{WA}{W_{A}}\sym{piA}{\pi_{A}}+\sym{WB}{W_{B}}\sym{piB}{\pi_{B}}\qquad n_{A}=\sym{WA}{W_{A}}\sym{n}{n}\ \text{(proportioneel)}\qquad
+n_{A}=\frac{\sym{WA}{W_{A}}\sigma_{A}}{\sym{WA}{W_{A}}\sigma_{A}+\sym{WB}{W_{B}}\sigma_{B}}\,\sym{n}{n}\ \text{(optimaal)}\]
+<ul class="fx-vars">
+<li data-hoe="De fractie defect in elk stratum (bv. per machine of per leverancier).">\(\sym{piA}{\pi_{A}}\), \(\sym{piB}{\pi_{B}}\): de fractie in stratum A en B.</li>
+<li data-hoe="N_A/N: het aandeel van stratum A in het lot; W_B = 1 − W_A.">\(\sym{WA}{W_{A}}\), \(\sym{WB}{W_{B}}\): de gewichten van de strata.</li>
+<li data-hoe="W_A·π_A + W_B·π_B.">\(\sym{pi}{\pi}\): de fractie in het hele lot.</li>
+<li data-hoe="π(1 − π) per stratum.">\(\sym{sA}{\sigma_{A}^{2}}\), \(\sym{sB}{\sigma_{B}^{2}}\): de variantie binnen elk stratum.</li>
+<li data-hoe="De totale steekproefgrootte.">\(\sym{n}{n}\): de steekproefgrootte.</li>
+</ul>
+<p class="fx-src">AS p. 16–18.</p>
+</section>
+
+<section data-block="steekproefmethoden.1" data-uitleg="d06-strat">
+\[\sigma^{2}[\bar{X}_{S}]=\frac{\sym{s2}{\sigma_{S}^{2}}}{\sym{n}{n}}\qquad \sigma^{2}[\bar{X}]=\frac{\sym{s2}{\sigma_{S}^{2}}}{\sym{n}{n}}+\frac{(\sym{muA}{\mu_{A}}-\sym{muB}{\mu_{B}})^{2}}{4\sym{n}{n}}\qquad \mu=\frac{\sym{muA}{\mu_{A}}+\sym{muB}{\mu_{B}}}{2}\]
+<ul class="fx-vars">
+<li data-hoe="Het gemiddelde van elk stratum.">\(\sym{muA}{\mu_{A}}\), \(\sym{muB}{\mu_{B}}\): de gemiddelden van de twee even grote strata (\(W_{A}=W_{B}=\tfrac{1}{2}\)).</li>
+<li data-hoe="De variantie binnen een stratum (dezelfde in beide).">\(\sym{s2}{\sigma_{S}^{2}}\): de variantie binnen een stratum.</li>
+<li data-hoe="De totale steekproefgrootte.">\(\sym{n}{n}\): de steekproefgrootte. Het tweede deel is wat stratificatie uitspaart.</li>
+</ul>
+<p class="fx-src">AS p. 19 (notities).</p>
+</section>
+
+<section data-block="planontwerp.0" data-uitleg="d06-peach">
+\[\text{kleinste }\sym{c}{c}\text{ waarvoor de kleinste }\sym{n}{n}\text{ met }\mathrm{OC}(\sym{lql}{\mathrm{LQL}})\le\sym{beta}{\beta}\ \text{ook }\mathrm{OC}(\sym{aql}{\mathrm{AQL}})\ge1-\sym{alpha}{\alpha}\text{ haalt}\qquad
+\mathrm{OC}(p)=\sum_{j=0}^{\sym{c}{c}}\binom{\sym{n}{n}}{j}p^{j}(1-p)^{\sym{n}{n}-j}\qquad \sym{R0}{R_{0}}=\frac{\sym{lql}{\mathrm{LQL}}}{\sym{aql}{\mathrm{AQL}}}\]
+<ul class="fx-vars">
+<li data-hoe="Afgesproken goede kwaliteit.">\(\sym{aql}{\mathrm{AQL}}\): de goede kwaliteit.</li>
+<li data-hoe="Afgesproken slechte kwaliteit.">\(\sym{lql}{\mathrm{LQL}}\): de slechte kwaliteit.</li>
+<li data-hoe="Meestal 5 % en 10 %.">\(\sym{alpha}{\alpha}\), \(\sym{beta}{\beta}\): producenten- en consumentenrisico.</li>
+<li data-hoe="Het resultaat van de zoektocht.">\(\sym{n}{n}\), \(\sym{c}{c}\): het plan.</li>
+<li data-hoe="LQL/AQL; met R₀ zoekt de cursus in de tabel van Peach (niet in de cursusbestanden).">\(\sym{R0}{R_{0}}\): de onderscheidingsverhouding.</li>
+</ul>
+<p class="fx-src">AS FR p. 4, 17.</p>
+</section>
+
+<section data-block="dubbelplan.0" data-uitleg="d06-dubbel">
+\[\sym{OC}{\mathrm{OC}}(p)=P(\sym{X1}{X_{1}}\le\sym{c1}{c_{1}})+\sum_{j=\sym{c1}{c_{1}}+1}^{\sym{c2}{c_{2}}-1}P(\sym{X1}{X_{1}}=j)\,P(\sym{X2}{X_{2}}\le\sym{c3}{c_{3}}-j)\]
+\[\sym{Pi}{\Pi}(p)=P(\sym{X1}{X_{1}}\le\sym{c1}{c_{1}})+P(\sym{X1}{X_{1}}\ge\sym{c2}{c_{2}})\qquad \sym{asn}{\mathrm{ASN}}(p)=\sym{n1}{n_{1}}\sym{Pi}{\Pi}(p)+(\sym{n1}{n_{1}}+\sym{n2}{n_{2}})\big(1-\sym{Pi}{\Pi}(p)\big)\]
+<ul class="fx-vars">
+<li data-hoe="Uit het plan.">\(\sym{n1}{n_{1}}\), \(\sym{n2}{n_{2}}\): de grootte van de eerste en de tweede steekproef.</li>
+<li data-hoe="Uit het plan: aanvaard na steekproef 1 als X₁ ≤ c₁, verwerp als X₁ ≥ c₂.">\(\sym{c1}{c_{1}}\), \(\sym{c2}{c_{2}}\): de grenzen na de eerste steekproef.</li>
+<li data-hoe="Uit het plan: aanvaard na steekproef 2 als X₁ + X₂ ≤ c₃.">\(\sym{c3}{c_{3}}\): de grens op het totaal van beide steekproeven.</li>
+<li data-hoe="Binomiaal, of hypergeometrisch met M = [Np] als N gegeven is.">\(\sym{X1}{X_{1}}\), \(\sym{X2}{X_{2}}\): het aantal defecten in steekproef 1 en 2.</li>
+<li data-hoe="Uit de formule.">\(\sym{OC}{\mathrm{OC}}\): de kans op aanvaarden bij lotkwaliteit \(p\).</li>
+<li data-hoe="Uit de formule.">\(\sym{Pi}{\Pi}\): de kans dat al na de eerste steekproef beslist wordt.</li>
+<li data-hoe="Uit de formule.">\(\sym{asn}{\mathrm{ASN}}\): het gemiddelde aantal gecontroleerde stuks (average sample number).</li>
+</ul>
+<p class="fx-src">AS FR p. 5; AS p. 24–25.</p>
+</section>
+
+<section data-block="sprt.0" data-uitleg="d06-dubbel">
+\[\sym{g}{g}=\log\frac{\sym{pt}{p_{t}}(1-\sym{p0}{p_{0}})}{\sym{p0}{p_{0}}(1-\sym{pt}{p_{t}})}\qquad \sym{h1}{h_{1}}=\frac{\log\frac{1-\sym{alpha}{\alpha}}{\sym{beta}{\beta}}}{\sym{g}{g}}\qquad \sym{h2}{h_{2}}=\frac{\log\frac{1-\sym{beta}{\beta}}{\sym{alpha}{\alpha}}}{\sym{g}{g}}\qquad
+\sym{s}{s}=\frac{\log\frac{1-\sym{p0}{p_{0}}}{1-\sym{pt}{p_{t}}}}{\sym{g}{g}}\]
+\[\text{verwerp als }\sym{Xn}{X_{n}}\ge\sym{h2}{h_{2}}+\sym{s}{s}\sym{n}{n},\ \ \text{aanvaard als }\sym{Xn}{X_{n}}\le-\sym{h1}{h_{1}}+\sym{s}{s}\sym{n}{n}\qquad
+\text{kortste weg: }\left[\frac{\sym{h1}{h_{1}}}{\sym{s}{s}}\right]+1,\ \left[\frac{\sym{h2}{h_{2}}}{1-\sym{s}{s}}\right]+1\qquad \mathrm{ASN}(\sym{s}{s})=\frac{\sym{h1}{h_{1}}\sym{h2}{h_{2}}}{\sym{s}{s}(1-\sym{s}{s})}\]
+<ul class="fx-vars">
+<li data-hoe="De AQL en de LQL.">\(\sym{p0}{p_{0}}\), \(\sym{pt}{p_{t}}\): de goede en de slechte kwaliteit.</li>
+<li data-hoe="Meestal 5 % en 10 %.">\(\sym{alpha}{\alpha}\), \(\sym{beta}{\beta}\): producenten- en consumentenrisico.</li>
+<li data-hoe="Uit de formules (dezelfde logaritme overal).">\(\sym{g}{g}\): de noemer; \(\sym{h1}{h_{1}}\), \(\sym{h2}{h_{2}}\): de afsnijpunten; \(\sym{s}{s}\): de helling van de twee lijnen.</li>
+<li data-hoe="Het aantal stuks dat tot nu toe gecontroleerd is.">\(\sym{n}{n}\): het aantal gecontroleerde stuks.</li>
+<li data-hoe="Tel de defecten tot nu toe.">\(\sym{Xn}{X_{n}}\): het aantal defecten in de eerste \(n\) stuks.</li>
+</ul>
+<p class="fx-src">AS FR p. 6–8.</p>
+</section>
+
+<section data-block="variabelenplan.0" data-uitleg="d06-variabelen">
+\[\sym{Q}{Q}=\frac{\sym{xbar}{\bar{X}}-\sym{xi}{\xi}}{\sym{s}{s}}\ \ \text{aanvaard als }\sym{Q}{Q}\ge\sym{k}{k}\qquad
+\sym{k}{k}=t(1-\sym{alpha}{\alpha},\sym{p0}{p_{0}},\sym{n}{n})=\frac{\sym{z}{z}_{1-\sym{p0}{p_{0}}}+\sym{z}{z}_{\sym{alpha}{\alpha}}\sqrt{\frac{1}{\sym{n}{n}}+\frac{\sym{z}{z}_{1-\sym{p0}{p_{0}}}^{2}}{2\sym{n}{n}}-\frac{\sym{z}{z}_{\sym{alpha}{\alpha}}^{2}}{2\sym{n}{n}^{2}}}}{1-\frac{\sym{z}{z}_{\sym{alpha}{\alpha}}^{2}}{2\sym{n}{n}}}\]
+\[\mathrm{OC}(\sym{p0}{p_{0}})\approx1-\Phi\left(\frac{(\sym{z}{z}_{\sym{p0}{p_{0}}}+\sym{k}{k})\sqrt{\sym{n}{n}}}{\sqrt{1+\sym{k}{k}^{2}/2}}\right)\qquad \sym{xi}{\xi}=\text{NORM.INV}(\sym{p0}{p_{0}};\mu;\sigma)\ \text{(zoals het werkboek)}\]
+<ul class="fx-vars">
+<li data-hoe="De AQL.">\(\sym{p0}{p_{0}}\): de goede kwaliteit (fractie onder de grens).</li>
+<li data-hoe="Meestal 5 %.">\(\sym{alpha}{\alpha}\): het producentenrisico.</li>
+<li data-hoe="Gegeven.">\(\sym{n}{n}\): de steekproefgrootte.</li>
+<li data-hoe="NORM.S.INV(q); z_α is NEGATIEF (bv. −1,645).">\(\sym{z}{z}\): kwantielen van de standaardnormale verdeling.</li>
+<li data-hoe="Uit de formule, of gegeven.">\(\sym{k}{k}\): de aanvaardingsfactor.</li>
+<li data-hoe="De specificatiegrens (ondergrens), of NORM.INV(p₀; µ; σ).">\(\sym{xi}{\xi}\): de ondergrens.</li>
+<li data-hoe="AVERAGE en STDEV.S van de steekproef.">\(\sym{xbar}{\bar{X}}\), \(\sym{s}{s}\): gemiddelde en standaardafwijking van de steekproef.</li>
+<li data-hoe="Uit de formule.">\(\sym{Q}{Q}\): de afstand tot de grens in standaardafwijkingen.</li>
+</ul>
+<p class="fx-src">AS p. 26–27; AS FR p. 9.</p>
+</section>
+
+<section data-block="skiplot.0" data-uitleg="d06-skiplot">
+\[\sym{Pq}{P_{q}}=B(\sym{d}{d};\,\sym{a}{a}\cdot\sym{n}{n},\,\sym{p}{p})\cdot B(0;\,\sym{n}{n},\,\sym{p}{p})^{\sym{l}{l}}\qquad B(c;n,p)=\sum_{j=0}^{c}\binom{n}{j}p^{j}(1-p)^{n-j}\]
+<ul class="fx-vars">
+<li data-hoe="De kwaliteit van de leverancier.">\(\sym{p}{p}\): de fractie defect.</li>
+<li data-hoe="Uit het plan, bv. 80.">\(\sym{n}{n}\): de steekproefgrootte per lot.</li>
+<li data-hoe="Bv. de eerste 8 van de laatste 10 loten.">\(\sym{a}{a}\): het aantal eerste steekproeven die samen geteld worden.</li>
+<li data-hoe="Uit de regel, bv. hoogstens 3.">\(\sym{d}{d}\): het maximale aantal defecten in die steekproeven samen.</li>
+<li data-hoe="Uit de regel, bv. de laatste 2.">\(\sym{l}{l}\): het aantal laatste steekproeven zonder defect.</li>
+<li data-hoe="Uit de formule.">\(\sym{Pq}{P_{q}}\): de kans om voor skip-lot te kwalificeren.</li>
+</ul>
+<p class="fx-src">AS FR p. 11 (notities).</p>
+</section>
+
+<section data-block="skiplot.1" data-uitleg="d06-deming">
+\[\sym{p}{p}\lt\frac{\sym{k1}{k_{1}}}{\sym{k2}{k_{2}}}:\ \text{geen inspectie}\qquad \sym{p}{p}\gt\frac{\sym{k1}{k_{1}}}{\sym{k2}{k_{2}}}:\ \text{alles inspecteren}\]
+<ul class="fx-vars">
+<li data-hoe="De fractie defect van het stabiele proces.">\(\sym{p}{p}\): de fractie defect.</li>
+<li data-hoe="De kost om één stuk te controleren.">\(\sym{k1}{k_{1}}\): de inspectiekost per stuk.</li>
+<li data-hoe="De kost van een defect stuk dat verder in het proces (assemblage) belandt.">\(\sym{k2}{k_{2}}\): de kost van een gemist defect.</li>
+</ul>
+<p class="fx-src">AS FR p. 13–15.</p>
+</section>
+
+<section data-block="sigma_extra.0" data-uitleg="d14-03-dpu">
+\[\sym{dpu}{\mathrm{DPU}}=\frac{\sym{D}{D}}{\sym{N}{N}}\qquad \text{throughput yield}=1-\sym{dpu}{\mathrm{DPU}}\qquad \mathrm{RTY}\approx e^{-\sym{dpu}{\mathrm{DPU}}}\ \text{(kleine DPU)}\]
+<ul class="fx-vars">
+<li data-hoe="Tel alle defecten.">\(\sym{D}{D}\): het aantal defecten.</li>
+<li data-hoe="Tel de eenheden.">\(\sym{N}{N}\): het aantal eenheden.</li>
+<li data-hoe="D/N.">\(\sym{dpu}{\mathrm{DPU}}\): defecten per eenheid.</li>
+</ul>
+<p class="fx-src">Dummies p. 152–156; Harry &amp; Schroeder p. 5.</p>
+</section>
+
+<section data-block="sigma_extra.1" data-uitleg="d14-03-yield">
+\[\sym{Y}{Y}=\frac{\sym{out}{\text{uit}}}{\sym{in}{\text{in}}}\qquad \sym{fty}{\mathrm{FTY}}=\frac{\sym{in}{\text{in}}-\sym{scrap}{\text{scrap}}-\sym{rework}{\text{herwerk}}}{\sym{in}{\text{in}}}\qquad \text{verborgen fabriek}=\sym{Y}{Y}-\sym{fty}{\mathrm{FTY}}\]
+<ul class="fx-vars">
+<li data-hoe="Het aantal eenheden dat de stap ingaat.">\(\sym{in}{\text{in}}\): de eenheden in.</li>
+<li data-hoe="Het aantal goede eenheden dat de stap verlaat (na herwerk).">\(\sym{out}{\text{uit}}\): de eenheden uit.</li>
+<li data-hoe="Tel de afgekeurde eenheden.">\(\sym{scrap}{\text{scrap}}\): afgekeurd.</li>
+<li data-hoe="Tel de herwerkte eenheden.">\(\sym{rework}{\text{herwerk}}\): herwerkt.</li>
+<li data-hoe="Uit de formules.">\(\sym{Y}{Y}\): de traditionele yield; \(\sym{fty}{\mathrm{FTY}}\): de first-time yield (goed zonder herwerk).</li>
+</ul>
+<p class="fx-src">Dummies p. 147–151.</p>
+</section>
+
+<section data-block="sigma_extra.2" data-uitleg="d14-03-yield">
+\[\sym{rty}{\mathrm{RTY}}=\prod_{i=1}^{\sym{k}{k}}\sym{y}{y_{i}}\qquad \mathrm{NY}=\sym{rty}{\mathrm{RTY}}^{1/\sym{k}{k}}\qquad \mathrm{DPU}=-\ln\sym{rty}{\mathrm{RTY}}\qquad
+\text{eenheden per goede: }1+(1-\sym{rty}{\mathrm{RTY}})\ \text{(herstelbaar)},\ \ \frac{1}{\sym{rty}{\mathrm{RTY}}}\ \text{(afgekeurd)}\]
+<ul class="fx-vars">
+<li data-hoe="De first-time yield van elke processtap.">\(\sym{y}{y_{i}}\): de yield van stap \(i\).</li>
+<li data-hoe="Tel de stappen.">\(\sym{k}{k}\): het aantal stappen.</li>
+<li data-hoe="Het product van de yields.">\(\sym{rty}{\mathrm{RTY}}\): de rolled throughput yield; NY: de genormaliseerde yield per stap.</li>
+</ul>
+<p class="fx-src">Dummies p. 149; Harry &amp; Schroeder p. 5.</p>
+</section>
+
+<section data-block="sigma_extra.3" data-uitleg="d14-03-yield">
+\[\sym{rty}{\mathrm{RTY}}=\sym{y}{y}^{\sym{k}{k}}\qquad \text{één goede op }\frac{1}{\sym{rty}{\mathrm{RTY}}}\]
+<ul class="fx-vars">
+<li data-hoe="De yield die elke stap haalt.">\(\sym{y}{y}\): de yield per stap.</li>
+<li data-hoe="Tel de stappen.">\(\sym{k}{k}\): het aantal stappen.</li>
+<li data-hoe="y tot de macht k.">\(\sym{rty}{\mathrm{RTY}}\): de rolled throughput yield.</li>
+</ul>
+<p class="fx-src">Dummies p. 149.</p>
+</section>
+
+<section data-block="sigma_extra.4" data-uitleg="d14-03-yield">
+\[\sym{ypo}{\text{yield per kans}}=\sym{Y}{Y}^{1/\sym{O}{O}}\qquad \mathrm{DPMO}=(1-\sym{ypo}{\text{yield per kans}})\cdot10^{6}\qquad Z=\Phi^{-1}(\sym{ypo}{\text{yield per kans}})\qquad \text{sigmaniveau}=Z+1{,}5\]
+<ul class="fx-vars">
+<li data-hoe="De fractie eenheden zonder enig defect.">\(\sym{Y}{Y}\): de eindyield.</li>
+<li data-hoe="Tel de kansen op een defect per eenheid.">\(\sym{O}{O}\): het aantal kansen per eenheid.</li>
+<li data-hoe="Y tot de macht 1/O.">\(\sym{ypo}{\text{yield per kans}}\): de kans dat één kans foutloos is.</li>
+</ul>
+<p class="fx-src">Harry &amp; Schroeder p. 3–5.</p>
+</section>
+
+<section data-block="regelkaart_extra.0" data-uitleg="d14-10-imr">
+\[\sym{mr}{\mathrm{MR}_{i}}=|\sym{x}{x_{i}}-\sym{x}{x_{i-1}}|\qquad X\text{-kaart: }\sym{xbar}{\bar{X}}\pm \sym{E2}{E_{2}}\sym{mrbar}{\overline{\mathrm{MR}}}\qquad
+\mathrm{MR}\text{-kaart: }\sym{D3}{D_{3}}\sym{mrbar}{\overline{\mathrm{MR}}},\ \sym{mrbar}{\overline{\mathrm{MR}}},\ \sym{D4}{D_{4}}\sym{mrbar}{\overline{\mathrm{MR}}}\qquad \hat{\sigma}=\frac{\sym{mrbar}{\overline{\mathrm{MR}}}}{\sym{d2}{d_{2}}}=\frac{\sym{mrbar}{\overline{\mathrm{MR}}}}{1{,}128}\]
+<ul class="fx-vars">
+<li data-hoe="De metingen in volgorde.">\(\sym{x}{x_{i}}\): meting \(i\).</li>
+<li data-hoe="Verschil met de vorige meting, in absolute waarde.">\(\sym{mr}{\mathrm{MR}_{i}}\): de moving range.</li>
+<li data-hoe="AVERAGE van de metingen en van de moving ranges.">\(\sym{xbar}{\bar{X}}\), \(\sym{mrbar}{\overline{\mathrm{MR}}}\): de gemiddelden.</li>
+<li data-hoe="Tabel Constanten bij n = 2.">\(\sym{E2}{E_{2}}\), \(\sym{D3}{D_{3}}\), \(\sym{D4}{D_{4}}\), \(\sym{d2}{d_{2}}\): constanten voor \(n=2\).</li>
+</ul>
+<p class="fx-src">Dummies p. 116, 249.</p>
+</section>
+
+<section data-block="regelkaart_extra.1" data-uitleg="d14-10-attribuut">
+\[\sym{pbar}{\bar{p}}=\frac{\sum\text{defectieven}}{\sum\sym{ni}{n_{i}}}\qquad \sym{pbar}{\bar{p}}\pm3\sqrt{\frac{\sym{pbar}{\bar{p}}(1-\sym{pbar}{\bar{p}})}{\sym{ni}{n_{i}}}}\qquad
+\sym{ubar}{\bar{u}}=\frac{\sum\text{defecten}}{\sum\sym{ni}{n_{i}}}\qquad \sym{ubar}{\bar{u}}\pm3\sqrt{\frac{\sym{ubar}{\bar{u}}}{\sym{ni}{n_{i}}}}\qquad \mathrm{LCL}\lt0\Rightarrow0\]
+<ul class="fx-vars">
+<li data-hoe="Het aantal gecontroleerde eenheden in subgroep i.">\(\sym{ni}{n_{i}}\): de subgroepgrootte (mag per subgroep verschillen).</li>
+<li data-hoe="Totaal defectieven / totaal gecontroleerd.">\(\sym{pbar}{\bar{p}}\): de gemiddelde fractie defectief (p-kaart).</li>
+<li data-hoe="Totaal defecten / totaal eenheden.">\(\sym{ubar}{\bar{u}}\): het gemiddelde aantal defecten per eenheid (u-kaart).</li>
+</ul>
+<p class="fx-src">Dummies p. 254.</p>
+</section>
+
+<section data-block="beschrijvend.0" data-uitleg="d02-eda">
+\[\sym{xbar}{\bar{x}}=\frac{\sum\sym{x}{x_{i}}}{\sym{n}{n}}\qquad \sym{s}{s}^{2}=\frac{\sum(\sym{x}{x_{i}}-\sym{xbar}{\bar{x}})^{2}}{\sym{n}{n}-1}\qquad \sym{R}{R}=\max-\min\qquad \frac{\sym{s}{s}}{\sqrt{\sym{n}{n}}}\qquad \sigma_{\text{(deler }n)}=\sqrt{\frac{\sum(\sym{x}{x_{i}}-\sym{xbar}{\bar{x}})^{2}}{\sym{n}{n}}}\]
+<ul class="fx-vars">
+<li data-hoe="Plak de waarden.">\(\sym{x}{x_{i}}\): waarde \(i\); \(\sym{n}{n}\): het aantal waarden.</li>
+<li data-hoe="AVERAGE.">\(\sym{xbar}{\bar{x}}\): het gemiddelde. De mediaan is de middelste waarde (even \(n\): gemiddelde van de twee middelste); de modus de waarde die het vaakst voorkomt.</li>
+<li data-hoe="STDEV.S (n − 1); STDEV.P gebruikt n.">\(\sym{s}{s}\): de standaardafwijking van de steekproef.</li>
+<li data-hoe="MAX − MIN.">\(\sym{R}{R}\): het bereik (range).</li>
+</ul>
+<p class="fx-src">LSS p. 131.</p>
+</section>
+
+<section data-block="beschrijvend.1" data-uitleg="d02-associatie">
+\[\sym{r}{r}=\frac{\sym{Sxy}{S_{xy}}}{\sqrt{\sym{Sxx}{S_{xx}}\,\sym{Syy}{S_{yy}}}}\qquad R^{2}=\sym{r}{r}^{2}\qquad \mathrm{cov}=\frac{\sym{Sxy}{S_{xy}}}{\sym{n}{n}-1}\ \text{of}\ \frac{\sym{Sxy}{S_{xy}}}{\sym{n}{n}}\]
+<ul class="fx-vars">
+<li data-hoe="Σ(x − x̄)(y − ȳ).">\(\sym{Sxy}{S_{xy}}\): de som van de kruisproducten.</li>
+<li data-hoe="DEVSQ van x en van y.">\(\sym{Sxx}{S_{xx}}\), \(\sym{Syy}{S_{yy}}\): de kwadratensommen.</li>
+<li data-hoe="Tel de paren.">\(\sym{n}{n}\): het aantal paren.</li>
+<li data-hoe="CORREL in Excel; tussen −1 en 1.">\(\sym{r}{r}\): de correlatiecoëfficiënt (Pearson). Correlatie is geen oorzakelijkheid.</li>
+</ul>
+<p class="fx-src">REG p. 43; deler van de covariantie <span class="gen">algemeen</span> (beide getoond).</p>
+</section>
+
+<section data-block="meervoudig.0" data-uitleg="d07-meervoudig">
+\[\sym{Y}{Y}=\sym{b0}{\beta_{0}}+\sym{b1}{\beta_{1}}\sym{x1}{x_{1}}+\ldots+\sym{bk}{\beta_{k}}\sym{xk}{x_{k}}+\varepsilon\qquad \sym{mse}{\mathrm{MS}_{E}}=\frac{\mathrm{SS}_{E}}{\sym{n}{n}-\sym{k}{k}-1}\qquad
+F=\frac{\mathrm{SS}_{R}/\sym{k}{k}}{\sym{mse}{\mathrm{MS}_{E}}}\sim F(\sym{k}{k},\sym{n}{n}-\sym{k}{k}-1)\qquad t_{j}=\frac{b_{j}}{\mathrm{se}(b_{j})}\]
+<ul class="fx-vars">
+<li data-hoe="De responskolom.">\(\sym{Y}{Y}\): de respons.</li>
+<li data-hoe="De x-kolommen; tweede orde voegt x² en x·x-producten toe, centreren trekt het gemiddelde af.">\(\sym{x1}{x_{1}}\), \(\sym{xk}{x_{k}}\): de regressoren.</li>
+<li data-hoe="Excel/Minitab 'Coefficients', of de rekenmachine (kleinste kwadraten).">\(\sym{b0}{\beta_{0}}\), \(\sym{b1}{\beta_{1}}\), \(\sym{bk}{\beta_{k}}\): de coëfficiënten.</li>
+<li data-hoe="Tel de waarnemingen en de x-termen.">\(\sym{n}{n}\): het aantal waarnemingen; \(\sym{k}{k}\): het aantal x-termen.</li>
+<li data-hoe="Uit de ANOVA-tabel; S = √MS_E.">\(\sym{mse}{\mathrm{MS}_{E}}\): de residuele variantie. BI en PI bij \(x_{0}\) volgen de standaard kleinste-kwadratenformule <span class="gen">algemeen</span>.</li>
+</ul>
+<p class="fx-src">REG p. 46–62.</p>
+</section>
+
+<section data-block="anova2.0" data-uitleg="d08-tweeweg">
+\[\sym{ssa}{\mathrm{SS}_{A}}=\sym{b}{b}\,\sym{r}{r}\sum_{i}(\bar{y}_{i\cdot\cdot}-\bar{y})^{2}\qquad \sym{ssb}{\mathrm{SS}_{B}}=\sym{a}{a}\,\sym{r}{r}\sum_{j}(\bar{y}_{\cdot j\cdot}-\bar{y})^{2}\qquad
+\sym{ssab}{\mathrm{SS}_{AB}}=\sym{r}{r}\sum_{i,j}(\bar{y}_{ij\cdot}-\bar{y})^{2}-\sym{ssa}{\mathrm{SS}_{A}}-\sym{ssb}{\mathrm{SS}_{B}}\qquad \sym{ssw}{\mathrm{SS}_{W}}=\mathrm{SS}_{T}-\sym{ssa}{\mathrm{SS}_{A}}-\sym{ssb}{\mathrm{SS}_{B}}-\sym{ssab}{\mathrm{SS}_{AB}}\]
+\[F_{A}=\frac{\sym{ssa}{\mathrm{SS}_{A}}/(\sym{a}{a}-1)}{\sym{ssw}{\mathrm{SS}_{W}}/(\sym{a}{a}\sym{b}{b}(\sym{r}{r}-1))}\qquad \sym{r}{r}=1:\ \text{de fout is de rest }\mathrm{SS}_{T}-\sym{ssa}{\mathrm{SS}_{A}}-\sym{ssb}{\mathrm{SS}_{B}}\ \text{met }(\sym{a}{a}-1)(\sym{b}{b}-1)\ \mathrm{df}\]
+<ul class="fx-vars">
+<li data-hoe="Het aantal niveaus van factor A (de rijblokken).">\(\sym{a}{a}\): het aantal niveaus van factor A.</li>
+<li data-hoe="Het aantal kolommen.">\(\sym{b}{b}\): het aantal niveaus van factor B.</li>
+<li data-hoe="Regels per niveau van A ('Rows per sample' in Excel).">\(\sym{r}{r}\): het aantal herhalingen per cel.</li>
+<li data-hoe="Uit de formules; zoals de Excel-uitvoer 'Anova: Two-Factor'.">\(\sym{ssa}{\mathrm{SS}_{A}}\), \(\sym{ssb}{\mathrm{SS}_{B}}\), \(\sym{ssab}{\mathrm{SS}_{AB}}\), \(\sym{ssw}{\mathrm{SS}_{W}}\): kwadratensommen van A, B, de interactie en binnen de cellen (fout).</li>
+</ul>
+<p class="fx-src">Excel-functies p. 4; MSA p. 36.</p>
+</section>
+
+<section data-block="bayes.0" data-uitleg="d12-bayes">
+\[P(\sym{A}{A}\mid \sym{B}{B})=\frac{P(\sym{B}{B}\mid \sym{A}{A})\,P(\sym{A}{A})}{P(\sym{B}{B})}\qquad P(\sym{B}{B})=P(\sym{B}{B}\mid \sym{A}{A})P(\sym{A}{A})+P(\sym{B}{B}\mid\text{niet }\sym{A}{A})\big(1-P(\sym{A}{A})\big)\]
+\[\text{odds achteraf}=\frac{P(\sym{A}{A})}{1-P(\sym{A}{A})}\cdot\frac{P(\sym{B}{B}\mid \sym{A}{A})}{P(\sym{B}{B}\mid\text{niet }\sym{A}{A})}\]
+<ul class="fx-vars">
+<li data-hoe="De hypothese of toestand, bv. 'het stuk is defect'; P(A) is de voorkennis (prior).">\(\sym{A}{A}\): de gebeurtenis waarvan je de kans wilt bijwerken.</li>
+<li data-hoe="Wat je waarneemt, bv. 'de test zegt defect'; P(B|A) en P(B|niet A) uit de opgave.">\(\sym{B}{B}\): de waarneming. Let op: \(P(A\mid B)\ne P(B\mid A)\).</li>
+</ul>
+<p class="fx-src">ML p. 53; Data p. 18–20.</p>
+</section>
+
+<section data-block="bayes.1" data-uitleg="d12-bayes">
+\[\text{prior }\mathrm{Beta}(\sym{a}{\alpha},\sym{b}{\beta})\ \xrightarrow{\ \sym{k}{k}\text{ in }\sym{n}{n}\ }\ \text{posterior }\mathrm{Beta}(\sym{a}{\alpha}+\sym{k}{k},\,\sym{b}{\beta}+\sym{n}{n}-\sym{k}{k})\qquad
+\text{gemiddelde}=\frac{\sym{a}{\alpha}}{\sym{a}{\alpha}+\sym{b}{\beta}}\qquad \text{modus}=\frac{\sym{a}{\alpha}-1}{\sym{a}{\alpha}+\sym{b}{\beta}-2}\qquad \mathrm{MLE}=\frac{\sym{k}{k}}{\sym{n}{n}}\]
+<ul class="fx-vars">
+<li data-hoe="Beta(1, 1) = geen voorkennis (uniform); grotere waarden = sterkere voorkennis.">\(\sym{a}{\alpha}\), \(\sym{b}{\beta}\): de parameters van de prior (vooraf ongeveer \(\alpha-1\) successen en \(\beta-1\) mislukkingen).</li>
+<li data-hoe="Tel de pogingen en de successen (bv. kop bij muntworpen).">\(\sym{n}{n}\): het aantal pogingen; \(\sym{k}{k}\): het aantal successen. De mediaan is BETA.INV(0,5; α; β).</li>
+</ul>
+<p class="fx-src">ML-webslides p. 55; Data-notities p. 4.</p>
+</section>
+
+<section data-block="meetsysteem.0" data-uitleg="d11-proces">
+\[\frac{1}{\sym{cpo}{C_{p,o}}^{2}}=\frac{1}{\sym{cpa}{C_{p,a}}^{2}}+\frac{1}{C_{p,m}^{2}}\qquad \%\mathrm{GRR}\text{ t.o.v. procesvariatie: }\sym{cpo}{C_{p,o}}=\sym{cpa}{C_{p,a}}\sqrt{1-\sym{g}{\%\mathrm{GRR}}^{2}}\qquad
+\%\mathrm{GRR}\text{ t.o.v. tolerantie: }\frac{1}{\sym{cpo}{C_{p,o}}^{2}}=\frac{1}{\sym{cpa}{C_{p,a}}^{2}}+\sym{g}{\%\mathrm{GRR}}^{2}\]
+<ul class="fx-vars">
+<li data-hoe="Uit de GRR-studie, als fractie.">\(\sym{g}{\%\mathrm{GRR}}\): de meetfout als deel van de procesvariatie (\(6\sigma_{m}/6\sigma_{o}\)) of van de tolerantie (\(6\sigma_{m}/\mathrm{TOL}\)).</li>
+<li data-hoe="De Cp van het proces zelf, zonder meetfout.">\(\sym{cpa}{C_{p,a}}\): de werkelijke (actual) \(C_{p}\).</li>
+<li data-hoe="De Cp die je met dit meetsysteem ziet.">\(\sym{cpo}{C_{p,o}}\): de waargenomen (observed) \(C_{p}\), altijd kleiner.</li>
+</ul>
+<p class="fx-src">MSA p. 24–26.</p>
+</section>
+
+<section data-block="meetsysteem.1" data-uitleg="d11-gpc">
+\[\sym{b}{\beta}(\sym{xr}{X_{r}})=\Phi\left(\frac{\sym{usl}{\mathrm{USL}}-(\sym{xr}{X_{r}}+\sym{bias}{b})}{\sym{s}{\sigma_{\mathrm{GRR}}}}\right)-\Phi\left(\frac{\sym{lsl}{\mathrm{LSL}}-(\sym{xr}{X_{r}}+\sym{bias}{b})}{\sym{s}{\sigma_{\mathrm{GRR}}}}\right)\]
+<ul class="fx-vars">
+<li data-hoe="De ware waarden van de stukken die je bekijkt.">\(\sym{xr}{X_{r}}\): de referentiewaarde van een stuk.</li>
+<li data-hoe="Uit een biasstudie; 0 als onbekend.">\(\sym{bias}{b}\): de bias van het meetsysteem.</li>
+<li data-hoe="GRR uit de studie (√(EV² + AV²)).">\(\sym{s}{\sigma_{\mathrm{GRR}}}\): de spreiding van het meetsysteem.</li>
+<li data-hoe="De specificatie.">\(\sym{lsl}{\mathrm{LSL}}\), \(\sym{usl}{\mathrm{USL}}\): de specificatiegrenzen.</li>
+<li data-hoe="Uit de formule; zoals een OC-curve.">\(\sym{b}{\beta}\): de kans dat het stuk aanvaard wordt.</li>
+</ul>
+<p class="fx-src">MSA p. 27.</p>
+</section>
+
+<section data-block="meetsysteem.2" data-uitleg="d11-onzekerheid">
+\[\text{certificaat: }\sym{u}{u}=\frac{\sym{U}{U}}{\sym{k}{k}}\qquad \text{uniform: }\sym{u}{u}=\frac{\sym{a}{a}}{\sqrt{3}}\qquad \text{type A: }\sym{u}{u}=\frac{\bar{R}/d_{2}}{\sqrt{\sym{n}{n}}}\ \text{of}\ \frac{s}{\sqrt{\sym{n}{n}}}\qquad
+\sym{uc}{u_{c}}=\sqrt{\textstyle\sum \sym{u}{u}^{2}}\qquad \sym{U}{U}=\sym{k}{k}\cdot\sym{uc}{u_{c}}\]
+<ul class="fx-vars">
+<li data-hoe="Per bron uit de regels hiernaast.">\(\sym{u}{u}\): de standaardonzekerheid van één bron.</li>
+<li data-hoe="De halve breedte van het foutinterval, bv. 0,5 mm bij aflezen tot op 1 mm.">\(\sym{a}{a}\): de halve breedte (uniforme fout).</li>
+<li data-hoe="Het aantal metingen waarvan je het gemiddelde gebruikt.">\(\sym{n}{n}\): het aantal metingen.</li>
+<li data-hoe="Wortel van de som van de kwadraten (onafhankelijke bronnen).">\(\sym{uc}{u_{c}}\): de gecombineerde onzekerheid.</li>
+<li data-hoe="Op het certificaat, of k·u_c.">\(\sym{U}{U}\): de uitgebreide onzekerheid: meting \(\pm U\).</li>
+<li data-hoe="Meestal 2 (≈ 95 %).">\(\sym{k}{k}\): de dekkingsfactor.</li>
+</ul>
+<p class="fx-src">MSA p. 28–29; stalen band p. 1–2.</p>
+</section>
+
+<section data-block="meetsysteem.3" data-uitleg="d11-onzekerheid">
+\[u(\bar{x})=\frac{\sym{ux}{u(x)}}{\sqrt{\sym{n}{n}}}\qquad u(\sym{x}{x}+\sym{y}{y})=\sqrt{\sym{ux}{u(x)}^{2}+\sym{uy}{u(y)}^{2}}\qquad
+\frac{u(\sym{x}{x}\sym{y}{y})}{\sym{x}{x}\sym{y}{y}}=\sqrt{\frac{\sym{ux}{u(x)}^{2}}{\sym{x}{x}^{2}}+\frac{\sym{uy}{u(y)}^{2}}{\sym{y}{y}^{2}}}\qquad
+\frac{u(\sym{x}{x}^{2})}{\sym{x}{x}^{2}}=\frac{2\,\sym{ux}{u(x)}}{\sym{x}{x}}\qquad \frac{u(\sqrt{\sym{x}{x}})}{\sqrt{\sym{x}{x}}}=\frac{\sym{ux}{u(x)}}{2\,\sym{x}{x}}\]
+<ul class="fx-vars">
+<li data-hoe="De gemeten waarden.">\(\sym{x}{x}\), \(\sym{y}{y}\): de grootheden.</li>
+<li data-hoe="Hun standaardonzekerheden.">\(\sym{ux}{u(x)}\), \(\sym{uy}{u(y)}\): de onzekerheden.</li>
+<li data-hoe="Het aantal metingen in het gemiddelde.">\(\sym{n}{n}\): het aantal metingen.</li>
+</ul>
+<p class="fx-src">MSA p. 29.</p>
+</section>
+
+<section data-block="meetsysteem.4" data-uitleg="d11-biastoets">
+\[\sym{bias}{\mathrm{bias}}=\sym{xbb}{\bar{\bar{X}}}-\sym{ref}{\text{referentie}}\qquad \sym{sr}{\sigma_{r}}=\frac{\sym{rbar}{\bar{R}}}{\sym{d2}{d_{2}}}\qquad
+\sym{t}{t}=\frac{\sym{bias}{\mathrm{bias}}}{\sym{sr}{\sigma_{r}}}\cdot\frac{\sqrt{\sym{g}{g}\sym{m}{m}}\,\sym{d2s}{d_{2}^{*}}}{\sym{d2}{d_{2}}}\ \ (\sym{nu}{\nu}\ \mathrm{df})\qquad
+\sym{bias}{\mathrm{bias}}\pm\frac{\sym{sr}{\sigma_{r}}\,\sym{d2}{d_{2}}}{\sym{d2s}{d_{2}^{*}}\sqrt{\sym{g}{g}\sym{m}{m}}}\,t_{1-\alpha/2;\,\sym{nu}{\nu}}\]
+<ul class="fx-vars">
+<li data-hoe="De gekende waarde van het referentiestuk.">\(\sym{ref}{\text{referentie}}\): de referentiewaarde.</li>
+<li data-hoe="Het gemiddelde van alle metingen.">\(\sym{xbb}{\bar{\bar{X}}}\): het gemiddelde.</li>
+<li data-hoe="Gemiddelde van max − min per subgroep.">\(\sym{rbar}{\bar{R}}\): de gemiddelde spreidingsbreedte.</li>
+<li data-hoe="Tel de subgroepen en de metingen per subgroep.">\(\sym{g}{g}\): het aantal subgroepen; \(\sym{m}{m}\): de grootte van een subgroep.</li>
+<li data-hoe="Tabel MSA: d₂ in de laatste rij (kolom m); d₂* en ν in rij g, kolom m.">\(\sym{d2}{d_{2}}\), \(\sym{d2s}{d_{2}^{*}}\), \(\sym{nu}{\nu}\): de constanten en de vrijheidsgraden.</li>
+<li data-hoe="Uit de formules.">\(\sym{bias}{\mathrm{bias}}\): de systematische fout; \(\sym{sr}{\sigma_{r}}\): de herhaalbaarheid; \(\sym{t}{t}\): de toetsgrootheid. Significant als 0 niet in het interval ligt.</li>
+</ul>
+<p class="fx-src">MSA p. 31–32; tabel MSA.</p>
+</section>
+
+<section data-block="meetsysteem.5" data-uitleg="d11-discriminatie">
+\[\sym{rbar}{\bar{R}}=\sym{d2}{d_{2}}\cdot\sym{MU}{\mathrm{MU}}\ \text{(grensgeval }\sigma=\mathrm{MU})\qquad \mathrm{LCL}_{R}=\sym{D3}{D_{3}}\sym{rbar}{\bar{R}}\qquad \mathrm{UCL}_{R}=\sym{D4}{D_{4}}\sym{rbar}{\bar{R}}\]
+<ul class="fx-vars">
+<li data-hoe="De kleinste stap die het toestel kan tonen.">\(\sym{MU}{\mathrm{MU}}\): de meeteenheid.</li>
+<li data-hoe="Uit de data; zonder R̄ het grensgeval d₂·MU.">\(\sym{rbar}{\bar{R}}\): de gemiddelde spreidingsbreedte.</li>
+<li data-hoe="Table 18 bij de subgroepgrootte n.">\(\sym{d2}{d_{2}}\), \(\sym{D3}{D_{3}}\), \(\sym{D4}{D_{4}}\): constanten. Tel de veelvouden van MU tussen \(\mathrm{LCL}_{R}\) en \(\mathrm{UCL}_{R}\): hoogstens 3 (\(n=2\)) of 4 (\(n\ge3\)) is te grof.</li>
+</ul>
+<p class="fx-src">MSA p. 30.</p>
+</section>

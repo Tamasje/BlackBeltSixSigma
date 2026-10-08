@@ -1046,3 +1046,35 @@ def test_merged_tables_keep_every_printed_number() -> None:
         assert re.search(rf"(?<![\d,.]){re.escape(printed)}(?![\d,.])", sigma_html), (stem, printed)
     for (symbol, n), printed in used.items():
         assert f"<td>{printed}</td>" in constants_html, (symbol, n, printed)
+
+
+# ---------- formulas of the calculators (study/tool_formulas.html) ----------
+
+def calculator_blocks() -> list[str]:
+    """'tool.index' of every calculator block in study/assets/tools.js, read by running it in node with a stub page."""
+    script = f"""
+global.Stats = require({json.dumps(str(ASSETS / "stats.js"))});
+global.Calc = require({json.dumps(str(ASSETS / "calc.js"))});
+global.document = {{ getElementById: () => ({{ textContent: JSON.stringify({{ chart: {{}}, msa: {{ m: [], g: [], d2: [], d2star: [], nu: [] }} }}) }}),
+                    querySelectorAll: () => [] }};
+global.window = {{ addEventListener() {{}} }};
+global.location = {{ hash: '' }};
+const source = require('fs').readFileSync({json.dumps(str(ASSETS / "tools.js"))}, 'utf8').replace('var TOOLS = {{}};', 'var TOOLS = global.TOOLS = {{}};');
+eval(source);
+process.stdout.write(JSON.stringify(Object.entries(global.TOOLS).flatMap(([name, blocks]) => blocks.map((_, i) => name + '.' + i))));
+"""
+    result = subprocess.run([shutil.which("node"), "-e", script], capture_output=True, text=True, check=True)
+    return json.loads(result.stdout)
+
+
+def test_every_calculator_block_has_its_formulas_and_every_symbol_a_meaning() -> None:
+    # arrange
+    module = build_module()
+    sections = [f"{tool}.{index}" for tool, index, _ in module.formula_blocks()[0]]
+    # act
+    blocks = calculator_blocks()
+    templates, rows, problems = module.formula_blocks()
+    # assert -- one section per block and back; every \sym defined, with a meaning and a 'hoe'
+    assert sorted(blocks) == sorted(sections), (set(blocks) ^ set(sections))
+    assert not problems, problems
+    assert all(row["betekenis"] and row["hoe"] for _, row in rows)

@@ -145,9 +145,7 @@
 
   TOOLS.sigma = [
     { title: 'Alles uit alles: D, N, O, DPO, DPMO, yield, Z en sigmaniveau',
-      help: 'SPC p. 20–21: DPO = D/(N·O), DPMO = DPO·10⁶, yield = 1 − DPO; sigmaniveau = Z + 1,5 met Z = NORM.S.INV(1 − DPO) ' +
-            '(beslissing 3, zoals de tabellen van de cursus). Vul één grootheid in (of D, N en O) en de rest volgt; met DPO en twee van D, N, O ' +
-            'volgt de derde. De tabel onderaan zet de gedrukte sigmatabellen naast elkaar.',
+      help: 'Vul één grootheid in (of D, N en O) en de rest volgt; met DPO en twee van D, N, O volgt de derde. De tabel onderaan zet de gedrukte sigmatabellen naast elkaar.',
       form: inp('D', 'D = aantal defecten') + inp('N', 'N = aantal eenheden') + inp('O', 'O = kansen (opportunities) per eenheid') +
             inp('dpo', 'DPO') + inp('dpmo', 'DPMO') + inp('yield', 'yield = 1 − DPO (fractie of %)') + inp('z', 'Z (zonder verschuiving)') +
             inp('level', 'sigmaniveau (met 1,5σ-verschuiving)'),
@@ -165,8 +163,7 @@
 
   TOOLS.kwantielen = [
     { title: 'Kritieke waarden ↔ staartkansen (z, t, χ², F)',
-      help: 'Geef α voor de kritieke waarden (links: P(X ≤ q) = α, rechts: P(X > q) = α, tweezijdig α/2 per staart), ' +
-            'of de waarde van een toetsgrootheid voor de p-waarden; met beide ook het besluit.',
+      help: 'Geef α voor de kritieke waarden, of de waarde van een toetsgrootheid voor de p-waarden; met beide ook het besluit.',
       form: sel('dist', 'verdeling', [['z', 'z (standaardnormaal)'], ['t', 't'], ['chi2', 'χ²'], ['F', 'F']]) +
             inp('d1', 'vrijheidsgraden (F: teller)') + inp('d2', 'F: vrijheidsgraden noemer') + ALPHA +
             inp('stat', 'waarde van de toetsgrootheid'),
@@ -196,7 +193,7 @@
   }
   TOOLS.gemiddelde = [
     { title: 'Eén gemiddelde µ: BI en toets (z met σ, t met s)',
-      help: 'Plak ruwe data óf vul n, x̄ en s (of σ) in. σ gekend → z; σ onbekend → t met n − 1 vrijheidsgraden.',
+      help: 'Plak ruwe data óf vul n, x̄ en s (of σ) in. σ gekend: z; σ onbekend: t.',
       form: ALPHA + area('data', 'ruwe data (optioneel)', '', 3) + inp('n', 'n') + inp('m', 'x̄') + inp('s', 's (steekproef)') +
             inp('sigma', 'σ (gekend)') + inp('mu0', 'µ0 (H0: µ = µ0)'),
       run: function (v) {
@@ -213,7 +210,7 @@
   ];
   TOOLS.tweegemiddelden = [
     { title: 'Twee onafhankelijke steekproeven: µ1 − µ2 (gepoolde s, t met n1 + n2 − 2)',
-      help: 'CI Further Reading p. 15–17; Test Recipes p. 5. Plak beide reeksen óf vul de samenvattingen in.',
+      help: 'Plak beide reeksen óf vul de samenvattingen in.',
       form: ALPHA + area('d1', 'data steekproef 1 (optioneel)', '', 2) + area('d2', 'data steekproef 2 (optioneel)', '', 2) +
             inp('n1', 'n1') + inp('m1', 'x̄1') + inp('s1', 's1') + inp('n2', 'n2') + inp('m2', 'x̄2') + inp('s2', 's2') + inp('d0', 'H0: µ1 − µ2 = (standaard 0)'),
       run: function (v) {
@@ -239,7 +236,7 @@
   ];
   TOOLS.proportie = [
     { title: 'Eén proportie π: BI (normale benadering en exact) en Z-toets',
-      help: 'CI Further Reading p. 20 (exact = R binom.test); Testing of Hypotheses FR p. 10–14. Voorwaarde Z-toets: n·π0 > 5.',
+      help: 'Vul n en x in; met π0 ook de Z-toets.',
       form: ALPHA + inp('n', 'n') + inp('x', 'x = aantal successen (bv. defecten)') + inp('pi0', 'π0 (H0: π = π0)'),
       run: function (v) {
         var r = Calc.oneProportion(v.n, v.x, v.pi0, v.alpha);
@@ -251,8 +248,7 @@
           (r.condition ? 'ja' : '<b>nee</b>') + '</p>' + testRows(r.test, null);
         return h;
       }, pct: ['pi0'] },
-    { title: 'Twee proporties: π1 − π2 (normale benadering)', help: 'CI Further Reading p. 20.',
-      form: ALPHA + inp('n1', 'n1') + inp('x1', 'x1') + inp('n2', 'n2') + inp('x2', 'x2'),
+    { title: 'Twee proporties: π1 − π2 (normale benadering)', form: ALPHA + inp('n1', 'n1') + inp('x1', 'x1') + inp('n2', 'n2') + inp('x2', 'x2'),
       run: function (v) {
         var r = Calc.twoProportions(v.n1, v.x1, v.n2, v.x2, v.alpha);
         return r ? out([['p1', fp(r.p1)], ['p2', fp(r.p2)], ['p1 − p2', fp(r.diff)], ['s.e.', f(r.se)]]) + ciRows(r.ci, 'π1 − π2') : '';
@@ -260,7 +256,7 @@
   ];
   TOOLS.variantie = [
     { title: 'Eén variantie σ²: BI (σ² en σ) en χ²-toets (n − 1 vrijheidsgraden)',
-      help: 'CI Further Reading p. 21; Test Recipes p. 11. Plak ruwe data óf vul n en s in.',
+      help: 'Plak ruwe data óf vul n en s in; met σ0 ook de χ²-toets.',
       form: ALPHA + area('data', 'ruwe data (optioneel)', '', 2) + inp('n', 'n') + inp('s', 's') + inp('sigma0', 'σ0 (H0: σ = σ0)'),
       run: function (v) {
         var d = summary(v, 'data', 'n', 'm', 's'), r = Calc.oneVariance(d.n, d.s, v.sigma0, v.alpha);
@@ -280,7 +276,7 @@
         return h;
       } },
     { title: 'Twee varianties: BI voor σ1²/σ2² en F-toets (F(n1 − 1, n2 − 1))',
-      help: 'Test Recipes p. 12–14; examenvraag 2. (s1²/σ1²)/(s2²/σ2²) ~ F(n1 − 1, n2 − 1).',
+      help: 'Plak beide reeksen óf vul n en s van elk in (zoals examenvraag 2).',
       form: ALPHA + area('d1', 'data 1 (optioneel)', '', 2) + area('d2', 'data 2 (optioneel)', '', 2) + inp('n1', 'n1') + inp('s1', 's1') +
             inp('n2', 'n2') + inp('s2', 's2'),
       run: function (v) {
@@ -303,31 +299,31 @@
   function inverseRow(k, q) { return num(k) ? [['kleinste k met P(X ≤ k) ≥ ' + pc(q), f(k), 'berekend']] : []; }
   function probs(r) { return [['P(X = k)', fp(r.eq)], ['P(X ≤ k)', fp(r.le)], ['P(X ≥ k) = 1 − P(X ≤ k − 1)', fp(r.ge)], ['P(X > k)', fp(num(r.le) ? 1 - r.le : null)]]; }
   TOOLS.verdelingen = [
-    { title: 'Bernoulli (één item: X = 1 met kans p)', form: inp('p', 'p'),
+    { title: 'Bernoulli (één item: X = 1 met kans p)', form: inp('p', 'p = kans op 1 (bv. defect)'),
       run: function (v) { var r = Calc.bernoulli(v.p); return r ? out(moments(r)) : ''; }, pct: ['p'] },
-    { title: 'Binomiaal: aantal successen in n onafhankelijke pogingen', help: 'Excel: BINOM.DIST(k; n; p; FALSE/TRUE); omgekeerd BINOM.INV(n; p; kans).',
-      form: inp('n', 'n') + inp('p', 'p') + inp('k', 'k') + inp('q', 'of een kans: kleinste k met P(X ≤ k) ≥ kans'),
+    { title: 'Binomiaal: aantal successen in n onafhankelijke pogingen', help: 'Vul n, p en k in; of een kans voor de kleinste k.',
+      form: inp('n', 'n = aantal pogingen (steekproefgrootte)') + inp('p', 'p = kans op succes per poging') + inp('k', 'k = aantal successen (bv. defecten)') + inp('q', 'of een kans: kleinste k met P(X ≤ k) ≥ kans'),
       run: function (v) {
         var r = Calc.binomial(v.n, v.p, v.k);
         return r ? out(moments(r).concat(num(v.k) ? probs(r) : []).concat(inverseRow(Calc.binomialInv(v.n, v.p, v.q), v.q))) : '';
       }, pct: ['p', 'q'] },
     { title: 'Hypergeometrisch: defecten in een steekproef zonder teruglegging',
-      help: 'Excel: HYPGEOM.DIST(k; n; D; N; FALSE/TRUE).',
-      form: inp('N', 'N = lotgrootte') + inp('D', 'D = defecten in het lot') + inp('n', 'n = steekproefgrootte') + inp('k', 'k') +
+      help: 'Vul N, D, n en k in; of een kans voor de kleinste k.',
+      form: inp('N', 'N = lotgrootte') + inp('D', 'D = defecten in het lot') + inp('n', 'n = steekproefgrootte') + inp('k', 'k = aantal defecten in de steekproef') +
             inp('q', 'of een kans: kleinste k met P(X ≤ k) ≥ kans'),
       run: function (v) {
         var r = Calc.hypergeometric(v.N, v.D, v.n, v.k);
         return r ? out(moments(r).concat(num(v.k) ? probs(r) : []).concat(inverseRow(Calc.hypergeometricInv(v.N, v.D, v.n, v.q), v.q))) : '';
       }, pct: ['q'] },
-    { title: 'Poisson: aantal gebeurtenissen in een vast interval', help: 'Excel: POISSON.DIST(k; λ; FALSE/TRUE).',
-      form: inp('lam', 'λ (gemiddeld aantal)') + inp('k', 'k') + inp('q', 'of een kans: kleinste k met P(X ≤ k) ≥ kans'),
+    { title: 'Poisson: aantal gebeurtenissen in een vast interval', help: 'Vul λ en k in; of een kans voor de kleinste k.',
+      form: inp('lam', 'λ (gemiddeld aantal)') + inp('k', 'k = aantal gebeurtenissen') + inp('q', 'of een kans: kleinste k met P(X ≤ k) ≥ kans'),
       run: function (v) {
         var r = Calc.poisson(v.lam, v.k);
         return r ? out(moments(r).concat(num(v.k) ? probs(r) : []).concat(inverseRow(Calc.poissonInv(v.lam, v.q), v.q))) : '';
       }, pct: ['q'] },
     { title: 'Exponentieel: wachttijd tussen gebeurtenissen (rate λ)',
-      help: 'P(T ≤ t) = 1 − e^(−λt) (Excel: EXPON.DIST(t; λ; TRUE)); twee van λ, t en P(T ≤ t) geven de derde.',
-      form: inp('rate', 'λ (gebeurtenissen per tijdseenheid)') + inp('t', 't') + inp('q', 'P(T ≤ t)'),
+      help: 'Twee van λ, t en P(T ≤ t) geven de derde.',
+      form: inp('rate', 'λ (gebeurtenissen per tijdseenheid)') + inp('t', 't = tijd') + inp('q', 'P(T ≤ t)'),
       run: function (v) {
         var e = Calc.exponentialSolve(v.rate, v.t, num(v.rate) && num(v.t) ? null : v.q);
         if (!e) { var m = Calc.exponential(v.rate, null); return m ? out(moments(m)) : ''; }
@@ -335,8 +331,8 @@
         return out(moments(r).concat([['λ', f(e.rate), num(v.rate) ? '' : 'berekend'], ['t', f(e.t), num(v.t) ? '' : 'berekend'],
                                       ['P(T ≤ t) = 1 − e^(−λt)', fp(r.le)], ['P(T > t) = e^(−λt)', fp(r.gt)]]));
       }, pct: ['q'] },
-    { title: 'Uniform op [a, b]', help: 'P(X ≤ x) = (x − a)/(b − a); omgekeerd x = a + kans·(b − a).',
-      form: inp('a', 'a') + inp('b', 'b') + inp('x', 'x') + inp('q', 'of een kans P(X ≤ x)'),
+    { title: 'Uniform op [a, b]', help: 'Vul a, b en x in, of a, b en een kans.',
+      form: inp('a', 'a = kleinste waarde') + inp('b', 'b = grootste waarde') + inp('x', 'x = waarde') + inp('q', 'of een kans P(X ≤ x)'),
       run: function (v) {
         var x = num(v.x) ? v.x : (num(v.q) && num(v.a) && num(v.b) ? v.a + v.q * (v.b - v.a) : null);
         var r = Calc.uniform(v.a, v.b, x);
@@ -346,7 +342,7 @@
 
   TOOLS.kruistabel = [
     { title: 'Kruistabel: gezamenlijke, marginale en voorwaardelijke kansen',
-      help: 'Eén rij per regel, aantallen gescheiden door spaties (plak gerust uit Excel). Onafhankelijk ⇔ P(A en B) = P(A)·P(B) voor elke cel (Data p. 22–23).',
+      help: 'Eén rij per regel, aantallen gescheiden door spaties (plak gerust uit Excel).',
       form: area('t', 'aantallen (rijen = categorieën van A, kolommen = categorieën van B)', '120 30\n80 270', 4),
       run: function (v) {
         var rows = parseRows(v.text.t), r = Calc.contingency(rows);
@@ -367,28 +363,28 @@
 
   TOOLS.steekproefplan = [
     { title: 'Plan (n, c): OC bij AQL en LQL, producenten- en consumentenrisico',
-      help: 'OC(p) = P(X ≤ c). Binomiaal; hypergeometrisch met M = [Np] als N gegeven is (Further Reading p. 4). α-doel 5 %, β-doel 10 % (p. 4).',
-      form: inp('n', 'n') + inp('c', 'c (aanvaard als defecten ≤ c)') + inp('N', 'N = lotgrootte (optioneel)') + inp('aql', 'AQL') + inp('lql', 'LQL (LTPD)') +
+      help: 'Binomiaal; met N ook hypergeometrisch. Doelen: α 5 %, β 10 % (AS FR p. 4).',
+      form: inp('n', 'n = steekproefgrootte') + inp('c', 'c (aanvaard als defecten ≤ c)') + inp('N', 'N = lotgrootte (optioneel)') + inp('aql', 'AQL') + inp('lql', 'LQL (LTPD)') +
             inp('at', 'doel α', '', '0,05') + inp('bt', 'doel β', '', '0,10'),
       run: function (v) {
         var r = Calc.samplingRisks(v.n, v.c, v.N, v.aql, v.lql, v.at, v.bt);
         return r ? grid(['', 'binomiaal', 'hypergeometrisch'], [['OC(AQL)', fp(r.ocAqlBin), fp(r.ocAqlHyp)], ['producentenrisico α = 1 − OC(AQL)', fp(r.alphaBin), fp(r.alphaHyp)],
                     ['consumentenrisico β = OC(LQL)', fp(r.betaBin), fp(r.betaHyp)], ['haalt beide doelen?', f(r.meetsBin), f(r.meetsHyp)]]) : '';
       }, pct: ['aql', 'lql', 'at', 'bt'] },
-    { title: 'Eén lotkwaliteit p: OC, AOQ, ATI', help: 'Further Reading p. 10: AOQ = p·OC·(1 − (n/N)·Rs*), ATI = n·OC + N·(1 − OC).',
-      form: inp('n', 'n') + inp('c', 'c') + inp('N', 'N (voor exact AOQ en ATI)') + inp('p', 'p = fractie defect in het lot'),
+    { title: 'Eén lotkwaliteit p: OC, AOQ, ATI', help: 'Met N ook de exacte AOQ en de ATI.',
+      form: inp('n', 'n = steekproefgrootte') + inp('c', 'c = aanvaardingsgetal') + inp('N', 'N (voor exact AOQ en ATI)') + inp('p', 'p = fractie defect in het lot'),
       run: function (v) {
         var r = Calc.samplingPoint(v.n, v.c, v.N, v.p);
         return r ? out([['OC(p) binomiaal', fp(r.ocBin)], ['OC(p) hypergeometrisch', fp(r.ocHyp)], ['AOQ exact', fp(r.aoq)],
                         ['AOQ ≈ p·OC(p)', fp(r.aoqApprox)], ['ATI', f(r.ati)]]) : '';
       }, pct: ['p'] },
     { title: 'AOQL = hoogste AOQ', help: 'Met N: alle lotfracties M/N; zonder N: binomiaal, p in stappen van 0,0001.',
-      form: inp('n', 'n') + inp('c', 'c') + inp('N', 'N (optioneel)'),
+      form: inp('n', 'n = steekproefgrootte') + inp('c', 'c = aanvaardingsgetal') + inp('N', 'N (optioneel)'),
       run: function (v) {
         var r = Calc.aoql(v.n, v.c, v.N);
         return r ? out([['AOQL ≈ max p·OC(p)', fp(r.approx), 'bij p = ' + pc(r.pApprox)], ['AOQL exact (formule p. 10)', fp(r.exact), num(r.pExact) ? 'bij p = ' + pc(r.pExact) : '']]) : '';
       } },
-    { title: 'OC-tabel', form: inp('n', 'n') + inp('c', 'c') + inp('N', 'N (optioneel)') + inp('step', 'stap in p', '', '0,01') + inp('to', 'tot p', '', '0,1'),
+    { title: 'OC-tabel', form: inp('n', 'n = steekproefgrootte') + inp('c', 'c = aanvaardingsgetal') + inp('N', 'N (optioneel)') + inp('step', 'stap in p', '', '0,01') + inp('to', 'tot p', '', '0,1'),
       run: function (v) {
         if (!num(v.n) || !num(v.c) || !num(v.step) || !num(v.to) || v.step <= 0) return '';
         var rows = [];
@@ -398,7 +394,7 @@
         }
         return grid(['p', 'OC binomiaal', 'OC hypergeom.', 'AOQ exact', 'AOQ ≈ p·OC', 'ATI'], rows);
       }, pct: ['step', 'to'] },
-    { title: 'Plan voor variabelen (k, n) uit AQL, LQL, α en β', help: 'Further Reading p. 9; aanvaard als (x̄ − grens)/s ≥ k.',
+    { title: 'Plan voor variabelen (k, n) uit AQL, LQL, α en β', help: 'Vul AQL, LQL, α en β in.',
       form: inp('p0', 'AQL = p0') + inp('pt', 'LQL = pt') + inp('a', 'α', '', '0,05') + inp('b', 'β', '', '0,10'),
       run: function (v) {
         var r = Calc.variablesPlan(v.p0, v.pt, v.a, v.b);
@@ -409,7 +405,7 @@
 
   TOOLS.regressie = [
     { title: 'Enkelvoudige lineaire regressie: schatting, ANOVA, toetsen, BI en PI',
-      help: 'Eén paar "x y" per regel (plak twee kolommen uit Excel). Regression p. 17–38.',
+      help: 'Eén paar "x y" per regel (plak twee kolommen uit Excel).',
       form: ALPHA + area('xy', 'x y (één paar per regel)', '', 5) + inp('x0', 'x0 (voor BI/PI)') + inp('b1', 'H0: β1 = (standaard 0)') + inp('b0', 'H0: β0 = (standaard 0)'),
       run: function (v) {
         var rows = parseRows(v.text.xy);
@@ -433,7 +429,7 @@
       } }
   ];
   TOOLS.anova = [
-    { title: 'Eénweg-ANOVA (one-way)', help: 'Eén groep per regel (de waarnemingen van één niveau). DOE p. 3–15.',
+    { title: 'Eénweg-ANOVA (one-way)', help: 'Eén groep per regel (de waarnemingen van één niveau).',
       form: ALPHA + area('g', 'groepen: één regel per niveau', '', 5),
       run: function (v) {
         var r = Calc.anova1(parseRows(v.text.g), v.alpha);
@@ -493,9 +489,7 @@
           lines.map(function (l) { return [l[0]].concat(rows.map(function (r) { return l[2](r[l[1]]); })); }));
       } },
     { title: 'Alles uit alles: LSL, USL, µ, σ, Cp, Cpk en ppm buiten specificatie',
-      help: 'SPC p. 33–40: Cp = (USL − LSL)/6σ, Cpu = (USL − µ)/3σ, Cpl = (µ − LSL)/3σ, Cpk = min(Cpu, Cpl), dus Cpu + Cpl = 2·Cp; ' +
-            'uitval = Φ(−3·Cpu) + Φ(−3·Cpl). Vul in wat gegeven is: bv. Cp en Cpk geven de uitval, een uitval in ppm geeft Cpk (één grens) ' +
-            'of Cp = Cpk (gecentreerd), LSL, USL en Cp geven σ. Met één grens is Cpk de index van die kant.',
+      help: 'Vul in wat gegeven is. Een uitval in ppm geeft Cpk (één grens) of Cp = Cpk (kies \'gecentreerd\').',
       form: inp('lsl', 'LSL') + inp('usl', 'USL') + inp('mean', 'µ (gemiddelde)') + inp('sigma', 'σ') + inp('cp', 'Cp') + inp('cpk', 'Cpk') +
             inp('ppm', 'uitval in ppm (totaal buiten specificatie)') +
             sel('centred', 'ligging van het proces', [['0', 'zoals ingevuld'], ['1', 'gecentreerd: µ in het midden van LSL en USL']]),
@@ -514,7 +508,7 @@
   ];
 
   TOOLS.regelkaart = [
-    { title: 'Grenzen uit X̿, R̄ en/of s̄ (X̄-R en X̄-s)', help: 'SPC p. 74. Constanten voor n uit Table 18 (A2, D3, D4, B3, B4, d2), Table A (c4) en Six Sigma Demystified (A3).',
+    { title: 'Grenzen uit X̿, R̄ en/of s̄ (X̄-R en X̄-s)', help: 'Vul n en X̿ in, met R̄ en/of s̄.',
       form: inp('n', 'n (subgroepgrootte)') + inp('xbb', 'X̿') + inp('rbar', 'R̄') + inp('sbar', 's̄'),
       run: function (v) {
         if (!num(v.n)) return '';
@@ -534,8 +528,7 @@
   ];
   TOOLS.regelkaart.push(
     { title: 'Omgekeerd: uit gegeven grenzen naar X̿, R̄, s̄ en σ̂',
-      help: 'De formules van SPC p. 74 achterstevoren: UCL − CL = A2·R̄ = A3·s̄ = 3σ̂/√n (X̄-kaart), UCL<sub>R</sub> = D4·R̄, UCL<sub>s</sub> = B4·s̄, σ̂ = R̄/d2 = s̄/c4. ' +
-            'Zonder CL ligt de centrale lijn in het midden van UCL en LCL.',
+      help: 'Vul n en de grenzen in die je kent; zonder CL ligt de centrale lijn in het midden van UCL en LCL.',
       form: inp('n', 'n (subgroepgrootte)') + inp('ucl', 'UCL van de X̄-kaart') + inp('cl', 'CL (X̿)') + inp('lcl', 'LCL van de X̄-kaart') +
             inp('uclR', 'UCL van de R-kaart') + inp('uclS', 'UCL van de s-kaart'),
       run: function (v) {
@@ -564,7 +557,7 @@
 
   TOOLS.grr = [
     { title: 'Gage R&R: gemiddelde-en-spreidingsbreedte en ANOVA',
-      help: 'k operatoren, r herhalingen, n delen. Eén regel per operator en herhaling (A herhaling 1, A herhaling 2, …, B herhaling 1, …), met de n delen naast elkaar. MSA p. 34–37; constanten uit tabel MSA.pdf.',
+      help: 'Eén regel per operator en herhaling (A herhaling 1, A herhaling 2, …, B herhaling 1, …), met de n delen naast elkaar.',
       form: inp('k', 'k (operatoren)') + inp('r', 'r (herhalingen)') + inp('tol', 'tolerantie USL − LSL (optioneel)') + ALPHA + area('d', 'metingen', '', 9),
       run: function (v) {
         var rows = parseRows(v.text.d);
@@ -588,7 +581,7 @@
 
   TOOLS.confusion = [
     { title: 'Confusion matrix: accuracy, recall, precision, F1 (train en test)',
-      help: 'Rijen = werkelijke klasse, kolommen = voorspelde klasse (ML p. 29–32). Vul per model de vier aantallen in, rij per rij.',
+      help: 'Vul per model de vier aantallen in, rij per rij (rijen = werkelijke klasse).',
       form: ['A', 'B', 'C'].map(function (m) {
         return inp(m + 'tr', 'model ' + m + ' train: a b c d', '480 20 15 485') + inp(m + 'te', 'model ' + m + ' test: a b c d', '180 120 110 190');
       }).join(''),
@@ -611,9 +604,7 @@
   /* ---------- Les 2 (CI, TH, AS): sample size, tolerance, β/power, χ² frequencies, rank tests, sampling plans ---------- */
   TOOLS.steekproefgrootte = [
     { title: 'Steekproefgrootte, breedte en betrouwbaarheid van een BI (twee van de drie)',
-      help: 'De cursus noemt "nauwkeurigheid" de VOLLEDIGE breedte van het interval (bovengrens − ondergrens, CI p. 7). ' +
-            'Proportie: W = 2·z·√(p(1 − p)/n) (CI p. 10), p leeg = 0,5 (slechtste geval); gemiddelde met σ gekend: W = 2·z·σ/√n (CI FR p. 3). ' +
-            'Vul twee van α, W en n in; n wordt naar boven afgerond. Voor σ onbekend geeft de cursus geen formule.',
+      help: 'Vul twee van α, W en n in. W is de VOLLEDIGE breedte (CI p. 7). Voor σ onbekend geeft de cursus geen formule.',
       form: inp('alpha', 'α (1 − betrouwbaarheid)', '', '0,05') + inp('W', 'volledige breedte W') + inp('n', 'n') +
             inp('p', 'geschatte proportie p (leeg = 0,5)') + inp('sigma', 'σ (voor een gemiddelde)'),
       run: function (v) {
@@ -632,7 +623,7 @@
   ];
   TOOLS.tolerantie = [
     { title: 'Tolerantie-interval, σ gekend (CI FR p. 22)',
-      help: 'β is hier de staartfractie van de verdeling (bv. 0,10 voor "90 % van de stuks"), niet het type-II-risico. Eenzijdig: k = z<sub>1−α</sub>/√n + z<sub>1−β</sub>; tweezijdig: k* = z<sub>1−α/2</sub>/√n + z<sub>1−β/2</sub>. Werk op de getransformeerde variabele (bv. Y = ln X) als de opgave dat doet.',
+      help: 'β is hier de staartfractie van de verdeling, niet het type-II-risico. Werk op de getransformeerde variabele (bv. Y = ln X) als de opgave dat doet.',
       form: ALPHA + inp('beta', 'β (staartfractie)', '', '0,10') + inp('n', 'n') + inp('m', 'Ȳ') + inp('s', 'σ'),
       run: function (v) {
         var r = Calc.tolerance(v.n, v.m, v.s, v.alpha, v.beta, true);
@@ -641,7 +632,7 @@
           '<p class="xl">Ligt de eis (bv. ln 240) binnen [LTL; +∞[, dan is ze niet aangetoond (CI FR p. 22).</p>' : '';
       }, pct: ['beta'] },
     { title: 'Tolerantie-interval, σ onbekend (CI FR p. 23)',
-      help: 'k ≈ t(α, β, n) = [z<sub>1−β</sub> + z<sub>1−α</sub>·√(1/n + z<sub>1−β</sub>²/(2n) − z<sub>1−α</sub>²/(2n²))] / (1 − z<sub>1−α</sub>²/(2n)); tweezijdig k′ = t(α/2, β/2, n).',
+      help: 'β is de staartfractie van de verdeling.',
       form: ALPHA + inp('beta', 'β (staartfractie)', '', '0,10') + inp('n', 'n') + inp('m', 'Ȳ') + inp('s', 's'),
       run: function (v) {
         var r = Calc.tolerance(v.n, v.m, v.s, v.alpha, v.beta, false);
@@ -649,7 +640,7 @@
                         ["k′ = t(α/2, β/2, n) (tweezijdig)", f(r.k2)], ['tweezijdig interval', iv(r.two)]]) : '';
       }, pct: ['beta'] },
     { title: 'Verdelingsvrij tolerantie-interval [x<sub>(1)</sub>; x<sub>(n)</sub>] (CI FR p. 23)',
-      help: 'Kleinste n met (1 − β/2)<sup>n</sup> − ½(1 − β)<sup>n</sup> ≤ α/2; voor een gegeven n de betrouwbaarheid 1 − 2(1 − β/2)<sup>n</sup> + (1 − β)<sup>n</sup>.',
+      help: 'Zonder n: de kleinste n; met n: de betrouwbaarheid.',
       form: ALPHA + inp('beta', 'β (staartfractie)', '', '0,10') + inp('n', 'n (optioneel)'),
       run: function (v) {
         var r = Calc.toleranceFree(v.alpha, v.beta, v.n);
@@ -658,7 +649,7 @@
   ];
   TOOLS.onderscheidingsvermogen = [
     { title: 'β en onderscheidingsvermogen (power) van de Z-toets voor µ',
-      help: 'De kritieke waarde ligt op de verdeling onder H0; β is de kans om toch in het aanvaardingsgebied te vallen als het ware gemiddelde µ1 is (TH FR p. 7–9). Power = 1 − β (TH FR p. 8). Tweezijdig toont de cursus alleen als grafiek (TH FR p. 14); de waarde volgt uit dezelfde procedure. Voor de t-toets geeft de cursus geen β.',
+      help: 'Met µ1: β en power per H_A; met een gewenste β ook n, of zonder µ1 de kleinste verschuiving die de toets ziet. Tweezijdig toont de cursus alleen als grafiek (TH FR p. 14); voor de t-toets geeft de cursus geen β.',
       form: ALPHA + inp('mu0', 'µ0 (H0)') + inp('mu1', 'ware µ1') + inp('sigma', 'σ') + inp('n', 'n') + inp('tb', 'gewenste β (voor n of de kleinste µ1)'),
       run: function (v) {
         var r = Calc.powerMean(v.mu0, v.mu1, v.sigma, v.n, v.alpha, v.tb), shift = Calc.detectableShift(v.sigma, v.n, v.alpha, v.tb);
@@ -671,7 +662,7 @@
           (num(r.nOneSided) ? out([['n voor die β, eenzijdig: ((z<sub>1−α</sub> + z<sub>1−β</sub>)σ/|µ1 − µ0|)²', f(r.nOneSided)], ['naar boven afgerond', f(r.nOneSidedUp), 'TH FR p. 9: n = 195']]) : '');
       }, pct: ['tb'] },
     { title: 'β van de Z-toets voor een proportie π',
-      help: 'Kritieke waarde met π0 onder de wortel (TR p. 9), β onder de ware π1 (zoals oefening 05.12). Voorwaarde n·π0 > 5 (TR p. 10).',
+      help: 'Met een gewenste β ook n (formule en kleinste n met β kleiner dan het doel).',
       form: ALPHA + inp('p0', 'π0 (H0)') + inp('p1', 'ware π1') + inp('n', 'n') + inp('tb', 'gewenste β (voor n, optioneel)'),
       run: function (v) {
         var r = Calc.powerProportion(v.p0, v.p1, v.n, v.alpha, v.tb);
@@ -684,7 +675,7 @@
   ];
   TOOLS.chikwadraat = [
     { title: 'χ²-aanpassingstoets (goodness of fit)',
-      help: 'TR p. 15–17: e<sub>k</sub> = n·π<sub>k</sub>, χ² = Σ(e<sub>k</sub> − n<sub>k</sub>)²/e<sub>k</sub>, vrijheidsgraden r − g − 1 (g = geschatte parameters), alleen de rechterstaart. Voorwaarde e<sub>k</sub> > 5, anders klassen samenvoegen. Excel CHISQ.TEST past de vrijheidsgraden NIET aan voor g.',
+      help: 'Geef kansen of verwachte aantallen. Excel CHISQ.TEST past de vrijheidsgraden NIET aan voor g.',
       form: ALPHA + area('o', 'waargenomen aantallen n<sub>k</sub> per klasse', '', 2) + area('e', 'verwachte kansen π<sub>k</sub> (of verwachte aantallen)', '', 2) + inp('g', 'g = aantal geschatte parameters', '', '0'),
       run: function (v) {
         var o = parseList(v.text.o), e = parseList(v.text.e);
@@ -697,7 +688,7 @@
                r.small ? ['<b>' + r.small + ' klasse(n) met e ≤ 5</b>', 'klassen samenvoegen (TR p. 17)'] : null]);
       } },
     { title: 'χ²-toets op onafhankelijkheid (kruistabel)',
-      help: 'TR p. 18–20: e<sub>kl</sub> = n<sub>k.</sub>·n<sub>.l</sub>/n, vrijheidsgraden (r − 1)(s − 1), voorwaarde e<sub>kl</sub> > 5. Bij een 2×2-tabel de continuïteitscorrectie van Yates.',
+      help: 'Eén rij per regel; bij een 2×2-tabel ook Yates.',
       form: ALPHA + area('t', 'aantallen: één rij per regel', '', 4),
       run: function (v) {
         var rows = parseRows(v.text.t), r = Calc.chi2Table(rows, v.alpha);
@@ -718,14 +709,14 @@
   }
   TOOLS.nietparametrisch = [
     { title: 'Wilcoxon-Mann-Whitney (twee onafhankelijke steekproeven)',
-      help: 'TR p. 21–22: rangschik alle waarden samen (gelijke waarden: gemiddelde rang); W = rangsom van steekproef 1; E(W) = n1(N + 1)/2; σ²(W) = n1·n2·(N + 1)/12 (zonder correctie voor ties, zoals de cursus). Grote W ↔ mediaan 1 > mediaan 2.',
+      help: 'Zonder correctie voor gelijke waarden, zoals de cursus.',
       form: area('a', 'steekproef 1', '', 2) + area('b', 'steekproef 2', '', 2),
       run: function (v) {
         var r = Calc.rankSum(parseList(v.text.a), parseList(v.text.b));
         return r ? out([['rangen van steekproef 1', r.ranks1.map(function (x) { return f(x); }).join(' ')]]) + rankOut(r, 'W = rangsom steekproef 1') : '';
       } },
     { title: 'Wilcoxon signed ranks (gepaarde waarnemingen)',
-      help: 'TR p. 23–24: v = x1 − x2; v = 0 weglaten en n aanpassen; rangschik |v| (gelijke: gemiddelde rang); T+ = som van de rangen van de positieve v; E = n(n + 1)/4; σ² = n(n + 1)(2n + 1)/24.',
+      help: 'Paren of verschillen; nulverschillen worden weggelaten.',
       form: area('pairs', 'paren x1 x2 per regel, of de verschillen', '', 3),
       run: function (v) {
         var rows = parseRows(v.text.pairs), d = rows.length && rows.every(function (q) { return q.length === 2; })
@@ -734,7 +725,7 @@
         return r ? out([['n na weglaten van ' + r.dropped + ' nulverschil(len)', f(r.n)]]) + rankOut(r, 'T+ = som van de positieve rangen') : '';
       } },
     { title: 'Runs-toets op aselectheid (Wald-Wolfowitz)',
-      help: 'TR p. 25–26: tel de runs boven en onder de mediaan in de volgorde van de steekproef; E(R) ≈ (n + 2)/2; σ²(R) ≈ (n − 1)/4. Waarden gelijk aan de mediaan worden weggelaten (de cursus zegt er niets over).',
+      help: 'Waarden gelijk aan de mediaan worden weggelaten (de cursus zegt er niets over).',
       form: area('x', 'waarden in de volgorde van de steekproef', '', 3),
       run: function (v) {
         var r = Calc.runsTest(parseList(v.text.x));
@@ -743,7 +734,7 @@
   ];
   TOOLS.steekproefmethoden = [
     { title: 'Proportie: SRS tegenover gestratificeerd (twee strata, AS p. 16–18)',
-      help: 'σ²[P] = π(1 − π)/n (SRS); proportioneel gestratificeerd σ²[P<sub>s</sub>] = (W<sub>A</sub>σ<sub>A</sub>² + W<sub>B</sub>σ<sub>B</sub>²)/n; optimale verdeling n<sub>A</sub> = W<sub>A</sub>σ<sub>A</sub>/(W<sub>A</sub>σ<sub>A</sub> + W<sub>B</sub>σ<sub>B</sub>)·n. Laat π<sub>B</sub> leeg voor alleen SRS.',
+      help: 'Laat π<sub>B</sub> leeg voor alleen SRS.',
       form: inp('piA', 'π<sub>A</sub> (of π voor SRS)') + inp('piB', 'π<sub>B</sub>') + inp('wA', 'W<sub>A</sub> = N<sub>A</sub>/N', '', '1') + inp('n', 'n'),
       run: function (v) {
         var r = Calc.samplingVariance(v.piA, v.piB, v.wA, v.n);
@@ -754,7 +745,6 @@
                     ['n<sub>A</sub> proportioneel', f(r.nAprop)], ['n<sub>A</sub> optimaal ; n<sub>B</sub> optimaal', f(r.nAopt) + ' ; ' + f(r.nBopt)]]);
       }, pct: ['piA', 'piB', 'wA'] },
     { title: 'Gemiddelde: twee even grote normale strata (AS p. 19, notities)',
-      help: 'W<sub>A</sub> = W<sub>B</sub> = ½ en gemeenschappelijke σ<sub>S</sub>²: σ²[X̄<sub>S</sub>] = σ<sub>S</sub>²/n; σ²[X̄] = σ<sub>S</sub>²/n + (µ<sub>A</sub> − µ<sub>B</sub>)²/(4n).',
       form: inp('a', 'µ<sub>A</sub>') + inp('b', 'µ<sub>B</sub>') + inp('s2', 'σ<sub>S</sub>² (binnen een stratum)') + inp('n', 'n'),
       run: function (v) {
         var r = Calc.samplingMeans(v.a, v.b, v.s2, v.n);
@@ -763,8 +753,8 @@
   ];
   TOOLS.steekproefplan.push(
     { title: 'Bij welke p haalt een plan (n, c) een gegeven OC? (AQL, LQL van een plan)',
-      help: 'AQL = p met OC(p) = 1 − α; LQL = p met OC(p) = β (AS FR p. 4, p. 17). Binomiaal; opgelost door bisectie.',
-      form: inp('n', 'n') + inp('c', 'c') + inp('t', 'gewenste OC (bv. 0,95 of 0,10)'),
+      help: 'Geef 1 − α (bv. 0,95) voor de AQL of β (bv. 0,10) voor de LQL van het plan.',
+      form: inp('n', 'n = steekproefgrootte') + inp('c', 'c = aanvaardingsgetal') + inp('t', 'gewenste OC (bv. 0,95 of 0,10)'),
       run: function (v) { var p = Calc.inverseOC(v.n, v.c, v.t); return num(p) ? out([['p met OC(p) = ' + pc(v.t), fp(p)]]) : ''; }, pct: ['t'] });
   TOOLS.planontwerp = [
     { title: 'Plan (n, c) zoeken voor (AQL; 1 − α) en (LQL; β)',
@@ -778,7 +768,7 @@
   ];
   TOOLS.dubbelplan = [
     { title: 'Dubbel plan (n1, c1, c2) + (n2, c3): OC, Π en ASN',
-      help: 'AS FR p. 5: aanvaard als X1 ≤ c1, verwerp als X1 ≥ c2, anders tweede steekproef en aanvaard als X1 + X2 ≤ c3. Binomiaal; hypergeometrisch met M = [Np] als N gegeven is.',
+      help: 'Binomiaal; met N hypergeometrisch.',
       form: inp('n1', 'n1') + inp('c1', 'c1') + inp('c2', 'c2 (verwerp bij X1 ≥ c2)') + inp('n2', 'n2') + inp('c3', 'c3 (op X1 + X2)') + inp('p', 'p') + inp('N', 'N (optioneel)'),
       run: function (v) {
         var r = Calc.doublePlan(v.n1, v.c1, v.c2, v.n2, v.c3, v.p, v.N);
@@ -789,7 +779,7 @@
   ];
   TOOLS.sprt = [
     { title: 'Sequentieel plan (SPRT) voor attributen',
-      help: 'AS FR p. 6–8: verwerp als X<sub>n</sub> ≥ h2 + s·n, aanvaard als X<sub>n</sub> ≤ −h1 + s·n, anders verder. OC en ASN volgen uit de parameter τ (p(τ)); ASN(s) = h1·h2/(s(1 − s)).',
+      help: 'Met n en het aantal defecten tot nu toe ook de beslissing.',
       form: inp('p0', 'p0 (AQL)') + inp('pt', 'pt (LQL)') + inp('a', 'α', '', '0,05') + inp('b', 'β', '', '0,10') + inp('n', 'n tot nu toe (optioneel)') + inp('x', 'defecten tot nu toe X<sub>n</sub>'),
       run: function (v) {
         var r = Calc.sprt(v.p0, v.pt, v.a, v.b, v.n, v.x);
@@ -803,7 +793,7 @@
   ];
   TOOLS.variabelenplan = [
     { title: 'Plan voor variabelen met gegeven n: ξ, k = t(1 − α, p0, n), Q en beslissing',
-      help: 'AS p. 26–27, AS FR p. 9: aanvaard als Q = (X̄ − ξ)/s ≥ k. k = t(1 − α, p0, n) = [Z<sub>1−p0</sub> + Z<sub>α</sub>·√(1/n + Z<sub>1−p0</sub>²/(2n) − Z<sub>α</sub>²/(2n²))]/(1 − Z<sub>α</sub>²/(2n)) met Z<sub>α</sub> NEGATIEF (bv. −1,645). Ondergrens ξ direct of als ξ = NORM.INV(p0; µ; σ) zoals het werkboek.',
+      help: 'Geef ξ direct, of µ en σ voor ξ = NORM.INV(p0; µ; σ) zoals het werkboek.',
       form: inp('p0', 'p0 (AQL)') + ALPHA + inp('n', 'n') + inp('xi', 'ξ (ondergrens)') + inp('mu', 'of µ (voor ξ = NORM.INV(p0; µ; σ))') + inp('sg', 'σ (idem)') +
             inp('m', 'X̄ van de steekproef') + inp('s', 's van de steekproef') + inp('k', 'k (leeg = t)'),
       run: function (v) {
@@ -815,14 +805,13 @@
   ];
   TOOLS.skiplot = [
     { title: 'Kwalificatie voor skip-lot (AS FR p. 11, notities)',
-      help: 'Voorbeeld van de cursus: plan (80, 2), de laatste 10 loten aanvaard: de eerste 8 steekproeven samen hoogstens 3 defecten en de laatste 2 zonder defect: P<sub>q</sub> = B(3; 640, p)·B(0; 80, p)².',
+      help: 'Voorbeeld van de cursus: plan (80, 2), de laatste 10 loten aanvaard (cursus: 2,4 % bij 1 %, 85 % bij 0,1 %).',
       form: inp('p', 'p') + inp('n', 'n per steekproef', '', '80') + inp('lots', 'aantal eerste steekproeven', '', '8') + inp('d', 'hoogstens d defecten samen', '', '3') + inp('last', 'laatste steekproeven zonder defect', '', '2'),
       run: function (v) {
         var r = Calc.skipLot(v.p, v.n, v.lots, v.d, v.last);
         return r ? out([['B(d; aantal·n, p)', fp(r.first)], ['B(0; n, p)', fp(r.lastOne)], ['P<sub>q</sub>', fp(r.pq), 'cursus: 2,4 % bij 1 %, 85 % bij 0,1 %']]) : '';
       }, pct: ['p'] },
     { title: 'Criterium van Deming: geen of volledige inspectie (AS FR p. 13–15)',
-      help: 'Stabiel proces met fractie defect p, inspectiekost per stuk k1, kost van een defect in de assemblage k2: p < k1/k2 → geen inspectie; p > k1/k2 → alles inspecteren.',
       form: inp('p', 'p') + inp('k1', 'k1 (inspectiekost per stuk)') + inp('k2', 'k2 (kost van een defect stuk verder in het proces)'),
       run: function (v) {
         var r = Calc.deming(v.p, v.k1, v.k2);
@@ -833,14 +822,12 @@
 
   /* ---------- Deel 14 (extra, niet te kennen): blocks that only the books Six Sigma For Dummies and Harry & Schroeder give ---------- */
   TOOLS.sigma_extra = [
-    { title: 'DPU, throughput yield en RTY ≈ e^(−DPU)', help: 'Dummies p. 152–156; Harry & Schroeder p. 5. DPU = defecten per eenheid (defects per unit); TY = 1 − DPU; RTY ≈ e^(−DPU) als DPU klein is.',
-      form: inp('D', 'D = aantal defecten') + inp('N', 'N = aantal eenheden'),
+    { title: 'DPU, throughput yield en RTY ≈ e^(−DPU)', form: inp('D', 'D = aantal defecten') + inp('N', 'N = aantal eenheden'),
       run: function (v) {
         var r = Calc.defects(v.D, v.N, null);
         return r ? out([['DPU = D / N', f(r.dpu)], ['throughput yield = 1 − DPU', fp(r.ty)], ['RTY ≈ e^(−DPU)', fp(r.rtyApprox), 'Dummies p. 156: als DPU klein is']]) : '';
       } },
-    { title: 'Traditionele yield, first-time yield, verborgen fabriek', help: 'Dummies p. 147–151.',
-      form: inp('in', 'eenheden in') + inp('out', 'eenheden uit (goed, na herwerk)') + inp('scrap', 'afgekeurd (scrap)') + inp('rework', 'herwerkt'),
+    { title: 'Traditionele yield, first-time yield, verborgen fabriek', form: inp('in', 'eenheden in') + inp('out', 'eenheden uit (goed, na herwerk)') + inp('scrap', 'afgekeurd (scrap)') + inp('rework', 'herwerkt'),
       run: function (v) {
         var r = Calc.yields(v.in, v.out, v.scrap, v.rework);
         return r ? out([['Y = uit / in', fp(r.y)], ['FTY = (in − scrap − herwerk) / in', fp(r.fty)], ['verborgen fabriek = Y − FTY', fp(r.hidden)]]) : '';
@@ -857,8 +844,7 @@
     { title: 'Zelfde yield per stap: RTY = yield^k',
       form: inp('y', 'yield per stap') + inp('k', 'aantal stappen k'),
       run: function (v) { var r = Calc.yieldPower(v.y, v.k); return r ? out([['RTY', fp(r.rty)], ['één goede op …', f(r.oneIn)]]) : ''; }, pct: ['y'] },
-    { title: 'Yield per kans uit de eindyield', help: 'Harry & Schroeder p. 3–5.',
-      form: inp('y', 'eindyield') + inp('o', 'aantal kansen'),
+    { title: 'Yield per kans uit de eindyield', form: inp('y', 'eindyield') + inp('o', 'aantal kansen'),
       run: function (v) {
         var r = Calc.perOpportunity(v.y, v.o);
         return r ? out([['yield per kans = yield^(1/kansen)', fp(r.ypo)], ['DPMO', f(r.dpmo)], ['Z zonder verschuiving', f(r.z)],
@@ -866,7 +852,7 @@
       }, pct: ['y'] }
   ];
   TOOLS.regelkaart_extra = [
-    { title: 'Individuele waarden en moving range (I-MR)', help: 'Dummies p. 249: X̄ ± E2·MR̄, D3·MR̄ … D4·MR̄ (n = 2).',
+    { title: 'Individuele waarden en moving range (I-MR)', help: 'Waarden in volgorde.',
       form: area('x', 'waarden in volgorde', '', 4),
       run: function (v) {
         var r = Calc.individuals(parseList(v.text.x), K);
@@ -876,7 +862,7 @@
             ['MR', f(r.MR[0]), f(r.MR[1]), f(r.MR[2]), 'D3 = ' + f(r.D3) + ', D4 = ' + f(r.D4)]]) +
           grid(['#', 'x', 'MR', 'x-signaal', 'MR-signaal'], r.points.map(function (p, i) { return [String(i + 1), f(p.x), f(p.mr), flagged(p.fx), flagged(p.fmr)]; }));
       } },
-    { title: 'p-kaart (fractie defect) of u-kaart (defecten per eenheid)', help: 'Dummies p. 254. Per regel: subgroepgrootte n_i en aantal. Grenzen per subgroep; negatieve LCL → 0.',
+    { title: 'p-kaart (fractie defect) of u-kaart (defecten per eenheid)', help: 'Per regel: subgroepgrootte n_i en aantal.',
       form: sel('kind', 'kaart', [['p', 'p-kaart (defectieven)'], ['u', 'u-kaart (defecten)']]) + area('d', 'n_i en aantal per regel', '', 5),
       run: function (v) {
         var r = Calc.attributeChart(v.text.kind, parseRows(v.text.d));
@@ -896,7 +882,7 @@
   }
   TOOLS.beschrijvend = [
     { title: 'Beschrijvende statistiek van één reeks',
-      help: 'LSS p. 131: gemiddelde, mediaan (middelste waarde; bij even n het gemiddelde van de twee middelste), modus, s met n − 1, bereik. Excel: AVERAGE, MEDIAN, MODE, STDEV.S (n − 1) en STDEV.P (n).',
+      help: 'Excel: AVERAGE, MEDIAN, MODE, STDEV.S (n − 1) en STDEV.P (n).',
       form: area('x', 'waarden', '', 3),
       run: function (v) {
         var xs = parseList(v.text.x), r = Calc.descriptives(xs);
@@ -906,7 +892,7 @@
                         ['σ met deler n (STDEV.P) ; σ²', f(r.sdPop) + ' ; ' + f(r.variancePop)]]) : '';
       } },
     { title: 'Correlatie en covariantie van paren (x, y)',
-      help: 'r = S<sub>xy</sub>/√(S<sub>xx</sub>S<sub>yy</sub>); R² = r² (REG p. 43). De cursus noemt de deler van de covariantie niet: beide staan hier (COVARIANCE.S met n − 1, COVAR/COVARIANTIE met n). Correlatie is geen oorzakelijkheid (Deel 02).',
+      help: 'De cursus noemt de deler van de covariantie niet: beide staan hier (COVARIANCE.S met n − 1, COVAR met n).',
       form: area('xy', 'x y per regel', '', 4),
       run: function (v) {
         var rows = parseRows(v.text.xy);
@@ -918,7 +904,7 @@
   ];
   TOOLS.regressie.push(
     { title: 'Helling en intercept uit sommen (REG p. 18)',
-      help: 'S<sub>xx</sub> = Σx² − n·x̄², S<sub>xy</sub> = Σxy − n·x̄·ȳ, b1 = S<sub>xy</sub>/S<sub>xx</sub>, b0 = ȳ − b1·x̄. Met Σy² ook de kwadratensommen.',
+      help: 'Met Σy² ook de kwadratensommen.',
       form: inp('n', 'n') + inp('sx', 'Σx') + inp('sy', 'Σy') + inp('sxx', 'Σx²') + inp('sxy', 'Σxy') + inp('syy', 'Σy² (optioneel)'),
       run: function (v) {
         var r = Calc.regSums(v.n, v.sx, v.sy, v.sxx, v.sxy, v.syy);
@@ -927,7 +913,7 @@
                         num(r.r2) ? ['R² ; MS<sub>E</sub> ; σ̂', f(r.r2) + ' ; ' + f(r.mse) + ' ; ' + f(r.s)] : null]) : '';
       } },
     { title: 'R², σ̂ en F uit de kwadratensommen (REG p. 27–33, 56)',
-      help: 'k = aantal regressoren (1 bij enkelvoudige regressie). R²<sub>adj</sub> zoals de cursusoutputs (n − k − 1) en zoals gedrukt op REG p. 56 (n − k − 2).',
+      help: 'k = aantal regressoren (1 bij enkelvoudige regressie).',
       form: ALPHA + inp('ssr', 'SS<sub>R</sub>') + inp('sse', 'SS<sub>E</sub>') + inp('n', 'n') + inp('k', 'k', '', '1'),
       run: function (v) {
         var r = Calc.regFromSS(v.ssr, v.sse, v.n, v.k, v.alpha);
@@ -950,7 +936,6 @@
         return h;
       } },
     { title: 'Partiële F-toets: helpen de extra termen? (REG p. 61)',
-      help: 'F0 = [(SS<sub>E</sub>(RM) − SS<sub>E</sub>(FM))/(k − r)] / [SS<sub>E</sub>(FM)/(n − p)]; RM = gereduceerd model, FM = volledig model, k − r = aantal toegevoegde termen, n − p = vrijheidsgraden van de fout van het volledige model.',
       form: ALPHA + inp('rm', 'SS<sub>E</sub>(RM)') + inp('fm', 'SS<sub>E</sub>(FM)') + inp('r', 'k − r (toegevoegde termen)') + inp('df', 'n − p (fout-df volledig model)'),
       run: function (v) {
         var r = Calc.partialF(v.rm, v.fm, v.r, v.df, v.alpha);
@@ -1030,7 +1015,6 @@
   /* ---------- SPC extras: limits from standard values, run rules ---------- */
   TOOLS.regelkaart.push(
     { title: 'Grenzen uit gekende (standaard)waarden µ en σ (Tabellen SPC p. 2, Table 7.2)',
-      help: 'X̄: µ ± A·σ (Table 18) of µ ± 3σ/√n (SPC p. 63–64); R: d2σ, D1σ, D2σ; s: c2√(n/(n − 1))σ, B1√(n/(n − 1))σ, B2√(n/(n − 1))σ (s met n − 1).',
       form: inp('mu', 'µ') + inp('sigma', 'σ (van één meting)') + inp('n', 'n (subgroepgrootte)'),
       run: function (v) {
         var r = Calc.standardLimits(v.mu, v.sigma, v.n, K);
@@ -1042,7 +1026,7 @@
         return grid(['kaart', 'LCL', 'CL', 'UCL', 'constanten'], rows);
       } },
     { title: 'Regels voor speciale oorzaken (Western Electric, SPC p. 68–69)',
-      help: 'Zones: C binnen 1σ, B tussen 1σ en 2σ, A tussen 2σ en 3σ van de centrale lijn, met σ die van de uitgezette grootheid (bij een X̄-kaart σ/√n = (UCL − CL)/3). SPC p. 68 zegt bij regels 2 en 3 niet of de punten aan dezelfde kant van de centrale lijn moeten liggen (bij regel 4 wel); de rekenmachine toont beide lezingen. De Western Electric-regels waar SPC p. 69 naar verwijst, tellen aan dezelfde kant. Regels 9 en 10 (ongewoon patroon, punt dicht bij een grens) vragen een oordeel.',
+      help: 'SPC p. 68 zegt bij regels 2 en 3 niet of de punten aan dezelfde kant moeten liggen (bij regel 4 wel); de rekenmachine toont beide lezingen. Regels 9 en 10 (ongewoon patroon, punt dicht bij een grens) vragen een oordeel.',
       form: inp('cl', 'centrale lijn CL') + inp('s', 'σ van de uitgezette grootheid') + inp('ucl', 'of UCL (dan σ = (UCL − CL)/3)') + area('x', 'punten in volgorde', '', 3),
       run: function (v) {
         var s = num(v.s) ? v.s : (num(v.ucl) && num(v.cl) ? (v.ucl - v.cl) / 3 : null), r = Calc.runRules(parseList(v.text.x), v.cl, s);
@@ -1060,7 +1044,6 @@
   /* ---------- Bayes, Beta, k-class confusion matrix ---------- */
   TOOLS.bayes = [
     { title: 'Regel van Bayes: voorwaardelijke kans omkeren',
-      help: 'P(A|B) = P(B|A)·P(A)/P(B) (ML p. 53) met P(B) = P(B|A)·P(A) + P(B|niet A)·P(niet A) (marginaal plus productregel, Data p. 18–20). Let op: P(A|B) ≠ P(B|A).',
       form: inp('pa', 'P(A) (voorkennis, prior)') + inp('ba', 'P(B | A)') + inp('bn', 'P(B | niet A)'),
       run: function (v) {
         var r = Calc.bayes(v.pa, v.ba, v.bn);
@@ -1068,7 +1051,6 @@
                         ['odds vooraf × likelihood-ratio = odds achteraf', f(r.priorOdds) + ' × ' + f(r.likelihoodRatio) + ' = ' + f(r.posteriorOdds)]]) : '';
       }, pct: ['pa', 'ba', 'bn'] },
     { title: 'Bayesiaans bijwerken van een proportie met een Beta-prior',
-      help: 'Web slides p. 55: prior Beta(α, β), k successen in n pogingen → posterior Beta(α + k, β + n − k); gemiddelde α/(α + β); MLE k/n. Modus en mediaan zoals in de Beta(2, 8)-figuur (Data-notities p. 4): modus (α − 1)/(α + β − 2), mediaan BETA.INV(0,5; α; β).',
       form: inp('a', 'α (prior)', '', '1') + inp('b', 'β (prior)', '', '1') + inp('k', 'k successen') + inp('n', 'n pogingen'),
       run: function (v) {
         var r = Calc.betaPosterior(v.a, v.b, v.k, v.n);
@@ -1094,7 +1076,7 @@
                ['sd', 'type A: s, gemiddelde van n'], ['u', 'standaardonzekerheid u rechtstreeks']];
   TOOLS.meetsysteem = [
     { title: 'Waargenomen en werkelijke Cp bij een gegeven %GRR (MSA p. 24–26)',
-      help: '1/C<sub>po</sub>² = 1/C<sub>pa</sub>² + 1/C<sub>pm</sub>². %GRR van de procesvariatie: C<sub>po</sub> = C<sub>pa</sub>·√(1 − %GRR²). %GRR van de tolerantie: 1/C<sub>po</sub>² = 1/C<sub>pa</sub>² + %GRR². Vul C<sub>pa</sub> of C<sub>po</sub> in.',
+      help: 'Vul C<sub>pa</sub> of C<sub>po</sub> in.',
       form: sel('basis', '%GRR ten opzichte van', [['tol', 'de tolerantie (USL − LSL)'], ['process', 'de procesvariatie (TV)']]) + inp('grr', '%GRR') + inp('cpa', 'werkelijke C<sub>pa</sub>') + inp('cpo', 'waargenomen C<sub>po</sub>'),
       run: function (v) {
         var r = Calc.cpObserved(v.text.basis, v.grr, v.cpa, v.cpo);
@@ -1102,14 +1084,14 @@
         return num(r.cpo) || num(r.cpa) ? out([num(r.cpo) ? ['waargenomen C<sub>po</sub>', f(r.cpo)] : ['werkelijke C<sub>pa</sub>', f(r.cpa)]]) : warn('geen oplossing: %GRR te groot voor deze Cp');
       }, pct: ['grr'] },
     { title: 'Gauge performance curve: kans om een stuk te aanvaarden (MSA p. 27)',
-      help: 'β(X<sub>r</sub>) = Φ((USL − (X<sub>r</sub> + b))/σ<sub>GRR</sub>) − Φ((LSL − (X<sub>r</sub> + b))/σ<sub>GRR</sub>), b = bias. Vergelijkbaar met een OC-curve.',
+      help: 'Eén of meer referentiewaarden.',
       form: inp('lsl', 'LSL') + inp('usl', 'USL') + inp('b', 'bias b', '', '0') + inp('s', 'σ<sub>GRR</sub>') + area('x', 'referentiewaarden X<sub>r</sub>', '', 2),
       run: function (v) {
         var r = Calc.gaugePerformance(v.lsl, v.usl, v.b, v.s, parseList(v.text.x));
         return r ? grid(['X<sub>r</sub>', 'P(aanvaard)', 'P(afgekeurd)'], r.map(function (q) { return [f(q.x), fp(q.accept), fp(q.reject)]; })) : '';
       } },
     { title: 'Onzekerheidsbudget: u<sub>c</sub> en U = k·u<sub>c</sub> (MSA p. 28–29, stalen band)',
-      help: 'Per bron een standaardonzekerheid: certificaat U/k; uniform a/√3; type A R/d2 of s, gedeeld door √n als je het gemiddelde van n metingen gebruikt. Onafhankelijke bronnen: u<sub>c</sub> = √Σu²; U = k·u<sub>c</sub> met k = 2 (≈ 95 %).',
+      help: 'Kies per bron het soort; k (certificaat) of d2 in het tweede veld, n in het derde als je het gemiddelde van n metingen gebruikt.',
       form: [1, 2, 3, 4, 5, 6].map(function (i) {
         return '<div class="fld wide row">' + sel('kind' + i, 'bron ' + i, KINDS) + inp('a' + i, 'waarde (U, a, R, s of u)') + inp('b' + i, 'k (certificaat) of d2') + inp('c' + i, 'n (gemiddelde van n metingen)') + '</div>';
       }).join('') + inp('val', 'gemeten waarde (optioneel)') + inp('corr', 'correctie (af te trekken)', '', '0') + inp('k', 'dekkingsfactor k', '', '2'),
@@ -1123,7 +1105,6 @@
         return h;
       } },
     { title: 'Onzekerheid doorrekenen (MSA p. 29)',
-      help: 'u(x̄) = u(x)/√n; u(x + y) = √(u²(x) + u²(y)); u(x·y)/(x·y) = √(u²(x)/x² + u²(y)/y²); u(x²)/x² = 2u(x)/x; u(√x)/√x = u(x)/(2x).',
       form: inp('x', 'x') + inp('ux', 'u(x)') + inp('y', 'y (optioneel)') + inp('uy', 'u(y)') + inp('n', 'n (voor x̄, optioneel)'),
       run: function (v) {
         if (!num(v.x) || !num(v.ux)) return '';
@@ -1136,7 +1117,7 @@
         return out(rows);
       } },
     { title: 'Bias-toets van een meetsysteem (MSA p. 31–32)',
-      help: 'bias = X̿ − referentiewaarde; σ<sub>r</sub> = R̄/d2; t = bias/σ<sub>r</sub>·√(gm)·d2*/d2 met ν vrijheidsgraden; BI: bias ± σ<sub>r</sub>·d2/(d2*√(gm))·t<sub>1−α/2; ν</sub>. g subgroepen van m metingen; d2 (g → ∞), d2* en ν uit tabel MSA.pdf. De bias is significant als 0 niet in het interval ligt.',
+      help: 'Plak de subgroepen of vul X̿, R̄, g en m in.',
       form: ALPHA + inp('ref', 'referentiewaarde') + area('d', 'metingen: één subgroep per regel (of vul hieronder in)', '', 3) + inp('xbb', 'X̿') + inp('rbar', 'R̄') + inp('g', 'g (subgroepen)') + inp('m', 'm (metingen per subgroep)'),
       run: function (v) {
         var rows = parseRows(v.text.d), xbb = v.xbb, rbar = v.rbar, g = v.g, m = v.m;
@@ -1153,7 +1134,7 @@
                     ['BI voor de bias', iv(r.ci)], ['besluit', r.significant ? 'bias significant (0 ligt niet in het BI)' : 'geen significante bias']]);
       } },
     { title: 'Is de meeteenheid fijn genoeg? (MSA p. 30)',
-      help: 'Tel de mogelijke waarden van de spreidingsbreedte (veelvouden van de meeteenheid MU) binnen de grenzen van de R-kaart (D3·R̄ … D4·R̄, Table 18). Te grof als er hoogstens 3 zijn (n = 2) of hoogstens 4 (n ≥ 3). Zonder R̄: het grensgeval σ = MU (R̄ = d2·MU).',
+      help: 'Zonder R̄: het grensgeval σ = MU.',
       form: inp('n', 'n (subgroepgrootte)') + inp('mu', 'meeteenheid MU') + inp('rbar', 'R̄ (optioneel)'),
       run: function (v) {
         var r = Calc.discrimination(v.n, v.mu, v.rbar, K);
@@ -1186,11 +1167,21 @@
     var body = details.querySelector('.tool-body'), name = details.dataset.tool;
     var tpl = document.getElementById('tpl-' + name);
     var blocks = TOOLS[name] || [];
-    blocks.forEach(function (b) {
+    blocks.forEach(function (b, index) {
       var box = document.createElement('div');
       box.className = 'calc';
       box.innerHTML = '<h5>' + b.title + '</h5>' + (b.help ? '<p class="help">' + b.help + '</p>' : '') +
         '<form autocomplete="off">' + b.form + '</form><div class="calc-out"></div>';
+      // the formulas of this block and what every symbol means (study/tool_formulas.html), right under the title
+      var fx = document.getElementById('fx-' + name + '-' + index);
+      if (fx) {
+        var formulas = document.createElement('details');
+        formulas.className = 'fx';
+        formulas.open = true;
+        formulas.innerHTML = '<summary>Formules en betekenis van de symbolen</summary>';
+        formulas.appendChild(document.importNode(fx.content, true));
+        box.insertBefore(formulas, box.querySelector('h5').nextSibling);
+      }
       body.appendChild(box);
       var form = box.querySelector('form'), res = box.querySelector('.calc-out');
       function run() {

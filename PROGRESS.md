@@ -237,6 +237,14 @@ Decisions 18-20 (2026-10-05) in inventory/conventions.md; oracle updated once wi
   page-range validation: no problems.
 - Figure gaps closed: 11.x linearity exercise now shows the plot of linearity.txt (11_numbers.py --figures writes
   study/figures/11_lineariteit_oefening.png); 09.x "de figuur op SPC p. 41" now points to the figure in 09.5.
+- Formulas in the Hulpmiddelen: every calculator block (82) now opens with a "Formules en betekenis van de
+  symbolen" panel from study/tool_formulas.html: the formula in LaTeX, each symbol clickable with meaning, "Hoe bekom
+  je het?" and "Meer uitleg", as in the formula sheet; formulas the course does not print are marked algemeen.
+  build_study.py validates every symbol; a test checks that every calculator block has its formulas. Help texts and
+  labels that repeated the formula were shortened (e.g. hypergeometric k = number of defectives in the sample).
+- Sharing: no absolute paths or OneDrive references in the repo; all links are relative (../source/...). All 45
+  linked course files open in Chromium from file://. ERR_ACCESS_DENIED on the user's Mac comes from OneDrive
+  (online-only files) or macOS file permissions; 00_start.html now explains the fix.
 
 ## Answered questions (inventory-review STOP; decisions in inventory/conventions.md)
 Convention questions (details and sources in inventory/conventions.md, "Conflicts and gaps"):

@@ -81,6 +81,12 @@ details.tool .src { margin: 2px 0 6px; font: 12.5px Arial, Helvetica, sans-serif
 .calc { border-top: 1px solid var(--rule); padding: 8px 0 4px; font: 14px/1.4 Arial, Helvetica, sans-serif; }
 .calc h5 { font: bold 14px Arial, Helvetica, sans-serif; margin: 2px 0 4px; color: var(--accent); }
 .calc .help, details.tool .help { font: 13px/1.4 Arial, Helvetica, sans-serif; color: var(--muted); margin: 2px 0 6px; }
+.calc details.fx { background: var(--key); border-left: 3px solid var(--accent); border-radius: 4px; padding: 4px 10px; margin: 4px 0 8px; }
+.calc details.fx > summary { cursor: pointer; font: bold 13px Arial, Helvetica, sans-serif; color: var(--accent); }
+.calc details.fx math[display="block"] { display: block math; margin: 6px 0; }
+.calc .fx-vars { margin: 4px 0; padding-left: 18px; font: 13px/1.45 Arial, Helvetica, sans-serif; }
+.calc .fx-sub { font: 13px/1.45 Arial, Helvetica, sans-serif; margin: 4px 0; }
+.calc .fx-src { font: 12px Arial, Helvetica, sans-serif; color: var(--muted); margin: 2px 0 4px; }
 .calc form { display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 4px 0 8px; }
 .fld { display: inline-flex; flex-direction: column; font-size: 12.5px; color: var(--muted); }
 .fld.wide { flex-basis: 100%; }

@@ -421,10 +421,80 @@ def sigma_table() -> str:
             f'<th>staat in</th></tr>{rows}</table></div>')
 
 
+TOOL_FORMULAS = STUDY / "tool_formulas.html"
+FORMULA_SECTION = re.compile(r'<section data-block="([a-z_0-9]+)\.(\d+)" data-uitleg="([^"]+)">(.*?)</section>', re.S)
+FORMULA_ITEM = re.compile(r'<li data-hoe="([^"]+)">(.*?)</li>', re.S)
+# a definition: one or more "\\(\\sym{key}{TeX}\\)" separated by commas, then a colon; its meaning runs to the next one
+SYM_SPAN = r"\\\(\\sym\{[^{}]+\}\{(?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})*\}\\\)"
+DEFINITION = re.compile(rf"((?:{SYM_SPAN}(?:,\s*)?)+):\s*")
+
+
+def sym_spans(tex: str) -> list[tuple[int, int, str, str]]:
+    """(start, end, key, body) of every \\sym{key}{body} in `tex`, braces of the body balanced."""
+    spans, position = [], 0
+    while (match := SYM.search(tex, position)):
+        depth, end = 1, match.end()
+        while depth and end < len(tex):
+            depth += {"{": 1, "}": -1}.get(tex[end], 0)
+            end += 1
+        spans.append((match.start(), end, match.group(1), tex[match.end():end - 1]))
+        position = end
+    return spans
+
+
+def unsym(tex: str) -> str:
+    """The TeX with every \\sym{key}{body} replaced by its body (for the text of a pop-up)."""
+    out, position = [], 0
+    for start, end, _, body in sym_spans(tex):
+        out.append(tex[position:start] + unsym(body))
+        position = end
+    return "".join(out) + tex[position:]
+
+
+@lru_cache(maxsize=None)
+def formula_blocks() -> tuple[tuple[tuple[str, str, str], ...], tuple[tuple[str, dict[str, str]], ...], tuple[str, ...]]:
+    """study/tool_formulas.html, read once: the templates (tool, index, HTML), the pop-up rows of their symbols
+    (keyed 'tool-index:key', like NN_symbols.tsv rows) and the problems found."""
+    templates, rows, problems = [], [], []
+    for tool, index, anchor, body in FORMULA_SECTION.findall(TOOL_FORMULAS.read_text(encoding="utf-8")):
+        block = f"{tool}.{index}"
+        if tool not in TOOLS:
+            problems.append(f"{TOOL_FORMULAS.name}: unknown tool in {block}")
+            continue
+        prefix = f"{tool}-{index}:"
+        defined: dict[str, dict[str, str]] = {}
+        for hoe, item in FORMULA_ITEM.findall(body):
+            heads = list(DEFINITION.finditer(item))
+            if not heads or heads[0].start() != 0:
+                problems.append(f"{TOOL_FORMULAS.name} {block}: a list item must start with its symbols and a colon: {item[:60]}")
+                continue
+            for head, after in zip(heads, heads[1:] + [None]):
+                meaning = unsym(item[head.end():after.start() if after else len(item)]).strip().rstrip(";").strip()
+                for _, _, key, symbol in sym_spans(head.group(1)):
+                    if key in defined:
+                        problems.append(f"{TOOL_FORMULAS.name} {block}: symbol {key!r} defined twice")
+                    defined[key] = {"symbool": f"\\({symbol}\\)", "betekenis": meaning, "hoe": hoe, "anchor": anchor}
+        for key in sorted({key for _, _, key, _ in sym_spans(body)} - set(defined)):
+            problems.append(f"{TOOL_FORMULAS.name} {block}: symbol {key!r} used but not defined in the list")
+        rows += [(prefix + key, row) for key, row in defined.items()]
+        html_body = SYM.sub(lambda m: f"\\sym{{{prefix}{m.group(1)}}}{{", re.sub(r' data-hoe="[^"]*"', "", body))
+        templates.append((tool, index, html_body.strip()))
+    return tuple(templates), tuple(rows), tuple(problems)
+
+
+def formula_templates() -> str:
+    """<template id="fx-tool-i"> per calculator block with its formulas and symbols; tools.js shows it under the block's
+    title. The LaTeX inside is typeset with the rest of the page, so its symbols are clickable."""
+    templates, _, _ = formula_blocks()
+    return "\n".join(f'<template id="fx-{tool}-{index}">{body}</template>' for tool, index, body in templates)
+
+
 def templates() -> str:
-    """<template> elements with the static tables; tools.js copies them into a panel, below its calculators."""
+    """<template> elements with the static tables (tools.js copies them into a panel, below its calculators) and with
+    the formulas of every calculator block."""
     content = {"normaal": z_table(), "sigma": sigma_table(), "constanten": chart_constants(), "msatabel": msa_table()}
-    return "\n".join(f'<template id="tpl-{name}">{body}</template>' for name, body in content.items())
+    tables = "\n".join(f'<template id="tpl-{name}">{body}</template>' for name, body in content.items())
+    return tables + "\n" + formula_templates()
 
 
 def tools_panel(number: str) -> str:
@@ -910,6 +980,9 @@ def main() -> None:
     if not parts:
         sys.exit("no parts found in study/parts")
     table, problems = symbols(parts)
+    _, formula_rows, formula_problems = formula_blocks()
+    table.update(dict(formula_rows))   # the symbols of the calculators' formulas get the same pop-ups
+    problems += list(formula_problems)
     page, math_problems = render(parts, table)
     problems += math_problems + validate(page, table)
     if problems:
