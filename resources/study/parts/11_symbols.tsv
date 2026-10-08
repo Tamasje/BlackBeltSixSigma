@@ -68,7 +68,7 @@ rbar	\(\bar{R}\)	Gemiddelde range (average range) over de subgroepen.	Som van de
 ucl_r	UCL, \(\mathrm{UCL}_{R}\)	Bovenste regelgrens (upper control limit) van de R-kaart.	\(D_{4}\cdot\bar{R}\) (Table 18); in het grensgeval \(\sigma=\mathrm{MU}\): \(D_{4}\cdot d_{2}\cdot\)MU.	d11-rheostat
 lcl_r	LCL	Onderste regelgrens (lower control limit) van de R-kaart.	\(D_{3}\cdot\bar{R}\) (Table 18); \(D_{3}=0\) voor \(n\le6\), dus dan \(\mathrm{LCL}=0\).	d11-rheostat
 d3_r	\(D_{3}\)	Constante voor de onderste grens van de R-kaart.	Table 18, rij n (subgroepgrootte); 0 voor \(n\le6\).	d11-rheostat
-d4_r	\(D_{4}\)	Constante voor de bovenste grens van de R-kaart.	Table 18, rij n: 3,267 voor \(n=2\), 2,115 voor \(n=5\) (het Rheostat-werkboek gebruikt 2,114).	d11-rheostat
+d4_r	\(D_{4}\)	Constante voor de bovenste grens van de R-kaart.	Table 18, rij n: 3,267 voor \(n=2\), 2,115 voor \(n=5\).	d11-rheostat
 a2	\(A_{2}\)	Constante voor de grenzen van de \(\bar{X}\)-kaart: \(\bar{\bar{X}}\pm A_{2}\bar{R}\).	Table 18, rij n: 0,577 voor \(n=5\).	d10-formules
 xbarbar	\(\bar{\bar{X}}\)	Totaal gemiddelde (grand mean): gemiddelde van alle metingen of subgroepgemiddelden.	Som van alle metingen / aantal. Centrale lijn van de \(\bar{X}\)-kaart; bias = \(\bar{\bar{X}}-\) referentiewaarde.	d11-stabiliteit
 ucl_x	\(\mathrm{UCL}_{\bar{X}}\)	Bovenste regelgrens van de \(\bar{X}\)-kaart.	\(\bar{\bar{X}}+A_{2}\bar{R}\) (Table 18).	d10-formules

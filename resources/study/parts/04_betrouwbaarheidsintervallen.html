@@ -44,8 +44,6 @@
       <tr><td class="n">2</td><td>[0,3 %; 7,0 %]</td></tr>
       <tr><td class="n">4</td><td>[1,1 %; 9,9 %]</td></tr>
     </table>
-    <p class="small">Bron: notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=5">CI p. 5</a>. Een exacte herberekening (04.3) geeft voor 2 defectieven een ondergrens
-    van 0,24 % <span class="computed">zelf berekend</span>; de cursus geeft 0,3 % (afgelezen op een rooster van 0,1 %).</p>
     <p><b>Definitie</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=3">CI FR p. 3</a>. Voor het gemiddelde \(\mu\) met gekende \(\sigma\) zegt de verdeling van \(\bar{X}\) hoe betrouwbaar de
     schatting is. Omgekeerd: kies een kans (bv. 95 %) en bepaal een interval rond de schatting \(\bar{x}\) dat \(\mu\) met die kans
     bevat:</p>
@@ -53,6 +51,23 @@
       <div>\[P\left[|\sym{xbar}{\bar{x}}-\sym{mu}{\mu}|\le\frac{\sym{z_1ma2}{1{,}96}\cdot\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\right]=95\ \%\]</div>
       <div>⇔ \[P\left[\sym{xbar}{\bar{x}}-\frac{\sym{z_1ma2}{1{,}96}\cdot\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\le\sym{mu}{\mu}\le\sym{xbar}{\bar{x}}+\frac{\sym{z_1ma2}{1{,}96}\cdot\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\right]=95\ \%\]</div>
       <div>\[\left[\sym{xbar}{\bar{x}}-\frac{\sym{z_1ma2}{1{,}96}\cdot\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}};\sym{xbar}{\bar{x}}+\frac{\sym{z_1ma2}{1{,}96}\cdot\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\right]\] is het 95%-betrouwbaarheidsinterval op basis van \[\sym{xbar}{\bar{x}}\] uit een aselecte steekproef (RS)</div>
+    </div>
+    <div class="box key"><span class="t">De bouwstenen van elk betrouwbaarheidsinterval</span>
+      <p>Bijna elk BI in dit deel heeft dezelfde vorm: <b>schatting ± kritieke waarde × standaardfout</b>.</p>
+      <ul>
+        <li><b>Ware waarde</b> (\(\sym{mu}{\mu}\), \(\sym{pi}{\pi}\), \(\sym{sigma}{\sigma}\) …): de vaste, onbekende grootheid van de populatie die je wilt kennen.</li>
+        <li><b>Schatting</b> (\(\sym{xbar}{\bar{x}}\), \(\sym{p}{p}\), \(\sym{s}{s}\) …): wat je uit de steekproef berekent. Bij \(\mu\) en \(\pi\) is ze het midden van het interval.</li>
+        <li><b>Betrouwbaarheid</b> \(1-\sym{alpha}{\alpha}\): kies je zelf (90 %, 95 %, 99 %). \(\alpha\) is de rest: de kans dat de werkwijze een
+        interval oplevert dat de ware waarde mist. Tweezijdig komt \(\frac{\alpha}{2}\) in elke staart, eenzijdig de hele \(\alpha\) aan één kant.</li>
+        <li><b>Kritieke waarde</b> (\(\sym{z_1ma2}{Z_{1-\alpha/2}}\), \(\sym{t_crit}{t_{1-\alpha/2;n-1}}\)): hoeveel standaardfouten je naar elke kant gaat.
+        Je leest ze in de tabel van de verdeling als het punt met kans \(1-\frac{\alpha}{2}\) eronder; bij 95 % is dat 1,96 voor z.</li>
+        <li><b>Standaardfout</b> (\(\frac{\sigma}{\sqrt{n}}\), \(\frac{s}{\sqrt{n}}\), \(\sqrt{\frac{p(1-p)}{n}}\)): de standaardafwijking van de schatting zelf, dus hoe
+        sterk de schatting van steekproef tot steekproef springt. Ze daalt met \(\sqrt{\sym{n}{n}}\).</li>
+        <li><b>Halve breedte</b> \(\sym{e_half}{E}\) = kritieke waarde × standaardfout: het getal achter de ±. De <b>breedte</b>
+        \(\sym{w_ci}{W}=2\sym{e_half}{E}\) = bovengrens − ondergrens (04.2).</li>
+      </ul>
+      <p>Voorbeeld (oefening 04.1): \(\sigma=5\), \(n=10\), 95 %. Standaardfout \(\frac{5}{\sqrt{10}}=1{,}58\); \(E=1{,}96\cdot1{,}58=3{,}10\); het BI is
+      \(\bar{x}\pm3{,}10\) en \(W=6{,}20\) <span class="computed">zelf berekend</span>. De rekenmachine "Eén gemiddelde" geeft dat al zonder \(\bar{x}\).</p>
     </div>
     <p><b>Interpretatie</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=4">CI FR p. 4</a>. De figuur hieronder toont een populatie met \(\mu=69\) en, voor steekproeven van lengte 10
     (links) en 100 (rechts), telkens een reeks berekende intervallen als horizontale streepjes. Het populatiegemiddelde
@@ -181,9 +196,6 @@
       <tr><td class="n">99,9 %</td><td>[0,4 %; 14,8 %]</td></tr>
       <tr><td class="n">100,0 %</td><td>[0,0 %; 100,0 %]</td></tr>
     </table>
-    <p class="small">De grenzen zijn grafisch bepaald; een exacte herberekening wijkt tot 0,1 procentpunt af (bv. 70 %:
-    [2,05 %; 7,15 %], 99 %: [0,68 %; 12,06 %] <span class="computed">zelf berekend</span>). Voor het begrip maakt dat
-    niets uit.</p>
     <ul>
       <li><b>Hogere betrouwbaarheid = breder interval</b> (bij dezelfde n). Bredere hoefijzers zijn gemakkelijker rond de
       paal te gooien. De informatie in de steekproef moet als het ware verdeeld worden over beide eigenschappen.</li>
@@ -217,8 +229,23 @@
       steekproef. De betrouwbaarheid verhogen zonder de steekproef te vergroten gaat ten koste van de nauwkeurigheid, en
       omgekeerd <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=4">CI FR p. 4</a>.</p>
     </div>
-    <p>Relatieve en absolute nauwkeurigheid zijn iets anders <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=7">CI p. 7</a>: 10 % relatieve nauwkeurigheid op een schatting van
-    10 % betekent een intervalbreedte van 2 % (van 9 % tot 11 %).</p>
+    <p><b>De breedte W: absoluut en relatief</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=7">CI p. 7</a>. De cursus noemt de breedte van het interval de
+    <b>nauwkeurigheid</b> (accuracy). Lees een eis altijd eerst om naar een absolute volle breedte W.</p>
+    <ul>
+      <li><b>Absoluut</b>: \(\sym{w_ci}{W}\) = bovengrens − ondergrens, in dezelfde eenheid als de schatting (mm, of procentpunt bij
+      een fractie). "5 % nauwkeurigheid" voor een fractie betekent \(W=5\) procentpunt, dus ±2,5 procentpunt rond p <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=7">CI p. 7</a>.
+      Zegt een opgave "± 5 %", dan is dat de halve breedte: \(W=10\) procentpunt.</li>
+      <li><b>Relatief</b>: de afwijking als percentage van de schatting zelf. "10 % relatieve nauwkeurigheid op een schatting
+      van 10 %" is ±10 % van 10 % = ±1 procentpunt: van 9 % tot 11 %, dus \(W=2\) procentpunt <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=7">CI p. 7</a>.</li>
+    </ul>
+    <p>Met W, de betrouwbaarheid en een verwachte fractie p (of de gekende \(\sigma\)) volgt de nodige steekproefgrootte uit
+    \(W=2\cdot\sym{e_half}{E}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=10">CI p. 10</a>:</p>
+    <div class="f">
+      <div>proportie: \[\sym{w_ci}{W}=2\cdot\sym{z_1ma2}{Z_{1-\alpha/2}}\cdot\sqrt{\frac{\sym{p}{p}(1-\sym{p}{p})}{\sym{n}{n}}}\ \Rightarrow\ \sym{n}{n}=\left(\frac{2\cdot\sym{z_1ma2}{Z_{1-\alpha/2}}}{\sym{w_ci}{W}}\right)^{2}\sym{p}{p}(1-\sym{p}{p})\]</div>
+      <div>gemiddelde, \(\sigma\) gekend: \[\sym{w_ci}{W}=2\cdot\sym{z_1ma2}{Z_{1-\alpha/2}}\cdot\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\ \Rightarrow\ \sym{n}{n}=\left(\frac{2\cdot\sym{z_1ma2}{Z_{1-\alpha/2}}\cdot\sym{sigma}{\sigma}}{\sym{w_ci}{W}}\right)^{2}\]</div>
+    </div>
+    <p>Rond n altijd naar boven af. Ken je p niet, neem dan \(p=0{,}5\): dat geeft het breedste interval en dus de veilige
+    (grootste) n <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=7">CI p. 7</a>.</p>
     <div class="calc-here" data-tool="steekproefgrootte" data-blocks="0"></div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
@@ -227,7 +254,7 @@
       <li><b>"Het populatiegemiddelde kan in theorie met om het even welke vooropgestelde nauwkeurigheid geschat worden."</b> Juist: betrouwbaarheid en nauwkeurigheid kunnen allebei hoog zijn, ten koste van een steeds grotere steekproef <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=7">CI p. 7</a> (examenvraag, <a href="#d13-v1">13.1</a>c).</li>
       <li><b>Let op:</b> de breedte halveren vraagt ongeveer vier keer zoveel waarnemingen, niet twee keer: de breedte is evenredig met \(\frac{1}{\sqrt{\sym{n}{n}}}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=7">CI p. 7</a>.</li>
       <li><b>Let op:</b> "5 % nauwkeurigheid" in de cursus is de volle breedte van het interval (5 procentpunt), niet ±5 %. En 10 % relatieve nauwkeurigheid op een schatting van 10 % is een breedte van 2 procentpunt <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=7">CI p. 7</a>.</li>
-      <li><b>Let op:</b> ken je de fractie niet, reken dan met het slechtste geval \(\sym{p}{p}=50\ \%\) (het breedste interval) <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=7">CI p. 7</a>. Met de formule van p. 10 vind je voor een breedte van \(5\ \%\ n=1537\) <span class="computed">zelf berekend</span>, niet de "about 1350" van de cursus (die rekent kennelijk met de eindige partij van 10 000 tegels).</li>
+      <li><b>Let op:</b> ken je de fractie niet, reken dan met het slechtste geval \(\sym{p}{p}=50\ \%\) (het breedste interval) <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=7">CI p. 7</a>. Met de formule van p. 10 vind je voor een breedte van \(5\ \%\ n=1537\) <span class="computed">zelf berekend</span>, de grafiek van de cursus geeft ongeveer 1350.</li>
     </ul></div>
 
     <div class="exercise" id="ex-04-3" data-kw="steekproefgrootte; sample size; breedte; width; nauwkeurigheid; accuracy; proportie; proportion; 1350; vier keer">
@@ -355,32 +382,31 @@
   <!-- ============================================================ 04.4 -->
   <section class="unit" id="d04-mu" data-kw="BI gemiddelde; confidence interval mean; mu; µ; t-verdeling; t distribution; Student; Gosset; z-interval; sigma gekend; known sigma; sigma onbekend; unknown sigma; vrijheidsgraden; degrees of freedom; robuustheid; robustness; centrale limietstelling; central limit theorem">
     <h3>04.4 BI voor het gemiddelde µ: z of t <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=9">CI p. 9</a></h3>
-    <p><b>\(\sigma\) gekend</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=3">CI FR p. 3</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=8">CI FR p. 8</a>. Dan is \(\sym{z_stat}{Z}=\frac{\sym{xbar}{\bar{X}}-\sym{mu}{\mu}}{\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}}\) standaardnormaal en is het 95%-BI
-    \(\sym{xbar}{\bar{x}}\pm\frac{\sym{z_1ma2}{1{,}96}\cdot\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\). In de praktijk ken je \(\sigma\) zelden: "gebruik Z voor BI \(\mu\) onrealistisch: \(\sigma\) ??" <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=5">CI FR p. 5</a>.</p>
-    <p><b>\(\sigma\) onbekend</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=5">CI FR p. 5</a>. Vervang \(\sigma\) door de steekproefstandaardafwijking s. De grootheid
-    \(\sym{t_stat}{t}=\frac{\sym{xbar}{\bar{X}}-\sym{mu}{\mu}}{\frac{\sym{s}{s}}{\sqrt{\sym{n}{n}}}}\) is niet meer normaal, maar volgt (als X normaal verdeeld is) een t-verdeling met \(\sym{n}{n}-1\)
-    vrijheidsgraden (degrees of freedom): de t-verdeling van "Student" (W.S. Gosset, die als brouwer bij Guinness onder een
-    schuilnaam moest publiceren, notities bij CI FR p. 5).</p>
+    <p>04.1 gaf het BI voor \(\mu\) als je \(\sigma\) kent. In de praktijk ken je \(\sigma\) zelden en schat je ze uit de steekproef
+    <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=5">CI FR p. 5</a>. Welke formule je neemt, hangt alleen daarvan af.</p>
     <ul>
-      <li>Waarom \(t(\sym{n}{n}-1)\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=7">CI FR p. 7</a>: \(\sym{xbar}{\bar{X}}\sim N\left(\sym{mu}{\mu};\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\right)\) en \(\frac{(\sym{n}{n}-1)\sym{s_sq}{s^{2}}}{\sym{sigma_sq}{\sigma^{2}}}\sim\chi^{2}(\sym{n}{n}-1)\), onafhankelijk; de verhouding geeft
-      \(t(\sym{n}{n}-1)\). Definitie <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=6">CI FR p. 6</a>: \(\sym{z_stat}{Z}\sim N(0;1)\) en \(\sym{x_chi}{X}\sim\chi^{2}(\sym{df_n}{n})\) onafhankelijk ⇒ \(\frac{\sym{z_stat}{Z}}{\sqrt{\frac{\sym{x_chi}{X}}{\sym{df_n}{n}}}}\sim t(\sym{df_n}{n})\).</li>
-      <li>De t-verdeling is symmetrisch, klokvormig, met gemiddelde 0 maar een iets grotere spreiding dan Z; voor
-      \(\sym{df_n}{n}\to\infty\) wordt \(t(\sym{df_n}{n})\) gelijk aan \(\sym{z_stat}{Z}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=15">CI p. 15</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=6">CI FR p. 6</a> (figuur hieronder). Werkblad "t vs Z" in <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.xlsx">TH.xlsx</a> tekent Z, t(9), t(39) en t(99).</li>
-      <li><b>Robuustheid</b> (robustness): is X niet normaal, dan is \(\bar{X}\) toch nog ongeveer normaal (centrale limietstelling,
-      CLS) maar \(\frac{(\sym{n}{n}-1)\sym{s_sq}{s^{2}}}{\sym{sigma_sq}{\sigma^{2}}}\) niet meer \(\chi^{2}\). De t-statistiek is dan niet exact t-verdeeld, maar "voor praktijk toch meestal
-      OK", tenzij <i>én</i> kleine steekproef <i>én</i> sterk niet-normale verdeling <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=5">CI FR p. 5</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=7">CI FR p. 7</a>.</li>
-      <li>\(\sigma\) vervangen door s brengt extra onzekerheid: het BI wordt breder bij dezelfde betrouwbaarheid <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=8">CI FR p. 8</a>.</li>
+      <li><b>\(\sigma\) gekend</b> (de opgave geeft de spreiding van het proces): de standaardfout is \(\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\) en
+      \(\sym{z_stat}{Z}=\frac{\sym{xbar}{\bar{X}}-\sym{mu}{\mu}}{\sigma/\sqrt{n}}\) is standaardnormaal. De kritieke waarde komt uit de Z-tabel <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=3">CI FR p. 3</a>.</li>
+      <li><b>\(\sigma\) onbekend</b> (je hebt alleen de steekproef): vervang \(\sigma\) door \(\sym{s}{s}\). Dan is
+      \(\sym{t_stat}{t}=\frac{\bar{X}-\mu}{s/\sqrt{n}}\) niet meer normaal maar <b>t-verdeeld met \(n-1\) vrijheidsgraden</b> (degrees of
+      freedom; de verdeling van "Student") <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=5">CI FR p. 5</a>. De kritieke waarde komt uit de t-tabel.</li>
     </ul>
+    <div class="f">
+      <div>\(\sigma\) gekend: \[\sym{mu}{\mu}\in\sym{xbar}{\bar{x}}\pm\sym{z_1ma2}{Z_{1-\alpha/2}}\cdot\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\] (95 %: \(Z_{0{,}975}=1{,}96\))</div>
+      <div>\(\sigma\) onbekend: \[\sym{mu}{\mu}\in\sym{xbar}{\bar{x}}\pm\sym{t_crit}{t_{1-\alpha/2;n-1}}\cdot\frac{\sym{s}{s}}{\sqrt{\sym{n}{n}}}\]</div>
+      <div>eenzijdig: één grens met \(1-\alpha\) in plaats van \(1-\frac{\alpha}{2}\); de andere kant is \(\pm\infty\)</div>
+    </div>
+    <p><b>Waarom t een breder interval geeft.</b> Ook s springt van steekproef tot steekproef. Die extra onzekerheid geeft de
+    t-verdeling dikkere staarten dan Z, dus een grotere kritieke waarde <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=8">CI FR p. 8</a>: bij \(n=10\) is \(t_{0{,}975;9}=2{,}262\) tegenover
+    1,96 <span class="computed">zelf berekend</span>. Met meer waarnemingen verdwijnt het verschil: voor \(n\to\infty\) valt t samen met Z
+    <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=15">CI p. 15</a>.</p>
     <figure class="fig"><img src="figures/04_t_vs_z.png" alt="Dichtheden van Z, t(9) en t(99): t(9) iets lager in het midden met dikkere staarten, t(99) nagenoeg gelijk aan Z">
     <figcaption>Figuur: dichtheid van Z en van t(9) en t(99). De t(9)-curve is iets lager in het midden en heeft dikkere staarten;
     t(99) valt nagenoeg samen met Z.
     <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=15">CI p. 15</a></figcaption></figure>
-    <div class="f">
-      <div>\[\sym{sigma}{\sigma}\] gekend: \[\sym{mu}{\mu}\in\left[\sym{xbar}{\bar{x}}-\frac{\sym{z_1ma2}{Z_{0{,}975}}\cdot\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}};\sym{xbar}{\bar{x}}+\frac{\sym{z_1ma2}{Z_{0{,}975}}\cdot\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\right]\], \[\sym{z_1ma2}{Z_{0{,}975}}=1{,}96\]</div>
-      <div>\[\sym{sigma}{\sigma}\] onbekend: \[\sym{mu}{\mu}\in\left[\sym{xbar}{\bar{x}}-\frac{\sym{t_crit}{t_{0{,}975;n-1}}\cdot\sym{s}{s}}{\sqrt{\sym{n}{n}}};\sym{xbar}{\bar{x}}+\frac{\sym{t_crit}{t_{0{,}975;n-1}}\cdot\sym{s}{s}}{\sqrt{\sym{n}{n}}}\right]\ (95\ \%)\]</div>
-      <div>algemeen \[(1-\sym{alpha}{\alpha})\]: vervang 0,975 door \[1-\frac{\sym{alpha}{\alpha}}{2}\]; eenzijdig: gebruik \[1-\sym{alpha}{\alpha}\] aan de ene kant en ±∞ aan de andere</div>    </div>
-    <p class="small">In de laatste formule op <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=9">CI p. 9</a> staat \(t_{0{,}97;n-1}\): een drukfout voor \(t_{0{,}975;n-1}\).</p>
-
+    <p><b>Voorwaarde.</b> De t-formule gaat uit van normaal verdeelde metingen, maar is robuust: ze werkt in de praktijk ook
+    voor andere verdelingen, behalve bij een kleine steekproef én een sterk niet-normale verdeling <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=5">CI FR p. 5</a>, <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=7">CI FR p. 7</a>.</p>
+    <p>Het voorbeeld hieronder gebruikt een eenzijdig interval: de vraag is alleen of het proces naar beneden verschoven is.</p>
     <div class="box ex"><span class="t">Uitgewerkt voorbeeld: is het proces naar beneden verschoven? <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=15">CI p. 15</a></span>
       <p>Een proces maakt onderdelen met een kritische maat die normaal verdeeld is rond 10. Na vervanging van een
       machineonderdeel vreest het management dat de stukken iets kleiner geworden zijn. Een steekproef van 20 stuks
@@ -394,8 +420,6 @@
         <span class="computed">zelf berekend</span>).</li>
         <li>\(10\notin\mathrm{BI}\): \(H_{0}\) "cannot be accepted" bij 2 % significantie; het proces moet bijgeregeld worden.</li>
       </ol>
-      <p class="small">CI p. 15 drukt de data afgerond op 2 decimalen af; met die
-      afgeronde waarden is \(\bar{x}=9{,}928\), \(s=0{,}10788\) en de bovengrens 9,9812 <span class="computed">zelf berekend</span>.</p>
     </div>
     <div class="box tool"><span class="t">Rekentool</span>
       <p>Werkblad <b>Gemiddelde &amp; proportie</b>, sectie "Eén gemiddelde \(\mu\)": vul \(\alpha\) in, plak de data in de kolom
@@ -411,7 +435,6 @@
       <li><b>Let op:</b> vrijheidsgraden n − 1, niet n. Voor \(n=10\) is de t-waarde \(t_{0{,}975;9}=2{,}262\) <span class="computed">zelf berekend</span>, tegenover 1,96 voor Z.</li>
       <li><b>"Het t-interval mag alleen als X exact normaal verdeeld is."</b> Fout: de methode is robuust en in de praktijk meestal in orde, behalve bij een kleine steekproef én een sterk niet-normale verdeling <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=5">CI FR p. 5</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=7">CI FR p. 7</a>; volgens <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=9">CI p. 9</a> werkt ze voor bijna elke verdeling van X als n niet te klein is.</li>
       <li><b>Let op:</b> in kwantielnotatie is \(\sym{t_002}{t_{0{,}02;19}}=-2{,}2047\) negatief, dus \(\sym{xbar}{\bar{x}}-\frac{\sym{t_002}{t_{0{,}02;19}}\cdot\sym{s}{s}}{\sqrt{\sym{n}{n}}}\) ligt bóven \(\bar{x}\): de bovengrens die bij HA: \(\mu\lt10\) hoort <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=15">CI p. 15</a>.</li>
-      <li><b>Let op:</b> drukfout op <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=9">CI p. 9</a>: \(t_{0{,}97;n-1}\) moet \(t_{0{,}975;n-1}\) zijn.</li>
     </ul></div>
 
     <div class="exercise" id="ex-04-4" data-kw="t versus z; t vs Z; breedte; width; sigma onbekend; unknown sigma; prijs; cost; vrijheidsgraden; degrees of freedom">
@@ -482,24 +505,25 @@
   <!-- ============================================================ 04.5 -->
   <section class="unit" id="d04-pi" data-kw="BI proportie; confidence interval proportion; fractie defectieven; fraction defective; pi; π; normale benadering; normal approximation; exact; binom.test; verschil proporties; difference of proportions; 1,96; vijf defectieven; at least 5">
     <h3>04.5 BI voor een proportie π (fractie defectieven) <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=10">CI p. 10</a></h3>
-    <p><b>Grote steekproef: normale benadering</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=10">CI p. 10</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=20">CI FR p. 20</a>. Volgens de centrale limietstelling is de
-    steekproeffractie \(\sym{p}{P}\) bij voldoende grote n ongeveer \(N\left(\sym{pi}{\pi};\sqrt{\frac{\sym{pi}{\pi}(1-\sym{pi}{\pi})}{\sym{n}{n}}}\right)\). Algebraïsch omkeren en \(\pi\) onder de wortel
-    vervangen door p geeft het bekende benaderde 95%-BI:</p>
+    <p>Bij een fractie defectieven (0/1-data: elk stuk is goed of defect) is de schatting \(\sym{p}{p}=\frac{x}{n}\): het aantal
+    defecten gedeeld door de steekproefgrootte. Er zijn twee manieren om het BI te maken.</p>
+    <p><b>Grote steekproef: de normale benadering</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=10">CI p. 10</a>, <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=20">CI FR p. 20</a>. Bij voldoende defecten is p ongeveer normaal verdeeld
+    rond \(\pi\) met standaardfout \(\sqrt{\frac{p(1-p)}{n}}\). Het BI volgt dan hetzelfde recept als bij \(\mu\):</p>
     <div class="f">
-      <div>\[\sym{pi}{\pi}=\sym{p}{p}\pm\sym{z_1ma2}{Z_{0{,}975}}\cdot\sqrt{\frac{\sym{p}{p}(1-\sym{p}{p})}{\sym{n}{n}}}\], \[\sym{z_1ma2}{Z_{0{,}975}}=1{,}96\]  (benaderd 95%-BI)</div>
-      <div>"voldoende groot": minstens 5 defectieven in de steekproef; bij 1 % defectieven dus \[\sym{n}{n}\ge500\] (notities bij CI p. 10)</div>
+      <div>\[\sym{pi}{\pi}\in\sym{p}{p}\pm\sym{z_1ma2}{Z_{1-\alpha/2}}\cdot\sqrt{\frac{\sym{p}{p}(1-\sym{p}{p})}{\sym{n}{n}}}\] (95 %: 1,96)</div>
+      <div>"voldoende groot": minstens 5 defectieven in de steekproef; bij 1 % defectieven dus \(n\ge500\) (notities bij CI p. 10)</div>
     </div>
-    <p><b>Kleine aantallen: exact BI</b> via de binomiaalverdeling, grafisch met een nomogram of met de computer
-    (<a href="#d04-inversie">04.3</a>, <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=20">TH FR p. 20</a>). De figuur hieronder <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=10">CI p. 10</a> toont de 2,5%- en
-    97,5%-krommen van de normale benadering voor \(n=100\).</p>
+    <p><b>Weinig defecten: het exacte BI</b>. Is de vuistregel niet voldaan, gebruik dan het exacte binomiale interval uit 04.3
+    (nomogram of rekenmachine). Het is niet symmetrisch rond p. De figuur toont de normale benadering als twee gladde krommen,
+    de tegenhanger van de zaagtandkrommen van 04.3.</p>
     <figure class="fig"><img src="figures/04_normale_benadering_krommen.png" alt="Gladde 2,5%- en 97,5%-kwantielkrommen van de normale benadering voor n = 100: populatie π tegen steekproef P">
     <figcaption>Figuur: de 2,5%- en 97,5%-kwantielkrommen van de steekproeffractie volgens de normale benadering, steekproefgrootte 100:
-    horizontaal de steekproeffractie P, verticaal de populatiefractie \(\pi\). Ze spelen dezelfde rol als de exacte krommen
-    van 04.3, maar zijn glad in plaats van zaagtandvormig.
+    horizontaal de steekproeffractie P, verticaal de populatiefractie \(\pi\).
     <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=10">CI p. 10</a></figcaption></figure>
-    <p><b>Verschil van twee proporties</b> (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=20">CI FR p. 20</a>, "te bewijzen als oefening"):</p>
+    <p><b>Twee fracties vergelijken.</b> Voor het verschil \(\pi_{1}-\pi_{2}\) tel je de twee kwadraten van de standaardfouten op
+    (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=20">CI FR p. 20</a>):</p>
     <div class="f">
-      <div>\[(\sym{pi1}{\pi_{1}}-\sym{pi2}{\pi_{2}})=(\sym{p1}{p_{1}}-\sym{p2}{p_{2}})\pm\sym{z_1ma2}{Z_{0{,}025}}\cdot\sqrt{\frac{\sym{p1}{p_{1}}(1-\sym{p1}{p_{1}})}{\sym{n1}{n_{1}}}+\frac{\sym{p2}{p_{2}}(1-\sym{p2}{p_{2}})}{\sym{n2}{n_{2}}}}\]  (bovenstaartnotatie: \[\sym{z_1ma2}{Z_{0{,}025}}=1{,}96\])</div>
+      <div>\[\sym{pi1}{\pi_{1}}-\sym{pi2}{\pi_{2}}\in(\sym{p1}{p_{1}}-\sym{p2}{p_{2}})\pm\sym{z_1ma2}{Z_{1-\alpha/2}}\cdot\sqrt{\frac{\sym{p1}{p_{1}}(1-\sym{p1}{p_{1}})}{\sym{n1}{n_{1}}}+\frac{\sym{p2}{p_{2}}(1-\sym{p2}{p_{2}})}{\sym{n2}{n_{2}}}}\]</div>
     </div>
     <div class="box key"><span class="t">Een BI voor een percentage defectieven lezen</span>
       <p>Het BI is het gebied van plausibele waarden voor de <b>ware</b> fractie defectieven van de partij of van het
@@ -581,48 +605,33 @@
   <!-- ============================================================ 04.6 -->
   <section class="unit" id="d04-verschil" data-kw="verschil gemiddelden; difference of means; mu1 - mu2; µ1 − µ2; gepaard; paired; niet-gepaard; unpaired; gepoolde variantie; pooled variance; s_p; schoenzolen; shoe soles; blocking; blokken; correlatie; correlation; randomisatie; randomization">
     <h3>04.6 BI voor het verschil van twee gemiddelden: niet-gepaard en gepaard <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=9">CI FR p. 9–19</a></h3>
-    <p><b>Interpretatie</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=9">CI FR p. 9</a>. Het 95%-BI voor \(\sym{mu1}{\mu_{1}}-\sym{mu2}{\mu_{2}}\) is het interval van mogelijke waarden
-    voor het verschil.</p>
+    <p>Vaak wil je niet één gemiddelde kennen, maar weten of twee materialen, machines of methodes verschillen. Je maakt dan
+    een BI voor het verschil \(\sym{mu1}{\mu_{1}}-\sym{mu2}{\mu_{2}}\) en kijkt of 0 erin ligt <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=9">CI FR p. 9</a>:</p>
     <ul>
-      <li>\(0\notin\sym{bi}{\mathrm{BI}_{95}}\): 0 is geen mogelijke waarde, dus \(\sym{mu1}{\mu_{1}}\ne\sym{mu2}{\mu_{2}}\); kans op vergissing 5 % (= de
-      significantie).</li>
-      <li>\(0\in\sym{bi}{\mathrm{BI}_{95}}\): \(\sym{mu1}{\mu_{1}}=\sym{mu2}{\mu_{2}}\) kan niet uitgesloten worden. Dat betekent <b>niet</b> dat je
-      bijna zeker bent dat ze gelijk zijn: het BI bevat ook andere waarden.</li>
-      <li>Het kan dat \(0\notin\sym{bi}{\mathrm{BI}_{95}}\) en \(0\in\sym{bi}{\mathrm{BI}_{99}}\); en dat \(0\notin\sym{bi}{\mathrm{BI}_{95}}\) volgens methode 1 en \(0\in\sym{bi}{\mathrm{BI}_{95}}\) volgens methode 2 (methode 1 is dan nauwkeuriger).</li>
+      <li>0 ligt <b>buiten</b> het BI: er is een verschil (met een kans \(\alpha\) op vergissing).</li>
+      <li>0 ligt <b>in</b> het BI: een verschil is niet aangetoond. Dat bewijst niet dat ze gelijk zijn: het BI bevat ook andere waarden.</li>
     </ul>
-    <p><b>Het experiment</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=10">CI FR p. 10–11</a> (naar Box, Hunter &amp; Hunter). Twee materialen voor schoenzolen worden
-    vergeleken op levensduur LD (afgeleid uit de gemeten sleet). Twee proefopzetten:</p>
+    <p><b>Gepaard of niet-gepaard?</b> Dat hangt af van hoe de data verzameld zijn, niet van de rekenmethode <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=10">CI FR p. 10–11</a>. In het
+    schoenzolenvoorbeeld (naar Box, Hunter &amp; Hunter) worden twee zoolmaterialen vergeleken op levensduur:</p>
     <ul>
-      <li><b>Niet-gepaard</b> (unpaired): een aselecte steekproef van \(n_{1}\) jongens draagt materiaal 1, een tweede,
-      onafhankelijke steekproef van \(n_{2}\) jongens materiaal 2.</li>
-      <li><b>Gepaard</b> (paired): elke jongen van één steekproef draagt een "gemengd" paar: één schoen van elk materiaal,
-      at random toegewezen aan links en rechts. De jongen is een <b>blokfactor</b> (blocking factor); de toevallige
-      toewijzing binnen een blok heet <b>randomisatie</b> (notities bij p. 11). Dit is een randomized block design (RDB)
-      <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=14">CI FR p. 14</a>.</li>
+      <li><b>Niet-gepaard</b> (unpaired): twee aparte, onafhankelijke groepen jongens; de ene groep draagt materiaal 1, de andere materiaal 2.</li>
+      <li><b>Gepaard</b> (paired): elke jongen draagt één schoen van elk materiaal (links of rechts bij toeval). Elke jongen geeft dus
+      een paar metingen; de jongen is een <b>blok</b> en de toevallige toewijzing heet randomisatie <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=14">CI FR p. 14</a>.</li>
     </ul>
-    <p>Waarom gepaard beter kan zijn: een jongen met "hoog sleetgedrag" verslijt beide schoenen sneller. De LD-waarden van
-    dezelfde jongen zijn dus <b>positief gecorreleerd</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=10">CI FR p. 10</a> (notities bij p. 13). Door per jongen het verschil
-    te nemen, valt die jongen-tot-jongen-spreiding weg.</p>
-    <p><b>Met gekende \(\sigma\)</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=12">CI FR p. 12–13</a> \((\sym{n1}{n_{1}}=\sym{n2}{n_{2}}=\sym{n}{n},\sym{sigma1}{\sigma_{1}}=\sym{sigma2}{\sigma_{2}}=\sym{sigma}{\sigma})\):</p>
+    <p>Gepaard is nauwkeuriger zodra de twee metingen van een paar samenhangen: een jongen die veel slijt, slijt beide schoenen
+    sneller. Neem je per jongen het verschil, dan valt die jongen-tot-jongen-spreiding weg <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=10">CI FR p. 10</a>. Hoe sterker de correlatie
+    \(\sym{rho}{\rho}\) binnen een paar, hoe smaller het gepaarde interval: de verhouding van de breedtes is \(\sqrt{1-\rho}\) (notities bij
+    CI FR p. 14). Paren kan niet bij destructieve metingen, waar je een stuk maar één keer meet <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=14">CI FR p. 14</a>.</p>
+    <p><b>De formules</b> (\(\sigma\) onbekend, het gewone geval) <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=15">CI FR p. 15–16</a>:</p>
     <div class="f">
-      <div>niet-gepaard: \[\sym{bi}{\mathrm{BI}_{95}}=\sym{xbar1}{\bar{x}_{1}}-\sym{xbar2}{\bar{x}_{2}}\pm\sym{z_1ma2}{z_{0{,}025}}\cdot\sqrt{\frac{2}{\sym{n}{n}}}\cdot\sym{sigma}{\sigma}\]</div>
-      <div>gepaard: \[\sym{bi}{\mathrm{BI}_{95}}=\sym{xbar1}{\bar{x}_{1}}-\sym{xbar2}{\bar{x}_{2}}\pm\sym{z_1ma2}{z_{0{,}025}}\cdot\sqrt{\left(\frac{2}{\sym{n}{n}}\right)(\sym{sigma_sq}{\sigma^{2}}-\sym{cov}{\operatorname{cov}})}\]</div>
-      <div>verhouding van de lengtes (gepaard / niet-gepaard) = \[\sqrt{1-\frac{\sym{cov}{\operatorname{cov}}}{\sym{sigma_sq}{\sigma^{2}}}}=\sqrt{1-\sym{rho}{\rho}}\]  (notities bij p. 14)</div>
-    </div>
-    <p>Hoe groter de correlatie \(\rho\) binnen een paar, hoe nauwkeuriger de gepaarde vergelijking. Zonder correlatie (of bij
-    negatieve correlatie) biedt paren geen voordeel. Paren kan niet altijd: bij destructieve metingen ("meten 2
-    trekbanken dezelfde treksterkte?") meet je een stuk maar één keer <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=14">CI FR p. 14</a>.</p>
-    <p><b>Met geschatte \(\sigma\)</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=15">CI FR p. 15–16</a>:</p>
-    <div class="f">
-      <div>niet-gepaard (\[\sym{sigma1}{\sigma_{1}}=\sym{sigma2}{\sigma_{2}}\] verondersteld): \[\sym{mu1}{\mu_{1}}-\sym{mu2}{\mu_{2}}=(\sym{xbar1}{\bar{x}_{1}}-\sym{xbar2}{\bar{x}_{2}})\pm\sym{t_crit}{t_{0{,}025;n1+n2-2}}\cdot\sym{sp}{s_{p}}\cdot\sqrt{\frac{1}{\sym{n1}{n_{1}}}+\frac{1}{\sym{n2}{n_{2}}}}\]</div>
-      <div>gepoolde variantie (pooled variance): \[\sym{sp_sq}{s_{p}^{2}}=\frac{(\sym{n1}{n_{1}}-1)\sym{s1_sq}{s_{1}^{2}}+(\sym{n2}{n_{2}}-1)\sym{s2_sq}{s_{2}^{2}}}{\sym{n1}{n_{1}}+\sym{n2}{n_{2}}-2}\]</div>
-      <div>gepaard: \[\sym{v_i}{v_{i}}=\sym{x1i}{x_{1,i}}-\sym{x2i}{x_{2,i}}\]; \[\sym{mu1}{\mu_{1}}-\sym{mu2}{\mu_{2}}=\sym{vbar}{\bar{v}}\pm\frac{\sym{t_crit}{t_{0{,}025;n-1}}\cdot\sym{s_v}{s_{V}}}{\sqrt{\sym{n}{n}}}\]</div>
+      <div>niet-gepaard: \[\sym{mu1}{\mu_{1}}-\sym{mu2}{\mu_{2}}\in(\sym{xbar1}{\bar{x}_{1}}-\sym{xbar2}{\bar{x}_{2}})\pm\sym{t_crit}{t_{1-\alpha/2;\,n_{1}+n_{2}-2}}\cdot\sym{sp}{s_{p}}\cdot\sqrt{\frac{1}{\sym{n1}{n_{1}}}+\frac{1}{\sym{n2}{n_{2}}}}\]</div>
+      <div>met de gepoolde variantie \[\sym{sp_sq}{s_{p}^{2}}=\frac{(\sym{n1}{n_{1}}-1)\sym{s1_sq}{s_{1}^{2}}+(\sym{n2}{n_{2}}-1)\sym{s2_sq}{s_{2}^{2}}}{\sym{n1}{n_{1}}+\sym{n2}{n_{2}}-2}\]</div>
+      <div>gepaard: reken met de verschillen \[\sym{v_i}{v_{i}}=\sym{x1i}{x_{1,i}}-\sym{x2i}{x_{2,i}}\]: \[\sym{mu1}{\mu_{1}}-\sym{mu2}{\mu_{2}}\in\sym{vbar}{\bar{v}}\pm\sym{t_crit}{t_{1-\alpha/2;\,n-1}}\cdot\frac{\sym{s_v}{s_{V}}}{\sqrt{\sym{n}{n}}}\] met n = aantal paren</div>
     </div>
     <ul>
-      <li>Niet-gepaard: \(n_{1}\) en \(n_{2}\) mogen verschillen; de formule is enkel geldig als \(\sym{sigma1}{\sigma_{1}}=\sym{sigma2}{\sigma_{2}}\); normaliteit van \(X_{1}\) en \(X_{2}\) is enkel nodig als \(n_{1}\) of \(n_{2}\) klein
-      is <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=15">CI FR p. 15</a>. Voor ongelijke spreidingen bestaat een veralgemening met een t-verdeling met een niet-geheel aantal
-      vrijheidsgraden; de cursus geeft die formule niet (notities bij p. 15).</li>
-      <li>Gepaard: de spreidingen hoeven niet gelijk te zijn (notities bij p. 16).</li>
+      <li>Niet-gepaard veronderstelt gelijke spreidingen (\(\sym{sigma1}{\sigma_{1}}=\sym{sigma2}{\sigma_{2}}\)); \(n_{1}\) en \(n_{2}\) mogen verschillen. Normaliteit is
+      alleen nodig bij kleine steekproeven <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=15">CI FR p. 15</a>.</li>
+      <li>Gepaard is gewoon het BI van 04.4 op de kolom verschillen; de spreidingen hoeven niet gelijk te zijn (notities bij CI FR p. 16).</li>
     </ul>
     <div class="box ex"><span class="t">Uitgewerkt voorbeeld: de schoenzolen <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=17">CI FR p. 17–19</a></span>
       <table>
@@ -634,12 +643,7 @@
       </table>
       <p>Conclusies <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=19">CI FR p. 19</a>: het niet-gepaarde experiment toont het grootste verschil, maar ook de grootste spreiding.
       De gepaarde analyse is duidelijk nauwkeuriger en ziet een verschil waar de niet-gepaarde dat niet kan. De verhouding
-      van de lengtes is \(\frac{1{,}72}{6{,}19}=0{,}28\), volgens de cursus "volledig volgens de theoretische verwachting" \(\sqrt{1-\sym{rho}{\rho}}\) met
-      \(\sym{rho}{\rho}=0{,}93\).</p>
-      <p class="small">Kanttekening <span class="computed">zelf berekend</span>: \(\sqrt{1-0{,}93}=0{,}26\); de correlatie tussen
-      \(\mathrm{LD}_{1}\) en \(\mathrm{LD}_{2}\) in de gepaarde data van p. 18 is 0,90, en \(\sqrt{1-0{,}90}=0{,}31\). De 0,28 ligt ertussen;
-      de overeenkomst is dus bij benadering (het niet-gepaarde experiment gebruikt voor materiaal 2 andere jongens, en de t-waarden verschillen). De
-      cursus zegt niet hoe \(\rho=0{,}93\) bepaald werd.</p>
+      van de breedtes is \(\frac{1{,}72}{6{,}19}=0{,}28\), zoals \(\sqrt{1-\sym{rho}{\rho}}\) verwacht laat.</p>
     </div>
     <div class="box tool"><span class="t">Rekentool</span>
       <p>Werkblad <b>Gemiddelde &amp; proportie</b>, sectie "Twee gemiddelden, ongepaarde steekproeven" (gepoolde \(s_{p}\) met
@@ -654,7 +658,7 @@
       <li><b>"Het niet-gepaarde experiment toont het grootste verschil (−5,6 tegen −3,3), dus het is het beste."</b> Fout: het heeft ook de grootste spreiding (±6,19 tegen ±1,72); de gepaarde analyse is nauwkeuriger en ziet wél een verschil <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=19">CI FR p. 19</a>.</li>
       <li><b>"Paren is altijd beter."</b> Fout: de winst hangt af van de correlatie binnen een paar; de lengteverhouding is \(\sqrt{1-\sym{rho}{\rho}}\). Zonder correlatie (of bij negatieve) biedt paren geen voordeel, en bij destructieve metingen kan het niet <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=14">CI FR p. 14</a>.</li>
       <li><b>Let op:</b> gepaarde metingen reken je op de verschillen: \(\sym{vbar}{\bar{v}}\pm\frac{\sym{t_crit}{t_{0{,}025;n-1}}\cdot\sym{s_v}{s_{V}}}{\sqrt{\sym{n}{n}}}\) met \(n=\) aantal paren <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=16">CI FR p. 16</a>, niet als twee onafhankelijke steekproeven: de twee metingen van een paar zijn gecorreleerd (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=13">CI FR p. 13</a>).</li>
-      <li><b>Let op:</b> niet-gepaard veronderstelt \(\sigma_{1}=\sigma_{2}\) en gebruikt t met \(\sym{n1}{n_{1}}+\sym{n2}{n_{2}}-2\) vrijheidsgraden <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=15">CI FR p. 15</a>. Ook de noemer van \(s_{p}^{2}\) is \(\sym{n1}{n_{1}}+\sym{n2}{n_{2}}-2\); CI FR p. 15 drukt − 1 af, een drukfout (<a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=5">Recepten p. 5</a>).</li>
+      <li><b>Let op:</b> niet-gepaard veronderstelt \(\sigma_{1}=\sigma_{2}\) en gebruikt t met \(\sym{n1}{n_{1}}+\sym{n2}{n_{2}}-2\) vrijheidsgraden <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=15">CI FR p. 15</a>. Ook de noemer van \(s_{p}^{2}\) is \(\sym{n1}{n_{1}}+\sym{n2}{n_{2}}-2\) (<a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=5">Recepten p. 5</a>).</li>
     </ul></div>
 
     <div class="exercise" id="ex-04-10" data-kw="niet-gepaard; unpaired; schoenzolen; shoe soles; gepoolde standaardafwijking; pooled standard deviation; s_p; 6,59; t 18; S03-WE13">
@@ -743,22 +747,25 @@
   <!-- ============================================================ 04.7 -->
   <section class="unit" id="d04-sigma" data-kw="BI variantie; confidence interval variance; BI standaardafwijking; confidence interval standard deviation; sigma; σ²; chi-kwadraat; chi-square; χ²; niet symmetrisch; asymmetric; niet robuust; not robust; procesvariabiliteit">
     <h3>04.7 BI voor de variantie σ² en de standaardafwijking σ <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=21">CI FR p. 21</a></h3>
-    <p>Als X normaal verdeeld is, volgt \(\frac{(\sym{n}{n}-1)\sym{s_sq}{s^{2}}}{\sym{sigma_sq}{\sigma^{2}}}\) een \(\chi^{2}\)-verdeling (chi-kwadraat, chi-square) met \(\sym{n}{n}-1\)
-    vrijheidsgraden <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=21">CI FR p. 21</a>. De \(\chi^{2}\)-verdeling is asymmetrisch en neemt alleen positieve waarden aan; voor \(\sym{df_n}{n}\to\infty\) nadert
-    \(\chi^{2}(\sym{df_n}{n})\) de normale verdeling \(N(\sym{df_n}{n};\sqrt{2\sym{df_n}{n}})\) (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=16">CI p. 16</a>). Werkblad "\(\mathrm{chi}^{2}\)" in <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.xlsx">TH.xlsx</a> tekent \(\chi^{2}(9)\), \(\chi^{2}(19)\) en
-    \(\chi^{2}(39)\), zoals de figuur hieronder.</p>
+    <p>Tot nu toe ging het over de ligging (\(\mu\), \(\pi\)). Voor de spreiding van een proces maak je een BI voor \(\sym{sigma_sq}{\sigma^{2}}\) of \(\sym{sigma}{\sigma}\).
+    Het recept is anders, omdat de schatting \(\sym{s_sq}{s^{2}}\) niet normaal verdeeld is.</p>
+    <p><b>De verdeling.</b> Bij normaal verdeelde metingen volgt \(\frac{(\sym{n}{n}-1)\sym{s_sq}{s^{2}}}{\sym{sigma_sq}{\sigma^{2}}}\) een \(\chi^{2}\)-verdeling (chi-kwadraat) met \(n-1\)
+    vrijheidsgraden <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=21">CI FR p. 21</a>. Die verdeling is scheef naar rechts en neemt alleen positieve waarden aan (figuur).</p>
     <figure class="fig"><img src="figures/04_chi2_dichtheden.png" alt="Dichtheden van chi-kwadraat met 9, 19 en 39 vrijheidsgraden, scheef naar rechts">
     <figcaption>Figuur: dichtheden van \(\chi^{2}(9)\), \(\chi^{2}(19)\) en \(\chi^{2}(39)\). Ze zijn scheef naar rechts en nemen alleen positieve waarden aan; met
-    meer vrijheidsgraden schuift de top naar rechts en wordt de verdeling breder en minder scheef.
+    meer vrijheidsgraden schuift de top naar rechts.
     <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=16">CI p. 16</a></figcaption></figure>
-    <p>Omkeren geeft:</p>
+    <p><b>De kritieke waarden.</b> Omdat de verdeling niet symmetrisch is, heb je twee verschillende getallen nodig: een linkse
+    \(\sym{chi2_lower}{\chi^{2}_{\alpha/2;n-1}}\) (kans \(\frac{\alpha}{2}\) eronder) en een rechtse \(\sym{chi2_upper}{\chi^{2}_{1-\alpha/2;n-1}}\) (kans \(\frac{\alpha}{2}\) erboven). Tussen die
+    twee ligt \(\frac{(n-1)s^{2}}{\sigma^{2}}\) met kans \(1-\alpha\). Omkeren naar \(\sigma^{2}\) geeft:</p>
     <div class="f">
-      <div>\[P\left[\sym{chi2_lower}{\chi^{2}_{0{,}975;n-1}}\le\frac{(\sym{n}{n}-1)\sym{s_sq}{s^{2}}}{\sym{sigma_sq}{\sigma^{2}}}\le\sym{chi2_upper}{\chi^{2}_{0{,}025;n-1}}\right]=95\ \%\]  (bovenstaartnotatie: \[\sym{chi2_upper}{\chi^{2}_{0{,}025}}\] is de bovenste waarde)</div>
-      <div>95%-BI: \[\frac{(\sym{n}{n}-1)\sym{s_sq}{s^{2}}}{\sym{chi2_upper}{\chi^{2}_{0{,}025;n-1}}}\le\sym{sigma_sq}{\sigma^{2}}\le\frac{(\sym{n}{n}-1)\sym{s_sq}{s^{2}}}{\sym{chi2_lower}{\chi^{2}_{0{,}975;n-1}}}\]</div>
-      <div>BI voor \[\sym{sigma}{\sigma}\]: neem de vierkantswortel van beide grenzen</div>    </div>
+      <div>\[\frac{(\sym{n}{n}-1)\sym{s_sq}{s^{2}}}{\sym{chi2_upper}{\chi^{2}_{1-\alpha/2;n-1}}}\le\sym{sigma_sq}{\sigma^{2}}\le\frac{(\sym{n}{n}-1)\sym{s_sq}{s^{2}}}{\sym{chi2_lower}{\chi^{2}_{\alpha/2;n-1}}}\]</div>
+      <div>BI voor \(\sigma\): neem de vierkantswortel van beide grenzen</div>
+    </div>
     <ul>
-      <li>Het interval is <b>niet symmetrisch</b> rond \(s^{2}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=21">CI FR p. 21</a>.</li>
-      <li>De methode steunt sterk op normaliteit: de \(\chi^{2}\)-toets voor \(\sigma\) is "niet-robuust" <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=11">Recepten p. 11</a>.</li>
+      <li>De grenzen kruisen: de <i>grote</i> \(\chi^{2}\)-waarde geeft de <i>ondergrens</i>, de kleine de bovengrens.</li>
+      <li>Het interval ligt <b>niet symmetrisch</b> rond \(s^{2}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=21">CI FR p. 21</a>.</li>
+      <li>De methode steunt sterk op normaliteit; ze is niet robuust <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=11">Recepten p. 11</a>.</li>
     </ul>
     <div class="box ex"><span class="t">Uitgewerkt voorbeeld: is het proces grilliger geworden? <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=16">CI p. 16</a></span>
       <p>Een proces met een maat die normaal verdeeld is met \(\sigma=0{,}01\). Door slijtage vreest het management dat de spreiding
@@ -831,28 +838,23 @@
   <!-- ============================================================ 04.8 -->
   <section class="unit" id="d04-f" data-kw="F-verdeling; F distribution; verhouding varianties; ratio of variances; σ1²/σ2²; σ2²/σ1²; nauwkeuriger; more precise; precisie machine; twee machines; two machines; eenzijdig BI; one-sided CI; vrijheidsgraden">
     <h3>04.8 BI voor de verhouding van twee varianties σ<sub>1</sub>²/σ<sub>2</sub>² (F) <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=12">Recepten p. 12</a></h3>
-    <p><b>De F-verdeling</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=12">Recepten p. 12</a>. Zijn \(\sym{x_chi}{X}\sim\chi^{2}(\sym{df_n}{n})\) en \(\sym{y_chi}{Y}\sim\chi^{2}(\sym{df_m}{m})\) onafhankelijk, dan volgt \(\frac{\frac{\sym{x_chi}{X}}{\sym{df_n}{n}}}{\frac{\sym{y_chi}{Y}}{\sym{df_m}{m}}}\) een
-    F-verdeling met \((\sym{df_n}{n},\sym{df_m}{m})\) vrijheidsgraden: \(F(\sym{df_n}{n},\sym{df_m}{m})\). De verdeling is scheef naar rechts, met \(E(\sym{f_stat}{F})=\frac{\sym{df_m}{m}}{\sym{df_m}{m}-2}\gt1\) (voor
-    \(\sym{df_m}{m}\gt2\)) en modus \(\frac{(\sym{df_n}{n}-2)\sym{df_m}{m}}{\sym{df_n}{n}(\sym{df_m}{m}+2)}\lt1\) (voor \(\sym{df_n}{n}\gt2\)). Werkblad "F" in <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.xlsx">TH.xlsx</a> tekent er enkele; de figuur hieronder toont er drie.</p>
-    <figure class="fig"><img src="figures/04_f_dichtheden.png" alt="Dichtheden van F(30,60), F(20,20) en F(10,4) met de formules voor verwachting en modus">
-    <figcaption>Figuur: dichtheden van F(30,60), F(20,20) en F(10,4), met \(E(F(n,m))=\frac{m}{m-2}\gt1\ (m\gt2)\) en
-    modus (n − 2)m/[n(m + 2)] &lt; \(1\ (n\gt2)\). Alle drie zijn scheef naar rechts; F(10,4) heeft de langste
+    <p>Wil je de spreiding van twee machines of methodes vergelijken, dan maak je een BI voor de verhouding van hun varianties.
+    Een verhouding, geen verschil: ligt 1 buiten het BI, dan verschillen de spreidingen.</p>
+    <p><b>De verdeling.</b> Voor twee onafhankelijke steekproeven uit normale populaties volgt
+    \(\left(\frac{\sym{s1_sq}{s_{1}^{2}}}{\sym{s2_sq}{s_{2}^{2}}}\right)\cdot\left(\frac{\sym{sigma2_sq}{\sigma_{2}^{2}}}{\sym{sigma1_sq}{\sigma_{1}^{2}}}\right)\) een F-verdeling met
+    \((n_{1}-1;\ n_{2}-1)\) vrijheidsgraden <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=12">Recepten p. 12</a>. De eerste vrijheidsgraad hoort bij de teller (\(s_{1}^{2}\)), de tweede bij de noemer.
+    Net als \(\chi^{2}\) is F scheef naar rechts en positief (figuur).</p>
+    <figure class="fig"><img src="figures/04_f_dichtheden.png" alt="Dichtheden van F(30,60), F(20,20) en F(10,4)">
+    <figcaption>Figuur: dichtheden van F(30,60), F(20,20) en F(10,4). Alle drie zijn scheef naar rechts; F(10,4) heeft de langste
     rechterstaart.
     <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=12">Recepten p. 12</a></figcaption></figure>
+    <p><b>Het interval.</b> Noem \(\sym{f_lo}{F_{\mathrm{lo}}}\) en \(\sym{f_hi}{F_{\mathrm{hi}}}\) de punten van \(F(n_{1}-1;n_{2}-1)\) met kans \(\frac{\alpha}{2}\) eronder en
+    \(\frac{\alpha}{2}\) erboven. Omkeren zoals bij \(\sigma^{2}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=21">CI FR p. 21</a> (beslissing 7 in <code>inventory/conventions.md</code>) geeft:</p>
     <div class="f">
-      <div>stelling: twee onafhankelijke RS, normale populaties ⇒ \[\frac{\frac{\sym{s1_sq}{s_{1}^{2}}}{\sym{sigma1_sq}{\sigma_{1}^{2}}}}{\frac{\sym{s2_sq}{s_{2}^{2}}}{\sym{sigma2_sq}{\sigma_{2}^{2}}}}\sim F(\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\]</div>
-      <div>gelijkwaardig: \[\left(\frac{\sym{s1_sq}{s_{1}^{2}}}{\sym{s2_sq}{s_{2}^{2}}}\right)\cdot\left(\frac{\sym{sigma2_sq}{\sigma_{2}^{2}}}{\sym{sigma1_sq}{\sigma_{1}^{2}}}\right)\sim F(\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\]</div>
-      <div>kritische waarden: \[\sym{f_q}{F_{\alpha}}(\sym{df_n}{n},\sym{df_m}{m})=\frac{1}{\sym{f_q}{F_{1-\alpha}}(\sym{df_m}{m},\sym{df_n}{n})}\]</div>
-    </div>
-    <p><b>Het interval</b>. De cursus drukt geen kant-en-klaar BI voor een verhouding van varianties af; je krijgt het door
-    de F-uitspraak om te keren, net zoals bij \(\sigma^{2}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=21">CI FR p. 21</a> (beslissing 7 in <code>inventory/conventions.md</code>; zo
-    werkt ook werkblad "Varianties BI &amp; toetsen"). Schrijf \(\sym{f_lo}{F_{\mathrm{lo}}}\) voor het \(\frac{\sym{alpha}{\alpha}}{2}\)-kwantiel en \(\sym{f_hi}{F_{\mathrm{hi}}}\) voor het \(\left(1-\frac{\sym{alpha}{\alpha}}{2}\right)\)-kwantiel
-    van \(F(\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\) (kwantielnotatie: kans eronder). Dan is
-    \(P\left[\sym{f_lo}{F_{\mathrm{lo}}}\le\left(\frac{\sym{s1_sq}{s_{1}^{2}}}{\sym{s2_sq}{s_{2}^{2}}}\right)\left(\frac{\sym{sigma2_sq}{\sigma_{2}^{2}}}{\sym{sigma1_sq}{\sigma_{1}^{2}}}\right)\le\sym{f_hi}{F_{\mathrm{hi}}}\right]=1-\sym{alpha}{\alpha}\), dus:</p>
-    <div class="f">
-      <div>\[(1-\sym{alpha}{\alpha})\]-BI voor \[\frac{\sym{sigma2_sq}{\sigma_{2}^{2}}}{\sym{sigma1_sq}{\sigma_{1}^{2}}}\]: \[\left[\left(\frac{\sym{s2_sq}{s_{2}^{2}}}{\sym{s1_sq}{s_{1}^{2}}}\right)\cdot\sym{f_lo}{F_{\mathrm{lo}}};\left(\frac{\sym{s2_sq}{s_{2}^{2}}}{\sym{s1_sq}{s_{1}^{2}}}\right)\cdot\sym{f_hi}{F_{\mathrm{hi}}}\right]\]</div>
-      <div>\[(1-\sym{alpha}{\alpha})\]-BI voor \[\frac{\sym{sigma1_sq}{\sigma_{1}^{2}}}{\sym{sigma2_sq}{\sigma_{2}^{2}}}\]: \[\left[\frac{\frac{\sym{s1_sq}{s_{1}^{2}}}{\sym{s2_sq}{s_{2}^{2}}}}{\sym{f_hi}{F_{\mathrm{hi}}}};\frac{\frac{\sym{s1_sq}{s_{1}^{2}}}{\sym{s2_sq}{s_{2}^{2}}}}{\sym{f_lo}{F_{\mathrm{lo}}}}\right]\]</div>
-      <div>eenzijdig \[(1-\sym{alpha}{\alpha})\]: gebruik \[\sym{alpha}{\alpha}\] in plaats van \[\frac{\sym{alpha}{\alpha}}{2}\] aan de kant die je nodig hebt, bv. ondergrens voor \[\frac{\sym{sigma2_sq}{\sigma_{2}^{2}}}{\sym{sigma1_sq}{\sigma_{1}^{2}}}=\left(\frac{\sym{s2_sq}{s_{2}^{2}}}{\sym{s1_sq}{s_{1}^{2}}}\right)\cdot\sym{f_q}{F_{\alpha}}(\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\]</div>
+      <div>\[\frac{\sym{sigma1_sq}{\sigma_{1}^{2}}}{\sym{sigma2_sq}{\sigma_{2}^{2}}}\in\left[\frac{\sym{s1_sq}{s_{1}^{2}}/\sym{s2_sq}{s_{2}^{2}}}{\sym{f_hi}{F_{\mathrm{hi}}}};\ \frac{\sym{s1_sq}{s_{1}^{2}}/\sym{s2_sq}{s_{2}^{2}}}{\sym{f_lo}{F_{\mathrm{lo}}}}\right]\]</div>
+      <div>\[\frac{\sym{sigma2_sq}{\sigma_{2}^{2}}}{\sym{sigma1_sq}{\sigma_{1}^{2}}}\in\left[\frac{\sym{s2_sq}{s_{2}^{2}}}{\sym{s1_sq}{s_{1}^{2}}}\cdot\sym{f_lo}{F_{\mathrm{lo}}};\ \frac{\sym{s2_sq}{s_{2}^{2}}}{\sym{s1_sq}{s_{1}^{2}}}\cdot\sym{f_hi}{F_{\mathrm{hi}}}\right]\] (hetzelfde interval, omgekeerd)</div>
+      <div>eenzijdig: één grens met \(\alpha\) in plaats van \(\frac{\alpha}{2}\); draai je de verhouding om, dan wisselen ook de vrijheidsgraden:
+      \[\sym{f_q}{F_{\alpha}}(\sym{df_n}{n},\sym{df_m}{m})=\frac{1}{F_{1-\alpha}(\sym{df_m}{m},\sym{df_n}{n})}\]</div>
     </div>
     <div class="box key"><span class="t">"Is machine 1 nauwkeuriger dan machine 2?"</span>
       <ol class="steps">
@@ -937,8 +939,6 @@
       <div>eenzijdig, HA: \(\sym{mu}{\mu}\gt\sym{mu0}{\mu_{0}}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=18">TH FR p. 18</a>: aanvaard \(H_{0}\Leftrightarrow\sym{xbar}{\bar{x}}\le\sym{mu0}{\mu_{0}}+\frac{\sym{z_1ma}{Z_{0{,}05}}\cdot\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\Leftrightarrow\sym{mu0}{\mu_{0}}\ge\sym{xbar}{\bar{x}}-\frac{\sym{z_1ma}{Z_{0{,}05}}\cdot\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\)</div>
       <div>dus: eenzijdig 95%-BI voor \(\sym{mu}{\mu}=\) [ \(\sym{xbar}{\bar{x}}-\frac{\sym{z_1ma}{Z_{0{,}05}}\cdot\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\) ; +∞ [  (\(\sym{z_1ma}{Z_{0{,}05}}=1{,}645\) in bovenstaartnotatie)</div>
     </div>
-    <p class="small">In de laatste formule op <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=18">TH FR p. 18</a> staat \(Z_{0{,}025}\): een drukfout, want de formule twee regels hoger
-    gebruikt \(Z_{0{,}05}\). Met \(\sym{z_1ma2}{Z_{0{,}025}}=1{,}96\) zou het een 97,5%-interval zijn.</p>
     <div class="box key"><span class="t">"Toetsen bij 1 % vraagt een 99%-BI": wanneer klopt dat?</span>
       <ul>
         <li>Het klopt als het BI <b>van hetzelfde type is als de toets</b>. Tweezijdige toets bij \(\alpha=1\ \%\leftrightarrow\) tweezijdig
@@ -960,7 +960,7 @@
       <li><b>Let op:</b> de kant volgt \(H_{A}\). \(\sym{pi}{\pi}\gt\sym{pi0}{\pi_{0}}\leftrightarrow\) ondergrens ]\(\sym{pi_l}{\pi_{L}}\); 1]; \(\sym{pi}{\pi}\lt\sym{pi0}{\pi_{0}}\leftrightarrow\) bovengrens [0; \(\sym{pi_u}{\pi_{U}}\)[; \(\sym{pi}{\pi}\ne\sym{pi0}{\pi_{0}}\leftrightarrow\) tweezijdig (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=12">CI p. 12</a>).</li>
       <li><b>"Een lagere betrouwbaarheid maakt de toets voorzichtiger."</b> Fout: een lagere betrouwbaarheid is een hogere \(\alpha\); je verwerpt \(H_{0}\) sneller en het risico om \(H_{0}\) ten onrechte te verwerpen stijgt (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=6">CI p. 6</a>).</li>
       <li><b>"Toetsen met een BI geeft een andere OC-curve dan de klassieke toets."</b> Fout: beide werkwijzen zijn gelijkwaardig en hebben dezelfde OC-curve <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=12">CI p. 12</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=14">CI p. 14</a>.</li>
-      <li><b>Let op:</b> drukfout op <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=18">TH FR p. 18</a>: het eenzijdige 95%-BI voor \(\mu\) is [\(\sym{xbar}{\bar{x}}-\frac{\sym{z_1ma}{Z_{0{,}05}}\cdot\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\); +∞[, niet met \(Z_{0{,}025}\) (dat zou een 97,5%-interval zijn).</li>
+      <li><b>Let op:</b> het eenzijdige 95%-BI voor \(\mu\) is [\(\sym{xbar}{\bar{x}}-\frac{\sym{z_1ma}{Z_{0{,}05}}\cdot\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\); +∞[, niet met \(Z_{0{,}025}\) (dat zou een 97,5%-interval zijn).</li>
     </ul></div>
 
     <div class="exercise" id="ex-04-16" data-kw="dualiteit; duality; eenzijdig; one-sided; tweezijdig; two-sided; 99 %; 1 %; z-waarde; significantie; betrouwbaarheid">

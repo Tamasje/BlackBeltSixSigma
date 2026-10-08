@@ -157,7 +157,7 @@
       <li><b>Let op:</b> de traditionele yield trekt alleen scrap af; \(\sym{03:fty}{\mathrm{FTY}}=\frac{\sym{03:in_units}{\mathrm{in}}-\sym{03:scrap}{\text{scrap}}-\sym{03:rework}{\text{rework}}}{\sym{03:in_units}{\mathrm{in}}}\) trekt ook de herwerkte eenheden af <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=148">Dummies p. 148</a>.</li>
       <li><b>"RTY is het gemiddelde van de yields van de stappen."</b> Fout: RTY is het product. Vijf stappen met een FTY tussen 0,75 en 0,95 geven samen \(\sym{03:rty}{\mathrm{RTY}}=0{,}518\) <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=149">Dummies p. 149</a>.</li>
       <li><b>"De RTY kan hoger zijn dan de yield van de slechtste stap."</b> Fout: RTY is nooit hoger dan de laagste stap-FTY; begin dus bij de zwakste stap <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=150">Dummies p. 150</a>.</li>
-      <li><b>Let op:</b> \(\sym{03:ny}{\mathrm{NY}}=\sym{03:rty}{\mathrm{RTY}}^{\frac{1}{\sym{03:k_steps}{k}}}\), de k-de wortel. Harry &amp; Schroeder drukken een exponent −10 af; dat klopt niet <a class="p" href="../source/course/Les%204/Six-Sigma%20Mikel%20Harry%20-%20%20Richard%20Schroeder.pdf#page=5">H&amp;S p. 5</a>.</li>
+      <li><b>Let op:</b> \(\sym{03:ny}{\mathrm{NY}}=\sym{03:rty}{\mathrm{RTY}}^{\frac{1}{\sym{03:k_steps}{k}}}\), de k-de wortel. <a class="p" href="../source/course/Les%204/Six-Sigma%20Mikel%20Harry%20-%20%20Richard%20Schroeder.pdf#page=5">H&amp;S p. 5</a>.</li>
       <li><b>Let op:</b> eenheden per foutloze eenheid: \(\frac{1}{\sym{03:rty}{\mathrm{RTY}}}\) als defectieven weggegooid worden, \(1+(1-\sym{03:rty}{\mathrm{RTY}})\) als defecten herstelbaar zijn <a class="p" href="../source/course/Les%204/Six-Sigma%20Mikel%20Harry%20-%20%20Richard%20Schroeder.pdf#page=5">H&amp;S p. 5</a>.</li>
     </ul></div>
 
@@ -302,9 +302,7 @@
     <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=160">Dummies p. 160–161</a></figcaption></figure>
     <p>Tabel 6-3 gaat dus verder dan de Z-tabel van de cursus (die stopt bij \(|\sym{03:z}{z}|=3{,}4\)), maar is met \(1{,}5\sigma\) verschoven:
     de rij \(\sym{03:z_st}{Z}=5{,}0\) (233 DPMO) is de staart voorbij \(3{,}5\sigma\), de rij 4,5 (1350) voorbij \(3\sigma\) en de rij 6,0 (3,4) voorbij \(4{,}5\sigma\)
-    <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=160">Dummies p. 160–161</a>. Tabel 1-2 <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=41">Dummies p. 41</a> rekent ook met de verschuiving. Bij \(2\sigma\) drukt Dummies 308 538 af,
-    de samenvatting van Harry &amp; Schroeder <a class="p" href="../source/course/Les%204/Six-Sigma%20Mikel%20Harry%20-%20%20Richard%20Schroeder%20book%20summary.pdf#page=2">H&amp;S-samenvatting p. 2</a> 308 537 (zoals de cursus); exact is het
-    308 537,5 <span class="computed">zelf berekend</span>.</p>
+    <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=160">Dummies p. 160–161</a>. Tabel 1-2 <a class="p" href="../source/course/Les%204/Six%20Sigma%20For%20Dummies.pdf#page=41">Dummies p. 41</a> rekent ook met de verschuiving.</p>
     <p>Harry &amp; Schroeder gebruiken zelf beide lezingen: op p. 3 noemen ze 271 DPMO "about 3.5 sigma" (zonder
     verschuiving), op p. 5 noemen ze 2 500 DPMO "about 4.3 sigma" (met verschuiving) <span class="computed">zelf
     berekend</span>. Dummies schat 20 000 DPMO op "about 3.6", net boven de 3,5 van 22 750 DPMO in de tabel
@@ -340,16 +338,11 @@
         <ol class="steps">
           <li>a. \(0{,}85^{\frac{1}{600}}=0{,}99973=\) <b>99,97 %</b> (boek). Dat is 271 DPMO; zonder verschuiving
           \(\sym{03:z}{Z}=3{,}46\), "about 3.5 sigma" zoals het boek <span class="computed">zelf berekend</span>.</li>
-          <li>b. \(0{,}968^{\frac{1}{48}}=0{,}99932=\) <b>99,93 %</b> <span class="computed">zelf berekend</span>. Het
-          boek drukt hier ook 99,97 % af <a class="p" href="../source/course/Les%204/Six-Sigma%20Mikel%20Harry%20-%20%20Richard%20Schroeder.pdf#page=3">H&amp;S p. 3</a>; dat klopt niet.</li>
-          <li>c. \(\sym{03:z}{Z}=z_{0{,}99932}=\) <b>3,20</b> <span class="computed">zelf berekend</span>, niet "about 3.5
-          sigma". Met de verschuiving zou het 4,70 zijn.</li>
+          <li>b. \(0{,}968^{\frac{1}{48}}=0{,}99932=\) <b>99,93 %</b> <span class="computed">zelf berekend</span>.</li>
+          <li>c. \(\sym{03:z}{Z}=z_{0{,}99932}=\) <b>3,20</b> <span class="computed">zelf berekend</span>. Met de verschuiving is het 4,70.</li>
         </ol>
-        <p>Het idee van het voorbeeld blijft wel overeind: door per opportuniteit te rekenen, vergelijk je producten van
-        heel verschillende complexiteit eerlijk. Product A is, ondanks zijn lagere eindyield, per opportuniteit zelfs
-        beter dan B. De zin "a product with 600 defect opportunities, at \(3.5\sigma\), produces one defect for every 1.2 units"
-        klopt evenmin: \(600\times0{,}00027=0{,}16\) defecten per eenheid, dus één defect per 6,2 eenheden; 1,2 is 1/0,85, het
-        aantal eenheden per goede eenheid <span class="computed">zelf berekend</span>.</p>
+        <p>Door per opportuniteit te rekenen, vergelijk je producten van heel verschillende complexiteit eerlijk: product A is,
+        ondanks zijn lagere eindyield, per opportuniteit beter dan B.</p>
       </details>
     </div>
   </section>
@@ -529,8 +522,7 @@
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>a. F-waarde met (9; 4) vrijheidsgraden en 5 % linkerstaart = <b>0,2752</b> = 1/3,633 (Tabel 8-3 van Dummies: \(F(\sym{04:n1}{n_{1}}=5,\sym{04:n2}{n_{2}}=10)=3{,}633\) is de F-waarde met (4; 9) vrijheidsgraden en 5 % bovenstaart; \(F(10,5)=5{,}999\) die met (9; 4) vrijheidsgraden) <span class="computed">zelf berekend</span>.</li>
-          <li>b–c. \(\frac{\sym{04:s1_sq}{s_{A}^{2}}}{\sym{04:s2_sq}{s_{B}^{2}}}=\frac{4}{7{,}5}=0{,}5333\). \(\mathrm{BI}=\left[\frac{0{,}5333}{5{,}999};0{,}5333\cdot3{,}633\right]=[0{,}0889;1{,}938]\) <span class="computed">zelf berekend</span>. Dummies drukt [0,147; 3,199] af, met de twee F-waarden
-          verwisseld.</li>
+          <li>b–c. \(\frac{\sym{04:s1_sq}{s_{A}^{2}}}{\sym{04:s2_sq}{s_{B}^{2}}}=\frac{4}{7{,}5}=0{,}5333\). \(\mathrm{BI}=\left[\frac{0{,}5333}{5{,}999};0{,}5333\cdot3{,}633\right]=[0{,}0889;1{,}938]\) <span class="computed">zelf berekend</span>.</li>
           <li>d. \(\frac{\sym{04:sigma2_sq}{\sigma_{B}^{2}}}{\sym{04:sigma1_sq}{\sigma_{A}^{2}}}\ge\left(\frac{\sym{04:s2_sq}{s_{B}^{2}}}{\sym{04:s1_sq}{s_{A}^{2}}}\right)\cdot F_{\text{onder}}=1{,}875\cdot0{,}2752=\) <b>0,516</b>
           <span class="computed">zelf berekend</span> (= 1/1,938: hetzelfde getal als in c, omgekeerd).</li>
           <li>e. <b>Nee</b>: de ondergrens 0,516 ligt onder 1; een verhouding 1 (gelijke spreidingen) is plausibel. Met zo

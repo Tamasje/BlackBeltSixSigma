@@ -170,8 +170,7 @@
       </ol>
       <figure class="fig"><img src="figures/07_zuurstof_lijn.png" alt="Spreidingsdiagram van zuurstofzuiverheid tegen koolwaterstofgehalte met de gepaste stijgende regressielijn">
       <figcaption>Figuur: de 20 zuurstofwaarnemingen (x-as: koolwaterstofgehalte, 0,87 tot 1,67 %; y-as: zuiverheid, 87 tot
-      102 %) met de kleinste-kwadratenlijn. De punten liggen dicht rond een stijgende rechte. Het gedrukte onderschrift
-      (\(\hat{y}=74.20+14.97\)x) wijkt af van de kleinste-kwadratenlijn \(74{,}283+14{,}947x\) uit de output hieronder.
+      102 %) met de kleinste-kwadratenlijn. De punten liggen dicht rond de stijgende rechte \(\hat{y}=74{,}283+14{,}947x\).
       <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=21">REG p. 21</a></figcaption></figure>
       <p><b>De Minitab-output lezen</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=22">REG p. 22</a> (zoals gedrukt, met decimaalpunt):</p>
       <table>
@@ -691,7 +690,6 @@
     <ul>
       <li><b>"Een nutteloze extra variabele kan \(R^{2}\) doen dalen."</b> Fout: \(R^{2}\) stijgt bij elke extra variabele, ook bij een nutteloze <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=55">REG p. 55</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=56">REG p. 56</a>. \(R^{2}_{\mathrm{adj}}\) kan wel dalen.</li>
       <li><b>"Kies van twee modellen het model met de hoogste \(R^{2}\)."</b> Fout: dat is altijd het grootste model. Vergelijk modellen met \(R^{2}_{\mathrm{adj}}\): hoe hoger, hoe beter <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=56">REG p. 56</a>.</li>
-      <li><b>Let op:</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=56">REG p. 56</a> drukt \(\sym{r2_adj}{R^{2}_{\mathrm{adj}}}=1-\frac{(1-\sym{r2}{R^{2}})(\sym{n}{n}-1)}{\sym{n}{n}-\sym{k}{k}-2}\). Alle outputs van de cursus gebruiken \(\sym{n}{n}-\sym{k}{k}-1\): Excel geeft 0,95988 voor de olie-data <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=52">REG p. 52</a>; met \(\sym{n}{n}-\sym{k}{k}-2\) zou het 0,9562 zijn <span class="computed">zelf berekend</span>.</li>
       <li><b>Let op:</b> \(\sym{k}{k}\) is het aantal x-variabelen, zonder intercept. Olie: \(\sym{k}{k}=2\) en \(\sym{n}{n}=15\), dus \(\frac{\sym{n}{n}-1}{\sym{n}{n}-\sym{k}{k}-1}=\frac{14}{12}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=52">REG p. 52</a>.</li>
     </ul></div>
   </section>

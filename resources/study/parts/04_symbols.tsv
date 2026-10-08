@@ -55,7 +55,7 @@ xbar1	\(\bar{x}_{1}\)	Steekproefgemiddelde van steekproef 1.	Gemiddelde van de d
 xbar2	\(\bar{x}_{2}\)	Steekproefgemiddelde van steekproef 2.	Gemiddelde van de data van groep 2.	d04-verschil
 cov	cov	Covariantie (covariance) tussen de twee metingen binnen een paar.	Positief als dezelfde jongen beide schoenen sneller verslijt; cov/\(\sigma^{2}=\rho\). Hoe groter, hoe meer paren oplevert.	d04-verschil
 rho	\(\rho\)	Correlatie (correlation) tussen de twee metingen binnen een paar.	\(\rho=\) cov/\(\sigma^{2}\). Lengteverhouding gepaard/niet-gepaard = \(\sqrt{1-\rho}\); bij \(\rho\le0\) biedt paren geen voordeel.	d04-verschil
-sp	\(s_{p}\)	Gepoolde standaardafwijking (pooled standard deviation) van twee steekproeven.	Wortel uit \(s_{p}^{2}\), met noemer \(n_{1}+n_{2}-2\) (CI FR p. 15 drukt − 1 af: drukfout). Alleen als \(\sigma_{1}=\sigma_{2}\).	d04-verschil
+sp	\(s_{p}\)	Gepoolde standaardafwijking (pooled standard deviation) van twee steekproeven.	Wortel uit \(s_{p}^{2}\), met noemer \(n_{1}+n_{2}-2\). Alleen als \(\sigma_{1}=\sigma_{2}\).	d04-verschil
 sp_sq	\(s_{p}^{2}\)	Gepoolde variantie (pooled variance).	\(\frac{(n_{1}-1)s_{1}^{2}+(n_{2}-1)s_{2}^{2}}{n_{1}+n_{2}-2}\), niet − 1.	d04-verschil
 s1	\(s_{1}\)	Steekproefstandaardafwijking van steekproef 1.	Standaardafwijking (noemer \(n_{1}-1\)) van de data van groep 1.	d04-verschil
 s2	\(s_{2}\)	Steekproefstandaardafwijking van steekproef 2.	Standaardafwijking (noemer \(n_{2}-1\)) van de data van groep 2.	d04-verschil
@@ -85,3 +85,5 @@ k_tol	k	Tolerantiefactor (tolerance factor): aantal \(\sigma\) (of s) tussen \(\
 k2_tol	k′	Tolerantiefactor voor het tweezijdige interval bij onbekende \(\sigma\).	\(k'\approx t\left(\frac{\alpha}{2},\frac{\beta}{2},n\right)\): de formule van \(t(\alpha,\beta,n)\) met \(\frac{\alpha}{2}\) en \(\frac{\beta}{2}\).	d04-tolerantie
 x_min	\(x_{(1)}\)	Kleinste waarde (minimum) van de steekproef.	Kleinste waarde van de data. Samen met \(x_{(n)}\) een distributievrij tolerantie-interval als \(\left(1-\frac{\beta}{2}\right)^{n}-\tfrac{1}{2}(1-\beta)^{n}\le\frac{\alpha}{2}\).	d04-tolerantie
 x_max	\(x_{(n)}\)	Grootste waarde (maximum) van de steekproef.	Grootste waarde van de data. Bij \(\alpha=5\ \%\) en \(\beta=10\ \%\) vraagt \([x_{(1)};x_{(n)}]\) minstens \(n=72\).	d04-tolerantie
+w_ci	\(W\)	Breedte van het BI (de "nauwkeurigheid" van de cursus): bovengrens − ondergrens.	Absoluut: in de eenheid van de schatting (procentpunt bij een fractie); "± 5 %" is W = 10 %. Relatief: 10 % van een schatting 10 % is ±1, dus W = 2 % (CI p. 7). \(W=2E\).	d04-nauwkeurigheid
+e_half	\(E\)	Halve breedte van het BI: het getal achter de ±.	Kritieke waarde × standaardfout, bv. \(1{,}96\cdot\frac{\sigma}{\sqrt{n}}\). De rekenmachine "Eén gemiddelde" geeft E al zonder \(\bar{x}\).	d04-waarom

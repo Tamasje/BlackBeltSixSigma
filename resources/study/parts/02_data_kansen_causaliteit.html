@@ -550,7 +550,7 @@
     <div class="box ex"><span class="t">Uitgewerkt voorbeeld: het kwartet van Anscombe</span>
       <p>Dataset 1 van Anscombe (1973) heeft 11 punten \((\sym{x_val}{x},\sym{y_val}{y})\) <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=134">LSS p. 134</a>.
       De kwantitatieve analyse geeft: \(\sym{n}{N}=11\), gemiddelde van \(\sym{x_var}{X}=9.0\), gemiddelde van \(\sym{y_var}{Y}=7.5\), intercept = 3, helling
-      (<i>slope</i>) = 0.5, residuele standaardafwijking = 1.237, correlatie = 0.816. "Inzichten???"</p>
+      (<i>slope</i>) = 0.5, residuele standaardafwijking = 1.237, correlatie = 0.816. Wat die getallen over de data zeggen, toont pas de grafiek.</p>
       <p>Het spreidingsdiagram (<i>scatter plot</i>) van dataset 1 <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=135">LSS p. 135</a>
       toont: het verband is lineair, er is geen reden voor een complexer (bv. kwadratisch) model, er zijn geen
       uitschieters en de spreiding is "regelmatig".</p>
@@ -641,8 +641,7 @@
       <details class="solution"><summary>Toon oplossing</summary>
         <p>Met de 11 punten: \(\sym{b1}{b_{1}}=0.4997\), \(\sym{b0}{b_{0}}=3.0025\), residuele standaardafwijking = 1.2363,
         \(\sym{r_corr}{r}=0.8163\ (\sym{r2}{R^{2}}=0.6663)\) <span class="computed">zelf berekend</span>. Afgerond: helling 0.5, intercept 3,
-        correlatie 0.816, zoals op p. 134 en 136; de residuele standaardafwijking rondt af op 1.236 (de cursus drukt
-        1.237).</p>
+        correlatie 0.816, zoals op p. 134 en 136; de residuele standaardafwijking rondt af op 1.236.</p>
         <p>Grafisch (p. 137): dataset 3 ligt op een rechte, op één uitschieter na \((\sym{x_val}{x}=13,\sym{y_val}{y}=12.74)\); dataset 2 is een
         kromme. De les: dezelfde samenvattende statistieken, totaal verschillende data. Teken altijd eerst.</p>
       </details>
@@ -1112,7 +1111,6 @@
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"De totale regressielijn daalt (helling −0.45), dus meer medicijn schaadt."</b> Fout: per ernstgroep stijgen de lijnen meestal. Ernst is een confounder: ernstiger zieken krijgen meer medicijn én hebben sowieso een slechtere uitkomst; wie dat negeert, ziet het omgekeerde teken <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=37">Data p. 37</a>, <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=38">Data p. 38</a>, <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=39">Data p. 39</a>.</li>
-      <li><b>"Volgens de cursus helpt het medicijn in elke subgroep."</b> Fout in de cursus: de legende geeft twee negatieve hellingen (−0.23 en −0.30) van de zes <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=38">Data p. 38</a>. De kernboodschap blijft overeind.</li>
       <li><b>"Opsplitsen in subgroepen geeft altijd het causale effect."</b> Fout: welke variabele een confounder is, volgt uit causale aannames (domeinkennis), niet uit de data alleen <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=39">Data p. 39</a>, <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=20">Data-notities p. 20</a>. Splits je op de verkeerde variabele, dan kan ook het opgesplitste verband misleiden <span class="gen">algemeen</span>.</li>
     </ul></div>
   </section>

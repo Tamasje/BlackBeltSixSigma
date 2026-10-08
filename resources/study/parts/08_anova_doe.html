@@ -887,7 +887,7 @@
       <ul>
         <li>\(\sym{effect}{[A]}=5{,}12-5{,}575=\) <b>−0,455</b> (gemiddelde van de zes waarden met \(\sym{col}{A}=+1\ \min\) de zes met \(\sym{col}{A}=-1\)) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=48">DOE p. 48</a>.</li>
         <li>\(\sym{effect}{[B]}=5{,}505-5{,}19=\) <b>0,315</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=49">DOE p. 49</a>.</li>
-        <li>\(\sym{effect}{[\mathrm{AB}]}=5{,}78-4{,}92\): exact 5,7767 − 4,9183 = <b>0,8583</b> <span class="computed">zelf berekend</span>. De cursus drukt 0,857 <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=50">DOE p. 50</a>.</li>
+        <li>\(\sym{effect}{[\mathrm{AB}]}=5{,}78-4{,}92\): exact 5,7767 − 4,9183 = <b>0,8583</b> <span class="computed">zelf berekend</span> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=50">DOE p. 50</a>.</li>
       </ul>
     </div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
@@ -895,7 +895,6 @@
       <li><b>"Het effect van A is het verschil tussen twee runs."</b> Fout: <var data-s="effect">[A]</var> is het gemiddelde van <i>alle</i> metingen met \(\sym{col}{A}=+1\ \min\) dat van alle metingen met \(\sym{col}{A}=-1\); hier zes tegen zes waarden <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=48">DOE p. 48</a>.</li>
       <li><b>"In gecodeerde eenheden is de regressiecoëfficiënt van A gelijk aan het effect."</b> Fout: \(\sym{coef}{\text{coëfficiënt}}=\frac{\sym{effect}{\text{effect}}}{2}\), want de gecodeerde x gaat over 2 eenheden, van −1 naar +1. Oefening 08.17: effect 0,2179, coëfficiënt 0,1090 <span class="computed">zelf berekend</span> <span class="gen">algemeen</span>.</li>
       <li><b>"Een interactie-effect bereken je met een andere formule dan een hoofdeffect."</b> Fout: maak de kolom \(\sym{col}{\mathrm{AB}}=\sym{col}{A}\times\sym{col}{B}\) en pas dezelfde regel toe <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=50">DOE p. 50</a>.</li>
-      <li><b>Let op:</b> de cursus drukt \(\sym{effect}{[\mathrm{AB}]}=5{,}78-4{,}92=0{,}857\); exact is het 0,858 (0,8583), en 5,78 − 4,92 zelf is 0,86 <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=50">DOE p. 50</a>. Reken het na in plaats van het gedrukte getal over te nemen.</li>
     </ul></div>
     <div class="exercise" id="ex-08-9" data-kw="effect berekenen; compute effect; [A]; [B]; [AB]; hoofdeffect; interactie-effect; gecodeerd 2^2 voorbeeld; coded example">
       <h4>Oefening 08.9 — [A], [B] en [AB] <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=48">DOE p. 48–50</a></h4>
@@ -919,7 +918,7 @@
           <li>\(\sym{col}{A}=+1\): \(\frac{4{,}16+6{,}72+2{,}72+6{,}25+5{,}90+4{,}97}{6}=5{,}12\); \(\sym{col}{A}=-1\): \(\frac{5{,}94+5{,}50+6{,}10+5{,}50+5{,}25+5{,}16}{6}=5{,}575\); \(\sym{effect}{[A]}=\) <b>−0,455</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=48">DOE p. 48</a>.</li>
           <li>\(\sym{col}{B}=+1\): 5,505; \(\sym{col}{B}=-1\): 5,19; \(\sym{effect}{[B]}=\) <b>0,315</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=49">DOE p. 49</a>.</li>
           <li>\(\sym{col}{\mathrm{AB}}=+1\) (rijen 1 en 4): \(\frac{34{,}66}{6}=5{,}7767\); \(\sym{col}{\mathrm{AB}}=-1\) (rijen 2 en 3): \(\frac{29{,}51}{6}=4{,}9183\); \(\sym{effect}{[\mathrm{AB}]}=\) <b>0,858</b>
-          (exact 0,8583) <span class="computed">zelf berekend</span>. De cursus drukt "5,78 – 4,92 = 0,857"; 5,78 − 4,92 is 0,86, en exact is het 0,8583
+          (exact 0,8583) <span class="computed">zelf berekend</span>
           <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=50">DOE p. 50</a>.</li>
         </ul>
       </details>
@@ -951,7 +950,6 @@
       <li><b>"Het hoofdeffect van A is bijna nul \((\sym{effect}{A}=1)\), dus A doet er niet toe."</b> Fout: \(\sym{effect}{\mathrm{AB}}=-29\): A helpt als B laag is en schaadt als B hoog is <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=54">DOE p. 54</a>. Ook in oefening 08.16 zit de niet-significante A in drie significante interacties.</li>
       <li><b>"Bij een grote interactie lees je de hoofdeffecten gewoon apart."</b> Fout: het effect van A hangt dan af van het niveau van B <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=54">DOE p. 54</a>; beschrijf het effect van A per niveau van B, met een interactieplot <span class="gen">algemeen</span>.</li>
       <li><b>"Evenwijdige lijnen in de interactieplot betekenen dat geen van beide factoren werkt."</b> Fout: evenwijdig betekent alleen: geen interactie. In het opbrengstvoorbeeld lopen de lijnen evenwijdig en heeft de duur toch een duidelijk positief effect <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=38">DOE p. 38</a>.</li>
-      <li><b>Let op:</b> de cursus drukt \(\sym{effect}{\mathrm{AB}}=\frac{52+20}{2}-\frac{30+40}{2}=-1\), maar dat is +1 <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=53">DOE p. 53</a>. De interactie is (gemiddelde van de hoekpunten waar A en B hetzelfde teken hebben) − (gemiddelde van de andere twee); verwissel je de diagonalen, dan keert het teken om.</li>
     </ul></div>
     <div class="exercise" id="ex-08-10" data-kw="hoekpunten; corners; interactie; interaction; A B AB; figuur; 2^2 zonder replicatie; effect berekenen">
       <h4>Oefening 08.10 — Effecten uit de hoekpunten <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=53">DOE p. 53–54</a></h4>
@@ -990,7 +988,7 @@
       − (gemiddelde van de andere twee).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ul>
-          <li>Figuur 1: \(\sym{effect}{A}=\frac{40+52}{2}-\frac{20+30}{2}=\) <b>21</b>; \(\sym{effect}{B}=\frac{30+52}{2}-\frac{20+40}{2}=\) <b>11</b>; \(\sym{effect}{\mathrm{AB}}=\frac{52+20}{2}-\frac{30+40}{2}=\) <b>+1</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=53">DOE p. 53</a> (de cursus drukt −1: fout).</li>
+          <li>Figuur 1: \(\sym{effect}{A}=\frac{40+52}{2}-\frac{20+30}{2}=\) <b>21</b>; \(\sym{effect}{B}=\frac{30+52}{2}-\frac{20+40}{2}=\) <b>11</b>; \(\sym{effect}{\mathrm{AB}}=\frac{52+20}{2}-\frac{30+40}{2}=\) <b>+1</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=53">DOE p. 53</a>.</li>
           <li>Figuur 2: \(\sym{effect}{A}=\frac{50+12}{2}-\frac{20+40}{2}=\) <b>1</b>; \(\sym{effect}{B}=\frac{40+12}{2}-\frac{20+50}{2}=\) <b>−9</b>; \(\sym{effect}{\mathrm{AB}}=\frac{12+20}{2}-\frac{40+50}{2}=\) <b>−29</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=54">DOE p. 54</a>.</li>
           <li>In <b>figuur 2</b> domineert de interactie: \(|\sym{effect}{\mathrm{AB}}|\) is veel groter dan de hoofdeffecten.</li>
         </ul>
@@ -1157,12 +1155,10 @@
         <tr><td>AB</td><td class="n">1,375</td><td class="n">7,5625</td><td class="n">3,10</td><td class="n">0,12</td></tr>
         <tr><td>AC</td><td class="n">0,125</td><td class="n">0,0625</td><td class="n">0,03</td><td class="n">0,88</td></tr>
         <tr><td>BC</td><td class="n">−0,625</td><td class="n">1,5625</td><td class="n">0,64</td><td class="n">0,45</td></tr>
-        <tr><td>ABC</td><td class="n">1,125</td><td class="n">5,0625 *</td><td class="n">2,08</td><td class="n">0,19</td></tr>
+        <tr><td>ABC</td><td class="n">1,125</td><td class="n">5,0625</td><td class="n">2,08</td><td class="n">0,19</td></tr>
         <tr><td>Error</td><td></td><td class="n">19,5000 (8 df)</td><td colspan="2">\(\sym{ms_e}{\mathrm{MS}_{E}}=2{,}4375\)</td></tr>
         <tr><td>Totaal</td><td></td><td class="n">92,9375 (15 df)</td><td colspan="2"></td></tr>
       </table>
-      <p class="small">* De cursus drukt 5,5625 voor ABC; de data geven 5,0625 (contrast 9). Ook de gedrukte P van A,
-      \(2{,}54\times10^{-3}\), is \(2{,}534\times10^{-3}=0{,}0025\) <span class="computed">zelf berekend</span>.</p>
       <p><b>Alleen de voedingssnelheid (A) is significant.</b> Via de standaardfout (<span class="computed">zelf berekend</span>): \(\sym{se_eff}{s.e.}=\sqrt{\frac{2{,}4375}{2\cdot2}}=0{,}78\), dus \(\sym{effect}{A}=3{,}375\pm1{,}56=[1{,}81;4{,}94]\), en dat bevat 0 niet.</p>
       <p><b>Opgelet bij randgevallen.</b> Voor \(\sym{effect}{B}\) is 1,625 ± 1,56 = [0,06; 3,19]: dat sluit 0 net uit, terwijl de F-toets
       \(\sym{p_value}{P}=0{,}07\) geeft. De "± 2" is een benadering (de cursus noemt het interval benaderend). Met maar 8 df voor de fout is de
@@ -1173,7 +1169,6 @@
       <li><b>Let op:</b> \(\sym{se_eff}{s.e.(\text{effect})}=\sqrt{\frac{\sym{sigma2_hat}{\hat{\sigma}^{2}}}{\sym{n_rep}{n}\cdot2^{\sym{k_factors}{k}-2}}}\): de exponent is \(\sym{k_factors}{k}-2\), niet \(\sym{k_factors}{k}-1\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=67">DOE p. 67</a>. Oppervlakteafwerking: \(\sqrt{\frac{2{,}4375}{2\cdot2}}=0{,}78\).</li>
       <li><b>"\(\sym{effect}{\text{effect}}\pm2\ \sym{se_eff}{s.e.}\) is een exact 95 %-betrouwbaarheidsinterval."</b> Fout: het is benaderend <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=68">DOE p. 68</a>. Met 8 foutvrijheidsgraden hoort er de t-waarde 2,31 bij <span class="computed">zelf berekend</span>, dus ± 2 is te smal: het interval van B sluit 0 net uit, terwijl de F-toets \(\sym{p_value}{P}=0{,}07\) geeft.</li>
       <li><b>"Het interval bevat 0, dus het effect is precies nul."</b> Fout: het effect is niet significant op \(\sym{alpha}{\alpha}=0{,}05\) ("essentially zero", <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=68">DOE p. 68</a>); een klein effect kan bestaan zonder dat deze data het aantonen (<a href="#d05-valkuilen">05.6</a>) <span class="gen">algemeen</span>.</li>
-      <li><b>Let op:</b> twee drukfouten op <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=71">DOE p. 71</a>: <var data-s="ss_eff">SS(ABC)</var> staat er als 5,5625, de data geven 5,0625; <var data-s="p_value">P(A)</var> staat er als \(2{,}54\times10^{-3}\), exact \(2{,}534\times10^{-3}\).</li>
     </ul></div>
     <div class="exercise" id="ex-08-12" data-kw="oppervlakteafwerking; surface finish; 2^3; s.e. effect; effect ± 2 s.e.; benaderend 95% interval; feed rate; significant">
       <h4>Oefening 08.12 — Effecten en hun standaardfout <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=70">DOE p. 67–71</a></h4>

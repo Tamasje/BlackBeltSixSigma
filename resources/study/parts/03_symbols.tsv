@@ -28,7 +28,7 @@ ppm	PPM	Delen per miljoen (parts per million).	Fractie × \(10^{6}\); van % naar
 y_trad	Y	Traditionele yield (traditional yield): fractie goede eenheden aan het einde.	out/in = 1 − scrap/in. Ziet de herwerking niet (de verborgen fabriek).	d14-03-yield
 fty	FTY	First time yield: fractie die de eerste keer goed is, zonder herwerking of afval.	(in − scrap − rework)/in.	d14-03-yield
 rty	RTY	Rolled throughput yield: kans dat een eenheid alle stappen in één keer goed doorloopt.	Product \(\mathrm{FTY}_{1}\times\ldots\times\mathrm{FTY}_{n}\), niet het gemiddelde. Nooit hoger dan de laagste stap-FTY.	d14-03-yield
-ny	NY	Normalized yield: gemiddelde yield per processtap.	\(\mathrm{RTY}^{\frac{1}{k}}\) (k-de wortel, \(k=\) aantal stappen). H&amp;S p. 5 drukt de exponent fout af (−10).	d14-03-yield
+ny	NY	Normalized yield: gemiddelde yield per processtap.	\(\mathrm{RTY}^{\frac{1}{k}}\) (k-de wortel, \(k=\) aantal stappen).	d14-03-yield
 k_steps	k	Aantal processtappen (number of steps).	Tellen of gegeven.	d14-03-yield
 in_units	in	Aantal eenheden dat de stap binnenkomt (input).	Gegeven (banden oppompen: 352).	d14-03-yield
 out_units	out	Aantal goede eenheden dat buitenkomt (output), na herwerking.	in − scrap (banden: 347).	d14-03-yield

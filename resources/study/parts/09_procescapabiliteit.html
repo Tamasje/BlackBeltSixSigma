@@ -751,7 +751,6 @@
       <li><b>"<var data-s="z_bench">Z.Bench</var> is \(3\times\sym{ppk}{P_{pk}}\)."</b> Fout: Z.Bench is de z waarvoor één staart even groot is als de totale % buiten specificatie, beide kanten samen. Daarom is Z.Bench 1,36 iets kleiner dan \(3\times\sym{ppk}{P_{pk}}=\sym{zl}{z_{L}}=1{,}391\) <span class="computed">zelf berekend</span> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=51">SPC p. 51</a>.</li>
       <li><b>"De Anderson-Darling-toets slaagt \((\sym{p_value}{p}=0{,}553)\), dus de data zijn bewezen normaal."</b> Fout: een niet-significante toets bewijst niets; hij vindt alleen geen bewijs tegen normaliteit <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=52">SPC p. 52</a>. <span class="gen">algemeen</span></li>
       <li><b>"Voor een capabiliteitsanalyse volstaan 20 subgroepen, zoals voor een regelkaart."</b> Fout: Minitab raadt voor capabiliteit minstens 25 subgroepen aan; met 13 geeft de Report Card een waarschuwing <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=49">SPC p. 49</a>. Beide getallen staan in de cursus (<a href="#d10-opzet">10.3</a>).</li>
-      <li><b>Let op:</b> met het afgedrukte gemiddelde 0,14852 kom je op 8,73 % in plaats van 8,74 % <span class="computed">zelf berekend</span>: Minitab rekent met het onafgeronde gemiddelde. Dat is geen rekenfout van jou.</li>
     </ul></div>
 
     <div class="exercise" id="ex-09-10" data-kw="Minitab; Pp; Ppk; Cp; Cpk; within; overall; % out of spec; narekenen; recompute; 0,145; 0,155">
@@ -786,9 +785,7 @@
           <li>c. \(\sym{cp}{C_{p}}=\frac{0{,}010}{6\times0{,}0025891}=0{,}644\to\) <b>0,64</b>.</li>
           <li>d. \(\sym{cpk}{C_{pk}}=\frac{0{,}00352}{3\times0{,}0025891}=0{,}453\to\) <b>0,45</b>.</li>
           <li>e. \(\sym{zl}{z_{L}}=1{,}391\to8{,}209\ \%\) onder LSL; \(\sym{zu}{z_{U}}=2{,}561\to0{,}522\ \%\) boven USL; samen
-          <b>8,73 %</b> <span class="computed">zelf berekend</span>. Minitab drukt 8,74 % af (en 9,33 % voor within,
-          waar het gedrukte gemiddelde 9,31 % geeft): Minitab rekent met het onafgeronde gemiddelde, het rapport toont het
-          afgerond op 5 decimalen.</li>
+          <b>8,73 %</b> <span class="computed">zelf berekend</span> (het Minitab-rapport rekent met het onafgeronde gemiddelde en geeft 8,74 %).</li>
         </ol>
         <p>Alle vier de indices liggen ver onder 1: het proces is niet capabel. \(\sym{ppk}{P_{pk}}\ll\sym{pp}{P_{p}}\), dus het ligt bovendien te dicht
         bij de ondergrens (bijna alle uitval zit onder LSL).</p>
