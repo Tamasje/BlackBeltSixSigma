@@ -31,52 +31,49 @@
       </div>
       <p>e. Om een hypothese te toetsen bij een significantie van 1 % dient een 99%-betrouwbaarheidsinterval berekend te
       worden. (Motiveer; zie de oplossing voor de nuance.)</p>
-      <details class="hint"><summary>Hint</summary><p>Denk aan: significantie versus relevantie; wat een BI zegt over de
-      ware waarde; nauwkeurigheid versus steekproefgrootte; wanneer cluster sampling onvertekend is; de dualiteit tussen
-      toetsen en betrouwbaarheidsintervallen (en eenzijdig/tweezijdig).</p></details>
+      <details class="hint"><summary>Hint</summary><p>Per uitspraak één begrip: (a) significant tegenover relevant; (b) wat
+      een BI zegt over de ware fractie; (c) nauwkeurigheid tegenover steekproefgrootte; (d) wanneer cluster sampling
+      onvertekend is; (e) het verband tussen toetsen en betrouwbaarheidsintervallen, eenzijdig of tweezijdig.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol>
-          <li><b>a. Niet correct.</b> Een significant resultaat is niet automatisch relevant. De cursus noemt dit expliciet als
-          valkuil: "believing a significant result is always relevant"; met grote steekproeven worden ook kleine,
-          onbelangrijke afwijkingen significant (de "big data fallacy trap")
-          <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=11">TH p. 11</a>. Ook bij regressie geldt:
-          een resultaat moet praktische betekenis hebben
-          <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=11">REG p. 11</a>. Kijk dus naar de grootte
-          van het effect (bv. met een betrouwbaarheidsinterval) en zet die af tegen de kost.</li>
-          <li><b>b. Correct</b> (voor het proces zoals het nu loopt). Het BI is het gebied waarin we de ware fractie
-          defectieven situeren <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=6">CI p. 6</a>. Het hele
-          interval ligt boven 1 %, dus met 95 % betrouwbaarheid is de ware fractie groter dan 1 %. Toetsen met een BI is
-          gelijkwaardig aan een klassieke toets <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=12">CI p. 12–13</a>:
-          \(\sym{h0}{H_{0}}\): \(\sym{pi}{\pi}\le1\ \%\) wordt verworpen. Nuance: dit zegt iets over het huidige proces; na verbetering kan het
-          wel geschikt worden.</li>
+          <li><b>a. Niet correct.</b> Significant zegt niet hoe groot het effect is. De cursus noemt dit als valkuil: "believing a significant result is always
+          relevant". Met een grote steekproef wordt ook een klein, onbelangrijk verschil significant (de "big data fallacy
+          trap") <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=11">TH p. 11</a>. Ook bij regressie
+          moet een resultaat praktische betekenis hebben
+          <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=11">REG p. 11</a>. Bepaal dus eerst hoe groot
+          het effect is (bijvoorbeeld met een betrouwbaarheidsinterval) en zet dat af tegen de kost van de aanpassing.</li>
+          <li><b>b. Correct</b>, voor het proces zoals het nu loopt. Het BI is het gebied waarin we de ware fractie
+          defectieven \(\sym{pi}{\pi}\) situeren <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=6">CI p. 6</a>.
+          Het hele interval [1,4 %; 2,2 %] ligt boven 1 %. Met 95 % betrouwbaarheid is \(\sym{pi}{\pi}\) dus groter dan 1 %.
+          Toetsen met een BI is gelijkwaardig aan een klassieke toets
+          <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=12">CI p. 12–13</a>: de nulhypothese
+          \(\sym{h0}{H_{0}}\): \(\sym{pi}{\pi}\le1\ \%\) wordt verworpen. Het besluit geldt voor het huidige proces; na een
+          verbetering kan het wel geschikt worden.</li>
           <li><b>c. Correct.</b> Betrouwbaarheid en nauwkeurigheid kunnen allebei hoog zijn, "however at the expense of an
-          ever-larger sample size" <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=7">CI p. 7</a>: de
-          breedte van het interval neemt af met de steekproefgrootte (halveren van de breedte vraagt ongeveer vier keer
-          zoveel waarnemingen). In theorie haal je dus elke nauwkeurigheid, in de praktijk ten koste van een grote
-          steekproef.</li>
-          <li><b>d. Niet correct.</b> Cluster sampling is enkel onvertekend als de steekproef op elk niveau van de hiërarchie
-          (palet, doos, …) toevallig blijft. Wordt één niveau systematisch (bv. altijd de bovenste dozen van een palet),
-          dan kan non-response bias optreden
-          <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=20">AS p. 20</a>; zie ook
-          <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=21">AS p. 21–22</a> (systematische steekproef,
-          frame).</li>
-          <li><b>e. Juist in de zin van de dualiteit, maar "dient" klopt niet.</b> Toets je met een \((1-\sym{alpha}{\alpha})\cdot100\ \%\)-BI, dan
-          is de significantie van de toets \(\sym{alpha}{\alpha}\); een 99%-BI hoort dus bij \(\sym{alpha}{\alpha}=1\ \%\)
-          <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=13">CI p. 13</a>. Twee kanttekeningen:
-          (1) het BI is een <i>alternatief</i> voor de klassieke toets, die gelijkwaardig is; je bent dus niet verplicht een
-          BI te berekenen <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=12">CI p. 12</a>; (2) het
-          interval moet van hetzelfde type zijn als de toets: een eenzijdige toets hoort bij een eenzijdig 99%-BI
-          (zie de recepten op dezelfde pagina, CI p. 13).</li>
+          ever-larger sample size" <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=7">CI p. 7</a>. De
+          breedte van het interval daalt als de steekproef groeit: de breedte halveren vraagt ongeveer vier keer zoveel
+          waarnemingen. In theorie haal je dus elke nauwkeurigheid; in de praktijk kost dat een grote steekproef.</li>
+          <li><b>d. Niet correct.</b> Bij cluster sampling gebruik je de lagen van de partij: kies bijvoorbeeld willekeurig 2 paletten,
+          daarin willekeurig 5 dozen, en inspecteer die dozen volledig. Dat is alleen onvertekend als de keuze op elk niveau toevallig blijft. Kies je op één niveau systematisch,
+          bijvoorbeeld altijd de bovenste dozen van een palet, dan kan non-response bias optreden
+          <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=20">AS p. 20</a>.</li>
+          <li><b>e. Half juist: het verband klopt, het woord "dient" niet.</b> Toets je met een
+          \((1-\sym{alpha}{\alpha})\cdot100\ \%\)-BI, dan heeft de toets significantie \(\sym{alpha}{\alpha}\); een 99%-BI hoort dus bij
+          \(\sym{alpha}{\alpha}=1\ \%\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=13">CI p. 13</a>.
+          Twee kanttekeningen. (1) Het BI is een gelijkwaardig <i>alternatief</i> voor de klassieke toets; je bent niet
+          verplicht een BI te berekenen <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=12">CI p. 12</a>.
+          (2) Het interval moet van hetzelfde type zijn als de toets: een eenzijdige toets hoort bij een eenzijdig 99%-BI
+          <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=13">CI p. 13</a>.</li>
         </ol>
       </details>
     </div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>a. "Significant, dus investeren ligt voor de hand."</b> Fout: significant zegt niets over de grootte van het effect; met een grote steekproef wordt ook een klein, onbelangrijk verschil significant ("big data fallacy trap") <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=11">TH p. 11</a>. Kijk naar de grootte (een BI) en zet die af tegen de kost.</li>
-      <li><b>b. "Een 95%-BI zegt niets zeker over de ware fractie, dus b is niet correct."</b> Fout: het BI situeert de ware fractie <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=6">CI p. 6</a>, en toetsen met een BI is gelijkwaardig aan een klassieke toets <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=12">CI p. 12–13</a>: 1 % ligt buiten [1,4 %; 2,2 %], dus \(\sym{h0}{H_{0}}\): \(\sym{pi}{\pi}\le1\ \%\) wordt verworpen. Het besluit geldt voor het proces zoals het nu loopt.</li>
-      <li><b>c. "Een willekeurig hoge nauwkeurigheid kan niet."</b> Fout: betrouwbaarheid en nauwkeurigheid kunnen allebei hoog zijn, ten koste van een steeds grotere steekproef <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=7">CI p. 7</a>; de breedte halveren kost ongeveer vier keer zoveel waarnemingen.</li>
-      <li><b>d. "Cluster sampling is altijd onvertekend."</b> Fout: alleen als de keuze op elk niveau van de hiërarchie (palet, doos …) toevallig blijft; een systematisch niveau, zoals altijd de bovenste dozen, kan non-response bias geven <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=20">AS p. 20</a>.</li>
-      <li><b>e. "Voor een toets met \(\sym{alpha}{\alpha}=1\ \%\) moet je een 99%-BI berekenen."</b> Fout: "moet" klopt niet. Een \((1-\sym{alpha}{\alpha})\)-BI hoort wel bij significantie \(\sym{alpha}{\alpha}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=13">CI p. 13</a>, maar het is een gelijkwaardig alternatief voor de klassieke toets <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=12">CI p. 12</a>, en het moet van hetzelfde type zijn: een eenzijdige toets hoort bij een eenzijdig BI.</li>
+      <li><b>a. "Significant, dus investeren ligt voor de hand."</b> Fout: significant zegt niets over de grootte van het effect. Met een grote steekproef wordt ook een klein, onbelangrijk verschil significant ("big data fallacy trap") <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=11">TH p. 11</a>. Bepaal de grootte (met een BI) en zet die af tegen de kost.</li>
+      <li><b>b. "Een 95%-BI zegt niets zeker over de ware fractie, dus b is niet correct."</b> Fout: het BI situeert de ware fractie <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=6">CI p. 6</a>, en toetsen met een BI is gelijkwaardig aan een klassieke toets <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=12">CI p. 12–13</a>. 1 % ligt buiten [1,4 %; 2,2 %], dus \(\sym{h0}{H_{0}}\): \(\sym{pi}{\pi}\le1\ \%\) wordt verworpen. Het besluit geldt voor het proces zoals het nu loopt.</li>
+      <li><b>c. "Een willekeurig hoge nauwkeurigheid kan niet."</b> Fout: betrouwbaarheid en nauwkeurigheid kunnen allebei hoog zijn, ten koste van een steeds grotere steekproef <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=7">CI p. 7</a>. De breedte halveren kost ongeveer vier keer zoveel waarnemingen.</li>
+      <li><b>d. "Cluster sampling is altijd onvertekend."</b> Fout: alleen als de keuze op elk niveau (palet, doos) toevallig blijft. Kies je op één niveau systematisch, zoals altijd de bovenste dozen, dan kan non-response bias optreden <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=20">AS p. 20</a>.</li>
+      <li><b>e. "Voor een toets met \(\sym{alpha}{\alpha}=1\ \%\) moet je een 99%-BI berekenen."</b> Fout: "moet" klopt niet. Een \((1-\sym{alpha}{\alpha})\)-BI hoort wel bij significantie \(\sym{alpha}{\alpha}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=13">CI p. 13</a>, maar het is een gelijkwaardig alternatief voor de klassieke toets <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=12">CI p. 12</a>. En het moet van hetzelfde type zijn: een eenzijdige toets hoort bij een eenzijdig BI.</li>
       <li><b>Let op:</b> woorden als "nooit" (d) en "dient" (e) maken een uitspraak vaak fout of half juist; de punten zitten in de korte motivering met de juiste nuance. <span class="gen">algemeen</span></li>
     </ul></div>
   </section>
@@ -102,21 +99,34 @@
       </div>
       <div class="calc-here" data-tool="kwantielen" data-blocks="0"></div>
       <div class="calc-here" data-tool="variantie" data-blocks="1"></div>
-      <details class="hint"><summary>Hint</summary><p>Schrijf \(P[\sym{f_stat}{F}\ge F_{\sym{p_left}{0{,}05}}(\sym{df1}{9};\sym{df2}{14})]=0{,}95\) met
-      \(\sym{f_stat}{F}=\left(\frac{\sym{s1}{s_{1}}^{2}}{\sym{s2}{s_{2}}^{2}}\right)\left(\frac{\sym{sigma2}{\sigma_{2}}^{2}}{\sym{sigma1}{\sigma_{1}}^{2}}\right)\) en los op naar \(\frac{\sym{sigma2}{\sigma_{2}}^{2}}{\sym{sigma1}{\sigma_{1}}^{2}}\).</p></details>
+      <details class="hint"><summary>Hint</summary><p>Vertrek van de grootheid uit de opgave,
+      \(\sym{f_stat}{F}=\left(\frac{\sym{s1}{s_{1}}^{2}}{\sym{s2}{s_{2}}^{2}}\right)\left(\frac{\sym{sigma2}{\sigma_{2}}^{2}}{\sym{sigma1}{\sigma_{1}}^{2}}\right)\).
+      Schrijf de kansuitspraak \(P[\sym{f_stat}{F}\ge F_{\sym{p_left}{0{,}05}}(\sym{df1}{9};\sym{df2}{14})]=0{,}95\) op en los de ongelijkheid op naar
+      \(\frac{\sym{sigma2}{\sigma_{2}}^{2}}{\sym{sigma1}{\sigma_{1}}^{2}}\).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
-          <li>Met \(\sym{f_stat}{F}=\left(\frac{\sym{s1}{s_{1}}^{2}}{\sym{s2}{s_{2}}^{2}}\right)\cdot\left(\frac{\sym{sigma2}{\sigma_{2}}^{2}}{\sym{sigma1}{\sigma_{1}}^{2}}\right)\sim F_{9,14}\) geldt
+          <li><b>Welke grens?</b> "Nauwkeuriger" betekent een kleinere spreiding:
+          \(\sym{sigma1}{\sigma_{1}}\lt\sym{sigma2}{\sigma_{2}}\), dus \(\frac{\sym{sigma2}{\sigma_{2}}^{2}}{\sym{sigma1}{\sigma_{1}}^{2}}\gt1\). De vraag heeft een
+          richting. Je zoekt daarom een eenzijdig BI met een <b>ondergrens</b> voor \(\frac{\sym{sigma2}{\sigma_{2}}^{2}}{\sym{sigma1}{\sigma_{1}}^{2}}\)
+          (<a href="#d04-f">04.8</a>).</li>
+          <li><b>De verdeling.</b> \(\sym{f_stat}{F}=\left(\frac{\sym{s1}{s_{1}}^{2}}{\sym{s2}{s_{2}}^{2}}\right)\cdot\left(\frac{\sym{sigma2}{\sigma_{2}}^{2}}{\sym{sigma1}{\sigma_{1}}^{2}}\right)\)
+          volgt een F-verdeling met \(\sym{n1}{n_{1}}-1=9\) vrijheidsgraden voor de teller en \(\sym{n2}{n_{2}}-1=14\) voor de noemer. Dat
+          geldt voor twee onafhankelijke steekproeven uit normale populaties
+          <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=12">Recepten p. 12</a>;
+          de opgave zegt dat \(\sym{x_dim}{X}\) normaal verdeeld is.</li>
+          <li><b>Het kwantiel.</b> \(F_{\sym{p_left}{0{,}05}}(\sym{df1}{9};\sym{df2}{14})=0{,}3305\) is het punt met 5 % kans eronder (in Excel
+          F.INV(0,05; 9; 14)) <span class="computed">zelf berekend</span>. Dus
           \(P[\sym{f_stat}{F}\ge F_{\sym{p_left}{0{,}05}}(\sym{df1}{9};\sym{df2}{14})]=0{,}95\).</li>
-          <li>Herschikken geeft het eenzijdige 95%-BI:
-          \(\frac{\sym{sigma2}{\sigma_{2}}^{2}}{\sym{sigma1}{\sigma_{1}}^{2}}\ge\frac{F_{\sym{p_left}{0{,}05}}(\sym{df1}{9};\sym{df2}{14})\cdot\sym{s2}{s_{2}}^{2}}{\sym{s1}{s_{1}}^{2}}=\frac{0{,}3305\cdot\sym{s2}{s_{2}}^{2}}{\sym{s1}{s_{1}}^{2}}\)
-          <span class="computed">zelf berekend</span>.</li>
-          <li><b>Besluit</b>: ligt die ondergrens boven 1, dan is \(\sym{sigma2}{\sigma_{2}}\gt\sym{sigma1}{\sigma_{1}}\) met 95 % betrouwbaarheid
-          en is het vermoeden gerechtvaardigd. Ligt ze onder 1, dan kun je het niet besluiten (het BI bevat dan 1).</li>
-          <li>De formules voor F-intervallen en de F-toets staan in de toetsrecepten
-          <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=12">Recepten p. 12–14</a>;
-          in de rekentool: werkblad "Varianties BI &amp; toetsen",
-          rij "eenzijdig: \(\frac{\sym{sigma1}{\sigma_{1}}^{2}}{\sym{sigma2}{\sigma_{2}}^{2}}\) hoogstens …" (die toont \(\frac{\sym{sigma2}{\sigma_{2}}^{2}}{\sym{sigma1}{\sigma_{1}}^{2}}\) "minstens …").</li>
+          <li><b>Omvormen.</b> Vul \(\sym{f_stat}{F}\) in en vermenigvuldig beide kanten met \(\frac{\sym{s2}{s_{2}}^{2}}{\sym{s1}{s_{1}}^{2}}\). Het
+          eenzijdige 95%-BI is
+          \(\frac{\sym{sigma2}{\sigma_{2}}^{2}}{\sym{sigma1}{\sigma_{1}}^{2}}\ge\frac{F_{\sym{p_left}{0{,}05}}(\sym{df1}{9};\sym{df2}{14})\cdot\sym{s2}{s_{2}}^{2}}{\sym{s1}{s_{1}}^{2}}=\frac{0{,}3305\cdot\sym{s2}{s_{2}}^{2}}{\sym{s1}{s_{1}}^{2}}\).
+          Vul \(\sym{s1}{s_{1}}\) en \(\sym{s2}{s_{2}}\) in zodra je de metingen hebt.</li>
+          <li><b>Besluit.</b> Ligt die ondergrens boven 1, dan is \(\sym{sigma2}{\sigma_{2}}\gt\sym{sigma1}{\sigma_{1}}\) met 95 % betrouwbaarheid
+          en is het vermoeden gerechtvaardigd. Ligt ze onder 1, dan bevat het BI de waarde 1 en kun je het vermoeden niet
+          bevestigen.</li>
+          <li><b>Rekentool.</b> Werkblad "Varianties BI &amp; toetsen", rij
+          "eenzijdig: \(\frac{\sym{sigma1}{\sigma_{1}}^{2}}{\sym{sigma2}{\sigma_{2}}^{2}}\) hoogstens …"; die rij toont ook
+          \(\frac{\sym{sigma2}{\sigma_{2}}^{2}}{\sym{sigma1}{\sigma_{1}}^{2}}\) "minstens …".</li>
         </ol>
       </details>
     </div>
@@ -143,18 +153,21 @@
       <p>c. Geef twee manieren om de capabiliteit te verbeteren. d. Welk % uitval kan hoogstens getolereerd worden om
       aan het \(6\sigma\)-criterium te voldoen?</p>
       <div class="calc-here" data-tool="capabiliteit" data-blocks="1"></div>
-      <details class="hint"><summary>Hint</summary><p>Cp vergelijkt de tolerantie met \(6\sym{sigma}{\sigma}\); Cpk kijkt naar de dichtste
-      specificatiegrens. Voor de uitval: twee staarten, met \(\sym{z}{z}=\) (grens − \(\sym{mu}{\mu}\))/\(\sym{sigma}{\sigma}\).</p></details>
+      <details class="hint"><summary>Hint</summary><p>Cp deelt de tolerantie \(\sym{usl}{\mathrm{USL}}-\sym{lsl}{\mathrm{LSL}}\) door \(6\sym{sigma}{\sigma}\);
+      Cpk deelt de afstand van \(\sym{mu}{\mu}\) tot de dichtste specificatiegrens door \(3\sym{sigma}{\sigma}\). Voor de uitval: bereken per grens
+      \(\sym{z}{z}=\) (grens − \(\sym{mu}{\mu}\))/\(\sym{sigma}{\sigma}\), zoek de staartkans en tel de twee staarten op.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
-          <li><b>a.</b> \(\sym{cp}{C_{p}}=\frac{\sym{usl}{\mathrm{USL}}-\sym{lsl}{\mathrm{LSL}}}{6\sym{sigma}{\sigma}}=\frac{60}{60}=\) <b>1,00</b>; \(\sym{cpk}{C_{pk}}=\) min{(1460 − 1440)/30; (1440 − 1400)/30} =
-          min{0,667; 1,333} = <b>0,67</b>. Het proces is niet gecentreerd: het ligt te dicht bij de bovengrens.</li>
-          <li><b>b.</b> Boven: \(\sym{z}{z}=\frac{1460-1440}{10}=2\), staart 2,275 %. Onder: \(\sym{z}{z}=\frac{1400-1440}{10}=-4\), staart
-          0,0032 %. Samen <b>2,28 %</b> uitval <span class="computed">zelf berekend</span> (Z-tabel of de
+          <li><b>a.</b> Gegeven: \(\sym{lsl}{\mathrm{LSL}}=1400\) mm, \(\sym{usl}{\mathrm{USL}}=1460\) mm, \(\sym{mu}{\mu}=1440\) mm en \(\sym{sigma}{\sigma}=10\) mm.
+          \(\sym{cp}{C_{p}}=\frac{\sym{usl}{\mathrm{USL}}-\sym{lsl}{\mathrm{LSL}}}{6\sym{sigma}{\sigma}}=\frac{60}{60}=\) <b>1,00</b>: de spreiding past net in de tolerantie.
+          \(\sym{cpk}{C_{pk}}=\) min{(1460 − 1440)/30; (1440 − 1400)/30} = min{0,667; 1,333} = <b>0,67</b>. Cpk is kleiner dan Cp omdat het
+          proces niet gecentreerd is: \(\sym{mu}{\mu}=1440\) ligt dichter bij de bovengrens dan bij de ondergrens.</li>
+          <li><b>b.</b> Bovengrens: \(\sym{z}{z}=\frac{1460-1440}{10}=2\), staartkans 2,275 %. Ondergrens: \(\sym{z}{z}=\frac{1400-1440}{10}=-4\),
+          staartkans 0,0032 %. Samen <b>2,28 %</b> uitval <span class="computed">zelf berekend</span> (Z-tabel of de
           rekenmachine normale verdeling).</li>
           <li><b>c.</b> (1) Het proces centreren: het gemiddelde naar het midden van de tolerantie (1430 mm) brengen. Dan
           is \(\sym{cpk}{C_{pk}}=\sym{cp}{C_{p}}=1\) en daalt de uitval naar 0,27 % <span class="computed">zelf berekend</span>. (2) De spreiding
-          verkleinen (\(\sigma\) omlaag), waardoor Cp en Cpk stijgen. De figuur hieronder toont deze twee hefbomen ("process
+          verkleinen: een kleinere \(\sym{sigma}{\sigma}\) doet Cp en Cpk stijgen. De figuur hieronder toont deze twee hefbomen ("process
           variation pre/post project") <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=25">SPC p. 25–26</a>.
           <figure class="fig"><img src="figures/13_procesvariatie_voor_na.png" alt="Links de procesverdeling vóór het project: brede, verschoven groepsverdelingen en een brede langetermijnverdeling tussen LSL en USL; rechts na het project: smalle, gecentreerde verdelingen rond het doel">
           <figcaption>Figuur: procesvariatie vóór (links) en na (rechts) een verbeterproject. Vóór liggen de verdelingen van de
@@ -162,11 +175,16 @@
           (long term performance) met staarten buiten LSL en USL. Na liggen ze gecentreerd op het doel (Target) en zijn ze
           smal: de spreiding is verkleind (reduce dispersion) en het gemiddelde verschoven (shift mean).
           <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=25">SPC p. 25–26</a></figcaption></figure></li>
-          <li><b>d.</b> De cursus geeft twee lezingen van het \(6\sigma\)-criterium, en de gids toont ze allebei (beslissing 2):
-          <b>3,4 ppm</b> (= 0,00034 %) met de \(1{,}5\sigma\)-verschuiving op lange termijn, of <b>0,002 ppm</b> (\(\sym{cp}{C_{p}}=2\), korte termijn,
-          geen verschuiving): "\(\sym{cp}{C_{p}}=2\): 6 Sigma quality level – 2 defect per billion of opportunities (short term)" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a>, <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a>.
-          Rekentool: werkblad "Capabiliteit", sectie
-          "Het '6 sigma'-criterium".</li>
+          <li><b>d.</b> De cursus geeft twee lezingen van het \(6\sigma\)-criterium; geef ze allebei, met de lezing erbij
+          (beslissing 2 in <code>inventory/conventions.md</code>).
+          <ul>
+            <li>Lange termijn, met de \(1{,}5\sigma\)-verschuiving: hoogstens <b>3,4 ppm</b> (= 0,00034 %) uitval
+            <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a>.</li>
+            <li>Korte termijn, gecentreerd en zonder verschuiving: hoogstens <b>0,002 ppm</b>, "\(\sym{cp}{C_{p}}=2\): 6 Sigma quality level – 2 defect
+            per billion of opportunities (short term)"
+            <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a>.</li>
+          </ul>
+          Rekentool: werkblad "Capabiliteit", sectie "Het '6 sigma'-criterium".</li>
         </ol>
       </details>
     </div>
@@ -194,25 +212,26 @@
       </div>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol>
-          <li><b>a.</b> Niet elk proces is normaal verdeeld, maar op de \(\bar{X}\)-kaart zetten we <i>gemiddelden</i> van
-          steekproeven uit, en die zijn (bij benadering) normaal verdeeld volgens de centrale limietstelling
-          <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=62">SPC p. 62–63</a>.</li>
-          <li><b>b.</b> Speciale oorzaken (special causes): onverwachte variatie buiten wat het proces normaal doet, niet
-          zuiver toevallig. Gewone oorzaken (common causes) zijn de normale, voorspelbare ruis; die blijven binnen de
+          <li><b>a.</b> Niet elk proces is normaal verdeeld. Maar op de \(\bar{X}\)-kaart zet je <i>gemiddelden</i> van
+          steekproeven uit, geen losse metingen. Volgens de centrale limietstelling zijn die gemiddelden bij benadering
+          normaal verdeeld <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=62">SPC p. 62–63</a>.
+          Daarom mag je met gemiddelden en standaardafwijkingen werken.</li>
+          <li><b>b.</b> Speciale oorzaken (special causes): onverwachte, niet zuiver toevallige variatie, buiten wat het
+          proces normaal doet. Gewone oorzaken (common causes) zijn de normale, voorspelbare ruis; die blijft binnen de
           controlegrenzen <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=31">SPC p. 31</a>.</li>
-          <li><b>c.</b> Bij kleine steekproeven \((\sym{n_sub}{n}\lt10)\) en bij manueel bijgehouden kaarten: dan is R handiger en
-          volstaat het. Voor grotere steekproeven is s efficiënter
-          <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=73">SPC p. 73–74</a> (notities bij dia 73 in de pptx-versie).</li>
+          <li><b>c.</b> De range R gebruik je bij kleine steekproeven \((\sym{n_sub}{n}\lt10)\) en bij kaarten die met de hand
+          bijgehouden worden: R is dan eenvoudiger en volstaat. Voor grotere steekproeven is de standaardafwijking s
+          efficiënter <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=73">SPC p. 73–74</a>
+          (dianotities bij dia 73).</li>
         </ol>
       </details>
     </div>
     <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-10-imr">14 Dummies: individuele waarden, de I-MR-kaart</a>.</p>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>a. "We mogen normaliteit aannemen omdat elk proces normaal verdeeld is."</b> Fout: niet elk proces is normaal; je zet gemiddelden van steekproeven uit, en die zijn bij benadering normaal (centrale limietstelling) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=62">SPC p. 62–63</a>.</li>
-      <li><b>Let op:</b> de centrale limietstelling geldt voor gemiddelden, niet voor losse metingen: niet elke procesverdeling volgt de normale wet, gemiddelden van steekproeven wel <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=62">SPC p. 62</a>.</li>
-      <li><b>b. "Een regelkaart detecteert gewone oorzaken."</b> Fout: ze detecteert speciale (aanwijsbare) oorzaken; gewone oorzaken zijn de normale ruis binnen de grenzen <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=31">SPC p. 31</a>.</li>
-      <li><b>c. "De range is altijd de beste schatting."</b> Fout: alleen bij kleine steekproeven \((\sym{n_sub}{n}\lt10)\) en met de hand bijgehouden kaarten; voor grotere steekproeven is s efficiënter <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=73">SPC p. 73–74</a>.</li>
+      <li><b>a. "We mogen normaliteit aannemen omdat elk proces normaal verdeeld is."</b> Fout: niet elk proces is normaal. Je zet gemiddelden van steekproeven uit, en die zijn bij benadering normaal (centrale limietstelling); losse metingen niet <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=62">SPC p. 62–63</a>.</li>
+      <li><b>b. "Een regelkaart detecteert gewone oorzaken."</b> Fout: ze detecteert speciale (aanwijsbare) oorzaken. Gewone oorzaken zijn de normale ruis binnen de grenzen <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=31">SPC p. 31</a>.</li>
+      <li><b>c. "De range is altijd de beste schatting."</b> Fout: alleen bij kleine steekproeven \((\sym{n_sub}{n}\lt10)\) en met de hand bijgehouden kaarten. Voor grotere steekproeven is s efficiënter <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=73">SPC p. 73–74</a>.</li>
       <li><b>Let op:</b> "in control" (geen speciale oorzaken) zegt niets over de specificaties: stabiel is niet hetzelfde als capabel <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=70">SPC p. 70</a>.</li>
     </ul></div>
   </section>
@@ -242,9 +261,12 @@
         <select><option value="">kies…</option><option value="A">A</option><option value="B">B</option><option value="C">C</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span></div>
       <div class="calc-here" data-tool="confusion" data-blocks="0"></div>
-      <details class="hint"><summary>Hint</summary><p>Vergelijk per model de accuracy op training en test. Hoge
-      variantie: goed op training, veel slechter op test. Hoge bias: slecht op beide.</p></details>
+      <details class="hint"><summary>Hint</summary><p>Bereken per model de accuracy, de fractie juiste voorspellingen:
+      (Goed→Goed + Slecht→Slecht) / totaal, op de trainingsset en op de testset. Hoge variantie: goed op training, veel
+      slechter op test. Hoge bias: zwak op beide.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
+        <p><b>a.</b> Vergelijk de accuracy op training en test
+        (werkwijze in <a href="#d12-diagnose">12.15</a>):</p>
         <table>
           <tr><th>Model</th><th class="n">Accuracy training</th><th class="n">Accuracy test</th><th>Lezing</th></tr>
           <tr><td>A</td><td class="n">0,965</td><td class="n">0,617</td><td>bijna perfect op training, slecht op test → <b>hoge variantie</b> (overfitting)</td></tr>
@@ -252,13 +274,15 @@
           <tr><td>C</td><td class="n">0,850</td><td class="n">0,692</td><td>goed op training en de beste op test → <b>optimaal</b></td></tr>
         </table>
         <p class="small">Accuracies <span class="computed">zelf berekend</span> als (Goed→Goed + Slecht→Slecht) / totaal.</p>
-        <p><b>b.</b> Hoge bias betekent een te eenvoudig model. Maak de boom complexer: laat hem dieper groeien (grotere
-        maximale diepte, max_depth), laat kleinere bladeren toe (minder observaties per blad) of eis minder winst voor
-        een split <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20slides.pdf#page=46">ML-webslides p. 46</a>.
-        Over under- en overfitting en bias-variantie:
-        <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=22">ML p. 22–28</a>; confusion matrix
-        <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=29">ML p. 29–32</a>.
+        <p>Hoge bias: de modelklasse kan het verband niet vatten (underfitting). Hoge variantie: het model is gevoelig
+        voor de toevallige trainingsdata (overfitting)
+        <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=26">ML p. 26</a>. De accuracy lees je af uit de
+        confusion matrix <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=29">ML p. 29–32</a>.
         Rekentool: werkblad "Confusion matrix".</p>
+        <p><b>b. Hoge bias: wat verander je aan de boom?</b> Hoge bias betekent een te eenvoudig model. Maak de boom
+        complexer: laat hem dieper groeien (grotere maximale diepte, max_depth), laat kleinere bladeren toe (minder
+        observaties per blad) of eis minder winst voor een split
+        <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20slides.pdf#page=46">ML-webslides p. 46</a>.</p>
       </details>
     </div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
@@ -299,8 +323,9 @@
       <div class="q" data-answer="3696" data-tol="25"><label>c. \(\operatorname{Var}[\sym{c_cap}{C}]\) (µF²) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span></div>
       <div class="calc-here" data-tool="normaal" data-blocks="0"></div>
-      <details class="hint"><summary>Hint</summary><p>Aantallen per tijdseenheid, wachttijden, een meetwaarde, één ja/nee,
-      en een aantal "ja" in 100 stuks. Voor \(\operatorname{Var}[\sym{c_cap}{C}]\): welke z hoort bij 5 % links van 720?</p></details>
+      <details class="hint"><summary>Hint</summary><p>Vraag bij elke veranderlijke wat ze is: een telling per tijdseenheid
+      (B), een wachttijd (T), een meetwaarde (C), één ja/nee (X) of een aantal "ja" in 100 stuks (D). Voor
+      \(\operatorname{Var}[\sym{c_cap}{C}]\): 2 op 40 is 5 %, dus 720 ligt op het punt met 5 % links ervan. Welke z hoort daarbij?</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <table>
           <tr><th>Variabele</th><th>Familie</th><th>Verwachtingswaarde</th></tr>
@@ -310,16 +335,22 @@
           <tr><td>X (conformiteit)</td><td>Bernoulli</td><td>\(E[\sym{x_conf}{X}]=\frac{2}{40}=0{,}05\) (kans op niet-conform)</td></tr>
           <tr><td>D (niet-conform in een lot van 100)</td><td>binomiaal \((\sym{n_lot}{n}=100,\sym{p_noncon}{p}=0{,}05)\)</td><td>\(E[\sym{d_noncon}{D}]=100\cdot0{,}05=5\)</td></tr>
         </table>
-        <p>Poisson hoort bij tellingen en de exponentiële verdeling bij wachttijden
-        <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=7">Data p. 7</a>; binomiaal en hypergeometrisch voor
-        defectieven in een lot: <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=12">AS p. 12</a>.
-        Opgelet: de algemene formules \(E[\sym{t_between}{T}]=\frac{1}{\sym{lambda}{\lambda}}\) en \(\operatorname{Var}=\sym{lambda}{\lambda}\) voor Poisson staan niet in de cursus (beslissing 20).</p>
-        <p><b>b.</b> Meerdere antwoorden mogelijk. Voorbeelden: B en T (bestellingen hangen af van seizoen, dag van de week,
-        promoties: niet elke week of elk moment heeft dezelfde verdeling); X en D (opeenvolgende elco's uit dezelfde
-        productierun of hetzelfde lot zijn niet onafhankelijk: een probleem in de machine raakt veel stuks tegelijk).</p>
-        <p><b>c.</b> \(P(\sym{c_cap}{C}\lt720)=0{,}05\), dus \(\frac{720-820}{\sym{sigma_c}{\sigma}}=\sym{z005}{z_{0{,}05}}=-1{,}645\to\sym{sigma_c}{\sigma}=\frac{100}{1{,}645}=60{,}8\) µF en
-        <b>\(\operatorname{Var}[\sym{c_cap}{C}]=\sym{sigma_c}{\sigma}^{2}\approx3696\) µF²</b> <span class="computed">zelf berekend</span>. (Met \(\sym{z005}{z}=1{,}64\) uit de tabel krijg je
-        ongeveer 3718.) Rekentool: werkblad "Normaal", sectie "\(\sigma\) uit een staartfractie".</p>
+        <p><b>Waarom deze families.</b> Poisson hoort bij tellingen per tijdseenheid en de exponentiële verdeling bij
+        wachttijden <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=7">Data p. 7</a>; de binomiale (en
+        hypergeometrische) verdeling hoort bij het aantal defectieven in een lot
+        <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=12">AS p. 12</a>. Voor T gebruik je
+        \(E[\sym{t_between}{T}]=\frac{1}{\sym{lambda}{\lambda}}\), met \(\sym{lambda}{\lambda}=175{,}3\) bestellingen per week: een standaardformule die niet in
+        de slides staat (beslissing 20).</p>
+        <p><b>b. Welke veranderlijken zijn niet iid?</b> "iid" betekent onafhankelijk én identiek verdeeld. Meerdere
+        antwoorden zijn mogelijk. Voorbeelden: B en T, want bestellingen hangen af van het seizoen, de dag van de week en
+        promoties, dus niet elke week of elk moment heeft dezelfde verdeling. X en D, want opeenvolgende elco's uit
+        dezelfde productierun of hetzelfde lot zijn niet onafhankelijk: een probleem in de machine raakt veel stuks
+        tegelijk.</p>
+        <p><b>c.</b> C is normaal verdeeld met gemiddelde 820 µF. "2 op 40 niet-conform" betekent
+        \(P(\sym{c_cap}{C}\lt720)=0{,}05\). Standaardiseer:
+        \(\frac{720-820}{\sym{sigma_c}{\sigma}}=\sym{z005}{z_{0{,}05}}=-1{,}645\), dus \(\sym{sigma_c}{\sigma}=\frac{100}{1{,}645}=60{,}8\) µF en
+        <b>\(\operatorname{Var}[\sym{c_cap}{C}]=\sym{sigma_c}{\sigma}^{2}\approx3696\) µF²</b> <span class="computed">zelf berekend</span>.
+        Rekentool: werkblad "Normaal", sectie "\(\sigma\) uit een staartfractie".</p>
       </details>
     </div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
@@ -328,8 +359,9 @@
       <li><b>"\(\sym{t_between}{T}\) is ook Poisson: het gaat om bestellingen."</b> Fout: \(\sym{t_between}{T}\) is een wachttijd, en wachttijden zijn exponentieel <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=7">Data p. 7</a>.</li>
       <li><b>Let op:</b> \(\sym{x_conf}{X}\) (één elco, ja/nee) is Bernoulli; \(\sym{d_noncon}{D}\) (het aantal in een lot van 100) is binomiaal met \(\sym{n_lot}{n}=100\) en \(\sym{p_noncon}{p}=0{,}05\), dus \(E[\sym{d_noncon}{D}]=5\).</li>
       <li><b>Let op:</b> \(E[\sym{c_cap}{C}]\) is het gegeven gemiddelde 820 µF, niet de nominale 800 µF. \(\operatorname{Var}[\sym{c_cap}{C}]\) vraagt \(\sym{sigma_c}{\sigma}^{2}\) (≈ 3696 µF²), niet \(\sym{sigma_c}{\sigma}\) (60,8 µF).</li>
-      <li><b>Let op:</b> \(P(\sym{c_cap}{C}\lt720)=0{,}05\) is de linkerstaart: \(\sym{z005}{z_{0{,}05}}=-1{,}645\); met de afgeronde 1,64 uit de tabel krijg je ongeveer 3718. Niet elk gegeven is nodig: de 3,6 loten per bestelling gebruik je in de modelantwoorden niet.</li>
-      <li><b>Let op (b):</b> "iid" vraagt twee dingen, onafhankelijk én identiek verdeeld. Zeg bij elk voorbeeld welke van de twee faalt (\(\sym{b_orders}{B}\) en \(\sym{t_between}{T}\): seizoen, promoties; \(\sym{x_conf}{X}\) en \(\sym{d_noncon}{D}\): dezelfde productierun).</li>
+      <li><b>Let op:</b> \(P(\sym{c_cap}{C}\lt720)=0{,}05\) is de linkerstaart, dus \(\sym{z005}{z_{0{,}05}}=-1{,}645\) is negatief: 720 ligt onder het gemiddelde.</li>
+      <li><b>Let op:</b> niet elk gegeven is nodig: de 3,6 loten per bestelling gebruik je in de modelantwoorden niet.</li>
+      <li><b>Let op (b):</b> "iid" vraagt twee dingen: onafhankelijk én identiek verdeeld. Zeg bij elk voorbeeld welke van de twee faalt (\(\sym{b_orders}{B}\) en \(\sym{t_between}{T}\): seizoen, promoties; \(\sym{x_conf}{X}\) en \(\sym{d_noncon}{D}\): dezelfde productierun).</li>
     </ul></div>
   </section>
 
@@ -354,25 +386,27 @@
         <button type="button" class="check">Controleer</button> <span class="fb"></span></div>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol>
-          <li><b>a.</b> De regressielijn \(E[\sym{s_strength}{S}\mid\sym{t_temp}{T}=\sym{x_temp}{x}]\) is het gemiddelde van S bij elke temperatuur x: een dalende lijn of
-          curve door het midden van de puntenwolk, per verticale strook
-          <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=26">Data p. 26–27</a>. De figuur hieronder toont dat idee op een
-          gebogen wolk: de regressielijn volgt per x het midden van de verdeling van Y, ook als die kromt.
+          <li><b>a.</b> De regressielijn \(E[\sym{s_strength}{S}\mid\sym{t_temp}{T}=\sym{x_temp}{x}]\) geeft voor elke temperatuur \(\sym{x_temp}{x}\) de gemiddelde sterkte van
+          de punten in de verticale strook bij \(\sym{x_temp}{x}\). Teken dus per strook het midden en verbind die punten: hier een
+          dalende lijn of curve door het midden van de puntenwolk
+          <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=26">Data p. 26–27</a>. De figuur hieronder toont dat
+          idee op een gebogen wolk: de regressielijn volgt per x het midden van de verdeling van Y, ook als die kromt.
           <figure class="fig"><img src="figures/13_regressielijn_ml.jpg" alt="Heatmap van een U-vormige gezamenlijke verdeling van X en Y met een stippellijn E[Y | X] door het midden van de wolk">
           <figcaption>Figuur: gezamenlijke kansverdeling van X en Y (heatmap, U-vormige wolk) met de voorwaardelijke
           verwachting E[Y | X] als stippellijn: per waarde van x het gemiddelde van Y, dus een kromme door het midden van de
           wolk. <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=27">Data p. 27</a></figcaption></figure></li>
-          <li><b>b. \(\sym{s_strength}{S}\to\sym{t_temp}{T}\)</b>: de sterkte bepaalt de temperatuur, niet omgekeerd. Leg je T vast op 730 °C, dan verandert
-          dat niets aan S. De bolletjes staan dus allemaal bij \(\sym{t_temp}{T}=730\) °C, maar verticaal verspreid zoals de <i>hele</i>
-          puntenwolk (de marginale verdeling van S), niet alleen zoals de punten die toevallig rond 730 °C liggen.</li>
-          <li><b>c. \(\sym{t_temp}{T}\to\sym{s_strength}{S}\)</b>: de temperatuur bepaalt de sterkte. Leg je T vast op 730 °C, dan volgt S de voorwaardelijke
-          verdeling bij 730 °C: de kruisjes liggen rond de waarde van de regressielijn bij 730 °C (laag), met de spreiding
-          van de punten in die buurt. Dat geldt als er geen verstorende factor (confounder) is.</li>
+          <li><b>b. \(\sym{s_strength}{S}\to\sym{t_temp}{T}\)</b>: de sterkte bepaalt de temperatuur, niet omgekeerd. Een interventie schrapt de pijlen
+          die in T aankomen <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=44">Data p. 44</a>; T vastleggen op
+          730 °C verandert dus niets aan S. De bolletjes staan allemaal bij \(\sym{t_temp}{T}=730\) °C, maar verticaal verspreid zoals de
+          <i>hele</i> puntenwolk (de marginale verdeling van S), niet alleen zoals de punten die toevallig rond 730 °C liggen.</li>
+          <li><b>c. \(\sym{t_temp}{T}\to\sym{s_strength}{S}\)</b>: de temperatuur bepaalt de sterkte. Leg je T vast op 730 °C, dan volgt S de
+          voorwaardelijke verdeling bij 730 °C: de kruisjes liggen rond de waarde van de regressielijn bij 730 °C (laag), met de
+          spreiding van de punten in die buurt. Dat geldt als er geen verstorende factor (confounder) is.</li>
         </ol>
-        <p>Achtergrond: zien (associatie, \(P(\sym{s_strength}{S}\mid\sym{t_temp}{T})\)) versus doen (interventie), causale diagrammen en het praktijkvoorbeeld
-        "koelt warm staal sneller af"
-        <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=40">Data p. 40–46</a>,
-        <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=53">Data p. 53–57</a> (extra).</p>
+        <p>Het verschil tussen b en c is het verschil tussen zien en doen. De regressielijn beschrijft wat je ziet (associatie,
+        \(P(\sym{s_strength}{S}\mid\sym{t_temp}{T})\)); een interventie legt T vast, en wat er dan met S gebeurt, hangt af van het causale diagram
+        <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=40">Data p. 40–46</a>. Het praktijkvoorbeeld
+        "koelt warm staal sneller af" staat in <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=53">Data p. 53–57</a>.</p>
       </details>
     </div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>

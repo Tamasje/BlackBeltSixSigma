@@ -1,44 +1,49 @@
 <section class="part" id="d07" data-title="Deel 07 — Regressie (regression)" data-lecturer="Stijn De Vuyst" data-les="Les 3">
   <h2>Deel 07 — Regressie (regression)</h2>
-  <p class="intro">Dit deel behandelt regressie: een
-  respons y verklaren met één of meer numerieke x-variabelen, nagaan hoe goed dat model is, en ermee voorspellen.
-  <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=1">REG p. 1</a></p>
+  <p class="intro">De delen 04 en 05 schatten en toetsten telkens één grootheid: een gemiddelde, een proportie, een
+  variantie. Regressie gaat een stap verder: ze verklaart een gemeten uitkomst (de respons y) met één of meer numerieke
+  x-variabelen. Dit deel toont hoe je zo'n model past, hoe goed het is, welke variabelen erin horen en hoe je ermee
+  voorspelt. <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=1">REG p. 1</a></p>
 
   <section class="unit" id="d07-start" data-kw="overview; kernidee; key idea; variatie opsplitsen; partition of variation; verklaarde variatie; explained variation; ruis; noise; F-verhouding; F-ratio; kritieke waarde; critical value; kwantiel; quantile; F-tabel; t-tabel; notatie; notation">
     <h3>07.1 Start: het ene idee achter regressie, ANOVA en proefopzet <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=8">DOE p. 8</a></h3>
+    <p>Dit deel opent met het idee dat regressie, ANOVA en proefopzet (<a href="#d08">deel 08</a>) gemeen hebben. Wie dat ziet,
+    leest de output van alle drie op dezelfde manier.</p>
     <div class="box key"><span class="t">Kernidee</span>
-      <p>Regressie, ANOVA en proefopzet doen allemaal hetzelfde. Elke methode splitst de totale variatie (total variation) in je metingen in
-      <b>een deel dat een model verklaart</b> en <b>een deel dat overblijft</b> (ruis, noise). Daarna vraagt ze of het
-      verklaarde deel groot is vergeleken met de ruis.</p>
+      <p>Je metingen van de respons verschillen van elkaar: dat is de totale variatie (total variation). Elk van de drie
+      methoden splitst die variatie in <b>een deel dat een model verklaart</b> en <b>een deel dat overblijft</b> (ruis,
+      noise). Daarna vraagt ze of het verklaarde deel groot is vergeleken met de ruis.</p>
       <ul>
         <li><b>Regressie</b> (dit deel): de verklaring is "de respons volgt een rechte (of een vlak) in x".</li>
-        <li><b>One-way ANOVA</b>: de verklaring is "de
-        groepen hebben verschillende gemiddelden". Dat is hetzelfde model als regressie, met een categorische x.</li>
-        <li><b>Factoriële proefopzetten, DOE</b>: de
-        verklaring is "deze factoren en hun interacties verschuiven de respons". Bovendien kies je het experiment zo dat
-        je de effecten van elkaar kunt scheiden.</li>
+        <li><b>One-way ANOVA</b>: de verklaring is "de groepen hebben verschillende gemiddelden". Dat is hetzelfde model
+        als regressie, met een categorische x.</li>
+        <li><b>Factoriële proefopzetten (DOE)</b>: de verklaring is "deze factoren en hun interacties verschuiven de
+        respons". Bovendien kies je het experiment zo dat je de effecten van elkaar kunt scheiden.</li>
       </ul>
       <p>De vergelijking is altijd een <b>F-verhouding (F-ratio)</b>: \(\sym{f0}{F}=\) (verklaarde variatie per vrijheidsgraad) /
-      (ruis per vrijheidsgraad). Als er niets aan de hand is, ligt F rond 1. Een echt effect maakt F veel groter dan 1
+      (ruis per vrijheidsgraad). Verklaart het model niets, dan meten teller en noemer allebei alleen ruis en ligt F rond 1.
+      Een echt effect maakt F veel groter dan 1
       <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=8">DOE p. 8</a>.</p>
     </div>
+    <p>Om te beslissen of F (of later een t-waarde) "groot genoeg" is, vergelijk je ze met een <b>kritieke waarde
+    (critical value)</b> uit de t- of F-tabel. De cursus schrijft die waarde op twee manieren, omdat ze eigen slides mengt
+    met gescande tekstboekpagina's (Montgomery; referenties op
+    <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=67">REG p. 67</a> en <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=94">DOE p. 94</a>).
+    \(\sym{alpha}{\alpha}\) is daarbij het significantieniveau dat de opgave geeft.</p>
     <div class="box warn"><span class="t">Opgelet: twee notaties voor dezelfde kritieke waarde</span>
-      <p>De cursus mengt eigen slides met gescande tekstboekpagina's (Montgomery; referenties op
-      <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=67">REG p. 67</a> en <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=94">DOE p. 94</a>). Die schrijven kritieke waarden (critical values) op twee manieren. Dat is een bekende
-      bron van verwarring.</p>
       <ul>
-        <li><b>De eigen slides van de cursus gebruiken kwantielen (quantiles).</b> \(\sym{t_crit}{t_{1-\alpha/2,n-2}}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=34">REG p. 34</a> en
-        \(\sym{f_crit}{F_{1-\alpha,a-1,a(n-1)}}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=7">DOE p. 7</a> zijn de waarden met kans \(1-\frac{\sym{alpha}{\alpha}}{2}\) (of \(1-\sym{alpha}{\alpha}\)) <i>eronder</i>. In hun
-        intervalformules gebruikt de ondergrens \(\sym{t_crit}{t_{\alpha/2,n-2}}\), en dat is een <i>negatief</i> getal:
-        "\(\sym{bj_hat}{\hat{\beta}}+\sym{t_crit}{t_{\alpha/2}}\cdot\sym{se_coef}{\mathrm{se}}\)" is hetzelfde als "\(\sym{bj_hat}{\hat{\beta}}-\sym{t_crit}{t_{1-\alpha/2}}\cdot\sym{se_coef}{\mathrm{se}}\)".</li>
-        <li><b>De tekstboekpagina's gebruiken bovenstaarten (upper tails).</b> \(\sym{t_crit}{t_{0{,}005;18}}=2{,}88\)
-        <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=32">REG p. 32</a> en \(\sym{f_crit}{F_{0{,}01;3;20}}=4{,}94\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=9">DOE p. 9</a> zijn de waarden met \(\frac{\sym{alpha}{\alpha}}{2}\) (of \(\sym{alpha}{\alpha}\)) <i>erboven</i>.</li>
+        <li><b>Kwantielnotatie (quantiles), op de eigen slides.</b> Het subscript is de kans <i>onder</i> de waarde.
+        \(\sym{t_crit}{t_{1-\alpha/2,n-2}}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=34">REG p. 34</a> heeft kans \(1-\frac{\sym{alpha}{\alpha}}{2}\) eronder,
+        \(\sym{f_crit}{F_{1-\alpha,a-1,a(n-1)}}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=7">DOE p. 7</a> kans \(1-\sym{alpha}{\alpha}\). Het getal na de komma's zijn de vrijheidsgraden.
+        In de intervalformules van de slides staat de ondergrens als \(\sym{bj_hat}{\hat{\beta}}+\sym{t_crit}{t_{\alpha/2}}\cdot\sym{se_coef}{\mathrm{se}}\): daar is
+        \(\sym{t_crit}{t_{\alpha/2}}\) <i>negatief</i>, dus dat is hetzelfde als \(\sym{bj_hat}{\hat{\beta}}-\sym{t_crit}{t_{1-\alpha/2}}\cdot\sym{se_coef}{\mathrm{se}}\).</li>
+        <li><b>Bovenstaartnotatie (upper tails), op de tekstboekpagina's.</b> Het subscript is de kans <i>boven</i> de
+        waarde. \(\sym{t_crit}{t_{0{,}005;18}}=2{,}88\)
+        <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=32">REG p. 32</a> heeft 0,005 erboven, \(\sym{f_crit}{F_{0{,}01;3;20}}=4{,}94\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=9">DOE p. 9</a> heeft 0,01 erboven.</li>
       </ul>
-      <p>Beide noemen dezelfde kritieke waarde; alleen het subscript verschilt.</p>
+      <p>Beide noemen dezelfde kritieke waarde; alleen het subscript verschilt. \(t_{0{,}005;18}\) (bovenstaart) en
+      \(t_{0{,}995;18}\) (kwantiel) zijn allebei 2,88.</p>
     </div>
-    <p class="small">Getallen komen uit de cursus. Waar deze tekst iets uitrekent wat de cursus niet toont (een
-    oplossing, een tussenstap), staat <span class="computed">zelf berekend</span>; die waarden komen uit
-    <code>study/parts/07_numbers.py</code>, dat ook elk geciteerd cursusresultaat narekent.</p>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"\(\sym{t_crit}{t_{0{,}005;18}}\) en \(\sym{t_crit}{t_{0{,}995;18}}\) zijn twee verschillende kritieke waarden."</b> Fout: het is dezelfde waarde, 2,88, in twee notaties. Het tekstboek noemt de kans erboven (0,005), de eigen slides de kans eronder (0,995) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=32">REG p. 32</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=34">REG p. 34</a>.</li>
@@ -50,26 +55,45 @@
 
   <section class="unit" id="d07-model" data-kw="regressiemodel; regression model; enkelvoudige lineaire regressie; simple linear regression; meervoudige regressie; multiple regression; intercept; helling; slope; richtingscoëfficiënt; error term; homoscedasticiteit; homoscedasticity; heteroscedasticiteit; heteroscedasticity; spreidingsdiagram; scatter plot; correlatie; causaliteit; confounding">
     <h3>07.2 Wat is een regressiemodel? <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=3">REG p. 2–19</a></h3>
-    <p>Je hebt n datapunten. Elk punt heeft één respons y (univariate data) en een aantal x-variabelen
-    \(x_{1}\), …, \(x_{p-1}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=3">REG p. 3</a>. Het model zegt dat elke gemeten respons de som is van een vast deel en
-    een toevallige fout:</p>
+    <p>07.1 zei dat regressie de variatie van een respons verklaart met een model. Hier zie je hoe dat model eruitziet en
+    wat het aanneemt.</p>
+    <p><b>De situatie</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=3">REG p. 3</a>. Je hebt \(\sym{n}{n}\) datapunten (rijen in de data). Elk punt heeft één gemeten
+    uitkomst, de <b>respons</b> \(\sym{y}{y}\) (response), en een aantal <b>x-variabelen</b> \(\sym{x}{x_{1}}\), …, \(\sym{x}{x_{p-1}}\) die de
+    respons misschien verklaren. Beide staan als kolommen in de data. Het model zegt dat elke gemeten respons de som is
+    van een vast deel, dat alleen van de x'en afhangt, en een toevallige fout:</p>
     <div class="f">
-      <div>\(\sym{y}{Y}=f(\sym{x}{x_{1}},\ldots,\sym{x}{x_{p-1}})+\sym{epsilon}{\varepsilon}\), met \(\sym{epsilon}{\varepsilon}\sim N(0,\sym{sigma2}{\sigma^{2}})\): een deterministisch deel plus een
-      foutterm (stochastic error term) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=3">REG p. 3</a></div>
-      <div>Meervoudige lineaire regressie (multiple linear regression): \(\sym{y}{Y}=\sym{beta0}{\beta_{0}}+\sym{beta1}{\beta_{1}}\sym{x}{x_{1}}+\ldots+\sym{beta_j}{\beta_{p-1}}\sym{x}{x_{p-1}}+\sym{epsilon}{\varepsilon}\); de \(\sym{p_param}{p}\) termen zijn de regressoren (regressors), de \(\beta'\)s de regressiecoëfficiënten
-      (regression coefficients) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=4">REG p. 4</a></div>
-      <div>Enkelvoudige lineaire regressie (simple linear regression), één x \((\sym{p_param}{p}=2)\): \(\sym{y}{Y}=\sym{beta0}{\beta_{0}}+\sym{beta1}{\beta_{1}}\sym{x}{x}+\sym{epsilon}{\varepsilon}\),
-      met \(\sym{beta0}{\beta_{0}}\) het intercept en \(\sym{beta1}{\beta_{1}}\) de helling (slope)</div>
+      <div>\(\sym{y}{Y}=f(\sym{x}{x_{1}},\ldots,\sym{x}{x_{p-1}})+\sym{epsilon}{\varepsilon}\), met \(\sym{epsilon}{\varepsilon}\sim N(0,\sym{sigma2}{\sigma^{2}})\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=3">REG p. 3</a></div>
+      <div>Meervoudige lineaire regressie (multiple linear regression): \(\sym{y}{Y}=\sym{beta0}{\beta_{0}}+\sym{beta1}{\beta_{1}}\sym{x}{x_{1}}+\ldots+\sym{beta_j}{\beta_{p-1}}\sym{x}{x_{p-1}}+\sym{epsilon}{\varepsilon}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=4">REG p. 4</a></div>
+      <div>Enkelvoudige lineaire regressie (simple linear regression), één x \((\sym{p_param}{p}=2)\): \(\sym{y}{Y}=\sym{beta0}{\beta_{0}}+\sym{beta1}{\beta_{1}}\sym{x}{x}+\sym{epsilon}{\varepsilon}\)</div>
     </div>
-    <p>De figuur hieronder toont het idee <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=5">REG p. 5</a>: bij elke x ligt een normale verdeling van Y rond de ware lijn
-    \(\sym{mu_yx}{\mu_{Y\mid x}}=\sym{beta0}{\beta_{0}}+\sym{beta1}{\beta_{1}}\sym{x}{x}\) (daar \(75+15\sym{x}{x}\) voor het zuurstofvoorbeeld van 07.4).</p>
+    <ul>
+      <li>\(\sym{epsilon}{\varepsilon}\) is de <b>foutterm</b> (stochastic error term): de toevallige afwijking van één meting. Je
+      ziet ze nooit rechtstreeks. Ze is normaal verdeeld rond 0 met variantie \(\sym{sigma2}{\sigma^{2}}\) (onbekend).</li>
+      <li>\(\sym{beta0}{\beta_{0}}\), \(\sym{beta1}{\beta_{1}}\), … zijn de <b>regressiecoëfficiënten</b> (regression coefficients): vaste,
+      onbekende getallen van de populatie. Bij één x is \(\sym{beta0}{\beta_{0}}\) het <b>intercept</b> (de verwachte respons bij
+      \(x=0\)) en \(\sym{beta1}{\beta_{1}}\) de <b>helling</b> (slope): hoeveel de verwachte respons stijgt per eenheid x.</li>
+      <li>\(\sym{p_param}{p}\) is het aantal coëfficiënten, het intercept inbegrepen. De \(\sym{p_param}{p}\) termen heten de
+      regressoren (regressors) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=4">REG p. 4</a>.</li>
+    </ul>
+    <p><b>Wat het model aanneemt</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=16">REG p. 16</a>. Kijk naar alle mogelijke metingen bij één vaste x. Hun
+    gemiddelde ligt op de <b>ware regressielijn</b> \(\sym{mu_yx}{\mu_{Y\mid x}}=\sym{beta0}{\beta_{0}}+\sym{beta1}{\beta_{1}}\sym{x}{x}\), en ze zijn normaal verdeeld
+    rond dat gemiddelde: \(\sym{y}{Y}\mid\sym{x}{x}\sim N(\sym{mu_yx}{\mu_{Y\mid x}},\sym{sigma2}{\sigma^{2}})\). De spreiding \(\sym{sigma2}{\sigma^{2}}\) is <b>bij elke x
+    dezelfde</b>. Dat heet homoscedasticiteit (homoscedasticity); is de variantie niet overal gelijk, dan spreek je van
+    heteroscedasticiteit (heteroscedasticity). De figuur toont het <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=5">REG p. 5</a> voor de
+    ware lijn \(75+15\sym{x}{x}\) van het zuurstofvoorbeeld (07.4).</p>
     <figure class="fig"><img src="figures/07_normaal_rond_lijn.png" alt="Rechte regressielijn met bij twee x-waarden een normale verdeling van Y die rond de lijn gecentreerd is">
     <figcaption>Figuur: de ware regressielijn \(\mu_{Y\mid x}=\beta_{0}+\beta_{1}x=75+15\)x voor het zuurstofvoorbeeld. Bij elke x
     (hier 1,00 en 1,25 % koolwaterstoffen) is Y normaal verdeeld rond het punt \(\beta_{0}+\beta_{1}\)x op de lijn, en de
     klokken zijn overal even breed: dezelfde \(\sigma^{2}\) bij elke x. <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=5">REG p. 5</a></figcaption></figure>
-    <p><b>"Lineair" betekent lineair in de coëfficiënten \(\beta\)</b>, niet noodzakelijk in x. \(E[\sym{y}{Y}\mid\sym{x}{x_{1}},\sym{x}{x_{2}}]=50+10\sym{x}{x_{1}}+7\sym{x}{x_{2}}\) is een vlak <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=6">REG p. 6</a>. Voeg je een term \(\sym{x}{x_{3}}=\sym{x}{x_{1}}\sym{x}{x_{2}}\)
-    toe (een interactie), of termen \(\sym{x}{x_{1}}^{2}\) en \(\sym{x}{x_{2}}^{2}\), dan wordt het oppervlak gebogen, maar het blijft
-    lineaire regressie <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=7">REG p. 6–7</a>. Daarom past dezelfde techniek ook voor polynomen (07.12).</p>
+    <p><b>Ware lijn en geschatte lijn</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=19">REG p. 19</a>. De ware lijn ken je niet. Uit de data
+    schat je de <b>geschatte regressielijn</b> \(\sym{y_hat}{\hat{Y}}(\sym{x}{x})=\sym{b0}{\hat{\beta}_{0}}+\sym{b1}{\hat{\beta}_{1}}\sym{x}{x}\); het dakje betekent "geschat uit
+    de steekproef". Het zijn <b>twee verschillende lijnen</b>: de geschatte lijn is je beste schatting van de ware lijn,
+    en je gebruikt ze om te voorspellen. Hoe je \(\sym{b0}{\hat{\beta}_{0}}\) en \(\sym{b1}{\hat{\beta}_{1}}\) berekent, staat in 07.3.</p>
+    <p><b>"Lineair" betekent lineair in de coëfficiënten \(\beta\)</b>, niet noodzakelijk in x. \(E[\sym{y}{Y}\mid\sym{x}{x_{1}},\sym{x}{x_{2}}]=50+10\sym{x}{x_{1}}+7\sym{x}{x_{2}}\)
+    is een plat vlak <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=6">REG p. 6</a>. Voeg je een term \(\sym{x}{x_{3}}=\sym{x}{x_{1}}\sym{x}{x_{2}}\) toe (een interactie), of termen
+    \(\sym{x}{x_{1}}^{2}\) en \(\sym{x}{x_{2}}^{2}\), dan wordt het oppervlak gebogen. Toch blijft het lineaire regressie: zo'n term is gewoon
+    een extra kolom die je uit de data berekent <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=7">REG p. 6–7</a>. Daarom werkt dezelfde techniek ook voor
+    polynomen (07.12).</p>
     <figure class="fig"><img src="figures/07_regressievlak.png" alt="Driedimensionaal regressievlak boven het x1-x2-vlak en de bijhorende contourplot met evenwijdige rechte lijnen">
     <figcaption>Figuur: (a) het regressievlak \(E(Y)=50+10x_{1}+7x_{2}\) boven het \((x_{1},x_{2})\)-vlak;
     (b) de contourplot: lijnen van gelijke E(Y) (67, 84, …, 220) zijn evenwijdige rechten. Zonder interactie- of kwadratische
@@ -78,9 +102,9 @@
     <figcaption>Figuur: links \(E(Y)=50+10x_{1}+7x_{2}+5x_{1}x_{2}\) (Figure 12-2): de
     interactieterm buigt het vlak, de contourlijnen worden krommen. Rechts \(E(Y)=800+10x_{1}+7x_{2}-8{,}5x_{1}^{2}-5x_{2}^{2}+4x_{1}x_{2}\) (Figure 12-3): een koepel met een top, met gebogen
     contourlijnen rond die top. Beide modellen zijn lineair in de \(\beta'\)s. <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=7">REG p. 7</a></figcaption></figure>
-    <p><b>Kijk altijd eerst naar de data</b> in een spreidingsdiagram (scatter plot). Welk verband is er tussen variabele X
-    en respons Y? Een <b>lineair verband</b> of een <b>niet-lineaire relatie</b>
-    <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=8">REG p. 8</a>; een <b>sterke</b>, <b>zwakke</b> of <b>géén relatie</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=9">REG p. 9</a>.
+    <p><b>Kijk altijd eerst naar de data</b> in een spreidingsdiagram (scatter plot), voor je een model kiest. Volgen de
+    punten een rechte (een <b>lineair verband</b>) of een kromme (een <b>niet-lineaire relatie</b>)
+    <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=8">REG p. 8</a>? En is de relatie <b>sterk</b>, <b>zwak</b> of is er <b>géén relatie</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=9">REG p. 9</a>?
     De twee figuren hieronder tonen die gevallen schematisch.</p>
     <figure class="fig"><img src="figures/07_lineair_nietlineair.png" alt="Vier schematische spreidingsdiagrammen: links een stijgend en een dalend lineair verband, rechts een bergvormig en een exponentieel stijgend verband">
     <figcaption>Figuur: links een lineair verband (stijgend en dalend: de punten volgen een rechte), rechts een niet-lineaire
@@ -90,6 +114,7 @@
     <figcaption>Figuur: een sterke relatie (de punten liggen in een smalle band rond de rechte), een zwakke relatie (brede
     band), telkens stijgend en dalend, en géén relatie (de lijn is horizontaal: Y hangt niet van X af).
     <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=9">REG p. 9</a></figcaption></figure>
+    <p>Een sterk verband zegt nog niet waarom X en Y samen bewegen.</p>
     <div class="box warn"><span class="t">Correlatie is geen causaliteit</span>
       <p>Let op met "snelle" interpretaties <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=11">REG p. 11</a>. Roomijsverkoop op een dag (X) en de gemiddelde zweetproductie
       van de klanten (Y) lijken samen te hangen, maar de verborgen factor is de dagtemperatuur (Z): een "spurious" of
@@ -99,13 +124,6 @@
     <figcaption>Figuur: "20 dagen aan zee": de gemiddelde dagelijkse zweetproductie van de klanten (Y) stijgt duidelijk met het
     aantal verkochte ijsjes (X). Het schema eronder toont waarom: de dagtemperatuur Z stuurt zowel X als Y; de rechtstreekse
     pijl tussen X en Y is doorkruist. <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=11">REG p. 11</a></figcaption></figure>
-    <p><b>Aannames</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=16">REG p. 16</a>: bij elke x is de respons normaal verdeeld rond de lijn,
-    \(\sym{y}{Y}\mid\sym{x}{x}\sim N(\sym{mu_yx}{\mu_{Y\mid x}},\sym{sigma2}{\sigma^{2}})\), met \(\sym{mu_yx}{\mu_{Y\mid x}}=\sym{beta0}{\beta_{0}}+\sym{beta1}{\beta_{1}}\sym{x}{x}\) en <b>dezelfde variantie <var data-s="sigma2">σ²</var> voor
-    elke x</b>. Dat heet homoscedasticiteit (homoscedasticity); is de variantie niet overal gelijk, dan spreek je van
-    heteroscedasticiteit (heteroscedasticity).</p>
-    <p>De ware lijn \(\sym{mu_yx}{\mu_{Y\mid x}}=\sym{beta0}{\beta_{0}}+\sym{beta1}{\beta_{1}}\sym{x}{x}\) (populatie) en de geschatte regressielijn
-    \(\sym{y_hat}{\hat{Y}}(\sym{x}{x})=\sym{b0}{\hat{\beta}_{0}}+\sym{b1}{\hat{\beta}_{1}}\sym{x}{x}\) zijn <b>twee verschillende lijnen</b>. De geschatte lijn is je beste schatting
-    van de onbekende ware lijn, en je gebruikt ze om te voorspellen <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=19">REG p. 19</a>.</p>
     <div class="calc-here" data-tool="beschrijvend" data-blocks="1"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
@@ -118,22 +136,33 @@
 
   <section class="unit" id="d07-kk" data-kw="kleinste kwadraten; least squares; normaalvergelijkingen; normal equations; Sxx; Sxy; SxY; schatting helling; slope estimate; intercept; residu; deviation; som van kwadraten; sum of squares">
     <h3>07.3 De kleinste-kwadratenmethode (least squares) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=17">REG p. 17–19</a></h3>
-    <p>Welke rechte past het best bij de data? "Het best" betekent: de <b>som van de gekwadrateerde verticale
-    afstanden</b> van de punten tot de lijn is zo klein mogelijk <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=17">REG p. 17</a>:</p>
+    <p>07.2 gaf het model met onbekende coëfficiënten \(\sym{beta0}{\beta_{0}}\) en \(\sym{beta1}{\beta_{1}}\). Hier schat je ze uit de data: welke
+    rechte past het best bij de punten?</p>
+    <p><b>Het criterium</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=17">REG p. 17</a>. Elk punt \((\sym{x}{x_{i}},\sym{y}{Y_{i}})\) ligt op een verticale afstand
+    van een kandidaat-lijn. "Het best" betekent: de <b>som van de gekwadrateerde verticale afstanden</b> \(\sym{l_ls}{L}\) is zo
+    klein mogelijk:</p>
     <div class="f"><div>\[\sym{l_ls}{L}=\Sigma\ (\sym{y}{Y_{i}}-\sym{beta0}{\beta_{0}}-\sym{beta1}{\beta_{1}}\sym{x}{x_{i}})^{2}\] minimaliseren naar \[\sym{beta0}{\beta_{0}}\] en \[\sym{beta1}{\beta_{1}}\]</div></div>
     <figure class="fig"><img src="figures/07_afwijkingen_kk.png" alt="Punten rond een geschatte regressielijn met verticale lijnstukjes van elk punt naar de lijn">
     <figcaption>Figuur: de afwijkingen van de waarnemingen tot de geschatte regressielijn zijn de verticale lijnstukjes (in de
     y-richting). Kleinste kwadraten kiest de lijn waarvoor de som van hun kwadraten zo klein mogelijk is.
     <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=17">REG p. 17</a></figcaption></figure>
-    <p>De afgeleiden naar \(\beta_{0}\) en \(\beta_{1}\) gelijkstellen aan nul geeft de <b>normaalvergelijkingen
-    (normal equations)</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=18">REG p. 18</a>:</p>
+    <p><b>De oplossing: de normaalvergelijkingen (normal equations)</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=18">REG p. 18</a>. Het minimum van L geeft
+    twee formules. Je hebt eerst vier hulpgrootheden nodig, allemaal berekend uit de data:</p>
+    <ul>
+      <li>\(\sym{xbar}{\bar{x}}\) en \(\sym{ybar}{\bar{Y}}\): het gemiddelde van de x-waarden en van de responsen.</li>
+      <li>\(\sym{sxx}{S_{xx}}\): de kwadratensom van x, hoe sterk de x-waarden rond \(\bar{x}\) spreiden.</li>
+      <li>\(\sym{sxy}{S_{\mathrm{xY}}}\) (ook \(S_{xy}\)): de som van de kruisproducten, hoe x en y samen rond hun gemiddelden bewegen.
+      Positief als y stijgt met x, negatief als y daalt.</li>
+    </ul>
     <div class="f">
-      <div>\[\sym{b1}{\hat{\beta}_{1}}=\frac{\sym{sxy}{S_{\mathrm{xY}}}}{\sym{sxx}{S_{xx}}}\] (NE2),  \[\sym{b0}{\hat{\beta}_{0}}=\sym{ybar}{\bar{Y}}-\sym{b1}{\hat{\beta}_{1}}\ \sym{xbar}{\bar{x}}\] (NE1)</div>
       <div>\[\sym{sxx}{S_{xx}}=\Sigma\ (\sym{x}{x_{i}}-\sym{xbar}{\bar{x}})^{2}=\Sigma\ \sym{x}{x_{i}}^{2}-\sym{n}{n}\ \sym{xbar}{\bar{x}}^{2}\]</div>
       <div>\[\sym{sxy}{S_{\mathrm{xY}}}=\Sigma\ (\sym{x}{x_{i}}-\sym{xbar}{\bar{x}})(\sym{y}{Y_{i}}-\sym{ybar}{\bar{Y}})=\Sigma\ \sym{x}{x_{i}}\sym{y}{Y_{i}}-\sym{n}{n}\ \sym{xbar}{\bar{x}}\ \sym{ybar}{\bar{Y}}\]</div>
+      <div>\[\sym{b1}{\hat{\beta}_{1}}=\frac{\sym{sxy}{S_{\mathrm{xY}}}}{\sym{sxx}{S_{xx}}}\] (NE2),  \[\sym{b0}{\hat{\beta}_{0}}=\sym{ybar}{\bar{Y}}-\sym{b1}{\hat{\beta}_{1}}\ \sym{xbar}{\bar{x}}\] (NE1)</div>
     </div>
-    <p>Bij een nieuwe x is je beste voorspelling dan \(\sym{y_hat}{\hat{Y}}=\sym{b0}{\hat{\beta}_{0}}+\sym{b1}{\hat{\beta}_{1}}\sym{x}{x}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=19">REG p. 19</a>. De cursus schrijft
-    \(\hat{\beta}\) ook als b \((b_{0},b_{1})\), vooral in het deel over meervoudige regressie.</p>
+    <p>Reken dus eerst de helling \(\sym{b1}{\hat{\beta}_{1}}\) uit, dan het intercept \(\sym{b0}{\hat{\beta}_{0}}\). De rechtse vormen van \(S_{xx}\) en
+    \(S_{\mathrm{xY}}\) zijn handig als de opgave alleen sommen geeft (\(\Sigma x\), \(\Sigma x^{2}\), \(\Sigma xy\)). Bij een nieuwe x is je beste
+    voorspelling dan \(\sym{y_hat}{\hat{Y}}=\sym{b0}{\hat{\beta}_{0}}+\sym{b1}{\hat{\beta}_{1}}\sym{x}{x}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=19">REG p. 19</a>. Het deel over
+    meervoudige regressie schrijft \(\hat{\beta}\) ook als b \((b_{0},b_{1})\).</p>
     <div class="calc-here" data-tool="regressie" data-blocks="1"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
@@ -146,10 +175,11 @@
 
   <section class="unit" id="d07-zuurstof" data-kw="zuurstofzuiverheid; oxygen purity; koolwaterstof; hydrocarbon level; Minitab output; voorbeeld; worked example; b0; b1; regressievergelijking; regression equation; Table 11-1; Table 11-2">
     <h3>07.4 Uitgewerkt voorbeeld: zuurstofzuiverheid (oxygen purity) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=20">REG p. 2, 20–22</a></h3>
+    <p>Dit voorbeeld past de formules van 07.3 toe op echte data. Het loopt door tot 07.8, dus hier zie je ook waar
+    elk resultaat in de Minitab-output staat.</p>
     <div class="box ex"><span class="t">Uitgewerkt voorbeeld</span>
       <p>De respons y is de zuiverheid van zuurstof (%) uit een destillatieproces; x is het percentage koolwaterstoffen
-      (hydrocarbon level, %) in de hoofdcondensor; \(\sym{n}{n}=20\) waarnemingen <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=20">REG p. 20</a> (dezelfde tabel en het
-      spreidingsdiagram staan al op <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=2">REG p. 2</a>):</p>
+      (hydrocarbon level, %) in de hoofdcondensor; \(\sym{n}{n}=20\) waarnemingen <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=2">REG p. 2</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=20">REG p. 20</a>:</p>
       <table>
         <tr><th class="n">nr</th><th class="n">x (%)</th><th class="n">y (%)</th><th class="n">nr</th><th class="n">x (%)</th><th class="n">y (%)</th></tr>
         <tr><td class="n">1</td><td class="n">0,99</td><td class="n">90,01</td><td class="n">11</td><td class="n">1,19</td><td class="n">93,54</td></tr>
@@ -172,13 +202,18 @@
       <figcaption>Figuur: de 20 zuurstofwaarnemingen (x-as: koolwaterstofgehalte, 0,87 tot 1,67 %; y-as: zuiverheid, 87 tot
       102 %) met de kleinste-kwadratenlijn. De punten liggen dicht rond de stijgende rechte \(\hat{y}=74{,}283+14{,}947x\).
       <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=21">REG p. 21</a></figcaption></figure>
-      <p><b>De Minitab-output lezen</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=22">REG p. 22</a> (zoals gedrukt, met decimaalpunt):</p>
+      <p><b>De Minitab-output lezen</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=22">REG p. 22</a> (zoals gedrukt, met decimaalpunt). De
+      coëfficiëntentabel heeft één rij per coëfficiënt: Coef is de schatting, SE Coef haar standaardfout, T = Coef / SE Coef
+      de t-waarde en P de p-waarde van de toets "deze coëfficiënt is 0" (alle drie in 07.6).</p>
       <table>
         <tr><th>Predictor</th><th class="n">Coef</th><th class="n">SE Coef</th><th class="n">T</th><th class="n">P</th></tr>
         <tr><td>Constant \((\sym{b0}{\hat{\beta}_{0}})\)</td><td class="n">74.283</td><td class="n">1.593</td><td class="n">46.62</td><td class="n">0.000</td></tr>
         <tr><td>HC Level \((\sym{b1}{\hat{\beta}_{1}})\)</td><td class="n">14.947</td><td class="n">1.317</td><td class="n">11.35</td><td class="n">0.000</td></tr>
       </table>
-      <p>\(\sym{sigma_hat}{S}=1.087\) (= \(\sqrt{\sym{mse}{\mathrm{MS}_{E}}}\), de schatting van \(\sigma\)), \(\sym{r2}{\text{R-Sq}}=87.7\ \%\), \(\sym{r2_adj}{\text{R-Sq(adj)}}=87.1\ \%\).</p>
+      <p>Onder de tabel: \(\sym{sigma_hat}{S}=1.087\) is de geschatte standaardafwijking van de punten rond de lijn, de schatting van
+      \(\sigma\) (= \(\sqrt{\sym{mse}{\mathrm{MS}_{E}}}\), 07.5). \(\sym{r2}{\text{R-Sq}}=87.7\ \%\) is de fractie verklaarde variatie (07.5),
+      \(\sym{r2_adj}{\text{R-Sq(adj)}}=87.1\ \%\) dezelfde maat gecorrigeerd voor het aantal x-variabelen (07.11). Het blok
+      "Analysis of Variance" splitst de variatie op (07.5) en geeft de F-toets (07.6):</p>
       <table>
         <tr><th>Source</th><th class="n">DF</th><th class="n">SS</th><th class="n">MS</th><th class="n">F</th><th class="n">P</th></tr>
         <tr><td>Regression</td><td class="n">1</td><td class="n">152.13</td><td class="n">152.13</td><td class="n">128.86</td><td class="n">0.000</td></tr>
@@ -192,9 +227,7 @@
       <li><b>"\(\sym{sigma_hat}{S}=1.087\) is de standaardafwijking van de zuiverheden y."</b> Fout: \(\sym{sigma_hat}{S}=\sqrt{\sym{mse}{\mathrm{MS}_{E}}}\) is de spreiding van de punten <i>rond de lijn</i>, de schatting van \(\sigma\). De spreiding van y rond \(\bar{y}\) hoort bij \(\sym{sst}{\mathrm{SS}_{T}}\) en is hier veel groter <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=22">REG p. 22</a>.</li>
       <li><b>"\(\sym{p_value}{P}=0.000\): de p-waarde is nul."</b> Fout: Minitab rondt af op drie decimalen. Voor de helling is \(\sym{p_value}{P}=1{,}23\times10^{-9}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=32">REG p. 32</a>: heel klein, maar niet nul.</li>
       <li><b>"\(\sym{se_b1}{\text{SE Coef}}=1.317\) is \(\hat{\sigma}\)."</b> Fout: SE Coef is de standaardfout van de coëfficiënt, \(\sym{se_b1}{\mathrm{se}(\hat{\beta}_{1})}=\sqrt{\frac{\sym{mse}{\mathrm{MS}_{E}}}{\sym{sxx}{S_{xx}}}}\) (<a href="#d07-toetsen">07.6</a>); de schatting van \(\sigma\) is \(\sym{sigma_hat}{S}=1.087\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=22">REG p. 22</a>.</li>
-      <li><b>"De T van Constant (46.62) toont dat x een sterk effect heeft."</b> Fout: die t-toets gaat over \(\sym{beta0}{\beta_{0}}=0\), de respons bij \(\sym{x}{x}=0\). Of x iets verklaart, lees je in de rij van de x-variabele \((\sym{t0}{T}=11.35)\) of in de F-toets <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=22">REG p. 22</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=32">REG p. 32</a>.</li>
-      <li><b>Let op:</b> het onderschrift van de figuur op <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=21">REG p. 21</a> vermeldt \(\sym{y_hat}{\hat{y}}=74{,}20+14{,}97\sym{x}{x}\). De kleinste-kwadratenlijn is \(\sym{y_hat}{\hat{y}}=74{,}283+14{,}947\sym{x}{x}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=22">REG p. 22</a>.</li>
-    </ul></div>
+      <li><b>"De T van Constant (46.62) toont dat x een sterk effect heeft."</b> Fout: die t-toets gaat over \(\sym{beta0}{\beta_{0}}=0\), de respons bij \(\sym{x}{x}=0\). Of x iets verklaart, lees je in de rij van de x-variabele \((\sym{t0}{T}=11.35)\) of in de F-toets <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=22">REG p. 22</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=32">REG p. 32</a>.</li>    </ul></div>
     <div class="exercise" id="ex-07-1" data-kw="zuurstof; oxygen; kleinste kwadraten; least squares; b0; b1; helling; slope; intercept; Sxx; Sxy; normaalvergelijkingen">
       <h4>Oefening 07.1 — Helling en intercept uit samenvattende waarden <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=18">REG p. 18, 20</a></h4>
       <p>Uit de 20 zuurstofwaarnemingen hierboven volgen: \(\sym{n}{n}=20\), \(\Sigma\sym{x}{x}=23{,}92\), \(\Sigma\sym{y}{y}=1843{,}21\), \(\Sigma\sym{x}{x}^{2}=29{,}2892\) en
@@ -226,9 +259,13 @@
 
   <section class="unit" id="d07-anova" data-kw="variantieanalyse; analysis of variance; ANOVA-tabel; ANOVA table; SST; SSR; SSE; kwadratensom; sum of squares; determinatiecoëfficiënt; coefficient of determination; R²; R-kwadraat; vrijheidsgraden; degrees of freedom; MSE; MSR; mean square; gemiddelde kwadratensom; residual">
     <h3>07.5 Variantieanalyse (ANOVA) en R² <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=23">REG p. 23–28</a></h3>
-    <p>Het blok "Analysis of Variance" van de output splitst de variatie van y in een verklaard en een onverklaard deel.
-    Variatie wordt gemeten met kwadratensommen (sums of squares, SS): gekwadrateerde afwijkingen tegenover een
-    gemiddelde, opgeteld over alle punten <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=23">REG p. 23</a>.</p>
+    <p>De lijn van 07.4 volgt de punten goed, maar niet perfect. Hoeveel van de variatie in y verklaart ze? Daarvoor
+    splitst het blok "Analysis of Variance" van de output de variatie van y in een verklaard en een onverklaard deel, zoals
+    07.1 aankondigde.</p>
+    <p><b>Kwadratensommen.</b> Variatie meet je met een kwadratensom (sum of squares, SS): de gekwadrateerde afwijkingen
+    tegenover een gemiddelde of een lijn, opgeteld over alle punten <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=23">REG p. 23</a>. Drie afstanden
+    tellen: van elk punt \(\sym{y}{Y_{i}}\) tot het gemiddelde \(\sym{ybar}{\bar{Y}}\), van elk punt tot de lijn (de geschatte waarde \(\sym{y_hat}{\hat{Y}_{i}}\)), en
+    van de lijn tot het gemiddelde.</p>
     <table>
       <tr><th>SS</th><th>Formule</th><th>In gewone woorden</th><th>df</th></tr>
       <tr><td>\(\sym{sst}{\mathrm{SS}_{\text{Total}}}\) (SST)</td><td>\(\Sigma\ (\sym{y}{Y_{i}}-\sym{ybar}{\bar{Y}})^{2}\)</td><td>spreiding rond het gemiddelde: wat je zonder model hebt (het "triviale" model \(\sym{y}{Y}=\sym{beta0}{\beta_{0}}+\sym{epsilon}{\varepsilon}\)) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=24">REG p. 24</a></td><td>\(\sym{n}{n}-1\)</td></tr>
@@ -240,17 +277,26 @@
     de afstand van elk punt tot de horizontale stippellijn \(\bar{Y}\). Midden \(\mathrm{SS}_{\text{Error}}\): vierkanten met als zijde de afstand
     van elk punt tot de regressielijn (veel kleiner). Rechts \(\mathrm{SS}_{\text{Regression}}\): vierkanten met als zijde de afstand van
     de lijn tot \(\bar{Y}\) bij elke x. <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=24">REG p. 24–26</a></figcaption></figure>
-    <p class="small">SSE is eigenlijk een som van gekwadrateerde <i>residuen</i> (residuals) \(\sym{e_i}{e_{i}}=\sym{y}{y_{i}}-\sym{y_hat}{\hat{y}_{i}}\), niet van de onbekende fouten \(\varepsilon_{i}\); de naam "\(\mathrm{SS}_{\text{Error}}\)" volgt de literatuur <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=25">REG p. 25</a>.</p>
+    <p>De afstand van een punt tot de lijn heet het <b>residu</b> (residual) \(\sym{e_i}{e_{i}}=\sym{y}{y_{i}}-\sym{y_hat}{\hat{y}_{i}}\). SSE is dus een som van
+    gekwadrateerde residuen, niet van de onbekende fouten \(\varepsilon_{i}\); de naam "\(\mathrm{SS}_{\text{Error}}\)" volgt de literatuur
+    <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=25">REG p. 25</a>.</p>
+    <p><b>De opsplitsing en \(R^{2}\)</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=27">REG p. 27</a>. Dankzij de kleinste-kwadratenschatting tellen de
+    kwadratensommen precies op, en ook hun vrijheidsgraden (degrees of freedom, df). De fractie van de totale variatie
+    die het model verklaart, heet de <b>determinatiecoëfficiënt</b> (coefficient of determination) \(\sym{r2}{R^{2}}\), tussen 0 en 1:</p>
     <div class="f">
-      <div>\(\sym{sst}{\mathrm{SS}_{T}}=\sym{ssr}{\mathrm{SS}_{R}}+\sym{sse}{\mathrm{SS}_{E}}\) (geldt dankzij de normaalvergelijkingen) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=27">REG p. 27</a></div>
-      <div>\(\sym{r2}{R^{2}}=\frac{\sym{ssr}{\mathrm{SS}_{R}}}{\sym{sst}{\mathrm{SS}_{T}}}=1-\frac{\sym{sse}{\mathrm{SS}_{E}}}{\sym{sst}{\mathrm{SS}_{T}}}\): de fractie verklaarde variatie,
-      de determinatiecoëfficiënt (coefficient of determination)</div>
-      <div>\(\sym{msr}{\mathrm{MS}_{R}}=\frac{\sym{ssr}{\mathrm{SS}_{R}}}{1}\), \(\sym{mse}{\mathrm{MS}_{E}}=\frac{\sym{sse}{\mathrm{SS}_{E}}}{\sym{n}{n}-2}\); \(E[\sym{mse}{\mathrm{MS}_{E}}]=\sym{sigma2}{\sigma^{2}}\), dus
-      \(\sym{sigma2_hat}{\hat{\sigma}^{2}}=\sym{mse}{\mathrm{MS}_{E}}\) is een zuivere schatter van <var data-s="sigma2">σ²</var> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=28">REG p. 28</a></div>
+      <div>\(\sym{sst}{\mathrm{SS}_{T}}=\sym{ssr}{\mathrm{SS}_{R}}+\sym{sse}{\mathrm{SS}_{E}}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=27">REG p. 27</a></div>
+      <div>\(\sym{r2}{R^{2}}=\frac{\sym{ssr}{\mathrm{SS}_{R}}}{\sym{sst}{\mathrm{SS}_{T}}}=1-\frac{\sym{sse}{\mathrm{SS}_{E}}}{\sym{sst}{\mathrm{SS}_{T}}}\)</div>
     </div>
-    <p>Een gemiddelde kwadratensom (mean square, MS) is een SS gedeeld door haar vrijheidsgraden (degrees of freedom,
-    df). Zuurstofvoorbeeld: 173,38 = 152,13 + 21,25; \(\sym{r2}{R^{2}}=\frac{152{,}13}{173{,}38}=0{,}877\); \(\sym{mse}{\mathrm{MS}_{E}}=\frac{21{,}25}{18}=1{,}18\).
-    Het model verklaart 87,7 % van de variatie in de zuiverheid.</p>
+    <p><b>Gemiddelde kwadratensommen en de schatting van \(\sigma^{2}\)</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=28">REG p. 28</a>. Een gemiddelde
+    kwadratensom (mean square, MS) is een SS gedeeld door haar eigen vrijheidsgraden. SSE heeft \(\sym{n}{n}-2\) vrijheidsgraden,
+    omdat de lijn twee geschatte coëfficiënten kost. De residuele \(\sym{mse}{\mathrm{MS}_{E}}\) is de schatting van de foutvariantie
+    \(\sym{sigma2}{\sigma^{2}}\) uit 07.2 (een zuivere schatter: gemiddeld juist), en haar wortel \(\sym{sigma_hat}{\hat{\sigma}}\) is de S van Minitab:</p>
+    <div class="f">
+      <div>\(\sym{msr}{\mathrm{MS}_{R}}=\frac{\sym{ssr}{\mathrm{SS}_{R}}}{1}\), \(\sym{mse}{\mathrm{MS}_{E}}=\frac{\sym{sse}{\mathrm{SS}_{E}}}{\sym{n}{n}-2}\)</div>
+      <div>\(\sym{sigma2_hat}{\hat{\sigma}^{2}}=\sym{mse}{\mathrm{MS}_{E}}\), \(\sym{sigma_hat}{\hat{\sigma}}=\sqrt{\sym{mse}{\mathrm{MS}_{E}}}\)</div>
+    </div>
+    <p><b>Zuurstofvoorbeeld</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=22">REG p. 22</a>: 173,38 = 152,13 + 21,25 en 19 = 1 + 18. \(\sym{r2}{R^{2}}=\frac{152{,}13}{173{,}38}=0{,}877\):
+    het model verklaart 87,7 % van de variatie in de zuiverheid. \(\sym{mse}{\mathrm{MS}_{E}}=\frac{21{,}25}{18}=1{,}18\) en \(S=1{,}087\).</p>
     <div class="calc-here" data-tool="regressie" data-blocks="2"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
@@ -288,40 +334,61 @@
 
   <section class="unit" id="d07-toetsen" data-kw="t-toets; t-test; helling; slope; intercept; significantie van de regressie; significance of regression; F-toets; F-test; betrouwbaarheidsinterval; confidence interval; BI; CI; standaardfout; standard error; se(b1); referentiewaarde; reference value; p-waarde; p-value">
     <h3>07.6 Toetsen en betrouwbaarheidsintervallen voor β<sub>0</sub> en β<sub>1</sub> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=29">REG p. 29–34</a></h3>
-    <p>Als het model klopt, zijn \(\hat{\beta}_{0}\) en \(\hat{\beta}_{1}\) zuivere schatters, normaal verdeeld en onafhankelijk
-    van \(\mathrm{SS}_{E}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=29">REG p. 29</a>:</p>
+    <p>07.5 gaf de schatting \(\sym{mse}{\mathrm{MS}_{E}}\) van de foutvariantie. Daarmee kun je nu zeggen hoe zeker de geschatte
+    coëfficiënten zijn: is de ware helling echt verschillend van 0, en in welk interval ligt ze?</p>
+    <p><b>De standaardfout.</b> Een andere steekproef geeft een andere lijn, dus \(\sym{b1}{\hat{\beta}_{1}}\) en \(\sym{b0}{\hat{\beta}_{0}}\) springen van
+    steekproef tot steekproef. Als het model klopt, zijn ze normaal verdeeld rond de ware \(\sym{beta1}{\beta_{1}}\) en \(\sym{beta0}{\beta_{0}}\)
+    <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=29">REG p. 29</a>. Hoe sterk ze springen, meet hun <b>standaardfout</b> (standard error) se: de standaardafwijking van
+    de schatting zelf. Je berekent ze met \(\sym{mse}{\mathrm{MS}_{E}}\) in plaats van de onbekende \(\sigma^{2}\); in de output is het
+    de kolom SE Coef:</p>
     <div class="f">
-      <div>\(\operatorname{Var}[\sym{b1}{\hat{\beta}_{1}}]=\frac{\sym{sigma2}{\sigma^{2}}}{\sym{sxx}{S_{xx}}}\),  \(\operatorname{Var}[\sym{b0}{\hat{\beta}_{0}}]=\sym{sigma2}{\sigma^{2}}\ \left(\frac{1}{\sym{n}{n}}+\frac{\sym{xbar}{\bar{x}}^{2}}{\sym{sxx}{S_{xx}}}\right)\),
-      \(\operatorname{Cov}[\sym{b0}{\hat{\beta}_{0}},\sym{b1}{\hat{\beta}_{1}}]=-\frac{\sym{xbar}{\bar{x}}\sym{sigma2}{\sigma^{2}}}{\sym{sxx}{S_{xx}}}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=29">REG p. 29</a></div>
-      <div>\(\sym{se_b1}{\mathrm{se}(\hat{\beta}_{1})}=\sqrt{\frac{\sym{mse}{\mathrm{MS}_{E}}}{\sym{sxx}{S_{xx}}}}\),  \(\sym{se_b0}{\mathrm{se}(\hat{\beta}_{0})}=\sqrt{\sym{mse}{\mathrm{MS}_{E}}\ \left(\frac{1}{\sym{n}{n}}+\frac{\sym{xbar}{\bar{x}}^{2}}{\sym{sxx}{S_{xx}}}\right)}\)</div>
-      <div>\(H_{0}\): \(\sym{beta1}{\beta_{1}}=\sym{beta10}{\beta_{1{,}0}}\) (de "referentiewaarde") tegen \(H_{A}\): \(\sym{beta1}{\beta_{1}}\ne\), &gt; of &lt; \(\sym{beta10}{\beta_{1{,}0}}\);
-      toetsingsgrootheid \(\sym{t0}{t_{0}}=\frac{\sym{b1}{\hat{\beta}_{1}}-\sym{beta10}{\beta_{1{,}0}}}{\sym{se_b1}{\mathrm{se}(\hat{\beta}_{1})}}\sim\sym{t_dist}{t_{n-2}}\) onder \(H_{0}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=30">REG p. 30</a></div>
-      <div>Idem voor het intercept: \(\sym{t0}{t_{0}}=\frac{\sym{b0}{\hat{\beta}_{0}}-\sym{beta00}{\beta_{0{,}0}}}{\sym{se_b0}{\mathrm{se}(\hat{\beta}_{0})}}\sim\sym{t_dist}{t_{n-2}}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=31">REG p. 31</a></div>
-      <div>\((1-\sym{alpha}{\alpha})\)-betrouwbaarheidsinterval (confidence interval): \(\sym{b1}{\hat{\beta}_{1}}\pm\sym{t_crit}{t_{1-\alpha/2,n-2}}\cdot\sym{se_b1}{\mathrm{se}(\hat{\beta}_{1})}\),
-      en zo ook voor \(\sym{beta0}{\beta_{0}}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=34">REG p. 34</a></div>
+      <div>\(\sym{se_b1}{\mathrm{se}(\hat{\beta}_{1})}=\sqrt{\frac{\sym{mse}{\mathrm{MS}_{E}}}{\sym{sxx}{S_{xx}}}}\),  \(\sym{se_b0}{\mathrm{se}(\hat{\beta}_{0})}=\sqrt{\sym{mse}{\mathrm{MS}_{E}}\ \left(\frac{1}{\sym{n}{n}}+\frac{\sym{xbar}{\bar{x}}^{2}}{\sym{sxx}{S_{xx}}}\right)}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=29">REG p. 29</a></div>
     </div>
-    <p>Waarom t en niet z? Omdat \(\sigma\) onbekend is en je \(\mathrm{MS}_{E}\) gebruikt; dat kost de \(\sym{n}{n}-2\) vrijheidsgraden van
-    \(\mathrm{SS}_{E}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=30">REG p. 30</a>.</p>
-    <p><b>Significantie van de regressie</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=32">REG p. 32–33</a>: als \(\sym{beta1}{\beta_{1}}=0\), vertelt x niets en is de beste
-    voorspelling gewoon \(\sym{ybar}{\bar{Y}}\). Toets \(H_{0}\): \(\sym{beta1}{\beta_{1}}=0\) op twee gelijkwaardige manieren:</p>
+    <p>Een grote \(\sym{sxx}{S_{xx}}\) (x-waarden die ver uit elkaar liggen) geeft dus een nauwkeurigere helling.</p>
+    <p><b>De t-toets</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=30">REG p. 30–31</a>. Je toetst of de ware helling gelijk is aan een
+    <b>referentiewaarde</b> \(\sym{beta10}{\beta_{1{,}0}}\) die de opgave geeft (meestal 0). De toetsingsgrootheid \(\sym{t0}{t_{0}}\) telt hoeveel
+    standaardfouten de schatting van die referentiewaarde ligt:</p>
+    <div class="f">
+      <div>\(H_{0}\): \(\sym{beta1}{\beta_{1}}=\sym{beta10}{\beta_{1{,}0}}\) tegen \(H_{A}\): \(\sym{beta1}{\beta_{1}}\ne\), &gt; of &lt; \(\sym{beta10}{\beta_{1{,}0}}\);
+      \(\sym{t0}{t_{0}}=\frac{\sym{b1}{\hat{\beta}_{1}}-\sym{beta10}{\beta_{1{,}0}}}{\sym{se_b1}{\mathrm{se}(\hat{\beta}_{1})}}\sim\sym{t_dist}{t_{n-2}}\) onder \(H_{0}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=30">REG p. 30</a></div>
+      <div>Idem voor het intercept, met referentiewaarde \(\sym{beta00}{\beta_{0{,}0}}\): \(\sym{t0}{t_{0}}=\frac{\sym{b0}{\hat{\beta}_{0}}-\sym{beta00}{\beta_{0{,}0}}}{\sym{se_b0}{\mathrm{se}(\hat{\beta}_{0})}}\sim\sym{t_dist}{t_{n-2}}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=31">REG p. 31</a></div>
+    </div>
+    <p>Waarom t en niet z? Omdat \(\sigma\) onbekend is en je \(\mathrm{MS}_{E}\) gebruikt; de t-verdeling krijgt daardoor de
+    \(\sym{n}{n}-2\) vrijheidsgraden van \(\mathrm{SS}_{E}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=30">REG p. 30</a>, net zoals een gemiddelde met s een t-verdeling
+    volgt (<a href="#d04-mu">04.4</a>). Tweezijdig verwerp je \(H_{0}\) als \(|\sym{t0}{t_{0}}|\) groter is dan de kritieke waarde
+    \(\sym{t_crit}{t_{1-\alpha/2,n-2}}\) uit de t-tabel, of als de p-waarde kleiner is dan \(\sym{alpha}{\alpha}\). Minitab (T, P) en Excel (t Stat,
+    P-value) drukken deze toets af met referentiewaarde 0.</p>
+    <p><b>Het betrouwbaarheidsinterval</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=34">REG p. 34</a> heeft de vorm van deel 04: schatting ± kritieke
+    waarde × standaardfout.</p>
+    <div class="f">
+      <div>\((1-\sym{alpha}{\alpha})\)-betrouwbaarheidsinterval (confidence interval): \(\sym{b1}{\hat{\beta}_{1}}\pm\sym{t_crit}{t_{1-\alpha/2,n-2}}\cdot\sym{se_b1}{\mathrm{se}(\hat{\beta}_{1})}\),
+      en zo ook voor \(\sym{beta0}{\beta_{0}}\) met \(\sym{se_b0}{\mathrm{se}(\hat{\beta}_{0})}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=34">REG p. 34</a></div>
+    </div>
+    <p><b>Is de regressie significant?</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=32">REG p. 32–33</a> De belangrijkste vraag is of x iets
+    verklaart. Is \(\sym{beta1}{\beta_{1}}=0\), dan hangt de respons niet (lineair) van x af en is de beste voorspelling gewoon
+    \(\sym{ybar}{\bar{Y}}\). Toets \(H_{0}\): \(\sym{beta1}{\beta_{1}}=0\) op twee gelijkwaardige manieren:</p>
     <ul>
-      <li>de <b>t-toets</b> op \(\hat{\beta}_{1}\) (met \(\sym{beta10}{\beta_{1{,}0}}=0\)), of</li>
-      <li>de <b>F-toets</b> \(\sym{f0}{F_{0}}=\frac{\sym{msr}{\mathrm{MS}_{R}}}{\sym{mse}{\mathrm{MS}_{E}}}\sim\sym{f_dist}{F_{1,n-2}}\) onder \(H_{0}\), met
-      de ANOVA-tabel van <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=33">REG p. 33</a> (daar \(\sym{ssr}{\mathrm{SS}_{R}}=\sym{b1}{\hat{\beta}_{1}}\sym{sxy}{S_{xy}}\) en \(\sym{sse}{\mathrm{SS}_{E}}=\sym{sst}{\mathrm{SS}_{T}}-\sym{b1}{\hat{\beta}_{1}}\sym{sxy}{S_{xy}}\)).</li>
+      <li>de <b>t-toets</b> op \(\hat{\beta}_{1}\) hierboven, met \(\sym{beta10}{\beta_{1{,}0}}=0\), of</li>
+      <li>de <b>F-toets</b> uit de ANOVA-tabel van 07.5: \(\sym{f0}{F_{0}}=\frac{\sym{msr}{\mathrm{MS}_{R}}}{\sym{mse}{\mathrm{MS}_{E}}}\sim\sym{f_dist}{F_{1,n-2}}\) onder \(H_{0}\)
+      <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=33">REG p. 33</a>. Dat is de F-verhouding van 07.1: verklaarde variatie per vrijheidsgraad gedeeld door de
+      ruis per vrijheidsgraad. Verwerp \(H_{0}\) als \(\sym{f0}{F_{0}}\) groter is dan de kritieke waarde uit de F-tabel (1 en
+      \(\sym{n}{n}-2\) vrijheidsgraden). Uit samenvattende waarden: \(\sym{ssr}{\mathrm{SS}_{R}}=\sym{b1}{\hat{\beta}_{1}}\sym{sxy}{S_{xy}}\) en
+      \(\sym{sse}{\mathrm{SS}_{E}}=\sym{sst}{\mathrm{SS}_{T}}-\sym{b1}{\hat{\beta}_{1}}\sym{sxy}{S_{xy}}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=33">REG p. 33</a>.</li>
     </ul>
+    <p>Bij één x geven ze altijd hetzelfde besluit, want \(\sym{f0}{F_{0}}=\sym{t0}{t_{0}}^{2}\). De figuur toont wat "niet significant" wel
+    en niet betekent.</p>
     <figure class="fig"><img src="figures/07_significantie_regressie.png" alt="Vier spreidingsdiagrammen met gepaste rechte: bovenaan een vlakke lijn door willekeurige punten en een vlakke lijn door een U-vormig patroon, onderaan een stijgende lijn door een rechte puntenwolk en een stijgende lijn door een gebogen puntenwolk">
     <figcaption>Figuur: boven (Figure 11-5) wordt \(H_{0}\): \(\beta_{1}=0\) niet verworpen: (a) x verklaart niets, (b) er is
     wel een duidelijk gebogen verband, maar de gepaste rechte is vlak. Onder (Figure 11-6) wordt \(H_{0}\) verworpen: (a) een
     rechte past goed, (b) de rechte is significant, maar de punten volgen een kromme, zodat hogere-ordetermen in x beter zouden
     passen. <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=32">REG p. 32</a></figcaption></figure>
-    <p>Bij één x geven ze altijd hetzelfde besluit: \(\sym{f0}{F_{0}}=\sym{t0}{t_{0}}^{2}\). Onthoud de F-toets: verklaarde
-    gemiddelde kwadratensom gedeeld door de error-kwadratensom.</p>
     <div class="box ex"><span class="t">Zuurstofvoorbeeld</span>
       <ul>
-        <li>\(\sym{t0}{t_{0}}=\frac{14{,}947}{\sqrt{\frac{1{,}18}{0{,}68088}}}=11{,}35\). Met \(\sym{alpha}{\alpha}=0{,}01\) is \(\sym{t_crit}{t_{0{,}005;18}}=2{,}88\) en
-        11,35 &gt; 2,88, dus <b>\(H_{0}\) verwerpen</b>; \(\sym{p_value}{P}=1{,}23\times10^{-9}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=32">REG p. 32</a>. Voor het intercept is
+        <li>\(\sym{t0}{t_{0}}=\frac{14{,}947}{\sqrt{\frac{1{,}18}{0{,}68088}}}=11{,}35\). Met \(\sym{alpha}{\alpha}=0{,}01\) tweezijdig is de kritieke waarde \(\sym{t_crit}{t_{0{,}005;18}}=2{,}88\)
+        (bovenstaartnotatie, 07.1). 11,35 &gt; 2,88, dus <b>\(H_{0}\) verwerpen</b>: de regressie is significant;
+        \(\sym{p_value}{P}=1{,}23\times10^{-9}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=32">REG p. 32</a>. Voor het intercept is
         \(\sym{t0}{t_{0}}=46{,}62\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=22">REG p. 22</a>.</li>
-        <li>Controle: \(\sym{t0}{t_{0}}^{2}=11{,}35^{2}\approx128{,}8\), op de afronding na gelijk aan \(\sym{f0}{F_{0}}=128{,}86\) <span class="computed">zelf berekend</span>.</li>
+        <li>Controle: \(\sym{t0}{t_{0}}^{2}=11{,}35^{2}\approx128{,}8\), gelijk aan \(\sym{f0}{F_{0}}=128{,}86\) uit de ANOVA-tabel <span class="computed">zelf berekend</span>.</li>
         <li>95 %-betrouwbaarheidsintervallen (<span class="computed">zelf berekend</span>, \(\sym{t_crit}{t_{0{,}975;18}}=2{,}101\)): \(\sym{beta1}{\beta_{1}}\in[12{,}18;17{,}71]\) en
         \(\sym{beta0}{\beta_{0}}\in[70{,}94;77{,}63]\).</li>
       </ul>
@@ -406,16 +473,30 @@
 
   <section class="unit" id="d07-bi-pi" data-kw="gemiddelde respons; mean response; voorspellingsinterval; prediction interval; PI; betrouwbaarheidsinterval; confidence interval; nieuwe waarneming; new observation; x0; se(Y0); se(e0); fit; SE Fit; voorspelling; prediction">
     <h3>07.7 Gemiddelde respons of één nieuwe meting? BI en PI <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=35">REG p. 35–39</a></h3>
-    <p>Bij een nieuwe \(x_{0}\) is de geschatte waarde \(\sym{y0_hat}{\hat{Y}_{0}}=\sym{b0}{\hat{\beta}_{0}}+\sym{b1}{\hat{\beta}_{1}}\sym{x0}{x_{0}}\)
-    <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=35">REG p. 35</a>. Daarbij horen twee verschillende vragen, met twee verschillende intervallen:</p>
+    <p>07.6 gaf intervallen voor de coëfficiënten. In de praktijk wil je meestal iets weten over de respons zelf bij een
+    bepaalde instelling: welke zuiverheid krijg je bij 1,00 % koolwaterstoffen?</p>
+    <p><b>De situatie</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=35">REG p. 35</a>. De opgave geeft een x-waarde \(\sym{x0}{x_{0}}\). Op de geschatte lijn
+    hoort daarbij \(\sym{y0_hat}{\hat{Y}_{0}}=\sym{b0}{\hat{\beta}_{0}}+\sym{b1}{\hat{\beta}_{1}}\sym{x0}{x_{0}}\) (Minitab: Fit). Dat getal is het midden van twee verschillende
+    intervallen, want er zijn twee verschillende vragen:</p>
+    <ul>
+      <li>Waar ligt de <b>gemiddelde</b> respons \(\sym{mu_yx}{\mu_{Y\mid x0}}\) bij \(x_{0}\), het punt op de ware lijn? Daarvoor dient het
+      <b>betrouwbaarheidsinterval</b> (confidence interval, BI/CI) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=36">REG p. 36</a>.</li>
+      <li>Waar zal <b>één nieuwe meting</b> \(\sym{y0_new}{Y_{0}}\) bij \(x_{0}\) vallen? Daarvoor dient het <b>voorspellingsinterval</b>
+      (prediction interval, PI) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=38">REG p. 38</a>.</li>
+    </ul>
+    <p>Beide hebben de vorm schatting ± kritieke waarde × standaardfout, met dezelfde \(\sym{t_crit}{t_{1-\alpha/2,n-2}}\) als in 07.6.
+    Alleen de standaardfout verschilt:</p>
     <table>
       <tr><th>Vraag</th><th>Interval</th><th>Standaardfout</th></tr>
-      <tr><td>Waar ligt de <b>gemiddelde</b> respons \(\sym{mu_yx}{\mu_{Y\mid x0}}\)?</td><td>betrouwbaarheidsinterval (confidence interval, BI/CI) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=36">REG p. 36</a></td><td>\(\sym{se_fit}{\mathrm{se}(\hat{Y}_{0})}=\sqrt{\sym{mse}{\mathrm{MS}_{E}}\ \left(\frac{1}{\sym{n}{n}}+\frac{(\sym{x0}{x_{0}}-\sym{xbar}{\bar{x}})^{2}}{\sym{sxx}{S_{xx}}}\right)}\)</td></tr>
-      <tr><td>Waar zal <b>één nieuwe meting</b> \(\sym{y0_new}{Y_{0}}\) vallen?</td><td>voorspellingsinterval (prediction interval, PI) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=38">REG p. 38</a></td><td>\(\sym{se_pred}{\mathrm{se}(e_{0})}=\sqrt{\sym{mse}{\mathrm{MS}_{E}}\ \left(1+\frac{1}{\sym{n}{n}}+\frac{(\sym{x0}{x_{0}}-\sym{xbar}{\bar{x}})^{2}}{\sym{sxx}{S_{xx}}}\right)}\)</td></tr>
+      <tr><td>gemiddelde respons \(\sym{mu_yx}{\mu_{Y\mid x0}}\)</td><td>BI <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=36">REG p. 36</a></td><td>\(\sym{se_fit}{\mathrm{se}(\hat{Y}_{0})}=\sqrt{\sym{mse}{\mathrm{MS}_{E}}\ \left(\frac{1}{\sym{n}{n}}+\frac{(\sym{x0}{x_{0}}-\sym{xbar}{\bar{x}})^{2}}{\sym{sxx}{S_{xx}}}\right)}\)</td></tr>
+      <tr><td>één nieuwe meting \(\sym{y0_new}{Y_{0}}\)</td><td>PI <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=38">REG p. 38</a></td><td>\(\sym{se_pred}{\mathrm{se}(e_{0})}=\sqrt{\sym{mse}{\mathrm{MS}_{E}}\ \left(1+\frac{1}{\sym{n}{n}}+\frac{(\sym{x0}{x_{0}}-\sym{xbar}{\bar{x}})^{2}}{\sym{sxx}{S_{xx}}}\right)}\)</td></tr>
     </table>
     <div class="f"><div>Interval = \[\sym{y0_hat}{\hat{Y}_{0}}\pm\sym{t_crit}{t_{1-\alpha/2,n-2}}\cdot\] (standaardfout)</div></div>
-    <p>De extra "1" is de ruis \(\varepsilon_{0}\) van die ene nieuwe meting: \(\operatorname{Var}[\sym{e0}{e_{0}}]=\operatorname{Var}[\sym{y0_hat}{\hat{Y}_{0}}]+\operatorname{Var}[\sym{epsilon}{\varepsilon_{0}}]\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=38">REG p. 38</a>. Daarom is het <b>PI altijd breder</b>. Beide intervallen zijn het smalst bij
-    \(\sym{x0}{x_{0}}=\sym{xbar}{\bar{x}}\) en worden breder naarmate je verder van \(\bar{x}\) gaat (figuur hieronder; <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=37">REG p. 37</a> en <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=39">REG p. 39</a>).</p>
+    <p><b>Zo lees je het verschil.</b> se(\(\hat{Y}_{0}\)) (Minitab: SE Fit) meet alleen hoe onzeker de geschatte lijn is bij \(x_{0}\).
+    Een nieuwe meting wijkt daarbovenop nog af door haar eigen fout \(\varepsilon_{0}\). Die extra ruis is de "1" onder de wortel van
+    se(\(\sym{e0}{e_{0}}\)), met \(\sym{e0}{e_{0}}\) de voorspellingsfout (prediction error) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=38">REG p. 38</a>. Daarom is het
+    <b>PI altijd breder</b> dan het BI. Beide zijn het smalst bij \(\sym{x0}{x_{0}}=\sym{xbar}{\bar{x}}\) en worden breder naarmate \(x_{0}\) verder van
+    \(\bar{x}\) ligt <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=37">REG p. 37</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=39">REG p. 39</a>.</p>
     <figure class="fig"><img src="figures/07_bi_pi_banden.png" alt="Zuurstofdata met de regressielijn, twee binnenste gestreepte banden voor het betrouwbaarheidsinterval en twee buitenste gestippelde banden voor het voorspellingsinterval">
     <figcaption>Figuur: de zuurstofdata met de gepaste lijn, de 95 %-betrouwbaarheidsgrenzen voor \(\mu_{Y\mid x0}\) (binnenste
     gestreepte lijnen) en de 95 %-voorspellingsgrenzen (buitenste lijnen). De PI-band is overal veel breder dan de BI-band, en

@@ -146,6 +146,8 @@ def _regression_fit(ws: Worksheet) -> None:
          "Regression p. 33"),
         (36, "p-waarde van F0 (H0: β1 = 0)", '=IF(ISNUMBER(B35),_xlfn.F.DIST.RT(B35,1,B21-2),"")', "0.000000",
          ""),
+        (37, "kritieke t, df n − 2: tweezijdig t(1 − α/2); eenzijdig t(1 − α) in kolom D",
+         f'=IF(AND(N(B21)>2,ISNUMBER({ALPHA})),_xlfn.T.INV(1-{ALPHA}/2,B21-2),"")', "0.0000", ""),
         (38, "s.e.(b1) = √(MS_E / S_xx)", '=IF(ISNUMBER(B30),SQRT(B30/B24),"")', NUMBER, "Regression p. 29-30"),
         (39, "s.e.(b0) = √(MS_E (1/n + x̄²/S_xx))", '=IF(ISNUMBER(B30),SQRT(B30*(1/B21+B22^2/B24)),"")', NUMBER,
          "Regression p. 29, 31"),
@@ -159,6 +161,7 @@ def _regression_fit(ws: Worksheet) -> None:
     for row, text, formula, fmt, source in rows:
         result_row(ws, row, text, formula, fmt, source)
     output_cell(ws, "D36", DECISION.format(p="B36"))
+    output_cell(ws, "D37", f'=IF(AND(N(B21)>2,ISNUMBER({ALPHA})),_xlfn.T.INV(1-{ALPHA},B21-2),"")', "0.0000")
 
 
 def _regression_tests(ws: Worksheet) -> None:

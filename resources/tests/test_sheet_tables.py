@@ -14,6 +14,7 @@ from bbtools.sheet_tables import (
     SHEET,
     build_tables_sheet,
     disagreeing_cells,
+    dutch_title,
     excel_name,
     lookup_formula,
 )
@@ -107,7 +108,7 @@ def test_book_only_table_comes_last_under_the_extra_heading() -> None:
     assert EXTRA_TABLES == {"DUM"}
     course = [first_row(f"{t.source.key}_n") for t in load_all() if t.source.key not in EXTRA_TABLES]
     assert max(course) < first_row("MSA_g") < heading < first_row("DUM_n")
-    assert ws.cell(row=heading + 2, column=1).value == next(t.title for t in load_all() if t.source.key == "DUM")
+    assert ws.cell(row=heading + 2, column=1).value == dutch_title(next(t.title for t in load_all() if t.source.key == "DUM"))
     # its disagreement colouring stays: D4(5) differs from Table 18
     assert ("DUM", "D4", "5") in disagreeing_cells(load_all())
     column = wb.defined_names["DUM_D4"].attr_text.split("$")[1]

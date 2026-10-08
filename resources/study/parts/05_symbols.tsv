@@ -96,3 +96,5 @@ wmw_n	n (tabel Mann-Whitney)	Tabelnotatie voor \(n_{2}\).	Lees de tabel met \(n=
 sr_ntab	N (tabel signed ranks)	Tabelnotatie voor n, het aantal verschillen ≠ 0.	Lees de tabel met \(N=n\).	d05-nietparam
 ld1	\(\mathrm{LD}_{1}\)	Meting met zoolmateriaal 1 (schoenzolen, CI FR p. 17–18).	Gegeven: data van oefening 04.10 en 04.11.	d04-verschil
 ld2	\(\mathrm{LD}_{2}\)	Meting met zoolmateriaal 2 (schoenzolen, CI FR p. 17–18).	Gegeven: data van oefening 04.10 en 04.11.	d04-verschil
+t_crit	\(t_{1-\alpha;\mathrm{df}}\)	Kritieke t-waarde: het punt van de t-verdeling met kans \(1-\alpha\) eronder.	t-tabel of rekenmachine kwantielen, met df = n − 1 (één steekproef of paren) of \(n_{1}+n_{2}-2\). Tweezijdig: \(t_{1-\alpha/2;\mathrm{df}}\).	d05-zijdig
+chi2_crit	\(\chi^{2}_{1-\alpha;n-1}\)	Kritieke \(\chi^{2}\)-waarde: het punt van \(\chi^{2}(n-1)\) met kans \(1-\alpha\) eronder (en \(\alpha\) erboven).	\(\chi^{2}\)-tabel of rekenmachine kwantielen. Links en rechts verschillen: \(\chi^{2}\) is scheef en positief.	d05-zijdig

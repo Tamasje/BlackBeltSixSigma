@@ -7,6 +7,10 @@ het model goed is (loss, cross-validatie, confusion matrix) en welke methoden er
 <!-- ============================================================== 12.1 -->
 <section class="unit" id="d12-overzicht" data-kw="overzicht; bronnen; overview; sources; machine learning; Les 2">
 <h3>12.1 Overzicht en bronnen <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=1">ML p. 1</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=24">ML-notities p. 24</a></h3>
+<p>Deel 02 legde de statistische basis van deze lessen: kansverdelingen, de regressielijn
+\(E[\sym{y_rv}{Y}\mid\sym{x_rv}{X}=\sym{x}{x}]\) (<a href="#d02-regressielijn">02.11</a>) en het verschil tussen zien en ingrijpen
+(<a href="#d02-ladder">02.12</a>). Dit deel bouwt daarop verder en toont hoe machine learning in de praktijk werkt
+<a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=1">ML-notities p. 1</a>.</p>
 <div class="box key"><span class="t">Waarover gaat dit deel?</span>
 <p>Machine learning (ML) is <b>geen magie maar statistiek</b>: een model is een familie van functies met
 instelbare getallen (gewichten), en "leren" is die getallen zo kiezen dat een maat voor de fout (de loss) zo klein
@@ -16,10 +20,10 @@ matrix. Daarna volgt een rondleiding langs methoden: lineaire regressie, neurale
 unsupervised methoden en Bayesiaanse methoden.</p>
 </div>
 <p><b>Bronnen in dit deel.</b> "ML p. N" is het slidedeck "Inleiding tot Machine Learning" (57 pagina's).
-"ML-notities p. N" zijn de uitgeschreven notities bij dat deck (25 p.): duidelijker dan de slides, en ze bevatten de
-volledige studiewijzer. "ML-webslides p. N" is de websiteversie van hetzelfde deck (59 p.) met twee extra slides: p. 46 (trainingskeuzes bij beslissingsbomen) en
-p. 55 (Bayesiaanse inferentie met een muntstuk). Daardoor verschuift de nummering: ML-webslides p. 47–\(54=\mathrm{ML}\) p. 46–53
-en ML-webslides p. 56–\(59=\mathrm{ML}\) p. 54–57.</p>
+"ML-notities p. N" zijn de uitgeschreven notities bij dat deck (25 p.): ze leggen alles uitgebreider uit en bevatten de
+volledige studiewijzer. "ML-webslides p. N" is de websiteversie van hetzelfde deck (59 p.). Die heeft twee extra slides:
+p. 46 (trainingskeuzes bij beslissingsbomen) en p. 55 (Bayesiaanse inferentie met een muntstuk). Daardoor verschuift de
+nummering: ML-webslides p. 47–54 is ML p. 46–53, en ML-webslides p. 56–59 is ML p. 54–57.</p>
 <p class="small">Getallen in de tekst komen uit de cursus. Wat hier zelf is uitgerekend (oplossingen van oefeningen,
 tussenstappen) is gemarkeerd met <span class="computed">zelf berekend</span>; die getallen worden geprint door <code>study/parts/12_numbers.py</code>,
 dat ook elke geciteerde cursuswaarde narekent.</p>
@@ -28,7 +32,8 @@ dat ook elke geciteerde cursuswaarde narekent.</p>
 <!-- ============================================================== 12.2 -->
 <section class="unit" id="d12-terminologie" data-kw="AI; artificiële intelligentie; artificial intelligence; machine learning; ML; deep learning; DL; data science; big data; terminologie; terminology; LLM; dimensionaliteit">
 <h3>12.2 Terminologie: AI, ML, deep learning, data science, big data <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=3">ML p. 3–4</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=1">ML-notities p. 1</a></h3>
-<p>De begrippen worden vaak door elkaar gebruikt. Je kunt ze zien als <b>concentrische cirkels</b>
+<p>Eerst de woorden. AI, machine learning, deep learning en data science worden vaak door elkaar gebruikt, en de
+studiewijzer vraagt dat je ze kunt plaatsen (<a href="#d12-studiewijzer">12.20</a>). Zie ze als <b>concentrische cirkels</b>
 <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=1">ML-notities p. 1</a>:</p>
 <ul>
 <li><b>Artificiële intelligentie (artificial intelligence, AI)</b>: het brede vakgebied van alle systemen die
@@ -41,11 +46,11 @@ omvat.</li>
 </ul>
 <figure class="fig"><img src="figures/12_ai_ml_dl_cirkels.jpg" alt="Drie geneste cirkels op een oude zeekaart: Artificial Intelligence buiten, Machine Learning daarin, Deep Learning in de kern">
 <figcaption>Figuur: AI, ML en DL als geneste gebieden. Artificiële intelligentie (Artificial Intelligence) is het grootste gebied, machine learning ligt erbinnen, en deep learning (neurale netwerken) vormt de kern. <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=4">ML p. 4</a></figcaption></figure>
-<p>De kern bij deze figuur is een waarschuwing: <b>"geen magie, gewoon statistiek"</b> <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=4">ML p. 4</a>. Gebruik het woord AI niet als
-vorm van magisch denken. De praktische richtlijn van de notities: in een industriële context betekent ML vooral
-<b>een verzameling statistische modellen en optimalisatiemethoden</b>; "AI" slaat dan eerder op het gebruik van
-grote taalmodellen (LLM's), bv. als code-assistent. De belangrijke vragen blijven: welke statistische aanname maakt
-dit model, en klopt die voor mijn data?</p>
+<p>De boodschap bij deze figuur is <b>"geen magie, gewoon statistiek"</b> <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=4">ML p. 4</a>: gebruik het woord AI niet als
+vorm van magisch denken. In een industriële context betekent ML vooral <b>een verzameling statistische modellen en
+optimalisatiemethoden</b>; "AI" slaat dan eerder op het gebruik van grote taalmodellen (LLM's), bv. als code-assistent
+<a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=1">ML-notities p. 1</a>. Bij elk model blijven twee vragen: welke statistische aanname maakt het, en klopt die voor
+mijn data?</p>
 <p><b>Big data</b> betekent <b>in de eerste plaats veel dimensies</b>: de uitdaging is niet alleen het volume (veel rijen), maar vooral het
 grote aantal variabelen dat je tegelijk moet bekijken <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=6">Data-notities p. 6</a>.</p>
 <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
@@ -59,8 +64,19 @@ grote aantal variabelen dat je tegelijk moet bekijken <a class="p" href="../sour
 <!-- ============================================================== 12.3 -->
 <section class="unit" id="d12-paradigmas" data-kw="supervised learning; gesuperviseerd leren; unsupervised learning; ongesuperviseerd leren; reinforcement learning; versterkend leren; leerparadigma; regressie; classificatie; regression; classification; label; P(Y|X)">
 <h3>12.3 Drie leerparadigma's; regressie versus classificatie <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=5">ML p. 5–8</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=1">ML-notities p. 1–4</a></h3>
-<p>Machine learning kent drie klassieke manieren van leren (learning paradigms) <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=5">ML p. 5</a>. Elk zoekt structuur in een
-andere kansverdeling:</p>
+<p>12.2 zei dat machine learning leert uit data. Hoe het leert, hangt af van wat er in de data zit. Er zijn drie
+klassieke manieren van leren (learning paradigms) <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=5">ML p. 5</a>, en elk zoekt structuur in een andere kansverdeling
+<a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=2">ML-notities p. 2</a>. De notatie komt uit Deel 02:</p>
+<ul>
+<li>\(\sym{x_rv}{X}\) is de <b>invoer</b> (input, features): de kenmerken die je kent, bv. procesparameters. \(\sym{y_rv}{Y}\) is de
+<b>uitkomst</b> (output) die je wilt kennen, bv. de treksterkte. In je data zijn \(\sym{x}{x_{i}}\) en \(\sym{y}{y_{i}}\) de invoer en de
+gemeten uitkomst van observatie i; die \(y_{i}\) heet het <b>label</b>.</li>
+<li>\(P(\sym{y_rv}{Y}\mid\sym{x_rv}{X})\) is de verdeling van de uitkomst als je de invoer kent. Haar gemiddelde
+\(E[\sym{y_rv}{Y}\mid\sym{x_rv}{X}=\sym{x}{x}]\) is de <b>regressielijn</b>: de gemiddelde uitkomst bij invoer x
+(<a href="#d02-regressielijn">02.11</a>, <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=3">ML-notities p. 3</a>).</li>
+<li>\(P(\sym{y_rv}{Y}\mid\mathrm{do}(\sym{x_rv}{X}))\) is de verdeling van de uitkomst als je X <b>zelf instelt</b> (ingrijpen,
+interventie) in plaats van alleen te kijken welke X voorkomt (<a href="#d02-ladder">02.12</a>).</li>
+</ul>
 <table>
 <tr><th></th><th>Supervised (gesuperviseerd)</th><th>Unsupervised (ongesuperviseerd)</th><th>Reinforcement (versterkend)</th></tr>
 <tr><td>Leert uit</td><td>gelabelde data: paren \((\sym{x}{x_{i}},\sym{y}{y_{i}})\) met gekende uitkomst \(y_{i}\)</td><td>alleen invoer \(x_{i}\), geen labels</td><td>een agent die beloningen of straffen krijgt van zijn omgeving</td></tr>
@@ -68,10 +84,12 @@ andere kansverdeling:</p>
 <tr><td>Voorbeeld</td><td>treksterkte voorspellen uit procesparameters</td><td>anomalieën of clusters in proceswaarden</td><td>optimale instellingen leren door te experimenteren</td></tr>
 </table>
 <p>Geavanceerde AI-systemen combineren vaak paradigma's, bv. eerst een unsupervised stap om de structuur van de data
-te leren en daarna een supervised stap <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=3">ML-notities p. 3</a>. Dit deel gaat verder vooral over <b>supervised learning</b>: met
-een gelabelde dataset \(\sym{d_data}{D}=\) {\((\sym{x}{x_{i}},\sym{y}{y_{i}})\)}, \(i=1\ldots\sym{n_data}{N}\), zoek je een functie \(\hat{f}\) zodat
-\(\sym{y}{y}\approx\sym{fhat}{\hat{f}}(\sym{x}{x})\) voor nieuwe, ongeziene data. Men zegt dat het model <b>getraind</b> is op D, en de schatting \(\hat{f}\) hangt af van
-die D <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=3">ML-notities p. 3</a>.</p>
+te leren en daarna een supervised stap <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=3">ML-notities p. 3</a>.</p>
+<p>Dit deel gaat verder vooral over <b>supervised learning</b> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=3">ML-notities p. 3</a>. Je vertrekt van een gelabelde
+dataset \(\sym{d_data}{D}=\{(\sym{x}{x_{i}},\sym{y}{y_{i}})\}\), \(i=1\ldots\sym{n_data}{N}\): N observaties, elk met haar invoer en haar
+gemeten uitkomst. Daaruit zoek je een functie \(\sym{fhat}{\hat{f}}\) zodat \(\sym{y}{y}\approx\sym{fhat}{\hat{f}}(\sym{x}{x})\), ook voor nieuwe,
+ongeziene data. \(\hat{f}\) is dus de schatting van de echte regressielijn \(\sym{f_true}{f}(\sym{x}{x})=E[\sym{y_rv}{Y}\mid\sym{x_rv}{X}=\sym{x}{x}]\). Men
+zegt dat het model <b>getraind</b> is op D; een andere dataset D geeft een andere schatting \(\hat{f}\).</p>
 <p><b>Regressie of classificatie?</b> Dat hangt af van het soort uitkomst y <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=7">ML p. 7</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=3">ML-notities p. 3–4</a>:</p>
 <ul>
 <li><b>Regressie (regression)</b>: y is <b>continu</b>. Het model voorspelt één waarde per input; het leert
@@ -163,22 +181,31 @@ of aan de zelfscan-kassa.</p>
 <!-- ============================================================== 12.4 -->
 <section class="unit" id="d12-loss" data-kw="loss-functie; verliesfunctie; kostfunctie; loss function; cost function; MSE; mean squared error; MAE; mean absolute error; Huber; cross-entropie; cross-entropy; log-verlies; uitschieters; outliers; likelihood">
 <h3>12.4 Loss-functies: hoe slecht doet het model het? <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=9">ML p. 9–14</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=4">ML-notities p. 4–6</a></h3>
+<p>Supervised learning zoekt een \(\hat{f}\) met \(y\approx\hat{f}(x)\) (12.3). Om kandidaat-modellen te vergelijken heb je één getal
+nodig dat zegt hoe ver de voorspellingen naast de echte uitkomsten liggen.</p>
 <div class="box key"><span class="t">Kernidee</span>
 <p>Een <b>loss-functie (loss function)</b> L, ook <b>kostfunctie</b> of objectief genoemd, is één getal dat zegt
 <b>hoe slecht</b> een model presteert op de data. Het is een functie op de ruimte van kandidaat-modellen: elk model
 \(\hat{f}\) krijgt een score, en <b>trainen</b> is het model met de kleinste loss op de traindata zoeken <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=10">ML p. 10</a>.</p>
 </div>
+<p><b>De basisvorm</b> <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=10">ML p. 10</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=4">ML-notities p. 4</a>. Elke loss is een gemiddelde over de N observaties van de
+traindata D:</p>
 <div class="f">
-<div>Basisvorm: \(\sym{l_d}{L_{D}}(\sym{fhat}{\hat{f}})=\left(\frac{1}{\sym{n_data}{N}}\right)\ \Sigma_{i=1\ldots\sym{n_data}{N}}\ \sym{ell}{\text{ℓ}}(\sym{y}{y_{i}},\sym{fhat}{\hat{f}}(\sym{x}{x_{i}}))\)  <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=10">ML p. 10</a></div>
-<div>\(\sym{ell}{\text{ℓ}}=\) het verlies van één observatie; \(\sym{l_d}{L_{D}}=\) het gemiddelde over de dataset \(\sym{d_data}{D}\)</div>
+<div>\[\sym{l_d}{L_{D}}(\sym{fhat}{\hat{f}})=\frac{1}{\sym{n_data}{N}}\sum_{i=1}^{N}\sym{ell}{\ell}(\sym{y}{y_{i}},\sym{fhat}{\hat{f}}(\sym{x}{x_{i}}))\]</div>
 </div>
+<p>Lees de formule zo: neem observatie i, vergelijk haar gemeten uitkomst \(\sym{y}{y_{i}}\) met de voorspelling
+\(\sym{fhat}{\hat{f}}(\sym{x}{x_{i}})\) van het model, en reken uit hoeveel dat ene verschil kost: dat is het verlies
+\(\sym{ell}{\ell}\) van één observatie. \(\sym{l_d}{L_{D}}\) is het gemiddelde van die verliezen over alle N observaties van \(\sym{d_data}{D}\).
+Welke functie \(\ell\) je kiest, bepaalt welke loss je krijgt.</p>
 <p>Omdat de loss een gemiddelde over de gekozen traindata is, hangt ook het beste model (waarvoor de loss minimaal is)
 af van die data <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=5">ML-notities p. 5</a>. Andere data geven een ander model: dat idee komt terug bij "variance" (12.9).</p>
-<p><b>Drie loss-functies voor regressie</b> <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=11">ML p. 11–12</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=5">ML-notities p. 5</a>:</p>
+<p><b>Drie loss-functies voor regressie</b> <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=11">ML p. 11–12</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=5">ML-notities p. 5</a>. Het verschil
+\(\sym{y}{y_{i}}-\sym{fhat}{\hat{f}}(\sym{x}{x_{i}})\) is de fout van het model op observatie i. MSE kwadrateert die fout, MAE neemt haar
+absolute waarde:</p>
 <div class="f">
-<div>Mean Squared Error: \[\sym{l_mse}{L_{\mathrm{MSE}}}=\left(\frac{1}{\sym{n_data}{N}}\right)\ \Sigma\ (\sym{y}{y_{i}}-\sym{fhat}{\hat{f}}(\sym{x}{x_{i}}))^{2}\]</div>
-<div>Mean Absolute Error: \[\sym{l_mae}{L_{\mathrm{MAE}}}=\left(\frac{1}{\sym{n_data}{N}}\right)\ \Sigma\ |\sym{y}{y_{i}}-\sym{fhat}{\hat{f}}(\sym{x}{x_{i}})|\]</div>
-<div>Huber loss: MSE voor kleine fouten, MAE voor grote fouten (de cursus geeft geen formule)</div>
+<div>Mean Squared Error: \[\sym{l_mse}{L_{\mathrm{MSE}}}=\frac{1}{\sym{n_data}{N}}\sum_{i=1}^{N}(\sym{y}{y_{i}}-\sym{fhat}{\hat{f}}(\sym{x}{x_{i}}))^{2}\]</div>
+<div>Mean Absolute Error: \[\sym{l_mae}{L_{\mathrm{MAE}}}=\frac{1}{\sym{n_data}{N}}\sum_{i=1}^{N}|\sym{y}{y_{i}}-\sym{fhat}{\hat{f}}(\sym{x}{x_{i}})|\]</div>
+<div>Huber loss: kwadratisch (zoals MSE) voor kleine fouten, lineair (zoals MAE) voor grote fouten; de cursus geeft er geen formule voor</div>
 </div>
 <table>
 <tr><th>Loss</th><th>Hoe worden fouten bestraft?</th><th>Uitschieters (outliers)</th><th>Impliciete aanname over de fouten</th></tr>
@@ -186,17 +213,26 @@ af van die data <a class="p" href="../source/course/Les%202/20261005_naert_web_l
 <tr><td>MAE</td><td>lineair: een dubbel zo grote fout kost dubbel zoveel</td><td>robuuster</td><td>Laplaciaans</td></tr>
 <tr><td>Huber</td><td>combinatie: kwadratisch dicht bij 0, lineair verder weg</td><td>robuust, en toch differentieerbaar</td><td>(niet vermeld)</td></tr>
 </table>
-<p>De figuur hieronder <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=11">ML p. 11</a> tekent het verlies ℓ van één observatie tegen de fout \((\sym{y_pred}{y_{\mathrm{pred}}}-\sym{y_true}{y_{\mathrm{true}}})\)
-van −3 tot 3: een parabool (MSE), een V-vorm (MAE) en een gestippelde Huber-curve met \(\sym{delta_huber}{\delta}=1{,}0\), die binnen
-\(|\sym{e_err}{e}|\le\sym{delta_huber}{\delta}\) kwadratisch is en daarbuiten lineair. Bij een fout van ±1 geven MSE en MAE hetzelfde verlies (1); voorbij 1
-stijgt de parabool veel sneller. Daarom trekt één uitschieter een MSE-model veel sterker naar zich toe.</p>
+<p>De figuur hieronder <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=11">ML p. 11</a> tekent het verlies \(\ell\) van één observatie tegen de fout
+\(\sym{e_err}{e}=\sym{y_pred}{y_{\mathrm{pred}}}-\sym{y_true}{y_{\mathrm{true}}}\): de voorspelde waarde min de werkelijke, van −3 tot 3. (Dat is het
+omgekeerde teken van \(y_{i}-\hat{f}(x_{i})\) hierboven; voor het kwadraat en de absolute waarde maakt dat niets uit.) Je ziet een
+parabool (MSE, \(e^{2}\)), een V-vorm (MAE, \(|e|\)) en een gestippelde Huber-curve. Die heeft een drempel
+\(\sym{delta_huber}{\delta}=1{,}0\): binnen \(|\sym{e_err}{e}|\le\sym{delta_huber}{\delta}\) is ze kwadratisch, daarbuiten lineair. Bij een fout van ±1 geven MSE en MAE
+hetzelfde verlies (1); voorbij 1 stijgt de parabool veel sneller. Daarom trekt één uitschieter een MSE-model veel
+sterker naar zich toe.</p>
 <figure class="fig"><img src="figures/12_loss_functies.png" alt="Verlies tegen de fout van -3 tot 3: een parabool voor MSE, een V-vorm voor MAE en een gestippelde Huber-curve met delta 1,0">
 <figcaption>Figuur: verlies van één observatie tegen de fout \((y_{\mathrm{pred}}-y_{\mathrm{true}})\). De parabool (Quadratic Loss, MSE) en de V-vorm (Absolute Loss, MAE) snijden elkaar bij een fout van −1 en +1; daarbuiten stijgt de parabool veel sneller. De gestippelde Huber-curve \((\delta=1{,}0)\) is kwadratisch in de grijze zone |e\(\mid\le\delta\) en lineair daarbuiten. <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=11">ML p. 11</a></figcaption></figure>
-<p><b>Classificatie: cross-entropie</b> <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=13">ML p. 13</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=6">ML-notities p. 6</a>. De standaardkeuze voor classificatie, ook log-verlies
-genoemd. \(\hat{p}_{i,k}\) is de voorspelde kans dat observatie i tot klasse k behoort. Deze loss bestraft een model
-<b>extra hard wanneer het zelfverzekerd de verkeerde klasse voorspelt</b>.</p>
-<div class="f"><div>\[\sym{l_ce}{L_{\mathrm{CE}}}=-\left(\frac{1}{\sym{n_data}{N}}\right)\ \Sigma_{i=1\ldots\sym{n_data}{N}}\ \Sigma_{k}\ \sym{y_ik}{y_{i,k}}\ \log\sym{phat_ik}{\hat{p}_{i,k}}\]</div></div>
-<p class="small">De notities definiëren \(y_{i,k}\) niet afzonderlijk; onthoud vooral het gedrag van deze loss.</p>
+<p><b>Classificatie: cross-entropie</b> <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=13">ML p. 13</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=6">ML-notities p. 6</a>. Bij classificatie is de uitkomst een klasse, en het model geeft per klasse een
+kans (12.3). Daarvoor is de cross-entropie, ook log-verlies genoemd, de standaardkeuze:</p>
+<div class="f"><div>\[\sym{l_ce}{L_{\mathrm{CE}}}=-\frac{1}{\sym{n_data}{N}}\sum_{i=1}^{N}\sum_{k}\sym{y_ik}{y_{i,k}}\log\sym{phat_ik}{\hat{p}_{i,k}}\]</div></div>
+<ul>
+<li>k loopt over de klassen. \(\sym{phat_ik}{\hat{p}_{i,k}}\) is de door het model voorspelde kans dat observatie i tot klasse k
+behoort <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=6">ML-notities p. 6</a>.</li>
+<li>\(\sym{y_ik}{y_{i,k}}\) geeft de werkelijke klasse aan: 1 als observatie i tot klasse k behoort, anders 0 (de cursus schrijft
+dat niet uit) <span class="gen">algemeen</span>. Per observatie telt dus alleen de voorspelde kans op de <b>echte</b> klasse.</li>
+</ul>
+<p>Hoe kleiner die kans, hoe groter \(-\log\hat{p}\). Deze loss bestraft een model daarom <b>extra hard wanneer het
+zelfverzekerd de verkeerde klasse voorspelt</b> <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=13">ML p. 13</a>.</p>
 <div class="box key"><span class="t">Te onthouden: de keuze van de loss is een modelleringskeuze</span>
 <p>De loss bepaalt <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=14">ML p. 14</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=6">ML-notities p. 6</a>:</p>
 <ol>
@@ -206,11 +242,10 @@ genoemd. \(\hat{p}_{i,k}\) is de voorspelde kans dat observatie i tot klasse k b
 </ol>
 <p>Een verkeerde loss geeft een model dat technisch goed traint, maar de verkeerde vraag beantwoordt.</p>
 </div>
-<p><b>Verband met statistiek</b> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=6">ML-notities p. 6</a>. Achter de keuze van een loss zit vaak een statistische gedachte: je
-beschouwt het model als een beschrijving van het proces dat de data genereert en je maakt de plausibiliteit van de
-geobserveerde data zo groot mogelijk (de likelihood maximaliseren). Om technische redenen minimaliseert men de
-negatieve log-likelihood; afhankelijk van de opzet is dat precies een van de bekende losses. Zo sluit "MSE minimaliseren"
-aan bij de kleinste-kwadratenmethode.</p>
+<p><b>Waarom hoort een loss bij een foutverdeling?</b> Achter een loss zit vaak een statistisch model van hoe de data
+ontstaan: men kiest het model dat de waargenomen data het meest plausibel maakt (de likelihood maximaliseren), en
+afhankelijk van de opzet komt dat neer op een van de bekende losses <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=6">ML-notities p. 6</a>. MSE minimaliseren is ook
+precies wat de kleinste-kwadratenmethode (OLS) van lineaire regressie doet <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=16">ML-notities p. 16</a>.</p>
 <div class="box warn"><span class="t">Asymmetrische kosten</span>
 <p>In productie zijn niet alle fouten even erg <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=6">ML-notities p. 6</a>. Een goed stuk ten onrechte afkeuren (vals positief) kost
 productie; een defect stuk doorlaten (vals negatief) kost klachten en mogelijk veiligheid. Een standaard-loss weegt
@@ -278,9 +313,11 @@ terug bij de keuze van een metric (12.11).</p>
 <!-- ============================================================== 12.5 -->
 <section class="unit" id="d12-modellen" data-kw="model; gewichten; weights; parameters; theta; θ; trainen; training; arg min; optimaliseren; parameteraantal; GPT; modelklasse; model class">
 <h3>12.5 Modellen en gewichten; trainen = optimaliseren <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=15">ML p. 15–17</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=6">ML-notities p. 6–7</a></h3>
-<p>Wat is een "model" precies? Een <b>klasse van functies</b> \(\hat{f}_{\theta}\), geparametriseerd door een vector
-<b>gewichten (weights)</b> \(\sym{theta}{\theta}=(\sym{w}{w_{1}},\ldots,\sym{w}{w_{d}})\), ook parameters of coëfficiënten genoemd
-<a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=16">ML p. 16</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=7">ML-notities p. 7</a>. De keuze van \(\theta\) legt de functie volledig vast.</p>
+<p>12.4 gaf de maat \(L_{D}(\hat{f})\) voor een kandidaat-model. Nu de vraag uit welke kandidaten je kiest, en hoe trainen
+die keuze maakt. Een <b>model</b> is een <b>klasse van functies</b> \(\sym{fhat_theta}{\hat{f}_{\theta}}\) met instelbare getallen: de
+<b>gewichten (weights)</b> \(\sym{theta}{\theta}=(\sym{w}{w_{1}},\ldots,\sym{w}{w_{d}})\), ook parameters of coëfficiënten genoemd; d is
+hun aantal <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=16">ML p. 16</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=7">ML-notities p. 7</a>. De vorm van de functie ligt vast door de modelklasse; zodra je de
+waarden van \(\theta\) kiest, ligt de functie volledig vast.</p>
 <table>
 <tr><th>Model</th><th>Wat zijn de gewichten \(\theta\)?</th><th>Hoeveel?</th></tr>
 <tr><td>Lineaire regressie</td><td>\(\sym{theta}{\theta}=(\sym{beta_coef}{\beta_{0}},\sym{beta_coef}{\beta_{1}},\ldots,\sym{beta_coef}{\beta_{p}})\)</td><td>een handvol coëfficiënten</td></tr>
@@ -290,16 +327,16 @@ terug bij de keuze van een metric (12.11).</p>
 <p>Ter illustratie <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=16">ML p. 16</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=7">ML-notities p. 7</a>: de "originele" ChatGPT (GPT-3.5, 2022) had 175 miljard (175B) parameters;
 latere modellen zoals GPT-4 en Claude 3 hebben naar schatting 1T–2T parameters; het open-weights model DeepSeek-V3/R1
 heeft 671B.</p>
-<p><b>Trainen = gewichten optimaliseren</b> <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=17">ML p. 17</a>: zoek de \(\hat{\theta}\) die de loss op de traindata zo klein mogelijk
-maakt. Omdat het resultaat van de gebruikte data D afhangt, schrijft men:</p>
-<div class="f"><div>\[\sym{theta_hat}{\hat{\theta}_{D}}=\] arg \[\min_{\sym{theta}{\theta}}\sym{l_d}{L_{D}}(\sym{fhat_theta}{\hat{f}_{\theta}})\]</div></div>
+<p><b>Trainen = gewichten optimaliseren</b> <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=17">ML p. 17</a>: zoek de gewichten \(\hat{\theta}\) die de loss op de traindata zo klein
+mogelijk maken. Het hoedje betekent "geschat uit de data"; de index D zegt uit welke dataset:</p>
+<div class="f"><div>\[\sym{theta_hat}{\hat{\theta}_{D}}=\arg\min_{\sym{theta}{\theta}}\ \sym{l_d}{L_{D}}(\sym{fhat_theta}{\hat{f}_{\theta}})\]</div></div>
 <p>Lees "arg min" als: "de waarde van \(\theta\) waarvoor de loss het kleinst is". Train je opnieuw op een andere dataset, dan
 vind je een andere \(\hat{\theta}\) <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=7">ML-notities p. 7</a>. Voor de meeste modelklassen bestaan goede algoritmen die dit minimum snel vinden;
 specialisten gebruiken bestaande implementaties. Bij lineaire regressie met MSE is er zelfs een exacte formule
 (OLS, 12.12).</p>
 <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
 <ul>
-<li><b>"\(\sym{theta_hat}{\hat{\theta}_{D}}=\) arg \(\min_{\sym{theta}{\theta}}\sym{l_d}{L_{D}}(\sym{fhat_theta}{\hat{f}_{\theta}})\) is de kleinste waarde van de loss."</b> Fout: arg min geeft de waarde van \(\theta\) (de gewichten) waarvoor de loss het kleinst is, niet de loss zelf <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=17">ML p. 17</a>.</li>
+<li><b>"\(\sym{theta_hat}{\hat{\theta}_{D}}=\arg\min_{\sym{theta}{\theta}}\sym{l_d}{L_{D}}(\sym{fhat_theta}{\hat{f}_{\theta}})\) is de kleinste waarde van de loss."</b> Fout: arg min geeft de waarde van \(\theta\) (de gewichten) waarvoor de loss het kleinst is, niet de loss zelf <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=17">ML p. 17</a>.</li>
 <li><b>"Train je hetzelfde model op een nieuwe steekproef uit hetzelfde proces, dan vind je dezelfde gewichten."</b> Fout: \(\hat{\theta}_{D}\) hangt af van de dataset D: andere data, andere gewichten <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=7">ML-notities p. 7</a>. Die gevoeligheid is de variance van <a href="#d12-bias-variance">12.9</a>.</li>
 <li><b>"Een beslissingsboom heeft geen gewichten, alleen regels."</b> Fout: bij een boom zijn de drempelwaarden en knooppunten de gewichten; het trainingsalgoritme kiest ze <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=7">ML-notities p. 7</a>.</li>
 <li><b>"Voor elk model bestaat een exacte formule voor de beste gewichten."</b> Fout: lineaire regressie met MSE heeft een analytische oplossing (de OLS-schatter) <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=16">ML-notities p. 16</a>; voor de meeste andere modelklassen zoekt een algoritme het minimum <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=7">ML-notities p. 7</a>, bv. gradient descent bij neurale netwerken <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=39">ML p. 39</a>.</li>
@@ -309,11 +346,15 @@ specialisten gebruiken bestaande implementaties. Bij lineaire regressie met MSE 
 <!-- ============================================================== 12.6 -->
 <section class="unit" id="d12-hyperparameters" data-kw="hyperparameter; parameter; modelcomplexiteit; model complexity; graad polynoom; polynomial degree; diepte boom; tree depth; max_depth; lambda; ridge; aantal lagen; complexiteit">
 <h3>12.6 Parameters versus hyperparameters <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=18">ML p. 18</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=7">ML-notities p. 7–8</a></h3>
+<p>In 12.5 vindt het trainingsalgoritme de gewichten \(\theta\). Maar vóór het trainen moet de analist zelf keuzes
+maken die het algoritme niet maakt: welke modelklasse, en hoe complex mag het model zijn? Die keuzes heten
+<b>hyperparameters</b>; hun beste waarde "rolt meestal niet uit het trainingsalgoritme"
+<a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=7">ML-notities p. 7</a>.</p>
 <table>
 <tr><th></th><th>Hyperparameters</th><th>Parameters \(\theta\)</th></tr>
 <tr><td>Wat bepalen ze?</td><td>de <b>modelklasse</b>: structuur en complexiteit van het model</td><td>het <b>model binnen die klasse</b></td></tr>
 <tr><td>Wie kiest ze?</td><td>de analist, <b>vooraf</b>; ze rollen niet uit de loss-minimalisatie</td><td>het trainingsalgoritme</td></tr>
-<tr><td>Voorbeelden</td><td>graad van een polynoom; diepte van een beslissingsboom; aantal lagen en neuronen van een neuraal netwerk; regularisatiesterkte \(\lambda\) bij ridge-regressie</td><td>de coëfficiënten van een regressie; de gewichten van een netwerk</td></tr>
+<tr><td>Voorbeelden</td><td>graad van een polynoom; diepte van een beslissingsboom; aantal lagen en neuronen van een neuraal netwerk; regularisatiesterkte \(\sym{lambda_ridge}{\lambda}\) bij ridge-regressie (hoe sterk grote coëfficiënten bestraft worden, 12.12)</td><td>de coëfficiënten van een regressie; de gewichten van een netwerk</td></tr>
 </table>
 <p><b>Het probleem met "meer complexiteit"</b> <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=18">ML p. 18</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=8">ML-notities p. 8</a>. Een complexer model (meer parameters) heeft meer
 vrijheid, dus <b>op de traindata doet het altijd minstens even goed</b> als een eenvoudiger model. Dat geeft een vals
@@ -384,32 +425,34 @@ dat is cross-validatie (12.7).</p>
 <!-- ============================================================== 12.7 -->
 <section class="unit" id="d12-crossvalidatie" data-kw="cross-validatie; cross-validation; train-test split; trainset; testset; validatieset; training set; test set; validation set; k-fold; k-voudig; fold; hyperparameter tuning; held-out">
 <h3>12.7 Train-testsplitsing, validatieset en k-voudige cross-validatie <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=19">ML p. 19–21</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=8">ML-notities p. 8–9</a></h3>
-<p>Om te meten hoe goed een model <b>generaliseert</b> naar ongeziene data, heb je een onafhankelijke evaluatie
-nodig. De notities noemen elke evaluatie op data die niet voor training gebruikt werd losweg "cross-validatie"
+<p>12.6 eindigde met een probleem: op de traindata wint het complexere model altijd. Wil je weten hoe goed een model
+<b>generaliseert</b> naar ongeziene data, dan heb je een onafhankelijke evaluatie nodig: data die het model tijdens
+het trainen niet gezien heeft. De notities noemen elke evaluatie op zulke data losweg "cross-validatie"
 <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=8">ML-notities p. 8</a>.</p>
-<p><b>Train-testsplitsing (train-test split)</b> <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=20">ML p. 20</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=8">ML-notities p. 8</a>: verdeel de dataset in een trainset en een
-testset.</p>
+<p><b>Train-testsplitsing (train-test split)</b> <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=20">ML p. 20</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=8">ML-notities p. 8</a>: verdeel de dataset vooraf in twee delen,
+een trainset en een testset.</p>
 <ol class="steps">
 <li>Train het model op de <b>trainset</b>.</li>
 <li>Evalueer het op de <b>testset</b>, die het model nooit gezien heeft. De testset simuleert "toekomstige data".</li>
 </ol>
-<p>Typisch gaat 70–80 % van de data naar training en 20–30 % naar test <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=8">ML-notities p. 8</a>. Hyperparameters kies je zo: train
-het model voor verschillende waarden, evalueer elk, en kies de waarde met de beste prestatie op de testset
-<a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=8">ML-notities p. 8–9</a>.</p>
+<p>Typisch gaat 70–80 % van de data naar training en 20–30 % naar test <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=8">ML-notities p. 8</a>. Zo kies je ook de
+hyperparameters van 12.6: train het model voor verschillende waarden, evalueer elk, en kies de waarde met de beste
+prestatie op de testset <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=8">ML-notities p. 8–9</a>.</p>
 <figure class="fig"><img src="figures/12_train_val_test.png" alt="Volledige dataset (100 %) opgesplitst in Train Set 70 %, Val Set 15 % en Test Set 15 %">
 <figcaption>Figuur: een eenvoudige train-validatie-testsplitsing (train-validation-test split): 70 % trainset om het model te fitten (model fitting), 15 % "Val Set" om hyperparameters te tunen en 15 % "Test Set" alleen voor de eindevaluatie. Let op de namen: de tekst bij deze figuur noemt die laatste set juist de validatieset (zie het kader hieronder). <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=20">ML p. 20</a></figcaption></figure>
 <div class="box warn"><span class="t">Opgelet: de validatieset, en twee namen die door elkaar lopen</span>
 <p>Wie hyperparameters <b>herhaaldelijk</b> tunet op dezelfde testset, overtraint ook <b>op die testset</b>: de keuze
 is dan optimaal voor die ene toevallige splitsing, maar misschien niet voor andere data <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=20">ML p. 20</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=9">ML-notities p. 9</a>. Daarom
 houdt men een <b>derde</b> dataset apart voor de uiteindelijke evaluatie.</p>
-<p>In de tekst van <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=20">ML p. 20</a> en in de notities heet die derde set de <b>validatieset</b>. Maar de figuur hierboven, van dezelfde
-pagina, gebruikt de namen omgekeerd: Train Set 70 %, "Val Set" 15 % voor het tunen van hyperparameters, en "Test Set"
-15 % alleen voor de eindevaluatie. De notities waarschuwen zelf dat veel mensen validatie- en testset omgekeerd
-gebruiken; meestal blijkt uit de context wat bedoeld wordt <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=9">ML-notities p. 9</a>. <b>Kijk dus naar de rol, niet naar de naam</b>:
-één set om te kiezen (tunen), één set die je pas helemaal op het einde één keer gebruikt.</p>
+<p>In de tekst van <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=20">ML p. 20</a> en in de notities heet die derde set de <b>validatieset</b>. De figuur hierboven gebruikt
+de namen omgekeerd: "Val Set" om te tunen en "Test Set" voor de eindevaluatie. Volgens de notities gebruiken veel mensen
+validatie- en testset omgekeerd; meestal blijkt uit de context wat bedoeld wordt <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=9">ML-notities p. 9</a>. <b>Kijk dus naar
+de rol, niet naar de naam</b>: één set om te kiezen (tunen), één set die je pas helemaal op het einde één keer
+gebruikt.</p>
 </div>
-<p><b>k-voudige cross-validatie (k-fold cross-validation)</b> <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=21">ML p. 21</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=9">ML-notities p. 9</a>. Zo hangt het resultaat niet af van
-één toevallige splitsing:</p>
+<p><b>k-voudige cross-validatie (k-fold cross-validation)</b> <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=21">ML p. 21</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=9">ML-notities p. 9</a>. Eén splitsing is toevallig: een
+andere verdeling in train en test had een andere score gegeven. k-voudige cross-validatie haalt die toevalligheid weg.
+Je kiest zelf een aantal \(\sym{k_folds}{k}\):</p>
 <ol class="steps">
 <li>Verdeel de data in k gelijke delen ("folds").</li>
 <li>Train het model k keer; telkens dient één fold als testdeel en de overige \(\sym{k_folds}{k}-1\) folds als trainset.</li>
@@ -426,7 +469,6 @@ een apart "Held-Out Test Set"-blok blijft altijd onaangeroerd.</p>
 <ul>
 <li><b>"Het model haalt een kleine fout op de data waarmee het getraind is, dus het werkt."</b> Fout: evalueer op een testset die het model nooit gezien heeft; die simuleert toekomstige data <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=20">ML p. 20</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=8">ML-notities p. 8</a>.</li>
 <li><b>"Je tunet de hyperparameters op de testset en rapporteert die testscore als verwachte prestatie."</b> Fout: wie herhaaldelijk op dezelfde testset tunet, overtraint ook op die testset. Houd een derde set apart die je pas op het einde één keer gebruikt <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=20">ML p. 20</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=9">ML-notities p. 9</a>.</li>
-<li><b>Let op:</b> validatieset en testset worden door elkaar gebruikt. De tekst van ML p. 20 en de notities noemen de set voor de eindevaluatie "validatieset", de figuur op dezelfde pagina noemt ze "Test Set" <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=9">ML-notities p. 9</a>. Kijk naar de rol: één set om te kiezen, één set voor het einde.</li>
 <li><b>"Bij k-voudige cross-validatie train je op één fold en test je op de andere \(\sym{k_folds}{k}-1\)."</b> Fout: omgekeerd: je traint op \(\sym{k_folds}{k}-1\) folds en evalueert op de overblijvende fold, k keer, en middelt de scores <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=9">ML-notities p. 9</a>.</li>
 <li><b>"Het nadeel van k-voudige cross-validatie is een minder stabiele schatting."</b> Fout: de schatting is net stabieler; het nadeel is dat je het model veel vaker moet trainen <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=9">ML-notities p. 9</a>.</li>
 </ul></div>
@@ -475,8 +517,11 @@ een apart "Held-Out Test Set"-blok blijft altijd onaangeroerd.</p>
 <!-- ============================================================== 12.8 -->
 <section class="unit" id="d12-overfitting" data-kw="underfitting; overfitting; onderfitting; overfitten; goede fit; good fit; generalisatie; generalisation; trainfout; testfout; training error; test error; U-curve; modelcomplexiteit; polynoom">
 <h3>12.8 Underfitting en overfitting; de U-vormige curve <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=22">ML p. 22–24</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=9">ML-notities p. 9–10</a></h3>
-<p>De figuur hieronder ("Drie scenario's") <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=23">ML p. 23</a> toont dezelfde puntenwolk (rond een golvend "true signal") met drie
-polynomen:</p>
+<p>Met een testset (12.7) heb je twee getallen per model: de <b>trainfout</b> (de loss op de traindata) en de
+<b>testfout</b> (de loss op de testdata). Samen tonen ze of de complexiteit, de hyperparameter van 12.6, goed gekozen
+is. De figuur hieronder ("Drie scenario's") <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=23">ML p. 23</a> fit drie polynomen van verschillende graad door dezelfde
+puntenwolk, die rond een golvend echt signaal (true signal) ligt. De kolommen bias en variance verklaart 12.9; hier
+volstaat: hoge bias = te eenvoudig, hoge variance = te gevoelig voor de toevallige traindata.</p>
 <figure class="fig"><img src="figures/12_drie_scenarios.png" alt="Drie panelen met dezelfde punten rond een gestippeld echt signaal: een rechte lijn (graad 1), een gladde curve (graad 4) en een wild kronkelende curve (graad 18)">
 <figcaption>Figuur: dezelfde data, drie modellen. Links underfitting: een rechte lijn (degree = 1) mist de golf van het echte signaal (true signal, gestippeld); bias hoog, train- en test-loss hoog. Midden een goede fit (degree = 4) die het patroon volgt. Rechts overfitting (degree = 18): de curve kronkelt door de punten en schiet aan de randen alle kanten op; variance hoog, train-loss laag maar test-loss hoog. <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=23">ML p. 23</a></figcaption></figure>
 <table>
@@ -578,21 +623,27 @@ curven zo lopen, verklaart 12.9.</p>
 <!-- ============================================================== 12.9 -->
 <section class="unit" id="d12-bias-variance" data-kw="bias-variance; bias-variance trade-off; afweging; decompositie; decomposition; bias; variance; variantie; irreducibele ruis; irreducible noise; sigma kwadraat; SPC; nauwkeurigheid; precisie; accuracy; precision">
 <h3>12.9 De bias-variance afweging en de analogie met SPC <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=25">ML p. 25–28</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=10">ML-notities p. 10–13</a></h3>
-<p>Waarom volgt de testfout een U? De verwachte fout van een model valt uiteen in drie stukken <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=26">ML p. 26</a>:</p>
+<p>12.8 toonde dat de testfout een U volgt als de complexiteit stijgt. Waarom? De verwachte fout van een model valt
+uiteen in drie stukken <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=26">ML p. 26</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=10">ML-notities p. 10</a>:</p>
 <div class="f">
-<div>\[E[(\sym{y}{y}-\sym{fhat}{\hat{f}}(\sym{x}{x}))^{2}]=\] Bias[\[\sym{fhat}{\hat{f}}(\sym{x}{x})\]]\[{}^{2}+\operatorname{Var}[\sym{fhat}{\hat{f}}(\sym{x}{x})]+\sym{sigma2_noise}{\sigma^{2}}\]</div>
+<div>\[E[(\sym{y}{y}-\sym{fhat}{\hat{f}}(\sym{x}{x}))^{2}]=\mathrm{Bias}[\sym{fhat}{\hat{f}}(\sym{x}{x})]^{2}+\operatorname{Var}[\sym{fhat}{\hat{f}}(\sym{x}{x})]+\sym{sigma2_noise}{\sigma^{2}}\]</div>
 <div>= systematische fout + gevoeligheid + ruis</div>
 </div>
+<p>Hier is x een vast invoerpunt, y de uitkomst die je bij die x waarneemt en \(\sym{fhat}{\hat{f}}(\sym{x}{x})\) de voorspelling van je
+getrainde model. De verwachtingswaarde E loopt over alle datasets D die je had kunnen trekken én alle y die je bij die
+x had kunnen waarnemen <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=10">ML-notities p. 10</a>. Links staat dus de gemiddelde gekwadrateerde voorspelfout op nieuwe data.</p>
 <table>
 <tr><th>Term</th><th>Betekenis</th><th>Gevolg</th></tr>
 <tr><td><b>Bias</b> (systematische fout)</td><td>de modelklasse kan de echte f(x) niet vatten</td><td>underfitting</td></tr>
 <tr><td><b>Variance</b> (gevoeligheid)</td><td>het model is gevoelig voor de toevallige dataset D waarop het getraind is</td><td>overfitting</td></tr>
 <tr><td><b>\(\sigma^{2}\)</b> (irreducibele ruis, irreducible noise)</td><td>inherente ruis in de data</td><td>door geen enkel model te verkleinen</td></tr>
 </table>
-<p><b>Wat betekenen de termen precies?</b> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=10">ML-notities p. 10–11</a> Stel je een gedachte-experiment voor:</p>
+<p><b>Wat betekenen de termen precies?</b> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=10">ML-notities p. 10–11</a> Je hebt drie functies nodig. De derde is een
+gedachte-experiment:</p>
 <ul>
-<li>\(\sym{f_true}{f}(\sym{x}{x})=E[\sym{y_rv}{Y}\mid\sym{x_rv}{X}=\sym{x}{x}]\) is de echte regressielijn.</li>
-<li>\(\sym{fhat}{\hat{f}}(\sym{x}{x};\sym{d_data}{D})\) is de voorspelling van jouw model, getraind op jouw dataset D.</li>
+<li>\(\sym{f_true}{f}(\sym{x}{x})=E[\sym{y_rv}{Y}\mid\sym{x_rv}{X}=\sym{x}{x}]\) is de echte regressielijn (12.3): de waarheid, die je nooit kent.</li>
+<li>\(\sym{fhat}{\hat{f}}(\sym{x}{x};\sym{d_data}{D})\) is de voorspelling van jouw model, getraind op jouw dataset D. De "; D" herinnert eraan dat
+ze van de dataset afhangt.</li>
 <li>\(\sym{ftilde}{\tilde{f}}(\sym{x}{x})=E_{\sym{d_data}{D}}[\sym{fhat}{\hat{f}}(\sym{x}{x};\sym{d_data}{D})]\) is de <b>gemiddelde</b> voorspelling als je in gedachten oneindig veel nieuwe
 datasets zou trekken en telkens opnieuw zou trainen. Dat is een theoretisch begrip.</li>
 </ul>
@@ -602,6 +653,9 @@ datasets zou trekken en telkens opnieuw zou trainen. Dat is een theoretisch begr
 <div>Irreducibele fout = \[E[(\sym{y}{y}-\sym{f_true}{f}(\sym{x}{x}))^{2}]=\sym{sigma2_noise}{\sigma^{2}}\]: zelfs de echte regressielijn voorspelt y niet exact</div>
 <div>Keten: \[\sym{y}{y}\to(\sym{sigma2_noise}{\sigma^{2}})\to\sym{f_true}{f}(\sym{x}{x})\to(\sym{bias}{\mathrm{bias}})\to\sym{ftilde}{\tilde{f}}(\sym{x}{x})\to(\sym{variance}{\text{variance}})\to\sym{fhat}{\hat{f}}(\sym{x}{x};\sym{d_data}{D})\]</div>
 </div>
+<p>Lees de keten van links naar rechts <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=11">ML-notities p. 11</a>: de waarneming y ligt door ruis naast de echte
+\(f(x)\); het gemiddelde model \(\tilde{f}(x)\) ligt door de bias naast \(f(x)\); jouw ene model \(\hat{f}(x;D)\) ligt door de variance
+naast \(\tilde{f}(x)\).</p>
 <p><b>De afweging (trade-off)</b> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=11">ML-notities p. 11–12</a>: probeer je de bias te verkleinen met een andere keuze van
 hyperparameters, dan zie je vaak dat de variance stijgt, en omgekeerd. Naarmate de modelcomplexiteit toeneemt,
 <b>daalt de bias en stijgt de variance</b>; de optimale complexiteit minimaliseert hun som (de U van 12.8).
@@ -698,16 +752,19 @@ parameter die getraind wordt.</li>
 <!-- ============================================================== 12.10 -->
 <section class="unit" id="d12-confusion" data-kw="confusion matrix; verwarringsmatrix; TP; FP; FN; TN; true positive; false positive; false negative; true negative; accuracy; precision; precisie; recall; sensitiviteit; sensitivity; F1; F1-score; meerklassen; multiclass">
 <h3>12.10 De confusion matrix en vier metrics <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=29">ML p. 29–31</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=13">ML-notities p. 13–15</a></h3>
-<p>Bij regressie meet je de fout met één getal (MSE, MAE). Bij classificatie ligt het complexer: het model voorspelt
-een klasse, en er zijn <b>verschillende soorten fouten</b> <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=30">ML p. 30</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=13">ML-notities p. 13</a>. Een <b>confusion matrix</b> telt hoe
+<p>De train- en testfout van 12.8 zijn bij regressie één getal (MSE, MAE). Bij classificatie ligt het complexer: het
+model voorspelt een klasse, en er zijn <b>verschillende soorten fouten</b> <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=30">ML p. 30</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=13">ML-notities p. 13</a>. Een <b>confusion matrix</b> telt hoe
 vaak elke combinatie van <b>werkelijke</b> en <b>voorspelde</b> klasse voorkomt.</p>
 <p><b>De 2 × 2 matrix</b> <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=31">ML p. 31</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=14">ML-notities p. 14</a>, met "positief" = de klasse waarin je geïnteresseerd bent (bv.
-"defect"):</p>
+"defect"). Elke observatie valt in precies één van de vier cellen:</p>
 <table>
 <tr><th></th><th>Voorspeld +</th><th>Voorspeld −</th></tr>
 <tr><th>Werkelijk +</th><td>True Positive (TP): terecht als positief herkend</td><td>False Negative (FN): een echte positieve gemist</td></tr>
 <tr><th>Werkelijk −</th><td>False Positive (FP): vals alarm</td><td>True Negative (TN): terecht als negatief herkend</td></tr>
 </table>
+<p>Lees de afkortingen zo: de tweede letter zegt wat het model voorspelde (P = positief, N = negatief), de eerste of
+dat klopte (T = true, juist; F = false, fout). Uit deze vier tellingen volgen vier metrics; ze liggen alle vier tussen
+0 en 1:</p>
 <div class="f">
 <div><var data-s="accuracy">Accuracy</var> (nauwkeurigheid) = \[\frac{\sym{tp}{\mathrm{TP}}+\sym{tn}{\mathrm{TN}}}{\sym{tp}{\mathrm{TP}}+\sym{tn}{\mathrm{TN}}+\sym{fp}{\mathrm{FP}}+\sym{fn}{\mathrm{FN}}}\]: het aandeel correct geclassificeerde observaties</div>
 <div><var data-s="precision">Precision</var> (precisie) = \[\frac{\sym{tp}{\mathrm{TP}}}{\sym{tp}{\mathrm{TP}}+\sym{fp}{\mathrm{FP}}}\]: van alle positieve voorspellingen, hoeveel zijn echt positief?</div>
@@ -896,6 +953,8 @@ er eerst per klasse een 2 × 2 "klasse k tegen de rest" van (oefening 12.8).</p>
 <!-- ============================================================== 12.11 -->
 <section class="unit" id="d12-metric-keuze" data-kw="metric kiezen; keuze metric; choice of metric; recall; precision; accuracy misleidend; onevenwichtige klassen; imbalanced classes; veiligheid; safety; alarmsysteem; alarm; vals alarm; gewogen loss; domeinbeslissing">
 <h3>12.11 Welke metric kies je? <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=32">ML p. 32</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=15">ML-notities p. 15</a></h3>
+<p>De vier metrics van 12.10 kunnen over hetzelfde model een ander oordeel geven. Precision let op de valse alarmen (FP),
+recall op de gemiste gevallen (FN). Welke je laat beslissen, hangt af van de toepassing.</p>
 <div class="box key"><span class="t">Kernidee</span>
 <p>De keuze van de evaluatiemetric is een <b>domeinbeslissing, geen technische</b> <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=32">ML p. 32</a>. Ze hangt af van welke van
 de twee fouten het ergst is.</p>

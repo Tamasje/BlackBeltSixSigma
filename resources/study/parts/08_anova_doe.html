@@ -1,21 +1,26 @@
 <section class="part" id="d08" data-title="Deel 08 — ANOVA en proefopzet (design of experiments)" data-lecturer="Stijn De Vuyst" data-les="Les 3">
   <h2>Deel 08 — ANOVA en proefopzet (design of experiments)</h2>
-  <p class="intro">Dit deel behandelt variantieanalyse en proefopzet en bouwt verder op de regressie van
-  <a href="#d07">Deel 7</a>. Eerst one-way ANOVA: een respons
-  verklaren met een categorische x, wiskundig hetzelfde als regressie; daarna tweewegs-ANOVA. Daarna waarom en hoe je experimenten plant,
-  \(2^{\sym{k_factors}{k}}\)-proefopzetten en fractionele proefopzetten.
+  <p class="intro">Dit deel bouwt verder op de regressie van <a href="#d07">Deel 7</a> en heeft twee helften. De eerste
+  helft is variantieanalyse (ANOVA): een respons verklaren met een categorische x, wiskundig hetzelfde als regressie, eerst
+  met één factor (one-way ANOVA) en dan met twee (tweewegs-ANOVA). De tweede helft is proefopzet (design of experiments):
+  waarom en hoe je experimenten plant, \(2^{\sym{k_factors}{k}}\)-ontwerpen en fractionele ontwerpen.
   <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=1">DOE p. 1</a></p>
 
   <section class="unit" id="d08-brug" data-kw="ANOVA; variantieanalyse; analysis of variance; factor; categorische variabele; categorical variable; niveau; level; behandeling; treatment; groep; group; replicaties; replicates; gebalanceerd; balanced; dummyvariabelen; dummy variables; regressie; regression">
     <h3>08.1 Van regressie naar ANOVA: factoren <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=2">DOE p. 2, 5–7</a></h3>
-    <p>Regressie verklaart y met een <b>numerieke</b> x. ANOVA (analysis of variance, variantieanalyse) verklaart y met
-    een <b>categorische</b> x, een <b>factor</b>. Een factor is een variabele van nominaal type met een beperkt aantal vaste
-    waarden, de <b>niveaus (levels)</b>; die niveaus hebben geen numerieke betekenis of volgorde. Voorbeelden: de factor
-    "Material" met 3 niveaus (Aluminium, Zinc, Tungsten), of "Age" met 4 niveaus (0–18, 19–35, 36–60, &gt;60) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=2">DOE p. 2</a>.</p>
-    <p>In een experiment met één factor stelt elk niveau een populatie voor. De metingen bij een niveau, de
-    <b>replicaties (replicates)</b>, vormen een steekproef uit die populatie. De groep metingen bij één niveau heet een
-    categorie, groep, behandeling (treatment) of cel (cell). Heeft elke groep evenveel metingen, dan is het experiment
-    <b>gebalanceerd (balanced)</b>; de cursus veronderstelt dat altijd <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=2">DOE p. 2</a>.</p>
+    <p>Deel 7 verklaarde een respons y met een <b>numerieke</b> x. ANOVA (analysis of variance, variantieanalyse) doet
+    hetzelfde met een <b>categorische</b> x, een <b>factor</b>. Eerst de begrippen <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=2">DOE p. 2</a>:</p>
+    <ul>
+      <li><b>Factor</b>: een variabele van nominaal type met een beperkt aantal vaste waarden, de <b>niveaus (levels)</b>.
+      De niveaus hebben geen numerieke betekenis en geen volgorde. Voorbeelden: de factor "Material" met 3 niveaus
+      (Aluminium, Zinc, Tungsten), of "Age" met 4 niveaus (0–18, 19–35, 36–60, &gt;60).</li>
+      <li><b>Groep</b>: alle metingen bij één niveau. De cursus noemt dat ook categorie, behandeling (treatment) of cel
+      (cell). Elk niveau stelt een populatie voor; de metingen erbij, de <b>replicaties (replicates)</b>, zijn een
+      steekproef uit die populatie.</li>
+      <li><b>Gebalanceerd (balanced)</b>: elke groep heeft evenveel metingen. De cursus gaat daar altijd van uit.</li>
+    </ul>
+    <p>In de formules van dit deel is \(\sym{a_levels}{a}\) het aantal niveaus (dus het aantal groepen) en \(\sym{n_rep}{n}\) het aantal
+    replicaties per groep. Je telt ze allebei in de opgave.</p>
     <div class="box key"><span class="t">De brug</span>
       <p>Het ANOVA-model met één factor is een <b>speciaal geval van het meervoudige lineaire
       regressiemodel</b> van <a href="#d07-meervoudig">07.9</a>. Geef elk niveau zijn eigen dummyvariabele (bv. een factor
@@ -41,23 +46,35 @@
 
   <section class="unit" id="d08-model" data-kw="means model; gemiddeldenmodel; effects model; effectenmodel; tau; effect van een niveau; grote gemiddelde; grand mean; homoscedasticiteit; gelijke variantie; equal variance; nulhypothese; null hypothesis; twee-steekproeven t-toets; two-sample t-test; one-way ANOVA; enkelvoudige variantieanalyse">
     <h3>08.2 De vraag en het model <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=3">DOE p. 3–4</a></h3>
-    <p>Factor A heeft <b>a niveaus</b>, met <b>n replicaties</b> per groep. Alle populaties zijn normaal, met mogelijk
-    verschillende gemiddelden maar <b>dezelfde variantie \(\sigma^{2}\)</b> (homoscedasticiteit).
-    \(Y_{ij}\) is de j-de meting bij het i-de niveau. Twee gelijkwaardige schrijfwijzen van hetzelfde model
-    <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=3">DOE p. 3</a>:</p>
+    <p>08.1 legde de factor en zijn groepen vast. Nu het model waarmee je de groepen vergelijkt
+    <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=3">DOE p. 3</a>.</p>
+    <p><b>Wat je aanneemt.</b> Factor A heeft \(\sym{a_levels}{a}\) niveaus met elk \(\sym{n_rep}{n}\) replicaties. Elke groep komt uit een
+    normale populatie. De populaties mogen een verschillend gemiddelde hebben, maar hebben allemaal <b>dezelfde variantie</b>
+    \(\sym{sigma2}{\sigma^{2}}\) (homoscedasticiteit). \(\sym{y_ij}{Y_{ij}}\) is de j-de meting bij het i-de niveau: i telt de groepen (1 tot a), j de
+    metingen binnen een groep (1 tot n).</p>
+    <p>Het model heeft twee gelijkwaardige schrijfwijzen:</p>
     <div class="f">
       <div><b>Means model (gemiddeldenmodel):</b> \[\sym{y_ij}{Y_{ij}}=\sym{mu_i}{\mu_{i}}+\sym{eps_ij}{\varepsilon_{ij}}\]</div>
       <div><b>Effects model (effectenmodel):</b> \[\sym{y_ij}{Y_{ij}}=\sym{mu}{\mu}+\sym{tau_i}{\tau_{i}}+\sym{eps_ij}{\varepsilon_{ij}}\], met \[\Sigma\ \sym{tau_i}{\tau_{i}}=0\]</div>
       <div>\[\sym{eps_ij}{\varepsilon_{ij}}\sim N(0,\sym{sigma2}{\sigma^{2}})\] en onafhankelijk; \[i=1\ \ldots\ \sym{a_levels}{a}\] (groep), \[j=1\ \ldots\ \sym{n_rep}{n}\] (meting); \[\sym{a_levels}{a}+1\] vrije parameters</div>
     </div>
-    <p>\(\tau_{i}\) is gewoon hoe ver groep i boven of onder het grote gemiddelde (grand mean) \(\mu\) ligt. De vraag: heeft
-    factor A een statistisch significante invloed, met andere woorden, zijn de \(\mu_{i}\) verschillend, of is een
-    \(\tau_{i}\) verschillend van nul <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=3">DOE p. 3</a>?</p>
+    <ul>
+      <li>\(\sym{mu_i}{\mu_{i}}\): het onbekende populatiegemiddelde van niveau i.</li>
+      <li>\(\sym{mu}{\mu}\): het grote gemiddelde (grand mean), het gemiddelde over alle niveaus samen.</li>
+      <li>\(\sym{tau_i}{\tau_{i}}=\sym{mu_i}{\mu_{i}}-\sym{mu}{\mu}\): het <b>effect</b> van niveau i, dus hoe ver groep i boven of onder het grote
+      gemiddelde ligt. Daarom tellen de \(\tau_{i}\) op tot nul.</li>
+      <li>\(\sym{eps_ij}{\varepsilon_{ij}}\): de toevallige fout van meting ij, normaal verdeeld met gemiddelde 0 en variantie \(\sigma^{2}\),
+      onafhankelijk van de andere fouten.</li>
+    </ul>
+    <p>Het gemiddeldenmodel beschrijft de groepen dus rechtstreeks met hun gemiddelden, het effectenmodel met hun afwijking
+    van het grote gemiddelde. <b>De vraag</b> is of factor A een statistisch significante invloed heeft: verschillen de
+    \(\mu_{i}\), of is een \(\tau_{i}\) verschillend van nul <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=3">DOE p. 3</a>?</p>
     <figure class="fig"><img src="figures/08_papier_boxplots_model.png" alt="Boven: boxplots van de treksterkte bij 5, 10, 15 en 20 % hardhout, stijgend. Onder: vier even brede normale klokken gecentreerd op mu plus tau_1 tot mu plus tau_4">
     <figcaption>Figuur: (a) boxplots van de treksterkte van papier bij 5, 10, 15 en 20 % hardhout (het voorbeeld van 08.5): de
     groepen liggen duidelijk op verschillende hoogte. (b) Het effectenmodel in beeld: elke groep is een normale verdeling met
     gemiddelde \(\mu_{i}=\mu+\tau_{i}\) rond het grote gemiddelde \(\mu\), en alle vier hebben dezelfde variantie \(\sigma^{2}\).
     <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=4">DOE p. 4</a></figcaption></figure>
+    <p>Als hypothesen geschreven:</p>
     <div class="f">
       <div>\(\sym{h0}{H_{0}}\): \(\sym{mu_i}{\mu_{1}}=\sym{mu_i}{\mu_{2}}=\ldots=\sym{mu_i}{\mu_{a}}\) (gelijkwaardig: alle \(\sym{tau_i}{\tau_{i}}=0\))</div>
       <div>\(\sym{ha}{H_{A}}\): minstens één groepsgemiddelde verschilt <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=7">DOE p. 7</a></div>
@@ -75,8 +92,18 @@
 
   <section class="unit" id="d08-opsplitsing" data-kw="kwadratensom; sum of squares; SS Total; SS Treatment; SS Error; tussen groepen; between groups; binnen groepen; within groups; vrijheidsgraden; degrees of freedom; groepsgemiddelde; group mean; grand mean">
     <h3>08.3 De variatie opsplitsen <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=6">DOE p. 6</a></h3>
-    <p>Schrijf \(\bar{Y}_{i\cdot}\) voor het gemiddelde van groep i en \(\bar{Y}_{\cdot\cdot}\) voor het grote gemiddelde van alle \(\sym{a_levels}{a}\cdot\sym{n_rep}{n}\)
-    metingen <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=5">DOE p. 5</a>.</p>
+    <p>08.2 stelde de vraag: verschillen de groepsgemiddelden? ANOVA beantwoordt die door de totale variatie in de data in
+    twee delen te splitsen: variatie <b>tussen</b> de groepen, die de factor verklaart, en variatie <b>binnen</b> de groepen,
+    die onverklaard blijft <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=6">DOE p. 6</a>. 08.4 vergelijkt die twee delen.</p>
+    <p>Je hebt twee gemiddelden nodig, allebei berekend uit de data <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=5">DOE p. 5</a>:</p>
+    <ul>
+      <li>\(\sym{ybar_i}{\bar{Y}_{i\cdot}}\), het <b>groepsgemiddelde</b> (group mean): de som van de n metingen van groep i, gedeeld door n.
+      Het schat \(\sym{mu_i}{\mu_{i}}\).</li>
+      <li>\(\sym{ybar_grand}{\bar{Y}_{\cdot\cdot}}\), het <b>grote gemiddelde</b> (grand mean): het gemiddelde van alle \(\sym{a_levels}{a}\cdot\sym{n_rep}{n}\) metingen; bij
+      gelijke n is dat ook het gemiddelde van de a groepsgemiddelden. Het schat \(\sym{mu}{\mu}\).</li>
+    </ul>
+    <p>Een punt op de plaats van een index betekent: over die index gemiddeld. Elke kwadratensom (sum of squares, SS) telt
+    gekwadrateerde afwijkingen op:</p>
     <table>
       <tr><th>Kwadratensom</th><th>Formule</th><th>Wat ze meet</th><th>df</th><th>In regressie</th></tr>
       <tr><td>\(\sym{ss_total}{\mathrm{SS}_{\text{Total}}}\)</td><td>\(\Sigma_{i}\Sigma_{j}\ (\sym{y_ij}{Y_{ij}}-\sym{ybar_grand}{\bar{Y}_{\cdot\cdot}})^{2}\)</td><td>alle variatie in de data</td><td>\(\sym{a_levels}{a}\sym{n_rep}{n}-1\)</td><td>\(\sym{ss_total}{\mathrm{SS}_{T}}\)</td></tr>
@@ -84,8 +111,9 @@
       <tr><td>\(\sym{ss_e}{\mathrm{SS}_{\text{Error}}}\)</td><td>\(\Sigma_{i}\Sigma_{j}\ (\sym{y_ij}{Y_{ij}}-\sym{ybar_i}{\bar{Y}_{i\cdot}})^{2}\)</td><td>hoe sterk de metingen binnen hun eigen groep spreiden: variatie <b>binnen</b> de groepen (within groups), onverklaard</td><td>\(\sym{a_levels}{a}(\sym{n_rep}{n}-1)\)</td><td>\(\sym{ss_e}{\mathrm{SS}_{E}}\)</td></tr>
     </table>
     <div class="f"><div>\[\sym{ss_total}{\mathrm{SS}_{\text{Total}}}=\sym{ss_tr}{\mathrm{SS}_{\text{Treatment}}}+\sym{ss_e}{\mathrm{SS}_{\text{Error}}}\] (en de vrijheidsgraden tellen op dezelfde manier op)</div></div>
-    <p class="small">De vrijheidsgraden volgen de regel van regressie: aantal waarnemingen \(\sym{a_levels}{a}\sym{n_rep}{n}\), aantal parameters \(\sym{p_param}{p}=\sym{a_levels}{a}\),
-    dus \(\sym{a_levels}{a}(\sym{n_rep}{n}-1)\) voor de fout en \(\sym{a_levels}{a}-1\) voor de behandelingen <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=6">DOE p. 6</a>.</p>
+    <p>De <b>vrijheidsgraden</b> (degrees of freedom, \(\sym{df}{\mathrm{df}}\)) volgen de regel van regressie: aantal waarnemingen min aantal
+    parameters. Er zijn \(\sym{a_levels}{a}\sym{n_rep}{n}\) waarnemingen en \(\sym{p_param}{p}=\sym{a_levels}{a}\) parameters (de groepsgemiddelden), dus \(\sym{a_levels}{a}(\sym{n_rep}{n}-1)\) df voor
+    de fout. De behandelingen krijgen \(\sym{a_levels}{a}-1\) df en het totaal \(\sym{a_levels}{a}\sym{n_rep}{n}-1\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=6">DOE p. 6</a>.</p>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"\(\sym{ss_tr}{\mathrm{SS}_{\text{Treatment}}}\) meet de spreiding binnen de groepen."</b> Fout: \(\sym{ss_tr}{\mathrm{SS}_{\text{Treatment}}}\) is de variatie <i>tussen</i> de groepen (between, verklaard), \(\sym{ss_e}{\mathrm{SS}_{\text{Error}}}\) die <i>binnen</i> de groepen (within, onverklaard) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=6">DOE p. 6</a>. In de output van 08.6 heten ze Between Groups en Within Groups.</li>
@@ -97,17 +125,28 @@
 
   <section class="unit" id="d08-ftoets" data-kw="F-toets; F-test; ANOVA-tabel; ANOVA table; mean square; gemiddelde kwadratensom; MS Treatment; MS Error; MSE; kritieke waarde; critical value; p-waarde; p-value; verwachte waarde; expected mean square">
     <h3>08.4 De F-toets en de ANOVA-tabel <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=7">DOE p. 7–8</a></h3>
-    <p>Deel elke SS door haar df om een <b>gemiddelde kwadratensom (mean square,
-    MS)</b> te krijgen en vergelijk de twee:</p>
+    <p>08.3 splitste de variatie in een deel tussen en een deel binnen de groepen. Om die twee te vergelijken, deel je elke
+    kwadratensom door haar vrijheidsgraden. Dat geeft een <b>gemiddelde kwadratensom (mean square, MS)</b>, een soort
+    variantie. De toetsingsgrootheid F is de verhouding van de twee <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=7">DOE p. 7</a>:</p>
     <div class="f">
       <div>\(\sym{ms_tr}{\mathrm{MS}_{\text{Treatment}}}=\frac{\sym{ss_tr}{\mathrm{SS}_{\text{Treatment}}}}{\sym{a_levels}{a}-1}\), \(\sym{ms_e}{\mathrm{MS}_{\text{Error}}}=\frac{\sym{ss_e}{\mathrm{SS}_{\text{Error}}}}{\sym{a_levels}{a}(\sym{n_rep}{n}-1)}\)</div>
       <div>\(\sym{f0}{F}=\frac{\sym{ms_tr}{\mathrm{MS}_{\text{Treatment}}}}{\sym{ms_e}{\mathrm{MS}_{\text{Error}}}}\sim\sym{f_dist}{F_{a-1,a(n-1)}}\) als \(\sym{h0}{H_{0}}\) waar is</div>
-      <div>Verwerp \(\sym{h0}{H_{0}}\) als \(\sym{f0}{F}\gt\sym{f_crit}{F_{1-\alpha,a-1,a(n-1)}}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=7">DOE p. 7</a>, of gelijkwaardig als de \(\sym{p_value}{\text{p-waarde}}\lt\sym{alpha}{\alpha}\)
-      (\(\sym{f_crit}{F_{1-\alpha,a-1,a(n-1)}}\) heeft kans \(1-\alpha\) eronder; de tekstboekpagina's schrijven dezelfde waarde als \(\sym{f_crit}{F_{\alpha;a-1;a(n-1)}}\), met \(\alpha\) erboven).</div>
+      <div>Verwerp \(\sym{h0}{H_{0}}\) als \(\sym{f0}{F}\gt\sym{f_crit}{F_{1-\alpha,a-1,a(n-1)}}\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=7">DOE p. 7</a>, of gelijkwaardig als de \(\sym{p_value}{\text{p-waarde}}\lt\sym{alpha}{\alpha}\)</div>
     </div>
-    <p><b>Waarom F rond 1 ligt als er niets aan de hand is</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=8">DOE p. 8</a>. \(\sym{ms_e}{\mathrm{MS}_{\text{Error}}}\) schat altijd <var data-s="sigma2">σ²</var>.
-    \(\sym{ms_tr}{\mathrm{MS}_{\text{Treatment}}}\) schat \(\sym{sigma2}{\sigma^{2}}+\frac{\sym{n_rep}{n}\cdot\Sigma\sym{tau_i}{\tau_{i}}^{2}}{\sym{a_levels}{a}-1}\), en dat is alleen <var data-s="sigma2">σ²</var> als elke \(\sym{tau_i}{\tau_{i}}\) nul is.
-    Onder \(H_{0}\) zijn teller en noemer dus "ongeveer gelijk"; een echt effect duwt F (veel) boven 1.</p>
+    <ul>
+      <li>\(\sym{f0}{F}\) (in de tekstboekpagina's \(F_{0}\), in de output F of F Value) is de waarde die je uit de data berekent.</li>
+      <li>Is \(\sym{h0}{H_{0}}\) waar, dan volgt F een <b>F-verdeling</b> \(\sym{f_dist}{F_{a-1,a(n-1)}}\): \(\sym{a_levels}{a}-1\) vrijheidsgraden in de teller (die van de
+      behandelingen) en \(\sym{a_levels}{a}(\sym{n_rep}{n}-1)\) in de noemer (die van de fout).</li>
+      <li>De <b>kritieke waarde</b> \(\sym{f_crit}{F_{1-\alpha,a-1,a(n-1)}}\) is het punt van die F-verdeling met kans \(1-\sym{alpha}{\alpha}\) eronder. Je leest ze in een
+      F-tabel of berekent ze met de rekenmachine. De tekstboekpagina's schrijven dezelfde waarde als \(\sym{f_crit}{F_{\alpha;a-1;a(n-1)}}\), met
+      \(\alpha\) erboven: \(F_{0{,}01;3;20}=4{,}94\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=9">DOE p. 9</a>.</li>
+      <li>De <b>p-waarde</b> is de kans in die F-verdeling boven de berekende F. p kleiner dan \(\alpha\) en F groter dan de kritieke
+      waarde zijn hetzelfde besluit.</li>
+    </ul>
+    <p><b>Waarom alleen een grote F telt</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=8">DOE p. 8</a>. \(\sym{ms_e}{\mathrm{MS}_{\text{Error}}}\) schat altijd \(\sym{sigma2}{\sigma^{2}}\).
+    \(\sym{ms_tr}{\mathrm{MS}_{\text{Treatment}}}\) schat \(\sym{sigma2}{\sigma^{2}}+\frac{\sym{n_rep}{n}\cdot\Sigma\sym{tau_i}{\tau_{i}}^{2}}{\sym{a_levels}{a}-1}\), en dat is alleen \(\sigma^{2}\) als elke \(\sym{tau_i}{\tau_{i}}\) nul is.
+    Onder \(H_{0}\) zijn teller en noemer dus "ongeveer gelijk" en ligt F rond 1. Een echt effect maakt de teller groter en
+    duwt F (veel) boven 1. Daarom kijk je alleen naar de rechterstaart.</p>
     <p>De resultaten komen in een <b>ANOVA-tabel</b> (Table 4.6, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=8">DOE p. 8</a>):</p>
     <table>
       <tr><th>Bron (source)</th><th>SS</th><th>df</th><th>MS</th><th>\(F_{0}\)</th></tr>
@@ -127,7 +166,16 @@
 
   <section class="unit" id="d08-papier" data-kw="treksterkte; tensile strength; papier; paper; hardhout; hardwood concentration; Minitab; ANOVA-tabel; verkorte formules; shortcut formulas; correctieterm; pooled StDev; gepoolde standaardafwijking; alpha 0,01">
     <h3>08.5 Uitgewerkt voorbeeld: treksterkte van papier <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=9">DOE p. 4, 9–10</a></h3>
-    <div class="box ex"><span class="t">Uitgewerkt voorbeeld</span>
+    <p>Dit voorbeeld doorloopt 08.3 en 08.4 met de hand. Het gebruikt <b>verkorte formules</b>: in plaats van elke afwijking
+    te kwadrateren, werk je met totalen <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=9">DOE p. 9</a>.</p>
+    <div class="f">
+      <div>\[\sym{ss_total}{\mathrm{SS}_{T}}=\Sigma\Sigma\sym{y_ij}{y_{ij}}^{2}-\frac{\sym{y_tot}{y_{\cdot\cdot}}^{2}}{\sym{n_total}{N}}\qquad\sym{ss_tr}{\mathrm{SS}_{\text{Treatments}}}=\frac{\Sigma\sym{y_i_tot}{y_{i\cdot}}^{2}}{\sym{n_rep}{n}}-\frac{\sym{y_tot}{y_{\cdot\cdot}}^{2}}{\sym{n_total}{N}}\qquad\sym{ss_e}{\mathrm{SS}_{E}}=\sym{ss_total}{\mathrm{SS}_{T}}-\sym{ss_tr}{\mathrm{SS}_{\text{Treatments}}}\]</div>
+    </div>
+    <ul>
+      <li>\(\sym{y_i_tot}{y_{i\cdot}}\): het <b>groepstotaal</b>, de som van de n metingen van groep i.</li>
+      <li>\(\sym{y_tot}{y_{\cdot\cdot}}\): het <b>eindtotaal</b> van alle metingen; \(\sym{n_total}{N}=\sym{a_levels}{a}\sym{n_rep}{n}\) is hun aantal.</li>
+      <li>\(\frac{y_{\cdot\cdot}^{2}}{N}\) is de <b>correctieterm</b>: hij komt in beide formules voor.</li>
+    </ul>
       <p>Vier concentraties hardhout (hardwood concentration), zes papierproefstukken per concentratie, getest in
       willekeurige volgorde <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=4">DOE p. 4</a>. Treksterkte (tensile strength) in psi:</p>
       <table>
@@ -138,7 +186,7 @@
         <tr><td>20</td><td class="n">19</td><td class="n">25</td><td class="n">22</td><td class="n">23</td><td class="n">18</td><td class="n">20</td><td class="n">127</td><td class="n">21,17</td></tr>
         <tr><td colspan="7"></td><td class="n">383</td><td class="n">15,96</td></tr>
       </table>
-      <p>Het voorbeeld gebruikt \(\sym{alpha}{\alpha}=0{,}01\) en de verkorte formules (som van de gekwadrateerde waarden min een correctieterm)
+      <p>Hier is \(\sym{a_levels}{a}=4\), \(\sym{n_rep}{n}=6\) en \(\sym{n_total}{N}=24\). Het voorbeeld toetst met \(\sym{alpha}{\alpha}=0{,}01\)
       <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=9">DOE p. 9</a>:</p>
       <ol class="steps">
         <li>\(\sym{ss_total}{\mathrm{SS}_{T}}=(7^{2}+8^{2}+\ldots+20^{2})-\frac{383^{2}}{24}=512{,}96\)</li>
@@ -215,15 +263,18 @@
 
   <section class="unit" id="d08-vezel" data-kw="synthetische vezel; synthetic fiber; katoen; cotton weight percent; ANOVA-output; Anova: Single Factor; Between Groups; Within Groups; F crit; P-value; Count Sum Average Variance; 1ANOVA; DOE_demo; optimum">
     <h3>08.6 ANOVA-output lezen: synthetische vezel <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=13">DOE p. 13–19</a></h3>
-    <p>Een nieuwe synthetische vezel voor hemdenstof; de respons is de treksterkte. Het katoengehalte kan variëren van 10
-    tot 40 gewichts-%, en er wordt wat niet-lineariteit verwacht. De onderzoeker kiest 5 niveaus (15, 20, 25, 30 en
-    35 gew.-%) met elk 5 replicaties in willekeurige volgorde <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=13">DOE p. 13</a>. Vragen: verandert het katoengehalte de
-    gemiddelde treksterkte, en is er een optimum <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=14">DOE p. 14</a>?</p>
+    <p>08.5 rekende de ANOVA met de hand uit. In de praktijk doet software dat, en moet je de output kunnen lezen. Het
+    voorbeeld: een onderzoeker ontwikkelt een nieuwe synthetische vezel voor hemdenstof en zoekt het beste
+    katoengehalte. De respons is de treksterkte. Het katoengehalte kan variëren van 10 tot 40 gewichts-%, en er wordt
+    wat niet-lineariteit verwacht. De onderzoeker kiest 5 niveaus (15, 20, 25, 30 en 35 gew.-%), dus \(\sym{a_levels}{a}=5\), met elk
+    \(\sym{n_rep}{n}=5\) replicaties in willekeurige volgorde <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=13">DOE p. 13</a>. Twee vragen: verandert het katoengehalte de gemiddelde
+    treksterkte, en is er een optimum <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=14">DOE p. 14</a>?</p>
     <figure class="fig"><img src="figures/08_vezel_boxplots.png" alt="Boxplots van de treksterkte bij 15, 20, 25, 30 en 35 gewichtsprocent katoen: stijgend tot 30 en dan laag bij 35">
     <figcaption>Figuur: boxplots van de treksterkte (lb/\(\mathrm{in}^{2}\)) per katoengehalte (Figure 3-1). De dozen stijgen van 15 naar 30 %
     en zakken bij 35 % terug naar het niveau van 15 %: dat wijst op een optimum rond 30 %.
     <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=14">DOE p. 14</a></figcaption></figure>
-    <p>De output "Anova: Single Factor" <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=15">DOE p. 15</a>:</p>
+    <p>De output "Anova: Single Factor" bestaat uit een ANOVA-tabel en een tabel met per groep het aantal metingen (Count),
+    de som (Sum), het gemiddelde (Average) en de variantie (Variance) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=15">DOE p. 15</a>:</p>
     <table>
       <tr><th>Source of Variation</th><th class="n">SS</th><th class="n">df</th><th class="n">MS</th><th class="n">F</th><th class="n">P-value</th><th class="n">F crit</th></tr>
       <tr><td>Between Groups</td><td class="n">475.76</td><td class="n">4</td><td class="n">118.94</td><td class="n">14.75682</td><td class="n">9.12794E-06</td><td class="n">2.866081</td></tr>
@@ -238,10 +289,11 @@
       <tr><td>Row 4 (30 %)</td><td class="n">5</td><td class="n">108</td><td class="n">21.6</td><td class="n">6.8</td></tr>
       <tr><td>Row 5 (35 %)</td><td class="n">5</td><td class="n">54</td><td class="n">10.8</td><td class="n">8.2</td></tr>
     </table>
+    <p>Zo lees je ze:</p>
     <ul>
       <li><b>Between Groups</b> (tussen de groepen) is de behandelingsregel, <b>Within Groups</b> (binnen de groepen) de
       foutregel; \(\sym{ms_e}{\text{MS Within}}=8{,}06=\sym{ms_e}{\mathrm{MS}_{E}}\).</li>
-      <li><b>F crit</b> is de kritieke waarde bij de gekozen \(\alpha\) (hier 0,05).</li>
+      <li><b>F crit</b> is de kritieke waarde bij de gekozen \(\alpha\) (hier 0,05), met 4 en 20 df.</li>
       <li>\(\sym{f0}{F}=14{,}76\) ligt ver boven 2,87, en \(\sym{p_value}{P}=9{,}1\times10^{-6}\): <b>het katoengehalte doet ertoe</b>. De
       groepsgemiddelden zijn 9,8; 15,4; 17,6; 21,6 en 10,8: 30 % geeft de sterkste vezel.</li>
       <li>De eerste figuur hieronder (<a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=16">DOE p. 16</a>) toont waar \(\sym{f0}{F_{0}}=14{,}76\) valt in de <var data-s="f_dist">F(4, 20)</var>-verdeling: ver voorbij zowel
@@ -353,9 +405,12 @@
 
   <section class="unit" id="d08-residuen" data-kw="residuen; residuals; aannames controleren; model adequacy; normaal-kansplot; normal probability plot; residuen tegen niveau; run order; volgorde; transformatie; log y; welke gemiddelden verschillen; which means differ; Fisher LSD; grafische vergelijking; graphical comparison; post-hoc">
     <h3>08.7 Aannames controleren en gemiddelden vergelijken <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=11">DOE p. 11–12, 18–19</a></h3>
-    <p>In ANOVA is de geschatte waarde van een meting
-    het gemiddelde van haar groep, dus het residu is \(\sym{e_ij}{e_{ij}}=\sym{y_ij}{y_{ij}}-\sym{ybar_i}{\bar{y}_{i\cdot}}\): het verschil tussen
-    de meting en de voorspelling van het model, gebruikt als benadering van de fouten \(\varepsilon_{ij}\)
+    <p>De F-toets van 08.4 klopt alleen als de aannames van 08.2 kloppen: normale fouten, dezelfde variantie in elke groep
+    en onafhankelijke metingen. Na de toets blijven ook nog twee vragen: kloppen die aannames, en <i>welke</i> gemiddelden
+    verschillen?</p>
+    <p><b>Aannames controleren met de residuen.</b> In ANOVA is de voorspelling van het model voor een meting het
+    gemiddelde van haar groep. Het <b>residu</b> (residual) is het verschil tussen meting en voorspelling:
+    \(\sym{e_ij}{e_{ij}}=\sym{y_ij}{y_{ij}}-\sym{ybar_i}{\bar{y}_{i\cdot}}\). Het dient als benadering van de onbekende fout \(\sym{eps_ij}{\varepsilon_{ij}}\)
     <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=11">DOE p. 11</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=18">DOE p. 18</a>. Controleer visueel:</p>
     <ul>
       <li><b>Normaal-kansplot (normal probability plot)</b> van de residuen: de punten liggen dicht bij een rechte (voor
@@ -375,16 +430,17 @@
     <figcaption>Figuur: vezelproef, normaal-kansplot van de residuen (Design-Expert): de punten liggen dicht bij de rechte, met
     alleen het laagste residu wat verder ervan. <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=18">DOE p. 18</a></figcaption></figure>
     <p><b>Welke gemiddelden verschillen?</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=12">DOE p. 12</a> Een significante F zegt alleen "niet alle gemiddelden zijn
-    gelijk". Om te zien <i>welke</i> verschillen, vergelijk je ze grafisch of met een formele methode zoals Fisher's LSD
-    (de cursus noemt die, zonder formule). Papiervoorbeeld: 20 % hardhout geeft de hoogste sterkte, 5 % de laagste, en 10 %
-    en 15 % verschillen niet van elkaar maar liggen onder 20 %.</p>
+    gelijk". Om te zien <i>welke</i> verschillen, vergelijk je ze grafisch of met een formele methode. De cursus noemt als
+    voorbeeld Fisher's LSD, maar geeft er geen formule voor. Papiervoorbeeld: 20 % hardhout geeft de hoogste sterkte, 5 %
+    de laagste, en 10 % en 15 % verschillen niet van elkaar maar liggen onder 20 %.</p>
     <figure class="fig"><img src="figures/08_papier_vergelijking.png" alt="As van 0 tot 30 met vier punten voor de gemiddelden van de vier hardhoutgroepen en daarboven een smalle normale curve rond de middelste punten">
     <figcaption>Figuur: papierproef. De vier groepsgemiddelden (1 = 5 %, 2 = 10 %, 3 = 15 %, 4 = 20 % hardhout) op één as, met
     erboven een normale curve met standaardafwijking \(\sqrt{\frac{\mathrm{MS}_{E}}{n}}=\sqrt{\frac{6{,}51}{6}}=1{,}04\). Gemiddelden 2 en 3 passen samen
     onder de curve; 1 ligt er ver links van, 4 ver rechts. <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=12">DOE p. 12</a></figcaption></figure>
     <p><b>Grafische vergelijking</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=19">DOE p. 19</a>: zet de groepsgemiddelden uit op één as en schuif er een t-vormige curve
-    over met schaalfactor \(\sqrt{\frac{\sym{ms_e}{\mathrm{MS}_{E}}}{\sym{n_rep}{n}}}\). Voor de vezel: \(\sqrt{\frac{8{,}06}{5}}=1{,}27\). Gemiddelden die niet samen onder één
-    curve passen, verschillen.</p>
+    over. De standaardafwijking van die curve is de schaalfactor \(\sqrt{\frac{\sym{ms_e}{\mathrm{MS}_{E}}}{\sym{n_rep}{n}}}\), met \(\mathrm{MS}_{E}\) uit de ANOVA-tabel en n het aantal
+    replicaties per groep. Voor de vezel: \(\sqrt{\frac{8{,}06}{5}}=1{,}27\). Gemiddelden die samen onder één curve passen, verschillen
+    niet aantoonbaar; gemiddelden die dat niet doen, verschillen.</p>
     <figure class="fig"><img src="figures/08_vezel_vergelijking.png" alt="As van 5 tot 25 met de vijf gemiddelden van de vezelproef, gelabeld 15, 35, 20, 25 en 30, en daarboven een t-vormige curve">
     <figcaption>Figuur: vezelproef. De gemiddelden per katoengehalte op één as (15 en 35 % links, rond 10; 20 en 25 % in het
     midden; 30 % rechts, boven 20), met een t-verdeling met schaalfactor \(\sqrt{\frac{\mathrm{MS}_{E}}{n}}=\sqrt{\frac{8{,}06}{5}}=1{,}27\) erboven (Figure
@@ -393,7 +449,6 @@
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"Een significante F zegt welke gemiddelden verschillen."</b> Fout: ze zegt alleen dat niet alle gemiddelden gelijk zijn. Welke verschillen, vind je met een grafische vergelijking of Fisher's LSD <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=12">DOE p. 12</a>. Vezel: of 30 % (21,6) echt beter is dan 25 % (17,6), zegt F niet.</li>
-      <li><b>"De residuen zijn de fouten \(\sym{eps_ij}{\varepsilon_{ij}}\)."</b> Fout: het residu \(\sym{e_ij}{e_{ij}}=\sym{y_ij}{y_{ij}}-\sym{ybar_i}{\bar{y}_{i\cdot}}\) is een benadering (proxy) van de onbekende fout <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=11">DOE p. 11</a>.</li>
       <li><b>"Een rechte normaal-kansplot bewijst dat alle aannames kloppen."</b> Fout: die kijkt alleen naar normaliteit. Gelijke spreiding: residuen tegen niveau of groepsgemiddelde; onafhankelijkheid: residuen tegen de run order <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=11">DOE p. 11</a>.</li>
       <li><b>Let op:</b> in \(\sqrt{\frac{\sym{ms_e}{\mathrm{MS}_{E}}}{\sym{n_rep}{n}}}\) is \(\sym{n_rep}{n}\) het aantal replicaties per groep (vezel: 5), niet het totaal 25 <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=19">DOE p. 19</a>.</li>
     </ul></div>
@@ -401,6 +456,8 @@
 
   <section class="unit" id="d08-machines" data-kw="drie machines; three machines; oefening; exercise; one-way ANOVA; Table 10-1; machine output; F-toets">
     <h3>08.8 Oefening: drie machines <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=20">DOE p. 20</a></h3>
+    <p>Deze oefening sluit de one-way ANOVA af: je doorloopt 08.3 tot 08.5 zelf, met de definitieformules in plaats van
+    de verkorte. Daarna komt een tweede factor erbij (08.9).</p>
     <div class="exercise" id="ex-08-4" data-kw="drie machines; three machines; one-way ANOVA; SS; F0; F crit; p-waarde; alpha 0,05; Table 10-1">
       <h4>Oefening 08.4 — Verschillen de machines echt? <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=20">DOE p. 20</a></h4>
       <p>Drie machines worden vergeleken; elk levert 5 meetwaarden (Table 10-1):</p>
@@ -450,13 +507,20 @@
 
   <section class="unit" id="d08-tweeweg" data-kw="tweewegs-ANOVA; two-way ANOVA; twee factoren; two factors; interactie; interaction; zonder replicatie; without replication; met replicatie; with replication; Two-Factor; Sample; Columns; Within; 2ANOVA; 2ANOVArep; machines operatoren; watering sunlight; GRR">
     <h3>08.9 Tweewegs-ANOVA (two-way ANOVA) <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=36">MSA p. 36</a></h3>
-    <p>Bij tweewegs-ANOVA bestudeer je twee factoren tegelijk, met in elke combinatie (cel) evenveel metingen. Je splitst
-    de variatie dan in een deel voor A, een deel voor B, eventueel een deel voor hun <b>interactie</b> (het effect van de ene
-    factor hangt af van het niveau van de andere; zie <a href="#d08-interactie">08.16</a>) en de rest. De tabel staat in de cursus bij
-    meetsysteemanalyse, met de factoren "appraiser" en "part".</p>
-    <p>Notatie van de MSA-tabel: k appraisers (niveaus van de ene factor), n parts (niveaus van de andere factor) en
-    r metingen per cel. Let op: n is hier het aantal parts, niet het aantal replicaties zoals elders in dit deel.</p>
-    <p><b>Zonder interactieterm</b> (additief model) <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=36">MSA p. 36</a>:</p>
+    <p>08.1 tot 08.8 hadden één factor. Bij <b>tweewegs-ANOVA</b> bestudeer je twee factoren tegelijk, met in elke
+    combinatie van niveaus (een <b>cel</b>) evenveel metingen. De variatie wordt dan gesplitst in een deel voor de ene
+    factor, een deel voor de andere, eventueel een deel voor hun <b>interactie</b>, en een rest: de fout. Interactie betekent
+    dat het effect van de ene factor afhangt van het niveau van de andere (<a href="#d08-interactie">08.16</a>).</p>
+    <p>De cursus geeft de tabel bij meetsysteemanalyse, met de factoren "appraiser" (de persoon die meet) en "part" (het
+    gemeten onderdeel) <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=36">MSA p. 36</a>. Die tabel gebruikt eigen letters, die je in de opgave telt:</p>
+    <ul>
+      <li>\(\sym{k_app}{k}\): het aantal appraisers, de niveaus van de ene factor;</li>
+      <li>\(\sym{n_parts}{n}\): het aantal parts, de niveaus van de andere factor. Let op: n is hier <i>niet</i> het aantal
+      replicaties zoals elders in dit deel;</li>
+      <li>\(\sym{r_rep}{r}\): het aantal metingen per cel (de replicaties).</li>
+    </ul>
+    <p><b>Zonder interactieterm</b> (additief model) krijgt elke factor een eigen regel, en de fout bevat alles wat de twee
+    factoren samen niet verklaren <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=36">MSA p. 36</a>:</p>
     <table>
       <tr><th>Factor</th><th>df</th><th>MS</th><th>F</th></tr>
       <tr><td>\(a=\) appraiser</td><td>\(\sym{k_app}{k}-1\)</td><td>\(\sym{ms_factor}{\mathrm{MS}_{a}}=\frac{\sym{ss_factor}{\mathrm{SS}_{a}}}{\sym{df}{\mathrm{df}_{a}}}\)</td><td>\(\frac{\sym{ms_factor}{\mathrm{MS}_{a}}}{\sym{ms_e}{\mathrm{MS}_{e}}}\)</td></tr>
@@ -464,15 +528,24 @@
       <tr><td>\(e=\) error</td><td>\(\sym{n_parts}{n}\sym{k_app}{k}(\sym{r_rep}{r}-1)+(\sym{k_app}{k}-1)(\sym{n_parts}{n}-1)\)</td><td>\(\sym{ms_e}{\mathrm{MS}_{e}}=\frac{\sym{ss_e}{\mathrm{SS}_{e}}}{\sym{df}{\mathrm{df}_{e}}}\)</td><td></td></tr>
       <tr><td>totaal</td><td>\(\sym{n_parts}{n}\sym{k_app}{k}\sym{r_rep}{r}-1\)</td><td></td><td></td></tr>
     </table>
-    <p>De kwadratensom van een factor is (aantal metingen per niveau) × \(\Sigma\) (niveaugemiddelde − totaalgemiddelde)²; zo staat
-    \(\sym{ms_factor}{\mathrm{MS}_{a}}=\frac{\sym{n_parts}{n}\sym{r_rep}{r}\cdot\Sigma(\sym{ybar_i}{\bar{X}_{i}}-\sym{ybar_grand}{\bar{\bar{X}}})^{2}}{\sym{k_app}{k}-1}\) op <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=36">MSA p. 36</a>. Elke \(\sym{f0}{F}\) is MS van de factor gedeeld door MS van de fout.
-    Dat \(\mathrm{SS}_{T}\) zo opsplitst, wordt bewezen op <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=37">MSA p. 37</a>; de hele Gage R&amp;R-uitleg met dit model loopt van
-    <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=34">MSA p. 34–37</a>.</p>
-    <p><b>Met interactieterm</b>: het <a class="p" href="../source/course/Les%205/20260619_ottoy_GRR%20-%20ANOVA%20-%20avegage%20and%20range%20-%202.xlsx">GRR-werkboek</a> (blad '2way anova') geeft de tabel "Two-Factor With
-    Replication". Die tabel heeft de regels Sample (de rijfactor: \(\sym{n_parts}{n}-1=4\) df voor 5 parts), Columns (de kolomfactor: \(\sym{k_app}{k}-1=2\) df
-    voor 3 appraisers), Interaction (\((\sym{n_parts}{n}-1)(\sym{k_app}{k}-1)=8\) df), Within (\(\sym{n_parts}{n}\sym{k_app}{k}(\sym{r_rep}{r}-1)=15\) df, met \(\sym{r_rep}{r}=2\)) en Total (\(\sym{n_parts}{n}\sym{k_app}{k}\sym{r_rep}{r}-1=29\) df). Elke \(\sym{f0}{F}\) is
-    \(\frac{\sym{ms_factor}{\mathrm{MS}}}{\sym{ms_e}{\mathrm{MS}_{\text{Within}}}}\). Within is de spreiding van de metingen rond hun eigen celgemiddelde (zoals de "pure error"
-    in <a href="#d08-chemisch">08.18</a>); de interactie is wat overblijft: \(\sym{ss_ab}{\mathrm{SS}_{\text{Interaction}}}=\sym{ss_total}{\mathrm{SS}_{\text{Total}}}-\sym{ss_factor}{\mathrm{SS}_{\mathrm{rij}}}-\sym{ss_factor}{\mathrm{SS}_{\text{kolom}}}-\sym{ss_e}{\mathrm{SS}_{\text{Within}}}\) (in het werkboek 4824,17 − 3703,33 − 411,67 − 412,5 =
+    <p>De kwadratensom van een factor is (aantal metingen per niveau) × \(\Sigma\) (niveaugemiddelde − totaalgemiddelde)².
+    Elke appraiser heeft \(\sym{n_parts}{n}\sym{r_rep}{r}\) metingen, dus
+    \(\sym{ms_factor}{\mathrm{MS}_{a}}=\frac{\sym{n_parts}{n}\sym{r_rep}{r}\cdot\Sigma(\sym{ybar_i}{\bar{X}_{i}}-\sym{ybar_grand}{\bar{\bar{X}}})^{2}}{\sym{k_app}{k}-1}\) <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=36">MSA p. 36</a>, met \(\bar{X}_{i}\) het gemiddelde van appraiser i
+    en \(\bar{\bar{X}}\) het gemiddelde van alle metingen. Elke \(\sym{f0}{F}\) is de MS van de factor gedeeld door de MS van de fout,
+    en je toetst ze zoals in 08.4. De fout heeft \(\sym{n_parts}{n}\sym{k_app}{k}(\sym{r_rep}{r}-1)+(\sym{k_app}{k}-1)(\sym{n_parts}{n}-1)\) df: het eerste deel komt van de spreiding binnen de
+    cellen, het tweede is wat een interactie zou krijgen. Zonder interactieterm zit de interactie dus in de fout.</p>
+    <p><b>Met interactieterm</b>: daarvoor heb je meer dan één meting per cel nodig. Het <a class="p" href="../source/course/Les%205/20260619_ottoy_GRR%20-%20ANOVA%20-%20avegage%20and%20range%20-%202.xlsx">GRR-werkboek</a> (blad '2way anova') geeft
+    de tabel "Two-Factor With Replication" voor 5 parts, 3 appraisers en \(\sym{r_rep}{r}=2\). De regels:</p>
+    <ul>
+      <li><b>Sample</b>: de rijfactor (parts), \(\sym{n_parts}{n}-1=4\) df;</li>
+      <li><b>Columns</b>: de kolomfactor (appraisers), \(\sym{k_app}{k}-1=2\) df;</li>
+      <li><b>Interaction</b>: \((\sym{n_parts}{n}-1)(\sym{k_app}{k}-1)=8\) df;</li>
+      <li><b>Within</b>: de spreiding van de metingen rond hun eigen celgemiddelde, \(\sym{n_parts}{n}\sym{k_app}{k}(\sym{r_rep}{r}-1)=15\) df. Dit is de fout,
+      zoals de "pure error" in <a href="#d08-chemisch">08.18</a>;</li>
+      <li><b>Total</b>: \(\sym{n_parts}{n}\sym{k_app}{k}\sym{r_rep}{r}-1=29\) df.</li>
+    </ul>
+    <p>Elke \(\sym{f0}{F}\) is \(\frac{\sym{ms_factor}{\mathrm{MS}}}{\sym{ms_e}{\mathrm{MS}_{\text{Within}}}}\). De interactie is wat overblijft:
+    \(\sym{ss_ab}{\mathrm{SS}_{\text{Interaction}}}=\sym{ss_total}{\mathrm{SS}_{\text{Total}}}-\sym{ss_factor}{\mathrm{SS}_{\mathrm{rij}}}-\sym{ss_factor}{\mathrm{SS}_{\text{kolom}}}-\sym{ss_e}{\mathrm{SS}_{\text{Within}}}\) (in het werkboek 4824,17 − 3703,33 − 411,67 − 412,5 =
     296,67 <span class="computed">zelf berekend</span>).</p>
     <div class="box warn"><span class="t">Zonder replicatie geen interactietoets</span>
       <p>Met één meting per cel \((\sym{r_rep}{r}=1)\) is er geen "Within": de interactie is dan zelf de restterm en kan niet getoetst
@@ -487,7 +560,6 @@
     <div class="calc-here" data-tool="anova2" data-blocks="0"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"Met één meting per cel kan ik de interactie toetsen."</b> Fout: zonder replicatie is er geen Within; de interactie is dan zelf de restterm en kan niet getoetst worden <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=36">MSA p. 36</a>.</li>
       <li><b>Let op:</b> in de MSA-notatie is \(\sym{n_parts}{n}\) het aantal parts en \(\sym{r_rep}{r}\) het aantal metingen per cel, niet omgekeerd <a class="p" href="../source/course/Les%205/20260619_ottoy_Black%20Belt%20in%20Six%20Sigma%20-%20Measurement%20System%20Analysis.pdf#page=36">MSA p. 36</a>. Within heeft \(\sym{n_parts}{n}\sym{k_app}{k}(\sym{r_rep}{r}-1)\) vrijheidsgraden (werkboek: 15).</li>
       <li><b>Let op:</b> de interactie heeft \((\sym{n_parts}{n}-1)(\sym{k_app}{k}-1)\) vrijheidsgraden, het <i>product</i> van de df van de twee factoren, niet hun som: in het <a class="p" href="../source/course/Les%205/20260619_ottoy_GRR%20-%20ANOVA%20-%20avegage%20and%20range%20-%202.xlsx">GRR-werkboek</a> \(4\cdot2=8\) (Sample 4 df, Columns 2 df).</li>
     </ul></div>
@@ -607,8 +679,8 @@
 
   <section class="unit" id="d08-doelen" data-kw="proefopzet; design of experiments; doelen; goals; experimenteerpunt; design point; experimentele run; run; replicaties; replications; experimentele fout; experimental error; experimenteergebied; experimental region; proefschema; design; experimentele eenheid; experimental unit; gebalanceerd ontwerp; balanced design">
     <h3>08.10 Waarom experimenten plannen? Doelen en begrippen <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=21">DOE p. 21–24, 40</a></h3>
-    <p>Tot nu toe lagen de data vast. Vanaf hier <b>ontwerp</b> je het experiment zelf, zodat de analyses van
-    <a href="#d07">Deel 7</a> en 08.1–08.9 een duidelijk antwoord kunnen geven.</p>
+    <p>Tot nu toe lagen de data vast: je kreeg metingen en analyseerde ze. Vanaf hier <b>ontwerp</b> je het experiment
+    zelf, zodat de analyses van <a href="#d07">Deel 7</a> en 08.1–08.9 een duidelijk antwoord kunnen geven.</p>
     <p><b>Doelen van modelleren</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=21">DOE p. 21</a>: bepalen welke factoren x de meeste invloed hebben op de respons y, en bij
     welke waarden van x een gewenste respons bereikt wordt, de variabiliteit op y het kleinst is, en de effecten van de
     oncontroleerbare factoren z minimaal zijn. <b>Doelen van experimenteren</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=22">DOE p. 22</a>: nieuwe processen ontwerpen
@@ -618,18 +690,18 @@
     <figcaption>Figuur: het proces als blok. Inputs gaan erin, de output y komt eruit. Van boven werken de controleerbare
     factoren \(x_{1}\), …, \(x_{p}\) in, van onder de oncontroleerbare factoren
     \(z_{1}\), …, \(z_{q}\). <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=21">DOE p. 21</a></figcaption></figure>
+    <p>De cursus gebruikt bij proefopzet de volgende begrippen <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=23">DOE p. 23</a>:</p>
     <table>
       <tr><th>Nederlands</th><th>English</th><th>Betekenis</th></tr>
       <tr><td>experimenteerpunt</td><td>design point</td><td>één combinatie van factorniveaus <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=40">DOE p. 40</a></td></tr>
-      <tr><td>experimentele run</td><td>run</td><td>een experimenteerpunt waar je echt meet</td></tr>
-      <tr><td>replicaties</td><td>replications</td><td>herhaalde waarnemingen van dezelfde run</td></tr>
+      <tr><td>experimentele run</td><td>run</td><td>een experimenteerpunt waar je echt meet <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=40">DOE p. 40</a></td></tr>
+      <tr><td>replicaties</td><td>replications</td><td>herhaalde waarnemingen van dezelfde run <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=40">DOE p. 40</a></td></tr>
       <tr><td>experimentele fout</td><td>experimental error</td><td>de variatie tussen replicaties</td></tr>
       <tr><td>experimenteergebied</td><td>experimental region</td><td>het bereik van de bestudeerde instellingen</td></tr>
       <tr><td>proefschema</td><td>design</td><td>de settings (levels) van de factoren, welke experimenteerpunten replicaties krijgen, de volgorde van runs en replicaties, en de organisatie: welke meetapparatuur, wie meet, onder welke omstandigheden <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=24">DOE p. 24</a></td></tr>
       <tr><td>experimentele eenheid</td><td>experimental unit (EU)</td><td>het item waarop je één waarneming doet; meerdere waarnemingen per EU vragen een "repeated measures"-analyse <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=40">DOE p. 40</a></td></tr>
       <tr><td>gebalanceerd ontwerp</td><td>balanced design</td><td>n replicaties in alle runs <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=40">DOE p. 40</a></td></tr>
     </table>
-    <p class="small">De begrippenlijst zelf staat op <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=23">DOE p. 23</a>; de omschrijvingen komen van <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=24">DOE p. 24</a> en <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=40">DOE p. 40</a>.</p>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"Twee metingen op hetzelfde proefstuk zijn twee replicaties."</b> Fout: de cursus gaat uit van één waarneming per experimentele eenheid; meerdere waarnemingen op dezelfde eenheid vragen een "repeated measures"-analyse <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=40">DOE p. 40</a>.</li>
@@ -640,10 +712,11 @@
 
   <section class="unit" id="d08-factorieel" data-kw="factorieel ontwerp; factorial design; volledig factorieel; full factorial; 2^k; 2k ontwerp; golf; driver; ball; hoofdeffect; main effect; interactie-effect; interaction effect; kubus; cube; fractioneel; fractional factorial; voordelen; advantages; confounding">
     <h3>08.11 Het factoriële proefopzet en het golfvoorbeeld <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=26">DOE p. 25–28, 41–44</a></h3>
-    <p>Een goed experimenteel ontwerp is <b>factorieel</b> en gaat om met externe factoren via <b>blocking</b> en
-    <b>randomisatie</b> (08.12) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=25">DOE p. 25</a>. In een <b>(volledig-)factorieel ontwerp (full factorial design)</b> leg je voor
+    <p>08.10 gaf de begrippen; nu de vraag hoe een goed ontwerp eruitziet. Volgens de cursus is het <b>factorieel</b> en
+    gaat het om met externe factoren via <b>blocking</b> en <b>randomisatie</b> (08.12) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=25">DOE p. 25</a>. In een <b>(volledig-)factorieel ontwerp (full factorial design)</b> leg je voor
     elke factor een aantal niveaus vast en test je <b>alle mogelijke combinaties</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=26">DOE p. 26</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=41">DOE p. 41</a>. De
-    eenvoudigste vorm is het <b>\(2^{\sym{k_factors}{k}}\)-ontwerp</b>: k factoren, elk op een laag en een hoog niveau.</p>
+    eenvoudigste vorm is het <b>\(2^{\sym{k_factors}{k}}\)-ontwerp</b>: \(\sym{k_factors}{k}\) factoren, elk op een laag en een hoog niveau. Alle
+    combinaties geven \(2\cdot2\cdots2=2^{k}\) runs.</p>
     <p><b>Voordelen van volledig-factoriële experimenten</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=28">DOE p. 28</a>: geen confounding van factoren; een eenduidige
     interpretatie van de resultaten; interactie tussen factoren is opspoorbaar en de grootte van de interactie-effecten
     kan geschat worden; maximale effectiviteit en nauwkeurigheid.</p>
@@ -709,8 +782,9 @@
 
   <section class="unit" id="d08-blocking" data-kw="storende factor; nuisance factor; externe factor; external factor; lurking factor; blocking; blokken; randomisatie; randomization; randomisation; confounding; vermenging; volgorde randomiseren; run order; weer; weather">
     <h3>08.12 Storende factoren: blocking en randomisatie <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=29">DOE p. 29–33, 45</a></h3>
-    <p>Een <b>storende factor (nuisance factor</b>, ook lurking of latent factor) heeft waarschijnlijk invloed op de
-    respons maar interesseert de onderzoeker niet: grondstofbatches, operatoren, testapparatuur, tijd (ploegen, dag van
+    <p>08.11 noemde blocking en randomisatie als tweede kenmerk van een goed ontwerp. Ze beschermen het experiment tegen
+    storende factoren. Een <b>storende factor (nuisance factor</b>, ook lurking of latent factor) heeft waarschijnlijk
+    invloed op de respons maar interesseert de onderzoeker niet: grondstofbatches, operatoren, testapparatuur, tijd (ploegen, dag van
     de week), weersomstandigheden … <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=45">DOE p. 45</a>. Zoals elke factor brengt hij variabiliteit in de respons, en die wil je
     zo klein mogelijk houden.</p>
     <table>
@@ -718,8 +792,8 @@
       <tr><td>controleerbaar</td><td><b>BLOCKING</b></td><td>—</td></tr>
       <tr><td>oncontroleerbaar</td><td colspan="2"><b>RANDOMISATION</b></td></tr>
     </table>
-    <p>In woorden <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=29">DOE p. 29</a>: maak blokken (blocking) voor storende factoren die je kent en kunt controleren; randomiseer
-    tegen alles wat je niet kunt controleren, bekend of niet.</p>
+    <p>Lees de tabel zo <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=29">DOE p. 29</a>: maak blokken (blocking) voor storende factoren die je kent en kunt controleren;
+    randomiseer tegen alles wat je niet kunt controleren, bekend of niet.</p>
     <p><b>Voorbeeld</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=30">DOE p. 30–33</a>: twee factoren A (niveaus a en A) en B (b en B), 4 replicaties per
     experimenteerpunt, samen \(2\cdot2\cdot4=16\) waarnemingen. Kan het weer (C of c) meespelen, maak er dan een <b>blok</b> van:
     voer elke A/B-combinatie even vaak uit bij elk weertype (twee keer bij C, twee keer bij c) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=31">DOE p. 31</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=32">DOE p. 32</a>.
@@ -736,15 +810,15 @@
     (<a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=11">REG p. 11</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=50">REG p. 50</a>).</p>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"Blocking en randomisatie zijn twee namen voor hetzelfde."</b> Fout: blocking is voor storende factoren die je kent en kunt controleren; randomisatie beschermt tegen wat je niet kunt controleren, bekend of onbekend <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=29">DOE p. 29</a>.</li>
       <li><b>"Wie blokt, hoeft niet meer te randomiseren."</b> Fout: de cursus randomiseert in het blokvoorbeeld ook nog de volgorde van de runs, tegen onbekende en oncontroleerbare factoren ("nog beter", <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=33">DOE p. 33</a>).</li>
       <li><b>"Alle runs met A hoog bij mooi weer, alle runs met A laag bij slecht weer: zo zit het weer in een blok."</b> Fout: dan zijn A en het weer confounded en kun je hun effecten niet scheiden <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=45">DOE p. 45</a>. Blokken betekent: elke A/B-combinatie even vaak bij elk weertype <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=31">DOE p. 31–32</a>.</li>
-      <li><b>"Een storende factor bestudeer je net als een gewone factor."</b> Fout: hij interesseert de onderzoeker niet; je wilt de variabiliteit die hij in de respons brengt zo klein mogelijk houden <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=45">DOE p. 45</a>.</li>
     </ul></div>
   </section>
 
   <section class="unit" id="d08-opbrengst" data-kw="opbrengst; yield; scheikundige reactie; chemical reaction; Johan; Nathalie; concentratie; concentration; reactieduur; reaction time; confounded; gecorreleerd; correlation; interactieplot; interaction plot; zeven stappen; seven steps; experiment plannen">
     <h3>08.13 Een slecht en een goed proefopzet met dezelfde kost <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=34">DOE p. 34–39</a></h3>
+    <p>08.12 waarschuwde voor confounding: een ontwerp dat de effecten van twee factoren niet kan scheiden. Het voorbeeld
+    hieronder toont hoe dat gebeurt, en hoe een ander ontwerp met evenveel runs het probleem oplost.</p>
     <div class="box ex"><span class="t">Johan tegen Nathalie: de opbrengst van een scheikundige reactie</span>
       <p>De opbrengst wordt vermoedelijk beïnvloed door A, de concentratie van een additief (0 %–12 %), en B, de
       reactieduur (10–25 minuten). Johan denkt dat de concentratie een belangrijke positieve invloed heeft; Nathalie stelt
@@ -778,7 +852,7 @@
       <p>Beide experimenten kosten 4 runs. Het eerste is waardeloos omdat het niet leert wat we willen weten; het tweede
       levert nuttige informatie <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=38">DOE p. 38</a>.</p>
     </div>
-    <p><b>Een experiment plannen, uitvoeren en analyseren</b> in zeven stappen <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=39">DOE p. 39</a>: (1) probleemstelling en
+    <p>Zo'n ontwerp kies je bewust, als deel van een plan. De cursus vat het <b>plannen, uitvoeren en analyseren</b> van een experiment samen in zeven stappen <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=39">DOE p. 39</a>: (1) probleemstelling en
     -formulering; (2) keuze van factoren, levels en ranges; (3) selectie van de responsvariabelen; (4) ontwerp van het
     geschikte proefopzet; (5) uitvoeren van het experiment; (6) (statistische) analyse, eventueel het ontwerp aanpassen;
     (7) conclusies en aanbevelingen. Kort: concept, design, execution, analysis, report.</p>
@@ -832,8 +906,9 @@
 
   <section class="unit" id="d08-coderen" data-kw="coderen; coding; -1 +1; gecodeerde niveaus; coded levels; ontwerpmatrix; design matrix; stacked; unstacked; standaardvolgorde; standard order; Yates; (1) a b ab; 2^2 ontwerp; 2^3 ontwerp; kubus; cube; replicaties">
     <h3>08.14 2<sup>k</sup>-ontwerpen: coderen, ontwerpmatrix en standaardvolgorde <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=46">DOE p. 46–47, 51–52, 62</a></h3>
-    <p>Een \(2^{\sym{k_factors}{k}}\)-ontwerp heeft k ontwerpfactoren A, B, …, elk op 2 niveaus, met n replicaties per
-    experimenteerpunt <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=46">DOE p. 46</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=51">DOE p. 51</a>.</p>
+    <p>08.11 stelde het \(2^{\sym{k_factors}{k}}\)-ontwerp voor; 08.14 tot 08.20 werken het uit. Zo'n ontwerp heeft \(\sym{k_factors}{k}\) ontwerpfactoren
+    A, B, …, elk op 2 niveaus, en \(\sym{n_rep}{n}\) replicaties (waarnemingen) per experimenteerpunt <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=46">DOE p. 46</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=51">DOE p. 51</a>. Vier
+    begrippen die je nodig hebt:</p>
     <ul>
       <li><b>Coderen (coding)</b>: het lage niveau van elke factor wordt <b>−1</b>, het hoge <b>+1</b> (bv. 80 mm → −1,
       130 mm → +1). Dat is een verschuiving en herschaling; alle factoren krijgen zo dezelfde schaal, en een

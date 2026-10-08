@@ -148,16 +148,24 @@ def _used(ws: Worksheet, row: int, text: str, data: str, typed: str, kind: str) 
 
 
 def _interval_rows(ws: Worksheet, rows: dict[str, int], have: str, centre: str, half_two: str, half_one: str,
-                   columns: tuple[str, str], percent: bool = False) -> None:
-    """Two-sided centre ± half_two, lower-only centre − half_one, upper-only centre + half_one."""
+                   columns: tuple[str, str], percent: bool = False, half_have: str | None = None,
+                   symbol: str = "x̄") -> None:
+    """Two-sided centre ± half_two, lower-only centre − half_one, upper-only centre + half_one. With `half_have`
+    (the half widths are known but the centre is not yet) the cells show the interval in symbols: "x̄ − 3,0990"."""
     low, high = columns
     fmt = PERCENT if percent else NUMBER
-    output_cell(ws, f"{low}{rows['two_sided']}", f'=IF({have},{centre}-{half_two},"")', fmt)
-    output_cell(ws, f"{high}{rows['two_sided']}", f'=IF({have},{centre}+{half_two},"")', fmt)
-    output_cell(ws, f"{low}{rows['lower_only']}", f'=IF({have},{centre}-{half_one},"")', fmt)
-    output_cell(ws, f"{high}{rows['lower_only']}", f'=IF({have},"+∞","")', fmt)
-    output_cell(ws, f"{low}{rows['upper_only']}", f'=IF({have},"−∞","")', fmt)
-    output_cell(ws, f"{high}{rows['upper_only']}", f'=IF({have},{centre}+{half_one},"")', fmt)
+
+    def cell(value: str, sign: str, half: str) -> str:
+        """The number once the centre is known; before that, the symbol with the half width (FIXED: locale-proof)."""
+        early = f'IF({half_have},"{symbol} {sign} "&FIXED({half},4),"")' if half_have else '""'
+        return f'=IF({have},{value},{early})'
+
+    output_cell(ws, f"{low}{rows['two_sided']}", cell(f"{centre}-{half_two}", "−", half_two), fmt)
+    output_cell(ws, f"{high}{rows['two_sided']}", cell(f"{centre}+{half_two}", "+", half_two), fmt)
+    output_cell(ws, f"{low}{rows['lower_only']}", cell(f"{centre}-{half_one}", "−", half_one), fmt)
+    output_cell(ws, f"{high}{rows['lower_only']}", f'=IF(OR({have},{half_have or "FALSE"}),"+∞","")', fmt)
+    output_cell(ws, f"{low}{rows['upper_only']}", f'=IF(OR({have},{half_have or "FALSE"}),"−∞","")', fmt)
+    output_cell(ws, f"{high}{rows['upper_only']}", cell(f"{centre}+{half_one}", "+", half_one), fmt)
 
 
 def _interval_labels(ws: Worksheet, rows: dict[str, int], what: str) -> None:
@@ -169,7 +177,9 @@ def _interval_labels(ws: Worksheet, rows: dict[str, int], what: str) -> None:
 
 def _test_table(ws: Worksheet, rows: dict[str, int], have: str, stat: str, dist: str, df: str | None,
                 labels: tuple[str, str, str]) -> None:
-    """Statistic, critical value(s), p-value and decision for HA ≠, >, <, for a z (dist='z') or t statistic."""
+    """Statistic, critical value(s), p-value and decision for HA ≠, >, <, for a z (dist='z') or t statistic.
+    The critical values need only α (and df for t), so they show before the sample is entered."""
+    crit_have = f"ISNUMBER({ALPHA})" if dist == "z" else f"AND(ISNUMBER({ALPHA}),ISNUMBER({df}),N({df})>0)"
     if dist == "z":
         crit_two, crit_one = f"_xlfn.NORM.S.INV(1-{ALPHA}/2)", f"_xlfn.NORM.S.INV(1-{ALPHA})"
         p_two, p_greater, p_less = "2*_xlfn.NORM.S.DIST(-ABS({s}),TRUE)", "_xlfn.NORM.S.DIST(-{s},TRUE)", \
@@ -187,8 +197,8 @@ def _test_table(ws: Worksheet, rows: dict[str, int], have: str, stat: str, dist:
         r = rows[key]
         label(ws, r, 1, text)
         output_cell(ws, f"B{r}", f'=IF({have},{stat},"")', "0.0000")
-        output_cell(ws, f"C{r}", f'=IF({have},{critical},"")', "0.0000")
-        output_cell(ws, f"D{r}", f'=IF({have},{critical_2},"")' if critical_2 else '=""', "0.0000")
+        output_cell(ws, f"C{r}", f'=IF({crit_have},{critical},"")', "0.0000")
+        output_cell(ws, f"D{r}", f'=IF({crit_have},{critical_2},"")' if critical_2 else '=""', "0.0000")
         output_cell(ws, f"G{r}", f'=IF({have},{p_value.format(s=f"B{r}")},"")', PERCENT)
         output_cell(ws, f"H{r}", DECISION.format(p=f"G{r}"))
 
@@ -222,9 +232,10 @@ def _one_mean(ws: Worksheet) -> None:
     have_z = f"AND(ISNUMBER(B18),ISNUMBER(B20),ISNUMBER({ALPHA}))"
     have_t = f"AND(ISNUMBER(B18),ISNUMBER(B21),B22>0,ISNUMBER({ALPHA}))"
     _interval_rows(ws, ONE_MEAN_CI, have_z, "B18", f"_xlfn.NORM.S.INV(1-{ALPHA}/2)*B20",
-                   f"_xlfn.NORM.S.INV(1-{ALPHA})*B20", ("B", "C"))
+                   f"_xlfn.NORM.S.INV(1-{ALPHA})*B20", ("B", "C"), half_have=f"AND(ISNUMBER(B20),ISNUMBER({ALPHA}))")
     _interval_rows(ws, ONE_MEAN_CI, have_t, "B18", f"_xlfn.T.INV(1-{ALPHA}/2,B22)*B21",
-                   f"_xlfn.T.INV(1-{ALPHA},B22)*B21", ("D", "E"))
+                   f"_xlfn.T.INV(1-{ALPHA},B22)*B21", ("D", "E"),
+                   half_have=f"AND(ISNUMBER(B21),N(B22)>0,ISNUMBER({ALPHA}))")
     label(ws, 25, 6, "CI Further Reading p. 5-8; Confidence Intervals.pdf p. 9-10", italic=True)
     label(ws, 27, 6, "Confidence Intervals.pdf p. 15 ('one-sided 98 %-CI ]−∞, 9.98[')", italic=True)
 
@@ -238,8 +249,9 @@ def _one_mean(ws: Worksheet) -> None:
     _test_table(ws, T_TEST, have, "(B18-B16)/B21", "t", "B22", ("HA: μ ≠ μ0", "HA: μ > μ0", "HA: μ < μ0"))
     for rows, se in ((Z_TEST, "B20"), (T_TEST, "B21")):
         for r in rows.values():  # critical values on the scale of x̄, as Testing of Hypotheses FR p. 10 does
-            output_cell(ws, f"E{r}", f'=IF(ISNUMBER(C{r}),$B$16+C{r}*{se},"")', "0.0000")
-            output_cell(ws, f"F{r}", f'=IF(ISNUMBER(D{r}),$B$16+D{r}*{se},"")', "0.0000")
+            ready = f"ISNUMBER({se}),ISNUMBER($B$16)"
+            output_cell(ws, f"E{r}", f'=IF(AND(ISNUMBER(C{r}),{ready}),$B$16+C{r}*{se},"")', "0.0000")
+            output_cell(ws, f"F{r}", f'=IF(AND(ISNUMBER(D{r}),{ready}),$B$16+D{r}*{se},"")', "0.0000")
     label(ws, 38, 1, "Bronnen: z-toets Testing of Hypotheses - Further Reading (Dutch) p. 10-14; t-toets Test Recipes "
                      "p. 4, Testing of Hypotheses.pdf p. 12.", italic=True)
 
@@ -262,13 +274,15 @@ def _unpaired(ws: Worksheet) -> None:
                                          (53, "x̄2 gebruikt", DATA_2, "B46", "mean"),
                                          (54, "s2 gebruikt", DATA_2, "B47", "s")):
         _used(ws, row, text, data, typed, kind)
-    have = "AND(ISNUMBER(B49),ISNUMBER(B50),ISNUMBER(B51),ISNUMBER(B52),ISNUMBER(B53),ISNUMBER(B54),N(B49)+N(B52)>2)"  # N(): AND does not short-circuit
+    # each result needs only its own inputs: df from n1, n2; s_p also from s1, s2; the difference from x̄1, x̄2
+    sizes = "AND(ISNUMBER(B49),ISNUMBER(B52),N(B49)+N(B52)>2)"  # N(): AND does not short-circuit
+    spreads = f"AND({sizes},ISNUMBER(B51),ISNUMBER(B54))"
     result_row(ws, 55, "s_p = √[((n1 − 1)s1² + (n2 − 1)s2²) / (n1 + n2 − 2)]",
-               f'=IF({have},SQRT(((B49-1)*B51^2+(B52-1)*B54^2)/(B49+B52-2)),"")', NUMBER,
+               f'=IF({spreads},SQRT(((B49-1)*B51^2+(B52-1)*B54^2)/(B49+B52-2)),"")', NUMBER,
                "Test Recipes p. 5 (conventiebeslissing 8; CI Further Reading p. 15 drukt n1 + n2 − 1)")
-    result_row(ws, 56, "vrijheidsgraden n1 + n2 − 2", f'=IF({have},B49+B52-2,"")', "0")
+    result_row(ws, 56, "vrijheidsgraden n1 + n2 − 2", f'=IF({sizes},B49+B52-2,"")', "0")
     result_row(ws, 57, "standaardfout s_p √(1/n1 + 1/n2)", '=IF(ISNUMBER(B55),B55*SQRT(1/B49+1/B52),"")', NUMBER)
-    result_row(ws, 58, "x̄1 − x̄2", f'=IF({have},B50-B53,"")', NUMBER)
+    result_row(ws, 58, "x̄1 − x̄2", '=IF(AND(ISNUMBER(B50),ISNUMBER(B53)),B50-B53,"")', NUMBER)
     _difference_block(ws, 60, UNPAIRED_CI, UNPAIRED_TEST, "B58", "B57", "B56", "B48", "μ1 − μ2",
                       "CI Further Reading p. 15-17 (S03-WE13: −5,6 ± 6,19)")
 
@@ -284,9 +298,9 @@ def _paired(ws: Worksheet) -> None:
     _used(ws, 77, "n gebruikt", DIFF, "B73", "n")
     _used(ws, 78, "v̄ gebruikt", DIFF, "B74", "mean")
     _used(ws, 79, "s_v gebruikt", DIFF, "B75", "s")
-    have = "AND(ISNUMBER(B77),ISNUMBER(B79),B77>1)"
-    result_row(ws, 80, "standaardfout s_v / √n", f'=IF({have},B79/SQRT(B77),"")', NUMBER)
-    result_row(ws, 81, "vrijheidsgraden n − 1", f'=IF({have},B77-1,"")', "0")
+    pairs = "AND(ISNUMBER(B77),N(B77)>1)"
+    result_row(ws, 80, "standaardfout s_v / √n", f'=IF(AND({pairs},ISNUMBER(B79)),B79/SQRT(B77),"")', NUMBER)
+    result_row(ws, 81, "vrijheidsgraden n − 1", f'=IF({pairs},B77-1,"")', "0")
     _difference_block(ws, 83, PAIRED_CI, PAIRED_TEST, "B78", "B80", "B81", "B76", "μ1 − μ2",
                       "CI Further Reading p. 16, 18 (S03-WE14: −3,3 ± 1,72); Test Recipes p. 7-8")
 
@@ -297,13 +311,16 @@ def _difference_block(ws: Worksheet, top: int, ci_rows: dict[str, int], test_row
     column_titles(ws, top, [f"BI voor {what} (1 − α)", "van", "tot", "± (halve breedte, half-width)", "t gebruikt",
                             "Bron in de cursus"])
     _interval_labels(ws, ci_rows, what)
-    have = f"AND(ISNUMBER({centre}),ISNUMBER({se}),ISNUMBER({df}),{df}>0,ISNUMBER({ALPHA}))"
+    have = f"AND(ISNUMBER({centre}),ISNUMBER({se}),ISNUMBER({df}),N({df})>0,ISNUMBER({ALPHA}))"
+    t_have = f"AND(ISNUMBER({df}),N({df})>0,ISNUMBER({ALPHA}))"
+    half_have = f"AND({t_have},ISNUMBER({se}))"
     t_two, t_one = f"_xlfn.T.INV(1-{ALPHA}/2,{df})", f"_xlfn.T.INV(1-{ALPHA},{df})"
-    _interval_rows(ws, ci_rows, have, centre, f"{t_two}*{se}", f"{t_one}*{se}", ("B", "C"))
+    _interval_rows(ws, ci_rows, have, centre, f"{t_two}*{se}", f"{t_one}*{se}", ("B", "C"),
+                   half_have=half_have, symbol="verschil")
     for key, t in (("two_sided", t_two), ("lower_only", t_one), ("upper_only", t_one)):
         r = ci_rows[key]
-        output_cell(ws, f"D{r}", f'=IF({have},{t}*{se},"")', NUMBER)
-        output_cell(ws, f"E{r}", f'=IF({have},{t},"")', "0.0000")
+        output_cell(ws, f"D{r}", f'=IF({half_have},{t}*{se},"")', NUMBER)
+        output_cell(ws, f"E{r}", f'=IF({t_have},{t},"")', "0.0000")
     label(ws, ci_rows["two_sided"], 6, source, italic=True)
     column_titles(ws, top + 5, [f"t-toets van H0: {what} = d0", "t = (verschil − d0) / SE", "kritieke t",
                                 "2de kritieke t", "", "", "p-waarde", "Besluit bij α"])

@@ -9,20 +9,34 @@
   <!-- ============================================================ 05.1 -->
   <section class="unit" id="d05-idee" data-kw="hypothese; hypothesis; nulhypothese; null hypothesis; H0; alternatieve hypothese; alternative hypothesis; HA; H1; status quo; speciale actie; special action; toetsen; testing; tegels; tiles; beeldbuizen; picture tubes">
     <h3>05.1 Waarom toetsen? H<sub>0</sub> en H<sub>A</sub> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=3">TH p. 3–4</a></h3>
-    <p>Een <b>hypothese</b> is een uitspraak over een populatiegrootheid (een parameter van een verdeling). Of ze plausibel
-    is, onderzoek je met een aselecte steekproef (RS, met of zonder teruglegging) en een daaruit berekende statistiek,
-    volgens een geijkt recept: "het testen (toetsen) van hypothesen" <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=2">TH FR p. 2</a>.</p>
-    <p><b>Het tegelvoorbeeld als toets</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=3">TH p. 3</a>. Partij van \(\sym{n_lot}{N}=10\ 000\) dure keramische tegels, \(\sym{aql}{\mathrm{AQL}}=2\ \%\) (dus hoogstens
-    200 defecte tegels), aanvaardingsplan \((\sym{n}{n}=100,\sym{c}{c})\): tel het aantal defectieven d in de steekproef; \(\sym{d_def}{d}\le\sym{c}{c}\): aanvaarden,
-    anders afkeuren. Zolang niet de hele partij gecontroleerd is, blijft elke uitspraak over de partij een hypothese. Men
-    stelt twee elkaar uitsluitende hypothesen op:</p>
+    <p>Deel 04 schatte met een betrouwbaarheidsinterval waar een populatiegrootheid ligt. Een toets stelt een andere vraag:
+    moet je op basis van een steekproef actie ondernemen of niet? Je kiest tussen twee uitspraken over de populatie, met
+    risico's op een verkeerde keuze die je vooraf vastlegt.</p>
+    <p>Zo'n uitspraak heet een <b>hypothese</b>: een uitspraak over een populatiegrootheid, dus een parameter van een
+    verdeling zoals \(\mu\), \(\pi\) of \(\sigma\). Of ze plausibel is, onderzoek je met een aselecte steekproef (RS, met of
+    zonder teruglegging) en een statistiek die je daaruit berekent, volgens een vast recept: het toetsen van hypothesen
+    (testing of hypotheses) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=2">TH FR p. 2</a>.</p>
+    <p><b>Het tegelvoorbeeld als toets</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=3">TH p. 3</a>. Een partij (lot) dure keramische tegels wordt met een steekproef
+    gekeurd. De grootheden:</p>
+    <ul>
+      <li>\(\sym{n_lot}{N}=10\ 000\): het aantal tegels in de partij. \(\sym{d_lot}{D}\) is het aantal defecte tegels in de partij en
+      \(\sym{p_lot}{P}=\frac{D}{N}\) de fractie defectieven in de partij. D en P ken je niet: zolang niet de hele partij gecontroleerd is,
+      blijft elke uitspraak erover een hypothese.</li>
+      <li>\(\sym{aql}{\mathrm{AQL}}=2\ \%\) (acceptable quality level): de grens voor een goede partij, hier dus hoogstens 200 defecte tegels.</li>
+      <li>\(\sym{n}{n}=100\): de steekproefgrootte. \(\sym{d_def}{d}\) is het aantal defectieven dat je in de steekproef telt, en
+      \(\sym{p_sample}{p}=\frac{d}{n}\) de fractie defectieven in de steekproef.</li>
+      <li>Het aanvaardingsplan \((\sym{n}{n},\sym{c}{c})\): aanvaard de partij als \(\sym{d_def}{d}\le\sym{c}{c}\), keur ze anders af. Het
+      aanvaardingsgetal c moet je nog kiezen (05.2).</li>
+    </ul>
+    <p>Men stelt twee elkaar uitsluitende hypothesen op:</p>
     <div class="f">
       <div>\[\sym{h0}{H_{0}}\]: de partij is aanvaardbaar, \[\sym{p_lot}{P}=\frac{\sym{d_lot}{D}}{\sym{n_lot}{N}}\le\sym{aql}{\mathrm{AQL}}\]  (nulhypothese, null hypothesis)</div>
       <div>\[\sym{ha}{H_{A}}\]: de partij is niet aanvaardbaar, \[\sym{p_lot}{P}\gt\sym{aql}{\mathrm{AQL}}\]  (alternatieve hypothese; ook \[H_{1}\] genoemd)</div>
     </div>
     <p>Stel dat \(\sym{d_def}{d}=4\) (\(\sym{p_sample}{p}=4\ \%\), het dubbele van de AQL). De producent zegt: "bij 2 % mogen er 200 defecten in de partij
     zitten, dus 4 op 100 kan perfect uit een goede partij komen". De klant zegt: "jullie zitten op 4 %, het dubbele van de
-    AQL" (notities bij TH p. 3). De toets beslist objectief, met vooraf afgesproken risico's.</p>
+    AQL" (notities bij TH p. 3). Beiden hebben een punt. De toets beslist objectief, met risico's die beide partijen
+    vooraf afspreken.</p>
     <div class="box key"><span class="t">Kernidee: \(H_{0}\) is de status quo</span>
       <p>\(H_{0}\) drukt altijd de <b>status quo</b> uit: de situatie waarin alles zijn normale gang gaat (het
       "do-nothing scenario"). \(H_{A}\) is de situatie die <b>speciale actie</b> vraagt. Je mag de hypothesen niet
@@ -38,10 +52,16 @@
       moet klein zijn.</p>
     </div>
     <p><b>Het tweede voorbeeld: beeldbuizen</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=3">TH FR p. 3</a>. Een nieuwe productiemethode zou beeldbuizen met een langere
-    levensduur opleveren; tegenstanders betwijfelen dat. Onder het beproefde procedé is de levensduur normaal verdeeld met
-    gemiddelde 1200 tijdseenheden en spreiding 300. Men test 100 buizen van het nieuwe procedé. De populatiegrootheid is
-    \(\mu\), de statistiek het steekproefgemiddelde (\(\sym{sigma}{\sigma}=300\) gekend): \(\sym{h0}{H_{0}}\): \(\sym{mu}{\mu}=1200\), \(\sym{ha}{H_{A}}\): \(\sym{mu}{\mu}\gt1200\). Dit
-    voorbeeld loopt door de hele Further Reading.</p>
+    levensduur opleveren; tegenstanders betwijfelen dat. Met het beproefde procedé is de levensduur normaal verdeeld met
+    gemiddelde 1200 tijdseenheden en standaardafwijking 300. Men test \(\sym{n}{n}=100\) buizen van het nieuwe procedé.</p>
+    <ul>
+      <li>De hypothese gaat over \(\sym{mu}{\mu}\): de (onbekende) gemiddelde levensduur met het nieuwe procedé.</li>
+      <li>\(\sym{mu0}{\mu_{0}}=1200\): de waarde van \(\mu\) onder \(H_{0}\), hier het gemiddelde van het oude procedé.</li>
+      <li>\(\sym{sigma}{\sigma}=300\): de standaardafwijking van de levensduur, die als gekend wordt aangenomen.</li>
+      <li>De statistiek is het steekproefgemiddelde \(\sym{xbar}{\bar{x}}\) van de 100 geteste buizen.</li>
+    </ul>
+    <p>De hypothesen: \(\sym{h0}{H_{0}}\): \(\sym{mu}{\mu}=1200\) (het nieuwe procedé is niet beter) tegen \(\sym{ha}{H_{A}}\): \(\sym{mu}{\mu}\gt1200\) (het is beter, dus
+    investeren). Dit voorbeeld loopt door 05.2 tot 05.5.</p>
     <figure class="fig"><img src="figures/05_beeldbuizen_h0_ha.png" alt="Twee normale verdelingen van het steekproefgemiddelde: rond 1200 als H0 geldt en rond 1300 als HA geldt">
     <figcaption>Figuur: de twee standpunten vertaald naar de verdeling van \(\bar{X}\): links als \(H_{0}\) geldt (rond 1200), rechts als
     \(H_{A}\) geldt (bv. rond 1300). De vraag is waar je de grens tussen beide legt.
@@ -81,21 +101,79 @@
   <!-- ============================================================ 05.2 -->
   <section class="unit" id="d05-recept" data-kw="toetsprocedure; test procedure; recept; recipe; referentieverdeling; reference distribution; kritische waarde; critical value; significantie; significance; alpha; α; producentenrisico; producer's risk; toetsingsgrootheid; test statistic; aanvaardingsgebied; acceptance region">
     <h3>05.2 Het toetsrecept in zeven stappen <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=5">TH p. 5–9</a></h3>
-    <p><b>Het mechanisme</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=4">TH FR p. 4</a>. Uit de steekproef heb je één waarde van de statistiek. Die vergelijk je met de
-    verdeling van de statistiek als \(H_{0}\) waar is: de <b>referentieverdeling</b> (reference distribution). Waarden
-    die onder \(H_{0}\) gewoon zijn, leiden tot aanvaarden; waarden die onder \(H_{0}\) zeldzaam zijn en in de
-    richting van \(H_{A}\) wijzen, tot verwerpen. Het kantelpunt is de <b>kritische waarde</b> (critical value).</p>
+    <p>05.1 legde de twee hypothesen vast. Nu het beslissen zelf. Elke toets werkt op dezelfde manier: je vat de steekproef
+    samen in één getal en kijkt of dat getal gewoon is als \(H_{0}\) waar is, of juist zeldzaam en in de richting van
+    \(H_{A}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=4">TH FR p. 4</a>.</p>
+    <div class="box key"><span class="t">De bouwstenen van elke toets</span>
+      <ul>
+        <li><b>\(\sym{h0}{H_{0}}\) en \(\sym{ha}{H_{A}}\)</b>: de twee uitspraken over de populatiegrootheid (05.1). \(H_{0}\) is de status quo en
+        bevat de grenswaarde (\(\mu=\mu_{0}\), \(P\le\mathrm{AQL}\)); \(H_{A}\) is de strikte ongelijkheid die actie vraagt. De richting van
+        \(H_{A}\) (&gt;, &lt; of ≠) bepaalt waar je verwerpt.</li>
+        <li><b>Toetsingsgrootheid</b> (test statistic): het getal dat je uit de steekproef berekent om te beslissen. Bij de tegels
+        het aantal defectieven \(\sym{d_def}{d}\), bij de beeldbuizen het steekproefgemiddelde \(\sym{xbar}{\bar{x}}\). Vaak standaardiseer je
+        het tot z, t, \(\chi^{2}\) of F (05.7 tot 05.12).</li>
+        <li><b>Referentieverdeling</b> (reference distribution): de verdeling van de toetsingsgrootheid als \(H_{0}\) waar is,
+        berekend bij de grenswaarde van \(H_{0}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=4">TH FR p. 4</a>. Beeldbuizen: \(\sym{xbar}{\bar{X}}\sim\sym{normal_dist}{N}\left(\sym{mu0}{\mu_{0}};\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}\right)=N(1200;30)\)
+        <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=16">TH FR p. 16</a>.</li>
+        <li><b>Significantie \(\sym{alpha}{\alpha}\)</b> (significance): de kans om \(H_{0}\) te verwerpen terwijl \(H_{0}\) waar is. Je kiest ze
+        zelf, vooraf, en klein (bv. 1 %, 2 % of 5 %) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=6">TH FR p. 6</a>.</li>
+        <li><b>Kritische waarde</b> (critical value): het kantelpunt tussen aanvaarden en verwerpen. Het is het punt van de
+        referentieverdeling met kans \(\alpha\) erachter, aan de kant waar \(H_{A}\) naar wijst.</li>
+        <li><b>Besluit</b>: ligt de toetsingsgrootheid voorbij de kritische waarde (nog verder in de richting van \(H_{A}\)), dan
+        verwerp je \(H_{0}\). Anders aanvaard je \(H_{0}\): je verwerpt ze niet. De waarden aan de kant van \(H_{0}\) vormen het
+        <b>aanvaardingsgebied</b> (acceptance region).</li>
+        <li>Twee begrippen volgen nog: \(\sym{beta}{\beta}\), het risico om \(H_{0}\) te aanvaarden terwijl \(H_{A}\) waar is (05.3), en de
+        <b>p-waarde</b>, die hetzelfde besluit geeft zonder kritische waarde (05.4).</li>
+      </ul>
+    </div>
     <figure class="fig"><img src="figures/05_referentieverdeling.png" alt="Referentieverdeling onder H0 rond 1200 met een gebied om H0 te aanvaarden, een gebied om te verwerpen en een kantelpunt">
     <figcaption>Figuur: de referentieverdeling: de verdeling van de statistiek onder \(H_{0}\) (rond 1200). Waarden links leiden tot
     aanvaarden van \(H_{0}\), waarden ver in de rechterstaart tot verwerpen; de vraag is waar het kantelpunt
     (de kritische waarde) ligt.
     <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=4">TH FR p. 4</a></figcaption></figure>
-    <p><b>Waar leg je de kritische waarde?</b> De kans dat de statistiek voorbij de kritische waarde valt terwijl
-    \(H_{0}\) waar is, heet de <b>significantie</b> \(\alpha\) van de toets. Bij \(\sym{ha}{H_{A}}\): \(\sym{mu}{\mu}\gt\sym{mu0}{\mu_{0}}\) is \(\alpha\) de
-    oppervlakte onder de referentieverdeling rechts van de kritische waarde, dus ligt die kritische waarde in de rechter
-    staart <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=6">TH FR p. 6</a>. \(\alpha\) wordt <b>a priori</b> vastgelegd en hangt af van de economische context; je "toetst bij
-    significantie \(\alpha\)".</p>
+    <p><b>Waar leg je de kritische waarde?</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=6">TH FR p. 6</a>. Bij de beeldbuizen wijst \(\sym{ha}{H_{A}}\): \(\sym{mu}{\mu}\gt\sym{mu0}{\mu_{0}}\)
+    naar rechts: een groot \(\bar{x}\) pleit tegen \(H_{0}\). \(\alpha\) is dan de oppervlakte onder de referentieverdeling rechts van de
+    kritische waarde, dus ligt de kritische waarde in de rechterstaart. Je legt ze zo ver dat precies \(\alpha\) van de
+    referentieverdeling erachter ligt. \(\alpha\) wordt <b>a priori</b> vastgelegd en hangt af van de economische context; je
+    "toetst bij significantie \(\alpha\)".</p>
+    <p>Met \(\alpha=1\ \%\) ligt de kritische waarde \(\sym{z_099}{z_{0{,}99}}=2{,}326\) standaardfouten boven \(\mu_{0}\) <span class="computed">zelf berekend</span>. Je kunt
+    het besluit op twee gelijkwaardige manieren nemen:</p>
+    <div class="f">
+      <div>in de eenheid van \(\bar{x}\): \[\sym{k_crit}{k}=\sym{mu0}{\mu_{0}}+\sym{z_crit}{z_{1-\alpha}}\cdot\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}=1200+2{,}326\cdot30=1270\]; verwerp \(H_{0}\) als \(\sym{xbar}{\bar{x}}\gt\sym{k_crit}{k}\)</div>
+      <div>gestandaardiseerd: \[\sym{z_stat}{z}=\frac{\sym{xbar}{\bar{x}}-\sym{mu0}{\mu_{0}}}{\frac{\sym{sigma}{\sigma}}{\sqrt{\sym{n}{n}}}}\]; verwerp \(H_{0}\) als \(\sym{z_stat}{z}\gt\sym{z_crit}{z_{1-\alpha}}\)</div>
+    </div>
+    <p>Daarin is \(\sym{xbar}{\bar{x}}\) het steekproefgemiddelde, \(\sym{mu0}{\mu_{0}}\) de waarde uit \(H_{0}\), \(\sym{sigma}{\sigma}\) de gekende standaardafwijking
+    en \(\sym{n}{n}\) de steekproefgrootte. \(\frac{\sigma}{\sqrt{n}}\) is de <b>standaardfout</b>: de standaardafwijking van \(\bar{X}\) zelf (hier
+    \(\frac{300}{\sqrt{100}}=30\)). \(\sym{z_crit}{z_{1-\alpha}}\) is het punt van de standaardnormale verdeling N(0; 1) met kans \(\alpha\) erboven
+    (Z-tabel). Met \(\bar{x}=1265\): \(1265\lt1270\), of \(z=\frac{1265-1200}{30}=2{,}17\lt2{,}326\) <span class="computed">zelf berekend</span>: \(H_{0}\)
+    aanvaarden <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=10">TH FR p. 10</a>.</p>
+    <div class="box key"><span class="t">De kritische waarde voor z, t, χ² en F</span>
+      <p><b>Regel:</b> de kritische waarde is het punt van de referentieverdeling met kans \(\alpha\) erachter, aan de kant waar
+      \(H_{A}\) naar wijst. Wijst \(H_{A}\) naar beide kanten (≠), dan komt \(\frac{\alpha}{2}\) in elke staart en zijn er twee kritische
+      waarden (05.5). Verwerp \(H_{0}\) als de toetsingsgrootheid voorbij de kritische waarde ligt.</p>
+      <p>Bij z, t en \(\chi^{2}\) geeft het subscript de kans <i>onder</i> de waarde (kwantielnotatie, zoals in de Engelse
+      slides): \(z_{0{,}99}\) heeft 99 % eronder en dus 1 % erboven. Bij F volg je de recepten: \(F_{\alpha}\) heeft kans \(\alpha\)
+      <i>erboven</i> <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=12">Recepten p. 12</a>. "df" is het aantal vrijheidsgraden van de verdeling.</p>
+      <table>
+        <tr><th>referentieverdeling</th><th>\(H_{A}\) wijst naar rechts (&gt;): verwerp als de grootheid groter is dan</th><th>\(H_{A}\) wijst naar links (&lt;): verwerp als de grootheid kleiner is dan</th><th>\(H_{A}\) tweezijdig (≠): verwerp buiten</th></tr>
+        <tr><td>\(\sym{normal_dist}{N}(0;1)\) voor z (\(\sigma\) gekend; proportie)</td><td>\(\sym{z_crit}{z_{1-\alpha}}\); 5 %: 1,645</td><td>\(-z_{1-\alpha}\); 5 %: −1,645</td><td>\(\pm z_{1-\alpha/2}\); 5 %: ±1,96</td></tr>
+        <tr><td>\(\sym{t_dist}{t}(\mathrm{df})\) voor t (\(\sigma\) geschat met s)</td><td>\(\sym{t_crit}{t_{1-\alpha;\mathrm{df}}}\)</td><td>\(-t_{1-\alpha;\mathrm{df}}\); t(19), 2 %: −2,2047</td><td>\(\pm t_{1-\alpha/2;\mathrm{df}}\)</td></tr>
+        <tr><td>\(\sym{chi2_dist}{\chi^{2}}(n-1)\) voor één spreiding</td><td>\(\sym{chi2_crit}{\chi^{2}_{1-\alpha;n-1}}\); \(\chi^{2}(19)\), 2 %: 33,69</td><td>\(\chi^{2}_{\alpha;n-1}\): klein, maar positief</td><td>\(\chi^{2}_{\alpha/2;n-1}\) en \(\chi^{2}_{1-\alpha/2;n-1}\)</td></tr>
+        <tr><td>\(\sym{f_dist}{F}(\mathrm{df}_{1};\mathrm{df}_{2})\) voor twee spreidingen</td><td>\(\sym{f_crit}{F_{\alpha}}(\mathrm{df}_{1};\mathrm{df}_{2})\)</td><td>\(F_{1-\alpha}(\mathrm{df}_{1};\mathrm{df}_{2})=\frac{1}{F_{\alpha}(\mathrm{df}_{2};\mathrm{df}_{1})}\)</td><td>\(F_{1-\alpha/2}\) en \(F_{\alpha/2}\); F(9; 9), 5 %: bovenste 4,03</td></tr>
+      </table>
+      <ul>
+        <li>z en t zijn symmetrisch rond 0: de linkse kritische waarde is min de rechtse (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=12">TH p. 12</a>).</li>
+        <li>\(\chi^{2}\) en F zijn scheef en nemen alleen positieve waarden aan (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=13">TH p. 13</a>, <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=12">Recepten p. 12</a>): links heb je een
+        apart, klein positief getal nodig, nooit min de rechtse waarde.</li>
+        <li>Vrijheidsgraden: t: \(n-1\) (één steekproef, gepaard) of \(n_{1}+n_{2}-2\) (niet-gepaard); \(\chi^{2}\): \(n-1\); F: (\(n_{1}-1\); \(n_{2}-1\)),
+        teller eerst.</li>
+        <li>De voorbeeldwaarden: −2,2047 en 33,69 komen uit de cursus (<a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=12">TH p. 12–13</a>, TH.xlsx); 1,645, 1,96 en 4,03 <span class="computed">zelf berekend</span>.
+        Lees ze in de tabel van de verdeling of met de rekenmachine kwantielen.</li>
+      </ul>
+    </div>
     <div class="box ex"><span class="t">Uitgewerkt voorbeeld: de tegels <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=5">TH p. 5–8</a></span>
+      <p>Bij de tegels is de toetsingsgrootheid het aantal defectieven d en is de kritische waarde het aanvaardingsgetal c.
+      \(H_{A}\) (\(P\gt\mathrm{AQL}\)) wijst naar veel defectieven, dus c ligt rechts.</p>
       <ul>
         <li>Steekproevenverdeling van d \((\sym{n}{n}=100)\): bij \(\sym{p_lot}{P}=2\ \%\) (\(H_{0}\) geldt) is \(P[\sym{d_def}{d}\le4]\cong95\ \%\); bij \(\sym{p_lot}{P}=8\ \%\)
         (\(H_{A}\) geldt) is \(P[\sym{d_def}{d}\le4]\cong10\ \%\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=5">TH p. 5</a>. Lage d wijst naar \(H_{0}\), hoge d naar \(H_{A}\).
@@ -129,21 +207,20 @@
       schadelijk. Het betekent niet "belangrijk" of "relevant" zoals in de omgangstaal. Deming toonde dat een stabiel proces
       bijregelen de variabiliteit alleen maar vergroot (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=6">TH p. 6</a>).</p>
     </div>
-    <p><b>De procedure in een notendop</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=9">TH p. 9</a>:</p>
+    <p><b>Het recept in zeven stappen</b> <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=9">TH p. 9</a>. Alles samen geeft dit recept, hier naast elkaar voor
+    de tegels (met het grotere plan van 05.3) en de beeldbuizen:</p>
     <table>
       <tr><th class="n">stap</th><th>wat</th><th>tegels (TH p. 9)</th><th>beeldbuizen (TH FR p. 10)</th></tr>
       <tr><td class="n">1</td><td>beschrijf het probleem als \(H_{0}\) en \(H_{A}\) (eenzijdig of tweezijdig)</td><td>\(\sym{h0}{H_{0}}\): % defectieven ≤ 2 %; \(\sym{ha}{H_{A}}\): &gt; 2 %</td><td>\(\sym{h0}{H_{0}}\): \(\sym{mu}{\mu}=1200\); \(\sym{ha}{H_{A}}\): \(\sym{mu}{\mu}\gt1200\)</td></tr>
       <tr><td class="n">2</td><td>kies de significantie \(\sym{alpha}{\alpha}=\) kans om \(H_{0}\) ten onrechte te verwerpen</td><td>\(\sym{alpha}{\alpha}=5\ \%\): een goede partij wordt met 5 % kans als slecht gezien</td><td>\(\sym{alpha}{\alpha}=1\ \%\)</td></tr>
       <tr><td class="n">3</td><td>kies een toetsingsgrootheid (test statistic) en bepaal haar steekproevenverdeling</td><td>aantal defectieven; hypergeometrisch (benaderd binomiaal)</td><td>\(\sym{xbar}{\bar{X}}\) met \(\sym{sigma}{\sigma}=300\) gekend</td></tr>
       <tr><td class="n">4</td><td>kies de steekproefgrootte, rekening houdend met de foutrisico's en de praktijk</td><td>\(\sym{n}{n}=130\) (1,3 % van de partij) om ook \(\sym{beta}{\beta}=5\ \%\) te halen bij 8 %</td><td>\(\sym{n}{n}=100\)</td></tr>
-      <tr><td class="n">5</td><td>bepaal de referentieverdeling en de kritische waarde (\(\alpha\) afpassen op de juiste kant)</td><td>binomiaal(130; 2 %); kritische waarde 5</td><td>rechter staart: \(1200+\sym{z_099}{2{,}3}\cdot30=1270\)</td></tr>
+      <tr><td class="n">5</td><td>bepaal de referentieverdeling en de kritische waarde (\(\alpha\) afpassen op de juiste kant)</td><td>binomiaal(130; 2 %); kritische waarde 5</td><td>\(\bar{X}\sim N(1200;30)\); rechter staart: \(1200+\sym{z_099}{z_{0{,}99}}\cdot30=1270\)</td></tr>
       <tr><td class="n">6</td><td>trek de steekproef en bereken de toetsingsgrootheid</td><td>130 tegels, 4 defect</td><td>\(\sym{xbar}{\bar{x}}=1265\)</td></tr>
       <tr><td class="n">7</td><td>vergelijk met de kritische waarde en besluit</td><td>4 is niet hoger dan 5: \(H_{0}\) niet verwerpen bij 5 %, partij aanvaard</td><td>1265 &lt; 1270: aanvaard \(H_{0}\)</td></tr>
     </table>
     <p>Dit recept is universeel voor elke enkelvoudige procedure. Toetsen verschillen alleen in de toetsingsgrootheid, haar
     steekproevenverdeling en dus de kritische waarde (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=9">TH p. 9</a>).</p>
-    <p class="small">"2,3" is een afgeronde Z-waarde: Z voor 1 % in de rechter staart is \(z_{0{,}99}=2{,}326\) (Z-tabel), en
-    \(1200+\sym{z_099}{2{,}326}\cdot30=1269{,}8\approx1270\) <span class="computed">zelf berekend</span>. Met 2,3 zelf vind je 1269.</p>
     <div class="box tool"><span class="t">Rekentool</span>
       <p>Werkblad <b>Gemiddelde &amp; proportie</b>, sectie "Eén gemiddelde \(\mu\)": rijen "z-toets (\(\sigma\) gekend)" voor \(\sym{ha}{H_{A}}\): \(\sym{mu}{\mu}\ne\), &gt; of &lt;
       \(\sym{mu0}{\mu_{0}}\), met statistiek, kritische waarde en p-waarde. Vul \(\alpha\) zelf in (beslissing 5: de cursus kent geen
@@ -156,8 +233,7 @@
       <li><b>"\(\alpha\) is de kans dat \(H_{0}\) waar is."</b> Fout: \(\alpha\) is de kans om \(H_{0}\) te verwerpen <i>als</i> \(H_{0}\) waar is: de oppervlakte onder de referentieverdeling voorbij de kritische waarde <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=6">TH FR p. 6</a>. Je legt \(\alpha\) vooraf vast; het is geen uitkomst van de data.</li>
       <li><b>"De kritische waarde leg je op de verdeling die hoort bij \(H_{A}\)."</b> Fout: altijd op de referentieverdeling onder \(H_{0}\); de ware verdeling ken je niet. \(\beta\) volgt pas daarna uit die kritische waarde (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=7">TH p. 7</a>).</li>
       <li><b>"Bij de tegels wordt elke goede partij met 5 % kans afgekeurd."</b> Fout: \(\sym{alpha}{\alpha}=5\ \%\) geldt in het grensgeval \(\sym{p_lot}{P}=\sym{aql}{\mathrm{AQL}}\); voor betere partijen is het risico kleiner <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=6">TH p. 6</a>.</li>
-      <li><b>Let op de kant:</b> bij \(\sym{ha}{H_{A}}\): \(\sym{mu}{\mu}\gt\sym{mu0}{\mu_{0}}\) ligt de kritische waarde in de rechterstaart, bij \(\sym{ha}{H_{A}}\): \(\sym{mu}{\mu}\lt\sym{mu0}{\mu_{0}}\) in de linkerstaart; het recept zegt "afpassen \(\alpha\) op distributie statistiek onder H0 (juiste kant !)" <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=10">TH FR p. 10</a>.</li>
-      <li><b>"Een significant verschil is een belangrijk verschil."</b> Fout: "significant" is een technisch woord voor het risico op een type-I-fout, onnodige of zelfs schadelijke actie (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses.pdf#page=6">TH p. 6</a>).</li>
+      <li><b>Let op de kant:</b> leg \(\alpha\) op de juiste kant van de referentieverdeling <a class="p" href="../source/course/Les%202/20260529_ottoy_Testing%20of%20Hypotheses%20-%20Further%20Reading%20(Dutch).pdf#page=10">TH FR p. 10</a>. Bij \(\sym{ha}{H_{A}}\): \(\sym{mu}{\mu}\gt\sym{mu0}{\mu_{0}}\) ligt de kritische waarde in de rechterstaart, bij \(\sym{ha}{H_{A}}\): \(\sym{mu}{\mu}\lt\sym{mu0}{\mu_{0}}\) in de linkerstaart.</li>
     </ul></div>
 
     <div class="exercise" id="ex-05-2" data-kw="beeldbuizen; picture tubes; Z-toets; z-test; eenzijdig; one-sided; kritische waarde; critical value; 1270; sigma gekend; S03-WE10">

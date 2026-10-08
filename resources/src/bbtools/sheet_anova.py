@@ -108,7 +108,7 @@ def _table(ws: Worksheet) -> None:
     output_cell(ws, "D27", '=IF(ISNUMBER(B27),B27/C27,"")', "0.0000")
     output_cell(ws, "E26", '=IF(AND(ISNUMBER(D27),N(D27)>0),D26/D27,"")', "0.0000")
     output_cell(ws, "F26", '=IF(ISNUMBER(E26),_xlfn.F.DIST.RT(E26,C26,C27),"")', "0.000000")
-    output_cell(ws, "G26", f'=IF(ISNUMBER(E26),_xlfn.F.INV.RT({ALPHA},C26,C27),"")', "0.0000")
+    output_cell(ws, "G26", f'=IF(AND(ISNUMBER(C26),ISNUMBER(C27),N(C26)>0,N(C27)>0,ISNUMBER({ALPHA})),_xlfn.F.INV.RT({ALPHA},C26,C27),"")', "0.0000")
     output_cell(ws, "H26", DECISION.format(p="F26"))
     label(ws, 27, 5, "H0: alle groepsgemiddelden gelijk (DOE p. 7-8, Table 4.6)", italic=True)
     result_row(ws, 29, "totaal gemiddelde Ȳ (grand mean)", f'=IF(COUNT({EVERYTHING})>0,AVERAGE({EVERYTHING}),"")',

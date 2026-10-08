@@ -288,7 +288,8 @@ def _anova_table(ws: Worksheet, rows: dict[str, int], entries: dict[str, tuple[s
             ms_e = f"$D${denominator_row}"
             output_cell(ws, f"E{r}", f'=IF(AND(ISNUMBER(D{r}),ISNUMBER({ms_e}),N({ms_e})>0),D{r}/{ms_e},"")', "0.0000")
             output_cell(ws, f"F{r}", f'=IF(ISNUMBER(E{r}),_xlfn.F.DIST.RT(E{r},C{r},$C${denominator_row}),"")', "0.000000")
-            output_cell(ws, f"G{r}", f'=IF(ISNUMBER(E{r}),_xlfn.F.INV.RT({ALPHA},C{r},$C${denominator_row}),"")', "0.0000")
+            output_cell(ws, f"G{r}", f'=IF(AND(ISNUMBER(C{r}),ISNUMBER($C${denominator_row}),N(C{r})>0,N($C${denominator_row})>0,'
+                                    f'ISNUMBER({ALPHA})),_xlfn.F.INV.RT({ALPHA},C{r},$C${denominator_row}),"")', "0.0000")
 
 
 def _anova(ws: Worksheet) -> None:

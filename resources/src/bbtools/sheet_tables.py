@@ -175,14 +175,40 @@ def _write_cell(ws: Worksheet, row: int, column: int, printed: str) -> None:
     cell.border = BOX
 
 
+# Dutch names for the printed (English) titles and first-column headers; the printed title stays next to it
+DUTCH_TITLES = (
+    ("Table 18", "Tabel 18: factoren voor de lijnen van regelkaarten"),
+    ("Table A", "Tabel A: correctiefactoren om standaardafwijkingen te schatten"),
+    ("Control Chart Constants - Chart for Average", "Constanten voor de X̄- en s-kaart"),
+    ("Control Chart Constants - Chart for Ranges", "Constanten voor de R- en X-kaart"),
+    ("Values associated with the Distribution of the Average Range",
+     "Tabel MSA: d2* en vrijheidsgraden ν van de gemiddelde spreidingsbreedte"),
+    ("Table 10-2", "Six Sigma For Dummies, Tabel 10-2: constanten voor regelkaarten van continue data"),
+)
+SAMPLE_SIZE_HEADERS = {"Sample size n", "Subgroup Size", "Observations in Sample n", "Sample Size (n)"}
+
+
+def dutch_title(printed: str) -> str:
+    """'<Dutch name> (gedrukte titel: <printed>)', so the sheet reads in Dutch and the printed table stays findable."""
+    for prefix, dutch in DUTCH_TITLES:
+        if printed.startswith(prefix):
+            return f"{dutch} (gedrukte titel: '{printed}')"
+    return printed
+
+
+def dutch_headers(columns: list[str]) -> list[str]:
+    """The printed column headers with the sample-size header in Dutch (the constant symbols stay as printed)."""
+    return ["Steekproefgrootte n" if c in SAMPLE_SIZE_HEADERS else c for c in columns]
+
+
 def _write_table(ws: Worksheet, wb: Workbook, top: int, table: ConstantTable,
                  flagged: dict[tuple[str, str, str], list[str]]) -> int:
     """Write one table starting at row `top`, define its workbook names, return the next free row."""
-    label(ws, top, 1, table.title, bold=True)
+    label(ws, top, 1, dutch_title(table.title), bold=True)
     label(ws, top + 1, 1, f"Bron: {table.source_file} p. {table.source_page}. Volgens die pagina overgenomen uit: "
                           f"{table.source.origin}.", italic=True)
     label(ws, top + 2, 1, table.source.role, bold=True)
-    column_titles(ws, top + 3, list(table.columns))
+    column_titles(ws, top + 3, dutch_headers(list(table.columns)))
     first = top + 4
     for offset, row in enumerate(table.rows):
         for column, printed in enumerate(row, start=1):
@@ -221,7 +247,7 @@ def _define_area(wb: Workbook, name: str, top_left: tuple[int, int], bottom_righ
 
 def _write_average_range(ws: Worksheet, wb: Workbook, top: int, table: AverageRangeTable) -> int:
     """The MSA d2* table as two grids (d2* and ν, rows g, columns m) plus the d2 and cd rows; returns the next row."""
-    label(ws, top, 1, table.title, bold=True)
+    label(ws, top, 1, dutch_title(table.title), bold=True)
     label(ws, top + 1, 1, f"Bron: {table.source_file} p. {table.source_page}. Volgens die pagina overgenomen uit: "
                           f"Measurement Systems Analysis Reference Manual (DaimlerChrysler, Ford, GM), 2002.", italic=True)
     label(ws, top + 2, 1, "GEBRUIKT door het blad Gage R&R (K1 = 1/d2 met g → ∞; K2, K3 = 1/d2* met g = 1). Elke "

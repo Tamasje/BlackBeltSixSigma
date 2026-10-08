@@ -124,13 +124,15 @@ def _used(ws: Worksheet, row: int, text: str, data: str, typed: str, is_n: bool)
     result_row(ws, row, text, formula, fmt, f"uit kolom {data[0]} als die 2+ waarden bevat, anders de getypte waarde")
 
 
-def _test_rows(ws: Worksheet, rows: dict[int, tuple[str, str, str | None, str]], have: str, stat: str) -> None:
-    """Rows of a test table: statistic, critical value(s), p-value and decision at α."""
+def _test_rows(ws: Worksheet, rows: dict[int, tuple[str, str, str | None, str]], have: str, stat: str,
+               crit_have: str) -> None:
+    """Rows of a test table: statistic, critical value(s), p-value and decision at α. The critical values need only
+    α and the degrees of freedom (`crit_have`), so they show before s is entered."""
     for row, (text, critical, critical_2, p_value) in rows.items():
         label(ws, row, 1, text)
         output_cell(ws, f"B{row}", f'=IF({have},{stat},"")', "0.0000")
-        output_cell(ws, f"C{row}", f'=IF({have},{critical},"")', "0.0000")
-        output_cell(ws, f"D{row}", f'=IF({have},{critical_2},"")' if critical_2 else '=""', "0.0000")
+        output_cell(ws, f"C{row}", f'=IF({crit_have},{critical},"")', "0.0000")
+        output_cell(ws, f"D{row}", f'=IF({crit_have},{critical_2},"")' if critical_2 else '=""', "0.0000")
         output_cell(ws, f"E{row}", f'=IF({have},{p_value},"")', "0.0000%")
         output_cell(ws, f"F{row}", DECISION.format(r=row))
 
@@ -179,7 +181,7 @@ def _one_sample(ws: Worksheet) -> None:
              "2*MIN(_xlfn.CHISQ.DIST(B27,B18,TRUE),_xlfn.CHISQ.DIST.RT(B27,B18))"),
         28: ("HA: σ > σ0 (bv. 'more erratic')", f"_xlfn.CHISQ.INV.RT({ALPHA},B18)", None, "_xlfn.CHISQ.DIST.RT(B28,B18)"),
         29: ("HA: σ < σ0", f"_xlfn.CHISQ.INV({ALPHA},B18)", None, "_xlfn.CHISQ.DIST(B29,B18,TRUE)"),
-    }, f"AND({ok},ISNUMBER(B14),B14>0)", "B18*B17/B14^2")
+    }, f"AND({ok},ISNUMBER(B14),B14>0)", "B18*B17/B14^2", f"AND(ISNUMBER(B18),N(B18)>0,ISNUMBER({ALPHA}))")
     label(ws, 30, 1, "Bron: Test Recipes - Further Reading (Dutch) p. 11; Testing of Hypotheses.pdf p. 13", italic=True)
 
 
@@ -229,7 +231,7 @@ def _two_samples(ws: Worksheet) -> None:
              f"2*MIN(_xlfn.F.DIST(B49,{v1},{v2},TRUE),_xlfn.F.DIST.RT(B49,{v1},{v2}))"),
         50: ("HA: σ1 > σ2", f"_xlfn.F.INV.RT({ALPHA},{v1},{v2})", None, f"_xlfn.F.DIST.RT(B50,{v1},{v2})"),
         51: ("HA: σ1 < σ2", f"_xlfn.F.INV({ALPHA},{v1},{v2})", None, f"_xlfn.F.DIST(B51,{v1},{v2},TRUE)"),
-    }, have, f)
+    }, have, f, f"AND(ISNUMBER({v1}),ISNUMBER({v2}),N({v1})>0,N({v2})>0,ISNUMBER({ALPHA}))")
     label(ws, 52, 1, "Bron: Test Recipes - Further Reading (Dutch) p. 13-14", italic=True)
 
 
