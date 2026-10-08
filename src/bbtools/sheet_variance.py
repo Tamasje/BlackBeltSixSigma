@@ -9,7 +9,8 @@ and upper-only. Decision 7: F quantiles come straight from F.INV / F.INV.RT; bot
 Excel names: CHISQ.INV.RT(p; df) is the value with upper-tail area p, CHISQ.INV(p; df) with lower-tail area p.
 
 Row plan: settings 8-9; one sample 11-29 (inputs 12-14, used 15-18, CIs 21-23, χ²-tests 27-29);
-two samples 31-51 (inputs 32-35, used 36-41, CIs 44-46, F-tests 49-51); raw data in H10:I509.
+two samples 31-51 (inputs 32-35, used 36-41, CIs 44-46, F-tests 49-51); raw data in H and I from row 10 down
+(open-ended), how to fill them and their checks in column K.
 """
 from __future__ import annotations
 
@@ -18,13 +19,16 @@ from openpyxl.worksheet.worksheet import Worksheet
 
 from bbtools.readme import SheetDoc
 from bbtools.xlsx_style import (
+    DATA_LAST_ROW,
     HeaderBlock,
     Status,
     column_titles,
+    data_check,
     font,
-    input_cell,
     input_row,
+    instructions,
     label,
+    open_input_column,
     output_cell,
     result_row,
     section_title,
@@ -73,7 +77,8 @@ DOC = SheetDoc(
 )
 
 ALPHA = "B9"
-DATA_1, DATA_2 = "H10:H509", "I10:I509"
+DATA_1, DATA_2 = f"H10:H{DATA_LAST_ROW}", f"I10:I{DATA_LAST_ROW}"
+CHECKS = {"data_1": "K16", "data_2": "K17"}
 INPUTS = {"alpha": ALPHA, "n": "B12", "s": "B13", "sigma0": "B14", "n1": "B32", "s1": "B33", "n2": "B34", "s2": "B35"}
 RESULTS = {
     "n_used": "B15", "s_used": "B16", "var_used": "B17", "df": "B18",
@@ -88,13 +93,26 @@ DECISION = '=IF(ISNUMBER(E{r}),IF(E{r}<' + ALPHA + ',"verwerp H0","H0 niet verwe
 
 
 def _data_columns(ws: Worksheet) -> None:
-    """Columns H and I: optional raw data for sample 1 and sample 2 (500 values each)."""
-    label(ws, 8, 8, "Optioneel: plak hieronder ruwe waarden; n en s worden er dan uit berekend", italic=True)
+    """Columns H and I: optional raw data for sample 1 and sample 2, open-ended; how to fill them in column K."""
+    label(ws, 8, 8, "Optioneel: ruwe waarden (uitleg →)", italic=True)
     for column, text in (("H", "Data steekproef 1"), ("I", "Data steekproef 2")):
         ws[f"{column}9"] = text
         ws[f"{column}9"].font = font(bold=True)
-        for row in range(10, 510):
-            input_cell(ws, f"{column}{row}")
+        open_input_column(ws, column, 10)
+    row = instructions(ws, 8, 11, "Zo gebruik je kolommen H en I (ruwe data)", (
+        "• Eén GETAL per cel, onder elkaar, vanaf rij 10; zoveel rijen als je wilt. Geen kop of tekst: de kop staat al "
+        "in rij 9.",
+        "• Kolom H = steekproef 1: telt voor sectie 2 (één steekproef) én voor steekproef 1 van sectie 3.",
+        "• Kolom I = steekproef 2 (sectie 3, F-toets).",
+        "• Met 2 of meer getallen in een kolom rekent het blad n en s daaruit; de getypte n en s tellen dan niet.",
+        "• Typ je liever n en s: laat H en I leeg (selecteer de kolom vanaf rij 10 en druk Delete).",
+        "• Plakken uit een ander bestand: Plakken speciaal → Waarden.",
+    ))
+    label(ws, row, 11, "Controle van de geplakte data:", bold=True)
+    data_check(ws, CHECKS["data_1"], DATA_1)
+    data_check(ws, CHECKS["data_2"], DATA_2)
+    label(ws, 16, 10, "H:")
+    label(ws, 17, 10, "I:")
 
 
 def _used(ws: Worksheet, row: int, text: str, data: str, typed: str, is_n: bool) -> None:
@@ -236,5 +254,6 @@ def build_sheet(ws: Worksheet) -> None:
         ws.column_dimensions[letter].width = 17
     ws.column_dimensions["F"].width = 18
     ws.column_dimensions["G"].width = 4
-    ws.column_dimensions["H"].width = 14
-    ws.column_dimensions["I"].width = 14
+    ws.column_dimensions["H"].width = 18
+    ws.column_dimensions["I"].width = 18
+    ws.column_dimensions["J"].width = 4

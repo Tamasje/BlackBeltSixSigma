@@ -17,7 +17,7 @@ from openpyxl.worksheet.datavalidation import DataValidation
 from openpyxl.worksheet.worksheet import Worksheet
 
 from bbtools.readme import SheetDoc
-from bbtools.sheet_tables import lookup_formula
+from bbtools.sheet_tables import lookup_formula, used_constants_table
 from bbtools.xlsx_style import (
     BOX,
     HeaderBlock,
@@ -259,6 +259,7 @@ def build_sheet(ws: Worksheet) -> None:
     _results(ws)
     _criterion(ws)
     _levels(ws)
+    used_constants_table(ws, 51, 1, ("d2", "c4"), "σ̂ = R̄/d2 en σ̂ = s̄/c4")
     ws.column_dimensions["A"].width = 52
     for letter in "BCDEFGHIJKLMN":
         ws.column_dimensions[letter].width = 13

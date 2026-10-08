@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import csv
 import random
+import statistics
 from collections.abc import Callable, Sequence
 from typing import Any
 
@@ -17,6 +18,7 @@ from scipy import stats
 from bbtools.constants import CONSTANTS_DIR
 from bbtools.printed import agrees_at_printed_precision
 from bbtools.sheet_variance import (
+    CHECKS,
     CHI2_TEST_ROWS,
     CI_ROWS,
     F_CI_ROWS,
@@ -190,3 +192,18 @@ def test_every_interval_and_test_matches_scipy(seed: int, evaluate: Evaluate) ->
     for row in (*CHI2_TEST_ROWS.values(), *F_TEST_ROWS.values()):
         p = at(ws, "E", row)
         assert at(ws, "F", row) == ("verwerp H0" if p < alpha else "H0 niet verwerpen")
+
+
+def test_long_pasted_column_and_a_text_cell(evaluate: Evaluate) -> None:
+    # arrange -- 3000 values in column H (beyond the old 500 rows) and one cell with text among them
+    rng = random.Random(11)
+    values = [rng.gauss(5, 2) for _ in range(3000)]
+    cells: dict[str, Any] = {f"H{10 + i}": x for i, x in enumerate(values)}
+    cells["H3010"] = "12,5 (tekst)"
+    # act
+    ws = evaluate(SHEET, cells)
+    # assert -- every number counts, the text does not, and the check says so
+    assert ws[RESULTS["n_used"]].value == 3000
+    assert ws[RESULTS["s_used"]].value == pytest.approx(statistics.stdev(values), rel=1e-12)
+    assert ws[CHECKS["data_1"]].value == "3000 getallen; LET OP: 1 cel(len) met tekst tellen NIET mee"
+    assert ws[CHECKS["data_2"]].value == "leeg"

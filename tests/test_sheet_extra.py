@@ -19,7 +19,18 @@ from scipy import stats
 
 from bbtools.build_workbook import build_workbook
 from bbtools.printed import agrees_at_printed_precision
-from bbtools.sheet_extra import FIRST_INDIVIDUAL, FIRST_P, FIRST_U, IMR, INPUTS, RESULTS, SHEET, U_CHART
+from bbtools.sheet_extra import (
+    FIRST_INDIVIDUAL,
+    FIRST_P,
+    FIRST_U,
+    IMR,
+    INPUTS,
+    P_COLUMNS,
+    RESULTS,
+    SHEET,
+    U_CHART,
+    U_COLUMNS,
+)
 
 Evaluate = Callable[[str, dict[str, float]], Any]
 Printed = Callable[[str, str, str, str], str]
@@ -238,8 +249,8 @@ def test_mr_bar_results_stay_empty_until_mr_bar_is_filled(evaluate: Evaluate) ->
 def u_chart_cells(oracle: dict[str, Any]) -> dict[str, float]:
     """Dummies p. 256 data table: subgroup sizes and defects of 20 subgroups."""
     rows = oracle["S08-WE21"]["given"]["data_table"]["rows"]
-    return {**{f"B{FIRST_U + i}": size for i, (_, size, _) in enumerate(rows)},
-            **{f"C{FIRST_U + i}": defects for i, (_, _, defects) in enumerate(rows)}}
+    return {**{f"{U_COLUMNS['n']}{FIRST_U + i}": size for i, (_, size, _) in enumerate(rows)},
+            **{f"{U_COLUMNS['count']}{FIRST_U + i}": defects for i, (_, _, defects) in enumerate(rows)}}
 
 
 @libreoffice
@@ -259,7 +270,7 @@ def test_dummies_u_chart_upper_limit_s08_we21(oracle: dict[str, Any], evaluate: 
     # arrange
     ws = evaluate(SHEET, u_chart_cells(oracle))
     # act / assert
-    assert agrees_at_printed_precision(ws[f"F{FIRST_U + 19}"].value, "2379")
+    assert agrees_at_printed_precision(ws[f"{U_COLUMNS['ucl']}{FIRST_U + 19}"].value, "2379")
 
 
 @libreoffice
@@ -274,10 +285,10 @@ def test_imr_p_and_u_charts_match_an_independent_computation(seed: int, evaluate
     p_rows = [(rng.randint(50, 200), rng.randint(0, 20)) for _ in range(rng.randint(5, 30))]
     u_rows = [(rng.randint(20, 80), rng.randint(20, 150)) for _ in range(rng.randint(5, 30))]
     cells_in = {f"B{FIRST_INDIVIDUAL + i}": x for i, x in enumerate(individuals)}
-    cells_in |= {f"B{FIRST_P + i}": size for i, (size, _) in enumerate(p_rows)}
-    cells_in |= {f"C{FIRST_P + i}": d for i, (_, d) in enumerate(p_rows)}
-    cells_in |= {f"B{FIRST_U + i}": size for i, (size, _) in enumerate(u_rows)}
-    cells_in |= {f"C{FIRST_U + i}": c for i, (_, c) in enumerate(u_rows)}
+    cells_in |= {f"{P_COLUMNS['n']}{FIRST_P + i}": size for i, (size, _) in enumerate(p_rows)}
+    cells_in |= {f"{P_COLUMNS['count']}{FIRST_P + i}": d for i, (_, d) in enumerate(p_rows)}
+    cells_in |= {f"{U_COLUMNS['n']}{FIRST_U + i}": size for i, (size, _) in enumerate(u_rows)}
+    cells_in |= {f"{U_COLUMNS['count']}{FIRST_U + i}": c for i, (_, c) in enumerate(u_rows)}
     ws = evaluate(SHEET, cells_in)
     mrs = [abs(b - a) for a, b in zip(individuals, individuals[1:])]
     xbar_i, mrbar = statistics.mean(individuals), statistics.mean(mrs)
@@ -289,7 +300,7 @@ def test_imr_p_and_u_charts_match_an_independent_computation(seed: int, evaluate
     assert ws[f"D{IMR['mr_row']}"].value == pytest.approx(ws[f"G{IMR['mr_row']}"].value * mrbar, rel=1e-9)
     for i, (size, d) in enumerate(p_rows):
         half = 3 * (pbar * (1 - pbar) / size) ** 0.5
-        assert ws[f"F{FIRST_P + i}"].value == pytest.approx(pbar + half, rel=1e-9)
-        assert ws[f"E{FIRST_P + i}"].value == pytest.approx(max(0.0, pbar - half), rel=1e-9, abs=1e-12)
+        assert ws[f"{P_COLUMNS['ucl']}{FIRST_P + i}"].value == pytest.approx(pbar + half, rel=1e-9)
+        assert ws[f"{P_COLUMNS['lcl']}{FIRST_P + i}"].value == pytest.approx(max(0.0, pbar - half), rel=1e-9, abs=1e-12)
     for i, (size, c) in enumerate(u_rows):
-        assert ws[f"F{FIRST_U + i}"].value == pytest.approx(ubar + 3 * (ubar / size) ** 0.5, rel=1e-9)
+        assert ws[f"{U_COLUMNS['ucl']}{FIRST_U + i}"].value == pytest.approx(ubar + 3 * (ubar / size) ** 0.5, rel=1e-9)

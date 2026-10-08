@@ -8,11 +8,13 @@ Moved from Control charts: individuals and moving range (I-MR: X̄ ± E2·MR̄, 
 p chart p̄ ± 3√(p̄(1 − p̄)/n_i) and u chart ū ± 3√(ū/n_i) (Dummies p. 254); a negative lower limit is set to 0.
 The formulas are unchanged from the sheets they came from; yields and fractions are stored as fractions, shown as %.
 
-Row plan: blocks 1-7 rows 9-79; I-MR 81-191 (100 values from row 92); p chart 194-249 (50 subgroups from row 200);
-u chart 252-307 (50 subgroups from row 258).
+Row plan: blocks 1-7 rows 9-79; summaries of I-MR 81-89, p chart 91-95, u chart 97-101; how to fill 103-104; then
+the three tables side by side from row 107 down (I-MR in A-E, p chart in G-M, u chart in O-U, 2000 rows each), so
+they can grow without moving anything.
 """
 from __future__ import annotations
 
+from openpyxl.utils import column_index_from_string
 from openpyxl.worksheet.datavalidation import DataValidation
 from openpyxl.worksheet.worksheet import Worksheet
 
@@ -24,8 +26,9 @@ from bbtools.xlsx_style import (
     column_titles,
     constant_row,
     font,
-    input_cell,
+    input_block,
     input_row,
+    instructions,
     label,
     output_cell,
     result_row,
@@ -100,11 +103,15 @@ RESULTS = {
     "below_lsl": "B76", "above_usl": "B77", "out_total": "B78", "ppm_total": "B79",
 }
 SHIFT = "B63"
-INDIVIDUALS, FIRST_INDIVIDUAL = 100, 92
-ATTRIBUTE_ROWS, FIRST_P, FIRST_U = 50, 200, 258
+TABLE_ROWS, FIRST_ROW = 2000, 107        # the three tables share their first row, side by side
+INDIVIDUALS, FIRST_INDIVIDUAL = TABLE_ROWS, FIRST_ROW
+ATTRIBUTE_ROWS, FIRST_P, FIRST_U = TABLE_ROWS, FIRST_ROW, FIRST_ROW
 IMR = {"k": "B82", "xbar": "B83", "mrbar": "B84", "sigma": "B85", "x_row": 88, "mr_row": 89}
-P_CHART = {"n_total": "B195", "d_total": "B196", "pbar": "B197"}
-U_CHART = {"n_total": "B253", "c_total": "B254", "ubar": "B255"}
+P_CHART = {"n_total": "B92", "d_total": "B93", "pbar": "B94"}
+U_CHART = {"n_total": "B98", "c_total": "B99", "ubar": "B100"}
+# table columns: number, subgroup size n_i, count, p_i or u_i, LCL_i, UCL_i, flag
+P_COLUMNS = dict(zip(("number", "n", "count", "value", "lcl", "ucl", "flag"), "GHIJKLM"))
+U_COLUMNS = dict(zip(("number", "n", "count", "value", "lcl", "ucl", "flag"), "OPQRSTU"))
 
 
 def _warning(ws: Worksheet) -> None:
@@ -260,10 +267,10 @@ def _individuals(ws: Worksheet) -> None:
     output_cell(ws, "D89", '=IF(ISNUMBER(B84),G89*B84,"")', NUMBER)
     label(ws, 88, 8, "Dummies p. 249", italic=True)
     column_titles(ws, first - 1, ["#", "waarde x_i", "MR_i = |x_i − x_(i−1)|", "x t.o.v. X-kaart", "MR t.o.v. MR-kaart"])
+    input_block(ws, (first, last), (2, 2))
     for index in range(INDIVIDUALS):
         r = first + index
         ws[f"A{r}"] = index + 1
-        input_cell(ws, f"B{r}")
         mr = f'=IF(AND(ISNUMBER(B{r}),ISNUMBER(B{r - 1})),ABS(B{r}-B{r - 1}),"")' if index else '=""'
         output_cell(ws, f"C{r}", mr, NUMBER)
         output_cell(ws, f"D{r}", _flag(f"B{r}", "$B$88", "$D$88"))
@@ -271,38 +278,42 @@ def _individuals(ws: Worksheet) -> None:
 
 
 def _attribute_chart(ws: Worksheet, top: int, first: int, kind: str) -> None:
-    """Blocks 9-10: p chart (defectives) or u chart (defects), limits per subgroup."""
+    """Blocks 9-10: p chart (defectives) or u chart (defects): summary from row `top`, the table from row `first`."""
     last = first + ATTRIBUTE_ROWS - 1
+    c = P_COLUMNS if kind == "p" else U_COLUMNS
     if kind == "p":
-        section_title(ws, top, "9. p-kaart (p chart): fractie defect per subgroep (defecte stuks: goed/slecht-gegevens)")
+        section_title(ws, top, f"9. p-kaart (p chart): fractie defect per subgroep (tabel in kolommen {c['number']}-"
+                               f"{c['flag']} vanaf rij {first})")
         what, total_label, centre_label = "defecte stuks d_i", "totaal defecte stuks", "p̄ = defecte stuks / geïnspecteerd"
-        spread = "SQRT({c}*(1-{c})/B{r})"
+        spread = "SQRT({c}*(1-{c})/{n})"
         source = "Dummies p. 254 (binomiaal)"
     else:
-        section_title(ws, top, "10. u-kaart (u chart): defecten per eenheid per subgroep (defecten: telgegevens)")
+        section_title(ws, top, f"10. u-kaart (u chart): defecten per eenheid per subgroep (tabel in kolommen "
+                               f"{c['number']}-{c['flag']} vanaf rij {first})")
         what, total_label, centre_label = "defecten c_i", "totaal defecten", "ū = defecten / eenheden"
-        spread = "SQRT({c}/B{r})"
+        spread = "SQRT({c}/{n})"
         source = "Dummies p. 254 (Poisson)"
-    have = f"COUNT(B{first}:B{last})>0"
-    result_row(ws, top + 1, "totaal geïnspecteerd (eenheden)", f'=IF({have},SUM(B{first}:B{last}),"")', "0")
-    result_row(ws, top + 2, total_label, f'=IF({have},SUM(C{first}:C{last}),"")', "0")
+    sizes, counts = f"{c['n']}{first}:{c['n']}{last}", f"{c['count']}{first}:{c['count']}{last}"
+    have = f"COUNT({sizes})>0"
+    result_row(ws, top + 1, "totaal geïnspecteerd (eenheden)", f'=IF({have},SUM({sizes}),"")', "0")
+    result_row(ws, top + 2, total_label, f'=IF({have},SUM({counts}),"")', "0")
     result_row(ws, top + 3, centre_label, f'=IF(AND({have},B{top + 1}>0),B{top + 2}/B{top + 1},"")', NUMBER, source)
     label(ws, top + 4, 1, "Grenzen per subgroep: centrum ± 3 · " + ("√(p̄(1 − p̄)/n_i)" if kind == "p" else "√(ū/n_i)")
           + "; een negatieve ondergrens wordt 0.", italic=True)
     column_titles(ws, first - 1, ["#", "subgroepgrootte n_i", what, "p_i" if kind == "p" else "u_i", "LCL_i", "UCL_i",
-                                  "markering"])
+                                  "markering"], first_column=column_index_from_string(c["number"]))
+    input_block(ws, (first, last), (column_index_from_string(c["n"]), column_index_from_string(c["count"])))
     centre = f"$B${top + 3}"
     for index in range(ATTRIBUTE_ROWS):
         r = first + index
-        ws[f"A{r}"] = index + 1
-        input_cell(ws, f"B{r}")
-        input_cell(ws, f"C{r}")
-        ok = f"AND(ISNUMBER(B{r}),ISNUMBER(C{r}),B{r}>0,ISNUMBER({centre}))"
-        half = "3*" + spread.format(c=centre, r=r)
-        output_cell(ws, f"D{r}", f'=IF({ok},C{r}/B{r},"")', NUMBER)
-        output_cell(ws, f"E{r}", f'=IF({ok},MAX(0,{centre}-{half}),"")', NUMBER)
-        output_cell(ws, f"F{r}", f'=IF({ok},{centre}+{half},"")', NUMBER)
-        output_cell(ws, f"G{r}", _flag(f"D{r}", f"E{r}", f"F{r}"))
+        n, count, value = f"{c['n']}{r}", f"{c['count']}{r}", f"{c['value']}{r}"
+        ws[f"{c['number']}{r}"] = index + 1
+        ok = f"AND(ISNUMBER({n}),ISNUMBER({count}),{n}>0,ISNUMBER({centre}))"
+        half = "3*" + spread.format(c=centre, n=n)
+        output_cell(ws, value, f'=IF({ok},{count}/{n},"")', NUMBER)
+        output_cell(ws, f"{c['lcl']}{r}", f'=IF({ok},MAX(0,{centre}-{half}),"")', NUMBER)
+        output_cell(ws, f"{c['ucl']}{r}", f'=IF({ok},{centre}+{half},"")', NUMBER)
+        output_cell(ws, f"{c['flag']}{r}", _flag(value, f"{c['lcl']}{r}", f"{c['ucl']}{r}"))
 
 
 def _validation(ws: Worksheet) -> None:
@@ -329,11 +340,16 @@ def build_sheet(ws: Worksheet) -> None:
     _per_opportunity(ws)
     _moving_range_capability(ws)
     _individuals(ws)
-    _attribute_chart(ws, 194, FIRST_P, "p")
-    _attribute_chart(ws, 252, FIRST_U, "u")
+    _attribute_chart(ws, 91, FIRST_P, "p")
+    _attribute_chart(ws, 97, FIRST_U, "u")
+    instructions(ws, 103, 1, "Zo vul je de drie tabellen hieronder in (vanaf rij {first}, elk tot {rows} rijen)".format(
+        first=FIRST_ROW, rows=TABLE_ROWS), (
+        "• I-MR: de waarden in volgorde in kolom B. p-kaart: per subgroep n_i in H en het aantal defecte stuks in I. "
+        "u-kaart: per subgroep n_i in P en het aantal defecten in Q. Alleen GETALLEN, geen kop; lege rijen tellen niet.",
+    ))
     _validation(ws)
     ws.column_dimensions["A"].width = 66
     ws.column_dimensions["B"].width = 16
     ws.column_dimensions["C"].width = 16
-    for letter in "DEFGH":
+    for letter in "DEFGHIJKLMNOPQRSTU":
         ws.column_dimensions[letter].width = 14

@@ -16,3 +16,5 @@ per tool: `inventory/proposed_tools.md`. Conventions: `inventory/conventions.md`
 9. Gage R&R (average & range, ANOVA)
 10. Acceptance sampling (OC curve, AOQ)
 11. ANOVA, 2^k effects, simple regression
+12. Conditional probabilities: cross table or raw data, marginals, P(asked | given), independence and χ²
+    (added 2026-10-08 at the user's request: "an extra tool/sheet to calculate voorwaardelijke kansen")

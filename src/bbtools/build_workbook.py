@@ -17,8 +17,10 @@ from openpyxl.workbook.properties import CalcProperties
 
 from bbtools import (
     sheet_acceptance,
+    sheet_anova,
     sheet_capability,
     sheet_charts,
+    sheet_conditional,
     sheet_confusion,
     sheet_distributions,
     sheet_doe,
@@ -26,6 +28,7 @@ from bbtools import (
     sheet_grr,
     sheet_means,
     sheet_normal,
+    sheet_regression,
     sheet_sigma,
     sheet_tables,
     sheet_variance,
@@ -41,15 +44,21 @@ OUTPUT = ROOT / "build" / "bb_toolkit.xlsx"
 # calculators look constants up there, users rarely need it.
 TOOL_SHEETS = (
     sheet_capability, sheet_normal, sheet_sigma, sheet_variance, sheet_confusion, sheet_distributions, sheet_means,
-    sheet_charts, sheet_grr, sheet_acceptance, sheet_doe, sheet_extra,
+    sheet_charts, sheet_grr, sheet_acceptance, sheet_anova, sheet_doe, sheet_regression, sheet_conditional,
+    sheet_extra,
 )
 
 
-def build_workbook() -> Workbook:
-    """Assemble the workbook in memory: calculators in approved order, then Tables."""
+def build_workbook(only: tuple[str, ...] | None = None) -> Workbook:
+    """Assemble the workbook in memory: calculators in approved order, then Tables.
+
+    `only` limits the calculators to those sheet names (Tables is always built: the calculators look constants up
+    there and depend on nothing else), so a test of one sheet need not recalculate the others.
+    """
     wb = Workbook()
     wb.remove(wb.active)
-    sheets = [(module, wb.create_sheet(module.SHEET)) for module in TOOL_SHEETS]
+    modules = [m for m in TOOL_SHEETS if only is None or m.SHEET in only]
+    sheets = [(module, wb.create_sheet(module.SHEET)) for module in modules]
     sheet_tables.build_tables_sheet(wb, load_all())  # defines the lookup names the calculators use
     for module, ws in sheets:
         module.build_sheet(ws)

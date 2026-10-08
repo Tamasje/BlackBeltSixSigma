@@ -10,6 +10,7 @@ variance with n1 + n2 − 2 (Test Recipes p. 5; CI Further Reading p. 15 prints 
 Exact interval for π = the Clopper-Pearson interval of R binom.test, computed with BETA.INV.
 
 Row plan: settings 8-9; one mean 11-39; unpaired 41-70; paired 72-92; one proportion 94-110; two proportions 112-125.
+Raw data in L and M from row 10 down (open-ended), L − M in N; how to fill them and their checks in column P.
 Raw data: L10:L509 (sample 1), M10:M509 (sample 2), N = L − M (computed, for paired data).
 """
 from __future__ import annotations
@@ -19,13 +20,17 @@ from openpyxl.worksheet.worksheet import Worksheet
 
 from bbtools.readme import SheetDoc
 from bbtools.xlsx_style import (
+    DATA_LAST_ROW,
+    OUTPUT_FILL,
     HeaderBlock,
     Status,
     column_titles,
+    data_check,
     font,
-    input_cell,
     input_row,
+    instructions,
     label,
+    open_input_column,
     output_cell,
     result_row,
     section_title,
@@ -68,7 +73,9 @@ DOC = SheetDoc(
 )
 
 ALPHA = "B9"
-DATA_1, DATA_2, DIFF = "L10:L509", "M10:M509", "N10:N509"
+PAIRS = 10_000  # column N needs a formula per row: paired data up to 10 000 pairs; L and M themselves are open-ended
+DATA_1, DATA_2, DIFF = f"L10:L{DATA_LAST_ROW}", f"M10:M{DATA_LAST_ROW}", f"N10:N{9 + PAIRS}"
+CHECKS = {"data_1": "Q17", "data_2": "Q18", "pairs": "Q19"}
 NUMBER = "0.000000"
 PERCENT = "0.0000%"
 DECISION = '=IF(ISNUMBER({p}),IF({p}<' + ALPHA + ',"verwerp H0","H0 niet verwerpen"),"")'
@@ -101,16 +108,35 @@ TWO_PROPORTION_CI = {"two_sided": 123, "lower_only": 124, "upper_only": 125}  # 
 
 
 def _data_columns(ws: Worksheet) -> None:
-    """Columns L, M: optional raw data; N: their row-by-row difference (for paired data)."""
-    label(ws, 8, 12, "Optioneel: plak hieronder ruwe waarden. n, gemiddelde en s worden er dan uit berekend.",
-          italic=True)
+    """Columns L, M: optional raw data (open-ended); N: their row-by-row difference (paired); how to fill them in P."""
+    label(ws, 8, 12, "Optioneel: ruwe waarden (uitleg →)", italic=True)
     for column, text in (("L", "Steekproef 1"), ("M", "Steekproef 2"), ("N", "L − M (gepaard)")):
         ws[f"{column}9"] = text
         ws[f"{column}9"].font = font(bold=True)
-    for row in range(10, 510):
-        input_cell(ws, f"L{row}")
-        input_cell(ws, f"M{row}")
-        output_cell(ws, f"N{row}", f'=IF(AND(ISNUMBER(L{row}),ISNUMBER(M{row})),L{row}-M{row},"")', "General")
+    open_input_column(ws, "L", 10)
+    open_input_column(ws, "M", 10)
+    for row in range(10, 10 + PAIRS):
+        ws[f"N{row}"] = f'=IF(AND(ISNUMBER(L{row}),ISNUMBER(M{row})),L{row}-M{row},"")'
+    ws.column_dimensions["N"].fill = OUTPUT_FILL   # green to the last formula row; the cells above stay plain
+    for row in range(1, 9):
+        ws[f"N{row}"].font = font()
+    row = instructions(ws, 8, 16, "Zo gebruik je kolommen L en M (ruwe data)", (
+        "• Eén GETAL per cel, onder elkaar, vanaf rij 10; zoveel rijen als je wilt. Geen kop of tekst.",
+        "• Kolom L = steekproef 1: telt voor sectie 2 (één gemiddelde) én voor steekproef 1 van sectie 3.",
+        "• Kolom M = steekproef 2 (sectie 3). Gepaarde data (sectie 4): elk paar op dezelfde rij in L en M; kolom N "
+        f"rekent L − M (tot {PAIRS} paren).",
+        "• Met 2 of meer getallen rekent het blad n, x̄ en s uit de kolom; de getypte waarden tellen dan niet.",
+        "• Typ je liever n, x̄ en s: laat L en M leeg (selecteer vanaf rij 10 en druk Delete). "
+        "Plakken uit een ander bestand: Plakken speciaal → Waarden.",
+    ))
+    label(ws, row + 1, 16, "Controle van de geplakte data:", bold=True)
+    for key, data, text in (("data_1", DATA_1, "L:"), ("data_2", DATA_2, "M:")):
+        label(ws, int(CHECKS[key][1:]), 16, text)
+        data_check(ws, CHECKS[key], data)
+    label(ws, int(CHECKS["pairs"][1:]), 16, "paren (N):")
+    # column N holds formulas, so count its numbers only; a pair needs a number in L and in M on the same row
+    output_cell(ws, CHECKS["pairs"], f'=IF(COUNT({DIFF})=0,"leeg",COUNT({DIFF})&" paren"&IF(COUNT({DATA_1})<>COUNT('
+                                     f'{DATA_2}),"; LET OP: L en M hebben niet evenveel getallen",""))')
 
 
 def _used(ws: Worksheet, row: int, text: str, data: str, typed: str, kind: str) -> None:
@@ -369,3 +395,4 @@ def build_sheet(ws: Worksheet) -> None:
     ws.column_dimensions["K"].width = 3
     for letter in "LMN":
         ws.column_dimensions[letter].width = 12
+    ws.column_dimensions["O"].width = 3

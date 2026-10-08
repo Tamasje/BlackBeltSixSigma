@@ -70,6 +70,62 @@ def lookup_formula(symbol: str, n_ref: str) -> str:
     return f"INDEX({excel_name(key, symbol)},MATCH({n_ref},{key}_n,0))"
 
 
+# where each used constant comes from, for the tables shown on the calculator sheets
+SOURCE_NAMES = {"T18": "Table 18 (___4.1 tabellen SPC.pdf p. 2)", "TA": "Table A (___4.1 tabellen SPC.pdf p. 1)",
+                "SSD1": "Six Sigma Demystified (Control charts - constants.pdf p. 1)",
+                "SSD2": "Six Sigma Demystified (Control charts - constants.pdf p. 2)"}
+
+
+def used_constants_table(ws: Worksheet, top: int, column: int, symbols: tuple[str, ...], purpose: str) -> int:
+    """The constants a calculator uses, for n = 2 … 25, written from (top, column); returns the next free row.
+
+    Every value is a lookup into the Tabellen sheet, the same lookup the calculator's formulas use, so the table on
+    the sheet always shows exactly the value the sheet computes with.
+    """
+    label(ws, top, column, f"Constanten die dit blad gebruikt ({purpose})", bold=True)
+    sources = sorted({USED_TABLE[s] for s in symbols}, key=list(SOURCE_NAMES).index)
+    label(ws, top + 1, column, "Bron: " + "; ".join(
+        f"{', '.join(s for s in symbols if USED_TABLE[s] == key)} uit {SOURCE_NAMES[key]}" for key in sources)
+        + ". Alle bronnen naast elkaar: blad Tabellen.", italic=True)
+    column_titles(ws, top + 2, ["n", *symbols], first_column=column)
+    for offset, n in enumerate(range(2, 26)):
+        row = top + 3 + offset
+        n_cell = ws.cell(row=row, column=column, value=n)
+        n_cell.font, n_cell.border = font(bold=True), BOX
+        for k, symbol in enumerate(symbols, start=1):
+            cell = ws.cell(row=row, column=column + k)
+            cell.value = f'=IFERROR({lookup_formula(symbol, get_column_letter(column) + str(row))},"")'
+            cell.font, cell.border, cell.number_format = font(), BOX, "0.0000"
+    return top + 3 + 24
+
+
+def msa_table(ws: Worksheet, top: int, column: int) -> int:
+    """The d2* table of tabel MSA.pdf (g = 1 … 20 rows, m = 2 … 20 columns) and its d2 row, from (top, column).
+
+    Lookups into the Tabellen sheet, like the Gage R&R formulas; returns the next free row.
+    """
+    table = load_average_range_table()
+    label(ws, top, column, "Tabel d2* (tabel MSA.pdf): K1 = 1/d2 met m = r (onderste rij, g → ∞); K2 = 1/d2* met m = k, "
+                           "K3 = 1/d2* met m = n (rij g = 1)", bold=True)
+    column_titles(ws, top + 1, ["g \\ m", *[str(m) for m in table.m]], first_column=column)
+    for offset, g in enumerate(table.g):
+        row = top + 2 + offset
+        g_cell = ws.cell(row=row, column=column, value=g)
+        g_cell.font, g_cell.border = font(bold=True), BOX
+        for k in range(len(table.m)):
+            cell = ws.cell(row=row, column=column + 1 + k)
+            cell.value = f"=INDEX(MSA_d2star,{offset + 1},{k + 1})"
+            cell.font, cell.border, cell.number_format = font(), BOX, "0.00000"
+    row = top + 2 + len(table.g)
+    d2_label = ws.cell(row=row, column=column, value="d2 (g → ∞)")
+    d2_label.font, d2_label.border = font(bold=True), BOX
+    for k in range(len(table.m)):
+        cell = ws.cell(row=row, column=column + 1 + k)
+        cell.value = f"=INDEX(MSA_d2,1,{k + 1})"
+        cell.font, cell.border, cell.number_format = font(), BOX, "0.00000"
+    return row + 1
+
+
 def d2_star_formula(g_ref: str, m_ref: str) -> str:
     """Excel expression for d2* of g subgroups of size m (tabel MSA.pdf)."""
     return f"INDEX(MSA_d2star,MATCH({g_ref},MSA_g,0),MATCH({m_ref},MSA_m,0))"

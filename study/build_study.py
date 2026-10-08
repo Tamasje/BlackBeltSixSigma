@@ -148,14 +148,14 @@ TOOLS: dict[str, Tool] = {
     "regressie": Tool("Rekenmachine enkelvoudige regressie (ook uit sommen of kwadratensommen) en partiële F-toets",
                       "regressie; regression; kleinste kwadraten; least squares; R²; helling; slope; intercept; "
                       "predictie-interval; prediction interval; betrouwbaarheidsinterval; confidence interval",
-                      (("REG", 16, "REG p. 16–38"),), "ANOVA DOE regressie"),
+                      (("REG", 16, "REG p. 16–38"),), "Regressie"),
     "anova": Tool("Rekenmachine eenweg-ANOVA",
                   "ANOVA; variantieanalyse; analysis of variance; one-way; eenweg; F-toets; F-test; kwadratensom; sum of squares",
-                  (("DOE", 3, "DOE p. 3–15"),), "ANOVA DOE regressie"),
+                  (("DOE", 3, "DOE p. 3–15"),), "ANOVA (eenweg)"),
     "factorieel": Tool("Rekenmachine 2^k-factorieel: effecten, SS en F-toetsen",
                        "factorieel; factorial; 2^k; effect; interactie; interaction; contrast; poolen; pooling; DOE; "
                        "proefopzet; design of experiments",
-                       (("DOE", 46, "DOE p. 46–79"),), "ANOVA DOE regressie"),
+                       (("DOE", 46, "DOE p. 46–79"),), "DOE 2^k"),
     "aliassen": Tool("Rekenmachine fractioneel factorieel: generatoren, aliassen, resolutie",
                      "fractioneel; fractional factorial; alias; generator; resolutie; resolution; definiërende relatie; "
                      "defining relation; halve fractie; half fraction",
@@ -268,11 +268,11 @@ PART_TOOLS: dict[str, tuple[str, ...]] = {
     "08": ("anova", "anova2", "factorieel", "aliassen", "kwantielen"),
     "09": ("capabiliteit", "normaal", "sigma", "constanten"),
     "10": ("regelkaart", "constanten", "normaal"),
-    "11": ("grr", "meetsysteem", "msatabel", "regressie", "capabiliteit", "bayes"),
+    "11": ("grr", "meetsysteem", "msatabel", "regressie", "capabiliteit", "constanten", "bayes"),
     "12": ("confusion", "bayes"),
     "14": ("sigma_extra", "regelkaart_extra", "constanten"),
     "13": ("variantie", "kwantielen", "capabiliteit", "normaal", "confusion", "verdelingen", "sigma", "regelkaart",
-           "kruistabel"),
+           "constanten", "kruistabel"),
 }
 
 

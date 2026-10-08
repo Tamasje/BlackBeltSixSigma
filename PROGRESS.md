@@ -245,6 +245,24 @@ Decisions 18-20 (2026-10-05) in inventory/conventions.md; oracle updated once wi
 - Sharing: no absolute paths or OneDrive references in the repo; all links are relative (../source/...). All 45
   linked course files open in Chromium from file://. ERR_ACCESS_DENIED on the user's Mac comes from OneDrive
   (online-only files) or macOS file permissions; 00_start.html now explains the fix.
+- Calculators in the study guide: a field the calculator derives from the others is filled in, turns red and is
+  locked (read-only); emptying a given field unlocks it; every block has a "Wis alles" button. Pasted data also
+  fill and lock the summary fields (n, x̄, s). Node test: blocks report only fields that were left empty.
+- New tool 12, conditional probabilities (user request 2026-10-08; inventory/approved_tools.md): in the guide (part 02)
+  and as Excel sheet "Voorwaardelijke kansen": cross table (names, Totaal ignored) or raw data, P(asked | given) from
+  dropdowns (complements included) with numerator and denominator, marginals, P(Y | X), P(X | Y), P(X)·P(Y),
+  independence as in Data p. 25 and the χ²-test (Test Recipes p. 18-20). Tested against S02-WE01 and scipy.
+- Excel data areas open-ended: raw value columns read to row 100 000 (variances, means, ANOVA groups, regression
+  pairs); per-row tables pre-filled: control charts 1000 subgroups × 25 values, I-MR / p / u 2000 rows each side by
+  side, conditional raw data 10 000 rows; Gage R&R reads k (≤ 20 operators, names in column A), n (≤ 50 parts) and
+  r from the data (MSA K3 needs n ≤ 20, else that component stays empty). "ANOVA DOE regressie" split into
+  "ANOVA (eenweg)" (50 groups), "DOE 2^k" (20 replicates) and "Regressie" (one tool per sheet), data blocks last.
+  Every paste area has a "Zo vul je … in" block (text vs numbers, where, how to clear) and checks that count the
+  numbers and report text. Sheet tests build only their sheet plus Tabellen; the whole workbook is recalculated in
+  test_build_workbook (92 127 formulas, 0 errors).
+- Constants where they are used: Regelkaarten (A2, D3, D4, A3, B3, B4, d2, c4), Capabiliteit (d2, c4) and Gage R&R
+  (tabel MSA d2*) show the values the sheet computes with (lookups into Tabellen; tested against the printed
+  tables). Guide: the constants table also in parts 11 and 13.
 
 ## Answered questions (inventory-review STOP; decisions in inventory/conventions.md)
 Convention questions (details and sources in inventory/conventions.md, "Conflicts and gaps"):

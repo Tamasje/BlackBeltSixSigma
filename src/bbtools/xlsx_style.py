@@ -5,9 +5,11 @@ tool name, course source (file + pages), convention used and status VERIFIED / U
 """
 from __future__ import annotations
 
+from copy import copy
 from dataclasses import dataclass
 from enum import Enum
 
+from openpyxl.cell.cell import Cell
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.worksheet.worksheet import Worksheet
 
@@ -20,6 +22,9 @@ THIN = Side(style="thin", color="A6A6A6")
 BOX = Border(left=THIN, right=THIN, top=THIN, bottom=THIN)
 
 HEADER_ROWS = 6  # rows 1-6 are the header block on every sheet; content starts at row 8
+# Open-ended data columns: formulas read down to this row, far more than any exam question needs, so pasting
+# "a few more rows" never falls outside what the sheet counts.
+DATA_LAST_ROW = 100_000
 
 
 class Status(Enum):
@@ -82,23 +87,28 @@ def label(ws: Worksheet, row: int, column: int, text: str, bold: bool = False, i
     cell.font = font(bold=bold, italic=italic)
 
 
-def input_cell(ws: Worksheet, coordinate: str, number_format: str = "General") -> None:
-    """Mark a cell as an input: yellow, boxed, left empty for the user."""
+def _styled(ws: Worksheet, coordinate: str, kind: str, number_format: str, fill: PatternFill, text: Font) -> Cell:
+    """Give a cell the input or output look. The first cell of each look is styled field by field; later cells copy
+    its style record, which keeps building sheets with thousands of cells fast."""
     cell = ws[coordinate]
-    cell.fill = INPUT_FILL
-    cell.border = BOX
-    cell.font = font(color="0000FF")  # blue text = typed input
-    cell.number_format = number_format
+    cache = ws.parent.__dict__.setdefault("_bbtools_styles", {})  # style records belong to one workbook
+    key = (kind, number_format)
+    if key in cache:
+        cell._style = copy(cache[key])
+    else:
+        cell.fill, cell.border, cell.font, cell.number_format = fill, BOX, text, number_format
+        cache[key] = copy(cell._style)
+    return cell
+
+
+def input_cell(ws: Worksheet, coordinate: str, number_format: str = "General") -> None:
+    """Mark a cell as an input: yellow, boxed, blue text (typed input), left empty for the user."""
+    _styled(ws, coordinate, "input", number_format, INPUT_FILL, font(color="0000FF"))
 
 
 def output_cell(ws: Worksheet, coordinate: str, formula: str, number_format: str = "General") -> None:
     """Write a formula into a green, boxed result cell."""
-    cell = ws[coordinate]
-    cell.value = formula
-    cell.fill = OUTPUT_FILL
-    cell.border = BOX
-    cell.font = font()
-    cell.number_format = number_format
+    _styled(ws, coordinate, "output", number_format, OUTPUT_FILL, font()).value = formula
 
 
 def input_row(ws: Worksheet, row: int, text: str, note: str = "", number_format: str = "General") -> str:
@@ -138,3 +148,44 @@ def column_titles(ws: Worksheet, row: int, titles: list[str], first_column: int 
         cell.fill = HEADER_FILL
         cell.border = BOX
         cell.alignment = Alignment(wrap_text=True, vertical="center", horizontal="center")
+
+
+def input_block(ws: Worksheet, rows: tuple[int, int], columns: tuple[int, int], number_format: str = "General") -> None:
+    """Mark a rectangle (first, last row) × (first, last column) as input cells, quickly: one styled cell is copied."""
+    template = ws.cell(row=rows[0], column=columns[0])
+    input_cell(ws, template.coordinate, number_format)
+    for row in range(rows[0], rows[1] + 1):
+        for column in range(columns[0], columns[1] + 1):
+            ws.cell(row=row, column=column)._style = copy(template._style)
+
+
+def open_input_column(ws: Worksheet, letter: str, first_row: int, number_format: str = "General") -> str:
+    """Make column `letter` yellow from `first_row` all the way down; return its range to DATA_LAST_ROW.
+
+    The whole column gets the input style; the empty cells above `first_row` get a plain style so only the data
+    area looks like an input.
+    """
+    column = ws.column_dimensions[letter]
+    column.fill = INPUT_FILL
+    column.font = font(color="0000FF")
+    column.number_format = number_format
+    for row in range(1, first_row):
+        cell = ws[f"{letter}{row}"]
+        if cell.has_style:
+            continue
+        cell.font = font()
+    return f"${letter}${first_row}:${letter}${DATA_LAST_ROW}"
+
+
+def data_check(ws: Worksheet, coordinate: str, data: str) -> None:
+    """A green cell that counts the numbers in a pasted range and warns when cells hold text (those never count)."""
+    output_cell(ws, coordinate, f'=IF(COUNTA({data})=0,"leeg",COUNT({data})&" getallen"&IF(COUNTA({data})>COUNT({data}),'
+                                f'"; LET OP: "&(COUNTA({data})-COUNT({data}))&" cel(len) met tekst tellen NIET mee",""))')
+
+
+def instructions(ws: Worksheet, row: int, column: int, title: str, lines: tuple[str, ...]) -> int:
+    """A bold title and italic lines below it, starting at (row, column); returns the next free row."""
+    label(ws, row, column, title, bold=True)
+    for offset, text in enumerate(lines, start=1):
+        label(ws, row + offset, column, text, italic=True)
+    return row + len(lines) + 1

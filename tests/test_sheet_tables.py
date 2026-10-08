@@ -1,9 +1,12 @@
 """Tests for bbtools.sheet_tables: the Tables sheet shows every source as printed and names the lookup ranges."""
 from __future__ import annotations
 
+from typing import Any
+
+import pytest
 from openpyxl import Workbook
 
-from bbtools.constants import TABLE_SOURCES, load_all, load_average_range_table
+from bbtools.constants import TABLE_SOURCES, USED_TABLE, load_all, load_average_range_table
 from bbtools.printed import decimals_printed, parse_printed
 from bbtools.sheet_tables import (
     EXTRA_HEADING,
@@ -144,3 +147,27 @@ def test_msa_table_grids_hold_every_printed_value() -> None:
     row0, col0 = origin("MSA_d2")
     assert [ws.cell(row=row0, column=col0 + j).value for j in range(len(table.m))] == [float(v) for v in table.d2]
     assert table.m == tuple(range(2, 21)) and table.g == tuple(range(1, 21))
+
+
+@pytest.mark.libreoffice
+@pytest.mark.parametrize(("sheet", "top", "column", "symbols"), [
+    ("Regelkaarten", 22, 10, ("A2", "D3", "D4", "A3", "B3", "B4", "d2", "c4")),
+    ("Capabiliteit", 51, 1, ("d2", "c4")),
+])
+def test_constants_shown_on_a_sheet_are_the_used_printed_values(sheet: str, top: int, column: int,
+                                                                symbols: tuple[str, ...], evaluate: Any) -> None:
+    # arrange -- the printed value of each symbol in the table decision 4 assigns to it
+    printed = {}
+    for table in load_all():
+        for symbol, index in table.symbol_columns().items():
+            if USED_TABLE.get(symbol) == table.source.key:
+                printed |= {(symbol, row[0].strip()): row[index] for row in table.rows}
+    # act
+    ws = evaluate(sheet, {})
+    # assert -- every n from 2 to 25 that the source prints
+    for offset, n in enumerate(range(2, 26)):
+        for k, symbol in enumerate(symbols, start=1):
+            value = ws.cell(row=top + 3 + offset, column=column + k).value
+            text = printed.get((symbol, str(n)), "").strip()
+            if text and text not in ("-", "—"):
+                assert value == pytest.approx(float(parse_printed(text))), (sheet, symbol, n)

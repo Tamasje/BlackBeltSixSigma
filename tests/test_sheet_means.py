@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import math
 import random
+import statistics
 from collections.abc import Callable, Sequence
 from typing import Any
 
@@ -15,6 +16,7 @@ from scipy import stats
 
 from bbtools.printed import agrees_at_printed_precision
 from bbtools.sheet_means import (
+    CHECKS,
     INPUTS,
     ONE_MEAN_CI,
     PAIRED_CI,
@@ -211,3 +213,21 @@ def test_every_block_matches_scipy(seed: int, evaluate: Evaluate) -> None:
         assert at(ws, column, row) == pytest.approx(target, rel=1e-9), (column, row)
     assert ws[RESULTS["sp"]].value == pytest.approx(sp, rel=1e-12)
     assert at(ws, "B", 66) == pytest.approx(tu_stat, rel=1e-9) and at(ws, "B", 89) == pytest.approx(tp_stat, rel=1e-9)
+
+
+def test_long_pasted_columns_and_pairs(evaluate: Evaluate) -> None:
+    # arrange -- 2500 pairs in L and M (beyond the old 500 rows)
+    rng = random.Random(5)
+    first = [rng.gauss(10, 1) for _ in range(2500)]
+    second = [x - 0.2 + rng.gauss(0, 0.5) for x in first]
+    cells = {f"L{10 + i}": x for i, x in enumerate(first)} | {f"M{10 + i}": y for i, y in enumerate(second)}
+    # act
+    ws = evaluate(SHEET, cells)
+    # assert -- one mean from L, paired differences from L − M, the checks count everything
+    differences = [x - y for x, y in zip(first, second, strict=True)]
+    assert ws[RESULTS["n_used"]].value == 2500
+    assert ws[RESULTS["mean_used"]].value == pytest.approx(statistics.mean(first), rel=1e-12)
+    assert ws[RESULTS["np_used"]].value == 2500
+    assert ws[RESULTS["sv_used"]].value == pytest.approx(statistics.stdev(differences), rel=1e-10)
+    assert ws[CHECKS["pairs"]].value == "2500 paren"
+    assert ws[CHECKS["data_1"]].value == ws[CHECKS["data_2"]].value == "2500 getallen"

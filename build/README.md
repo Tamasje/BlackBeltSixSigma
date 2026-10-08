@@ -100,7 +100,7 @@ Offline rekenbladen (calculators) voor het Black Belt-examen. Gemaakt door `src/
 ## Gage R&R: Gage R&R: gemiddelde-en-spreidingsbreedtemethode (average and range method) en ANOVA-methode (EV, AV, PV, GRR, TV, %GRR)
 
 - **Doel:** Herhaalbaarheid (repeatability, EV), reproduceerbaarheid (reproducibility, AV), variatie tussen de delen (part variation, PV), GRR, TV en %GRR met de gemiddelde-en-spreidingsbreedtemethode (average and range method) en met de ANOVA-methode, met het oordeel 10 % / 30 % van de cursus; de ANOVA met de interactieterm.
-- **Invoer:** de metingen van een volledige gekruiste studie (crossed study): tot 3 operators × 3 herhalingen (trials, rijen) × 10 delen (parts, kolommen); optioneel de tolerantie USL − LSL en α voor de F-toetsen.
+- **Invoer:** de metingen van een volledige gekruiste studie (crossed study), onderaan het blad: kolom A de naam van de operator, één rij per herhaling (trial), één kolom per deel (part); het blad leidt k (tot 20), n (tot 50) en r af uit de data (tot 1000 rijen); optioneel de tolerantie USL − LSL en α voor de F-toetsen.
 - **Bron in de cursus:** source/course/Les 5/20260619_ottoy_Black Belt in Six Sigma - Measurement System Analysis.pdf p. 18, 24, 34-38; 20260619_ottoy_tabel MSA.pdf; 20260619_ottoy_GRR - ANOVA - avegage and range - 2.xlsx
 - **Conventie:** Beslissing 11: vermenigvuldigingsfactor (multiplier) 6; %GRR t.o.v. totale variatie en tolerantie; ANOVA van de cursus = model zonder interactie (interactie ook getoond); constanten uit tabel MSA.pdf; ndc niet in de cursus.
 - **Status:** GEVERIFIEERD (VERIFIED): getest tegen de uitgewerkte cursusvoorbeelden (worked examples) S10-WE02 (ANOVA) en S10-WE03 (gemiddelde-en-spreidingsbreedtemethode) op de eigen studiedata van de cursus
@@ -120,20 +120,49 @@ Offline rekenbladen (calculators) voor het Black Belt-examen. Gemaakt door `src/
   - Further Reading p. 4 ontwerpt (n, c) met de tabel van Peach ('tabellen AS.pdf'), die niet in de cursusbestanden zit; het blad controleert daarom een plan. Het voorbeeldplan (164, 2) voor (0,5 %, 95 %) en (3,5 %, 5 %) heeft OC(0,5 %) = 95 % maar OC(3,5 %) = 7,1 % (binomiaal): de methode van Peach is benaderend, zoals de pagina zegt.
   - Further Reading p. 10: 'AOQL approximately 1.3 %, at about 1.8 %' voor (250, 5), N = 1000 klopt met de benadering p·OC(p) (1,30 % bij 1,7 %), niet met de exacte formule op dezelfde slide (1,03 % bij 1,7 %), hoewel n/N = 0,25 niet klein is.
 
-## ANOVA DOE regressie: Eenwegs-ANOVA (one-way ANOVA), effecten en ANOVA van een 2^k-factoriële proefopzet (factorial design, k = 2 tot 5), enkelvoudige lineaire regressie (simple linear regression)
+## ANOVA (eenweg): Eenwegs-ANOVA (one-way ANOVA): zijn de gemiddelden van a groepen (factorniveaus) gelijk?
 
-- **Doel:** Eenwegs-ANOVA-tabel; effecten, coëfficiënten (extra, Dummies; niet te kennen), kwadratensommen (SS), F-toetsen en intervallen ±2 s.e. van een 2^k-factoriële proefopzet met zuivere fout (pure error) uit herhalingen en/of gepoolde interacties van hogere orde, de ANOVA van het model en R²; enkelvoudige lineaire regressie met ANOVA, R², t-toetsen, BI's van β0 en β1, en het BI van de gemiddelde respons en het predictie-interval bij x0.
-- **Invoer:** α; ANOVA: tot 8 groepen van elk tot 30 waarden (één kolom per groep); factorieel: k, optioneel de orde vanaf waar gepoold wordt, tot 4 herhalingen per run in standaardvolgorde; regressie: tot 200 paren (x, y), x0 en de H0-waarden van β1 en β0.
-- **Bron in de cursus:** source/course/Les 3/20260605_de vuyst_BB_DOE.pdf p. 3-15, 46-92; 20260605_de vuyst_BB_Regression.pdf p. 16-38, 56-57
-- **Conventie:** Invoer α vooraf ingevuld op 0,05 (beslissing 5); BI's en t-toetsen van de regressie eenzijdig en tweezijdig naast elkaar (beslissing 6); factoren gecodeerd −1/+1 in standaardvolgorde (standard order; DOE p. 46, 70, 74); één herhaling (single replicate): interacties van een gekozen orde en hoger in de fout poolen (DOE p. 72, 77); R²_adj op beide manieren getoond.
-- **Status:** GEVERIFIEERD (VERIFIED): getest tegen uitgewerkte voorbeelden van de cursus S05-WE01, S05-WE02, S05-WE05 tot S05-WE09, S05-WE17, S05-WE18, en tegen S08-WE16 (extra, Dummies; niet te kennen); gedrukte waarden die niet kloppen staan in build/README.md
+- **Doel:** Eenwegs-ANOVA-tabel (SS, df, MS, F0, p-waarde, kritieke F) met per groep n, gemiddelde en s.
+- **Invoer:** α; tot 50 groepen (één kolom per groep, B tot AY), elk met zoveel waarden als nodig, vanaf rij 35; optioneel een naam per groep in rij 34.
+- **Bron in de cursus:** source/course/Les 3/20260605_de vuyst_BB_DOE.pdf p. 3-15
+- **Conventie:** Invoer α vooraf ingevuld op 0,05 (beslissing 5); groepen mogen verschillend groot zijn.
+- **Status:** GEVERIFIEERD (VERIFIED): getest tegen de uitgewerkte voorbeelden van de cursus S05-WE01 en S05-WE02
+- **Audit:** niet nodig (er bestaan uitgewerkte voorbeelden in de cursus)
+
+## DOE 2^k: 2^k-factoriële proefopzet (factorial design, k = 2 tot 5): effecten, kwadratensommen, F-toetsen, ANOVA van het model en R²
+
+- **Doel:** Effecten, coëfficiënten (extra, Dummies; niet te kennen), kwadratensommen (SS), F-toetsen en intervallen ±2 s.e. van een 2^k-factoriële proefopzet met zuivere fout (pure error) uit herhalingen en/of gepoolde interacties van hogere orde, de ANOVA van het model en R².
+- **Invoer:** α; k, optioneel de orde vanaf waar gepoold wordt; tot 20 herhalingen per run in standaardvolgorde.
+- **Bron in de cursus:** source/course/Les 3/20260605_de vuyst_BB_DOE.pdf p. 46-92
+- **Conventie:** Invoer α vooraf ingevuld op 0,05 (beslissing 5); factoren gecodeerd −1/+1 in standaardvolgorde (standard order; DOE p. 46, 70, 74); één herhaling (single replicate): interacties van een gekozen orde en hoger in de fout poolen (DOE p. 72, 77); R²_adj op beide manieren getoond.
+- **Status:** GEVERIFIEERD (VERIFIED): getest tegen uitgewerkte voorbeelden van de cursus S05-WE05 tot S05-WE09, en tegen S08-WE16 (extra, Dummies; niet te kennen); gedrukte waarden die niet kloppen staan in build/README.md
 - **Audit:** niet nodig (er bestaan uitgewerkte voorbeelden in de cursus)
 - **Gedrukte cursuswaarden die niet kloppen met de berekening** (zoals gedrukt bewaard in het orakel; getest als strikte verwachte mislukkingen, strict xfail):
   - DOE p. 50 (S05-WE05): '[AB] = 5,78 – 4,92 = 0,857'; het exacte effect is 0,8583 (gemiddelden 5,7767 en 4,9183).
   - DOE p. 71 (S05-WE08): SS_ABC (en MS) gedrukt als 5,5625; de gegevens op p. 70 geven contrast 9 en SS 81/16 = 5,0625, wat ook de gedrukte F0 2,08, P 0,19 en het totaal 92,9375 impliceren. De gedrukte P van A, 2,54 × 10^-3, is 2,534 × 10^-3 voor F0 18,69 op F(1, 8).
   - DOE p. 53 (S05-WE06): 'AB = (52 + 20)/2 − (30 + 40)/2 = −1'; die uitdrukking is gelijk aan +1, wat het blad geeft.
-  - Regression p. 56 drukt R²_adj = 1 − (1 − R²)(n − 1)/(n − k − 2); de eigen outputs van de cursus gebruiken n − k − 1 (Regression p. 22 Minitab R-Sq(adj) 87,1 %; DOE p. 61 Adj R-Squared 0,8666; σ̂ op Regression p. 57). Het blad toont beide, met label.
+  - Regression p. 56 drukt R²_adj = 1 − (1 − R²)(n − 1)/(n − k − 2); de eigen outputs van de cursus gebruiken n − k − 1 (DOE p. 61 Adj R-Squared 0,8666). Het blad toont beide, met label.
+
+## Regressie: Enkelvoudige lineaire regressie (simple linear regression): schatting, ANOVA, R², toetsen, BI en PI
+
+- **Doel:** Enkelvoudige lineaire regressie met ANOVA, R², t-toetsen, BI's van β0 en β1, en het BI van de gemiddelde respons en het predictie-interval bij x0.
+- **Invoer:** α; paren (x, y) in kolommen B en C vanaf rij 58, zoveel als nodig; x0 en de H0-waarden van β1 en β0.
+- **Bron in de cursus:** source/course/Les 3/20260605_de vuyst_BB_Regression.pdf p. 16-38, 56-57
+- **Conventie:** Invoer α vooraf ingevuld op 0,05 (beslissing 5); BI's en t-toetsen eenzijdig en tweezijdig naast elkaar (beslissing 6); R²_adj op beide manieren getoond.
+- **Status:** GEVERIFIEERD (VERIFIED): getest tegen de uitgewerkte voorbeelden van de cursus S05-WE17 en S05-WE18
+- **Audit:** niet nodig (er bestaan uitgewerkte voorbeelden in de cursus)
+- **Gedrukte cursuswaarden die niet kloppen met de berekening** (zoals gedrukt bewaard in het orakel; getest als strikte verwachte mislukkingen, strict xfail):
+  - Regression p. 56 drukt R²_adj = 1 − (1 − R²)(n − 1)/(n − k − 2); de eigen outputs van de cursus gebruiken n − k − 1 (Regression p. 22 Minitab R-Sq(adj) 87,1 %; σ̂ op Regression p. 57). Het blad toont beide, met label.
   - Regression p. 21 (S05-WE17): de gefitte rechte 'ŷ = 74.20 + 14.97x' van Figure 11-4 verschilt van de kleinste-kwadratenwaarden (least squares) 74,283 en 14,947 van de Minitab-output op p. 22, die het blad reproduceert.
+
+## Voorwaardelijke kansen: Voorwaardelijke kansen (conditional probability): kruistabel of ruwe data, gezamenlijke, marginale en voorwaardelijke verdelingen, P(gevraagd | gegeven), (on)afhankelijkheid
+
+- **Doel:** Een kruistabel (getypt of geteld uit ruwe data) met de gezamenlijke kansen, de marginale verdelingen P(X) en P(Y), P(Y | X), P(X | Y), P(X)·P(Y); een gekozen kans P(gevraagd | gegeven) met teller en noemer; het oordeel onafhankelijk/afhankelijk en de χ²-toets.
+- **Invoer:** α; optioneel de namen van X en Y; een kruistabel tot 20 × 20 met namen (rij 256 en kolom A vanaf rij 257) of ruwe data: per waarneming de categorie van X (kolom W) en van Y (kolom X), tot 10 000 regels; de vraag met de keuzelijsten van sectie 3.
+- **Bron in de cursus:** source/course/Les 1/20260522_naert_big data.pdf p. 17-25; 20261005_naert_web_lecture 1 notes.pdf p. 11-12; Les 2/20260529_ottoy_Test Recipes - Further Reading (Dutch).pdf p. 18-20 (χ²)
+- **Conventie:** Onafhankelijk in de tabel zelf als P(Y | X) = P(Y) voor elke rij (zoals Data p. 25); is de tabel een steekproef, dan de χ²-toets (α vooraf ingevuld op 0,05, beslissing 5). P(niet G) = 1 − P(G) is algemene kansrekening.
+- **Status:** GEVERIFIEERD (VERIFIED): getest tegen het uitgewerkte cursusvoorbeeld S02-WE01 (Data p. 24-25), als kruistabel en als ruwe data; χ² tegen scipy
+- **Audit:** niet nodig (er bestaat een uitgewerkt cursusvoorbeeld)
 
 ## Extra (boeken): Extra: rekenblokken uit Six Sigma For Dummies en Harry & Schroeder (niet te kennen voor het examen)
 

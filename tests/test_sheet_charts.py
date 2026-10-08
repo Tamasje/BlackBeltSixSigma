@@ -20,10 +20,13 @@ import xlrd
 from bbtools.constants import ROOT
 from bbtools.printed import agrees_at_printed_precision
 from bbtools.sheet_charts import (
+    CHECK,
+    FLAGS,
     INPUTS,
     LIMITS,
     SHEET,
     SUMMARY,
+    TYPED,
     X_COLUMNS,
     subgroup_row,
 )
@@ -36,7 +39,7 @@ COURSE = ROOT / "source" / "course"
 
 
 def raw_subgroups(rows: list[list[float]]) -> dict[str, float]:
-    """Cells for subgroups given as raw values (up to 10 per subgroup)."""
+    """Cells for subgroups given as raw values (up to 25 per subgroup)."""
     return {f"{X_COLUMNS[j]}{subgroup_row(i)}": x for i, row in enumerate(rows) for j, x in enumerate(row)}
 
 
@@ -44,7 +47,7 @@ def typed_subgroups(means: list[float], ranges: list[float], n: int) -> dict[str
     """Cells for subgroups given as typed x-bar and R, with the subgroup size n."""
     cells: dict[str, float] = {INPUTS["n_typed"]: n}
     for i, (m, r) in enumerate(zip(means, ranges, strict=True)):
-        cells[f"L{subgroup_row(i)}"], cells[f"M{subgroup_row(i)}"] = m, r
+        cells[f"{TYPED['xbar']}{subgroup_row(i)}"], cells[f"{TYPED['r']}{subgroup_row(i)}"] = m, r
     return cells
 
 
@@ -168,6 +171,22 @@ def test_xbar_r_and_xbar_s_charts_match_an_independent_computation(seed: int, ev
     for (_, chart, which), target in expected.items():
         assert limit(ws, chart, which) == pytest.approx(target, rel=1e-9, abs=1e-12), (chart, which)
     for i, g in enumerate(subgroups):  # every flag says what the limits say
-        m, flag = statistics.mean(g), ws[f"S{subgroup_row(i)}"].value
+        m, flag = statistics.mean(g), ws[f"{FLAGS['xbar_r']}{subgroup_row(i)}"].value
         high, low = limit(ws, "xbar_r", "ucl"), limit(ws, "xbar_r", "lcl")
         assert (flag or "") == ("boven UCL" if m > high else "onder LCL" if m < low else "")
+
+
+def test_many_large_subgroups_and_the_row_check(evaluate: Evaluate) -> None:
+    # arrange -- 200 subgroups of 25 values (beyond the old 50 × 10 table), one row with raw values and a typed x̄
+    rng = random.Random(3)
+    groups = [[rng.gauss(10, 1) for _ in range(25)] for _ in range(200)]
+    cells = raw_subgroups(groups) | {f"{TYPED['xbar']}{subgroup_row(0)}": 99.0}
+    # act
+    ws = evaluate(SHEET, cells)
+    # assert -- summary from all 200 subgroups; the typed x̄ next to raw values is ignored and reported
+    assert ws[SUMMARY["k"]].value == 200 and ws[SUMMARY["n"]].value == 25
+    assert ws[SUMMARY["xbarbar"]].value == pytest.approx(statistics.mean(statistics.mean(g) for g in groups), rel=1e-12)
+    assert ws[SUMMARY["rbar"]].value == pytest.approx(statistics.mean(max(g) - min(g) for g in groups), rel=1e-12)
+    assert ws[SUMMARY["sbar"]].value == pytest.approx(statistics.mean(statistics.stdev(g) for g in groups), rel=1e-12)
+    assert ws[f"{CHECK}{subgroup_row(0)}"].value.startswith("ruwe waarden én getypt")
+    assert ws[f"{CHECK}{subgroup_row(1)}"].value is None

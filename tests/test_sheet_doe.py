@@ -1,4 +1,4 @@
-"""Tests for bbtools.sheet_doe, evaluated by LibreOffice headless.
+"""Tests for bbtools.sheet_anova, sheet_doe and sheet_regression, evaluated by LibreOffice headless.
 
 Expected values: course worked examples S05-WE01, S05-WE02 (one-way ANOVA), S05-WE05 to S05-WE09 (2^k effects and
 ANOVA), S08-WE16 (Dummies 2^3 effects and coefficients), S05-WE17, S05-WE18 (regression), all at printed precision;
@@ -21,26 +21,16 @@ from scipy import stats
 
 from bbtools.constants import CONSTANTS_DIR
 from bbtools.printed import agrees_at_printed_precision
-from bbtools.sheet_doe import (
-    ANOVA_ROWS,
-    FACTORS,
-    GROUP_COLUMNS,
-    GROUP_STATS,
-    INPUTS,
-    INTERVALS,
-    MODEL_ROWS,
-    RESULTS,
-    SHEET,
-    T_TESTS,
-    effect_name,
-    effect_row,
-    group_cell,
-    pair_cells,
-    response_cell,
-    sign,
-)
+from bbtools import sheet_anova, sheet_doe, sheet_regression
+from bbtools.sheet_anova import ANOVA_ROWS, GROUP_COLUMNS, GROUP_STATS, group_cell
+from bbtools.sheet_doe import FACTORS, MODEL_ROWS, effect_name, effect_row, response_cell, sign
+from bbtools.sheet_regression import INTERVALS, T_TESTS, pair_cells
 
 pytestmark = pytest.mark.libreoffice
+
+# the three calculators share α in B9; their other cells have distinct names
+INPUTS = {**sheet_anova.INPUTS, **sheet_doe.INPUTS, **sheet_regression.INPUTS}
+RESULTS = {**sheet_anova.RESULTS, **sheet_doe.RESULTS, **sheet_regression.RESULTS}
 
 Evaluate = Callable[[str, dict[str, Any]], Any]
 Printed = Callable[[str, str, str, str], str]
@@ -123,7 +113,7 @@ def paper_strength() -> list[list[float]]:
 def test_one_way_anova_paper_strength_s05_we01(oracle: dict[str, Any], printed: Printed, evaluate: Evaluate) -> None:
     # arrange -- DOE p. 9-10: α = 0.01
     stated = oracle["S05-WE01"]["stated_answers"]
-    ws = evaluate(SHEET, one_way_cells(paper_strength(), alpha=float(oracle["S05-WE01"]["given"]["alpha"])))
+    ws = evaluate(sheet_anova.SHEET, one_way_cells(paper_strength(), alpha=float(oracle["S05-WE01"]["given"]["alpha"])))
     tr, err, tot = ANOVA_ROWS["treatments"], ANOVA_ROWS["error"], ANOVA_ROWS["total"]
     # act / assert -- the ANOVA table at printed precision
     for cell, key in ((f"B{tot}", "SS_T"), (f"B{tr}", "SS_Treatments"), (f"B{err}", "SS_E"),
@@ -140,7 +130,7 @@ def test_one_way_group_statistics_s05_we01(oracle: dict[str, Any], evaluate: Eva
     text = oracle["S05-WE01"]["stated_answers"]["level_means_StDev"]
     levels = re.findall(r"level\d+: mean ([\d.]+) StDev ([\d.]+)", text)
     pooled = re.search(r"Pooled StDev ([\d.]+)", text).group(1)
-    ws = evaluate(SHEET, one_way_cells(paper_strength()))
+    ws = evaluate(sheet_anova.SHEET, one_way_cells(paper_strength()))
     # act / assert
     assert len(levels) == 4
     for letter, (mean, sd) in zip(GROUP_COLUMNS, levels):
@@ -153,7 +143,7 @@ def test_one_way_anova_fibre_strength_s05_we02(oracle: dict[str, Any], printed: 
     # arrange -- DOE p. 14-15 (Table 3-1, Excel ANOVA output), α 0.05 as prefilled
     stated = oracle["S05-WE02"]["stated_answers"]
     rows = [r for r in course_rows("S05_table_3_1_data_in_lb_in_2_from_the_tensile_strength_experime") if r["Obs1"]]
-    ws = evaluate(SHEET, one_way_cells([[float(r[f"Obs{i}"]) for i in range(1, 6)] for r in rows]))
+    ws = evaluate(sheet_anova.SHEET, one_way_cells([[float(r[f"Obs{i}"]) for i in range(1, 6)] for r in rows]))
     tr, err, tot = ANOVA_ROWS["treatments"], ANOVA_ROWS["error"], ANOVA_ROWS["total"]
     # act / assert
     for cell, key in ((f"B{tr}", "SS_between_groups"), (f"D{tr}", "MS_between"), (f"E{tr}", "F"),
@@ -173,7 +163,7 @@ def test_one_way_anova_matches_statsmodels(seed: int, evaluate: Evaluate) -> Non
     frame = pd.DataFrame([{"y": y, "g": g} for g, ys in enumerate(groups) for y in ys])
     table = sm.stats.anova_lm(smf.ols("y ~ C(g)", frame).fit(), typ=1)
     alpha = rng.choice([0.01, 0.05, 0.10])
-    ws = evaluate(SHEET, one_way_cells(groups, alpha))
+    ws = evaluate(sheet_anova.SHEET, one_way_cells(groups, alpha))
     tr, err = ANOVA_ROWS["treatments"], ANOVA_ROWS["error"]
     # act / assert -- rel=1e-9: same sums of squares by QR least squares
     assert ws[f"B{tr}"].value == pytest.approx(table.loc["C(g)", "sum_sq"], rel=1e-9)
@@ -185,6 +175,20 @@ def test_one_way_anova_matches_statsmodels(seed: int, evaluate: Evaluate) -> Non
     assert ws[f"G{tr}"].value == pytest.approx(stats.f.isf(alpha, df1, df2), rel=1e-9)
 
 
+def test_many_groups_of_many_values(evaluate: Evaluate) -> None:
+    # arrange -- 12 groups of 300 values each (the old block held 8 × 30), unequal means
+    rng = random.Random(21)
+    groups = [[rng.gauss(50 + g % 3, 4) for _ in range(300)] for g in range(12)]
+    expected = stats.f_oneway(*groups)
+    # act
+    ws = evaluate(sheet_anova.SHEET, one_way_cells(groups))
+    # assert -- scipy's one-way ANOVA; rel=1e-9 (same sums of squares, different order)
+    assert value(ws, "groups") == 12
+    assert ws[f"E{ANOVA_ROWS['treatments']}"].value == pytest.approx(expected.statistic, rel=1e-9)
+    assert ws[f"F{ANOVA_ROWS['treatments']}"].value == pytest.approx(expected.pvalue, rel=1e-7)
+    assert ws[f"C{ANOVA_ROWS['error']}"].value == 12 * 300 - 12
+
+
 # --- 2^k factorial --------------------------------------------------------------------------------------------
 
 
@@ -192,7 +196,7 @@ def test_effects_of_the_coded_example_s05_we05(oracle: dict[str, Any], evaluate:
     # arrange -- DOE p. 47-49: 2^2, n = 3, printed [A] and [B]
     given, stated = oracle["S05-WE05"]["given"], oracle["S05-WE05"]["stated_answers"]
     runs = [[float(v) for v in given[f"A={a},B={b}"].split(",")] for b in ("-1", "+1") for a in ("-1", "+1")]
-    ws = evaluate(SHEET, factorial_cells(2, runs))
+    ws = evaluate(sheet_doe.SHEET, factorial_cells(2, runs))
     # act / assert
     assert agrees_at_printed_precision(effect(ws, "A", "D"), stated["[A]"])
     assert agrees_at_printed_precision(effect(ws, "B", "D"), stated["[B]"])
@@ -204,7 +208,7 @@ def test_interaction_of_the_coded_example_s05_we05(oracle: dict[str, Any], evalu
     # arrange
     given = oracle["S05-WE05"]["given"]
     runs = [[float(v) for v in given[f"A={a},B={b}"].split(",")] for b in ("-1", "+1") for a in ("-1", "+1")]
-    ws = evaluate(SHEET, factorial_cells(2, runs))
+    ws = evaluate(sheet_doe.SHEET, factorial_cells(2, runs))
     # act / assert
     assert agrees_at_printed_precision(effect(ws, "AB", "D"), oracle["S05-WE05"]["stated_answers"]["[AB]"])
 
@@ -225,7 +229,7 @@ def test_effects_of_the_corner_figures_s05_we06(case: str, names: tuple[str, ...
                                                 evaluate: Evaluate) -> None:
     # arrange
     stated = oracle["S05-WE06"]["stated_answers"]
-    ws = evaluate(SHEET, factorial_cells(2, corner_runs(oracle, case)))
+    ws = evaluate(sheet_doe.SHEET, factorial_cells(2, corner_runs(oracle, case)))
     # act / assert -- whole numbers, exact
     for name in names:
         assert effect(ws, name, "D") == float(stated[f"{case}_{name}"]), name
@@ -234,7 +238,7 @@ def test_effects_of_the_corner_figures_s05_we06(case: str, names: tuple[str, ...
 @pytest.mark.xfail(reason="DOE p. 53 prints 'AB = (52 + 20)/2 − (30 + 40)/2 = −1'; that expression is 36 − 35 = +1")
 def test_interaction_of_the_no_interaction_figure_s05_we06(oracle: dict[str, Any], evaluate: Evaluate) -> None:
     # arrange
-    ws = evaluate(SHEET, factorial_cells(2, corner_runs(oracle, "no_interaction_case")))
+    ws = evaluate(sheet_doe.SHEET, factorial_cells(2, corner_runs(oracle, "no_interaction_case")))
     # act / assert
     assert effect(ws, "AB", "D") == float(oracle["S05-WE06"]["stated_answers"]["no_interaction_case_AB"])
 
@@ -250,7 +254,7 @@ def test_chemical_process_effects_and_anova_s05_we07(oracle: dict[str, Any], eva
     # arrange -- DOE p. 60-61
     stated = oracle["S05-WE07"]["stated_answers"]
     terms = anova_terms(stated["ANOVA"])
-    ws = evaluate(SHEET, factorial_cells(2, chemical_process()))
+    ws = evaluate(sheet_doe.SHEET, factorial_cells(2, chemical_process()))
     # act / assert -- effects, SS, F, p
     for name in ("A", "B", "AB"):
         assert agrees_at_printed_precision(effect(ws, name, "D"), stated[name]), name
@@ -282,7 +286,7 @@ def surface_finish() -> list[list[float]]:
 def test_surface_finish_anova_s05_we08(oracle: dict[str, Any], evaluate: Evaluate) -> None:
     # arrange -- DOE p. 71
     terms = anova_terms(oracle["S05-WE08"]["stated_answers"]["ANOVA"])
-    ws = evaluate(SHEET, factorial_cells(3, surface_finish()))
+    ws = evaluate(sheet_doe.SHEET, factorial_cells(3, surface_finish()))
     # act / assert
     for name in ("A", "B", "C", "AB", "AC", "BC"):
         assert agrees_at_printed_precision(effect(ws, name, "F"), terms[name]["SS"]), name
@@ -304,7 +308,7 @@ def test_surface_finish_anova_s05_we08(oracle: dict[str, Any], evaluate: Evaluat
 def test_surface_finish_abc_ss_s05_we08(oracle: dict[str, Any], evaluate: Evaluate) -> None:
     # arrange
     terms = anova_terms(oracle["S05-WE08"]["stated_answers"]["ANOVA"])
-    ws = evaluate(SHEET, factorial_cells(3, surface_finish()))
+    ws = evaluate(sheet_doe.SHEET, factorial_cells(3, surface_finish()))
     # act / assert
     assert agrees_at_printed_precision(effect(ws, "ABC", "F"), terms["ABC"]["SS"])
 
@@ -314,7 +318,7 @@ def test_surface_finish_abc_ss_s05_we08(oracle: dict[str, Any], evaluate: Evalua
 def test_surface_finish_p_of_a_s05_we08(oracle: dict[str, Any], evaluate: Evaluate) -> None:
     # arrange
     terms = anova_terms(oracle["S05-WE08"]["stated_answers"]["ANOVA"])
-    ws = evaluate(SHEET, factorial_cells(3, surface_finish()))
+    ws = evaluate(sheet_doe.SHEET, factorial_cells(3, surface_finish()))
     # act / assert
     assert agrees_scientific(effect(ws, "A", "I"), terms["A"]["P"])
 
@@ -330,7 +334,7 @@ def etch_rate() -> list[list[float]]:
 
 def test_etch_rate_effects_s05_we09(evaluate: Evaluate) -> None:
     # arrange -- DOE p. 75: all 15 estimated effects (course table, exact to 3 decimals)
-    ws = evaluate(SHEET, factorial_cells(4, etch_rate(), pool=3))
+    ws = evaluate(sheet_doe.SHEET, factorial_cells(4, etch_rate(), pool=3))
     # act / assert
     for row in course_rows("S05_etch_rate_example_estimated_effects_2_4_single_replicate"):
         assert agrees_at_printed_precision(effect(ws, row["Effect"], "D"), row["Estimate"]), row["Effect"]
@@ -339,7 +343,7 @@ def test_etch_rate_effects_s05_we09(evaluate: Evaluate) -> None:
 def test_etch_rate_pooled_anova_s05_we09(oracle: dict[str, Any], evaluate: Evaluate) -> None:
     # arrange -- DOE p. 77: model (A+B+C+D)^2, the 3- and 4-factor interactions pooled into the error (df 5)
     terms = anova_terms(oracle["S05-WE09"]["stated_answers"]["pooled_model_(A+B+C+D)^2_R_ANOVA"])
-    ws = evaluate(SHEET, factorial_cells(4, etch_rate(), pool=3))
+    ws = evaluate(sheet_doe.SHEET, factorial_cells(4, etch_rate(), pool=3))
     # act / assert
     for term, printed in terms.items():
         if term == "Residuals":
@@ -363,7 +367,7 @@ def test_ice_cream_effects_and_coefficients_s08_we16(oracle: dict[str, Any], pri
     rows = oracle["S08-WE16"]["given"]["Table_9-3_plan_and_results"]["rows"]
     for run, row in enumerate(rows):
         assert row[2:5] == [sign(run, 1 << j) for j in range(3)]
-    ws = evaluate(SHEET, factorial_cells(3, [[float(row[5])] for row in rows]))
+    ws = evaluate(sheet_doe.SHEET, factorial_cells(3, [[float(row[5])] for row in rows]))
     stated = "stated_answers"
     # act / assert -- effects E1 … E123
     for key, name, shown in (("E1", "A", "11.5"), ("E2", "B", "1.5"), ("E3", "C", "-2.5"), ("E12", "AB", "-1.0"),
@@ -385,14 +389,15 @@ def statsmodels_factorial(k: int, runs: list[list[float]], pool: int | None) -> 
     return smf.ols(f"y ~ ({'+'.join(names)})**{order}", frame).fit()
 
 
-@pytest.mark.parametrize(("k", "n", "pool"), [(2, 4, None), (3, 1, 2), (4, 2, 3), (5, 4, None), (5, 1, 3)])
+@pytest.mark.parametrize(("k", "n", "pool"), [(2, 4, None), (3, 1, 2), (4, 2, 3), (5, 4, None), (5, 1, 3),
+                                          (3, 8, None)])  # 8 replicates: beyond the old 4 columns
 def test_factorial_matches_statsmodels(k: int, n: int, pool: int | None, evaluate: Evaluate) -> None:
     # arrange -- random responses
     rng = random.Random(10 * k + n)
     runs = [[rng.gauss(100 + 5 * sign(r, 1) - 3 * sign(r, 3), 2) for _ in range(n)] for r in range(2 ** k)]
     fit = statsmodels_factorial(k, runs, pool)
     table = sm.stats.anova_lm(fit, typ=1)
-    ws = evaluate(SHEET, factorial_cells(k, runs, pool))
+    ws = evaluate(sheet_doe.SHEET, factorial_cells(k, runs, pool))
     # act / assert -- rel=1e-9 for sums of squares and effects (= 2 × OLS coefficient), 1e-7 for p-values
     for mask in range(1, 2 ** k):
         term = ":".join(effect_name(mask))
@@ -415,7 +420,7 @@ def test_incomplete_design_is_refused(evaluate: Evaluate) -> None:
     # arrange -- the chemical process example with one response missing
     runs = chemical_process()
     runs[3] = runs[3][:2]
-    ws = evaluate(SHEET, factorial_cells(2, runs))
+    ws = evaluate(sheet_doe.SHEET, factorial_cells(2, runs))
     # act / assert
     assert value(ws, "complete").startswith("NEE")
     assert effect(ws, "A", "D") is None and value(ws, "mse") is None
@@ -434,7 +439,7 @@ def test_regression_oxygen_purity_s05_we17(oracle: dict[str, Any], evaluate: Eva
     # arrange -- Regression p. 22, Minitab Table 11-2
     stated = oracle["S05-WE17"]["stated_answers"]
     terms = anova_terms(stated["ANOVA"])
-    ws = evaluate(SHEET, regression_cells(*oxygen_purity()))
+    ws = evaluate(sheet_regression.SHEET, regression_cells(*oxygen_purity()))
     b1, b0 = T_TESTS["b1"], T_TESTS["b0"]
     # act / assert
     for name, key in (("b0", "beta0hat_minitab"), ("b1", "beta1hat_minitab"), ("se_b0", "SE_beta0"),
@@ -457,7 +462,7 @@ def test_regression_oxygen_purity_s05_we17(oracle: dict[str, Any], evaluate: Eva
 def test_regression_figure_line_s05_we17(oracle: dict[str, Any], evaluate: Evaluate) -> None:
     # arrange
     line = re.findall(r"\d+\.\d+", oracle["S05-WE17"]["stated_answers"]["fitted_line_fig11-4"])
-    ws = evaluate(SHEET, regression_cells(*oxygen_purity()))
+    ws = evaluate(sheet_regression.SHEET, regression_cells(*oxygen_purity()))
     # act / assert
     assert agrees_at_printed_precision(value(ws, "b0"), line[0])
     assert agrees_at_printed_precision(value(ws, "b1"), line[1])
@@ -467,7 +472,7 @@ def test_prediction_at_x0_s05_we18(oracle: dict[str, Any], evaluate: Evaluate) -
     # arrange -- Regression p. 22: new observation at HC level 1.00, 95 % (α 0.05 as prefilled)
     example = oracle["S05-WE18"]
     stated = example["stated_answers"]
-    ws = evaluate(SHEET, regression_cells(*oxygen_purity(), x0=float(example["given"]["x0"])))
+    ws = evaluate(sheet_regression.SHEET, regression_cells(*oxygen_purity(), x0=float(example["given"]["x0"])))
     mean, prediction = INTERVALS["mean"], INTERVALS["prediction"]
     # act / assert
     assert agrees_at_printed_precision(value(ws, "fit"), stated["Fit"])
@@ -489,7 +494,7 @@ def test_regression_matches_statsmodels(seed: int, evaluate: Evaluate) -> None:
     h0 = {"beta1_0": rng.uniform(-1, 1), "beta0_0": rng.uniform(-1, 3)}
     fit = sm.OLS(ys, sm.add_constant(xs)).fit()
     frame = fit.get_prediction([[1.0, x0]]).summary_frame(alpha=alpha)
-    ws = evaluate(SHEET, regression_cells(xs, ys, x0) | {INPUTS["alpha"]: alpha} | {INPUTS[k]: v for k, v in h0.items()})
+    ws = evaluate(sheet_regression.SHEET, regression_cells(xs, ys, x0) | {INPUTS["alpha"]: alpha} | {INPUTS[k]: v for k, v in h0.items()})
     # act / assert -- estimates, ANOVA and R² at rel=1e-9
     assert value(ws, "b0") == pytest.approx(fit.params[0], rel=1e-9)
     assert value(ws, "b1") == pytest.approx(fit.params[1], rel=1e-9)
@@ -532,7 +537,22 @@ def test_unpaired_rows_are_refused(evaluate: Evaluate) -> None:
     # arrange -- the oxygen data with one y moved to a row without x
     xs, ys = oxygen_purity()
     cells = regression_cells(xs[:-1], ys[:-1]) | {pair_cells(len(xs))[1]: ys[-1]}
-    ws = evaluate(SHEET, cells)
+    ws = evaluate(sheet_regression.SHEET, cells)
     # act / assert
     assert value(ws, "pairs").startswith("NEE")
     assert value(ws, "b1") is None
+
+
+def test_many_pairs(evaluate: Evaluate) -> None:
+    # arrange -- 3000 pairs (the old block held 200)
+    rng = random.Random(8)
+    xs = [rng.uniform(0, 10) for _ in range(3000)]
+    ys = [2 + 0.5 * x + rng.gauss(0, 1) for x in xs]
+    fit = stats.linregress(xs, ys)
+    # act
+    ws = evaluate(sheet_regression.SHEET, regression_cells(xs, ys))
+    # assert
+    assert value(ws, "n") == 3000
+    assert value(ws, "b1") == pytest.approx(fit.slope, rel=1e-9)
+    assert value(ws, "b0") == pytest.approx(fit.intercept, rel=1e-9)
+    assert value(ws, "r2") == pytest.approx(fit.rvalue ** 2, rel=1e-9)

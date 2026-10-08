@@ -18,7 +18,7 @@ import statsmodels.api as sm
 import statsmodels.formula.api as smf
 
 from bbtools.constants import ROOT
-from bbtools.sheet_grr import ANOVA_ROWS, INTERACTION_ROWS, RESULTS, SHEET, data_cell
+from bbtools.sheet_grr import ANOVA_ROWS, INTERACTION_ROWS, RESULTS, SHEET, VERDICTS, data_cell, data_row, operator_cell
 
 pytestmark = pytest.mark.libreoffice
 
@@ -37,9 +37,12 @@ def course_study() -> Study:
             for row in range(4, 14) for operator in range(3)}
 
 
-def cells(study: Study) -> dict[str, float]:
-    """Input cells of a study."""
-    return {data_cell(*key): value for key, value in study.items()}
+def cells(study: Study, names: str = "ABCDEFGHIJKLMNOPQRST") -> dict[str, Any]:
+    """Input cells of a study: each operator's name on the first row of its block, then the measurements."""
+    trials = 1 + max(trial for _, trial, _ in study)
+    operators = sorted({operator for operator, _, _ in study})
+    return {**{operator_cell(o, trials): names[o] for o in operators},
+            **{data_cell(o, t, p, trials): value for (o, t, p), value in study.items()}}
 
 
 def value(ws: Any, name: str) -> Any:
@@ -74,7 +77,7 @@ def test_anova_method_s10_we02(oracle: dict[str, Any], evaluate: Evaluate) -> No
                       ("pct_anova", "%GRR (formula sqrt((EV^2+AV^2)/TV^2))")):
         assert value(ws, name) == pytest.approx(float(answers[key]), rel=TYPED_ROUNDING), name
     assert answers["conclusion"].startswith("niet geschikt")
-    assert ws[f"D{69}"].value == "niet aanvaardbaar (not acceptable, > 30 %)"
+    assert ws[VERDICTS["pct_anova"]].value == "niet aanvaardbaar (not acceptable, > 30 %)"
 
 
 @pytest.mark.xfail(reason="GRR workbook '2way anova' K45 types '=412.5+296.667' (interaction SS 296.6667 rounded): "
@@ -150,7 +153,33 @@ def test_incomplete_study_is_refused(evaluate: Evaluate) -> None:
 
 def test_percent_grr_of_tolerance(evaluate: Evaluate) -> None:
     # arrange -- MSA p. 24: %GRR = 6 sigma_m / TOL
-    ws = evaluate(SHEET, {**cells(course_study()), "B9": 100})
+    ws = evaluate(SHEET, {**cells(course_study()), "B9": 100})  # B9 = tolerance
     # act / assert
     assert value(ws, "pct_tol_ar") == pytest.approx(6 * value(ws, "grr_ar") / 100, rel=1e-12)
     assert value(ws, "pct_tol_anova") == pytest.approx(6 * value(ws, "grr_anova") / 100, rel=1e-12)
+
+
+def test_a_larger_study_is_detected_with_a_name_on_every_row(evaluate: Evaluate) -> None:
+    # arrange -- 5 operators × 4 trials × 25 parts: beyond the old 3 × 3 × 10 block; names repeated on every row
+    rng = random.Random(7)
+    k, r, n = 5, 4, 25
+    study = {(o, t, p): 20 + p + 0.5 * o + rng.gauss(0, 1) for o, t, p in itertools.product(range(k), range(r), range(n))}
+    typed = cells(study)
+    typed |= {f"A{data_row(o, t, r)}": "ABCDE"[o] for o in range(k) for t in range(1, r)}
+    additive = statsmodels_anova(study, False)
+    # act
+    ws = evaluate(SHEET, typed)
+    # assert -- size read from the data; ANOVA as statsmodels; n = 25 > 20 has no K3 (tabel MSA.pdf stops at m = 20)
+    assert [value(ws, name) for name in ("k", "n", "r", "count", "blocks", "complete")] == [5, 25, 4, 500, "ja", "ja"]
+    assert ws[f"B{ANOVA_ROWS['error']}"].value == pytest.approx(additive.loc["Residual", "sum_sq"], rel=1e-9)
+    assert value(ws, "d2star_n") == "n niet in de tabel"
+
+
+def test_operator_rows_must_stay_together(evaluate: Evaluate) -> None:
+    # arrange -- the course study (2 trials) with operator B's second row named A: A's rows are no longer one block
+    typed = cells(course_study())
+    typed[f"A{data_row(1, 1, 2)}"] = "A"
+    # act
+    ws = evaluate(SHEET, typed)
+    # assert
+    assert value(ws, "blocks").startswith("NEE") and value(ws, "complete").startswith("NEE")

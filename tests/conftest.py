@@ -39,13 +39,14 @@ def printed(oracle: dict[str, dict[str, Any]]) -> Callable[[str, str, str, str],
 
 @pytest.fixture
 def evaluate(tmp_path: Path) -> Callable[[str, dict[str, float]], Any]:
-    """Build the toolkit, type `inputs` into sheet `sheet`, recalculate with LibreOffice, return that sheet's values.
+    """Build sheet `sheet` (with Tables), type `inputs`, recalculate with LibreOffice, return that sheet's values.
 
     `inputs` maps cell coordinates to values. The returned worksheet holds cached values (data_only=True);
-    cells whose formula returned "" read back as None.
+    cells whose formula returned "" read back as None. Only the sheet under test and Tables are built: the sheets
+    share nothing else, and test_build_workbook.py recalculates the whole workbook.
     """
     def run(sheet: str, inputs: dict[str, float]) -> Any:
-        wb = build_workbook()
+        wb = build_workbook(only=(sheet,))
         ws = wb[sheet]
         for coordinate, value in inputs.items():
             ws[coordinate] = value
