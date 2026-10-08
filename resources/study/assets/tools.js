@@ -102,6 +102,18 @@
             ['enkel bovengrens ("hoogstens …")', '−∞ … ' + centre + ' + ' + f(q.half1)]];
   }
 
+  // critical values as soon as α and the degrees of freedom are known, before any data: the same rows for t, χ² and F
+  function dfCritRows(dist, d1, d2, alpha, names) {
+    var q = num(d1) && num(alpha) ? Calc.quantiles(dist, d1, d2, alpha) : null;
+    if (!q) return '';
+    var sym = { t: 't', chi2: 'χ²', F: 'F' }[dist], dfText = dist === 'F' ? f(d1) + ' en ' + f(d2) : f(d1);
+    var rows = [alphaRow(alpha), [names || 'vrijheidsgraden', dfText]];
+    if (dist === 'F') rows.push(['kritieke waarde F<sub>1−α</sub> (kans α rechts ervan)', f(q.right), 'P(F ≤ ' + f(q.right, 4) + ') = ' + pc(1 - alpha)]);
+    else rows.push(['kritieke waarde tweezijdig ' + sym + '<sub>1−α/2</sub>', f(q.twoHi), 'P(' + sym + ' ≤ ' + f(q.twoHi, 4) + ') = ' + pc(1 - alpha / 2)],
+                   ['kritieke waarde eenzijdig ' + sym + '<sub>1−α</sub>', f(q.right), 'P(' + sym + ' ≤ ' + f(q.right, 4) + ') = ' + pc(1 - alpha)]);
+    return out(rows);
+  }
+
   /* ---------- the calculators: blocks of {title, help, form, run(v) → html} ---------- */
   var TOOLS = {};
 
@@ -558,13 +570,14 @@
 
   TOOLS.regressie = [
     { title: 'Enkelvoudige lineaire regressie: schatting, ANOVA, toetsen, BI en PI',
-      help: 'Eén paar "x y" per regel (plak twee kolommen).',
-      form: ALPHA + area('xy', 'x y (één paar per regel)', '', 5) + inp('x0', 'x0 (voor BI/PI)') + inp('b1', 'H0: β1 = (standaard 0)') + inp('b0', 'H0: β0 = (standaard 0)'),
+      help: 'Eén paar "x y" per regel (plak twee kolommen). Met alleen n (aantal paren) en α zie je al de kritieke waarden t en F (n − 2 vrijheidsgraden).',
+      form: ALPHA + inp('n', 'n = aantal paren') + area('xy', 'x y (één paar per regel)', '', 5) + inp('x0', 'x0 (voor BI/PI)') + inp('b1', 'H0: β1 = (standaard 0)') + inp('b0', 'H0: β0 = (standaard 0)'),
       run: function (v) {
         var rows = parseRows(v.text.xy);
+        if (!rows.length) return num(v.n) && v.n > 2 ? dfCritRows('t', v.n - 2, null, v.alpha) + dfCritRows('F', 1, v.n - 2, v.alpha) : '';
         if (rows.some(function (r) { return r.length !== 2; })) return warn('elke regel moet precies twee getallen hebben: x en y');
         var r = Calc.regression(rows.map(function (q) { return q[0]; }), rows.map(function (q) { return q[1]; }), v.x0, v.b1, v.b0, v.alpha);
-        if (!r) return rows.length ? warn('minstens 3 paren en niet alle x gelijk') : '';
+        if (!r) return warn('minstens 3 paren en niet alle x gelijk');
         var h = out([['n', f(r.n)], ['x̄ ; ȳ', f(r.xbar) + ' ; ' + f(r.ybar)], ['S_xx ; S_xy', f(r.sxx) + ' ; ' + f(r.sxy)],
                      ['b1 = S_xy/S_xx (helling)', f(r.b1)], ['b0 = ȳ − b1 x̄ (intercept)', f(r.b0)],
                      ['σ̂² = MS_E = SS_E/(n − 2)', f(r.mse)], ['σ̂ (Minitab S)', f(r.sigma)], ['R² = SS_R/SS_T', f(r.r2)],
@@ -577,39 +590,44 @@
             ['β0', f(r.b0), f(r.seB0), f(r.tB0.stat), fp(r.tB0.ne.p), fp(r.tB0.gt.p), fp(r.tB0.lt.p)]]);
         var ivRows = [['β1', r.ciB1], ['β0', r.ciB0]];
         if (r.ciMean) ivRows.push(['gemiddelde respons bij x0 (ŷ0 = ' + f(r.y0) + ')', r.ciMean], ['nieuwe waarneming bij x0 (PI)', r.pi]);
-        return h + grid(['interval (1 − α)', 'tweezijdig', 'enkel ondergrens', 'enkel bovengrens'], ivRows.map(function (q) {
-          return [q[0], iv(q[1].two), f(q[1].lower[0]) + ' … +∞', '−∞ … ' + f(q[1].upper[1])]; }));
+        return result(dfCritRows('t', r.df, null, v.alpha) + h + grid(['interval (1 − α)', 'tweezijdig', 'enkel ondergrens', 'enkel bovengrens'], ivRows.map(function (q) {
+          return [q[0], iv(q[1].two), f(q[1].lower[0]) + ' … +∞', '−∞ … ' + f(q[1].upper[1])]; })), { n: r.n });
       } }
   ];
   TOOLS.anova = [
-    { title: 'Eénweg-ANOVA (one-way)', help: 'Eén groep per regel (de waarnemingen van één niveau).',
-      form: ALPHA + area('g', 'groepen: één regel per niveau', '', 5),
+    { title: 'Eénweg-ANOVA (one-way)', help: 'Eén groep per regel (de waarnemingen van één niveau). Met alleen a (niveaus), n (herhalingen per niveau) en α zie je al de kritieke waarde F(a − 1; a(n − 1)).',
+      form: ALPHA + inp('a', 'a = aantal niveaus (groepen)') + inp('n', 'n = herhalingen per niveau') + area('g', 'groepen: één regel per niveau', '', 5),
       run: function (v) {
-        var r = Calc.anova1(parseRows(v.text.g), v.alpha);
-        if (!r) return '';
-        return grid(['groep', 'n', 'gemiddelde', 's'], r.groups.map(function (g, i) { return [String(i + 1), f(g.n), f(g.mean), f(g.s)]; })) +
+        var groups = parseRows(v.text.g), r = Calc.anova1(groups, v.alpha);
+        if (!r) return num(v.a) && num(v.n) && v.a > 1 && v.n > 1 ? dfCritRows('F', v.a - 1, v.a * (v.n - 1), v.alpha, 'vrijheidsgraden teller (a − 1) en noemer (a(n − 1))') : '';
+        var even = groups.every(function (g) { return g.length === groups[0].length; });
+        return result(grid(['groep', 'n', 'gemiddelde', 's'], r.groups.map(function (g, i) { return [String(i + 1), f(g.n), f(g.mean), f(g.s)]; })) +
           grid(['bron', 'SS', 'df', 'MS', 'F0', 'p', 'F-kritiek'], [['behandeling', f(r.sstr), f(r.dfTr), f(r.msTr), f(r.F), fp(r.p), f(r.Fcrit)],
             ['fout', f(r.sse), f(r.dfE), f(r.msE), '', '', ''], ['totaal', f(r.sst), f(r.N - 1), '', '', '', '']]) +
-          out([['algemeen gemiddelde', f(r.grandMean)], ['gepoolde s = √MS_E', f(r.pooledSd)], ['besluit bij α', r.d]]);
+          out([['algemeen gemiddelde', f(r.grandMean)], ['gepoolde s = √MS_E', f(r.pooledSd)], ['besluit bij α', r.d]]), even ? { a: groups.length, n: groups[0].length } : { a: groups.length });
       } }
   ];
   TOOLS.factorieel = [
     { title: '2^k-factorieel: effecten, kwadratensommen, F-toetsen',
       help: 'Eén regel per run in standaardvolgorde ((1), a, b, ab, c, …), herhalingen naast elkaar. Bij één replicatie: pool interacties vanaf een orde in de fout (DOE p. 72, 77).',
-      form: ALPHA + inp('k', 'k (aantal factoren)') + inp('pool', 'pool interacties vanaf orde (optioneel)') + area('runs', 'responsen per run', '', 8),
+      form: ALPHA + inp('k', 'k (aantal factoren)') + inp('n', 'n = herhalingen per run') + inp('pool', 'pool interacties vanaf orde (optioneel)') + area('runs', 'responsen per run', '', 8),
       run: function (v) {
         var rows = parseRows(v.text.runs);
-        if (!num(v.k) || !rows.length) return '';
+        if (!num(v.k)) return '';
+        if (!rows.length) {   // k and n give the error df 2^k (n − 1): the critical F and t for every effect
+          var dfe = num(v.n) && v.n > 1 ? Math.pow(2, v.k) * (v.n - 1) : null;
+          return dfe ? dfCritRows('F', 1, dfe, v.alpha, 'vrijheidsgraden teller (1 per effect) en noemer 2^k(n − 1)') + dfCritRows('t', dfe, null, v.alpha, 'vrijheidsgraden van de fout 2^k(n − 1)') : '';
+        }
         var r = Calc.factorial(v.k, rows, v.pool, v.alpha);
         if (r.error) return warn(r.error);
-        return out([['n herhalingen ; N', f(r.n) + ' ; ' + f(r.N)], ['β0 = algemeen gemiddelde', f(r.beta0)],
+        return result(out([['n herhalingen ; N', f(r.n) + ' ; ' + f(r.N)], ['β0 = algemeen gemiddelde', f(r.beta0)],
                     ['SS zuivere fout (df)', f(r.sspe) + ' (' + r.dfPE + ')'], ['SS gepoolde interacties (df)', f(r.ssPool) + ' (' + r.dfPool + ')'],
                     ['σ̂² = MS_E', f(r.mse)], ['s.e.(effect) = √(σ̂²/(n 2^(k−2)))', f(r.se)]]) +
           grid(['effect', 'contrast', 'effect', 'coëfficiënt = effect/2', 'SS', 'F0', 'p', 'effect ± 2 s.e.', ''], r.effects.map(function (e) {
             return [e.name, f(e.contrast), f(e.effect), f(e.coef), f(e.ss), f(e.F), fp(e.p), num(e.lo) ? iv([e.lo, e.hi]) : '–', e.pooled ? 'gepoold' : ''];
           })) + grid(['bron', 'SS', 'df', 'F0', 'p'], [['model', f(r.ssModel), f(r.dfModel), f(r.Fmodel), fp(r.pModel)],
             ['fout', f(r.ssE), f(r.dfE), '', ''], ['totaal', f(r.sst), f(r.dfT), '', '']]) +
-          out([['R² = SS_model/SS_totaal', f(r.r2)], ['R²_adj met N − p − 1 (zoals de cursusoutputs)', f(r.r2adj)], ['R²_adj zoals gedrukt op Regression p. 56', f(r.r2adjP56)]]);
+          out([['R² = SS_model/SS_totaal', f(r.r2)], ['R²_adj met N − p − 1 (zoals de cursusoutputs)', f(r.r2adj)], ['R²_adj zoals gedrukt op Regression p. 56', f(r.r2adjP56)]]), { n: r.n });
       } }
   ];
   TOOLS.aliassen = [
@@ -844,29 +862,31 @@
   TOOLS.chikwadraat = [
     { title: 'χ²-aanpassingstoets (goodness of fit)',
       help: 'Geef kansen of verwachte aantallen. De vrijheidsgraden houden rekening met g geschatte parameters.',
-      form: ALPHA + area('o', 'waargenomen aantallen n<sub>k</sub> per klasse', '', 2) + area('e', 'verwachte kansen π<sub>k</sub> (of verwachte aantallen)', '', 2) + inp('g', 'g = aantal geschatte parameters', '', '0'),
+      form: ALPHA + inp('r', 'r = aantal klassen') + inp('g', 'g = aantal geschatte parameters', '', '0') + area('o', 'waargenomen aantallen n<sub>k</sub> per klasse', '', 2) + area('e', 'verwachte kansen π<sub>k</sub> (of verwachte aantallen)', '', 2),
       run: function (v) {
         var o = parseList(v.text.o), e = parseList(v.text.e);
+        if (!o.length && !e.length) return num(v.r) && num(v.g) ? dfCritRows('chi2', v.r - v.g - 1, null, v.alpha, 'vrijheidsgraden r − g − 1') : '';
         if (!o.length || !e.length) return '';
         if (o.length !== e.length) return warn('evenveel waargenomen als verwachte waarden nodig');
         var r = Calc.chi2Fit(o, e, v.g, v.alpha);
-        return grid(['klasse', 'n<sub>k</sub>', 'e<sub>k</sub>'], o.map(function (x, i) { return [String(i + 1), f(x), f(r.e[i])]; })) +
+        return result(grid(['klasse', 'n<sub>k</sub>', 'e<sub>k</sub>'], o.map(function (x, i) { return [String(i + 1), f(x), f(r.e[i])]; })) +
           out([['χ²', f(r.chi2)], ['vrijheidsgraden r − g − 1', f(r.df)], ['kritieke waarde χ² (kans α rechts ervan)', f(r.crit)],
                ['p-waarde P(χ² ≥ waarde)', fp(r.p)], ['besluit', num(r.p) ? (r.p < v.alpha ? 'verwerp H0' : 'H0 niet verwerpen') : '–'],
-               r.small ? ['<b>' + r.small + ' klasse(n) met e ≤ 5</b>', 'klassen samenvoegen (TR p. 17)'] : null]);
+               r.small ? ['<b>' + r.small + ' klasse(n) met e ≤ 5</b>', 'klassen samenvoegen (TR p. 17)'] : null]), { r: o.length });
       } },
     { title: 'χ²-toets op onafhankelijkheid (kruistabel)',
       help: 'Eén rij per regel; bij een 2×2-tabel ook Yates.',
-      form: ALPHA + area('t', 'aantallen: één rij per regel', '', 4),
+      form: ALPHA + inp('rows', 'aantal rijen') + inp('cols', 'aantal kolommen') + area('t', 'aantallen: één rij per regel', '', 4),
       run: function (v) {
         var rows = parseRows(v.text.t), r = Calc.chi2Table(rows, v.alpha);
-        if (!r) return rows.length ? warn('elke rij moet evenveel getallen hebben') : '';
-        return '<p class="lbl">verwachte aantallen e<sub>kl</sub></p>' + grid([''].concat(r.e[0].map(function (_, j) { return 'B' + (j + 1); })),
+        if (!r && !rows.length) return num(v.rows) && num(v.cols) && v.rows > 1 && v.cols > 1 ? dfCritRows('chi2', (v.rows - 1) * (v.cols - 1), null, v.alpha, 'vrijheidsgraden (rijen − 1)(kolommen − 1)') : '';
+        if (!r) return warn('elke rij moet evenveel getallen hebben');
+        return result('<p class="lbl">verwachte aantallen e<sub>kl</sub></p>' + grid([''].concat(r.e[0].map(function (_, j) { return 'B' + (j + 1); })),
             r.e.map(function (row, i) { return ['A' + (i + 1)].concat(row.map(function (x) { return f(x); })); })) +
           out([['χ²', f(r.chi2)], ['vrijheidsgraden', f(r.df)], ['kritieke waarde', f(r.crit)], ['p-waarde', fp(r.p)],
                ['besluit', r.p < v.alpha ? 'verwerp H0 (afhankelijk)' : 'H0 (onafhankelijk) niet verwerpen'],
                num(r.yates) ? ['χ² met Yates (2×2)', f(r.yates)] : null, num(r.yates) ? ['p-waarde met Yates', fp(r.pYates)] : null,
-               r.small ? ['<b>' + r.small + ' cel(len) met e ≤ 5</b>', 'voorwaarde niet voldaan'] : null]);
+               r.small ? ['<b>' + r.small + ' cel(len) met e ≤ 5</b>', 'voorwaarde niet voldaan'] : null]), { rows: rows.length, cols: rows[0].length });
       } }
   ];
   function rankOut(r, statName) {

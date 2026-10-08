@@ -55,10 +55,10 @@ rewritten fluently (bouwstenen box, W absolute/relative); new Deel 15 "Van gegev
    bullets); ANOVA is introduced once in 07.5 (defined there) and part 08 is its home (08.1 bridge). Tool:
    `.claude/handoff/forward_scan.py` (run from resources/: `python3 ../.claude/handoff/forward_scan.py 04 05 ...`) lists per
    unit the terms used before their home part. Still unreviewed: parts 09–12 (e.g. 09 uses SPC for stability, 10→11).
-3. Calculators (HTML): show every value as soon as its inputs exist, especially critical values from α and df
-   (z, t, χ², F) — done for gemiddelde, tweegemiddelden, proporties, variantie, tolerantie, power, regelkaart; still to
-   audit: kwantielen (z/t/χ²/F from α + df without a statistic), anova, anova2, factorieel, regressie, grr,
-   steekproefplan etc. `tools.js` + `calc.js`; keep node tests (`tests/test_study_tools.py`) green, add tests.
+3. Calculators (HTML): DONE (2026-10-08): all blocks show what they can compute as soon as inputs exist; critical values from α and sizes
+   alone now also for regressie (n), anova (a, n), factorieel (k, n), chikwadraat (r, g / rows, cols) via `dfCritRows` in tools.js
+   (these fields are filled and locked from pasted data). Tests: `test_critical_values_show_from_alpha_and_degrees_of_freedom_alone`.
+   Not done (needs a design choice): meervoudig, grr, nietparametrisch (no df without data), steekproefplan blocks.
 4. Excel (`src/bbtools/sheet_*.py`): done this session (uncommitted until the next commit): critical values/half widths from α
    and df only in Gemiddelde & proportie, Varianties, ANOVA, Gage R&R; symbolic "x̄ − E" cells before x̄ is known;
    Regressie row 37 critical t; Tabellen titles/headers in Dutch (`sheet_tables.dutch_title`). Still to do: scan the

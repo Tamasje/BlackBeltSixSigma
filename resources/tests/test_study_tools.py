@@ -1186,6 +1186,51 @@ process.stdout.write(JSON.stringify(input.cases.map(([tool, index, fields]) => {
     return json.loads(result.stdout)
 
 
+def run_html(cases: list[tuple[str, int, dict[str, Any]]]) -> list[str]:
+    """The text of the output each calculator block shows for the given typed fields (tags removed)."""
+    script = f"""
+global.Stats = require({json.dumps(str(ASSETS / "stats.js"))});
+global.Calc = require({json.dumps(str(ASSETS / "calc.js"))});
+const input = JSON.parse(require('fs').readFileSync(0, 'utf8'));
+global.document = {{ getElementById: () => ({{ textContent: JSON.stringify(input.constants) }}), querySelectorAll: () => [] }};
+global.window = {{ addEventListener() {{}} }};
+global.location = {{ hash: '' }};
+const source = require('fs').readFileSync({json.dumps(str(ASSETS / "tools.js"))}, 'utf8').replace('var TOOLS = {{}};', 'var TOOLS = global.TOOLS = {{}};');
+eval(source);
+const box = {{ querySelectorAll: () => [] }};
+process.stdout.write(JSON.stringify(input.cases.map(([tool, index, fields]) => {{
+  const v = {{ text: {{}} }};
+  Object.entries(fields).forEach(([k, x]) => {{ if (typeof x === 'string') v.text[k] = x; else v[k] = x; }});
+  const r = global.TOOLS[tool][index].run(new Proxy(v, {{ get: (o, k) => k in o ? o[k] : null }}), box);
+  return String(r && typeof r === 'object' ? r.html : r).replace(/<[^>]+>/g, ' ');
+}})));
+"""
+    payload = json.dumps({"constants": build_module().constants_data(), "cases": cases})
+    result = subprocess.run([shutil.which("node"), "-e", script], input=payload, capture_output=True, text=True, check=True)
+    return json.loads(result.stdout)
+
+
+def decimal_comma(x: float, digits: int = 6) -> str:
+    """How the calculators print a number: 6 significant digits, decimal comma."""
+    return f"{float(f'{x:.{digits}g}'):g}".replace(".", ",")
+
+
+def test_critical_values_show_from_alpha_and_degrees_of_freedom_alone() -> None:
+    # arrange -- no data yet: only the sizes and α (user request 2026-10-08)
+    alpha = 0.05
+    cases = [("regressie", 0, {"alpha": alpha, "n": 10}), ("anova", 0, {"alpha": alpha, "a": 4, "n": 5}),
+             ("factorieel", 0, {"alpha": alpha, "k": 3, "n": 2}), ("chikwadraat", 0, {"alpha": alpha, "r": 6, "g": 0}),
+             ("chikwadraat", 1, {"alpha": alpha, "rows": 3, "cols": 4})]
+    # act
+    regression, anova, factorial, fit, table = run_html(cases)
+    # assert -- every critical value equals scipy's quantile
+    assert decimal_comma(stats.t.ppf(1 - alpha / 2, 8)) in regression and decimal_comma(stats.f.isf(alpha, 1, 8)) in regression
+    assert decimal_comma(stats.f.isf(alpha, 3, 16)) in anova
+    assert decimal_comma(stats.f.isf(alpha, 1, 8)) in factorial and decimal_comma(stats.t.ppf(1 - alpha / 2, 8)) in factorial
+    assert decimal_comma(stats.chi2.isf(alpha, 5)) in fit
+    assert decimal_comma(stats.chi2.isf(alpha, 6)) in table
+
+
 def test_blocks_report_the_fields_they_derive_and_never_a_typed_one() -> None:
     # arrange -- typed fields per block; expected: the derived fields (each must be a field that was left empty)
     cases = [
