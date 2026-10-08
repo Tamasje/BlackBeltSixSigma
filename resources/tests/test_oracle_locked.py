@@ -18,8 +18,10 @@ def test_oracle_approved_tag_exists() -> None:
 
 
 def test_worked_examples_unchanged_since_oracle_approved() -> None:
-    # arrange / act -- compares the working tree, so uncommitted edits count too
-    result = subprocess.run(["git", "-C", str(ROOT), "diff", "oracle-approved", "--", "inventory/worked_examples.json"],
-                            capture_output=True, text=True, check=True)
+    # arrange -- the approved bytes, at the path the file had when the tag was set (before the move to resources/)
+    approved = subprocess.run(["git", "-C", str(ROOT), "show", "oracle-approved:inventory/worked_examples.json"],
+                              capture_output=True, check=True).stdout
+    # act -- the working tree, so uncommitted edits count too
+    current = (ROOT / "inventory" / "worked_examples.json").read_bytes()
     # assert
-    assert result.stdout == "", "inventory/worked_examples.json differs from tag oracle-approved:\n" + result.stdout
+    assert current == approved, "inventory/worked_examples.json differs from tag oracle-approved"
