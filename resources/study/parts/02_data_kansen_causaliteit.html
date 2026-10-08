@@ -4,8 +4,7 @@
   statistiek versus kansrekening, het probabilistisch model en verkennende data-analyse (EDA). Het tweede stuk gaat
   over associatie en interventie (<a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=1">Data p. 1</a>): gezamenlijke,
   marginale en voorwaardelijke kansen, de regressielijn als voorwaardelijk gemiddelde, en het verschil tussen
-  <i>zien</i> en <i>doen</i> (causaliteit). De normale verdeling en sigmaniveaus staan in Deel 3; machine learning in
-  Deel 12.</p>
+  <i>zien</i> en <i>doen</i> (causaliteit).</p>
 
   <p class="small">Afkortingen in de bronlinks: "LSS" = de Lean Six Sigma-slides over Measure, data en EDA;
   "Data" = de slides "Associatie en interventie"; "Data-notities" = de uitgeschreven notities bij die slides.
@@ -265,7 +264,7 @@
     <div class="exercise" id="ex-02-3" data-kw="statistiek; kansrekening; statistics; probability; sampling; inference; inferentie; emmer; pail">
       <h4>Oefening 02.3 — Statistiek of kansrekening? <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=8">Data p. 8</a></h4>
       <p>Gaat de redenering van model naar data (kansrekening, sampling) of van data naar model (statistiek, inference)?
-      De voorbeelden komen uit het klantenvoorbeeld van 02.5 (Data p. 9–10) en uit Deel 6.</p>
+      De voorbeelden a en b komen uit het klantenvoorbeeld van 02.5 (Data p. 9–10).</p>
       <div class="q" data-type="choice" data-answer="statistiek">
         <label>a. Uit 1000 tellingen van klanten per minuut de parameter \(\lambda\) schatten:</label>
         <select><option value="">kies…</option><option value="kans">kansrekening (model → data)</option><option value="statistiek">statistiek (data → model)</option></select>
@@ -316,7 +315,7 @@
     <p><b>Normaal en niet-normaal.</b> De bekendste verdeling is de normale (Gaussische) verdeling met twee parameters:
     \(\mu\) (gemiddelde, plaats van de piek) en \(\sigma\) (standaarddeviatie, breedte)
     <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=6">Data p. 6</a>
-    <span class="small">extra</span>. Die wordt volledig uitgewerkt in Deel 3. Maar niet alles is normaal
+    <span class="small">extra</span>. Maar niet alles is normaal
     <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=7">Data p. 7</a>
     <span class="small">extra</span>,
     <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=3">Data-notities p. 3</a>:</p>
@@ -337,8 +336,7 @@
       <p><code>bb_toolkit.xlsx</code>, blad <b>Distributions</b>: verwachting, variantie en kansen voor
       Bernoulli, binomiaal, hypergeometrisch, Poisson, exponentieel en uniform. De cursus noemt deze
       families alleen; de formules op dat blad zijn de standaarddefinities, als zodanig gelabeld (beslissing 20 in
-      <code>inventory/conventions.md</code>). Binomiaal en hypergeometrisch: zie Deel 6. Normaal: blad <b>Normal</b>,
-      Deel 3.</p>
+      <code>inventory/conventions.md</code>). Normaal: blad <b>Normal</b>.</p>
     </div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
@@ -587,13 +585,12 @@
     <p>In de klassieke analyse postuleer je na de dataverzameling een model (normaliteit, lineariteit, …) en steunen
     schatten en toetsen op de parameters van dat model. In EDA postuleer je eerst geen model: je analyseert de data
     "as such" om te zien welk model het best zou passen. De Bayesiaanse weg voegt een a-prioriverdeling toe en werkt met
-    voorwaardelijke kansen; meer daarover in Deel 12.</p>
+    voorwaardelijke kansen.</p>
 
     <div class="box tool"><span class="t">Rekentool</span>
       <p>Blad <b>ANOVA DOE regression</b>, blok 3 (simple linear regression): plak x in kolom B en y in kolom C vanaf
       rij 191. Je leest \(b_{1}\) (helling, B161), \(b_{0}\) (intercept, B162), \(\sym{sigma_hat}{\hat{\sigma}}=\sqrt{\sym{mse}{\mathrm{MS}_{E}}}\) (de
-      residuele standaardafwijking, B167) en \(R^{2}\) (B168). De correlatie is \(\sym{r_corr}{r}=\sqrt{\sym{r2}{R^{2}}}\), met het teken van de helling.
-      Regressie zelf: Deel 7.</p>
+      residuele standaardafwijking, B167) en \(R^{2}\) (B168). De correlatie is \(\sym{r_corr}{r}=\sqrt{\sym{r2}{R^{2}}}\), met het teken van de helling.</p>
     </div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
@@ -681,8 +678,7 @@
     <p><b>Ook voor modelvalidatie</b> <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=142">LSS p. 142</a>.
     Een <b>residu</b> (<i>residual</i>) is het verschil tussen een waarneming en de waarde die het model voorspelt. Als de
     residuen zich gedragen als onafhankelijke trekkingen uit een vaste verdeling met vaste locatie (namelijk 0) en
-    constante spreiding, dan is het model een "goed" model. Een 4-plot van de residuen is dus een modelcontrole; zo
-    gebruik je hem ook bij regressie (Deel 7) en ANOVA (Deel 8).</p>
+    constante spreiding, dan is het model een "goed" model. Een 4-plot van de residuen is dus een modelcontrole.</p>
     <p><b>Gevolgen als een assumptie niet klopt</b> <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=143">LSS p. 143–145</a>:</p>
     <table>
       <tr><th>Geschonden</th><th>Gevolg</th></tr>
@@ -949,13 +945,13 @@
       brede puntenwolk; die helt sterker dan de lijn door het midden van de stroken.</p>
     </div>
     <p>Waarom is dit belangrijk? <b>Vrijwel alle supervised machine learning is een schatting van \(E[\sym{y_var}{Y}\mid\sym{x_var}{X}]\)</b>, van
-    lineaire regressie tot diepe neurale netwerken (p. 27; notities p. 13). Lineaire regressie (Deel 7) schat dezelfde
-    grootheid met een rechte, \(\sym{mu_yx}{\mu_{Y\mid x}}=\sym{beta0}{\beta_{0}}+\sym{beta1}{\beta_{1}}\sym{x_val}{x}\); machine learning komt aan bod in Deel 12.
+    lineaire regressie tot diepe neurale netwerken (p. 27; notities p. 13). Lineaire regressie schat dezelfde
+    grootheid met een rechte, \(\sym{mu_yx}{\mu_{Y\mid x}}=\sym{beta0}{\beta_{0}}+\sym{beta1}{\beta_{1}}\sym{x_val}{x}\).
     En: \(E[\sym{y_var}{Y}\mid\sym{x_var}{X}=\sym{x_val}{x}]\) beschrijft wat je <i>ziet</i> als X toevallig x is. Wat er gebeurt als je X zelf op x zet, is een
     andere vraag (02.12–02.14).</p>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"De regressielijn is altijd een rechte."</b> Fout: \(E[\sym{y_var}{Y}\mid\sym{x_var}{X}=\sym{x_val}{x}]\) is het gemiddelde van Y per x en mag krom zijn, zoals de U-vorm op <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=27">Data p. 27</a>; lineaire regressie (Deel 7) benadert ze met een rechte.</li>
+      <li><b>"De regressielijn is altijd een rechte."</b> Fout: \(E[\sym{y_var}{Y}\mid\sym{x_var}{X}=\sym{x_val}{x}]\) is het gemiddelde van Y per x en mag krom zijn, zoals de U-vorm op <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=27">Data p. 27</a>; lineaire regressie benadert ze met een rechte.</li>
       <li><b>"De regressielijn volgt de lange as van de puntenwolk."</b> Fout: ze loopt door het midden van elke verticale strook ("rijen filteren waar \(\sym{x_var}{X}\approx\sym{x_val}{x}\)") <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=20">Data p. 20</a>, <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=26">Data p. 26</a>; bij een schuine, brede wolk helt de lange as sterker <span class="gen">algemeen</span>.</li>
       <li><b>Let op:</b> \(E[\sym{y_var}{Y}\mid\sym{x_var}{X}]\) (Y voorspellen uit X) is een andere lijn dan \(E[\sym{x_var}{X}\mid\sym{y_var}{Y}]\) (X voorspellen uit Y): andere stroken, andere gemiddelden <span class="gen">algemeen</span>.</li>
       <li><b>"Machine learning schat iets anders dan regressie."</b> Fout: vrijwel alle supervised machine learning, van lineaire regressie tot diepe neurale netwerken, is een schatting van \(E[\sym{y_var}{Y}\mid\sym{x_var}{X}]\) <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=27">Data p. 27</a>. Ook dat is associatie, geen effect van ingrijpen (<a href="#d02-ladder">02.12</a>).</li>
@@ -1307,7 +1303,7 @@
     <figcaption>Figuur: zonder randomisatie wijzen de confounders (leeftijd, ernst, …) naar de behandeling én naar de uitkomst; het achterdeurpad \(T\leftarrow C\to Y\) vervuilt de geobserveerde associatie. Met randomisatie bepaalt alleen het toeval de behandeling, zodat \(P(Y\mid\mathrm{do}(T=t))=P(Y\mid T=t)\).
     <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=49">Data p. 49</a></figcaption></figure>
     <p>Het gemeten verschil tussen behandel- en controlegroep is dan een zuivere schatting van het causale effect, vrij
-    van confounding door welke variabele ook. Hetzelfde idee zit achter randomisatie in een proefopzet (Deel 8).</p>
+    van confounding door welke variabele ook.</p>
     <p><b>A/B-testen</b> is de naam in industrie en e-commerce
     <a class="p" href="../source/course/Les%201/20260522_naert_big%20data.pdf#page=50">Data p. 50</a>
     <span class="small">extra</span>, <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=24">Data-notities p. 24</a>:
@@ -1413,8 +1409,7 @@
     <a class="p" href="../source/course/Les%201/20261005_naert_web_lecture%201%20notes.pdf#page=29">Data-notities p. 29</a>.</p>
     <div class="box key"><span class="t">Te onthouden</span>
       <p>Zelfs een eenvoudige regressie kan systematisch verkeerde conclusies geven zonder correct causaal model.
-      Domeinkennis blijft belangrijk, ook met big data (notities p. 29). En het toont waarom een goed meetsysteem telt
-      (Deel 11, MSA).</p>
+      Domeinkennis blijft belangrijk, ook met big data (notities p. 29). En het toont waarom een goed meetsysteem telt.</p>
     </div>
     <div class="box warn"><span class="t">Wat de cursus niet geeft</span>
       <p>De waarde 0.94 staat er zonder de varianties die erachter zitten; het getal zelf kun je dus niet narekenen.
@@ -1674,5 +1669,6 @@
       <tr><td>weten dat RCT's en A/B-testen de gouden standaard zijn om causale verbanden bloot te leggen</td><td><a href="#d02-rct">02.15</a></td></tr>
     </table>
     <p>Aanbevolen lectuur (notities p. 29–30): <i>The Book of Why</i> van Judea Pearl en Dana MacKenzie (2018).</p>
+    <p>Voorbeeldexamen: vraag 6 (<a href="#d13-v6">13.6</a>) vraagt onder meer welke verdeling (Poisson, exponentieel, normaal, …) bij een grootheid past en of waarnemingen onafhankelijk en identiek verdeeld zijn; zie <a href="#d02-verdelingen">02.4</a>, <a href="#d02-poisson">02.5</a>, <a href="#d02-4plot">02.8</a> en <a href="#d02-kansen">02.10</a>. Vraag 7 (<a href="#d13-v7">13.7</a>) vraagt naar de regressielijn als voorwaardelijke verwachting, causale diagrammen en wat een interventie doet; zie <a href="#d02-regressielijn">02.11</a>, <a href="#d02-ladder">02.12</a> en <a href="#d02-dag">02.14</a>.</p>
   </section>
 </section>

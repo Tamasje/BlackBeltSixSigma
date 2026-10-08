@@ -1,8 +1,7 @@
 <section class="part" id="d07" data-title="Deel 07 — Regressie (regression)" data-lecturer="Stijn De Vuyst" data-les="Les 3">
   <h2>Deel 07 — Regressie (regression)</h2>
   <p class="intro">Dit deel behandelt regressie: een
-  respons y verklaren met één of meer numerieke x-variabelen, nagaan hoe goed dat model is, en ermee voorspellen.
-  <a href="#d08">Deel 8</a> (ANOVA en proefopzet) bouwt hierop verder, want ANOVA en proefopzet gebruiken precies dezelfde opsplitsing van de variatie. Algemene uitleg
+  respons y verklaren met één of meer numerieke x-variabelen, nagaan hoe goed dat model is, en ermee voorspellen. Algemene uitleg
   over betrouwbaarheidsintervallen en toetsen staat in <a href="#d04">Deel 4</a> en <a href="#d05">Deel 5</a>; correlatie,
   causaliteit en de regressielijn als E[Y|X] staan in <a href="#d02">Deel 2</a>.
   <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=1">REG p. 1</a></p>
@@ -15,9 +14,9 @@
       verklaarde deel groot is vergeleken met de ruis.</p>
       <ul>
         <li><b>Regressie</b> (dit deel): de verklaring is "de respons volgt een rechte (of een vlak) in x".</li>
-        <li><b>One-way ANOVA</b> (<a href="#d08-brug">8.1</a>–<a href="#d08-machines">8.8</a>): de verklaring is "de
+        <li><b>One-way ANOVA</b>: de verklaring is "de
         groepen hebben verschillende gemiddelden". Dat is hetzelfde model als regressie, met een categorische x.</li>
-        <li><b>Factoriële proefopzetten, DOE</b> (<a href="#d08-doelen">8.10</a>–<a href="#d08-demo">8.24</a>): de
+        <li><b>Factoriële proefopzetten, DOE</b>: de
         verklaring is "deze factoren en hun interacties verschuiven de respons". Bovendien kies je het experiment zo dat
         je de effecten van elkaar kunt scheiden.</li>
       </ul>
@@ -98,7 +97,7 @@
       <p>Let op met "snelle" interpretaties <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=11">REG p. 11</a>. Roomijsverkoop op een dag (X) en de gemiddelde zweetproductie
       van de klanten (Y) lijken samen te hangen, maar de verborgen factor is de dagtemperatuur (Z): een "spurious" of
       "confounding" relatie. En een resultaat moet ook <b>praktische betekenis</b> hebben. Meer over causaliteit en
-      ingrepen: <a href="#d02">Deel 2</a>; voorbeeldexamen vraag 1: <a href="#d13">Deel 13</a>.</p>
+      ingrepen: <a href="#d02">Deel 2</a>.</p>
     </div>
     <figure class="fig"><img src="figures/07_ijsjes_confounding.png" alt="Spreidingsdiagram van zweetproductie tegen aantal verkochte ijsjes over 20 dagen, met daaronder een schema waarin Z naar X en naar Y wijst en de pijl tussen X en Y doorkruist is">
     <figcaption>Figuur: "20 dagen aan zee": de gemiddelde dagelijkse zweetproductie van de klanten (Y) stijgt duidelijk met het
@@ -237,8 +236,7 @@
     <h3>7.5 Variantieanalyse (ANOVA) en R² <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=23">REG p. 23–28</a></h3>
     <p>Het blok "Analysis of Variance" van de output splitst de variatie van y in een verklaard en een onverklaard deel.
     Variatie wordt gemeten met kwadratensommen (sums of squares, SS): gekwadrateerde afwijkingen tegenover een
-    gemiddelde, opgeteld over alle punten <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=23">REG p. 23</a>. Onthoud dit idee: ANOVA in <a href="#d08-opsplitsing">8.3</a> is
-    precies dezelfde opsplitsing.</p>
+    gemiddelde, opgeteld over alle punten <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=23">REG p. 23</a>.</p>
     <table>
       <tr><th>SS</th><th>Formule</th><th>In gewone woorden</th><th>df</th></tr>
       <tr><td>\(\sym{sst}{\mathrm{SS}_{\text{Total}}}\) (SST)</td><td>\(\Sigma\ (\sym{y}{Y_{i}}-\sym{ybar}{\bar{Y}})^{2}\)</td><td>spreiding rond het gemiddelde: wat je zonder model hebt (het "triviale" model \(\sym{y}{Y}=\sym{beta0}{\beta_{0}}+\sym{epsilon}{\varepsilon}\)) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=24">REG p. 24</a></td><td>\(\sym{n}{n}-1\)</td></tr>
@@ -324,8 +322,7 @@
     rechte past goed, (b) de rechte is significant, maar de punten volgen een kromme, zodat hogere-ordetermen in x beter zouden
     passen. <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=32">REG p. 32</a></figcaption></figure>
     <p>Bij één x geven ze altijd hetzelfde besluit: \(\sym{f0}{F_{0}}=\sym{t0}{t_{0}}^{2}\). Onthoud de F-toets: verklaarde
-    gemiddelde kwadratensom gedeeld door de error-kwadratensom. Ze keert terug in elke ANOVA-tabel van
-    <a href="#d08">Deel 8</a>.</p>
+    gemiddelde kwadratensom gedeeld door de error-kwadratensom.</p>
     <div class="box ex"><span class="t">Zuurstofvoorbeeld</span>
       <ul>
         <li>\(\sym{t0}{t_{0}}=\frac{14{,}947}{\sqrt{\frac{1{,}18}{0{,}68088}}}=11{,}35\). Met \(\sym{alpha}{\alpha}=0{,}01\) is \(\sym{t_crit}{t_{0{,}005;18}}=2{,}88\) en
@@ -698,7 +695,7 @@
         <li>Excel voor de olie-data: \(1-\frac{(1-0{,}96561)\cdot14}{12}=0{,}95988\), de waarde van Excel <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=52">REG p. 52</a>. Met /11 zou je
         0,9562 krijgen <span class="computed">zelf berekend</span>.</li>
         <li>Minitab voor de zuurstofdata: \(\sym{r2_adj}{\text{R-Sq(adj)}}=87{,}1\ \%\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=22">REG p. 22</a>; met \(\sym{n}{n}-\sym{k}{k}-2\) zou het 86,30 % zijn <span class="computed">zelf berekend</span>.</li>
-        <li>Minitab voor de shampoodata (7.13) en Design-Expert in <a href="#d08-chemisch">8.18</a> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=61">DOE p. 61</a>.</li>
+        <li>Minitab voor de shampoodata (7.13) en Design-Expert <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=61">DOE p. 61</a>.</li>
         <li>De formule voor \(\hat{\sigma}\) op <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=57">REG p. 57</a> deelt ook door \(\sym{n}{n}-\sym{k}{k}-1\).</li>
       </ul>
       <p>Gebruik dus \(\sym{r2_adj}{R^{2}_{\mathrm{adj}}}=1-\frac{(1-\sym{r2}{R^{2}})(\sym{n}{n}-1)}{\sym{n}{n}-\sym{k}{k}-1}\), met k het aantal x-variabelen. De rekentool
@@ -1041,5 +1038,11 @@
         </ol>
       </details>
     </div>
+  </section>
+
+  <section class="unit" id="d07-studiewijzer" data-kw="studiewijzer; study guide; wat moet ik kennen; leerdoelen; learning objectives; examenstof; exam; checklist; overzicht">
+    <h3>7.15 Studiewijzer: wat moet je kunnen?</h3>
+    <p>De cursus geeft voor dit onderwerp geen studiewijzer of leerdoelen.</p>
+    <p>Voorbeeldexamen: vraag 7 (<a href="#d13-v7">13.7</a>) vraagt onder meer naar de regressielijn als voorwaardelijke verwachting; zie <a href="#d07-model">7.2</a>. Vraag 1 (<a href="#d13-v1">13.1</a>) toetst onder meer statistische tegenover praktische significantie; zie <a href="#d07-model">7.2</a> en <a href="#d07-toetsen">7.6</a>.</p>
   </section>
 </section>
