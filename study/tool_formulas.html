@@ -267,18 +267,29 @@ E[\sym{X}{X}]=\frac{\sym{a}{a}+\sym{b}{b}}{2}\qquad \operatorname{Var}[\sym{X}{X
 </section>
 
 <section data-block="kruistabel.0" data-uitleg="d02-kansen">
-\[P(\sym{A}{A_{i}}\text{ en }\sym{B}{B_{j}})=\frac{\sym{nij}{n_{ij}}}{\sym{N}{N}}\qquad P(\sym{A}{A_{i}})=\frac{\sym{ni}{n_{i\cdot}}}{\sym{N}{N}}\qquad P(\sym{B}{B_{j}})=\frac{\sym{nj}{n_{\cdot j}}}{\sym{N}{N}}\]
-\[P(\sym{B}{B_{j}}\mid \sym{A}{A_{i}})=\frac{\sym{nij}{n_{ij}}}{\sym{ni}{n_{i\cdot}}}\qquad P(\sym{A}{A_{i}}\mid \sym{B}{B_{j}})=\frac{\sym{nij}{n_{ij}}}{\sym{nj}{n_{\cdot j}}}\qquad
-\text{onafhankelijk}\iff P(\sym{A}{A_{i}}\text{ en }\sym{B}{B_{j}})=P(\sym{A}{A_{i}})\,P(\sym{B}{B_{j}})\]
+\[P(\sym{X}{X}=\sym{xi}{x_{i}},\,\sym{Y}{Y}=\sym{yj}{y_{j}})=\frac{\sym{nij}{n_{ij}}}{\sym{N}{N}}\qquad P(\sym{X}{X}=\sym{xi}{x_{i}})=\frac{\sym{ni}{n_{i\cdot}}}{\sym{N}{N}}\qquad P(\sym{Y}{Y}=\sym{yj}{y_{j}})=\frac{\sym{nj}{n_{\cdot j}}}{\sym{N}{N}}\]
+\[P(\sym{Y}{Y}=\sym{yj}{y_{j}}\mid\sym{X}{X}=\sym{xi}{x_{i}})=\frac{P(\sym{X}{X}=\sym{xi}{x_{i}},\,\sym{Y}{Y}=\sym{yj}{y_{j}})}{P(\sym{X}{X}=\sym{xi}{x_{i}})}=\frac{\sym{nij}{n_{ij}}}{\sym{ni}{n_{i\cdot}}}\qquad P(\sym{E}{E}\mid\sym{G}{G})=\frac{\sym{nEG}{n(E\text{ en }G)}}{\sym{nG}{n(G)}}\qquad P(\text{niet }\sym{G}{G})=1-P(\sym{G}{G})\]
+\[\text{onafhankelijk}\iff P(\sym{Y}{Y}\mid\sym{X}{X})=P(\sym{Y}{Y})\ \text{voor elke rij}\iff P(\sym{X}{X},\sym{Y}{Y})=P(\sym{X}{X})\cdot P(\sym{Y}{Y})\]
+\[\sym{e}{e_{ij}}=\frac{\sym{ni}{n_{i\cdot}}\,\sym{nj}{n_{\cdot j}}}{\sym{N}{N}}\qquad \sym{chi}{\chi^{2}}=\sum_{i}\sum_{j}\frac{(\sym{nij}{n_{ij}}-\sym{e}{e_{ij}})^{2}}{\sym{e}{e_{ij}}}\sim\chi^{2}\big((\sym{r}{r}-1)(\sym{c}{c}-1)\big)\]
 <ul class="fx-vars">
-<li data-hoe="De rijen van de tabel, bv. geslacht of machine.">\(\sym{A}{A_{i}}\): categorie \(i\) van de eerste variabele (rij \(i\)).</li>
-<li data-hoe="De kolommen van de tabel, bv. goed/defect.">\(\sym{B}{B_{j}}\): categorie \(j\) van de tweede variabele (kolom \(j\)).</li>
-<li data-hoe="Het getal in de cel van rij i en kolom j.">\(\sym{nij}{n_{ij}}\): het aantal in rij \(i\) en kolom \(j\).</li>
-<li data-hoe="Tel rij i op.">\(\sym{ni}{n_{i\cdot}}\): het rijtotaal.</li>
-<li data-hoe="Tel kolom j op.">\(\sym{nj}{n_{\cdot j}}\): het kolomtotaal.</li>
-<li data-hoe="Tel alle cellen op.">\(\sym{N}{N}\): het totaal van de tabel.</li>
+<li data-hoe="De variabele in de rijen, bv. de productielijn L in het voorbeeld van Data p. 24. Typ haar naam in 'naam van X'.">\(\sym{X}{X}\): de variabele in de rijen.</li>
+<li data-hoe="De variabele in de kolommen, bv. de kwaliteit K (Accepted, Downgraded, Rejected) van Data p. 24.">\(\sym{Y}{Y}\): de variabele in de kolommen.</li>
+<li data-hoe="De naam vooraan een rij, bv. 'Lijn 1'.">\(\sym{xi}{x_{i}}\): categorie \(i\) van X (rij \(i\)).</li>
+<li data-hoe="De naam boven een kolom, bv. 'Accepted'.">\(\sym{yj}{y_{j}}\): categorie \(j\) van Y (kolom \(j\)).</li>
+<li data-hoe="Het getal in de cel; bij ruwe data telt de rekenmachine de regels met die twee categorieën.">\(\sym{nij}{n_{ij}}\): het aantal waarnemingen met \(X=x_{i}\) en \(Y=y_{j}\).</li>
+<li data-hoe="Tel rij i op, bv. 270 voor Lijn 1 (Data p. 24).">\(\sym{ni}{n_{i\cdot}}\): het rijtotaal.</li>
+<li data-hoe="Tel kolom j op, bv. 350 voor Accepted.">\(\sym{nj}{n_{\cdot j}}\): het kolomtotaal.</li>
+<li data-hoe="Tel alle cellen op, bv. 500 producten.">\(\sym{N}{N}\): het totaal van de tabel.</li>
+<li data-hoe="Kies onder 'gevraagd', bv. 'Y = Accepted' of 'Y ≠ Rejected'.">\(\sym{E}{E}\): de gebeurtenis waarvan je de kans wilt.</li>
+<li data-hoe="Kies onder 'gegeven', bv. 'X = Lijn 2': de woorden 'als', 'gegeven dat', 'van de producten van lijn 2'.">\(\sym{G}{G}\): wat gegeven is (de voorwaarde); je houdt alleen die rijen of kolommen over.</li>
+<li data-hoe="Tel de cellen die in E én in G liggen, bv. 150 (Lijn 2 en Accepted).">\(\sym{nEG}{n(E\text{ en }G)}\): het aantal waarnemingen waarvoor E en G allebei gelden.</li>
+<li data-hoe="Tel de cellen van G, bv. 230 voor Lijn 2. Dit is de noemer van een voorwaardelijke kans.">\(\sym{nG}{n(G)}\): het aantal waarnemingen waarvoor G geldt.</li>
+<li data-hoe="Rijtotaal × kolomtotaal / totaal.">\(\sym{e}{e_{ij}}\): het verwachte aantal in de cel als X en Y onafhankelijk zijn; de χ²-toets vraagt elk groter dan 5.</li>
+<li data-hoe="Uit de formule; groot χ² (kleine p-waarde) = afhankelijk.">\(\sym{chi}{\chi^{2}}\): de toetsgrootheid als de tabel een steekproef is.</li>
+<li data-hoe="Tel de rijen en de kolommen van de tabel (zonder totalen).">\(\sym{r}{r}\), \(\sym{c}{c}\): het aantal rijen en kolommen.</li>
 </ul>
-<p class="fx-src">Data p. 18–23.</p>
+<p class="fx-sub">De cursus besluit uit de tabel zelf: P(K | L = lijn 1) ≠ P(K), dus niet onafhankelijk (Data p. 25). Is de tabel een steekproef, dan zegt de χ²-toets of het verschil toeval kan zijn.</p>
+<p class="fx-src">Data p. 18–25; Data-notities p. 11–12; Test Recipes p. 18–20 (χ²); P(niet G) = 1 − P(G) <span class="gen">algemeen</span>.</p>
 </section>
 
 <section data-block="steekproefplan.0" data-uitleg="d06-oc">

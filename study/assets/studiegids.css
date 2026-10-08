@@ -94,7 +94,11 @@ details.tool .src { margin: 2px 0 6px; font: 12.5px Arial, Helvetica, sans-serif
        border-radius: 4px; background: #fff8c5; color: var(--ink); }
 .fld input { width: 150px; }
 .fld textarea { width: 100%; font-family: Menlo, Consolas, monospace; font-size: 13px; }
-.fld .bad, .fld input.bad { border-color: var(--bad); background: #fde8e8; }
+.fld .bad, .fld input.bad { border-color: var(--warnline); background: var(--warn); }
+/* a field the calculator derived from the others: red and locked (tools.js lock()) */
+.fld input.solved { border: 2px solid var(--bad); background: #f9d6d6; color: #8e1b1b; font-weight: bold; cursor: not-allowed; }
+.calc button.wis { align-self: flex-end; font: 12.5px Arial, Helvetica, sans-serif; padding: 3px 10px; border: 1px solid var(--rule);
+                   border-radius: 4px; background: #fff; color: var(--muted); cursor: pointer; }
 table.out { margin: 4px 0 8px; font-size: 13.5px; }
 table.out td.v { background: #e8f5e9; text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
 table.out td.note { color: var(--muted); font-size: 12.5px; }

@@ -135,10 +135,12 @@ TOOLS: dict[str, Tool] = {
                         "kansverdeling; probability distribution; binomiaal; binomial; hypergeometrisch; hypergeometric; "
                         "Poisson; exponentieel; exponential; uniform; Bernoulli; verwachtingswaarde; expected value",
                         (("AS", 12, "AS p. 12, 16, 20"), ("Data", 5, "Data p. 5–10")), "Verdelingen"),
-    "kruistabel": Tool("Rekenmachine kruistabel: gezamenlijke, marginale en voorwaardelijke kansen",
-                       "kruistabel; contingency table; gezamenlijke kans; joint probability; marginale kans; marginal "
-                       "probability; voorwaardelijke kans; conditional probability; onafhankelijk; independent",
-                       (("Data", 22, "Data p. 22–23"),)),
+    "kruistabel": Tool("Rekenmachine voorwaardelijke kansen: kruistabel of ruwe data, marginale verdelingen, "
+                       "(on)afhankelijkheid",
+                       "voorwaardelijke kans; conditional probability; kruistabel; contingency table; gezamenlijke kans; "
+                       "joint probability; marginale kans; marginale verdeling; marginal probability; marginal "
+                       "distribution; onafhankelijk; independent; afhankelijk; dependent; gegeven; given",
+                       (("Data", 17, "Data p. 17–25"),), "Voorwaardelijke kansen"),
     "steekproefplan": Tool("Rekenmachine aanvaardingssteekproef: OC, α, β, AOQ, AOQL, ATI, AQL/LQL van een plan, plan voor variabelen",
                            "aanvaardingssteekproef; acceptance sampling; OC-curve; operating characteristic; AQL; LQL; LTPD; "
                            "producentenrisico; producer's risk; consumentenrisico; consumer's risk; AOQ; AOQL; ATI",
@@ -510,7 +512,9 @@ def tools_panel(number: str) -> str:
     if not items:
         return ""
     return (f'<details class="tools" id="tools-d{number}"><summary>Hulpmiddelen bij dit deel: rekenmachines en tabellen</summary>'
-            '<p class="help">Gele velden invullen (komma of punt), groene resultaten verschijnen meteen. Lijsten: getallen '
+            '<p class="help">Gele velden invullen (komma of punt), groene resultaten verschijnen meteen. Een veld dat de '
+            'rekenmachine uit de andere berekent, wordt <b>rood</b> en gaat op slot: dat heb je niet ingevuld. Wis een '
+            'ingevuld veld (of klik "Wis alles") om het weer vrij te maken. Lijsten: getallen '
             'gescheiden door spaties, tabs of nieuwe regels; je kunt kolommen uit Excel plakken. De rekenmachines gebruiken '
             'dezelfde formules als <code>build/bb_toolkit.xlsx</code>.</p>' + "".join(items) + "</details>")
 

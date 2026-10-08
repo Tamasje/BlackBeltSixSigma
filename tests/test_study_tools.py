@@ -18,6 +18,7 @@ import re
 import shutil
 import subprocess
 import sys
+from decimal import ROUND_HALF_UP, Decimal
 from typing import Any
 
 import numpy as np
@@ -294,6 +295,50 @@ def test_contingency_table_probabilities() -> None:
     assert np.allclose(r["rowGivenCol"], table / table.sum(axis=0, keepdims=True))
     assert np.allclose(r["product"], np.outer(table.sum(axis=1), table.sum(axis=0)) / total ** 2)
 
+
+
+def course_cross_table(given: str) -> tuple[list[str], list[str], list[list[int]]]:
+    """Row names, column names and counts of an oracle table 'Lijn 1: Accepted=200, …; Totaal: …' (totals kept)."""
+    rows = [part.split(":") for part in given.split(";")]
+    columns = [cell.split("=")[0].strip() for cell in rows[0][1].split(",")]
+    counts = [[int(cell.split("=")[1]) for cell in values.split(",")] for _, values in rows]
+    return [name.strip() for name, _ in rows], columns, counts
+
+
+def half_up(x: float, decimals: int) -> str:
+    """x rounded half-up to the printed precision, with a decimal comma (convention decision 10)."""
+    return str(Decimal(repr(x)).quantize(Decimal(1).scaleb(-decimals), rounding=ROUND_HALF_UP)).replace(".", ",")
+
+
+def test_conditional_probabilities_production_lines_s02_we01(oracle: dict[str, Any]) -> None:
+    # arrange -- the course table pasted as from Excel (tabs), totals included; and the same data as raw observations
+    example = oracle["S02-WE01"]
+    names, columns, counts = course_cross_table(example["given"]["table"])
+    pasted = "\t" + "\t".join(columns) + "\n" + "\n".join(name + "\t" + "\t".join(map(str, row)) for name, row in zip(names, counts))
+    raw = "\n".join(f"{line}\t{quality}" for line, row in zip(names[:-1], counts[:-1])
+                     for quality, n in zip(columns[:-1], row[:-1]) for _ in range(n))
+    stated = example["stated_answers"]
+    # act
+    table, from_raw = run_js([("Calc.crossTable", [pasted, False, False]), ("Calc.crossTable", [raw, True, False])])
+    accepted_line2, accepted, downgraded, rejected, given_line1 = run_js([
+        ("Calc.conditional", [table["counts"], "c:0", "r:1"]), ("Calc.conditional", [table["counts"], "c:0", ""]),
+        ("Calc.conditional", [table["counts"], "c:1", ""]), ("Calc.conditional", [table["counts"], "c:2", ""]),
+        ("Calc.contingency", [table["counts"]])])
+    independence = run_js([("Calc.independence", [table["counts"]])])[0]
+    # assert -- totals dropped and recomputed; raw data gives the same table
+    assert table["dropped"] == ["kolom Totaal", "rij Totaal"]
+    assert table["rowLabels"] == ["Lijn 1", "Lijn 2"] and table["colLabels"] == ["Accepted", "Downgraded", "Rejected"]
+    assert from_raw["counts"] == table["counts"] == [row[:-1] for row in counts[:-1]]
+    # p. 25: joint, marginal and conditional answers as printed
+    assert "= " + half_up(accepted_line2["pEG"], 2) in stated["P(L=lijn2, K=Accepted)"]
+    for answer, key in ((accepted, "P(Acc.)"), (downgraded, "P(Down.)"), (rejected, "P(Rej.)")):
+        assert "= " + half_up(answer["pE"], 2) in stated[key]
+    for j, key in enumerate(("P(Acc. | lijn1)", "P(Down. | lijn1)", "P(Rej. | lijn1)")):
+        assert "≈ " + half_up(given_line1["colGivenRow"][0][j], 2) in stated[key]
+    assert accepted_line2["pEgivenG"] == pytest.approx(150 / 230)
+    # "Niet onafhankelijk": the table itself is dependent
+    assert stated["onafhankelijkheid"].startswith("Niet onafhankelijk") and not independence["independent"]
+    assert not accepted_line2["independent"]
 
 # ---------- acceptance sampling ----------
 
@@ -1078,3 +1123,56 @@ def test_every_calculator_block_has_its_formulas_and_every_symbol_a_meaning() ->
     assert sorted(blocks) == sorted(sections), (set(blocks) ^ set(sections))
     assert not problems, problems
     assert all(row["betekenis"] and row["hoe"] for _, row in rows)
+
+
+# ---------- derived fields: red and locked in the page (tools.js lock()) ----------
+
+def run_blocks(cases: list[tuple[str, int, dict[str, Any]]]) -> list[dict[str, Any]]:
+    """The fields each calculator block derives ({name: value}) for the given typed fields; text values go to v.text."""
+    script = f"""
+global.Stats = require({json.dumps(str(ASSETS / "stats.js"))});
+global.Calc = require({json.dumps(str(ASSETS / "calc.js"))});
+const input = JSON.parse(require('fs').readFileSync(0, 'utf8'));
+global.document = {{ getElementById: () => ({{ textContent: JSON.stringify(input.constants) }}), querySelectorAll: () => [] }};
+global.window = {{ addEventListener() {{}} }};
+global.location = {{ hash: '' }};
+const source = require('fs').readFileSync({json.dumps(str(ASSETS / "tools.js"))}, 'utf8').replace('var TOOLS = {{}};', 'var TOOLS = global.TOOLS = {{}};');
+eval(source);
+const box = {{ querySelectorAll: () => [] }};
+process.stdout.write(JSON.stringify(input.cases.map(([tool, index, fields]) => {{
+  const v = {{ text: {{}} }};
+  Object.entries(fields).forEach(([k, x]) => {{ if (typeof x === 'string') v.text[k] = x; else v[k] = x; }});
+  const r = global.TOOLS[tool][index].run(new Proxy(v, {{ get: (o, k) => k in o ? o[k] : null }}), box);
+  return r && typeof r === 'object' ? Object.fromEntries(Object.entries(r.solved).filter(([, x]) => typeof x === 'number')) : {{}};
+}})));
+"""
+    payload = json.dumps({"constants": build_module().constants_data(), "cases": cases})
+    result = subprocess.run([shutil.which("node"), "-e", script], input=payload, capture_output=True, text=True, check=True)
+    return json.loads(result.stdout)
+
+
+def test_blocks_report_the_fields_they_derive_and_never_a_typed_one() -> None:
+    # arrange -- typed fields per block; expected: the derived fields (each must be a field that was left empty)
+    cases = [
+        ("normaal", 0, {"mu": 10, "sigma": 2, "x": 13}, {"z", "pl", "pr"}),
+        ("normaal", 0, {"mu": 10, "sigma": 2, "pr": 0.05}, {"x", "z", "pl"}),
+        ("normaal", 2, {"sigma": 4, "n": 16}, {"se"}),
+        ("sigma", 0, {"dpmo": 3.4}, {"dpo", "yield", "z", "level"}),
+        ("verdelingen", 2, {"N": 100, "D": 10, "n": 5, "k": 1}, {"q"}),
+        ("verdelingen", 2, {"N": 100, "D": 10, "n": 5, "q": 0.9}, {"k"}),
+        ("verdelingen", 4, {"rate": 0.5, "q": 0.9}, {"t"}),
+        ("capabiliteit", 1, {"lsl": 10, "usl": 16, "mean": 13, "sigma": 1, "centred": "0"},
+         {"cp", "cpk", "ppm", "cpu", "cpl"}),   # Cpu and Cpl have no field; lock() skips them
+        ("steekproefgrootte", 0, {"alpha": 0.05, "W": 0.1}, {"n"}),
+        ("steekproefgrootte", 0, {"W": 0.1, "n": 385}, {"alpha"}),
+        ("gemiddelde", 0, {"alpha": 0.05, "data": "1 2 3 4 5"}, {"n", "m", "s"}),
+        ("regelkaart", 2, {"n": 5, "ucl": 12, "cl": 10}, {"lcl"}),
+    ]
+    # act
+    derived = run_blocks([(tool, index, fields) for tool, index, fields, _ in cases])
+    # assert
+    for (tool, index, fields, expected), got in zip(cases, derived):
+        assert set(got) == expected, (tool, index, got)
+        assert not set(got) & set(fields), (tool, index, "a typed field may never be derived")
+    assert derived[0]["z"] == pytest.approx(1.5) and derived[1]["x"] == pytest.approx(10 + 2 * stats.norm.isf(0.05))
+    assert derived[8]["n"] == 385   # CI p. 10: n = (2·1,96·0,5/0,1)² = 384,1 → 385

@@ -231,6 +231,97 @@ var Calc = (function () {
              product: rows.map(function (r, a) { return r.map(function (v, b) { return (rt[a] / N) * (ct[b] / N); }); }) };
   }
 
+  // A cross table read from pasted text (Data p. 17–25). Counts: one row per line, names allowed in the first row and
+  // the first column. Raw data: one observation per line, the category of X then the category of Y. Excel pastes
+  // columns separated by tabs, so names may contain spaces there; otherwise spaces or ';' separate. A row or column
+  // named totaal/total is left out: the margins are always recomputed from the cells.
+  var TOTAL = /^(totaal|total|som|sum)$/i;
+  function cellsOf(line) {
+    var cells = line.indexOf('\t') >= 0 ? line.split('\t') : line.trim().split(/[\s;]+/);
+    cells = cells.map(function (c) { return c.trim(); });
+    while (cells.length && cells[cells.length - 1] === '') cells.pop();
+    return cells;
+  }
+  function count(text) {
+    var t = String(text).replace(/\s/g, '');
+    return /^\+?\d+([.,]\d+)?$/.test(t) ? parseFloat(t.replace(',', '.')) : NaN;
+  }
+  function crossTable(text, raw, header) {
+    var lines = String(text || '').split('\n').filter(function (l) { return l.trim() !== ''; }).map(cellsOf);
+    if (!lines.length) return null;
+    var names = null, dropped = [];
+    if (raw) {
+      if (header) { names = lines[0].slice(0, 2); lines = lines.slice(1); }
+      var bad = lines.filter(function (c) { return c.length !== 2; });
+      if (bad.length) return { error: 'ruwe data: elke regel precies twee categorieën (X en Y); kopieer uit Excel (tabs) als een naam spaties bevat. Niet gelezen: ' + bad[0].join(' ') };
+      var rowLabels = [], colLabels = [], counts = [];
+      lines.forEach(function (c) {
+        if (rowLabels.indexOf(c[0]) < 0) { rowLabels.push(c[0]); counts.push(colLabels.map(function () { return 0; })); }
+        if (colLabels.indexOf(c[1]) < 0) { colLabels.push(c[1]); counts.forEach(function (r) { r.push(0); }); }
+        counts[rowLabels.indexOf(c[0])][colLabels.indexOf(c[1])]++;
+      });
+      return { rowLabels: rowLabels, colLabels: colLabels, counts: counts, names: names, dropped: dropped };
+    }
+    var head = lines[0].every(function (c) { return isNaN(count(c)); }) ? lines.shift() : null;
+    var rows = lines.map(function (c) { return isNaN(count(c[0])) ? { label: c[0], values: c.slice(1) } : { label: null, values: c }; });
+    if (!rows.length) return { error: 'geen rij met aantallen gevonden' };
+    var C = rows[0].values.length;
+    if (rows.some(function (r) { return r.values.length !== C; })) return { error: 'elke rij moet evenveel aantallen hebben' };
+    var unread = [].concat.apply([], rows.map(function (r) { return r.values; })).filter(function (c) { return isNaN(count(c)); });
+    if (unread.length) return { error: 'geen aantal (alleen getallen ≥ 0 in de cellen): ' + unread.slice(0, 3).join(' ') };
+    if (head && head.length === C + 1) head = head.slice(1);   // the corner cell above the row names
+    if (head && head.length !== C) return { error: 'de eerste regel heeft ' + head.length + ' namen voor ' + C + ' kolommen' };
+    var cols = (head || []).length ? head : rows[0].values.map(function (_, j) { return 'kolom ' + (j + 1); });
+    var keepCol = cols.map(function (c) { return !TOTAL.test(c); });
+    cols.forEach(function (c, j) { if (!keepCol[j]) dropped.push('kolom ' + c); });
+    var kept = rows.filter(function (r) { if (r.label && TOTAL.test(r.label)) { dropped.push('rij ' + r.label); return false; } return true; });
+    return { rowLabels: kept.map(function (r, i) { return r.label || 'rij ' + (i + 1); }),
+             colLabels: cols.filter(function (_, j) { return keepCol[j]; }),
+             counts: kept.map(function (r) { return r.values.map(count).filter(function (_, j) { return keepCol[j]; }); }),
+             names: null, dropped: dropped };
+  }
+  // An event on one variable of the table: 'r:i' (X = row i), 'r!:i' (X ≠ row i), 'c:j', 'c!:j'; '' = no condition.
+  function eventCells(spec) {
+    var m = /^([rc])(!?):(\d+)$/.exec(spec || '');
+    if (!m) return function () { return true; };
+    var k = +m[3], not = m[2] === '!';
+    return function (i, j) { return ((m[1] === 'r' ? i : j) === k) !== not; };
+  }
+  // P(E), P(G), P(E en G), P(E | G) = n(E en G)/n(G) and P(G | E) for two events of a cross table (Data p. 20, 25)
+  function conditional(counts, event, given) {
+    if (!/^[rc]!?:\d+$/.test(event || '')) return null;
+    var e = eventCells(event), g = eventCells(given), N = 0, nE = 0, nG = 0, nEG = 0;
+    counts.forEach(function (row, i) {
+      row.forEach(function (x, j) {
+        N += x;
+        if (e(i, j)) nE += x;
+        if (g(i, j)) nG += x;
+        if (e(i, j) && g(i, j)) nEG += x;
+      });
+    });
+    if (!(N > 0)) return null;
+    var out = { N: N, nE: nE, nG: nG, nEG: nEG, pE: nE / N, pG: nG / N, pEG: nEG / N,
+                pEgivenG: nG > 0 ? nEG / nG : null, pGgivenE: nE > 0 ? nEG / nE : null };
+    out.product = out.pE * out.pG;
+    out.independent = Math.abs(out.pEG - out.product) <= 1e-12;
+    return out;
+  }
+  // Independence of X and Y in the table itself (Data p. 22, 25): P(Y | X = x) = P(Y) for every row, i.e. every
+  // joint probability equals P(X)·P(Y). Returns the cell where P(Y | X = x) differs most from P(Y).
+  function independence(counts) {
+    var c = contingency(counts);
+    if (!c) return null;
+    var worst = null;
+    counts.forEach(function (row, i) {
+      row.forEach(function (_, j) {
+        if (c.rowTotals[i] === 0) return;
+        var d = Math.abs(c.colGivenRow[i][j] - c.pCol[j]);
+        if (!worst || d > worst.diff) worst = { i: i, j: j, diff: d, conditional: c.colGivenRow[i][j], marginal: c.pCol[j] };
+      });
+    });
+    return { table: c, worst: worst, independent: !worst || worst.diff <= 1e-12 };
+  }
+
   /* ---------- sigma level, DPMO, yield (sheet_sigma.py) ---------- */
   var SHIFT = 1.5, MILLION = 1e6;
   function defects(D, N, O) {
@@ -1429,7 +1520,8 @@ var Calc = (function () {
            quantiles: quantiles, pValues: pValues, describe: describe, oneMean: oneMean, twoMeansPooled: twoMeansPooled,
            paired: paired, oneProportion: oneProportion, twoProportions: twoProportions, oneVariance: oneVariance,
            twoVariances: twoVariances, bernoulli: bernoulli, binomial: binomial, hypergeometric: hypergeometric,
-           poisson: poisson, exponential: exponential, uniform: uniform, contingency: contingency, defects: defects,
+           poisson: poisson, exponential: exponential, uniform: uniform, contingency: contingency, crossTable: crossTable,
+           conditional: conditional, independence: independence, defects: defects,
            sigmaFromDpmo: sigmaFromDpmo, dpmoFromSigma: dpmoFromSigma, yields: yields, rolled: rolled,
            rollDerived: rollDerived, yieldPower: yieldPower, perOpportunity: perOpportunity, cpLevel: cpLevel,
            capability: capability, capabilityInverse: capabilityInverse, limitsSummary: limitsSummary,
