@@ -42,13 +42,10 @@ where the theory is; mean calculator shows partial results (se, d in se, P(|x̄�
 rewritten fluently (bouwstenen box, W absolute/relative); new Deel 15 "Van gegevens naar methode".
 
 **IN PROGRESS / NOT yet committed (working tree) — check `git status` first:**
-1. Fluent rewrite of parts 05–14: main (1d8153a) is fully tested (368 passed, 29 xfail). Three Sonnet helpers were started
-   (2026-10-08 ~20:40 UTC) on the unrewritten units: (a) part 10 + book-only units of part 14, (b) part 11, (c) parts 05–09 and 12
-   remaining units (brief: `.claude/handoff/rewrite_brief.md`, incl. addendum). When they report: run `python3 study/build_study.py --check`,
-   all `study/parts/NN_numbers.py`, `forward_scan.py`, the guide tests, rebuild the guide, commit, push (branch, then main).
-   If a helper died on the limit: `git diff` shows its partial edits; finish or `git checkout -- <file>` the half-edited unit.
-   Unit-level status check: compare each unit with commit b02d3cd (script idea in this file's history: split on
-   `<section class="unit" id=`, compare text).
+1. Fluent rewrite of parts 04–14: DONE (2026-10-08): part 04 by hand, 05–14 by helpers + the first helper run; every unit
+   connects to the previous one, defines symbols in words, no misprint remarks. Checks run: build --check, all NN_numbers.py,
+   forward_scan, guide tests (80 pass), tag balance, browser fuzz of all calculators (0 errors). Open for the user's review: units
+   they still find weak (tell me which) and the course-misprint remarks that were removed everywhere.
 2. **Logical order (user request 2026-10-08) — DONE for parts 04–08, remaining: other parts.** Part 04 is now estimation-only:
    the test/CI duality unit (was 04.9, ex-04-16) moved to part 05 as 05.15 `d05-dualiteit` / ex-05-19 (studiewijzer is 05.16);
    its OC-curve paragraph moved to 06.9; the general test-inversion block (TH FR p. 19) moved with it; part-04 units renumbered

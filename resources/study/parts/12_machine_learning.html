@@ -1026,16 +1026,18 @@ daarom ook naar precision en recall met elke klasse als positieve klasse.</p>
 <!-- ============================================================== 12.12 -->
 <section class="unit" id="d12-linreg" data-kw="lineaire regressie; linear regression; OLS; ordinary least squares; ridge; lasso; elastic net; quantielregressie; quantile regression; Deming; total least squares; logistische regressie; logistic regression; GLM; regularisatie">
 <h3>12.12 Lineaire regressie en haar uitbreidingen <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=33">ML p. 33–35</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=15">ML-notities p. 15–16</a></h3>
-<div class="f"><div>\(\sym{y_hat}{\hat{y}}=\sym{beta_coef}{\beta_{0}}+\sym{beta_coef}{\beta_{1}}\sym{x_feat}{x_{1}}+\sym{beta_coef}{\beta_{2}}\sym{x_feat}{x_{2}}+\cdots+\sym{beta_coef}{\beta_{p}}\sym{x_feat}{x_{p}}\)  <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=34">ML p. 34</a></div></div>
+<p>12.3 tot 12.11 beschreven in het algemeen hoe je een model traint, test en beoordeelt. Nu volgen drie concrete methodes die je daarmee kunt gebruiken: lineaire regressie (hier), neurale netwerken (12.13) en beslissingsbomen (12.14). Lineaire regressie ken je uit deel 07 als statistische methode; hier zie je haar als eenvoudigste supervised model voor een numerieke uitkomst.</p>
+<p>Het model voorspelt de uitkomst \(\sym{y_hat}{\hat{y}}\) (de voorspelde waarde) uit \(p\) kenmerken (features) \(x_{1},\ldots,x_{p}\) (de invoer). \(\beta_{0}\) is het intercept en \(\beta_{1},\ldots,\beta_{p}\) zijn de coëfficiënten, de gewichten die het model tijdens het trainen leert <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=34">ML p. 34</a>:</p>
+<div class="f"><div>\(\sym{y_hat}{\hat{y}}=\sym{beta_coef}{\beta_{0}}+\sym{beta_coef}{\beta_{1}}\sym{x_feat}{x_{1}}+\sym{beta_coef}{\beta_{2}}\sym{x_feat}{x_{2}}+\cdots+\sym{beta_coef}{\beta_{p}}\sym{x_feat}{x_{p}}\)</div></div>
 <ul>
-<li>De historische basis van moderne ML, en de meest fundamentele supervised methode.</li>
+<li>Het is de historische basis van moderne ML en de meest fundamentele supervised methode.</li>
+<li>Met MSE als loss (12.4) is er een <b>analytische oplossing</b>: de Ordinary Least Squares (OLS)-schatter, dezelfde kleinste-kwadratenmethode als in 07.3.</li>
 <li><b>Lineair in de coëfficiënten \(\beta_{i}\), niet noodzakelijk in de invoer.</b> Ook
-\(\sym{y_hat}{\hat{y}}=\sym{beta_coef}{\beta_{0}}+\sym{beta_coef}{\beta_{1}}\) sin(\(\sym{x_feat}{x_{1}}\)) + \(\sym{beta_coef}{\beta_{2}}\ \sym{x_feat}{x_{2}}^{2}+\cdots+\sym{beta_coef}{\beta_{p}}\ f(\sym{x_feat}{x_{p}})\) is
-een lineair model, en een polynoom \(\sym{y}{y}=\sym{beta_coef}{\beta_{0}}+\sym{beta_coef}{\beta_{1}}\sym{x}{x}+\sym{beta_coef}{\beta_{2}}\sym{x}{x}^{2}\) ook <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=34">ML p. 34</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=16">ML-notities p. 16</a>.</li>
-<li>Met MSE als loss is er een <b>analytische oplossing</b>: de Ordinary Least Squares (OLS)-schatter.</li>
+\(\hat{y}=\beta_{0}+\beta_{1}\) sin(\(x_{1}\)) + \(\beta_{2}\ x_{2}^{2}+\cdots+\beta_{p}\ f(x_{p})\) is
+een lineair model, en een polynoom \(y=\beta_{0}+\beta_{1}x+\beta_{2}x^{2}\) ook <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=34">ML p. 34</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=16">ML-notities p. 16</a>.</li>
 <li>De coëfficiënten zijn interpreteerbaar en er bestaan geijkte statistische tests voor significantie.</li>
 </ul>
-<p><b>Uitbreidingen</b> <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=35">ML p. 35</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=16">ML-notities p. 16</a>. De studiewijzer vraagt alleen dat je <b>weet dat ze bestaan</b>, met
+<p><b>Uitbreidingen</b> <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=35">ML p. 35</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=16">ML-notities p. 16</a>. Gewone OLS heeft zwaktes: veel kenmerken, uitschieters, meetfout in x of een uitkomst die geen getal is. Voor elk probleem bestaat een uitbreiding. De studiewijzer vraagt alleen dat je <b>weet dat ze bestaan</b>, met
 logistische en quantielregressie als voorbeelden:</p>
 <table>
 <tr><th>Methode</th><th>Kernidee</th></tr>
@@ -1044,15 +1046,14 @@ logistische en quantielregressie als voorbeelden:</p>
 <tr><td>Elastic Net</td><td>combinatie van Ridge en Lasso</td></tr>
 <tr><td>Quantielregressie</td><td>modelleert de mediaan (of een ander kwantiel) in plaats van het gemiddelde; robuuster bij uitschieters</td></tr>
 <tr><td>Deming-regressie / Total Least Squares</td><td>houdt rekening met meetfout in zowel x als y</td></tr>
-<tr><td>Logistische regressie</td><td>voorspelt een binaire respons (1/0) (alleen in het slidedeck; de notities noemen ze enkel in de studiewijzer)</td></tr>
+<tr><td>Logistische regressie</td><td>voorspelt een binaire respons (1/0)</td></tr>
 <tr><td>Gegeneraliseerde lineaire modellen (GLM)</td><td>niet-Gaussische uitkomsten (lognormaal, Poisson, binomiaal, …)</td></tr>
 </table>
-<div class="box key"><span class="t">Hot take</span>
+<p>De bestraffing bij Ridge en Lasso heeft een sterkte \(\sym{lambda_ridge}{\lambda}\), een hyperparameter (12.6): een grotere \(\lambda\) bestraft meer en maakt het model eenvoudiger.</p>
+<div class="box key"><span class="t">Waarom lineaire regressie nog telt</span>
 <p>Lineaire regressie biedt meestal een zeer goede afweging tussen complexiteit en resultaat, en sommige uitbreidingen
 zijn te weinig gekend <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=35">ML p. 35</a>.</p>
 </div>
-<p class="small">De regularisatiesterkte \(\lambda\) van ridge is een hyperparameter (12.6): een grotere bestraffing maakt het
-model eenvoudiger.</p>
 <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
 <ul>
 <li><b>"Lineaire regressie kan alleen rechte lijnen fitten."</b> Fout: lineair betekent lineair in de coëfficiënten \(\beta\), niet in de invoer. Ook een polynoom of termen als sin(\(\sym{x_feat}{x_{1}}\)) en \(\sym{x_feat}{x_{2}}^{2}\) geven een lineair model <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=34">ML p. 34</a>.</li>
@@ -1066,11 +1067,12 @@ model eenvoudiger.</p>
 <!-- ============================================================== 12.13 -->
 <section class="unit" id="d12-neuraal" data-kw="neuraal netwerk; neural network; neuron; activatiefunctie; activation function; ReLU; sigmoid; verborgen laag; hidden layer; deep learning; backpropagation; gradient descent; dropout; early stopping; weight decay; CNN; RNN; LSTM; transformer; autoencoder">
 <h3>12.13 Neurale netwerken <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=36">ML p. 36–42</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=16">ML-notities p. 16–19</a></h3>
-<p>Een neuraal netwerk is in essentie een elegante manier om <b>heel complexe functies op te bouwen uit eenvoudige</b>
+<p>12.12 gaf het lineaire model: een gewogen som van de kenmerken. Een neuraal netwerk bouwt daarop voort. Het is in essentie een elegante manier om <b>heel complexe functies op te bouwen uit eenvoudige</b>
 <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=16">ML-notities p. 16</a>: lagen kunstmatige neuronen die samen een niet-lineaire transformatie van input naar output vormen.</p>
-<p><b>Het enkelvoudig neuron</b> <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=37">ML p. 37</a>:</p>
+<p><b>Het enkelvoudig neuron</b> <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=37">ML p. 37</a>. Een neuron neemt de gewogen som van zijn inputs, zoals in lineaire regressie, en haalt die door een niet-lineaire functie:</p>
 <div class="f"><div>\[\sym{y_nn}{y}=\sym{f_act}{f}(\sym{w}{w_{1}}\sym{x_feat}{x_{1}}+\sym{w}{w_{2}}\sym{x_feat}{x_{2}}+\cdots+\sym{w}{w_{n}}\sym{x_feat}{x_{n}}+\sym{b_bias}{b})\]</div></div>
 <ul>
+<li>\(\sym{x_feat}{x_{i}}=\) de <b>inputs</b> (kenmerken, of de uitkomsten van de vorige laag);</li>
 <li>\(\sym{w}{w_{i}}=\) <b>gewichten</b>: parameters die getraind worden;</li>
 <li>\(\sym{b_bias}{b}=\) <b>bias</b>: ook een parameter die getraind wordt;</li>
 <li>\(\sym{f_act}{f}=\) een niet-lineaire <b>activatiefunctie (activation function)</b>: ReLU \((\sym{f_act}{f}(\sym{x_arg}{x})=\max(0,\sym{x_arg}{x}))\), sigmoid of tanh
@@ -1080,8 +1082,7 @@ model eenvoudiger.</p>
 één of meer <b>verborgen lagen (hidden layers)</b> die interne representaties leren, en een <b>uitvoerlaag</b> (een getal
 bij regressie, kansen bij classificatie). Het aantal lagen en neuronen is een hyperparameter. De figuur hieronder toont 3 invoer-
 neuronen, twee verborgen lagen van elk 4 neuronen en 1 uitvoerneuron, met gewichtsmatrices W1 (4×3), W2 (4×4) en
-W3 (1×4), en de formule \(\sym{y_nn}{Y}=\sym{f_act}{f}(\sym{w_matrix}{W3}\cdot\sym{f_act}{f}(\sym{w_matrix}{W2}\cdot\sym{f_act}{f}(\sym{w_matrix}{W1}\cdot\sym{x_nn}{X}+\sym{b_layer}{B1})+\sym{b_layer}{B2})+\sym{b_layer}{B3})\). B1, B2 en B3 worden niet toegelicht; vermoedelijk
-zijn het de biases b van de neuronen in elke laag.</p>
+W3 (1×4), en de formule \(\sym{y_nn}{Y}=\sym{f_act}{f}(\sym{w_matrix}{W3}\cdot\sym{f_act}{f}(\sym{w_matrix}{W2}\cdot\sym{f_act}{f}(\sym{w_matrix}{W1}\cdot\sym{x_nn}{X}+\sym{b_layer}{B1})+\sym{b_layer}{B2})+\sym{b_layer}{B3})\). B1, B2 en B3 zijn de biases b van de neuronen in elke laag.</p>
 <figure class="fig"><img src="figures/12_neuraal_netwerk.png" alt="Neuraal netwerk met 3 invoerneuronen, twee verborgen lagen van 4 neuronen en 1 uitvoerneuron, gewichtsmatrices W1 (4x3), W2 (4x4) en W3 (1x4) en de geneste formule voor Y">
 <figcaption>Figuur: lagen stapelen. Invoerlaag (input layer, X) met 3 neuronen, twee verborgen lagen (hidden layer 1 en 2) van elk 4 neuronen, uitvoerlaag (output layer, Y) met 1 neuron, en elk neuron verbonden met alle neuronen van de volgende laag. Tussen de lagen zitten de gewichtsmatrices W1 (4×3), W2 (4×4) en W3 (1×4). De formule onderaan toont hoe de lagen in elkaar genest zijn: \(Y=f(W3\cdot f(W2\cdot f(W1\cdot X+B1)+B2)+B3)\). <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=38">ML p. 38</a></figcaption></figure>
 <div class="box key"><span class="t">Deep learning</span>
@@ -1121,9 +1122,7 @@ ongeveer 62 miljoen parameters <a class="p" href="../source/course/Les%202/20260
 <tr><td>een sterk niet-lineair, moeilijk te formaliseren verband</td><td>situaties waar interpreteerbaarheid vereist is: netwerken zijn "zwarte dozen"</td></tr>
 <tr><td>ongestructureerde input (beeld, tekst, audio)</td><td>strenge reken- of inference-budgetten in productie</td></tr>
 </table>
-<p class="small">Hot take <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=42">ML p. 42</a>: door het succes van LLM's en beeldherkenning staan neurale netwerken soms te veel
-in de spotlight waar andere methoden geschikter zijn, en het trainen van een groot netwerk vraagt veel expertise.
-Toch zijn ook kleine netwerken een valabele route voor een sterk niet-lineair verband.</p>
+<p class="small">Door het succes van LLM's en beeldherkenning staan neurale netwerken soms te veel in de spotlight waar andere methoden geschikter zijn, en het trainen van een groot netwerk vraagt veel expertise. Toch zijn ook kleine netwerken een valabele route voor een sterk niet-lineair verband <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=42">ML p. 42</a>.</p>
 
 <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
 <ul>
@@ -1184,6 +1183,7 @@ Toch zijn ook kleine netwerken een valabele route voor een sterk niet-lineair ve
 <!-- ============================================================== 12.14 -->
 <section class="unit" id="d12-bomen" data-kw="beslissingsboom; decision tree; boom; split; splitsing; drempelwaarde; threshold; blad; leaf; Gini impurity; entropie; information gain; max_depth; diepte; random forest; gradient boosting; XGBoost; LightGBM; AdaBoost; ensemble">
 <h3>12.14 Beslissingsbomen en ensemble-methoden <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=43">ML p. 43–46</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20slides.pdf#page=46">ML-webslides p. 46–47</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=19">ML-notities p. 19–20</a></h3>
+<p>12.13 liet netwerken zien die krachtig zijn maar zwarte dozen blijven. Beslissingsbomen zijn het interpreteerbare alternatief: een reeks eenvoudige ja/nee-vragen over de kenmerken. Ze werken voor regressie en classificatie en vormen de bouwsteen van krachtige ensemble-methoden zoals random forest en gradient boosting.</p>
 <div class="box key"><span class="t">Werkingsprincipe</span>
 <p>Een <b>beslissingsboom (decision tree)</b> deelt de invoerruimte <b>stap voor stap op met drempelwaarden</b>
 op de kenmerken <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=44">ML p. 44</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=19">ML-notities p. 19</a>. Elke interne knoop stelt een ja/nee-vraag ("Is \(\sym{koolstof}{\text{koolstofgehalte}}\gt0{,}3\ \%\)?");
@@ -1204,7 +1204,7 @@ splitsingsvraag, de <b>gini</b>-waarde, <b>samples</b> (aantal trainingspassagie
 <tr><td>bladeren</td><td>[27, 29] gini 0,499 S — [16, 3] gini 0,266 D — [3, 8] gini 0,397 S — [232, 25] gini 0,176 D — [4, 108] gini 0,069 S — [1, 0] gini 0,0 D — [27, 33] gini 0,495 S — [15, 3] gini 0,278 D</td></tr>
 </table>
 <p class="small">\(S=\) Survived, \(D=\) Did not survive; bladeren van links naar rechts. In elke knoop is de som van de twee
-kinderen gelijk aan de ouder (gecontroleerd door het script).</p>
+kinderen gelijk aan de ouder.</p>
 <p><b>Trainingskeuzes</b> (alleen in de webversie van het deck, <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20slides.pdf#page=46">ML-webslides p. 46</a>):</p>
 <table>
 <tr><th>Wanneer splitsen?</th><th>Wanneer stoppen?</th></tr>
@@ -1213,7 +1213,7 @@ kinderen gelijk aan de ouder (gecontroleerd door het script).</p>
 <td>Bij een <b>maximale diepte (max_depth)</b>; bij een <b>minimum aantal observaties per blad</b>; bij een
 <b>minimum winst door een split</b>; of als er geen verbetering meer mogelijk is.</td></tr>
 </table>
-<p>De cursus geeft geen formule voor Gini of entropie. Lees gini in de figuur als een maat voor <b>onzuiverheid</b>:
+<p>Lees gini in de figuur als een maat voor <b>onzuiverheid</b> (impurity):
 het blad [4, 108] (bijna allemaal overleefd) heeft gini 0,069, het blad [27, 29] (half om half) heeft gini 0,499. Een
 goede splitsing maakt de kinderen zuiverder dan de ouder.</p>
 <div class="box warn"><span class="t">Diepte = complexiteit</span>
@@ -1250,7 +1250,6 @@ ingebouwde feature-importance-scores die tonen welke kenmerken het meest bijdrag
 <li><b>"De splitsingen van een boom tonen welke variabele de uitkomst veroorzaakt."</b> Fout: bomen hebben meestal geen fysische of causale interpretatie <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=45">ML p. 45</a>. Ook feature importance toont wat bijdraagt aan de voorspelling, niet wat je moet veranderen (PINO).</li>
 <li><b>"Random forest en gradient boosting doen hetzelfde: veel bomen middelen."</b> Fout: random forest middelt bomen op willekeurige subsets; bij gradient boosting corrigeert elke nieuwe boom de vorige <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=46">ML p. 46</a>.</li>
 <li><b>"Een random forest overfit sneller dan één boom, want het bevat meer bomen."</b> Fout: random forest is net robuust tegen overfitting, met weinig tuning <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=46">ML p. 46</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=19">ML-notities p. 19</a>.</li>
-<li><b>Let op:</b> in de figuur van <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=44">ML p. 44</a> gaat "True" (de vraag is waar) naar links en "False" naar rechts, en \(\sym{value}{\text{value}}=\) [niet overleefd, overleefd].</li>
 </ul></div>
 
 <div class="exercise" id="ex-12-11" data-kw="beslissingsboom; decision tree; boom doorlopen; blad; leaf; gini; Titanic; voorspelling; prediction; split">
@@ -1348,8 +1347,8 @@ ingebouwde feature-importance-scores die tonen welke kenmerken het meest bijdrag
 <!-- ============================================================== 12.15 -->
 <section class="unit" id="d12-diagnose" data-kw="diagnose; hoge bias; hoge variance; high bias; high variance; train versus test; trainingsaccuracy; testaccuracy; underfitting; overfitting; max_depth; boom aanpassen; voorbeeldexamen vraag 5; model kiezen">
 <h3>12.15 Diagnose: hoge bias of hoge variance? (train- en testmatrices lezen) <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=23">ML p. 23</a> <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=26">ML p. 26</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20slides.pdf#page=46">ML-webslides p. 46</a></h3>
-<p>Dit stuk brengt 12.7–12.14 samen tot een werkwijze. Je krijgt voor één of meer modellen een confusion matrix op de
-<b>trainingsdata</b> en een op de <b>testdata</b>, en je moet zeggen welk model underfit, welk overfit en welk het
+<p>12.8 en 12.9 legden uit wat underfitting, overfitting en de bias-variance afweging zijn; 12.10 en 12.11 gaven de metrics, en 12.12 tot 12.14 de modellen. Dit stuk brengt ze samen tot een werkwijze om een model te diagnosticeren.
+Je krijgt voor één of meer modellen een confusion matrix op de <b>trainingsdata</b> (waarop het model geleerd heeft) en een op de <b>testdata</b> (die het model niet gezien heeft), en je moet zeggen welk model underfit, welk overfit en welk het
 beste is.</p>
 <ol class="steps">
 <li><b>Reken voor elk model dezelfde metric uit op train en op test</b>, meestal de accuracy (12.10). Bij onevenwichtige
@@ -1450,7 +1449,7 @@ veel bomen en is "robuust tegen overfitting" <a class="p" href="../source/course
 <!-- ============================================================== 12.16 -->
 <section class="unit" id="d12-unsupervised" data-kw="unsupervised; clustering; K-means; k-means; centroide; hiërarchische clustering; dendrogram; DBSCAN; dimensiereductie; dimensionality reduction; PCA; hoofdcomponent; principal component; t-SNE; UMAP; anomaliedetectie; anomaly detection; isolation forest; autoencoder; one-class SVM">
 <h3>12.16 Unsupervised methoden: clustering, dimensiereductie, anomaliedetectie <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=47">ML p. 47–50</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=20">ML-notities p. 20–21</a></h3>
-<p>Bij unsupervised learning zijn er <b>geen labels</b>: het model krijgt alleen de invoer \(x_{i}\) en zoekt zelf
+<p>12.12 tot 12.14 waren supervised methodes: ze leren uit voorbeelden waarvan je de uitkomst y kent. Bij unsupervised learning zijn er <b>geen labels</b>: het model krijgt alleen de invoer \(x_{i}\) en zoekt zelf
 structuur. Nuttig om nieuwe datasets te verkennen, anomalieën te vinden en data te comprimeren <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=20">ML-notities p. 20</a>.</p>
 <p><b>Clustering</b> <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=48">ML p. 48</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=20">ML-notities p. 20–21</a>: verdeel de data in groepen (clusters) zodat observaties binnen een
 cluster meer op elkaar lijken dan op die van andere clusters.</p>
@@ -1498,7 +1497,6 @@ een voorbeeld van een anomalie gezien te hebben.</p>
 <li><b>"Bij K-means bepaalt het algoritme zelf het aantal clusters."</b> Fout: k kies je vooraf; bij hiërarchische clustering kies je k achteraf, uit het dendrogram <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=48">ML p. 48</a>.</li>
 <li><b>"DBSCAN wijst elk punt toe aan een cluster."</b> Fout: punten in gebieden met lage dichtheid worden als ruis gemarkeerd ("Noise (−1)" in de figuur) <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=48">ML p. 48</a>.</li>
 <li><b>"PCA is een niet-lineaire clustermethode."</b> Fout: PCA is lineaire dimensiereductie; de eerste hoofdcomponent verklaart de meeste variantie <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=49">ML p. 49</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=21">ML-notities p. 21</a>. t-SNE en UMAP zijn de niet-lineaire methoden, vooral voor visualisatie.</li>
-<li><b>"Zonder gelabelde defecten kun je geen afwijkingen opsporen."</b> Fout: unsupervised anomaliedetectie leert wat normaal is en signaleert afwijkingen, zonder ooit een anomalie gezien te hebben <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=50">ML p. 50</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=21">ML-notities p. 21</a>.</li>
 <li><b>Let op:</b> de letter k heeft in dit deel drie betekenissen: het aantal clusters bij K-means, het aantal folds bij k-voudige cross-validatie (<a href="#d12-crossvalidatie">12.7</a>) en het aantal keer kop bij het muntstuk (<a href="#d12-bayes">12.17</a>).</li>
 </ul></div>
 </section>
@@ -1506,21 +1504,22 @@ een voorbeeld van een anomalie gezien te hebben.</p>
 <!-- ============================================================== 12.17 -->
 <section class="unit" id="d12-bayes" data-kw="Bayesiaans; Bayesian; Bayes; regel van Bayes; Bayes rule; prior; likelihood; posterior; frequentistisch; frequentist; beta-verdeling; Beta(4,3); muntstuk; coin; MLE; Bayesiaans netwerk; Bayesian network; MCMC; PyMC; Stan">
 <h3>12.17 Bayesiaanse methoden <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=51">ML p. 51–55</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20slides.pdf#page=52">ML-webslides p. 52–57</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=22">ML-notities p. 22–24</a></h3>
+<p>De betrouwbaarheidsintervallen (deel 04) en hypothesetoetsen (deel 05) zijn frequentistisch. Bayesiaanse methoden bekijken onzekerheid op een andere manier, die goed past bij industriële data met weinig observaties maar veel voorkennis.</p>
 <p><b>Een andere filosofie</b> <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=52">ML p. 52</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=22">ML-notities p. 22</a>. In de frequentistische ("klassieke") statistiek
-(betrouwbaarheidsintervallen, hypothesetoetsen) zijn alleen de data willekeurig; hypothesen en parameters zijn
+zijn alleen de data willekeurig; hypothesen en parameters zijn
 <b>geen</b> stochastische grootheden. Uitspraken als "de kans dat de nulhypothese waar is" of "de kans dat de parameter \(\beta\)
 tussen 1 en 2 ligt" zijn daar dus niet zinnig. In de <b>Bayesiaanse statistiek</b> zijn parameters zelf stochastische
 grootheden: onzekerheid over een parameter is subjectieve onzekerheid over hoe de natuur in elkaar zit. Voordeel:
 parameters en data worden op dezelfde manier behandeld. Nadeel: die subjectiviteit leidt tot discussie.</p>
+<p>De Bayesiaanse werkwijze combineert drie ingrediënten: de <b>prior</b> is wat je over de parameter \(\theta\) weet vóór je data ziet; de <b>likelihood</b> zegt hoe waarschijnlijk de waargenomen data zijn bij elke mogelijke waarde van \(\theta\); de <b>posterior</b> is je bijgewerkte kennis over \(\theta\) nadat je de data hebt gezien. De regel van Bayes legt het verband:</p>
 <div class="f">
 <div>Regel van Bayes: \(P(\sym{theta_bayes}{\theta}\mid\sym{data_obs}{\mathrm{data}})=\frac{P(\sym{data_obs}{\mathrm{data}}\mid\sym{theta_bayes}{\theta})\cdot P(\sym{theta_bayes}{\theta})}{P(\sym{data_obs}{\mathrm{data}})}\)  <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=53">ML p. 53</a></div>
 <div>\(\sym{prior}{\text{prior}}\ P(\sym{theta_bayes}{\theta})\): wat we weten vóór de data — \(\sym{likelihood}{\text{likelihood}}\ P(\sym{data_obs}{\mathrm{data}}\mid\sym{theta_bayes}{\theta})\): het data-genererend model — \(\sym{posterior}{\text{posterior}}\ P(\sym{theta_bayes}{\theta}\mid\sym{data_obs}{\mathrm{data}})\): de bijgewerkte kennis</div>
 </div>
-<p>De kern: je draait de vraag om, van \(P(\sym{data_obs}{\mathrm{data}}\mid\sym{theta_bayes}{\text{parameters}})\) naar \(P(\sym{theta_bayes}{\text{parameters}}\mid\sym{data_obs}{\mathrm{data}})\) <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=53">ML p. 53</a>. In de prior komt de
-subjectiviteit binnen; de likelihood zegt hoe waarschijnlijk de waargenomen data zijn bij gegeven parameterwaarden
-<a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=22">ML-notities p. 22</a>.</p>
+<p>De kern: je draait de vraag om, van \(P(\sym{data_obs}{\mathrm{data}}\mid\sym{theta_bayes}{\text{parameters}})\) (hoe waarschijnlijk zijn de data bij gegeven parameters) naar \(P(\sym{theta_bayes}{\text{parameters}}\mid\sym{data_obs}{\mathrm{data}})\) (hoe waarschijnlijk zijn de parameters bij gegeven data) <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=53">ML p. 53</a>. In de prior komt de
+subjectiviteit binnen <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=22">ML-notities p. 22</a>.</p>
 <div class="box ex"><span class="t">Uitgewerkt voorbeeld: een muntstuk met onbekende kans p op kop</span>
-<p>Dit voorbeeld staat alleen in de webversie van het deck <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20slides.pdf#page=55">ML-webslides p. 55</a>. De figuur hieronder volgt het in vier panelen:</p>
+<p>De figuur hieronder volgt het voorbeeld in vier panelen <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20slides.pdf#page=55">ML-webslides p. 55</a>:</p>
 <figure class="fig"><img src="figures/12_bayes_muntstuk.png" alt="Vier panelen: vlakke prior Beta(1, 1), data H H T H T, likelihood p tot de derde maal (1 - p) kwadraat met MLE 0,6, en posterior Beta(4, 3) met gemiddelde 0,57">
 <figcaption>Figuur: Bayesiaanse inferentie in vier stappen voor een muntstuk met onbekende kans p op kop. (1) Prior Beta(1, 1): vlak, elke p is even plausibel. (2) Data: H H T H T, 3 keer kop (heads) en 2 keer munt (tails), \(n=5\). (3) Likelihood \(p^{3}(1-p)^{2}\), met de top bij de \(\mathrm{MLE}=\frac{k}{n}=\frac{3}{5}=0{,}60\). (4) Posterior: prior en data samen geven Beta(4, 3), met gemiddelde 4/7 ≈ 0,57. <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20slides.pdf#page=55">ML-webslides p. 55</a></figcaption></figure>
 <ol class="steps">
@@ -1562,7 +1561,7 @@ technologiebedrijven:</p>
 <tr><td>de structuur van het probleem is vaak bekend (welke variabelen welke beïnvloeden)</td><td>die structuur wordt het netwerk</td></tr>
 <tr><td>je wilt weten hoe zeker een voorspelling is</td><td>je krijgt onzekerheid mee, niet alleen een puntschatting</td></tr>
 </table>
-<div class="box key"><span class="t">Hot take</span>
+<div class="box key"><span class="t">Bayesiaans in de industrie</span>
 <p>Bayesiaanse methoden zijn onderschat in de industrie <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=55">ML p. 55</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=22">ML-notities p. 22</a>. In een staalfabriek is het bijna altijd
 aanvaardbaar om vooraf te stellen dat vloeibaar staal tussen 1400 en 1800 °C ligt; die voorkennis weggooien maakt de
 schatting suboptimaal.</p>
@@ -1639,7 +1638,7 @@ schatting suboptimaal.</p>
 <!-- ============================================================== 12.18 -->
 <section class="unit" id="d12-oefeningen" data-kw="oefeningen; methode kiezen; welke methode; method choice; zelftest; self-test; studiewijzer; kernbegrippen; examenvoorbereiding; exam preparation">
 <h3>12.18 Oefeningen: methode kiezen en zelftest <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=33">ML p. 33–56</a> <a class="p" href="../source/course/Les%202/20261005_naert_web_lecture%202%20notes.pdf#page=24">ML-notities p. 24</a></h3>
-<p>De studiewijzer vraagt vooral begrip. Deze twee oefeningen overlopen de methoden (12.12–12.17) en de kernbegrippen.</p>
+<p>12.12 tot 12.17 gaven de methoden (lineaire regressie en uitbreidingen, neurale netwerken, bomen, unsupervised methoden, Bayes); 12.3 tot 12.11 de begrippen om ze te trainen en te beoordelen. De studiewijzer vraagt vooral begrip. Met deze twee oefeningen toets je jezelf: eerst kies je bij een situatie de passende methode, dan beantwoord je de kernvragen van het hele deel in eigen woorden.</p>
 
 <div class="exercise" id="ex-12-15" data-kw="methode kiezen; method selection; logistische regressie; quantielregressie; Deming; Lasso; CNN; RNN; gradient boosting; K-means; hiërarchisch; DBSCAN; PCA; anomaliedetectie; Bayesiaans">
   <h4>Oefening 12.15 — Welke methode past? <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=35">ML p. 35</a> <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=41">ML p. 41</a> <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=46">ML p. 46–50</a> <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=55">ML p. 55</a></h4>

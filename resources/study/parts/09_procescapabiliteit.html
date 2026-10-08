@@ -386,19 +386,16 @@
   <!-- ============================================================ 09.6 -->
   <section class="unit" id="d09-sixsigma" data-kw="technische definitie Six Sigma; technical definition; 6 sigma criterium; six sigma criterion; 3,4 DPMO; 3.4 ppm; 2 per miljard; 2 per billion; Cp = 2; Cpk = 1,5; 1,5 sigma verschuiving; 1.5 sigma shift; korte termijn; lange termijn">
     <h3>09.6 Technische definitie van Six Sigma: 3,4 DPMO of 2 per miljard <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a></h3>
+    <p>09.5 rekende Cp en Cpk om naar een percentage uitval. Six Sigma heeft een technische definitie in dezelfde termen: hoe groot Cp en Cpk moeten zijn, en hoeveel uitval dat hoogstens geeft.</p>
     <p>De figuur hieronder ("Technical Definition of Six Sigma", <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a>) toont een gecentreerd proces met <b>\(6\sigma\) tot LSL en
-    \(6\sigma\) tot USL</b>: \(\sym{cp}{C_{p}}=\sym{cpk}{C_{pk}}=2\). Daarnaast staan twee verschoven curves, ±\(1{,}5\sigma\) naar links of naar rechts. Een
+    \(6\sigma\) tot USL</b>: \(\sym{cp}{C_{p}}=\sym{cpk}{C_{pk}}=2\) (\(\sigma\) is de standaardafwijking van het proces; Cp en Cpk komen uit 09.2 en 09.3). Daarnaast staan twee verschoven curves, ±\(1{,}5\sigma\) naar links of naar rechts. Een
     verschoven curve houdt \(\sym{cp}{C_{p}}=2\) (de breedte verandert niet), maar heeft nog maar \(4{,}5\sigma\) tot de dichtste grens:
-    <b>\(\sym{cpk}{C_{pk}}=1{,}5\)</b>. Voorbij die grens ligt dan <b>3,4 DPMO</b>. De figuur toont daarnaast de getallen "75 %" en
-    "12,5 %"; de cursus legt niet uit wat die betekenen. Six Sigma evolueerde daarna naar "a
-    management driven, scientific methodology for product and process improvement which creates breakthroughs in
-    financial performance and customer satisfaction".</p>
+    <b>\(\sym{cpk}{C_{pk}}=1{,}5\)</b>. Voorbij die grens ligt dan <b>3,4 DPMO</b> (defecten per miljoen mogelijkheden).</p>
     <figure class="fig"><img src="figures/09_technische_definitie.png" alt="Gecentreerde normale curve met Cp = Cpk = 2 en 6σ tot LSL en tot USL, plus twee curves die 1,5σ naar links en naar rechts verschoven zijn met Cp = 2, Cpk = 1,5; voorbij elke grens 3.4 DPMO">
     <figcaption>Figuur: de gecentreerde curve heeft \(6\sigma\) tot LSL en \(6\sigma\) tot USL (Cp = Cpk = 2). De grijze curves zijn ±\(1{,}5\sigma\) verschoven: de breedte blijft (Cp = 2), maar de dichtste grens ligt nog \(4{,}5\sigma\) ver (Cpk = 1,5) en daar valt 3.4 DPMO buiten. <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a></figcaption></figure>
 
     <div class="box warn"><span class="t">Het "\(6\sigma\)-criterium": twee lezingen in de cursus</span>
-    <p>De cursus gebruikt twee verschillende getallen voor "Six Sigma-kwaliteit". Toon er bij een examenvraag beide,
-    met de lezing erbij (beslissing 2 in <code>inventory/conventions.md</code>):</p>
+    <p>De cursus gebruikt twee verschillende getallen voor "Six Sigma-kwaliteit". Geef bij een examenvraag beide, met de lezing erbij:</p>
     <table>
       <tr><th>Lezing</th><th>Wat je aanneemt</th><th class="n">Hoogstens buiten specificatie</th><th>Bron</th></tr>
       <tr><td>lange termijn, met \(1{,}5\sigma\)-verschuiving</td><td>\(\sym{cp}{C_{p}}=2\), \(\sym{cpk}{C_{pk}}=1{,}5\); één staart voorbij \(4{,}5\sigma\)</td><td class="n">3,4 ppm = 0,00034 %</td><td><a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=21">SPC p. 21</a> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a></td></tr>
@@ -410,9 +407,7 @@
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"Six Sigma-kwaliteit betekent 3,4 ppm buiten specificatie."</b> Fout: dat is maar één van de twee lezingen in de cursus. Met de \(1{,}5\sigma\)-verschuiving (\(\sym{cp}{C_{p}}=2\), \(\sym{cpk}{C_{pk}}=1{,}5\), lange termijn) is het 3,4 ppm <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a>; gecentreerd (\(\sym{cp}{C_{p}}=\sym{cpk}{C_{pk}}=2\), korte termijn) 0,002 ppm of 2 per miljard <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a>. Geef beide (beslissing 2).</li>
       <li><b>"Na de verschuiving van \(1{,}5\sigma\) zakt Cp naar 1,5."</b> Fout: de breedte verandert niet, dus blijft \(\sym{cp}{C_{p}}=2\); alleen Cpk zakt naar \(\sym{cpk}{C_{pk}}=1{,}5\), met nog \(4{,}5\sigma\) tot de dichtste grens <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a>.</li>
-      <li><b>Let op:</b> 3,4 ppm telt één staart (voorbij \(4{,}5\sigma\); de verre kant voorbij \(7{,}5\sigma\) is verwaarloosbaar), 2 per miljard telt twee staarten (voorbij ±\(6\sym{sigma}{\sigma}\)) <span class="computed">zelf berekend</span>.</li>
       <li><b>"Het verschil tussen de twee lezingen is verwaarloosbaar."</b> Fout: 3,4 ppm is ruim 1700 keer zoveel als 0,002 ppm <span class="computed">zelf berekend</span>. Zeg daarom altijd welke lezing je gebruikt, zoals in vraag 3d van het voorbeeldexamen (<a href="#d13-v3">13.3</a>).</li>
     </ul></div>
 
@@ -445,6 +440,7 @@
   <!-- ============================================================ 09.7 -->
   <section class="unit" id="d09-verbeteren" data-kw="capabiliteit verbeteren; improve capability; centreren; centering; spreiding verminderen; reduce variation; variation reduction; operator; procesingenieur; process engineer; Cp verbeteren; Cpk verbeteren">
     <h3>09.7 Wat hebben we nodig: centreren en spreiding verkleinen <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=36">SPC p. 36</a></h3>
+    <p>09.2 tot 09.6 meten hoe capabel een proces is. Maar wat doe je als Cp of Cpk te laag is? Er zijn twee hefbomen: het gemiddelde naar het midden brengen en de spreiding kleiner maken. Welke je nodig hebt, lees je af uit Cp en Cpk samen.</p>
     <p>De figuur hieronder ("What do we need?") zet drie gevallen naast elkaar <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=36">SPC p. 36</a>:</p>
     <figure class="fig"><img src="figures/09_centreren_spreiding.png" alt="Drie schietschijven met elk een curve tussen LSL en USL: naast het doel met kleine variatie, op het doel met grote variatie, en op het doel met kleine variatie">
     <figcaption>Figuur: de schietschijf en de curve tonen hetzelfde: naast het doel met kleine spreiding (staart over USL: goede Cp, slechte Cpk), op het doel met grote spreiding (staarten over beide grenzen: Cp en Cpk niet goed), en op het doel met kleine spreiding (goede Cp en Cpk). <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=36">SPC p. 36</a></figcaption></figure>
@@ -454,8 +450,7 @@
       <tr><td>op het doel, grote variatie</td><td>veel mogelijke defecten; Cp en Cpk niet zo goed</td></tr>
       <tr><td>op het doel, kleine variatie</td><td>weinig mogelijke defecten; goede Cp en Cpk</td></tr>
     </table>
-    <p>"Variation reduction and process centering create processes with less potential for defects", en dat geldt voor
-    <b>alle</b> processen, niet alleen productie. Er zijn dus twee hefbomen om de capabiliteit te verbeteren
+    <p>Minder variatie en beter gecentreerd geeft processen met minder kans op defecten, en dat geldt voor <b>alle</b> processen, niet alleen voor productie. Je hebt dus twee hefbomen om de capabiliteit te verbeteren
     (zie ook de doelen op <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=22">SPC p. 22</a> en de post-project-figuur op <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=26">SPC p. 26</a>):</p>
     <ol class="steps">
       <li><b>Centreren</b> (het gemiddelde naar het midden van LSL en USL): Cpk stijgt tot Cp; Cp verandert niet.</li>
@@ -463,9 +458,8 @@
     </ol>
     <div class="box key"><span class="t">Wat is het makkelijkst?</span>
     <p>Cpk verbeteren is makkelijker: kalibreren, de operator kan het corrigeren, er spelen meestal maar één of twee
-    factoren. Cp verbeteren is veel moeilijker: een veelheid aan factoren, meestal werk voor de procesingenieur. En:
-    "If Cp sucks, don't calculate Cpk". Shewhart: een gewone oorzaak geeft een eenvoudige verdeling, een speciale
-    oorzaak een verschuiving van je verdeling <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=36">SPC p. 36</a>.</p>
+    factoren. Cp verbeteren is veel moeilijker: een veelheid aan factoren, meestal werk voor de procesingenieur. Is Cp zelf al te laag, dan heeft het geen zin om Cpk te berekenen:
+    eerst moet de spreiding omlaag <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=36">SPC p. 36</a>.</p>
     </div>
     <p class="small">Uitzondering op "naar het midden" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=22">SPC p. 22</a>: met een kleine spreiding kun je bewust
     dicht bij één grens gaan zitten om verbruik te sparen, zoals de zinklaag dicht bij de minimale dikte. Teamwerk
@@ -477,9 +471,7 @@
     <ul>
       <li><b>"Centreren verhoogt Cp."</b> Fout: centreren verandert de breedte niet. Cp blijft gelijk en Cpk stijgt tot Cp; alleen de spreiding verkleinen verhoogt Cp <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=36">SPC p. 36</a>.</li>
       <li><b>"\(\sym{cp}{C_{p}}=\sym{cpk}{C_{pk}}=0{,}8\): eerst centreren."</b> Fout: \(\sym{cpk}{C_{pk}}=\sym{cp}{C_{p}}\) betekent dat het proces al in het midden ligt. De spreiding moet omlaag: "long term and difficult solutions (engineer)" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=44">SPC p. 44</a>.</li>
-      <li><b>"Cp verbeteren is de makkelijkste ingreep."</b> Fout: Cpk verbeteren is makkelijker (kalibreren, de operator kan het corrigeren, één of twee factoren); Cp verbeteren is veel moeilijker en meestal werk voor de procesingenieur. "If Cp sucks, don't calculate Cpk" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=36">SPC p. 36</a>.</li>
       <li><b>"Variatie verminderen en centreren is iets voor productieprocessen."</b> Fout: het geldt voor alle processen <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=36">SPC p. 36</a>.</li>
-      <li><b>Let op:</b> Cp stijgt ook als de klant bredere specificaties aanvaardt: de cursus noemt naast minder variatie "widen specification limits" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=23">SPC p. 23</a>.</li>
     </ul></div>
 
     <div class="exercise" id="ex-09-5" data-kw="capabiliteit verbeteren; improve capability; centreren; centering; spreiding verminderen; reduce variation; Cp; Cpk; operator; procesingenieur">
@@ -512,7 +504,7 @@
   <!-- ============================================================ 09.8 -->
   <section class="unit" id="d09-matrix" data-kw="stabiliteit en capabiliteit; stability and capability; gidstabel; guide table; vrachtwagen; truck; tunnel; stable capable; potentially capable; Cp ≥ 1,67; steekproeffrequentie; sampling frequency; Kaizen; screening inspection; oordeel; judgment; actie; action">
     <h3>09.8 Stabiliteit × capabiliteit: de gidstabellen <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=42">SPC p. 42–45</a></h3>
-    <p>Stabiliteit (<a href="#d09-stabiliteit">09.1</a>), Cp en Cpk zijn drie aparte vragen. De figuur hieronder
+    <p>09.7 gaf aan welke hefboom je nodig hebt als Cp en Cpk bekend zijn. De gidstabellen van de cursus voegen daar de stabiliteit aan toe en koppelen elke combinatie aan een beoordeling en een actie. Stabiliteit (<a href="#d09-stabiliteit">09.1</a>), Cp en Cpk zijn drie aparte vragen. De figuur hieronder
     toont ze met een vrachtwagen die door een tunnel moet: de tunnel is de specificatie, de breedte van het spoor is de
     spreiding, de plaats van het spoor de ligging, en een slingerend spoor is een instabiel proces <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=42">SPC p. 42–43</a>.</p>
     <figure class="fig"><img src="figures/09_vrachtwagen_tunnel.png" alt="Zes tekeningen van een vrachtwagen voor een tunnel: past netjes, raakt de rand, is te breed, slingert maar past, slingert en raakt de rand, slingert en is te breed">
@@ -529,14 +521,14 @@
     <p>De gidstabel op <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=44">SPC p. 44</a> vat alle acht combinaties samen (+ = goed, − = slecht):</p>
     <table>
       <tr><th>Stabiliteit</th><th>Cp</th><th>Cpk</th><th>Commentaar <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=44">SPC p. 44</a></th></tr>
-      <tr><td>+</td><td>+</td><td>+</td><td>keep it this way</td></tr>
-      <tr><td>+</td><td>+</td><td>−</td><td>simple question of adjustment (operator)</td></tr>
-      <tr><td>+</td><td>−</td><td>+</td><td>impossible</td></tr>
-      <tr><td>+</td><td>−</td><td>−</td><td>long term and difficult solutions (engineer)</td></tr>
-      <tr><td>−</td><td>+</td><td>+</td><td>the first blunder…</td></tr>
-      <tr><td>−</td><td>+</td><td>−</td><td>urgent reaction needed…</td></tr>
-      <tr><td>−</td><td>−</td><td>+</td><td>impossible</td></tr>
-      <tr><td>−</td><td>−</td><td>−</td><td>not desperate but …</td></tr>
+      <tr><td>+</td><td>+</td><td>+</td><td>zo houden (keep it this way)</td></tr>
+      <tr><td>+</td><td>+</td><td>−</td><td>een kwestie van bijsturen, door de operator (simple question of adjustment)</td></tr>
+      <tr><td>+</td><td>−</td><td>+</td><td>onmogelijk (impossible)</td></tr>
+      <tr><td>+</td><td>−</td><td>−</td><td>oplossingen op lange termijn en moeilijk, door de procesingenieur (long term and difficult solutions)</td></tr>
+      <tr><td>−</td><td>+</td><td>+</td><td>nu nog goed, maar de eerste fout kan elk moment komen (the first blunder…)</td></tr>
+      <tr><td>−</td><td>+</td><td>−</td><td>dringend reageren (urgent reaction needed…)</td></tr>
+      <tr><td>−</td><td>−</td><td>+</td><td>onmogelijk (impossible)</td></tr>
+      <tr><td>−</td><td>−</td><td>−</td><td>niet wanhopig, maar … (not desperate but …)</td></tr>
     </table>
     <p>"Impossible" omdat Cpk nooit groter is dan Cp (<a href="#d09-cpk">09.3</a>).</p>
 
@@ -622,7 +614,7 @@
   <!-- ============================================================ 09.9 -->
   <section class="unit" id="d09-as" data-kw="oefening as; axle exercise; automatische transmissie; automatic transmission; capabiliteitsoefening; capability exercise; Cp; Cpk; uitval; % reject; 71,4; 72,8; 71,8; s̄ = 0,2; gecentreerd; centered; 72,1">
     <h3>09.9 Oefening: de as van een automatische transmissie <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=46">SPC p. 46–47</a> <a class="p" href="../source/course/Les%204/Exercise%20axis%20-%20vizualisation.xlsx">Exercise axis - vizualisation.xlsx</a></h3>
-    <p>Een volledige capabiliteitsoefening uit de cursus. De uitwerking staat in de notities bij <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=46">SPC p. 46</a>
+    <p>09.2 tot 09.8 gaven de stappen van een capabiliteitsanalyse. Hier doorloop je ze in één oefening uit de cursus: Cp en Cpk berekenen, de verwachte uitval bepalen, en zien wat centreren oplevert. De uitwerking staat in de notities bij <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=46">SPC p. 46</a>
     (<a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pptx">SPC .pptx (notities)</a>) en in het werkboek <a class="p" href="../source/course/Les%204/Exercise%20axis%20-%20vizualisation.xlsx">Exercise axis - vizualisation.xlsx</a>, waarvan de grafieken onder de oefening staan <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=47">SPC p. 47</a>.</p>
 
     <div class="exercise" id="ex-09-8" data-kw="oefening as; axle; Cp; Cpk; uitval; reject; ppm; gecentreerd; centered; tweezijdig; two-sided; transmissie">
@@ -749,14 +741,12 @@
   <!-- ============================================================ 09.10 -->
   <section class="unit" id="d09-minitab" data-kw="Minitab; capability analysis; capabiliteitsanalyse; report card; summary report; process performance report; diagnostic report; Z.Bench; Pp; Ppk; within; overall; Anderson-Darling; normaliteitstoets; normality test; 25 subgroepen; Xbar-S">
     <h3>09.10 Extra: het Minitab-capabiliteitsrapport <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=48">SPC p. 48–52</a></h3>
-    <p class="small">Extra (verborgen dia's in de cursus-pdf). Ze tonen wat een statistisch pakket bij een
-    capabiliteitsanalyse oplevert en zijn een goede oefening in het lezen van zo'n rapport.</p>
-    <p>Minitab geeft vier rapporten voor dezelfde dataset C1 <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=48">SPC p. 48</a>:</p>
+    <p>09.9 rekende de capabiliteit met de hand uit. Een statistisch pakket als Minitab doet dat in één analyse en geeft er rapporten bij. Deze unit is extra (verborgen dia's in de cursus-pdf) en een goede oefening in het lezen van zo'n rapport.</p>
+    <p>Minitab geeft vier rapporten voor dezelfde dataset C1 <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=48">SPC p. 48</a>. De metingen staan in subgroepen (groepjes opeenvolgende metingen); de analyse gebruikt zowel de spreiding binnen de subgroepen (within, 09.4) als de totale spreiding (overall):</p>
     <ol class="steps">
-      <li><b>Report Card</b> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=49">SPC p. 49</a>: vier controles. <i>Stability</i> (waarschuwing): geen punten buiten de
-      regelgrenzen, maar te veel punten op een rij binnen 1 standaardafwijking van de centerlijn van de \(\bar{X}\)-kaart. De
-      spreiding binnen de subgroepen is waarschijnlijk opgeblazen, wat de "potential" capabiliteit beïnvloedt, en de
-      grenzen van de \(\bar{X}\)-kaart zijn te breed. Waarschijnlijk zit er een systematische bron van variatie binnen de
+      <li><b>Report Card</b> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=49">SPC p. 49</a>: vier controles of de analyse betrouwbaar is.
+      <i>Stability</i> (waarschuwing): geen punten van de \(\bar{X}\)-kaart (de grafiek van de subgroepgemiddelden) liggen buiten de regelgrenzen, maar te veel liggen op een rij dicht bij de centerlijn.
+      De spreiding binnen de subgroepen is dan waarschijnlijk opgeblazen, wat de "potential" capabiliteit beïnvloedt; er zit waarschijnlijk een systematische bron van variatie binnen de
       subgroepen. <i>Number of subgroups</i> (info): slechts 13 subgroepen; aanbevolen zijn er minstens 25.
       <i>Normality</i>: de data doorstaan de normaliteitstoets. <i>Amount of data</i>: 100 of meer waarnemingen, de
       schattingen zijn redelijk precies.</li>
@@ -767,8 +757,7 @@
       0,0025891. Actual (overall): Pp 0,66, Ppk 0,46, Z.Bench 1,36, % out of spec observed 8,89 en expected 8,74, PPM
       observed 88 889 en expected 87 445. Potential (within): Cp 0,64, Cpk 0,45, Z.Bench 1,32, % out of spec expected
       9,33, PPM 93 282.</li>
-      <li><b>Diagnostic Report</b> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=52">SPC p. 52</a>: een \(\bar{X}\)-S-kaart met 13 subgroepen ("Confirm that the process is
-      stable") en een normaliteitsplot met de Anderson-Darling-toets: "Pass", p-waarde 0,553.</li>
+      <li><b>Diagnostic Report</b> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=52">SPC p. 52</a>: een \(\bar{X}\)-S-kaart met 13 subgroepen (die bevestigt dat het proces stabiel is) en een normaliteitsplot met de Anderson-Darling-toets: "Pass", p-waarde 0,553.</li>
     </ol>
     <figure class="fig"><img src="figures/09_minitab_performance.png" alt="Minitab Process Performance Report: histogram van 180 waarnemingen met LSL 0,145 en USL 0,155 en twee normale curves, naast een tabel met Pp 0,66, Ppk 0,46, Cp 0,64, Cpk 0,45 en het percentage buiten specificatie">
     <figcaption>Figuur: het Process Performance Report. Het histogram toont dat een deel van de data links van LSL valt; de volle curve is de overall-verdeling ("what the customer experiences"), de stippellijn de within-verdeling ("what could be achieved if process shifts and drifts were eliminated"). Rechts de getallen: Actual (overall) Pp, Ppk en Potential (within) Cp, Cpk. <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=51">SPC p. 51</a></figcaption></figure>
@@ -779,15 +768,12 @@
     <ul>
       <li><b>Observed</b> = wat echt buiten de grenzen viel (8,89 % van 180 = 16 waarnemingen
       <span class="computed">zelf berekend</span>); <b>expected</b> = wat de normale verdeling voorspelt.</li>
-      <li><b>Z.Bench</b> is een Minitab-getal dat de cursus niet uitlegt. Narekenen toont dat het de z-waarde is
-      waarvoor één staart even groot is als de totale % buiten specificatie: 8,74 % hoort bij \(\sym{z}{z}=1{,}36\) en 9,33 % bij
+      <li><b>Z.Bench</b> is de z-waarde waarvoor één staart even groot is als het totale % buiten specificatie (beide kanten samen): 8,74 % hoort bij \(\sym{z}{z}=1{,}36\) en 9,33 % bij
       \(\sym{z}{z}=1{,}32\) <span class="computed">zelf berekend</span>.</li>
       <li>Hier is \(\sym{sigma_st}{\sigma(\text{within})}=0{,}0025891\) <b>groter</b> dan \(\sym{sigma_lt}{\sigma(\text{overall})}=0{,}0025303\), en dus \(\sym{cp}{C_{p}}\lt\sym{pp}{P_{p}}\). Normaal is het
       omgekeerd: de lange termijn bevat ook de verschuivingen tussen de groepen en is daardoor breder (figuur in <a href="#d09-ppk">09.4</a>,
       <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=25">SPC p. 25</a>).
       De Report Card verklaart het: een systematische bron van variatie binnen de subgroepen blaast \(\sigma\)(within) op.</li>
-      <li>Minstens 25 subgroepen voor capabiliteit (Minitab Report Card, <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=49">SPC p. 49</a>) tegenover minstens 20 voor een regelkaart:
-      beide getallen staan in de cursus (beslissing 13).</li>
     </ul>
     </div>
 
@@ -796,7 +782,7 @@
       <li><b>"Observed en expected % out of spec zijn hetzelfde."</b> Fout: observed is wat echt buiten de grenzen viel (8,89 %, 16 van de 180 waarnemingen <span class="computed">zelf berekend</span>); expected is wat de normale verdeling voorspelt (8,74 %) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=51">SPC p. 51</a>.</li>
       <li><b>"<var data-s="z_bench">Z.Bench</var> is \(3\times\sym{ppk}{P_{pk}}\)."</b> Fout: Z.Bench is de z waarvoor één staart even groot is als de totale % buiten specificatie, beide kanten samen. Daarom is Z.Bench 1,36 iets kleiner dan \(3\times\sym{ppk}{P_{pk}}=\sym{zl}{z_{L}}=1{,}391\) <span class="computed">zelf berekend</span> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=51">SPC p. 51</a>.</li>
       <li><b>"De Anderson-Darling-toets slaagt \((\sym{p_value}{p}=0{,}553)\), dus de data zijn bewezen normaal."</b> Fout: een niet-significante toets bewijst niets; hij vindt alleen geen bewijs tegen normaliteit <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=52">SPC p. 52</a>. <span class="gen">algemeen</span></li>
-      <li><b>"Voor een capabiliteitsanalyse volstaan 20 subgroepen, zoals voor een regelkaart."</b> Fout: Minitab raadt voor capabiliteit minstens 25 subgroepen aan; met 13 geeft de Report Card een waarschuwing <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=49">SPC p. 49</a>. Beide getallen staan in de cursus (<a href="#d10-opzet">10.3</a>).</li>
+      <li><b>"Voor een capabiliteitsanalyse volstaan 20 subgroepen."</b> Fout: Minitab raadt voor capabiliteit minstens 25 subgroepen aan; met 13 geeft de Report Card een waarschuwing <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=49">SPC p. 49</a>.</li>
     </ul></div>
 
     <div class="exercise" id="ex-09-10" data-kw="Minitab; Pp; Ppk; Cp; Cpk; within; overall; % out of spec; narekenen; recompute; 0,145; 0,155">
@@ -842,10 +828,9 @@
   <!-- ============================================================ 09.11 -->
   <section class="unit" id="d09-stappen" data-kw="stappenplan; step by step; capabiliteitsvraag; capability question; examen; exam; Cp; Cpk; uitval; verbeteren; 6 sigma criterium; checklist">
     <h3>09.11 Stappenplan voor een capabiliteitsvraag</h3>
-    <p>Een samenvatting van dit deel als werkwijze. Vraag 3 van het voorbeeldexamen (<a href="#d13">Deel 13</a>) volgt
-    precies deze stappen.</p>
+    <p>09.1 tot 09.10 gaven de onderdelen van een capabiliteitsanalyse. Hier staan ze op een rij als werkwijze die je bij elke capabiliteitsvraag volgt, van de aannames tot het oordeel en de verbetering.</p>
     <ol class="steps">
-      <li><b>Is het proces stabiel en normaal?</b> Capabiliteit veronderstelt een beheerst proces (regelkaart)
+      <li><b>Is het proces stabiel en normaal?</b> Capabiliteit veronderstelt een stabiel proces (09.1)
       en een normale verdeling (<a href="#d03-normaal">03.3</a>). Vermeld de aanname.</li>
       <li><b>Verzamel LSL, USL, \(\bar{x}\) en \(\sigma\).</b> Welke \(\sigma\)? Korte termijn (within: \(\sigma\) gegeven, \(\frac{\sym{rbar}{\bar{R}}}{\sym{d2}{d_{2}}}\), \(\bar{s}\) of
       \(\frac{\sym{sbar}{\bar{s}}}{\sym{c4}{c_{4}}}\)) geeft Cp, Cpk; de totale s geeft Pp, Ppk (<a href="#d09-ppk">09.4</a>).</li>
