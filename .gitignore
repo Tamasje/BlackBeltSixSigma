@@ -2,8 +2,6 @@
 __pycache__/
 .pytest_cache/
 
-# Claude Code files: local only, never shared
-.claude/
-CLAUDE.md
+# Claude Code: CLAUDE.md, .claude/ and PROGRESS.md are tracked for now (handoff to another Claude account);
+# only personal local overrides stay out.
 CLAUDE.local.md
-PROGRESS.md
