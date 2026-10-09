@@ -195,7 +195,7 @@ var Stats = (function () {
     gammaP: gammaP, gammaQ: gammaQ, betaI: betaI,
     tCdf: tCdf, tSf: tSf, tInv: tInv, chi2Cdf: chi2Cdf, chi2Sf: chi2Sf, chi2Inv: chi2Inv, chi2Isf: chi2Isf,
     fCdf: fCdf, fSf: fSf, fInv: fInv, fIsf: fIsf, betaInv: betaInv,
-    binomPmf: binomPmf, binomCdf: binomCdf, hypergeomPmf: hypergeomPmf, hypergeomCdf: hypergeomCdf,
+    lchoose: lchoose, binomPmf: binomPmf, binomCdf: binomCdf, hypergeomPmf: hypergeomPmf, hypergeomCdf: hypergeomCdf,
     poissonPmf: poissonPmf, poissonCdf: poissonCdf, mean: mean, devsq: devsq, sd: sd
   };
 })();

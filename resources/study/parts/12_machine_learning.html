@@ -873,7 +873,7 @@ er eerst per klasse een 2 × 2 "klasse k tegen de rest" van (oefening 12.8).</p>
   </div>
   <div class="calc-here" data-tool="confusion" data-blocks="1"></div>
   <details class="hint"><summary>Hint</summary><p>Rijen zijn hier de voorspellingen. <var data-s="precision">Precision</var> van klasse \(k=\) diagonaal /
-  rijtotaal van rij k; \(\sym{recall}{\text{recall}}=\) diagonaal / kolomtotaal van kolom k.</p></details>
+  rijtotaal van rij k; \(\sym{recall}{\text{recall}}=\) diagonaal / kolomtotaal van kolom k. Kies in de rekenmachine bij "rijen zijn" de optie "voorspelde klasse (ML p. 30)", want in deze tabel staat de voorspelling in de rijen.</p></details>
   <details class="solution"><summary>Toon oplossing</summary>
   <p>Alle getallen <span class="computed">zelf berekend</span> met de formules van <a class="p" href="../source/course/Les%202/20260529_naert.pdf#page=31">ML p. 31</a>. Rijtotalen (voorspeld 1–4): 64, 32, 44, 51. Kolomtotalen
   (werkelijk 1–4): 60, 34, 43, 54. Totaal 191.</p>
@@ -921,7 +921,7 @@ er eerst per klasse een 2 × 2 "klasse k tegen de rest" van (oefening 12.8).</p>
     <select><option value="">kies…</option><option value="ja">ja</option><option value="nee">nee</option></select>
     <button type="button" class="check">Controleer</button> <span class="fb"></span>
   </div>
-  <div class="calc-here" data-tool="confusion" data-blocks="0"></div>
+  <div class="calc-here" data-tool="confusion" data-blocks="0 1"></div>
   <details class="hint"><summary>Hint</summary><p>\(\sym{tn}{\mathrm{TN}}=\) totaal − \(\sym{tp}{\mathrm{TP}}-\sym{fp}{\mathrm{FP}}-\sym{fn}{\mathrm{FN}}\). Wissel je de positieve klasse, dan
   wisselen TP en TN van rol, en ook FP en FN.</p></details>
   <details class="solution"><summary>Toon oplossing</summary>
@@ -1322,8 +1322,9 @@ ingebouwde feature-importance-scores die tonen welke kenmerken het meest bijdrag
     <select><option value="">kies…</option><option value="ja">ja</option><option value="nee">nee</option></select>
     <button type="button" class="check">Controleer</button> <span class="fb"></span>
   </div>
+      <div class="calc-here" data-tool="confusion" data-blocks="0"></div>
   <details class="hint"><summary>Hint</summary><p>In elke laatste knoop is het aantal correcte voorspellingen het
-  grootste getal van "value".</p></details>
+  grootste getal van "value". Tel de bladeren van de boom per diepte op tot een 2×2-tabel (rij werkelijk, "overleefd" als klasse 1).</p></details>
   <details class="solution"><summary>Toon oplossing</summary>
   <p>Alle getallen <span class="computed">zelf berekend</span>.</p>
   <ol>

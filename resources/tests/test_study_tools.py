@@ -1198,6 +1198,41 @@ def test_new_subgroup_size_gives_the_limits_and_detection_chance_of_exercise_10_
     assert nothing is None
 
 
+def test_effects_only_design_pools_and_tests_like_exercise_8_13() -> None:
+    # arrange -- DOE p. 75-77: the 15 estimated effects of the etch-rate 2^4 design, one replicate; pool all 3- and 4-factor effects
+    names = "A B C D AB AC AD BC BD CD ABC ABD ACD BCD ABCD".split()
+    values = [-101.625, -1.625, 7.375, 306.125, -7.875, -24.875, -153.625, -43.875, -0.625, -2.125, -15.625, 4.125, 5.625, -25.375, -40.125]
+    effects = [{"name": n, "value": v} for n, v in zip(names, values)]
+    # act
+    r = run_js([("Calc.effectsAnova", [effects, 4, 1, 3, 0.05])])[0]
+    # assert -- the printed answers: SS 10186,81; MS_E 2037,36 (5 df); F_AD 46,34; F crit 6,61; only A, D and AD are significant
+    assert r["ssPool"] == pytest.approx(10186.81, abs=0.01) and r["df"] == 5 and r["mse"] == pytest.approx(2037.36, abs=0.01)
+    by_name = {row["name"]: row for row in r["rows"]}
+    assert by_name["AD"]["F"] == pytest.approx(46.34, abs=0.01) and r["crit"] == pytest.approx(stats.f.isf(0.05, 1, 5), rel=1e-9)
+    assert {n for n, row in by_name.items() if row.get("significant")} == {"A", "D", "AD"}
+
+
+def test_uncertainty_budget_of_the_steel_strip_exercise_11_13_with_percent_kinds() -> None:
+    # arrange -- 3 readings, mean 1834 mm, range 2 mm; calibration 0,1 % of the reading at k = 2; resolution 0,5 mm uniform;
+    # not square: half width 0,05 % of the reading (= 0,917 mm), uniform; repeatability R/d2 for the mean of 3
+    sources = [{"kind": "certpct", "a": 0.1, "b": 2}, {"kind": "uni", "a": 0.5}, {"kind": "unipct", "a": 0.05},
+               {"kind": "range", "a": 2, "c": 3}]
+    # act
+    r = run_js([("Calc.uncertaintyBudget", [sources, 2, "@K", 1834])])[0]
+    # assert -- u1 0,917; u2 0,289; u3 0,529; u4 0,682 (d2 = 1,693 from the table); uc 1,292; U 2,58
+    assert [row["u"] for row in r["rows"]] == pytest.approx([0.917, 0.288675, 0.52943, 0.68204], abs=1e-4)
+    assert r["uc"] == pytest.approx(1.29217, abs=1e-4) and r["U"] == pytest.approx(2.58434, abs=1e-4)
+    assert sum(row["share"] for row in r["rows"]) == pytest.approx(1)
+
+
+def test_slope_interval_from_the_printed_standard_error_exercise_7_4() -> None:
+    # arrange -- REG p. 22: b1 = 14,947 with s.e. 1,317, n = 20; no MS_E or S_xx given
+    # act
+    r = run_js([("Calc.regTests", [14.947, None, None, None, 20, None, None, 0.05, None, None, 1.317])])[0]
+    # assert -- the printed 12,18 and 17,71
+    assert r["ciB1"]["two"] == pytest.approx([12.18, 17.71], abs=0.01)
+
+
 def test_sample_size_solver_every_direction() -> None:
     # arrange -- CI p. 7, 10: n 1537 for a full width of 5 % at 95 %; then width and confidence back from n
     z = stats.norm.ppf(0.975)

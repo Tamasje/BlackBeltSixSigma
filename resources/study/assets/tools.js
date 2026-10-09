@@ -7,6 +7,7 @@
   if (typeof document === 'undefined') return;
   var DATA = JSON.parse(document.getElementById('constants-data').textContent);
   var T = Calc.tables(DATA), K = T.K, M = T.M;
+  var EXCEL = JSON.parse(document.getElementById('excel-data').textContent);   // 'tool.block' → sheet of bb_toolkit.xlsx
 
   /* ---------- input ---------- */
   function parseNumber(text) {
@@ -156,7 +157,7 @@
         return result(out([['µ', f(r.mu), mark('mu')], ['σ', f(r.sigma), mark('sigma')], ['σ² (variantie)', f(num(r.sigma) ? r.sigma * r.sigma : null)],
                     ['x', f(r.x), mark('x')], ['z', f(r.z), mark('z')], ['P(X ≤ x)', fp(r.pl), mark('pl')],
                     ['P(X > x)', fp(r.pr), mark('pr')], ['ppm boven x / onder x', f(num(r.pr) ? r.pr * 1e6 : null) + ' / ' + f(num(r.pl) ? r.pl * 1e6 : null)],
-                    num(r.z) ? ['Z-tabel van de cursus bij z = ' + f(Math.round(r.z * 100) / 100), cell ? cell.textContent : 'buiten de tabel (−3,49 … 3,49)', 'kans links van z, 4 decimalen'] : null]) +
+                    num(r.z) ? ['Z-tabel van de cursus bij z = ' + f(Math.round(r.z * 100) / 100), cell ? cell.textContent : (Math.abs(r.z) <= 3.49 ? Stats.normCdf(Math.round(r.z * 100) / 100).toFixed(4).replace(/^0/, '') : 'buiten de tabel (−3,49 … 3,49)'), 'kans links van z, 4 decimalen'] : null]) +
           (r.notes.length ? warn(r.notes.join('; ')) : ''), derived(r));
       }, pct: ['pl', 'pr'] },
     { title: 'Interval [a ; b]: kans binnen en buiten, µ ± kσ, of grenzen bij een kans',
@@ -216,7 +217,8 @@
         var sym = v.text.dist === 'z' || v.text.dist === 't';
         if (q) {
           h += out([alphaRow(v.alpha), ['linkse kritieke waarde', f(q.left), 'kans α links ervan'], ['rechtse kritieke waarde', f(q.right), 'kans α rechts ervan'],
-                    ['tweezijdig: α/2 links en rechts', f(q.twoLo) + ' en ' + f(q.twoHi)]]);
+                    ['tweezijdig: α/2 links en rechts', f(q.twoLo) + ' en ' + f(q.twoHi)]].concat(v.text.dist === 't' ?
+                    [['verhouding t(1 − α/2) / z(1 − α/2)', f(q.twoHi / Calc.quantiles('z', null, null, v.alpha).twoHi), 'hoeveel breder een interval met t is dan met z']] : []));
         }
         if (p) {
           h += out([['P(X ≤ waarde) (H<sub>A</sub>: <)', fp(p.left), q ? (p.left < v.alpha ? 'verwerp H0' : 'H0 niet verwerpen') : ''],
@@ -420,7 +422,10 @@
       form: inp('n', 'n = aantal pogingen (steekproefgrootte)') + inp('p', 'p = kans op succes per poging') + inp('k', 'k = aantal successen (bv. defecten)') + inp('q', 'of een kans: kleinste k met P(X ≤ k) ≥ kans'),
       run: function (v) {
         var r = Calc.binomial(v.n, v.p, v.k);
-        return r ? discrete(r, v, Calc.binomialInv(v.n, v.p, v.q)) : '';
+        if (!r) return '';
+        var res = discrete(r, v, Calc.binomialInv(v.n, v.p, v.q));
+        if (num(v.k) && v.k >= 0 && v.k <= v.n) res.html += out([['aantal manieren C(n, k) = n!/(k!(n − k)!)', f(Math.round(Math.exp(Stats.lchoose(v.n, v.k))))]]);
+        return res;
       }, pct: ['p', 'q'] },
     { title: 'Hypergeometrisch: defecten in een steekproef zonder teruglegging',
       help: 'Vul N, D, n en k in; of een kans voor de kleinste k.',
@@ -612,8 +617,11 @@
   ];
   TOOLS.anova = [
     { title: 'Eénweg-ANOVA (one-way)', help: 'Eén groep per regel (de waarnemingen van één niveau). Met alleen a (niveaus), n (herhalingen per niveau) en α zie je al de kritieke waarde F(a − 1; a(n − 1)).',
-      form: ALPHA + inp('a', 'a = aantal niveaus (groepen)') + inp('n', 'n = herhalingen per niveau') + area('g', 'groepen: één regel per niveau', '', 5),
+      form: ALPHA + inp('a', 'a = aantal niveaus (groepen)') + inp('n', 'n = herhalingen per niveau') + inp('mse', 'MS_E, als de opgave de ANOVA-tabel al geeft (optioneel)') + area('g', 'groepen: één regel per niveau', '', 5),
       run: function (v) {
+        var extra = num(v.mse) && v.mse > 0 ? out([['gepoolde s = √MS_E', f(Math.sqrt(v.mse))],
+          num(v.n) && v.n > 0 ? ['standaardfout van een groepsgemiddelde = √(MS_E/n)', f(Math.sqrt(v.mse / v.n))] : null]) : '';
+        var res = (function (v) {
         var groups = parseRows(v.text.g), r = Calc.anova1(groups, v.alpha);
         if (!r) return num(v.a) && num(v.n) && v.a > 1 && v.n > 1 ? dfCritRows('F', v.a - 1, v.a * (v.n - 1), v.alpha, 'vrijheidsgraden teller (a − 1) en noemer (a(n − 1))') : '';
         var even = groups.every(function (g) { return g.length === groups[0].length; });
@@ -621,6 +629,10 @@
           grid(['bron', 'SS', 'df', 'MS', 'F0', 'p', 'F-kritiek'], [['behandeling', f(r.sstr), f(r.dfTr), f(r.msTr), f(r.F), fp(r.p), f(r.Fcrit)],
             ['fout', f(r.sse), f(r.dfE), f(r.msE), '', '', ''], ['totaal', f(r.sst), f(r.N - 1), '', '', '', '']]) +
           out([['algemeen gemiddelde', f(r.grandMean)], ['gepoolde s = √MS_E', f(r.pooledSd)], ['besluit bij α', r.d]]), even ? { a: groups.length, n: groups[0].length } : { a: groups.length });
+        })(v);
+        if (typeof res === 'string') return extra + res;
+        res.html = extra + res.html;
+        return res;
       } }
   ];
   TOOLS.factorieel = [
@@ -646,12 +658,40 @@
           out([['R² = SS_model/SS_totaal', f(r.r2)], ['R²_adj met N − p − 1 (zoals de cursusoutputs)', f(r.r2adj)], ['R²_adj zoals gedrukt op Regression p. 56', f(r.r2adjP56)]]), { n: r.n });
       } }
   ];
+  TOOLS.factorieel.push(
+    { title: 'Alleen de geschatte effecten gegeven: kwadratensommen, poolen en F-toetsen',
+      help: 'Typ de effecten met hun naam (A −101,625 · AD −153,625 · ABC −15,625 …), gescheiden door spaties of regels. Pool de interacties vanaf een orde ' +
+            '(bv. 3 = alle drie- en vierfactorinteracties) in de fout; bij één replicatie is er geen andere schatting van de fout (DOE p. 75–77). ' +
+            'SS = n·2^(k−2)·effect².',
+      form: ALPHA + inp('k', 'k (aantal factoren)') + inp('n', 'n = herhalingen per run', '', '1') + inp('pool', 'pool interacties vanaf orde', '', '3') +
+            area('eff', 'effecten: naam en waarde', 'A -101,625  B -1,625  C 7,375 …', 6),
+      run: function (v) {
+        var tk = tokens(String(v.text.eff || '').replace(/\n/g, ' ')), list = [], last = null;
+        tk.forEach(function (t) {
+          if (/^[A-Za-z]+$/.test(t)) last = t.toUpperCase();
+          else { var x = parseNumber(t); if (last && !isNaN(x) && x !== null) { list.push({ name: last, value: x }); last = null; } }
+        });
+        var r = Calc.effectsAnova(list, v.k, v.n, v.pool, v.alpha);
+        if (!r) return '';
+        var rows = r.rows.map(function (q) {
+          return [q.name, String(q.order), f(q.effect), f(q.ss), q.pooled ? 'gepoold in de fout' : f(q.F), q.pooled ? '' : fp(q.p),
+                  q.pooled ? '' : (typeof q.significant === 'boolean' ? (q.significant ? 'significant' : 'niet significant') : '–')];
+        });
+        return grid(['effect', 'orde', 'schatting', 'SS = n·2^(k−2)·effect²', 'F0 = SS/MS_E', 'p-waarde', 'bij α'], rows) +
+          (num(r.mse) ? out([['SS van de gepoolde effecten', f(r.ssPool)], ['vrijheidsgraden van de fout (aantal gepoolde effecten)', f(r.df)], ['MS_E = SS/df', f(r.mse)],
+                             num(r.crit) ? ['kritieke waarde F(1; df) bij α', f(r.crit)] : null]) : '<p class="xl">Pool minstens één effect (bv. vanaf orde 3) om MS_E en de F-waarden te zien.</p>');
+      }, pct: ['alpha'] });
   TOOLS.aliassen = [
     { title: 'Fractioneel factorieel: definiërende relatie, resolutie, aliassen',
-      help: 'Generatoren zoals D=ABC of D=AB; E=AC (DOE p. 80–92). Een minteken mag: D=−ABC.',
+      help: 'Generatoren zoals D=ABC of D=AB; E=AC (DOE p. 80–92); een definiërende relatie zoals I=ABC mag ook (dat is C=AB). Een minteken mag: D=−ABC.',
       form: inp('gen', 'generatoren', 'D=ABC'),
       run: function (v) {
-        var r = Calc.aliases(v.text.gen.replace(/−/g, '-'));
+        // a defining relation "I = ABC" is the generator "C = AB": the last letter is generated by the others
+        var gens = v.text.gen.replace(/−/g, '-').split(/[;,]/).map(function (g) {
+          var m = /^\s*I\s*=\s*(-?)([A-Za-z]{2,})\s*$/.exec(g);
+          return m ? m[2].slice(-1).toUpperCase() + '=' + m[1] + m[2].slice(0, -1).toUpperCase() : g;
+        }).join(';');
+        var r = Calc.aliases(gens);
         if (!r) return '';
         if (r.error) return warn(r.error);
         var roman = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'][r.resolution] || String(r.resolution);
@@ -663,16 +703,17 @@
 
   TOOLS.capabiliteit = [
     { title: 'Cp, Cpk (Pp, Ppk) en % buiten specificatie, per σ-schatting',
-      help: 'Vul de specificatie en het gemiddelde in, en elke spreiding die je hebt; elke σ-schatting krijgt een eigen rij (beslissing 1). Constanten: d2 uit Table 18, c4 uit Table A.',
+      help: 'Vul de specificatie en het gemiddelde in, en elke spreiding die je hebt;, elke σ-schatting krijgt een eigen rij. Constanten: d2 uit Table 18, c4 uit Table A.',
       form: inp('lsl', 'LSL (leeg = eenzijdig)') + inp('usl', 'USL (leeg = eenzijdig)') + inp('mean', 'gemiddelde x̄ of X̿') + inp('sigma', 'σ gegeven') +
             inp('rbar', 'R̄') + inp('sbar', 's̄') + inp('n', 'n (subgroepgrootte voor R̄, s̄)') + inp('overall', 'totale s (lange termijn)'),
       run: function (v) {
         var rows = Calc.capability({ lsl: v.lsl, usl: v.usl, mean: v.mean, sigma: v.sigma, rbar: v.rbar, sbar: v.sbar, n: v.n, overall: v.overall }, K);
-        if (!rows.length) return (num(v.rbar) || num(v.sbar)) && !num(v.n) ? warn('geef n voor R̄/d2 of s̄/c4') : '';
+        var centred = num(v.lsl) && num(v.usl) ? out([['gecentreerd gemiddelde = (LSL + USL)/2', f((v.lsl + v.usl) / 2), 'het midden van de specificatie']]) : '';
+        if (!rows.length) return centred + ((num(v.rbar) || num(v.sbar)) && !num(v.n) ? warn('geef n voor R̄/d2 of s̄/c4') : '');
         var lines = [['σ', 'sigma', f], ['Cp = (USL − LSL)/6σ', 'cp', f], ['niveau (SPC p. 40)', 'level', f], ['Cpu = (USL − x̄)/3σ', 'cpu', f],
                      ['Cpl = (x̄ − LSL)/3σ', 'cpl', f], ['Cpk = min(Cpu, Cpl)', 'cpk', f], ['Cpk ≥ 1,33 ("Good", SPC p. 41)?', 'capable', f], ['Z tot LSL', 'zLsl', f],
                      ['Z tot USL', 'zUsl', f], ['onder LSL', 'below', pc], ['boven USL', 'above', pc], ['totaal buiten specificatie', 'out', pc], ['ppm', 'ppm', f]];
-        return grid(['σ-schatting →'].concat(rows.map(function (r) { return r.label + (r.constant ? '<br><span class="aux">' + esc(r.constant).replace('.', ',') + '</span>' : ''); })),
+        return centred + grid(['σ-schatting →'].concat(rows.map(function (r) { return r.label + (r.constant ? '<br><span class="aux">' + esc(r.constant).replace('.', ',') + '</span>' : ''); })),
           lines.map(function (l) { return [l[0]].concat(rows.map(function (r) { return l[2](r[l[1]]); })); }));
       } },
     { title: 'Alles uit alles: LSL, USL, µ, σ, Cp, Cpk en ppm buiten specificatie',
@@ -699,16 +740,23 @@
   TOOLS.regelkaart = [
     { title: 'Grenzen uit X̿, R̄ en/of s̄ (X̄-R en X̄-s)',
       help: 'n alleen geeft de constanten; met R̄ en/of s̄ ook de R- of s-kaart, σ̂ en de halve breedte van de X̄-kaart; met X̿ de X̄-grenzen.',
-      form: inp('n', 'n (subgroepgrootte)') + inp('xbb', 'X̿') + inp('rbar', 'R̄') + inp('sbar', 's̄'),
+      form: inp('n', 'n (subgroepgrootte)') + inp('xbb', 'X̿') + inp('rbar', 'R̄') + inp('sbar', 's̄') +
+            area('xl', 'of: de lijst subgroepgemiddelden x̄ (geeft X̿)', '', 2) + area('rl', 'of: de lijst ranges R (geeft R̄)', '', 2) + area('sl', 'of: de lijst standaardafwijkingen s (geeft s̄)', '', 2),
       run: function (v) {
-        if (!num(v.n)) return '';
-        var r = Calc.limitsSummary(v.n, v.xbb, v.rbar, v.sbar, K);
+        var lx = parseList(v.text.xl), lr = parseList(v.text.rl), ls = parseList(v.text.sl), solved = {}, head = [];
+        function fromList(list, key, label) {   // the mean of a typed list fills the empty field and locks it
+          if (!list.length || num(v[key])) return v[key];
+          var m = Stats.mean(list); solved[key] = m; head.push([label + ' uit ' + list.length + ' waarden', f(m)]); return m;
+        }
+        var xbb = fromList(lx, 'xbb', 'X̿ = gemiddelde van de x̄'), rbar = fromList(lr, 'rbar', 'R̄ = gemiddelde van de R'), sbar = fromList(ls, 'sbar', 's̄ = gemiddelde van de s');
+        if (!num(v.n)) return result(head.length ? out(head) : '', solved);
+        var r = Calc.limitsSummary(v.n, xbb, rbar, sbar, K);
         if (!num(r.A2)) return warn('n = ' + f(v.n) + ' staat niet in de tabel');
         var half = [];
-        if (!num(v.xbb) && num(v.rbar)) half.push(['X̄-kaart met R̄: X̿ ± A2·R̄', 'X̿ ± ' + f(r.A2 * v.rbar)]);
-        if (!num(v.xbb) && num(v.sbar)) half.push(['X̄-kaart met s̄: X̿ ± A3·s̄', 'X̿ ± ' + f(r.A3 * v.sbar)]);
-        return out([['constanten bij n = ' + f(v.n), ['A2', 'D3', 'D4', 'd2', 'A3', 'B3', 'B4', 'c4'].map(function (c) { return c + ' = ' + f(r[c]); }).join(' · ')]]
-                   .concat(half)) + limitsTable(r);
+        if (!num(xbb) && num(rbar)) half.push(['X̄-kaart met R̄: X̿ ± A2·R̄', 'X̿ ± ' + f(r.A2 * rbar)]);
+        if (!num(xbb) && num(sbar)) half.push(['X̄-kaart met s̄: X̿ ± A3·s̄', 'X̿ ± ' + f(r.A3 * sbar)]);
+        return result(out(head.concat([['constanten bij n = ' + f(v.n), ['A2', 'D3', 'D4', 'd2', 'A3', 'B3', 'B4', 'c4'].map(function (c) { return c + ' = ' + f(r[c]); }).join(' · ')]])
+                   .concat(half)) + limitsTable(r), solved);
       } },
     { title: 'Subgroepen: ruwe data → X̿, R̄, s̄, grenzen en signalen', help: 'Eén subgroep per regel, alle subgroepen even groot.',
       form: area('g', 'subgroepen (één per regel)', '', 6),
@@ -1110,9 +1158,9 @@
       } },
     { title: 'Toetsen, BI en PI uit samenvattende waarden (REG p. 30–38)',
       form: ALPHA + inp('b1', 'b1') + inp('b0', 'b0') + inp('mse', 'MS<sub>E</sub>') + inp('sxx', 'S<sub>xx</sub>') + inp('n', 'n') + inp('xb', 'x̄') + inp('x0', 'x0') +
-            inp('h1', 'H0: β1 = (standaard 0)') + inp('h0', 'H0: β0 = (standaard 0)'),
+            inp('seb1', 'of: s.e.(b1) rechtstreeks, als de opgave die geeft') + inp('h1', 'H0: β1 = (standaard 0)') + inp('h0', 'H0: β0 = (standaard 0)'),
       run: function (v) {
-        var r = Calc.regTests(v.b1, v.b0, v.mse, v.sxx, v.n, v.xb, v.x0, v.alpha, v.h1, v.h0);
+        var r = Calc.regTests(v.b1, v.b0, v.mse, v.sxx, v.n, v.xb, v.x0, v.alpha, v.h1, v.h0, v.seb1);
         if (!r) return '';
         var line = function (name, se, t, ci) { return [name, f(se), t ? f(t.stat) : '–', t ? fp(t.ne.p) : '–', ci ? iv(ci.two) : '–']; };
         var rows = [];
@@ -1292,8 +1340,22 @@
       } });
 
   /* ---------- MSA extras (Les 5) ---------- */
-  var KINDS = [['', '—'], ['cert', 'certificaat: U met dekkingsfactor k'], ['uni', 'uniform: halve breedte a (a/√3)'], ['range', 'type A: R/d2, gemiddelde van n'],
-               ['sd', 'type A: s, gemiddelde van n'], ['u', 'standaardonzekerheid u rechtstreeks']];
+  // the kinds of uncertainty source of the budget: what to type in the three fields of a row, and the rule that follows
+  var KINDINFO = {
+    '': ['—', '—', '—', 'Kies een soort om deze regel te gebruiken; een regel op "—" telt niet mee.'],
+    cert: ['U van het certificaat (bv. 0,917)', 'k van het certificaat (meestal 2)', '—', 'u = U / k (type B: staat op een certificaat of in de specificatie)'],
+    certpct: ['U als % van de aflezing (bv. 0,1)', 'k van het certificaat (meestal 2)', '—', 'u = (% × aflezing) / k; de aflezing is het veld "gemeten waarde" onderaan (type B)'],
+    uni: ['halve breedte a (bv. 0,5 bij aflezen tot op 1)', '—', '—', 'u = a / √3: elke waarde in [−a, +a] is even waarschijnlijk (type B)'],
+    unipct: ['halve breedte a als % van de aflezing', '—', '—', 'u = (% × aflezing) / √3; de aflezing is het veld "gemeten waarde" onderaan (type B)'],
+    range: ['R (range van de herhalingen)', 'd2 (leeg = uit de tabel bij n)', 'n = aantal herhalingen in het gemiddelde', 'u = (R / d2) / √n: de herhaalbaarheid uit een range (type A)'],
+    sd: ['s (standaardafwijking van de herhalingen)', '—', 'n = aantal herhalingen in het gemiddelde', 'u = s / √n (type A)'],
+    u: ['de standaardonzekerheid u', '—', '—', 'u wordt rechtstreeks overgenomen']
+  };
+  var KINDS = Object.keys(KINDINFO).map(function (k) {
+    return [k, { '': '— (deze regel niet gebruiken)', cert: 'certificaat: U en k', certpct: 'certificaat: U in % van de aflezing en k', uni: 'uniform: halve breedte a',
+                 unipct: 'uniform: halve breedte in % van de aflezing', range: 'herhalingen: range R (met d2 en n)', sd: 'herhalingen: standaardafwijking s (met n)',
+                 u: 'ik ken u al' }[k]];
+  });
   TOOLS.meetsysteem = [
     { title: 'Waargenomen en werkelijke Cp bij een gegeven %GRR (MSA p. 24–26)',
       help: 'Vul C<sub>pa</sub> of C<sub>po</sub> in.',
@@ -1311,22 +1373,52 @@
         return r ? grid(['X<sub>r</sub>', 'P(aanvaard)', 'P(afgekeurd)'], r.map(function (q) { return [f(q.x), fp(q.accept), fp(q.reject)]; })) : '';
       } },
     { title: 'Onzekerheidsbudget: u<sub>c</sub> en U = k·u<sub>c</sub> (MSA p. 28–29, stalen band)',
-      help: 'Kies per bron het soort; k (certificaat) of d2 in het tweede veld, n in het derde als je het gemiddelde van n metingen gebruikt.',
+      help: '<b>Zo werk je:</b><ol>' +
+            '<li>Maak een lijstje van de bronnen die meetellen (bij de stalen band: kalibratie, resolutie, niet haaks, herhaalbaarheid). Eén bron = één regel hieronder; ongebruikte regels laat je op "—".</li>' +
+            '<li>Kies per bron <b>hoe de onzekerheid bekend is</b>. De velden a, b en c krijgen dan hun betekenis; de regel onder de keuze zegt welke waarden je invult en welke formule volgt.</li>' +
+            '<li>Elke bron geeft een <b>standaardonzekerheid u</b>. De rekenmachine combineert ze met u<sub>c</sub> = √(Σu²) (onafhankelijke bronnen) en geeft U = k·u<sub>c</sub> (dekkingsfactor k, meestal 2).</li>' +
+            '<li>Heb je de gemeten waarde, vul die dan in: je krijgt het interval waarde ± U, met eventueel een correctie. Bronnen in % van de aflezing gebruiken die gemeten waarde als aflezing.</li></ol>',
       form: [1, 2, 3, 4, 5, 6].map(function (i) {
-        return '<div class="fld wide row">' + sel('kind' + i, 'bron ' + i, KINDS) + inp('a' + i, 'waarde (U, a, R, s of u)') + inp('b' + i, 'k (certificaat) of d2') + inp('c' + i, 'n (gemiddelde van n metingen)') + '</div>';
-      }).join('') + inp('val', 'gemeten waarde (optioneel)') + inp('corr', 'correctie (af te trekken)', '', '0') + inp('k', 'dekkingsfactor k', '', '2'),
-      run: function (v) {
-        var src = [1, 2, 3, 4, 5, 6].map(function (i) { return { kind: v.text['kind' + i], a: v['a' + i], b: v['b' + i], c: v['c' + i] }; }).filter(function (s) { return s.kind; });
-        var r = Calc.uncertaintyBudget(src, v.k);
-        if (!r) return '';
-        var h = grid(['bron', 'soort', 'u', 'u²'], r.rows.map(function (q, i) { return [String(i + 1), q.kind, f(q.u), num(q.u) ? f(q.u * q.u) : '–']; })) +
-          out([['u<sub>c</sub> = √Σu²', f(r.uc)], ['U = k·u<sub>c</sub>', f(r.U)]]);
-        if (num(v.val)) { var c = v.val - (num(v.corr) ? v.corr : 0); h += out([['gecorrigeerde waarde ± U', f(c) + ' ± ' + f(r.U)], ['interval', iv([c - r.U, c + r.U])]]); }
+        return '<div class="fld wide row" data-row="' + i + '">' + sel('kind' + i, 'bron ' + i + ': hoe is u bekend?', KINDS) + inp('a' + i, 'a') + inp('b' + i, 'b') + inp('c' + i, 'c') +
+               '<span class="kindhelp" data-help="' + i + '"></span></div>';
+      }).join('') + inp('val', 'gemeten waarde = de aflezing (optioneel; nodig voor bronnen in %)') +
+            inp('corr', 'correctie in dezelfde eenheid (af te trekken)', '', '0') + inp('corrpct', 'of de correctie als % van de aflezing (af te trekken)', '', '0') +
+            inp('k', 'dekkingsfactor k', '', '2'),
+      run: function (v, body) {
+        var rowsOf = [1, 2, 3, 4, 5, 6];
+        rowsOf.forEach(function (i) {   // the labels of a, b, c and the rule follow the chosen kind
+          var info = KINDINFO[v.text['kind' + i]] || KINDINFO[''], row = body && body.querySelector('.fld.row[data-row="' + i + '"]');
+          if (!row) return;
+          ['a', 'b', 'c'].forEach(function (name, j) {
+            var input = row.querySelector('input[name="' + name + i + '"]'), span = input && input.parentNode.querySelector('span');
+            if (span) span.textContent = name + ' = ' + info[j];
+            if (input) input.parentNode.style.opacity = info[j] === '—' ? 0.45 : 1;
+          });
+          row.querySelector('.kindhelp').textContent = info[3];
+        });
+        var src = rowsOf.map(function (i) { return { kind: v.text['kind' + i], a: v['a' + i], b: v['b' + i], c: v['c' + i] }; }).filter(function (s) { return s.kind; });
+        var r = Calc.uncertaintyBudget(src, v.k, K, v.val);
+        if (!r) return src.length ? warn('vul bij elke gekozen bron de waarden in die de regel erboven noemt (bij een bron in % ook de gemeten waarde)') : '';
+        var how = { cert: 'U / k', certpct: '% · aflezing / k', uni: 'a / √3', unipct: '% · aflezing / √3', range: 'R / d2 / √n', sd: 's / √n', u: 'u' };
+        var h = grid(['bron', 'soort', 'formule', 'u', 'u²', 'aandeel in Σu²'], r.rows.map(function (q, i) {
+          return [String(i + 1), (KINDS.filter(function (kd) { return kd[0] === q.kind; })[0] || ['', ''])[1], how[q.kind] + (q.kind === 'range' && num(q.d2) ? ' (d2 = ' + f(q.d2) + ')' : ''),
+                  f(q.u), num(q.u) ? f(q.u * q.u) : '–', num(q.share) ? pc(q.share) : '–'];
+        })) + out([['u<sub>c</sub> = √Σu²', f(r.uc)], ['U = k·u<sub>c</sub>', f(r.U), 'k = ' + f(r.k)]]);
+        if (num(v.val)) {
+          var corr = (num(v.corr) ? v.corr : 0) + (num(v.corrpct) ? v.corrpct / 100 * v.val : 0), c = v.val - corr;
+          h += out([['correctie (af te trekken)', f(corr)], ['gecorrigeerde waarde ± U', f(c) + ' ± ' + f(r.U)], ['interval', iv([c - r.U, c + r.U])]]);
+        }
         return h;
       } },
     { title: 'Onzekerheid doorrekenen (MSA p. 29)',
-      form: inp('x', 'x') + inp('ux', 'u(x)') + inp('y', 'y (optioneel)') + inp('uy', 'u(y)') + inp('n', 'n (voor x̄, optioneel)'),
+      help: 'Met u(x) en n ook u(x̄) = u(x)/√n. Laat n leeg en geef een gewenste U (met k) of u(x̄): dan volgt het aantal metingen n.',
+      form: inp('x', 'x') + inp('ux', 'u(x)') + inp('y', 'y (optioneel)') + inp('uy', 'u(y)') + inp('n', 'n (voor x̄, optioneel)') +
+            inp('Ut', 'gewenste uitgebreide onzekerheid U van het gemiddelde (voor n)') + inp('k', 'dekkingsfactor k', '', '2'),
       run: function (v) {
+        if (!num(v.x) && num(v.ux) && !num(v.n) && num(v.Ut) && v.Ut > 0) {   // n from a target: U = k·u(x)/√n  →  n ≥ (k·u(x)/U)²
+          var kk = num(v.k) ? v.k : 2, need = Math.pow(kk * v.ux / v.Ut, 2), up = Math.ceil(need - 1e-9);
+          return result(out([['n ≥ (k·u(x)/U)²', f(need), 'naar boven afgerond: ' + f(up)], ['controle: U = k·u(x)/√n', f(kk * v.ux / Math.sqrt(up))]]), { n: up });
+        }
         if (!num(v.x) || !num(v.ux)) return '';
         var rows = [['x² ± u', f(v.x * v.x) + ' ± ' + f(2 * v.ux * Math.abs(v.x))], ['√x ± u', v.x > 0 ? f(Math.sqrt(v.x)) + ' ± ' + f(Math.sqrt(v.x) * v.ux / (2 * v.x)) : '–']];
         if (num(v.n) && v.n > 0) rows.push(['u(x̄) = u(x)/√n', f(v.ux / Math.sqrt(v.n))]);
@@ -1424,7 +1516,9 @@
       if (only && only.indexOf(index) < 0) return;   // a calculator placed in the text shows only the blocks it needs
       var box = document.createElement('div');
       box.className = 'calc';
-      box.innerHTML = '<h5>' + b.title + '</h5>' + (b.help ? '<p class="help">' + b.help + '</p>' : '') +
+      var xl = EXCEL[name + '.' + index];
+      box.innerHTML = '<h5>' + b.title + '</h5>' + (xl ? '<p class="excel-ref">Ook in Excel: werkblad <b>' + esc(xl) + '</b> van bb_toolkit.xlsx</p>' : '') +
+        (b.help ? '<p class="help">' + b.help + '</p>' : '') +
         '<form autocomplete="off">' + b.form + '<button type="reset" class="wis" title="alle velden terug leeg (of op hun standaardwaarde)">Wis alles</button></form>' +
         '<div class="calc-out"></div>';
       // the formulas of this block and what every symbol means (study/tool_formulas.html), right under the title

@@ -208,7 +208,7 @@ TOOLS: dict[str, Tool] = {
     "planontwerp": Tool("Rekenmachine steekproefplan (n, c) ontwerpen voor AQL en LQL",
                         "plan ontwerpen; design a plan; Peach; AQL; LQL; producentenrisico; consumentenrisico; "
                         "sampling plan; n en c",
-                        (("AS FR", 4, "AS FR p. 4, 17"),), "Aanvaardingssteekproeven"),
+                        (("AS FR", 4, "AS FR p. 4, 17"),)),
     "dubbelplan": Tool("Rekenmachine dubbel steekproefplan: OC en ASN",
                        "dubbel steekproefplan; double sampling plan; ASN; average sample number; tweede steekproef; "
                        "second sample",
@@ -218,7 +218,7 @@ TOOLS: dict[str, Tool] = {
                  (("AS FR", 6, "AS FR p. 6–8"),)),
     "variabelenplan": Tool("Rekenmachine plan voor variabelen met gegeven n (ξ, k, Q)",
                            "plan voor variabelen; variables sampling plan; k-factor; ondergrens; lower limit; Q-statistiek",
-                           (("AS", 26, "AS p. 26–27"), ("AS FR", 9, "AS FR p. 9")), "Aanvaardingssteekproeven"),
+                           (("AS", 26, "AS p. 26–27"), ("AS FR", 9, "AS FR p. 9"))),
     "skiplot": Tool("Rekenmachine skip-lot en het criterium van Deming",
                     "skip-lot; kwalificatie; qualification; Deming; break-even; geen inspectie; volledige inspectie; "
                     "100 % inspection",
@@ -250,6 +250,27 @@ TOOLS: dict[str, Tool] = {
                       (("ML", 19, "ML p. 19–32"),), "Confusion matrix"),
 }
 
+# The Excel counterpart of a calculator block ("tool.block" -> where in bb_toolkit.xlsx), shown under the block's title.
+# Only blocks that have a counterpart are listed; the others exist in this guide only.
+EXCEL_BLOCKS: dict[str, str] = {
+    "normaal.0": "Normaal (secties 2, 4, 7 en 8)", "normaal.1": "Normaal (secties 3, 5 en 6)",
+    "sigma.0": "Sigma & DPMO", "gemiddelde.0": "Gemiddelde & proportie (sectie 2)",
+    "tweegemiddelden.0": "Gemiddelde & proportie (sectie 3)", "tweegemiddelden.1": "Gemiddelde & proportie (sectie 4)",
+    "proportie.0": "Gemiddelde & proportie (sectie 5)", "proportie.1": "Gemiddelde & proportie (sectie 6)",
+    "variantie.0": "Varianties BI & toetsen (sectie 2)", "variantie.1": "Varianties BI & toetsen (sectie 3)",
+    "verdelingen.0": "Verdelingen (sectie 1)", "verdelingen.1": "Verdelingen (sectie 2)", "verdelingen.2": "Verdelingen (sectie 3)",
+    "verdelingen.3": "Verdelingen (sectie 4)", "verdelingen.4": "Verdelingen (sectie 5)", "verdelingen.5": "Verdelingen (sectie 6)",
+    "kruistabel.0": "Voorwaardelijke kansen",
+    "steekproefplan.0": "Aanvaardingssteekproeven (secties 1 en 2)", "steekproefplan.1": "Aanvaardingssteekproeven (sectie 3)",
+    "steekproefplan.2": "Aanvaardingssteekproeven (sectie 5)", "steekproefplan.3": "Aanvaardingssteekproeven (sectie 5)",
+    "steekproefplan.4": "Aanvaardingssteekproeven (sectie 4)",
+    "regressie.0": "Regressie", "anova.0": "ANOVA (eenweg)", "factorieel.0": "DOE 2^k",
+    "capabiliteit.0": "Capabiliteit (secties 2 en 3)", "capabiliteit.1": "Capabiliteit (secties 2 en 3)",
+    "regelkaart.0": "Regelkaarten (sectie 1)", "regelkaart.1": "Regelkaarten (secties 1 en 2: ook de grafieken)",
+    "grr.0": "Gage R&R", "constanten.0": "Tabellen", "msatabel.0": "Tabellen",
+    "confusion.0": "Confusion matrix",
+}
+
 PART_TOOLS: dict[str, tuple[str, ...]] = {
     "01": ("sigma",),
     "02": ("beschrijvend", "verdelingen", "kruistabel", "bayes", "normaal"),
@@ -260,10 +281,10 @@ PART_TOOLS: dict[str, tuple[str, ...]] = {
     "06": ("steekproefplan", "planontwerp", "dubbelplan", "sprt", "variabelenplan", "skiplot", "steekproefmethoden",
            "verdelingen", "normaal"),
     "07": ("regressie", "meervoudig", "beschrijvend", "kwantielen"),
-    "08": ("anova", "anova2", "factorieel", "aliassen", "kwantielen"),
+    "08": ("anova", "anova2", "factorieel", "aliassen", "beschrijvend", "kwantielen"),
     "09": ("capabiliteit", "normaal", "sigma", "constanten"),
-    "10": ("regelkaart", "constanten", "normaal"),
-    "11": ("grr", "meetsysteem", "msatabel", "regressie", "capabiliteit", "constanten", "bayes"),
+    "10": ("regelkaart", "capabiliteit", "constanten", "normaal"),
+    "11": ("grr", "meetsysteem", "msatabel", "regressie", "capabiliteit", "constanten", "bayes", "normaal"),
     "12": ("confusion", "bayes"),
     "13": ("variantie", "kwantielen", "capabiliteit", "normaal", "confusion", "verdelingen", "sigma", "regelkaart",
            "constanten", "kruistabel"),
@@ -524,7 +545,7 @@ def tools_panel(number: str) -> str:
 
 # A calculator where its theory or exercise is: <div class="calc-here" data-tool="sigma" data-blocks="0"></div> in a
 # part becomes a fold-out with only those blocks (all blocks without data-blocks); tools.js mounts it like the panels.
-CALC_HERE = re.compile(r'<div class="calc-here" data-tool="([a-z_]+)"(?: data-blocks="([0-9 ]+)")?></div>')
+CALC_HERE = re.compile(r'<div class="calc-here" data-tool="([a-z0-9_]+)"(?: data-blocks="([0-9 ]+)")?></div>')
 
 
 def calculators_here(part_html: str, number: str) -> str:
@@ -986,6 +1007,7 @@ def render(parts: list[Part], table: dict[str, dict[str, str]]) -> tuple[str, li
 {templates()}
 <!--APP-->
 <script id="constants-data" type="application/json">{json.dumps(constants_data())}</script>
+<script id="excel-data" type="application/json">{json.dumps(EXCEL_BLOCKS)}</script>
 <script id="glossary-data" type="application/json">{json.dumps(pairs, ensure_ascii=False).replace("</", "<\\/")}</script>
 <script id="symbols-data" type="application/json">@SYMBOLS@</script>
 <script id="app">{js}</script>

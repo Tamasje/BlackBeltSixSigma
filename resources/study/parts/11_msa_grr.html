@@ -374,7 +374,9 @@
         <label>Aantal metingen n:</label>
         <input type="text" inputmode="decimal"> <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
-      <details class="solution"><summary>Toon oplossing</summary>
+      <div class="calc-here" data-tool="meetsysteem" data-blocks="3"></div>
+      <details class="hint"><summary>Hint</summary><p>Laat n leeg en vul u(x) = σ, de gewenste U en k = 2 in: de rekenmachine geeft de kleinste n.</p></details>
+<details class="solution"><summary>Toon oplossing</summary>
         <p>\(\sym{u_exp}{U}=\frac{2\cdot\sym{sigma_m}{\sigma}}{\sqrt{\sym{n_sample}{n}}}\le0{,}1\Rightarrow\sqrt{\sym{n_sample}{n}}\ge\frac{2\cdot1}{0{,}1}=20\Rightarrow\) <b>\(\sym{n_sample}{n}\ge400\)</b> <span class="computed">zelf berekend</span>. Dit is één
         redelijke lezing; met een ander criterium (bv. een toets op het verschil van twee gemiddelden) kom je op een ander
         getal. Het punt van 11.7 blijft: omdat de standaardafwijking van een gemiddelde als \(\frac{1}{\sqrt{\sym{n_sample}{n}}}\) daalt, kost elke
@@ -439,9 +441,11 @@
         <label>(b) Idem bij \(\sym{delta}{\delta}=\sym{pe}{\mathrm{PE}}\), maar met specs verschoven met 2 PE:</label>
         <input type="text" inputmode="decimal"> <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="normaal" data-blocks="0"></div>
+      <div class="calc-here" data-tool="bayes" data-blocks="0"></div>
       <details class="hint"><summary>Hint</summary><p>\(\frac{P(\sym{ev_g}{G}\mid\sym{ev_x}{X})}{P(\sym{ev_b}{B}\mid\sym{ev_x}{X})}=\frac{P(\sym{ev_x}{X}\mid\sym{ev_g}{G})\cdot P(\sym{ev_g}{G})}{P(\sym{ev_x}{X}\mid\sym{ev_b}{B})\cdot P(\sym{ev_b}{B})}\). Met gelijke priors blijft
       \(\frac{P(\sym{ev_x}{X}\mid\sym{ev_g}{G})}{P(\sym{ev_x}{X}\mid\sym{ev_b}{B})}\). De kleinste \(P(\sym{ev_x}{X}\mid\sym{ev_g}{G})\) krijg je voor een onderdeel op de rand van G, de grootste \(P(\sym{ev_x}{X}\mid\sym{ev_b}{B})\) voor een onderdeel
-      op de rand van B.</p></details>
+      op de rand van B. Kans op "binnen de specificatie" onder de goede en de slechte verdeling met de normale rekenmachine; de verhouding is de odds (Bayes-blok: P(A) = ½).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <p>Met gelijke priors is de odds \(\frac{P(\sym{ev_x}{X}\mid\sym{ev_g}{G})}{P(\sym{ev_x}{X}\mid\sym{ev_b}{B})}\). Een onderdeel in G heeft de kleinste kans om in X gemeten te worden
         als het op de rand ligt \((\sym{x_r}{\text{referentie}}\ \sym{lsl}{\mathrm{LSL}}+\sym{delta}{\delta})\): \(P=P(\sym{x_m}{\text{meting}}\gt\sym{lsl}{\mathrm{LSL}}+\sym{pe}{\mathrm{PE}})=\Phi\left(\frac{\sym{delta}{\delta}-\sym{pe}{\mathrm{PE}}}{\sym{sigma_m}{\sigma}}\right)\). Een onderdeel in B heeft de
@@ -736,7 +740,7 @@
       </div>
       <div class="calc-here" data-tool="meetsysteem" data-blocks="2"></div>
       <details class="hint"><summary>Hint</summary><p>Een uniforme fout met halve breedte a heeft standaardafwijking \(\frac{\sym{a_half}{a}}{\sqrt{3}}\).
-      De range geeft \(\sigma\) van één meting \(\left(\frac{\sym{r_range}{R}}{\sym{d2}{d_{2}}}\right)\); het resultaat is een gemiddelde van 3 metingen.</p></details>
+      De range geeft \(\sigma\) van één meting \(\left(\frac{\sym{r_range}{R}}{\sym{d2}{d_{2}}}\right)\); het resultaat is een gemiddelde van 3 metingen. In de rekenmachine: bron 1 = "certificaat: U in % van de aflezing" (a = 0,1; b = k = 2), bron 2 = "uniform: halve breedte a" (a = 0,5), bron 3 = "uniform: halve breedte in % van de aflezing" (a = 0,05), bron 4 = "herhalingen: range R" (a = 2; b leeg = d2 uit de tabel; c = 3). Gemeten waarde (aflezing) = 1834; correctie 0,1 % van de aflezing.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>\(\sym{u1}{u_{1}}=\frac{1834\times0{,}001}{2}=\) <b>0,917</b> (de 0,1 % geldt bij \(\sym{k_cov}{k}=2\), dus delen door 2).</li>
@@ -848,6 +852,7 @@
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="calc-here" data-tool="regelkaart" data-blocks="1"></div>
+      <div class="calc-here" data-tool="meetsysteem" data-blocks="5"></div>
       <details class="hint"><summary>Hint</summary><p>\(\bar{X}\)-grenzen: \(\sym{xbarbar}{\bar{\bar{X}}}\pm\sym{a2}{A_{2}}\sym{rbar}{\bar{R}}\); R-grenzen: \(\sym{d3_r}{D_{3}}\sym{rbar}{\bar{R}}\) en
       \(\sym{d4_r}{D_{4}}\sym{rbar}{\bar{R}}\). Of typ de subgroepen in de rekentool (werkblad Regelkaarten).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
@@ -1110,8 +1115,9 @@
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="calc-here" data-tool="regressie" data-blocks="0"></div>
+      <div class="calc-here" data-tool="meetsysteem" data-blocks="4"></div>
       <details class="hint"><summary>Hint</summary><p>Maak 60 punten \((\sym{x_reg}{x}=\sym{x_r}{\text{referentiewaarde}},\sym{y_reg}{y}=\sym{x_m}{\text{meting}}-\sym{x_r}{\text{referentiewaarde}})\)
-      en doe een enkelvoudige regressie, bv. in het werkblad Regressie of met de rekenmachine regressie. Teken de biases per onderdeel.</p></details>
+      en doe een enkelvoudige regressie, bv. in het werkblad Regressie of met de rekenmachine regressie. Teken de biases per onderdeel. Regresseer de ruwe metingen op de referentie en test H0: β1 = 1: dan is de helling van de bias gelijk aan (helling − 1), met dezelfde t.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <p>Alles <span class="computed">zelf berekend</span>; de cursus drukt geen oplossing af.</p>
         <table>
@@ -1194,6 +1200,7 @@
         <label>(d) \(\sym{d2}{d_{2}}\ (\sym{g_sub}{g}\to\infty)\) voor \(\sym{n_sample}{m}=2\) (\(K_{1}\) bij 2 herhalingen):</label>
         <input type="text" inputmode="decimal"> <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="msatabel"></div>
       <details class="solution"><summary>Toon oplossing</summary>
         <p>(a) <b>1,91155</b> (cel \(\sym{g_sub}{g}=1\), \(\sym{n_sample}{m}=3\): 2,0 / 1,91155). (b) <b>2,48124</b> (3,8 / 2,48124). (c) <b>9,3</b>
         (9,3 / 1,73857, het voorbeeld uit <a class="p" href="../source/course/Les%205/20260619_ottoy_Theoretical%20background%20of%20a%20GRR%20study.pdf#page=1">GRR theory p. 1</a>). (d) <b>1,12838</b> (laatste rij). Dit zijn precies de constanten
@@ -1561,7 +1568,8 @@
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="calc-here" data-tool="meetsysteem" data-blocks="5"></div>
-      <details class="solution"><summary>Toon oplossing</summary>
+      <details class="hint"><summary>Hint</summary><p>Typ R̄ (het resultaat van 11.23) in; zonder R̄ rekent de rekenmachine met het grensgeval en komt er een ander aantal waarden uit.</p></details>
+<details class="solution"><summary>Toon oplossing</summary>
         <p>(a) \(\sym{ucl_r}{\mathrm{UCL}_{R}}=3{,}267\times4{,}333=\) <b>14,16</b>. (b) Mogelijke ranges binnen [0 ; 14,16]: 0, 5 en 10, dus
         <b>3</b>. (c) Voor \(n=2\) wijst "niet meer dan 3" op een <b>te grove</b> meeteenheid. Dat klopt met de grootte van de
         meetfout: \(\sym{ev}{\mathrm{EV}}\approx3{,}8\) (gemiddelde en spreidingsbreedte) tot 5,6 (ANOVA) gecodeerde eenheden, dus ongeveer één meeteenheid

@@ -139,6 +139,7 @@
 <button type="button" class="check">Controleer</button> <span class="fb"></span>
 </div>
 <div class="calc-here" data-tool="normaal" data-blocks="1"></div>
+      <div class="calc-here" data-tool="verdelingen" data-blocks="1"></div>
 <details class="hint"><summary>Hint</summary><p>\(\sym{pi}{\pi}=2\cdot\Phi(-3)\) of \(2\cdot\Phi(-4)\). \(E[\sym{i_lot}{i}]=\sym{n_lot}{N}\sym{pi}{\pi}\). \(P(\sym{i_lot}{i}=0)=(1-\sym{pi}{\pi})^{\sym{n_lot}{N}}\).</p></details>
 <details class="solution"><summary>Toon oplossing</summary>
 <ol class="steps">
@@ -254,6 +255,7 @@
 <button type="button" class="check">Controleer</button> <span class="fb"></span>
 </div>
 <div class="calc-here" data-tool="verdelingen" data-blocks="1 2"></div>
+      <div class="calc-here" data-tool="steekproefmethoden" data-blocks="0"></div>
 <details class="hint"><summary>Hint</summary><p>\(\sigma^{2}[\sym{p_sample}{P}]=\frac{\sym{pi}{\pi}(1-\sym{pi}{\pi})}{\sym{n}{n}}\). \(P[\sym{d_sample}{d}=0]=(1-\sym{pi}{\pi})^{\sym{n}{n}}\).</p></details>
 <details class="solution"><summary>Toon oplossing</summary>
 <ol class="steps">
@@ -465,7 +467,7 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <button type="button" class="check">Controleer</button> <span class="fb"></span>
 </div>
 <div class="calc-here" data-tool="verdelingen" data-blocks="2"></div>
-<details class="hint"><summary>Hint</summary><p>Splits naar de gekozen paletten: geen slechte palet (\(C_{9}^{2}\) paren), of de slechte palet samen met één goede (9 paren). Op de slechte palet zijn 80 van de 100 dozen goed.</p></details>
+<details class="hint"><summary>Hint</summary><p>Splits naar de gekozen paletten: geen slechte palet (\(C_{9}^{2}\) paren), of de slechte palet samen met één goede (9 paren). Op de slechte palet zijn 80 van de 100 dozen goed. Gebruik de hypergeometrische rekenmachine twee keer: eerst voor de pallet (N = 10, D = 1, n = 2, k = 0) en dan voor de dozen (N = 100, D = 20, n = 5, k = 0); combineer met de kansen 0,8 en 0,2.</p></details>
 <details class="solution"><summary>Toon oplossing</summary>
 <ol class="steps">
 <li>Kans dat de slechte palet niet gekozen wordt: \(\frac{36}{45}=0{,}8\).</li>
@@ -938,6 +940,8 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <button type="button" class="check">Controleer</button> <span class="fb"></span>
 </div>
 <div class="calc-here" data-tool="steekproefplan" data-blocks="0 5"></div>
+      <div class="calc-here" data-tool="planontwerp" data-blocks="0"></div>
+<details class="hint"><summary>Hint</summary><p>Zet bij de rekenmachine het doel β op 5 % om te zien of (164, 2) het doel haalt.</p></details>
 <details class="solution"><summary>Toon oplossing</summary>
 <ol class="steps">
 <li>\(\sym{r0}{R_{0}}=\frac{0{,}035}{0{,}005}=7\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling%20-%20Further%20Reading.pdf#page=4">AS-FR p. 4</a>.</li>
@@ -970,7 +974,8 @@ Alleen als \(\sym{sigma_stratum}{\sigma_{A}}=\sym{sigma_stratum}{\sigma_{B}}\) i
 <button type="button" class="check">Controleer</button> <span class="fb"></span>
 </div>
 <div class="calc-here" data-tool="steekproefplan" data-blocks="5"></div>
-<details class="hint"><summary>Hint</summary><p>De procedure aanvaardt bij "0 defecten in 56" of bij "1 defect in 56 en 0 in de volgende 39".</p></details>
+      <div class="calc-here" data-tool="dubbelplan" data-blocks="0"></div>
+<details class="hint"><summary>Hint</summary><p>De procedure aanvaardt bij "0 defecten in 56" of bij "1 defect in 56 en 0 in de volgende 39". Het plan van de inspecteur is een dubbel plan met n1 = 56, c1 = 0, c2 = 2, n2 = 39 en c3 = 1.</p></details>
 <details class="solution"><summary>Toon oplossing</summary>
 <ol class="steps">
 <li>(56, 0): \((1-\sym{pi}{p})^{56}=0{,}10\Rightarrow\sym{pi}{p}=1-0{,}1^{\frac{1}{56}}=4{,}03\ \%\).</li>
@@ -1519,6 +1524,7 @@ gecertificeerde leveranciers.</p>
 <button type="button" class="check">Controleer</button> <span class="fb"></span>
 </div>
 <div class="calc-here" data-tool="skiplot" data-blocks="0"></div>
+      <div class="calc-here" data-tool="steekproefplan" data-blocks="0"></div>
 <details class="solution"><summary>Toon oplossing</summary>
 <ol class="steps">
 <li>\(\sym{pi}{p}=1\ \%\): \(B(3;640;0{,}01)=0{,}1177\) en \(B(0;80;0{,}01)=0{,}99^{80}=0{,}4475\); \(\sym{p_q}{P_{q}}=0{,}1177\times0{,}4475^{2}=2{,}36\ \%\) (FR: 2,4 %).</li>

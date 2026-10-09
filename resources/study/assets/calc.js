@@ -491,6 +491,25 @@ var Calc = (function () {
   }
 
   /* ---------- control charts (sheet_charts.py; SPC p. 74, Dummies p. 249-254) ---------- */
+  // 2^k design given only its estimated effects (DOE p. 75–77): SS = n·2^(k−2)·effect²; the effects of an order from
+  // `poolFrom` on are pooled into the error (df = their number); every other effect is tested with F(1; df)
+  function effectsAnova(effects, k, n, poolFrom, alpha) {
+    if (!effects || !effects.length || !num(k) || k < 1) return null;
+    var reps = num(n) && n >= 1 ? n : 1, factor = reps * Math.pow(2, k - 2), a = num(alpha) && alpha > 0 && alpha < 1;
+    var rows = effects.map(function (e) {
+      return { name: e.name, order: e.name.length, effect: e.value, ss: factor * e.value * e.value, pooled: num(poolFrom) && e.name.length >= poolFrom };
+    });
+    var pooled = rows.filter(function (r) { return r.pooled; }), out = { rows: rows, factor: factor };
+    if (!pooled.length) return out;
+    out.df = pooled.length; out.ssPool = pooled.reduce(function (s, r) { return s + r.ss; }, 0); out.mse = out.ssPool / out.df;
+    if (a) out.crit = S.fIsf(alpha, 1, out.df);
+    rows.forEach(function (r) {
+      if (r.pooled) return;
+      r.F = r.ss / out.mse; r.p = S.fSf(r.F, 1, out.df);
+      if (a) r.significant = r.p < alpha;
+    });
+    return out;
+  }
   function limitsSummary(n, xbarbar, rbar, sbar, K) {
     var out = { n: n };
     if (!num(n)) return out;
@@ -1333,7 +1352,7 @@ var Calc = (function () {
     return { usual: 1 - (1 - r2) * (n - 1) / (n - k - 1), p56: n - k - 2 > 0 ? 1 - (1 - r2) * (n - 1) / (n - k - 2) : null };
   }
   // tests and intervals of simple regression from b1, b0, MS_E, S_xx, n, x̄ (REG p. 30–38)
-  function regTests(b1, b0, mse, sxx, n, xbar, x0, alpha, b1H0, b0H0) {
+  function regTests(b1, b0, mse, sxx, n, xbar, x0, alpha, b1H0, b0H0, seB1Given) {
     // each result as soon as its inputs are there: the critical t from n and α, the standard errors from MS_E and the
     // spread of x, then the tests and intervals with the estimates added
     var a = num(alpha) && alpha > 0 && alpha < 1, nOk = num(n) && n >= 3, out = {}, t2, t1;
@@ -1341,8 +1360,9 @@ var Calc = (function () {
     if (nOk) out.df = n - 2;
     if (nOk && a) { t2 = S.tInv(1 - alpha / 2, out.df); t1 = S.tInv(1 - alpha, out.df); out.tcrit = t2; }
     if (spread) out.seB1 = Math.sqrt(mse / sxx);
-    if (spread && num(b1)) out.F = Math.pow(b1 / out.seB1, 2);
-    if (spread && num(b1) && nOk && a) {
+    else if (num(seB1Given) && seB1Given > 0) out.seB1 = seB1Given;   // the printed s.e. of the slope instead of MS_E and S_xx
+    if (num(out.seB1) && num(b1)) out.F = Math.pow(b1 / out.seB1, 2);
+    if (num(out.seB1) && num(b1) && nOk && a) {
       out.tB1 = tests((b1 - (num(b1H0) ? b1H0 : 0)) / out.seB1, out.df, alpha); out.ciB1 = intervals(b1, out.seB1, t2, t1);
     }
     if (spread && nOk && num(xbar)) {
@@ -1418,19 +1438,25 @@ var Calc = (function () {
     });
   }
   // steel strip p. 1–2, MSA p. 28–29: standard uncertainties per source, u_c = √Σu², U = k·u_c
-  function uncertaintyBudget(sources, k) {
+  function uncertaintyBudget(sources, k, K, reading) {
+    // one standard uncertainty u per source: certificate U/k, uniform a/√3 (also given as a % of the reading), type A from
+    // a range (R/d2, d2 from Table 18 when not typed) or a standard deviation, both divided by √n for a mean of n readings
     var rows = sources.map(function (s) {
-      var u = null;
-      if (s.kind === 'cert' && all(s.a, s.b) && s.b > 0) u = s.a / s.b;          // certificate U with its coverage factor
-      else if (s.kind === 'uni' && num(s.a)) u = s.a / Math.sqrt(3);              // uniform with half-width a
-      else if (s.kind === 'range' && all(s.a, s.b)) u = s.a / s.b / Math.sqrt(num(s.c) && s.c > 0 ? s.c : 1); // R/d2, mean of c readings
-      else if (s.kind === 'sd' && num(s.a)) u = s.a / Math.sqrt(num(s.c) && s.c > 0 ? s.c : 1);                // s, mean of c readings
+      var u = null, d2 = s.kind === 'range' ? (num(s.b) ? s.b : (K && num(s.c) ? K.get('d2', s.c) : null)) : null;
+      var share = num(reading) ? reading / 100 : null, root = num(s.c) && s.c > 0 ? Math.sqrt(s.c) : 1;
+      if (s.kind === 'cert' && all(s.a, s.b) && s.b > 0) u = s.a / s.b;
+      else if (s.kind === 'certpct' && all(s.a, s.b) && s.b > 0 && num(share)) u = s.a * share / s.b;
+      else if (s.kind === 'uni' && num(s.a)) u = s.a / Math.sqrt(3);
+      else if (s.kind === 'unipct' && num(s.a) && num(share)) u = s.a * share / Math.sqrt(3);
+      else if (s.kind === 'range' && num(s.a) && num(d2) && d2 > 0) u = s.a / d2 / root;
+      else if (s.kind === 'sd' && num(s.a)) u = s.a / root;
       else if (s.kind === 'u' && num(s.a)) u = s.a;
-      return { kind: s.kind, u: u };
+      return { kind: s.kind, u: u, d2: d2 };
     });
     var sum = 0, used = 0;
     rows.forEach(function (r) { if (num(r.u)) { sum += r.u * r.u; used++; } });
     if (!used) return null;
+    rows.forEach(function (r) { r.share = num(r.u) ? r.u * r.u / sum : null; });
     var uc = Math.sqrt(sum);
     return { rows: rows, uc: uc, k: num(k) ? k : 2, U: (num(k) ? k : 2) * uc };
   }
@@ -1821,7 +1847,7 @@ var Calc = (function () {
            conditional: conditional, independence: independence, defects: defects,
            sigmaFromDpmo: sigmaFromDpmo, dpmoFromSigma: dpmoFromSigma, yields: yields, rolled: rolled,
            rollDerived: rollDerived, yieldPower: yieldPower, perOpportunity: perOpportunity, cpLevel: cpLevel,
-           capability: capability, capabilityInverse: capabilityInverse, limitsSummary: limitsSummary, newSampleSize: newSampleSize,
+           capability: capability, capabilityInverse: capabilityInverse, limitsSummary: limitsSummary, newSampleSize: newSampleSize, effectsAnova: effectsAnova,
            subgroupChart: subgroupChart, individuals: individuals, attributeChart: attributeChart,
            samplingPoint: samplingPoint, samplingRisks: samplingRisks, aoql: aoql, variablesPlan: variablesPlan,
            regression: regression, anova1: anova1, factorial: factorial, aliases: aliases, grr: grr, confusion: confusion,

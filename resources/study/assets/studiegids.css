@@ -81,6 +81,7 @@ details.tool .src { margin: 2px 0 6px; font: 12.5px Arial, Helvetica, sans-serif
 .calc { border-top: 1px solid var(--rule); padding: 8px 0 4px; font: 14px/1.4 Arial, Helvetica, sans-serif; }
 .calc h5 { font: bold 14px Arial, Helvetica, sans-serif; margin: 2px 0 4px; color: var(--accent); }
 .calc .help, details.tool .help { font: 13px/1.4 Arial, Helvetica, sans-serif; color: var(--muted); margin: 2px 0 6px; }
+.calc .excel-ref { font: 13px/1.4 Arial, Helvetica, sans-serif; margin: 0 0 4px; padding: 2px 8px; border-left: 3px solid var(--accent, #2e7d32); background: rgba(46,125,50,.08); }
 .calc details.fx { background: var(--key); border-left: 3px solid var(--accent); border-radius: 4px; padding: 4px 10px; margin: 4px 0 8px; }
 .calc details.fx > summary { cursor: pointer; font: bold 13px Arial, Helvetica, sans-serif; color: var(--accent); }
 .calc details.fx math[display="block"] { display: block math; margin: 6px 0; }
@@ -179,3 +180,4 @@ figure.fig figcaption { font: 13px/1.45 Arial, Helvetica, sans-serif; color: var
 @media print { figure.fig img { cursor: default; } #figzoom { display: none; } }
 /* a calculator placed where its theory or exercise is (calc-here markers, build_study.py) */
 details.tool.here { background: var(--tool); border: 1px solid #c9b6e0; border-left: 4px solid #7a52a8; }
+.calc .kindhelp { flex-basis: 100%; font: 12.5px/1.35 Arial, Helvetica, sans-serif; color: var(--muted); margin: -2px 0 2px; }

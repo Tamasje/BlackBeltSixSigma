@@ -520,6 +520,19 @@ t_{0}=\frac{\sym{b}{b}-\sym{bh}{\beta_{H_{0}}}}{\mathrm{se}(\sym{b}{b})}\sim t(\
 <p class="fx-src">DOE p. 46–79.</p>
 </section>
 
+<section data-block="factorieel.1" data-uitleg="d08-contrast">
+\[\sym{SS}{\mathrm{SS}_{Q}}=\sym{n}{n}\cdot2^{\sym{k}{k}-2}\cdot\sym{E}{\text{effect}_{Q}}^{2}\qquad \sym{s2}{\mathrm{MS}_{E}}=\frac{\sum_{\text{gepoold}}\sym{SS}{\mathrm{SS}_{Q}}}{\sym{dfp}{\mathrm{df}_{E}}}\qquad F_{0}=\frac{\sym{SS}{\mathrm{SS}_{Q}}}{\sym{s2}{\mathrm{MS}_{E}}}\sim F(1,\sym{dfp}{\mathrm{df}_{E}})\]
+<ul class="fx-vars">
+<li data-hoe="Het aantal factoren in het ontwerp.">\(\sym{k}{k}\): het aantal factoren.</li>
+<li data-hoe="Het aantal herhalingen per run; 1 bij één replicatie.">\(\sym{n}{n}\): het aantal herhalingen per run.</li>
+<li data-hoe="Gegeven in de opgave (geschat uit de data).">\(\sym{E}{\text{effect}_{Q}}\): het geschatte effect van \(Q\).</li>
+<li data-hoe="Uit het effect met de formule erboven.">\(\sym{SS}{\mathrm{SS}_{Q}}\): de kwadratensom van \(Q\) (1 vrijheidsgraad).</li>
+<li data-hoe="Het aantal effecten dat je in de fout poolt (bv. vijf drie- en vierfactorinteracties: 5).">\(\sym{dfp}{\mathrm{df}_{E}}\): de vrijheidsgraden van de fout.</li>
+<li data-hoe="De som van de SS van de gepoolde effecten gedeeld door hun aantal.">\(\sym{s2}{\mathrm{MS}_{E}}\): de foutvariantie.</li>
+</ul>
+<p class="fx-src">DOE p. 75–77.</p>
+</section>
+
 <section data-block="aliassen.0" data-uitleg="d08-fractie">
 \[\sym{g}{D=ABC}\ \Rightarrow\ \sym{I}{I=ABCD}\qquad A\cdot A=I\qquad \text{alias van }E:\ E\cdot\text{woord}\qquad 2^{\sym{k}{k}-\sym{p}{p}}\ \text{runs}\qquad \text{resolutie}=\text{lengte van het kortste woord}\]
 <ul class="fx-vars">
@@ -1055,7 +1068,7 @@ F=\frac{\mathrm{SS}_{R}/\sym{k}{k}}{\sym{mse}{\mathrm{MS}_{E}}}\sim F(\sym{k}{k}
 </section>
 
 <section data-block="meetsysteem.2" data-uitleg="d11-onzekerheid">
-\[\text{certificaat: }\sym{u}{u}=\frac{\sym{U}{U}}{\sym{k}{k}}\qquad \text{uniform: }\sym{u}{u}=\frac{\sym{a}{a}}{\sqrt{3}}\qquad \text{type A: }\sym{u}{u}=\frac{\bar{R}/d_{2}}{\sqrt{\sym{n}{n}}}\ \text{of}\ \frac{s}{\sqrt{\sym{n}{n}}}\qquad
+\[\text{certificaat: }\sym{u}{u}=\frac{\sym{U}{U}}{\sym{k}{k}}\ \left(\text{in \%: }\frac{p\cdot\text{aflezing}}{\sym{k}{k}}\right)\qquad \text{uniform: }\sym{u}{u}=\frac{\sym{a}{a}}{\sqrt{3}}\ \left(\text{in \%: }\frac{p\cdot\text{aflezing}}{\sqrt{3}}\right)\qquad \text{type A: }\sym{u}{u}=\frac{\bar{R}/d_{2}}{\sqrt{\sym{n}{n}}}\ \text{of}\ \frac{s}{\sqrt{\sym{n}{n}}}\qquad
 \sym{uc}{u_{c}}=\sqrt{\textstyle\sum \sym{u}{u}^{2}}\qquad \sym{U}{U}=\sym{k}{k}\cdot\sym{uc}{u_{c}}\]
 <ul class="fx-vars">
 <li data-hoe="Per bron uit de regels hiernaast.">\(\sym{u}{u}\): de standaardonzekerheid van één bron.</li>

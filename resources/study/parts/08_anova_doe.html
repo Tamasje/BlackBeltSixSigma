@@ -347,8 +347,9 @@
         <label>Schaalfactor \(\sqrt{\frac{\sym{ms_e}{\mathrm{MS}_{E}}}{\sym{n_rep}{n}}}\) voor de grafische vergelijking (2 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="anova" data-blocks="0"></div>
       <details class="hint"><summary>Hint</summary><p>"Within" = binnen de groepen = onverklaard. Vergelijk F met F crit, of
-      de P-value met \(\alpha\). n is het aantal replicaties per groep.</p></details>
+      de P-value met \(\alpha\). n is het aantal replicaties per groep. Vul MS_E = 8,06 en n = 5 in; de rekenmachine geeft √MS_E en √(MS_E/n).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li><b>Within Groups</b> is de foutregel: \(\sym{ss_e}{\mathrm{SS}_{E}}=161{,}2\) met 20 df, \(\sym{ms_e}{\mathrm{MS}_{E}}=8{,}06\).</li>
@@ -765,8 +766,9 @@
         <label>interactie (diagonaal O/B–R/T min diagonaal R/B–O/T) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="factorieel" data-blocks="0"></div>
       <details class="hint"><summary>Hint</summary><p>Elke "kant" en elke diagonaal bevat 4 scores; neem telkens het
-      gemiddelde.</p></details>
+      gemiddelde. Typ de vier uitkomsten in de volgorde (1), a, b, ab, met A = driver en B = bal.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <p>De cursus toont alleen de figuur (08.11); de getallen zijn <span class="computed">zelf berekend</span>.</p>
         <ul>
@@ -891,8 +893,10 @@
         <select><option value="">kies…</option><option value="johan">Johan (concentratie)</option><option value="nathalie">Nathalie (reactieduur)</option><option value="onbeslist">niet te beslissen, ook niet met experiment 2</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="factorieel" data-blocks="0"></div>
+      <div class="calc-here" data-tool="beschrijvend" data-blocks="1"></div>
       <details class="hint"><summary>Hint</summary><p>\(\sym{effect}{\text{Effect}}=\) gemiddelde bij het hoge niveau min gemiddelde bij het lage
-      niveau. Interactie: gemiddelde van de diagonaal (laag, laag)–(hoog, hoog) min dat van de andere diagonaal.</p></details>
+      niveau. Interactie: gemiddelde van de diagonaal (laag, laag)–(hoog, hoog) min dat van de andere diagonaal. Typ de runs in de volgorde (1), a, b, ab met A = duur en B = concentratie.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ul>
           <li>Experiment 1: concentratie en duur stijgen in gelijke stappen, correlatie <b>1</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=38">DOE p. 38</a>: volledig
@@ -990,7 +994,7 @@
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="calc-here" data-tool="factorieel" data-blocks="0"></div>
-      <details class="hint"><summary>Hint</summary><p>Voor [AB]: de rijen met \(\sym{col}{\mathrm{AB}}=+1\) zijn de eerste en de laatste.</p></details>
+      <details class="hint"><summary>Hint</summary><p>Voor [AB]: de rijen met \(\sym{col}{\mathrm{AB}}=+1\) zijn de eerste en de laatste. Let op de volgorde van de rijen in de tabel: de rekenmachine wil (1), a, b, ab (A eerst). Staan de rijen als (−,−), (−,+), (+,−), (+,+), wissel dan de middelste twee.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ul>
           <li>\(\sym{col}{A}=+1\): \(\frac{4{,}16+6{,}72+2{,}72+6{,}25+5{,}90+4{,}97}{6}=5{,}12\); \(\sym{col}{A}=-1\): \(\frac{5{,}94+5{,}50+6{,}10+5{,}50+5{,}25+5{,}16}{6}=5{,}575\); \(\sym{effect}{[A]}=\) <b>−0,455</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=48">DOE p. 48</a>.</li>
@@ -1062,8 +1066,9 @@
         <select><option value="">kies…</option><option value="een">figuur 1</option><option value="twee">figuur 2</option><option value="geen">in geen van beide</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="factorieel" data-blocks="0"></div>
       <details class="hint"><summary>Hint</summary><p>\(\sym{effect}{\mathrm{AB}}=\) (gemiddelde van de hoekpunten waar \(\sym{col}{A}\) en \(\sym{col}{B}\) hetzelfde teken hebben)
-      − (gemiddelde van de andere twee).</p></details>
+      − (gemiddelde van de andere twee). Typ de vier hoekpunten in de volgorde (A−, B−), (A+, B−), (A−, B+), (A+, B+).</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ul>
           <li>Figuur 1: \(\sym{effect}{A}=\frac{40+52}{2}-\frac{20+30}{2}=\) <b>21</b>; \(\sym{effect}{B}=\frac{30+52}{2}-\frac{20+40}{2}=\) <b>11</b>; \(\sym{effect}{\mathrm{AB}}=\frac{52+20}{2}-\frac{30+40}{2}=\) <b>+1</b> <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_DOE.pdf#page=53">DOE p. 53</a>.</li>
@@ -1350,8 +1355,9 @@
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="calc-here" data-tool="kwantielen" data-blocks="0"></div>
+      <div class="calc-here" data-tool="factorieel" data-blocks="1"></div>
       <details class="hint"><summary>Hint</summary><p>Bij \(\sym{n_rep}{n}=1\) en \(\sym{k_factors}{k}=4\) is \(\sym{effect}{\text{effect}}=\frac{\sym{contrast}{\text{contrast}}}{8}\) en \(\sym{ss_eff}{\mathrm{SS}}=\frac{\sym{contrast}{\text{contrast}}^{2}}{16}\), dus
-      \(\sym{ss_eff}{\mathrm{SS}}=4\cdot\sym{effect}{\text{effect}}^{2}\). Er zijn vier driefactor- en één vierfactorinteractie: 5 df.</p></details>
+      \(\sym{ss_eff}{\mathrm{SS}}=4\cdot\sym{effect}{\text{effect}}^{2}\). Er zijn vier driefactor- en één vierfactorinteractie: 5 df. Typ de 15 effecten met hun naam (A −101,625, B −1,625, …) in de rekenmachine met k = 4 en poolen vanaf orde 3.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>\(\sym{ss_eff}{\mathrm{SS}}=4\cdot\sym{effect}{\text{effect}}^{2}\): ABC 976,56; ABD 68,06; ACD 126,56; BCD 2575,56; ABCD 6440,06; samen <b>10186,81</b> <span class="computed">zelf berekend</span>

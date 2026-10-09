@@ -455,8 +455,9 @@
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="calc-here" data-tool="kwantielen" data-blocks="0"></div>
+      <div class="calc-here" data-tool="regressie" data-blocks="3"></div>
       <details class="hint"><summary>Hint</summary><p>\(\sym{b1}{\hat{\beta}_{1}}\pm\sym{t_crit}{t_{1-\alpha/2,n-2}}\cdot\sym{se_b1}{\mathrm{se}(\hat{\beta}_{1})}\), met
-      \(\sym{t_crit}{t_{0{,}975;18}}\) uit de t-tabel (0,025 erboven).</p></details>
+      \(\sym{t_crit}{t_{0{,}975;18}}\) uit de t-tabel (0,025 erboven). Typ b1 = 14,947, n = 20 en s.e.(b1) = 1,317 in de rekenmachine: je hoeft MS_E en S_xx niet te kennen.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <p>\(\sym{t_crit}{t_{0{,}975;18}}=2{,}101\); \(14{,}947\pm2{,}101\times1{,}317=14{,}947\pm2{,}767\), dus \(\sym{beta1}{\beta_{1}}\in\)
         <b>[12,18; 17,71]</b> <span class="computed">zelf berekend</span>. Het interval bevat 0 niet, wat past bij het besluit van oefening 07.3. In
@@ -725,8 +726,10 @@
         <select><option value="">kies…</option><option value="gelijk">per °F warmer daalt het verwachte verbruik met 5,44 gallons, bij gelijke isolatie</option><option value="totaal">per °F warmer daalt het verbruik met 5,44 gallons, ongeacht wat de isolatie doet</option><option value="kans">de kans op een hoger verbruik daalt met 5,44 %</option></select>
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="meervoudig" data-blocks="0"></div>
+      <div class="calc-here" data-tool="regressie" data-blocks="2"></div>
       <details class="hint"><summary>Hint</summary><p>\(\sym{y_hat}{\hat{Y}}=\sym{b0}{b_{0}}+\sym{b1}{b_{1}}\cdot30+\sym{b2}{b_{2}}\cdot6\);
-      \(\sym{sigma_hat}{\hat{\sigma}}=\sqrt{\frac{\sym{sse}{\mathrm{SS}_{E}}}{\sym{n}{n}-\sym{k}{k}-1}}\).</p></details>
+      \(\sym{sigma_hat}{\hat{\sigma}}=\sqrt{\frac{\sym{sse}{\mathrm{SS}_{E}}}{\sym{n}{n}-\sym{k}{k}-1}}\). De 15 rijen data staan in de tabel van 07.10; de rekenmachine geeft de voorspelling bij x0 en σ̂.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
         <ol class="steps">
           <li>\(\sym{y_hat}{\hat{Y}}=562{,}151-5{,}43658\times30-20{,}01232\times6=562{,}151-163{,}097-120{,}074=\) <b>278,98</b> gallons <span class="computed">zelf berekend</span>.
@@ -758,7 +761,7 @@
     <div class="f"><div>\[\sym{r2_adj}{R^{2}_{\mathrm{adj}}}=1-\frac{(1-\sym{r2}{R^{2}})(\sym{n}{n}-1)}{\sym{n}{n}-\sym{k}{k}-1}\]</div></div>
     <p>Daarin is n het aantal waarnemingen en k het aantal x-variabelen (zonder intercept). Zo rekenen alle outputs van de cursus: Excel voor de olie-data,
     \(1-\frac{(1-0{,}96561)\cdot14}{12}=0{,}95988\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=52">REG p. 52</a>; Minitab voor de zuurstofdata, \(\sym{r2_adj}{\text{R-Sq(adj)}}=87{,}1\ \%\) <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=22">REG p. 22</a>.</p>
-    <div class="calc-here" data-tool="regressie" data-blocks="5"></div>
+    <div class="calc-here" data-tool="regressie" data-blocks="2 5"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"Een nutteloze extra variabele kan \(R^{2}\) doen dalen."</b> Fout: \(R^{2}\) stijgt bij elke extra variabele, ook bij een nutteloze <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=55">REG p. 55</a>, <a class="p" href="../source/course/Les%203/20260605_de%20vuyst_BB_Regression.pdf#page=56">REG p. 56</a>. \(R^{2}_{\mathrm{adj}}\) kan wel dalen.</li>
@@ -1082,7 +1085,7 @@
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
       <div class="calc-here" data-tool="meervoudig" data-blocks="0"></div>
-      <div class="calc-here" data-tool="beschrijvend" data-blocks="1"></div>
+      <div class="calc-here" data-tool="beschrijvend" data-blocks="0 1"></div>
       <details class="hint"><summary>Hint</summary><p>Kijk naar de F-toets en de t-toetsen van het volledige model. Bereken ook de
       correlaties r tussen A, B en C, en vergelijk het nieuwe punt met het minimum en maximum
       van elke kolom.</p></details>

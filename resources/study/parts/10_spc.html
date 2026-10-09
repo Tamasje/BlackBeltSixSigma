@@ -663,6 +663,7 @@
         <label><var data-s="ppk">Ppk</var> (2 decimalen) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="capabiliteit" data-blocks="0"></div>
       <details class="hint"><summary>Hint</summary><p>\(\sym{lsl}{\mathrm{LSL}}=15{,}7\) en \(\sym{usl}{\mathrm{USL}}=16{,}7\). Het gemiddelde ligt dichter bij de
       USL, dus die kant bepaalt Cpk.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
@@ -748,7 +749,7 @@
       </div>
       <div class="calc-here" data-tool="regelkaart" data-blocks="0 4"></div>
       <details class="hint"><summary>Hint</summary><p>Met gecodeerde getallen reken je net zo: gemiddelden van de
-      kolommen, dan \(\sym{a2}{A_{2}}=0{,}577\) en \(\sym{d4}{D_{4}}=2{,}115\). Pas op het einde terugrekenen naar mm.</p></details>
+      kolommen, dan \(\sym{a2}{A_{2}}=0{,}577\) en \(\sym{d4}{D_{4}}=2{,}115\). Pas op het einde terugrekenen naar mm. Plak de 24 waarden x̄ in het veld "lijst x̄" en de 24 ranges in het veld "lijst R": de rekenmachine geeft X̿ en R̄ en de grenzen.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
       <ol class="steps">
         <li>\(\sym{xbarbar}{\bar{\bar{X}}}=34{,}00\) en \(\sym{rbar}{\bar{R}}=1{,}7667\) (gecodeerd), dus 0,5034 mm en 0,000177 mm.</li>
@@ -870,7 +871,8 @@
         <label>niet-conform bij gemiddelde 26,40 (in %) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
-      <details class="hint"><summary>Hint</summary><p>\(\sym{xbarbar}{\bar{\bar{X}}}=\frac{\Sigma\sym{xbar_i}{\bar{x}}}{\sym{k}{m}}\) en \(\sym{rbar}{\bar{R}}=\frac{\Sigma\sym{r_i}{R}}{\sym{k}{m}}\). Uitval boven: \(\sym{z}{Z}=\frac{\sym{usl}{\mathrm{USL}}-\sym{xbarbar}{\bar{\bar{X}}}}{\sym{sigma_hat}{\hat{\sigma}}}=3\cdot\sym{cpk}{C_{pk}}\); \(\sym{p_out}{P}=1-\Phi(\sym{z}{Z})\). Tel beide kanten op.</p></details>
+      <div class="calc-here" data-tool="capabiliteit" data-blocks="0"></div>
+      <details class="hint"><summary>Hint</summary><p>\(\sym{xbarbar}{\bar{\bar{X}}}=\frac{\Sigma\sym{xbar_i}{\bar{x}}}{\sym{k}{m}}\) en \(\sym{rbar}{\bar{R}}=\frac{\Sigma\sym{r_i}{R}}{\sym{k}{m}}\). Uitval boven: \(\sym{z}{Z}=\frac{\sym{usl}{\mathrm{USL}}-\sym{xbarbar}{\bar{\bar{X}}}}{\sym{sigma_hat}{\hat{\sigma}}}=3\cdot\sym{cpk}{C_{pk}}\); \(\sym{p_out}{P}=1-\Phi(\sym{z}{Z})\). Tel beide kanten op. De opgave geeft de sommen: deel Σx̄ en ΣR door het aantal subgroepen (25) om X̿ en R̄ te krijgen, en typ ze in de rekenmachine.</p></details>
       <details class="solution"><summary>Toon oplossing</summary>
       <p>Zo staat het in <a class="p" href="../source/course/Les%204/__Xbar%20R%20kaart%20data%20-%20berekeningen%20oefening%205.xlsx">werkboek oefening 5</a>:</p>
       <ol class="steps">
@@ -921,6 +923,7 @@
         <label>Extra: percentage buiten specificatie als het gemiddelde op 100 staat (in %) =</label> <input type="text" inputmode="decimal">
         <button type="button" class="check">Controleer</button> <span class="fb"></span>
       </div>
+      <div class="calc-here" data-tool="capabiliteit" data-blocks="0"></div>
       <details class="solution"><summary>Toon oplossing</summary>
       <p>De uitwerking in het deck <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=87">SPC p. 87</a>:</p>
       <ol class="steps">
