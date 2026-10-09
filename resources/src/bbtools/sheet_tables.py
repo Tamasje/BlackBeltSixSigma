@@ -60,8 +60,13 @@ DOC = SheetDoc(
 
 
 def excel_name(key: str, symbol: str) -> str:
-    """Workbook name for one constant column, e.g. ('T18', '1/d2') -> 'T18_inv_d2'."""
-    return f"{key}_{symbol.replace('1/', 'inv_').replace('*', 'star')}"
+    """Workbook name for one constant column, e.g. ('T18', '1/d2') -> 'T18_inv_lc_d2'.
+
+    Excel ignores case in names, so d2 and D2 (and d3 and D3) of one table would be the same name and the later column
+    would silently replace the earlier one. A symbol that starts with a lower-case letter therefore gets 'lc_'.
+    """
+    core = symbol.replace("1/", "").replace("*", "star")
+    return f"{key}_{'inv_' if symbol.startswith('1/') else ''}{'lc_' if core[0].islower() else ''}{core}"
 
 
 def lookup_formula(symbol: str, n_ref: str) -> str:

@@ -6,6 +6,7 @@ from typing import Any
 import pytest
 from openpyxl import Workbook
 
+from bbtools.build_workbook import build_workbook
 from bbtools.constants import TABLE_SOURCES, USED_TABLE, load_all, load_average_range_table
 from bbtools.printed import decimals_printed, parse_printed
 from bbtools.sheet_tables import (
@@ -30,14 +31,15 @@ def build() -> Workbook:
 
 def test_excel_name_makes_every_symbol_a_valid_name() -> None:
     # act / assert
-    assert excel_name("T18", "d2") == "T18_d2"
-    assert excel_name("T18", "1/d2") == "T18_inv_d2"
+    assert excel_name("T18", "d2") == "T18_lc_d2"      # lower case is marked: Excel names ignore case (d2 vs D2)
+    assert excel_name("T18", "D2") == "T18_D2"
+    assert excel_name("T18", "1/d2") == "T18_inv_lc_d2"
 
 
 def test_lookup_formula_uses_the_table_of_decision_4() -> None:
     # act / assert
-    assert lookup_formula("d2", "B17") == "INDEX(T18_d2,MATCH(B17,T18_n,0))"
-    assert lookup_formula("c4", "B17") == "INDEX(TA_c4,MATCH(B17,TA_n,0))"
+    assert lookup_formula("d2", "B17") == "INDEX(T18_lc_d2,MATCH(B17,T18_n,0))"
+    assert lookup_formula("c4", "B17") == "INDEX(TA_lc_c4,MATCH(B17,TA_n,0))"
     assert lookup_formula("E2", "2") == "INDEX(SSD2_E2,MATCH(2,SSD2_n,0))"
 
 
@@ -172,3 +174,13 @@ def test_constants_shown_on_a_sheet_are_the_used_printed_values(sheet: str, top:
             text = printed.get((symbol, str(n)), "").strip()
             if text and text not in ("-", "—"):
                 assert value == pytest.approx(float(parse_printed(text))), (sheet, symbol, n)
+
+
+def test_defined_names_are_unique_when_case_is_ignored() -> None:
+    # arrange -- Excel treats T18_d2 and T18_D2 as one name: the sheets once read D2 (4,918 for n = 5) instead of d2
+    wb = build_workbook(only=("Capabiliteit",))
+    # act
+    names = list(wb.defined_names.keys())
+    # assert
+    assert len({name.lower() for name in names}) == len(names), "names that differ only in case collide in Excel"
+    assert excel_name("T18", "d2") != excel_name("T18", "D2")
