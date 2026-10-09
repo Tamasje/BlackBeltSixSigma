@@ -4,7 +4,8 @@ Course (De Vuyst, Les 3, DOE.pdf): SS_Total = ΣΣ (Yij − Ȳ..)², SS_Error = 
 Σ n_i (Ȳi. − Ȳ..)² (p. 6), F = MS_Treatment / MS_Error ~ F(a − 1, N − a) (p. 7-8, Table 4.6). Decision 5: α is an
 input prefilled 0.05.
 
-Row plan: α 9; how to fill the groups 11-16; per group n, mean, s and the SS terms 18-23; ANOVA table 25-31; the
+Row plan: α 9; how to fill the groups 11-16; per group n, mean, s and the SS terms 18-23; the verdict "do the group
+means differ?" 24; ANOVA table 25-31; the
 groups last (names in row 34, values from row 35 down, open-ended), so they can grow without moving anything.
 """
 from __future__ import annotations
@@ -110,6 +111,13 @@ def _table(ws: Worksheet) -> None:
     output_cell(ws, "F26", '=IF(ISNUMBER(E26),_xlfn.F.DIST.RT(E26,C26,C27),"")', "0.000000")
     output_cell(ws, "G26", f'=IF(AND(ISNUMBER(C26),ISNUMBER(C27),N(C26)>0,N(C27)>0,ISNUMBER({ALPHA})),_xlfn.F.INV.RT({ALPHA},C26,C27),"")', "0.0000")
     output_cell(ws, "H26", DECISION.format(p="F26"))
+    label(ws, 24, 1, "Verschillen de groepsgemiddelden? (F-toets)", bold=True)
+    shown = 'IF(F26<0.0001,"< 0,0001","= "&FIXED(F26,4))'
+    yes = (f'"JA, significant: p-waarde "&{shown}&" < α = "&FIXED({ALPHA},3)&". H0 (alle groepsgemiddelden gelijk) wordt '
+           f'verworpen: minstens één groepsgemiddelde verschilt."')
+    no = (f'"NEE, niet significant: p-waarde "&{shown}&" ≥ α = "&FIXED({ALPHA},3)&". H0 wordt niet verworpen: geen '
+          f'verschil tussen de groepsgemiddelden aangetoond."')
+    output_cell(ws, "B24", f'=IF(AND(ISNUMBER(F26),ISNUMBER({ALPHA})),IF(F26<{ALPHA},{yes},{no}),"")')
     label(ws, 27, 5, "H0: alle groepsgemiddelden gelijk (DOE p. 7-8, Table 4.6)", italic=True)
     result_row(ws, 29, "totaal gemiddelde Ȳ (grand mean)", f'=IF(COUNT({EVERYTHING})>0,AVERAGE({EVERYTHING}),"")',
                NUMBER)

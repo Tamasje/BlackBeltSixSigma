@@ -71,8 +71,6 @@ def write_readme(sheets: list[tuple[HeaderBlock, SheetDoc]], path: Path = README
         "**Gebruik:** typ alleen in de gele cellen; groene cellen zijn resultaten. Een resultaatrij blijft leeg tot de "
         "invoer die ze nodig heeft is ingevuld. Elk blad begint met de bron in de cursus, de gebruikte conventie en de "
         "verificatiestatus. Excel herberekent het hele bestand bij het openen.", "",
-        "**Extra (boeken):** het blad *Extra (boeken)* bevat de rekenblokken die alleen uit Six Sigma For Dummies en "
-        "Harry & Schroeder komen. Die boeken zijn niet te kennen voor het examen.", "",
         "**Cursusindex:** `index.html` naast dit bestand linkt elk onderwerp, elke formule en elke vraag van het "
         "voorbeeldexamen naar de pagina in de cursus (`PYTHONPATH=src python3 -m bbtools.build_index`). Houd `source/` "
         "naast `build/` (beide in `resources/`); het werkboek `bb_toolkit.xlsx` staat bovenaan, naast "

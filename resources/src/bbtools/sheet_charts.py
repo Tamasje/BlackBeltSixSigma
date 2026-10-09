@@ -2,15 +2,19 @@
 
 Course: X̄/R and X̄/s limits CL = X̿, X̿ ± A2·R̄, D3·R̄ … D4·R̄, X̿ ± A3·s̄, B3·s̄ … B4·s̄ (deck p. 74); σ = R̄/d2 and
 σ(x̄) = σ/√n (deck p. 64 notes); Western Electric rules (deck p. 68-69). Constants from the Tabellen sheet
-(decision 4: Table 18; c4 from Table A; A3 from Six Sigma Demystified). The I-MR, p and u charts come only from
-Six Sigma For Dummies (not examinable) and live on the Extra (boeken) sheet.
+(decision 4: Table 18; c4 from Table A; A3 from Six Sigma Demystified).
 
-Row plan: X̄-R / X̄-s summary 8-26 (how to fill, the rules and the constants beside it, from column J); subgroup
-table from row 52
+Row plan: X̄-R / X̄-s summary 8-26 (how to fill, the rules and the constants beside it, from column J); the four
+charts (points, CL, UCL, LCL, points outside in red) 27-49, drawn from helper columns AN-BG beside the subgroup table;
+subgroup table from row 52
 to the bottom: 1000 subgroups of up to 25 values (Table 18 stops at n = 25), so it can grow without moving anything.
 """
 from __future__ import annotations
 
+from openpyxl.chart import LineChart, Reference
+from openpyxl.chart.series import SeriesLabel
+from openpyxl.chart.shapes import GraphicalProperties
+from openpyxl.drawing.line import LineProperties
 from openpyxl.utils import column_index_from_string, get_column_letter
 from openpyxl.worksheet.datavalidation import DataValidation
 from openpyxl.worksheet.worksheet import Worksheet
@@ -37,7 +41,7 @@ HEADER = HeaderBlock(
     source="source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 54-58, 62-74; ___4.1 tabellen SPC.pdf "
            "p. 1-2; Les 5/20260619_ottoy_Rheostat Knob Data.xls",
     convention="Beslissing 4: constanten uit Table 18 (A2, D3, D4, B3, B4, d2), Table A (c4), Six Sigma Demystified "
-               "(A3); 3σ-grenzen. I-MR-, p- en u-kaart: blad Extra (boeken), niet te kennen.",
+               "(A3); 3σ-grenzen.",
     status=Status.VERIFIED,
     status_detail="getest tegen de uitgewerkte voorbeelden van de cursus S06-WE03, S06-WE05, S06-WE06, S10-WE04a, "
                   "S10-WE04b (en S08-WE18 uit Dummies; extra, niet te kennen); enkele gedrukte waarden wijken af "
@@ -65,10 +69,22 @@ USED = {"n": "AD", "x": "AE", "r": "AF", "s": "AG"}                # what the sh
 FLAGS = {"xbar_r": "AH", "r": "AI", "xbar_s": "AJ", "s": "AK"}     # 'boven UCL' / 'onder LCL'
 CHECK = "AL"                                                       # per-row warning
 
-INPUTS = {"n_typed": "B9"}
+INPUTS = {"n_typed": "B9", "first_plotted": "B10"}
 SUMMARY = {"k": "B12", "n": "B13", "equal": "B14", "xbarbar": "B15", "rbar": "B16", "sbar": "B17",
            "sigma_r": "B18", "d2": "C18", "sigma_s": "B19", "c4": "C19", "sigma_xbar": "B20"}
 LIMITS = {"xbar_r": 23, "r": 24, "xbar_s": 25, "s": 26}  # columns B = LCL, C = CL, D = UCL, F/G = constants
+
+
+POINTS = 50  # subgroups drawn in each chart; the first one is chosen in B10
+# Helper columns the charts are drawn from, beside the subgroup table (rows FIRST_SUBGROUP … FIRST_SUBGROUP + POINTS − 1)
+PLOT_INDEX, PLOT_X, PLOT_R, PLOT_S = "AN", "AO", "AP", "AQ"
+PLOT_FIRST_LIMIT = column_index_from_string("AR")
+CHARTS = (  # key in LIMITS, title, plotted column, y-axis title
+    ("xbar_r", "X̄-kaart (grenzen met R̄)", PLOT_X, "subgroepgemiddelde x̄"),
+    ("r", "R-kaart", PLOT_R, "spreidingsbreedte R"),
+    ("xbar_s", "X̄-kaart (grenzen met s̄)", PLOT_X, "subgroepgemiddelde x̄"),
+    ("s", "s-kaart", PLOT_S, "standaardafwijking s"),
+)
 
 
 def subgroup_row(index: int) -> int:
@@ -92,6 +108,7 @@ def _subgroups(ws: Worksheet) -> None:
     section_title(ws, 8, f"1. X̄-R- en X̄-s-kaart uit subgroepen (vul de tabel vanaf rij {FIRST_SUBGROUP}: ruwe waarden, of x̄ "
                          "en R; uitleg rechts)")
     input_row(ws, 9, "n = subgroepgrootte, als je subgroepen als x̄ en R typt", "ruwe waarden: n wordt per rij geteld")
+    input_row(ws, 10, "eerste subgroep in de grafieken", f"leeg = 1; elke grafiek toont {POINTS} subgroepen vanaf dit nummer")
     section_title(ws, 11, "Samenvatting van de subgroepen")
     first, last = subgroup_row(0), subgroup_row(SUBGROUPS - 1)
     col = {name: f"{letter}{first}:{letter}{last}" for name, letter in USED.items()}
@@ -166,6 +183,81 @@ def _subgroups(ws: Worksheet) -> None:
                                        f'IF(COUNT({raw})=1,"1 waarde: geen R of s","")))')
 
 
+def _plot_columns(key: str) -> dict[str, str]:
+    """Helper columns of one chart: lower limit, centre line, upper limit and the points outside the limits."""
+    base = PLOT_FIRST_LIMIT + 4 * [chart[0] for chart in CHARTS].index(key)
+    return dict(zip(("lcl", "cl", "ucl", "out"), (get_column_letter(base + i) for i in range(4))))
+
+
+def _plot_data(ws: Worksheet) -> None:
+    """Helper columns for the charts: the POINTS subgroups from B10 on, with the limits repeated on every row.
+
+    A cell that must stay out of the chart holds NA(): a line chart skips #N/A (text or zero would be drawn). Such
+    a cell is deliberate, which is why every one of these formulas ends in ',NA())'.
+    """
+    first, last = subgroup_row(0), subgroup_row(SUBGROUPS - 1)
+    titles = ["subgroep nr", "x̄", "R", "s"]
+    for key, name, *_ in CHARTS:
+        titles += [f"{name}: LCL", "CL", "UCL", "buiten de grenzen"]
+    column_titles(ws, FIRST_SUBGROUP - 1, titles, first_column=column_index_from_string(PLOT_INDEX))
+    label(ws, FIRST_SUBGROUP - 2, column_index_from_string(PLOT_INDEX),
+          f"Hulpkolommen voor de grafieken (de eerste {POINTS} subgroepen vanaf B10); #N/A = niet tekenen", italic=True)
+    for j in range(POINTS):
+        r = FIRST_SUBGROUP + j
+        output_cell(ws, f"{PLOT_INDEX}{r}", f"=MAX(1,N($B$10))+{j}", "0")
+        for column, source in ((PLOT_X, USED["x"]), (PLOT_R, USED["r"]), (PLOT_S, USED["s"])):
+            pick = f"INDEX(${source}${first}:${source}${last},${PLOT_INDEX}{r})"
+            output_cell(ws, f"{column}{r}", f'=IF(AND(${PLOT_INDEX}{r}<={SUBGROUPS},ISNUMBER({pick})),{pick},NA())', NUMBER)
+        for key, _, value_column, _ in CHARTS:
+            cols, row = _plot_columns(key), LIMITS[key]
+            for part, source in (("lcl", f"$B${row}"), ("cl", f"$C${row}"), ("ucl", f"$D${row}")):
+                output_cell(ws, f"{cols[part]}{r}", f'=IF(ISNUMBER({source}),{source},NA())', NUMBER)
+            v, lo, hi = f"{value_column}{r}", f"{cols['lcl']}{r}", f"{cols['ucl']}{r}"
+            output_cell(ws, f"{cols['out']}{r}", f'=IF(AND(ISNUMBER({v}),ISNUMBER({lo}),ISNUMBER({hi})),'
+                                                 f'IF(OR({v}>{hi},{v}<{lo}),{v},NA()),NA())', NUMBER)
+
+
+def _line(series, colour: str, width: int = 12700, dash: str | None = None, marker: str | None = None,
+          line: bool = True) -> None:
+    """Style one chart series: colour, dash, marker and whether the points are joined by a line."""
+    series.smooth = False
+    series.graphicalProperties = GraphicalProperties(ln=LineProperties(solidFill=colour, w=width, prstDash=dash) if line
+                                                     else LineProperties(noFill=True))
+    if marker:
+        series.marker.symbol = marker
+        series.marker.size = 6 if marker == "circle" else 8
+        series.marker.graphicalProperties = GraphicalProperties(solidFill=colour, ln=LineProperties(solidFill=colour))
+    else:
+        series.marker.symbol = "none"
+
+
+def _plots(ws: Worksheet) -> None:
+    """Section 2: the four control charts drawn from the helper columns, side by side under the summary."""
+    section_title(ws, 27, f"2. Grafieken (automatisch; elke kaart toont {POINTS} subgroepen vanaf het nummer in B10): "
+                          "punten blauw, CL groen, UCL en LCL rood gestippeld, punten buiten de grenzen rood")
+    r0, r1 = FIRST_SUBGROUP, FIRST_SUBGROUP + POINTS - 1
+    categories = Reference(ws, range_string=f"'{ws.title}'!${PLOT_INDEX}${r0}:${PLOT_INDEX}${r1}")
+    anchors = ("A28", "D28", "I28", "P28")
+    for (key, title, value_column, y_title), anchor in zip(CHARTS, anchors):
+        cols = _plot_columns(key)
+        chart = LineChart()
+        chart.title = title
+        chart.height, chart.width = 10, 12.5
+        chart.x_axis.title, chart.y_axis.title = "subgroep", y_title
+        chart.x_axis.delete = chart.y_axis.delete = False  # openpyxl hides the axes unless told otherwise
+        chart.legend.position = "b"
+        for column, name, colour, dash, marker, joined in ((value_column, y_title.split()[-1], "1F4E9E", None, "circle", True),
+                                                           (cols["cl"], "CL", "2E7D32", None, None, True),
+                                                           (cols["ucl"], "UCL", "C62828", "dash", None, True),
+                                                           (cols["lcl"], "LCL", "C62828", "dash", None, True),
+                                                           (cols["out"], "buiten de grenzen", "C62828", None, "diamond", False)):
+            chart.add_data(Reference(ws, range_string=f"'{ws.title}'!${column}${r0}:${column}${r1}"), titles_from_data=False)
+            chart.series[-1].tx = SeriesLabel(v=name)
+            _line(chart.series[-1], colour, dash=dash, marker=marker, line=joined)
+        chart.set_categories(categories)
+        ws.add_chart(chart, anchor)
+
+
 def _instructions(ws: Worksheet) -> None:
     """How to fill the subgroup table, beside the summary (column J), so the table below can grow."""
     lines = (
@@ -199,6 +291,8 @@ def build_sheet(ws: Worksheet) -> None:
     """Fill an empty worksheet with the control-chart calculator."""
     write_header(ws, HEADER)
     _subgroups(ws)
+    _plot_data(ws)
+    _plots(ws)
     _instructions(ws)
     _rules(ws)
     used_constants_table(ws, 22, 10, ("A2", "D3", "D4", "A3", "B3", "B4", "d2", "c4"), "X̄-R- en X̄-s-kaart")
@@ -206,7 +300,13 @@ def build_sheet(ws: Worksheet) -> None:
                           showErrorMessage=True, errorTitle="Subgroepgrootte", error="n is een geheel getal van 2 tot 25.")
     ws.add_data_validation(size)
     size.add(INPUTS["n_typed"])
+    first_plotted = DataValidation(type="whole", operator="between", formula1="1", formula2=str(SUBGROUPS), allow_blank=True,
+                                   showErrorMessage=True, errorTitle="Eerste subgroep", error=f"Een geheel getal van 1 tot {SUBGROUPS}.")
+    ws.add_data_validation(first_plotted)
+    first_plotted.add(INPUTS["first_plotted"])
     ws.column_dimensions["A"].width = 44
     for column in range(2, column_index_from_string(CHECK)):
         ws.column_dimensions[get_column_letter(column)].width = 11
     ws.column_dimensions[CHECK].width = 30
+    for column in range(column_index_from_string(PLOT_INDEX), PLOT_FIRST_LIMIT + 4 * len(CHARTS)):
+        ws.column_dimensions[get_column_letter(column)].width = 11

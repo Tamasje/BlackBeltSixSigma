@@ -3,7 +3,6 @@
 Convention decision 1 (inventory/conventions.md): the course estimates σ in several ways, so the sheet does
 not choose. Each σ the user fills in gets its own result row, labelled with the course page that uses it.
 Decision 2: the "6 sigma criterion" is shown in both readings the course uses.
-The MR̄ / 1.128 estimate comes only from Six Sigma For Dummies (not examinable): it lives on the Extra sheet.
 
 Formulas (course): Cp = (UL − LL)/6σ (deck p. 34); Cpk = min{(UL − x̄)/3σ, (x̄ − LL)/3σ} (deck p. 35);
 % out of spec from the normal distribution (deck p. 18-19, 46; Excel check NORM.VERD on deck p. 46).
@@ -50,8 +49,7 @@ DOC = SheetDoc(
     purpose="Cp, Cpk (of Pp, Ppk), Z-afstanden en % / ppm buiten specificatie uit LSL, USL, gemiddelde en een spreiding; "
             "de twee lezingen van het '6 sigma'-criterium in de cursus; de Cp-niveaus van deck p. 40.",
     inputs="LSL en/of USL, gemiddelde; dan eender welke van: σ gegeven, R̄ (+ n), s̄ (+ n), totale s. Elke spreiding "
-           "krijgt haar eigen resultaatrij, met de cursuspagina die ze gebruikt. MR̄ / 1,128 (alleen in Six Sigma For "
-           "Dummies) staat op blad Extra (boeken).",
+           "krijgt haar eigen resultaatrij, met de cursuspagina die ze gebruikt.",
     audit="niet nodig (er bestaan uitgewerkte voorbeelden in de cursus)",
     disagreements=(
         "deck p. 46 (S06-WE01): Cp gedrukt als '1,166' (1,4/1,2 = 1,1667 rondt af op 1,167); gecentreerde Cpk idem.",
@@ -143,8 +141,6 @@ def _inputs(ws: Worksheet) -> None:
         label(ws, row, 1, text)
         input_cell(ws, f"B{row}")
         label(ws, row, 3, note, italic=True)
-    label(ws, 19, 1, "MR̄ / 1,128 (individuele waarden) komt alleen uit Six Sigma For Dummies: zie blad 'Extra (boeken)'.",
-          italic=True)
 
     positive = DataValidation(type="decimal", operator="greaterThan", formula1="0", allow_blank=True,
                               showErrorMessage=True, errorTitle="Spreiding moet positief zijn",

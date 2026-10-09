@@ -95,7 +95,9 @@ def scan(path: Path) -> RecalcReport:
                 if isinstance(cell.value, str) and cell.value.startswith("="):
                     total += 1
                 value = cached[cell.coordinate].value
-                if isinstance(value, str) and value in ERROR_VALUES:
+                # NA() written on purpose (a gap in a chart) is not an error: its formula ends in ',NA())'
+                deliberate_gap = value == "#N/A" and isinstance(cell.value, str) and cell.value.endswith(",NA())")
+                if isinstance(value, str) and value in ERROR_VALUES and not deliberate_gap:
                     errors.setdefault(value, []).append(f"{ws.title}!{cell.coordinate}")
     return RecalcReport(path=path, total_formulas=total, errors=errors)
 

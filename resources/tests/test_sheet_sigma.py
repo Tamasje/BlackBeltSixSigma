@@ -3,8 +3,7 @@
 Expected values: course worked examples (inventory/worked_examples.json, locked) at printed precision
 (decision 10) via the `printed` fixture; the course sigma tables (deck p. 21, Dummies Tables 1-2 and 6-3,
 Van Volsem p. 7, Harry & Schroeder) against the 1.5σ-shift definition; scipy for random inputs. Printed values
-that disagree with the computation are strict xfails naming the page. The book-only blocks that moved to the
-Extra sheet (DPU, yields, RTY) are tested in test_sheet_extra.py.
+that disagree with the computation are strict xfails naming the page.
 """
 from __future__ import annotations
 

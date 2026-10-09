@@ -24,7 +24,6 @@ from bbtools import (
     sheet_confusion,
     sheet_distributions,
     sheet_doe,
-    sheet_extra,
     sheet_grr,
     sheet_means,
     sheet_normal,
@@ -41,12 +40,11 @@ from bbtools.recalc import RecalcReport, recalc
 OUTPUT = ROOT.parent / "bb_toolkit.xlsx"
 
 # Calculator sheets in approved order (inventory/approved_tools.md). Each module exposes SHEET, HEADER, DOC and
-# build_sheet(ws). Extra (book-only blocks, not examinable) follows the calculators. The Tables sheet comes last:
+# build_sheet(ws). The Tables sheet comes last:
 # calculators look constants up there, users rarely need it.
 TOOL_SHEETS = (
     sheet_capability, sheet_normal, sheet_sigma, sheet_variance, sheet_confusion, sheet_distributions, sheet_means,
     sheet_charts, sheet_grr, sheet_acceptance, sheet_anova, sheet_doe, sheet_regression, sheet_conditional,
-    sheet_extra,
 )
 
 

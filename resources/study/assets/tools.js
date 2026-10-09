@@ -722,20 +722,31 @@
       } }
   ];
   TOOLS.regelkaart.push(
-    { title: 'Omgekeerd: uit gegeven grenzen naar X̿, R̄, s̄ en σ̂',
-      help: 'Vul n en de grenzen in die je kent; zonder CL ligt de centrale lijn in het midden van UCL en LCL.',
-      form: inp('n', 'n (subgroepgrootte)') + inp('ucl', 'UCL van de X̄-kaart') + inp('cl', 'CL (X̿)') + inp('lcl', 'LCL van de X̄-kaart') +
-            inp('uclR', 'UCL van de R-kaart') + inp('uclS', 'UCL van de s-kaart'),
+    { title: 'Omgekeerd: uit gegeven grenzen, R̄ of s̄ naar n, X̿, R̄, s̄ en σ̂',
+      help: 'Vul in wat je van de kaart kent. Met n alleen: de constanten. Zonder n zoekt de rekenmachine n uit de verhoudingen ' +
+            '(A2 = (UCL − X̿)/R̄ en D4 = UCL_R/R̄ voor oefening 10.2) in de tabel. Zonder CL ligt de centrale lijn in het midden van UCL en LCL. ' +
+            'Rode velden zijn berekend en staan op slot; wis een ingevuld veld om ze vrij te geven.',
+      form: inp('n', 'n (subgroepgrootte; leeg = zoek n)') + inp('ucl', 'UCL van de X̄-kaart') + inp('cl', 'CL (X̿)') + inp('lcl', 'LCL van de X̄-kaart') +
+            inp('rbar', 'R̄ (R-streep van de R-kaart)') + inp('uclR', 'UCL van de R-kaart') + inp('lclR', 'LCL van de R-kaart') +
+            inp('sbar', 's̄ (s-streep van de s-kaart)') + inp('uclS', 'UCL van de s-kaart') + inp('sigma', 'σ̂ (proces)'),
       run: function (v) {
-        var r = Calc.limitsInverse(v.n, { ucl: v.ucl, cl: v.cl, lcl: v.lcl, uclR: v.uclR, uclS: v.uclS }, K);
+        var r = Calc.limitsInverse(v.n, { ucl: v.ucl, cl: v.cl, lcl: v.lcl, rbar: v.rbar, uclR: v.uclR, lclR: v.lclR, sbar: v.sbar, uclS: v.uclS, sigma: v.sigma }, K);
         if (!r) return '';
-        if (!num(r.c.A2)) return warn('n = ' + f(v.n) + ' staat niet in de tabel');
-        var limits = num(r.half) ? { cl: num(v.cl) ? null : r.xbb, ucl: num(v.ucl) ? null : r.xbb + r.half, lcl: num(v.lcl) ? null : r.xbb - r.half } : {};
-        return result(out([['X̿', f(r.xbb)], ['UCL − X̿ = 3σ̂/√n', f(r.half)], ['σ<sub>x̄</sub> = σ̂/√n', f(r.sigmaXbar)], ['σ̂ = (UCL − X̿)·√n/3', f(r.sigma)],
-                    ['R̄ uit de X̄-kaart = (UCL − X̿)/A2', f(r.rbarFromX), 'A2 = ' + f(r.c.A2)], ['R̄ uit de R-kaart = UCL<sub>R</sub>/D4', f(r.rbarFromR), 'D4 = ' + f(r.c.D4)],
-                    ['s̄ uit de X̄-kaart = (UCL − X̿)/A3', f(r.sbarFromX), 'A3 = ' + f(r.c.A3)], ['s̄ uit de s-kaart = UCL<sub>s</sub>/B4', f(r.sbarFromS), 'B4 = ' + f(r.c.B4)],
-                    ['σ̂ = R̄/d2', f(r.sigmaR), 'd2 = ' + f(r.c.d2)], ['σ̂ = s̄/c4', f(r.sigmaS), 'c4 = ' + f(r.c.c4)]]) +
-          (r.notes.length ? warn(r.notes.join('; ')) : ''), limits);
+        if (num(v.n) && !num(r.c && r.c.A2)) return warn('n = ' + f(v.n) + ' staat niet in de tabel');
+        var h = out([num(r.xbb) ? ['X̿', f(r.xbb)] : null, num(r.n) ? ['n', f(r.n), r.derived.n ? 'afgeleid uit de verhoudingen hieronder' : ''] : null,
+                     num(r.n) ? ['constanten bij n = ' + f(r.n), ['A2', 'A3', 'D3', 'D4', 'B3', 'B4', 'd2', 'c4'].map(function (s) { return s + ' = ' + f(r.c[s]); }).join(' · ')] : null,
+                     num(r.halfUse) ? ['UCL − X̿ = 3σ̂/√n', f(r.halfUse)] : null, num(r.sigmaXbar) ? ['σ<sub>x̄</sub> = σ̂/√n', f(r.sigmaXbar)] : null,
+                     num(r.sigma) ? ['σ̂ = (UCL − X̿)·√n/3', f(r.sigma)] : null,
+                     num(r.rbarFromX) ? ['R̄ uit de X̄-kaart = (UCL − X̿)/A2', f(r.rbarFromX), 'A2 = ' + f(r.c.A2)] : null,
+                     num(r.rbarFromR) ? ['R̄ uit de R-kaart = UCL<sub>R</sub>/D4', f(r.rbarFromR), 'D4 = ' + f(r.c.D4)] : null,
+                     num(r.sbarFromX) ? ['s̄ uit de X̄-kaart = (UCL − X̿)/A3', f(r.sbarFromX), 'A3 = ' + f(r.c.A3)] : null,
+                     num(r.sbarFromS) ? ['s̄ uit de s-kaart = UCL<sub>s</sub>/B4', f(r.sbarFromS), 'B4 = ' + f(r.c.B4)] : null,
+                     num(r.sigmaR) ? ['σ̂ = R̄/d2', f(r.sigmaR), 'd2 = ' + f(r.c.d2)] : null,
+                     num(r.sigmaS) ? ['σ̂ = s̄/c4', f(r.sigmaS), 'c4 = ' + f(r.c.c4)] : null]);
+        if (r.candidates.length) h += '<p class="lbl">n zoeken: elke verhouding wijst naar de rij van Table 18 met de dichtste constante</p>' +
+          grid(['verhouding', 'waarde', 'dichtste n', 'constante van die n', 'afwijking'], r.candidates.map(function (q) {
+            return [q.label, f(q.value), f(q.n), f(q.constant), pc(q.dev)]; }));
+        return result(h + (r.notes.length ? warn(r.notes.join('; ')) : ''), r.derived);
       } });
   function flagged(s) { return s ? '<b class="flag">' + s + '</b>' : ''; }
   function limitsTable(r) {

@@ -1166,6 +1166,21 @@ def test_limits_inverse_recovers_the_summary_of_the_chart() -> None:
     assert from_s["sbarFromX"] == pytest.approx(sbar) and from_s["sbarFromS"] == pytest.approx(sbar)
 
 
+def test_limits_inverse_finds_n_from_the_minitab_oil_chart_exercise_10_2() -> None:
+    # arrange -- SPC p. 73 "Xbar-R Chart of Oil": UCL 31,59, X̿ 28,46, LCL 25,32, R̄ 3,06, UCL_R 7,88; n is not printed
+    limits = {"ucl": 31.59, "cl": 28.46, "lcl": 25.32, "rbar": 3.06, "uclR": 7.88}
+    # act
+    r, without_cl, two_signals = run_js([("Calc.limitsInverse", [None, limits, "@K"]),
+                                         ("Calc.limitsInverse", [None, {k: v for k, v in limits.items() if k != "cl"}, "@K"]),
+                                         ("Calc.limitsInverse", [None, {"rbar": 3.0, "sigma": 1.75}, "@K"])])
+    # assert -- both ratios (A2 = 1,0245; D4 = 2,5752) point at n = 3; derived fields never include a typed one
+    assert r["n"] == 3 and r["derived"]["n"] == 3 and {c["n"] for c in r["candidates"]} == {3}
+    assert r["derived"]["uclS"] == pytest.approx(table_constant("B4", 3) * (31.59 - 28.46) / table_constant("A3", 3), rel=1e-9)
+    assert not set(r["derived"]) & set(limits)
+    assert without_cl["n"] == 3 and without_cl["derived"]["cl"] == pytest.approx(28.455)
+    assert two_signals["n"] == 3   # d2 = R̄/σ̂ = 1,714 is closest to 1,693 (n = 3)
+
+
 def test_sample_size_solver_every_direction() -> None:
     # arrange -- CI p. 7, 10: n 1537 for a full width of 5 % at 95 %; then width and confidence back from n
     z = stats.norm.ppf(0.975)
@@ -1338,7 +1353,9 @@ def test_blocks_report_the_fields_they_derive_and_never_a_typed_one() -> None:
         ("steekproefgrootte", 0, {"alpha": 0.05, "W": 0.1}, {"n"}),
         ("steekproefgrootte", 0, {"W": 0.1, "n": 385}, {"alpha"}),
         ("gemiddelde", 0, {"alpha": 0.05, "data": "1 2 3 4 5"}, {"n", "m", "s"}),
-        ("regelkaart", 2, {"n": 5, "ucl": 12, "cl": 10}, {"lcl"}),
+        ("regelkaart", 2, {"n": 5, "ucl": 12, "cl": 10}, {"lcl", "rbar", "sbar", "sigma", "uclR", "lclR", "uclS"}),
+        ("regelkaart", 2, {"ucl": 31.59, "cl": 28.46, "lcl": 25.32, "rbar": 3.06, "uclR": 7.88},
+         {"n", "sbar", "sigma", "lclR", "uclS"}),   # exercise 10.2: n is derived and locked
     ]
     # act
     derived = run_blocks([(tool, index, fields) for tool, index, fields, _ in cases])

@@ -1635,22 +1635,86 @@ var Calc = (function () {
   // Control limits back to X̿, R̄, s̄ and σ̂ (the SPC p. 74 formulas read backwards):
   // X̄-chart UCL − CL = A2·R̄ = A3·s̄ = 3σ̂/√n; R-chart UCL = D4·R̄; s-chart UCL = B4·s̄; σ̂ = R̄/d2 = s̄/c4.
   function limitsInverse(n, q, K) {
-    if (!num(n)) return null;
-    var c = {}; ['A2', 'A3', 'D4', 'B4', 'd2', 'c4'].forEach(function (s) { c[s] = K.get(s, n); });
-    var out = { n: n, c: c, notes: [] };
+    // q: ucl, cl, lcl (X̄-chart), rbar, uclR, lclR (R-chart), sbar, uclS (s-chart), sigma (σ̂). Without n the ratios
+    // that fix a constant (A2 = (UCL − X̿)/R̄, D4 = UCL_R/R̄, …) are matched with Table 18 to find n.
+    var out = { notes: [], candidates: [], derived: {} };
+    var keys = ['ucl', 'cl', 'lcl', 'rbar', 'uclR', 'lclR', 'sbar', 'uclS', 'sigma'];
+    if (!num(n) && !keys.some(function (k) { return num(q[k]); })) return null;
     out.xbb = num(q.cl) ? q.cl : (all(q.ucl, q.lcl) ? (q.ucl + q.lcl) / 2 : null);
     var h = all(q.ucl, out.xbb) ? q.ucl - out.xbb : (all(q.lcl, out.xbb) ? out.xbb - q.lcl : null);
     if (all(q.ucl, q.lcl, q.cl) && disagree(q.ucl - q.cl, q.cl - q.lcl)) out.notes.push('UCL en LCL liggen niet symmetrisch rond CL');
+    if (num(h)) out.half = h;
+    var syms = ['A2', 'A3', 'D3', 'D4', 'B3', 'B4', 'd2', 'c4'];
+    var constants = function (m) { var c = {}; syms.forEach(function (s) { c[s] = K.get(s, m); }); return c; };
+
+    var use = num(n) ? n : null;
+    if (!num(use)) {   // n from the ratios: each one points at the Table 18 row whose constant is closest
+      var obs = [], add = function (sym, value, label) { if (num(value) && value > 0) obs.push({ sym: sym, value: value, label: label }); };
+      if (num(h) && num(q.rbar)) add('A2', h / q.rbar, 'A2 = (UCL − X̿)/R̄');
+      if (num(h) && num(q.sbar)) add('A3', h / q.sbar, 'A3 = (UCL − X̿)/s̄');
+      if (num(q.uclR) && num(q.rbar)) add('D4', q.uclR / q.rbar, 'D4 = UCL_R/R̄');
+      if (num(q.lclR) && num(q.rbar)) add('D3', q.lclR / q.rbar, 'D3 = LCL_R/R̄');
+      if (num(q.uclS) && num(q.sbar)) add('B4', q.uclS / q.sbar, 'B4 = UCL_s/s̄');
+      if (num(q.rbar) && num(q.sigma)) add('d2', q.rbar / q.sigma, 'd2 = R̄/σ̂');
+      if (num(q.sbar) && num(q.sigma)) add('c4', q.sbar / q.sigma, 'c4 = s̄/σ̂');
+      var root = num(h) && num(q.sigma) && h > 0 ? 3 * q.sigma / h : null;   // UCL − X̿ = 3σ̂/√n  →  √n = 3σ̂/(UCL − X̿)
+      var rows = [], scores = [];
+      for (var m = 2; m <= 25; m++) {
+        var c = constants(m), worst = 0;
+        obs.forEach(function (o) { if (num(c[o.sym])) worst = Math.max(worst, Math.abs(c[o.sym] - o.value) / o.value); });
+        if (num(root)) worst = Math.max(worst, Math.abs(Math.sqrt(m) - root) / root);
+        scores.push({ n: m, worst: worst });
+      }
+      obs.forEach(function (o) {
+        var best = null;
+        for (var m = 2; m <= 25; m++) {
+          var cv = K.get(o.sym, m), dev = num(cv) ? Math.abs(cv - o.value) / o.value : Infinity;
+          if (!best || dev < best.dev) best = { n: m, dev: dev, constant: cv };
+        }
+        out.candidates.push({ label: o.label, value: o.value, n: best.n, constant: best.constant, dev: best.dev });
+      });
+      if (num(root)) out.candidates.push({ label: '√n = 3σ̂/(UCL − X̿)', value: root, n: Math.round(root * root), constant: Math.sqrt(Math.round(root * root)),
+                                          dev: Math.abs(Math.sqrt(Math.round(root * root)) - root) / root });
+      if (obs.length || num(root)) {
+        scores.sort(function (a, b) { return a.worst - b.worst; });
+        // 2 %: Minitab prints rounded limits (exercise 10.2 differs 0,15 % in A2); the next row must be clearly worse
+        if (scores[0].worst <= 0.02 && scores[1].worst > 2 * scores[0].worst) { use = scores[0].n; out.derived.n = use; }
+        else out.notes.push(scores[0].worst > 0.02 ? 'geen n in Table 18 past bij deze verhoudingen (controleer de ingevulde getallen)'
+                                                   : 'meer dan één n past (' + scores[0].n + ' en ' + scores[1].n + '): vul n in');
+      }
+    }
+    if (!num(use)) return out;
+    var c = constants(use);
+    out.n = use; out.c = c;
     if (num(h)) {
-      out.half = h; out.sigmaXbar = h / 3; out.sigma = h * Math.sqrt(n) / 3;
+      out.sigmaXbar = h / 3; out.sigma = h * Math.sqrt(use) / 3;
       if (num(c.A2)) out.rbarFromX = h / c.A2;
       if (num(c.A3)) out.sbarFromX = h / c.A3;
     }
     if (num(q.uclR) && num(c.D4)) out.rbarFromR = q.uclR / c.D4;
     if (num(q.uclS) && num(c.B4)) out.sbarFromS = q.uclS / c.B4;
-    var rbar = num(out.rbarFromR) ? out.rbarFromR : out.rbarFromX, sbar = num(out.sbarFromS) ? out.sbarFromS : out.sbarFromX;
+    // R̄ and s̄ as typed, else from the other chart, else from the X̄-chart, else from σ̂ (d2, c4)
+    var first = function (list) { for (var i = 0; i < list.length; i++) if (num(list[i])) return list[i]; return null; };
+    var rbar = first([q.rbar, out.rbarFromR, out.rbarFromX, num(q.sigma) && num(c.d2) ? q.sigma * c.d2 : null]);
+    var sbar = first([q.sbar, out.sbarFromS, out.sbarFromX, num(q.sigma) && num(c.c4) ? q.sigma * c.c4 : null]);
+    out.rbar = rbar; out.sbar = sbar;
     if (num(rbar) && num(c.d2)) out.sigmaR = rbar / c.d2;
     if (num(sbar) && num(c.c4)) out.sigmaS = sbar / c.c4;
+    out.sigmaBest = first([q.sigma, out.sigmaR, out.sigmaS, out.sigma]);
+    // the half width UCL − X̿: from the limits, else A2·R̄, A3·s̄ or 3σ̂/√n
+    var half = first([h, num(rbar) && num(c.A2) ? c.A2 * rbar : null, num(sbar) && num(c.A3) ? c.A3 * sbar : null,
+                      num(out.sigmaBest) ? 3 * out.sigmaBest / Math.sqrt(use) : null]);
+    out.halfUse = half;
+    if (num(h) && num(q.rbar) && num(c.A2) && Math.abs(c.A2 * q.rbar - h) / h > 0.03) out.notes.push('A2·R̄ komt niet overeen met UCL − X̿ voor deze n');
+    if (num(q.uclR) && num(q.rbar) && num(c.D4) && Math.abs(c.D4 * q.rbar - q.uclR) / q.uclR > 0.03) out.notes.push('D4·R̄ komt niet overeen met UCL_R voor deze n');
+    // fields the calculator can fill in (never a typed one)
+    var put = function (key, value) { if (!num(q[key]) && num(value)) out.derived[key] = value; };
+    put('cl', out.xbb);
+    if (num(half) && num(out.xbb)) { put('ucl', out.xbb + half); put('lcl', out.xbb - half); }
+    put('rbar', rbar); put('sbar', sbar); put('sigma', out.sigmaBest);
+    if (num(rbar) && num(c.D4)) put('uclR', c.D4 * rbar);
+    if (num(rbar) && num(c.D3)) put('lclR', c.D3 * rbar);
+    if (num(sbar) && num(c.B4)) put('uclS', c.B4 * sbar);
     return out;
   }
 

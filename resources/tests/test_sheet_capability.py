@@ -9,7 +9,6 @@ Expected values:
     (convention decision 10: half-up rounding to the last printed digit).
   * Printed values that disagree with the computation are strict xfails naming the page, never adjusted.
 - An independent scipy.stats computation for random inputs.
-The MR̄ / 1.128 row moved to the Extra sheet (Six Sigma For Dummies only); its tests are in test_sheet_extra.py.
 """
 from __future__ import annotations
 
@@ -240,7 +239,7 @@ def test_every_row_matches_scipy_for_random_inputs(seed: int, evaluate: Evaluate
     n = rng.choice([2, 3, 4, 5, 6, 8, 10, 15, 20, 25])
     raw = {"sigma_given": rng.uniform(0.1, 10), "rbar": rng.uniform(0.1, 10), "sbar": rng.uniform(0.1, 10),
            "mrbar": rng.uniform(0.1, 10), "s_overall": rng.uniform(0.1, 10)}
-    raw.pop("mrbar")  # still drawn so each seed keeps its inputs; the MR̄ row is tested in test_sheet_extra.py
+    raw.pop("mrbar")  # still drawn so each seed keeps its inputs
     ws = evaluate(SHEET, cells({"lsl": lsl, "usl": usl, "mean": mean, "n": n, **raw}))
     # act / assert -- sigma per row uses the sheet's own looked-up constant (column Q), checked in test_constants
     for row in RESULT_ROWS:

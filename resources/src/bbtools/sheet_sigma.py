@@ -3,9 +3,7 @@
 Convention decision 3 (inventory/conventions.md): sigma level ↔ DPMO is shown in both readings. The course
 tables (deck p. 21; Van Volsem p. 7) pair a short-term sigma level Z with the long-term DPMO of one tail beyond
 Z − 1.5; deck p. 40 reads Cp = 2 (Z = 6) without the shift, both tails.
-The blocks whose only source is Six Sigma For Dummies or Harry & Schroeder (DPU, throughput / first-time /
-rolled yield, hidden factory, normalized yield, yield per defect opportunity) live on the Extra sheet
-(bbtools.sheet_extra): those books are not examinable. All yields and fractions are stored as fractions, shown as %.
+All yields and fractions are stored as fractions, shown as %.
 """
 from __future__ import annotations
 
@@ -39,8 +37,7 @@ DOC = SheetDoc(
     sheet=SHEET,
     purpose="Discrete data: DPO, DPMO en yield per kans (opportunity); sigmaniveau uit een DPMO en DPMO uit een "
             "sigmaniveau, in beide lezingen van de cursus.",
-    inputs="per blok: defecten, eenheden en kansen per eenheid; een DPMO; een sigmaniveau. De rekenblokken die alleen "
-           "uit de boeken komen (DPU, throughput yield, FTY, RTY, genormaliseerde yield) staan op blad Extra (boeken).",
+    inputs="per blok: defecten, eenheden en kansen per eenheid; een DPMO; een sigmaniveau.",
     audit="niet nodig (er bestaan uitgewerkte voorbeelden in de cursus)",
     disagreements=(
         "deck p. 21 en Harry & Schroeder (samenvatting p. 2, outline p. 1): 2σ = '308,537' DPMO; 308 537,5 rondt af op "
@@ -99,9 +96,6 @@ def _sigma(ws: Worksheet) -> None:
     result_row(ws, 28, "Yield met de 1,5σ-verschuiving", f'=IF({have},1-B25/{MILLION},"")', "0.00000%",
                "deck p. 21; Van Volsem p. 7")
     constant_row(ws, 30, "Verschuiving die de cursus aanneemt (σ)", 1.5, "deck p. 37")
-    label(ws, 32, 1, "DPU, throughput yield, first-time yield, verborgen fabriek (hidden factory), RTY, genormaliseerde "
-                     "yield en yield per defectkans komen alleen uit de boeken: zie blad 'Extra (boeken)' (niet te "
-                     "kennen voor het examen).", italic=True)
 
 
 def build_sheet(ws: Worksheet) -> None:

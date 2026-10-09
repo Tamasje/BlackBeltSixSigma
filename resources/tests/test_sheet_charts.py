@@ -3,8 +3,7 @@
 Expected values: course worked examples from the lecturers' exercise workbooks (S06-WE03, S06-WE05, S06-WE06,
 S10-WE04a/b; Excel cached floats at rel=1e-9) with their input data read from the course files named by the
 oracle's data_ref (read-only), and the Dummies example S08-WE18 at printed precision. An independent Python
-computation for random subgroups. Printed values that disagree are strict xfails naming the source. The I-MR, p and
-u charts (book-only) moved to the Extra (boeken) sheet; their tests are in tests/test_sheet_extra.py.
+computation for random subgroups. Printed values that disagree are strict xfails naming the source.
 """
 from __future__ import annotations
 
@@ -19,15 +18,22 @@ import xlrd
 
 from bbtools.constants import ROOT
 from bbtools.printed import agrees_at_printed_precision
+from bbtools.build_workbook import build_workbook
 from bbtools.sheet_charts import (
+    CHARTS,
     CHECK,
     FLAGS,
     INPUTS,
     LIMITS,
+    PLOT_INDEX,
+    PLOT_R,
+    PLOT_X,
+    POINTS,
     SHEET,
     SUMMARY,
     TYPED,
     X_COLUMNS,
+    _plot_columns,
     subgroup_row,
 )
 
@@ -190,3 +196,33 @@ def test_many_large_subgroups_and_the_row_check(evaluate: Evaluate) -> None:
     assert ws[SUMMARY["sbar"]].value == pytest.approx(statistics.mean(statistics.stdev(g) for g in groups), rel=1e-12)
     assert ws[f"{CHECK}{subgroup_row(0)}"].value.startswith("ruwe waarden én getypt")
     assert ws[f"{CHECK}{subgroup_row(1)}"].value is None
+
+
+def test_plot_helper_columns_hold_points_limits_and_the_points_outside(evaluate: Evaluate) -> None:
+    # arrange -- 20 subgroups of 5 values, subgroup 7 shifted far above the rest; the charts start at subgroup 3
+    rng = random.Random(8)
+    rows = [[rng.gauss(10, 0.3) for _ in range(5)] for _ in range(20)]
+    rows[6] = [x + 5 for x in rows[6]]
+    # act
+    ws = evaluate(SHEET, {**raw_subgroups(rows), INPUTS["first_plotted"]: 3})
+    # assert -- row j of the helper block is subgroup 3 + j; the x̄ column is the subgroup mean, the limits repeat the table
+    first = subgroup_row(0)
+    assert ws[f"{PLOT_INDEX}{first}"].value == 3 and ws[f"{PLOT_INDEX}{first + POINTS - 1}"].value == 3 + POINTS - 1
+    assert ws[f"{PLOT_X}{first}"].value == pytest.approx(statistics.mean(rows[2]), rel=1e-9)
+    assert ws[f"{PLOT_R}{first}"].value == pytest.approx(max(rows[2]) - min(rows[2]), rel=1e-9)
+    columns = _plot_columns("xbar_r")
+    assert ws[f"{columns['ucl']}{first}"].value == pytest.approx(limit(ws, "xbar_r", "ucl"), rel=1e-12)
+    assert ws[f"{columns['lcl']}{first + 5}"].value == pytest.approx(limit(ws, "xbar_r", "lcl"), rel=1e-12)
+    flagged = {r for r in range(first, first + POINTS) if isinstance(ws[f"{columns['out']}{r}"].value, float)}
+    in_table = {first + j for j in range(POINTS) if ws[f"{FLAGS['xbar_r']}{subgroup_row(2 + j)}"].value}
+    assert flagged == in_table and first + 4 in flagged   # the same subgroups the table flags, shifted subgroup 7 among them
+    # beyond the 20 subgroups there is nothing to draw: the cell holds #N/A on purpose (a gap in the chart)
+    assert ws[f"{PLOT_X}{first + 25}"].value == "#N/A" and ws[f"{PLOT_INDEX}{first + 25}"].value == 28
+
+
+def test_the_sheet_carries_four_charts_with_five_series_each() -> None:
+    # arrange / act
+    ws = build_workbook(only=(SHEET,))[SHEET]
+    # assert
+    assert len(ws._charts) == len(CHARTS) == 4
+    assert all(len(chart.series) == 5 for chart in ws._charts)

@@ -7,7 +7,7 @@ F-test (p. 33), CIs (p. 34), CI of the mean response (p. 35-36) and prediction i
 1 − (1 − R²)(n − 1)/(n − k − 2); the course's own outputs (Regression p. 22: 87.1 %) and σ̂ = √(SSE/(n − k − 1))
 (p. 57) use n − k − 1. Both are shown. Decisions 5 and 6: α prefilled 0.05; one- and two-sided side by side.
 
-Row plan: settings 8-12; how to enter the pairs 14-18; completeness 20; fit 21-42; t-tests 44-46; intervals 48-52;
+Row plan: settings 8-12; the verdict "is the regression significant?" 13; how to enter the pairs 14-18; completeness 20; fit 21-42; t-tests 44-46; intervals 48-52;
 the pairs last (x in B, y in C, from row 58 down, open-ended), so they can grow without moving anything.
 """
 from __future__ import annotations
@@ -119,6 +119,18 @@ def _regression_inputs(ws: Worksheet) -> None:
         open_input_column(ws, letter, FIRST_PAIR)
 
 
+def _verdict(ws: Worksheet) -> None:
+    """Row 13: the answer to "is the regression significant?" in words, from the F-test (H0: β1 = 0)."""
+    label(ws, 13, 1, "Is de regressie significant? (F-toets, H0: β1 = 0)", bold=True)
+    p = "$B$36"
+    shown = f'IF({p}<0.0001,"< 0,0001","= "&FIXED({p},4))'
+    yes = (f'"JA, de regressie is significant: p-waarde "&{shown}&" < α = "&FIXED({ALPHA},3)&". H0 (β1 = 0) wordt '
+           f'verworpen: er is een lineair verband tussen x en y (R² = "&FIXED($B$32,3)&")."')
+    no = (f'"NEE, de regressie is niet significant: p-waarde "&{shown}&" ≥ α = "&FIXED({ALPHA},3)&". H0 (β1 = 0) wordt '
+          f'niet verworpen: geen lineair verband aangetoond."')
+    output_cell(ws, "B13", f'=IF(AND(ISNUMBER({p}),ISNUMBER({ALPHA})),IF({p}<{ALPHA},{yes},{no}),"")')
+
+
 def _regression_fit(ws: Worksheet) -> None:
     """Rows 21-42: estimates, ANOVA, R², F-test and standard errors."""
     ok = '$B$20="ja"'
@@ -212,6 +224,7 @@ def build_sheet(ws: Worksheet) -> None:
     """Fill an empty worksheet with the simple linear regression calculator."""
     write_header(ws, HEADER)
     _regression_inputs(ws)
+    _verdict(ws)
     _regression_fit(ws)
     _regression_tests(ws)
     _regression_intervals(ws)

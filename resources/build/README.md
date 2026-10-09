@@ -4,14 +4,12 @@ Offline rekenbladen (calculators) voor het Black Belt-examen. Gemaakt door `src/
 
 **Gebruik:** typ alleen in de gele cellen; groene cellen zijn resultaten. Een resultaatrij blijft leeg tot de invoer die ze nodig heeft is ingevuld. Elk blad begint met de bron in de cursus, de gebruikte conventie en de verificatiestatus. Excel herberekent het hele bestand bij het openen.
 
-**Extra (boeken):** het blad *Extra (boeken)* bevat de rekenblokken die alleen uit Six Sigma For Dummies en Harry & Schroeder komen. Die boeken zijn niet te kennen voor het examen.
-
 **Cursusindex:** `index.html` naast dit bestand linkt elk onderwerp, elke formule en elke vraag van het voorbeeldexamen naar de pagina in de cursus (`PYTHONPATH=src python3 -m bbtools.build_index`). Houd `source/` naast `build/` (beide in `resources/`); het werkboek `bb_toolkit.xlsx` staat bovenaan, naast `studiegids.html`.
 
 ## Capabiliteit: Procescapabiliteit (process capability): Cp, Cpk (Pp, Ppk) en % buiten specificatie (out of spec)
 
 - **Doel:** Cp, Cpk (of Pp, Ppk), Z-afstanden en % / ppm buiten specificatie uit LSL, USL, gemiddelde en een spreiding; de twee lezingen van het '6 sigma'-criterium in de cursus; de Cp-niveaus van deck p. 40.
-- **Invoer:** LSL en/of USL, gemiddelde; dan eender welke van: σ gegeven, R̄ (+ n), s̄ (+ n), totale s. Elke spreiding krijgt haar eigen resultaatrij, met de cursuspagina die ze gebruikt. MR̄ / 1,128 (alleen in Six Sigma For Dummies) staat op blad Extra (boeken).
+- **Invoer:** LSL en/of USL, gemiddelde; dan eender welke van: σ gegeven, R̄ (+ n), s̄ (+ n), totale s. Elke spreiding krijgt haar eigen resultaatrij, met de cursuspagina die ze gebruikt.
 - **Bron in de cursus:** source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 18-21, 32-47, 50, 64, 83; ___4.1 tabellen SPC.pdf p. 1-2; __Xbar R kaart data - berekeningen oefening 2.xlsx
 - **Conventie:** Beslissingen 1-2: één resultaatrij per σ-schatting die de cursus gebruikt (er wordt niet voor je gekozen); het '6 sigma'-criterium in beide lezingen van de cursus.
 - **Status:** GEVERIFIEERD (VERIFIED): getest tegen de uitgewerkte voorbeelden S06-WE01, S06-WE02, S06-WE04, S06-WE07, S06-WE08, S06-WE12, S06-WE13 uit de cursus; enkele gedrukte waarden op deck p. 46 en 50 wijken af van de berekening (zie resources/build/README.md)
@@ -34,7 +32,7 @@ Offline rekenbladen (calculators) voor het Black Belt-examen. Gemaakt door `src/
 ## Sigma & DPMO: Sigmaniveau, DPMO en yield: DPO, DPMO, Z met en zonder 1,5σ-verschuiving (1.5σ shift)
 
 - **Doel:** Discrete data: DPO, DPMO en yield per kans (opportunity); sigmaniveau uit een DPMO en DPMO uit een sigmaniveau, in beide lezingen van de cursus.
-- **Invoer:** per blok: defecten, eenheden en kansen per eenheid; een DPMO; een sigmaniveau. De rekenblokken die alleen uit de boeken komen (DPU, throughput yield, FTY, RTY, genormaliseerde yield) staan op blad Extra (boeken).
+- **Invoer:** per blok: defecten, eenheden en kansen per eenheid; een DPMO; een sigmaniveau.
 - **Bron in de cursus:** source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 19-21, 37-40; Les 1/20260521_van volsem.pdf p. 7
 - **Conventie:** Beslissing 3: sigmaniveau ↔ DPMO getoond met de 1,5σ-verschuiving (zoals in elke cursustabel) en zonder.
 - **Status:** GEVERIFIEERD (VERIFIED): getest tegen de uitgewerkte voorbeelden S08-WE05 tot S08-WE08 en S09-WE03 en tegen de sigmatabellen van de cursus (deck p. 21, Van Volsem p. 7); één gedrukte waarde wijkt af (zie resources/build/README.md)
@@ -91,7 +89,7 @@ Offline rekenbladen (calculators) voor het Black Belt-examen. Gemaakt door `src/
 - **Doel:** Controlegrenzen (control limits) en centrale lijnen van de X̄-R- en X̄-s-kaart, de σ-schattingen R̄/d2 en s̄/c4, en een markering voor elke subgroep buiten de grenzen; de Western Electric-regels om de kaart te lezen.
 - **Invoer:** subgroepen als ruwe waarden (tot 10 per rij) of als getypte x̄ en R (en s) met n.
 - **Bron in de cursus:** source/course/Les 4/2026 Lean - Six Sigma v13 - Capabiliteit - SPC.pdf p. 54-58, 62-74; ___4.1 tabellen SPC.pdf p. 1-2; Les 5/20260619_ottoy_Rheostat Knob Data.xls
-- **Conventie:** Beslissing 4: constanten uit Table 18 (A2, D3, D4, B3, B4, d2), Table A (c4), Six Sigma Demystified (A3); 3σ-grenzen. I-MR-, p- en u-kaart: blad Extra (boeken), niet te kennen.
+- **Conventie:** Beslissing 4: constanten uit Table 18 (A2, D3, D4, B3, B4, d2), Table A (c4), Six Sigma Demystified (A3); 3σ-grenzen.
 - **Status:** GEVERIFIEERD (VERIFIED): getest tegen de uitgewerkte voorbeelden van de cursus S06-WE03, S06-WE05, S06-WE06, S10-WE04a, S10-WE04b (en S08-WE18 uit Dummies; extra, niet te kennen); enkele gedrukte waarden wijken af (resources/build/README.md)
 - **Audit:** niet nodig (er bestaan uitgewerkte voorbeelden in de cursus)
 - **Gedrukte cursuswaarden die niet kloppen met de berekening** (zoals gedrukt bewaard in het orakel; getest als strikte verwachte mislukkingen, strict xfail):
@@ -163,21 +161,6 @@ Offline rekenbladen (calculators) voor het Black Belt-examen. Gemaakt door `src/
 - **Conventie:** Onafhankelijk in de tabel zelf als P(Y | X) = P(Y) voor elke rij (zoals Data p. 25); is de tabel een steekproef, dan de χ²-toets (α vooraf ingevuld op 0,05, beslissing 5). P(niet G) = 1 − P(G) is algemene kansrekening.
 - **Status:** GEVERIFIEERD (VERIFIED): getest tegen het uitgewerkte cursusvoorbeeld S02-WE01 (Data p. 24-25), als kruistabel en als ruwe data; χ² tegen scipy
 - **Audit:** niet nodig (er bestaat een uitgewerkt cursusvoorbeeld)
-
-## Extra (boeken): Extra: rekenblokken uit Six Sigma For Dummies en Harry & Schroeder (niet te kennen voor het examen)
-
-- **Doel:** Rekenblokken die alleen uit Six Sigma For Dummies en Harry & Schroeder komen (niet te kennen voor het examen): DPU, throughput yield, RTY ≈ e^(−DPU); traditionele yield, first-time yield, verborgen fabriek (hidden factory); RTY uit stapyields, genormaliseerde yield en eenheden nodig per goede eenheid; RTY van k gelijke stappen (dobbelstenen); gemiddelde yield per defectkans; Cp, Cpk en % buiten specificatie met σ̂ = MR̄ / 1,128; regelkaarten voor individuele waarden (I-MR), p-kaart en u-kaart.
-- **Invoer:** per blok: defecten en eenheden; eenheden in, uit, afgekeurd, herwerkt; tot 10 stapyields; een RTY en het aantal stappen; één stapyield en k; een eindyield en het aantal kansen; LSL, USL, gemiddelde en MR̄; individuele waarden; subgroepgroottes met defecte stuks (p) of defecten (u). Yields als fracties (0,95 = 95 %).
-- **Bron in de cursus:** source/course/Les 4/Six Sigma For Dummies.pdf p. 38-39, 114-116, 147-156, 249-256; source/course/Les 4/Six-Sigma Mikel Harry -  Richard Schroeder.pdf p. 3-5
-- **Conventie:** Formules zoals in het boek; yields als fracties (0,95 = 95 %). Sigmaniveau met de 1,5σ-verschuiving (1.5σ shift) van de cursus (deck p. 37, beslissing 3); d2, D3, D4 voor n = 2 uit Tabel 18, E2 uit Six Sigma Demystified (beslissing 4); een negatieve ondergrens wordt 0.
-- **Status:** GEVERIFIEERD (VERIFIED): getest tegen de uitgewerkte voorbeelden uit de boeken S07-WE01, S08-WE01 tot S08-WE04, S08-WE21, S09-WE01, S09-WE03 tot S09-WE06; enkele gedrukte waarden wijken af (zie resources/build/README.md)
-- **Audit:** niet nodig (er bestaan uitgewerkte voorbeelden in de boeken)
-- **Gedrukte cursuswaarden die niet kloppen met de berekening** (zoals gedrukt bewaard in het orakel; getest als strikte verwachte mislukkingen, strict xfail):
-  - Dummies p. 148 (S08-WE02): verborgen fabriek '98.6% - 70.7% = 27.9%' trekt afgeronde waarden af; niet afgerond 27,84 %.
-  - Harry & Schroeder p. 3 (S09-WE01): product B '(0.968)**(1/48) = 99.97%'; berekend 99,932 %, en 'about 3.5 sigma' (zonder verschuiving) geeft 3,20.
-  - Dummies p. 256 (S08-WE21): bovengrens van de u-kaart gedrukt als '2379' zonder decimaalteken; berekend 2,379 voor de laatste subgroep (n = 65). Centrale lijn en ondergrens komen overeen.
-  - Dummies p. 251 en 255 (S08-WE19, S08-WE20): afgelezen kaarten zonder de gegevens of subgroepgrootte erachter; niet gebruikt als testdoel.
-  - Harry & Schroeder p. 5 (S09-WE05): genormaliseerde yield gedrukt als '(0.368)**(-10) = 0.9051'; de k-de machtswortel die de tekst definieert geeft 0,368^(1/10) = 0,9049.
 
 ## Tabellen: Tabellen: constanten voor regelkaarten (control charts), capabiliteit en MSA
 
