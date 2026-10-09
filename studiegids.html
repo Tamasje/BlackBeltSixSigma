@@ -21932,15 +21932,29 @@ if (typeof module !== 'undefined') module.exports = Calc;
                       rows.length ? { xbb: xbb, rbar: rbar, g: g, m: m } : {});
       } },
     { title: 'Is de meeteenheid fijn genoeg? (MSA p. 30)',
-      help: 'Zonder R̄: het grensgeval σ = MU.',
-      form: inp('n', 'n (subgroepgrootte)') + inp('mu', 'meeteenheid MU') + inp('rbar', 'R̄ (optioneel)'),
+      help: 'Zonder R̄: het grensgeval σ = MU. Laat je MU leeg, dan rekent de rekenmachine in eenheden MU (MU = 1). ' +
+            'Zonder R̄ krijg je ook de tabel voor n = 2 tot 10 (en jouw n), zoals in de oplossing van oefening 11.15.',
+      form: inp('n', 'n (subgroepgrootte)') + inp('mu', 'meeteenheid MU (leeg = 1: alles in MU)') + inp('rbar', 'R̄ (optioneel)'),
       run: function (v) {
-        var r = Calc.discrimination(v.n, v.mu, v.rbar, K);
+        var mu = num(v.mu) ? v.mu : 1, r = Calc.discrimination(v.n, mu, v.rbar, K);
         if (!r) return '';
         if (r.error) return warn(r.error);
+        var table = '';
+        if (r.borderline) {   // the border case σ = MU for every subgroup size: the table of the solution of exercise 11.15
+          var last = Math.max(10, v.n), body = [];
+          for (var m = 2; m <= last; m++) {
+            var q = Calc.discrimination(m, mu, null, K);
+            if (!q || q.error) continue;
+            var inMu = q.values.map(function (x) { return Math.round(x / mu); });
+            body.push([(m === v.n ? '<b>' + m + '</b>' : String(m)), f(q.lcl / mu), f(q.ucl / mu), f(q.width), q.values.length + ' (' + inMu[0] + '–' + inMu[inMu.length - 1] + ')',
+                       q.tooCoarse ? 'te grof' : 'voldoende']);
+          }
+          table = '<p class="lbl">grensgeval σ = MU voor andere subgroepgroottes (grenzen van de R-kaart in MU; jouw n vet)</p>' +
+            grid(['n', 'LCL (MU)', 'UCL (MU)', 'UCL − LCL', 'mogelijke rangewaarden', 'oordeel'], body);
+        }
         return out([[r.borderline ? 'R̄ = d2·MU (grensgeval σ = MU)' : 'R̄', f(r.rbar)], ['LCL<sub>R</sub> ; UCL<sub>R</sub>', f(r.lcl) + ' ; ' + f(r.ucl)],
                     ['breedte in MU', f(r.width)], ['mogelijke waarden', r.values.map(function (x) { return f(x); }).join(' ; ') + ' (' + r.values.length + ')'],
-                    ['oordeel', r.tooCoarse ? '<b class="flag">meeteenheid te grof</b> (≤ ' + r.limit + ' waarden)' : 'voldoende (meer dan ' + r.limit + ' waarden)']]);
+                    ['oordeel', r.tooCoarse ? '<b class="flag">meeteenheid te grof</b> (≤ ' + r.limit + ' waarden)' : 'voldoende (meer dan ' + r.limit + ' waarden)']]) + table;
       } }
   ];
 
