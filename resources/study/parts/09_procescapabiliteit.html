@@ -4,9 +4,6 @@
   de spreiding binnen de specificatie, en ligt het proces op de juiste plaats? Als extra volgt een volledig
   capabiliteitsrapport uit Minitab (<a href="#d09-minitab">09.10</a>).</p>
 
-  <p class="small">Paginaverwijzingen zijn PDF-paginanummers (= dianummer in de .pptx; het nummer onderaan de dia is
-  meestal één lager). Waarden met <span class="computed">zelf berekend</span> komen uit <code>study/parts/09_numbers.py</code>.</p>
-
   <!-- ============================================================ 09.1 -->
   <section class="unit" id="d09-stabiliteit" data-kw="stabiliteit; stability; stabiel; stable; in control; beheerst; common cause; gewone oorzaak; special cause; speciale oorzaak; systematische oorzaak; aanwijsbare oorzaak; assignable cause; voorspelbaar; predictable; korte termijn; lange termijn">
     <h3>09.1 Eerst stabiliteit: gewone en speciale oorzaken <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=30">SPC p. 30–32</a> <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=38">SPC p. 38–39</a></h3>
@@ -52,7 +49,6 @@
     <figcaption>Figuur: links "Stable &amp; Predictable": de verdeling is om 8 h, 9 h, 10 h en 11 h dezelfde, dus voorspelbaar ("Capable"); rechts "Unstable &amp; Unpredictable": ligging en vorm veranderen elk uur ("Not capable"). <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=38">SPC p. 38</a></figcaption></figure>
     <p>Of een proces stabiel is, toon je aan met een regelkaart (<a href="#d10">Deel 10</a>), niet met een capabiliteitsindex. De indices
     van 09.2 tot 09.6 meten iets anders: hoe de stabiele verdeling zich verhoudt tot de specificatie.</p>
-    <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-09-termijn">14 Dummies: korte- en lange-termijnvariatie en entitlement</a>.</p>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"Een capabel proces is ook stabiel."</b> Fout: stabiliteit en capabiliteit zijn aparte vragen (<a href="#d09-matrix">09.8</a>). Stabiliteit toon je aan met een regelkaart, niet met Cp of Cpk.</li>
@@ -159,7 +155,6 @@
     meteen de uitval aan de slechtste kant: \(\sym{z}{z}=3\times\sym{cpk}{C_{pk}}\) en de staart is \(P(\sym{z_rv}{Z}\gt\sym{z}{z})\) (<a href="#d09-uitval">09.5</a>).
     Zo rekent de uitwerking van de as-oefening (<a href="#d09-as">09.9</a>) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=46">SPC p. 46</a>: \(\frac{72{,}1-71{,}4}{0{,}2}=3{,}5\sym{sigma}{\sigma}\).</p>
     </div>
-    <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-09-cpk">14 Dummies: CPU en CPL met σ<sub>ST</sub>, negatieve Cpk en de vuistregel Cpk &gt; 1,33</a>.</p>
     <div class="calc-here" data-tool="capabiliteit" data-blocks="1"></div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
@@ -226,8 +221,7 @@
     heten er "Actual (overall) capability": wat de klant ervaart <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=51">SPC p. 51</a>.</p>
 
     <h4>Welke σ? De cursus gebruikt er meerdere</h4>
-    <p>De cursus legt geen enkele schatting van \(\sigma\) op; ze gebruikt verschillende naargelang de gegevens (beslissing 1 in
-    <code>inventory/conventions.md</code>). Vermeld daarom altijd welke je neemt. De symbolen:</p>
+    <p>De cursus legt geen enkele schatting van \(\sigma\) op; ze gebruikt verschillende naargelang de gegevens. Vermeld daarom altijd welke je neemt. De symbolen:</p>
     <ul>
       <li>\(\sym{n_sub}{n}\) = <b>subgroepgrootte</b>: het aantal metingen per subgroep (bv. steekproeven van 5). Niet het aantal subgroepen.</li>
       <li>\(\sym{rbar}{\bar{R}}\) = <b>gemiddelde range</b>: per subgroep max − min, dan het gemiddelde over de subgroepen (van de \(\bar{X}\)-R-kaart).</li>
@@ -255,7 +249,6 @@
       <tr><th>\(c_{4}\)</th><td class="n">0,7979</td><td class="n">0,8862</td><td class="n">0,9213</td><td class="n">0,9400</td><td class="n">0,9515</td><td class="n">0,9594</td><td class="n">0,9650</td><td class="n">0,9693</td><td class="n">0,9727</td></tr>
     </table>
     <p class="small">Meer constanten \((A_{2},D_{3},D_{4},\ldots)\): werkblad <b>Tabellen</b>.</p>
-    <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-09-mr">14 Dummies: σ<sub>ST</sub> uit individuele waarden, MR̄/1,128</a>.</p>
     <div class="calc-here" data-tool="capabiliteit" data-blocks="0"></div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
@@ -263,7 +256,7 @@
       <li><b>"Pp en Ppk liggen hoger dan Cp en Cpk, want ze gebruiken meer data."</b> Fout: normaal is \(\sym{sigma_lt}{\sigma_{\mathrm{LT}}}\ge\sym{sigma_st}{\sigma_{\mathrm{ST}}}\): de lange termijn bevat ook de verschuivingen tussen de groepen, zodat de lange-termijncurve breder is dan die van elke groep (figuur hierboven, <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=25">SPC p. 25</a>). Dus \(\sym{pp}{P_{p}}\le\sym{cp}{C_{p}}\) en \(\sym{ppk}{P_{pk}}\le\sym{cpk}{C_{pk}}\). Een uitzondering staat in <a href="#d09-minitab">09.10</a>.</li>
       <li><b>"Potential (within) capability is wat de klant ervaart."</b> Fout: wat de klant ervaart is Actual (overall), met Pp en Ppk <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=51">SPC p. 51</a>. Potential (Cp, Cpk) is wat haalbaar is als verschuivingen en drift weg zijn.</li>
       <li><b>Let op:</b> \(\sym{sigma}{\sigma}=\frac{\sym{rbar}{\bar{R}}}{\sym{d2}{d_{2}}}\), niet \(\bar{R}\) zelf. De constante hangt af van de subgroepgrootte, niet van het aantal subgroepen: \(\sym{n_sub}{n}=5\) geeft \(\sym{d2}{d_{2}}=2{,}326\) <a class="p" href="../source/course/Les%204/___4.1%20tabellen%20SPC.pdf#page=1">Tabellen SPC p. 1</a>.</li>
-      <li><b>"De cursus schrijft voor welke \(\sigma\) je gebruikt."</b> Fout: de cursus gebruikt er meerdere (beslissing 1). Het maakt uit: in de as-oefening geeft \(\sym{sigma}{\sigma}=\sym{sbar}{\bar{s}}\) als resultaat \(\sym{cp}{C_{p}}=1{,}1667\), en \(\sym{sigma}{\sigma}=\frac{\sym{sbar}{\bar{s}}}{\sym{c4}{c_{4}}}\) geeft \(\sym{cp}{C_{p}}=1{,}097\) <span class="computed">zelf berekend</span> (<a href="#d09-as">09.9</a>). Vermeld welke \(\sigma\) je neemt.</li>
+      <li><b>"De cursus schrijft voor welke \(\sigma\) je gebruikt."</b> Fout: de cursus gebruikt er meerdere. Het maakt uit: in de as-oefening geeft \(\sym{sigma}{\sigma}=\sym{sbar}{\bar{s}}\) als resultaat \(\sym{cp}{C_{p}}=1{,}1667\), en \(\sym{sigma}{\sigma}=\frac{\sym{sbar}{\bar{s}}}{\sym{c4}{c_{4}}}\) geeft \(\sym{cp}{C_{p}}=1{,}097\) <span class="computed">zelf berekend</span> (<a href="#d09-as">09.9</a>). Vermeld welke \(\sigma\) je neemt.</li>
     </ul></div>
 
     <div class="exercise" id="ex-09-2" data-kw="Pp; Ppk; Cp; Cpk; within; overall; potential; actual; σ-schatting; sigma estimate; totale s; R̄/d2; korte termijn; lange termijn">
@@ -297,7 +290,7 @@
     <div class="box tool"><span class="t">Rekentool</span>
     <p>Werkblad <b>Capabiliteit</b>, sectie "Spreiding": vul alleen in wat de vraag geeft (\(\sigma\), \(\bar{R}\) met n, \(\bar{s}\) met n of de totale s).
     Sectie "Resultaten" geeft per \(\sigma\)-schatting een eigen rij met Cp, Cpk (of Pp, Ppk voor de totale s) en het % buiten specificatie.
-    MR̄ / 1,128 (alleen uit de boeken) staat op werkblad <b>Extra (boeken)</b>. De constanten komen uit werkblad <b>Tabellen</b>.</p>
+    De constanten komen uit werkblad <b>Tabellen</b>.</p>
     </div>
   </section>
 
@@ -465,7 +458,6 @@
     dicht bij één grens gaan zitten om verbruik te sparen, zoals de zinklaag dicht bij de minimale dikte. Teamwerk
     opent nog een derde weg: "widen specification limits" (bredere specificaties met de klant
     afspreken) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=23">SPC p. 23</a>.</p>
-    <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-09-verbeterplan">14 Dummies: een verbeterplan uit Cp, Cpk, Pp en Ppk</a>.</p>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>

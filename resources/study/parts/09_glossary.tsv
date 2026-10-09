@@ -7,7 +7,6 @@ gewone oorzaak	common cause	d09-stabiliteit
 speciale oorzaak	special cause	d09-stabiliteit
 systematische oorzaak	systematic cause	d09-stabiliteit
 aanwijsbare oorzaak	assignable cause	d09-stabiliteit
-entitlement (haalbare minimale variatie)	entitlement	d14-09-termijn
 capabiliteitsindex Cp	process capability index (Cp)	d09-cp
 tolerantie	tolerance (specification width)	d09-cp
 bovenste specificatiegrens	upper specification limit (USL, UL)	d09-cp
@@ -30,7 +29,6 @@ technische definitie van Six Sigma	technical definition of Six Sigma	d09-sixsigm
 6σ-criterium	six sigma criterion	d09-sixsigma
 spreiding verminderen	variation reduction	d09-verbeteren
 procesingenieur	process engineer	d09-verbeteren
-capabiliteitsverbeterplan	capability improvement plan	d14-09-verbeterplan
 gidstabel	guide table	d09-matrix
 potentieel capabel	potentially capable	d09-matrix
 sorteerinspectie	screening inspection	d09-matrix

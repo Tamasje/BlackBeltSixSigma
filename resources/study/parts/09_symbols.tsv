@@ -18,8 +18,6 @@ rbar	\(\bar{R}\)	Gemiddelde spreidingsbreedte (average range) van de subgroepen.
 d2	\(d_{2}\)	Constante die \(\bar{R}\) omzet in een schatting van \(\sigma\); hangt af van de subgroepgrootte n.	Table 18 of Table A (Tabellen SPC p. 1–2), rij \(n=\) subgroepgrootte (niet het aantal subgroepen): \(n=5\) geeft 2,326.	d09-ppk
 sbar	\(\bar{s}\)	Gemiddelde van de standaardafwijkingen van de subgroepen (average standard deviation).	Uit de s-kaart of gegeven. De as-oefening gebruikt \(\bar{s}=0{,}2\) rechtstreeks als \(\sigma\); zuiverder is \(\frac{\bar{s}}{c_{4}}\).	d09-ppk
 c4	\(c_{4}\)	Correctiefactor die \(\bar{s}\) zuiver maakt (bias correction factor); hangt af van n.	Table A (Tabellen SPC p. 1), rij \(n=\) subgroepgrootte: \(n=5\) geeft 0,9400. \(\sigma=\frac{\bar{s}}{c_{4}}\).	d09-ppk
-mrbar	MR̄	Gemiddelde moving range: gemiddeld verschil tussen opeenvolgende individuele waarden.	Gemiddelde van \(|x_{i}-x_{i+1}|\) over de n − 1 opeenvolgende paren, in de volgorde van meten (Dummies p. 116). \(\sigma_{\mathrm{ST}}=\) MR̄/1,128.	d14-09-mr
-d2_n2	1,128	De constante \(d_{2}\) voor subgroepgrootte \(n=2\) (twee opeenvolgende waarden).	Table 18 of Table A, rij \(n=2\); Dummies p. 116. Gebruik: \(\sigma_{\mathrm{ST}}=\) MR̄/1,128.	d14-09-mr
 n_sub	n	Subgroepgrootte (subgroup size): aantal metingen per subgroep.	Gegeven (as-oefening: steekproeven van 5). Bepaalt \(d_{2}\) en \(c_{4}\); niet verwarren met het aantal subgroepen.	d09-ppk
 n_total	n	Totaal aantal waarnemingen (all data), over alle subgroepen samen.	Tel alle metingen (20 subgroepen van 5 = 100). Deler n − 1 in \(\sigma_{\mathrm{LT}}\).	d09-ppk
 xi	\(x_{i}\)	De i-de individuele meting (individual value).	Uit de data; voor \(\sigma_{\mathrm{LT}}\) neem je alle waarden samen.	d09-ppk

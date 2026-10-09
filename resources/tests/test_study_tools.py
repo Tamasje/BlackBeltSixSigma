@@ -230,6 +230,98 @@ def test_one_mean_partial_results_before_xbar() -> None:
     assert r["z"].get("ci") is None and r.get("t") is None
 
 
+def test_one_mean_gives_critical_values_from_alpha_and_n_alone() -> None:
+    # arrange -- no σ, no s, no x̄: only n = 10 and α = 0,05
+    alpha, n = 0.05, 10
+    # act
+    r, only_alpha = run_js([("Calc.oneMean", [n, None, None, None, None, alpha]), ("Calc.oneMean", [None, None, None, None, None, alpha])])
+    # assert -- z needs only α; t needs α and n (df = n − 1); with nothing at all there is no result
+    assert r["df"] == n - 1 and r.get("z") is None and r.get("t") is None
+    assert only_alpha["n"] is None and only_alpha["df"] is None
+    assert run_js([("Calc.oneMean", [None, None, None, None, None, None])])[0] is None
+
+
+def test_interval_probabilities_from_k_alone() -> None:
+    # arrange -- exercise 06.2: a centred process with specification µ ± 3σ and µ ± 4σ; only k is known
+    # act
+    r3, r4 = run_js([("Calc.normalInterval", [{"k": 3}]), ("Calc.normalInterval", [{"k": 4}])])
+    # assert
+    assert r3["inside"] == pytest.approx(2 * stats.norm.cdf(3) - 1, rel=1e-12)
+    assert r3["outside"] == pytest.approx(2 * stats.norm.sf(3), rel=1e-12)
+    assert r4["outside"] * 1e6 == pytest.approx(2 * stats.norm.sf(4) * 1e6, rel=1e-12)
+    assert r3["za"] == -3 and r3["zb"] == 3
+
+
+def test_two_sample_blocks_show_what_their_inputs_allow() -> None:
+    # arrange
+    alpha = 0.05
+    # act -- n1, n2 and α only; the two means only; paired with n and α only; one proportion's p1 only
+    crit, diff, paired, props = run_js([
+        ("Calc.twoMeansPooled", [10, None, None, 12, None, None, None, alpha]),
+        ("Calc.twoMeansPooled", [None, 5.0, None, None, 4.0, None, None, alpha]),
+        ("Calc.paired", [12, None, None, None, alpha]),
+        ("Calc.twoProportions", [100, 10, None, None, alpha])])
+    # assert -- df and critical t from n1, n2 and α; the difference from the means; no s_p without both s
+    assert crit["df"] == 20 and crit["c2"] == pytest.approx(stats.t.ppf(1 - alpha / 2, 20), rel=1e-9) and crit.get("sp") is None
+    assert diff["diff"] == 1.0 and diff.get("df") is None
+    assert paired["df"] == 11 and paired["c1"] == pytest.approx(stats.t.ppf(1 - alpha, 11), rel=1e-9) and paired.get("se") is None
+    assert props["p1"] == pytest.approx(0.1) and props.get("p2") is None and props["c2"] == pytest.approx(stats.norm.ppf(1 - alpha / 2))
+
+
+def test_power_and_variance_ratio_partial_results() -> None:
+    # arrange
+    alpha = 0.05
+    # act
+    spread, shift_n, ratio = run_js([("Calc.powerMean", [None, None, 2.0, 25, alpha, None]),
+                                     ("Calc.powerMean", [10, 11, 2.0, None, alpha, 0.1]),
+                                     ("Calc.twoVariances", [None, 2.0, None, 3.0, alpha])])
+    # assert -- σ/√n and z without µ0; the n for a target β without any n; F = s1²/s2² without n1 and n2
+    assert spread["se"] == pytest.approx(0.4) and spread["z1"] == pytest.approx(stats.norm.ppf(1 - alpha)) and spread.get("gt") is None
+    expected_n = ((stats.norm.ppf(1 - alpha) + stats.norm.ppf(1 - 0.1)) * 2.0 / 1.0) ** 2
+    assert shift_n["nOneSided"] == pytest.approx(expected_n, rel=1e-9)
+    assert ratio["F"] == pytest.approx(4 / 9) and ratio.get("crit") is None
+
+
+def test_regression_summary_blocks_show_what_their_inputs_allow() -> None:
+    # arrange
+    alpha = 0.05
+    # act
+    sums, ss, tests, partial, bias = run_js([
+        ("Calc.regSums", [20, 23.92, 1843.21, None, None, None]),
+        ("Calc.regFromSS", [None, None, 15, 2, alpha]),
+        ("Calc.regTests", [None, None, 4.0, 10.0, 12, None, None, alpha, None, None]),
+        ("Calc.partialF", [None, None, 2, 20, alpha]),
+        ("Calc.biasTest", [6.1, None, 5, 3, 6.0, alpha, "@M"])])
+    # assert
+    assert sums["xbar"] == pytest.approx(23.92 / 20) and sums["ybar"] == pytest.approx(1843.21 / 20) and sums.get("b1") is None
+    assert ss["dfE"] == 12 and ss["Fcrit"] == pytest.approx(stats.f.isf(alpha, 2, 12), rel=1e-9) and ss.get("F") is None
+    assert tests["seB1"] == pytest.approx(math.sqrt(4.0 / 10.0)) and tests["tcrit"] == pytest.approx(stats.t.ppf(1 - alpha / 2, 10), rel=1e-9)
+    assert partial["Fcrit"] == pytest.approx(stats.f.isf(alpha, 2, 20), rel=1e-9) and partial.get("F") is None
+    assert bias["bias"] == pytest.approx(0.1) and bias["tcrit"] > 0 and bias.get("t") is None
+
+
+def test_acceptance_blocks_show_what_their_inputs_allow() -> None:
+    # arrange -- a double plan with only the first sample, a skip-lot plan without the clean last samples, Deming with k1, k2
+    # act
+    double, skip, deming = run_js([("Calc.doublePlan", [50, 1, 4, None, None, 0.02, None]),
+                                   ("Calc.skipLot", [0.01, 80, None, None, None]),
+                                   ("Calc.deming", [None, 1.0, 20.0])])
+    # assert
+    assert double["acc1"] == pytest.approx(stats.binom.cdf(1, 50, 0.02), rel=1e-12)
+    assert double["rej1"] == pytest.approx(stats.binom.sf(3, 50, 0.02), rel=1e-12) and double.get("oc") is None
+    assert skip["lastOne"] == pytest.approx(stats.binom.pmf(0, 80, 0.01)) and skip.get("pq") is None
+    assert deming["breakEven"] == pytest.approx(0.05) and deming.get("decision") is None
+
+
+def test_capability_with_both_limits_and_only_cpk_bounds_the_fraction_outside() -> None:
+    # arrange -- Cpk = 1,33 with LSL = 4, USL = 8 and no µ or σ
+    # act
+    r = run_js([("Calc.capabilitySolve", [{"lsl": 4, "usl": 8, "cpk": 1.33}])])[0]
+    # assert -- the tail beyond the nearest limit is Φ(−3·Cpk); the other tail is at most as large
+    near = stats.norm.cdf(-3 * 1.33)
+    assert r["nearTail"] == pytest.approx(near, rel=1e-9) and r["outRange"] == pytest.approx([near, 2 * near], rel=1e-9)
+
+
 def test_partial_results_of_proportion_variance_power_and_tolerance() -> None:
     # arrange -- only the inputs that fix the critical values; the sample statistic is still missing
     n, pi0, sigma0, alpha = 200, 0.02, 0.01, 0.05

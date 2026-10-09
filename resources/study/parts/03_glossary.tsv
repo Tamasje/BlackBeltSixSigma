@@ -35,20 +35,12 @@ defect	defect	d03-dpmo
 defectief (product)	defective	d03-dpmo
 opportuniteit (kans op een defect)	opportunity	d03-dpmo
 eenheid	unit	d03-dpmo
-defecten per eenheid	defects per unit (DPU)	d14-03-dpu
 defecten per opportuniteit	defects per opportunity (DPO)	d03-dpmo
 defecten per miljoen opportuniteiten	defects per million opportunities (DPMO)	d03-dpmo
 delen per miljoen	parts per million (PPM)	d03-dpmo
 opbrengst	yield	d03-dpmo
-traditionele yield	traditional yield (Y)	d14-03-yield
-first time yield	first time yield (FTY)	d14-03-yield
-rolled throughput yield	rolled throughput yield (RTY)	d14-03-yield
-throughput yield	throughput yield (TY)	d14-03-dpu
-genormaliseerde yield	normalized yield (NY)	d14-03-yield
 verborgen fabriek	hidden factory	d03-yield
 herbewerking	rework	d03-yield
 afkeur	scrap	d03-yield
 sigmaniveau	sigma level	d03-sigma
 1,5σ-verschuiving	1.5 sigma shift	d03-sigma
-korte-termijnsigmascore	short-term sigma score (Z_ST)	d14-03-sigmatabel
-lange-termijnsigmascore	long-term sigma score (Z_LT)	d14-03-sigmatabel

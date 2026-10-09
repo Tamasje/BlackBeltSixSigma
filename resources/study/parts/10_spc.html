@@ -3,8 +3,7 @@
   <p class="intro">Statistische procesbeheersing (statistical process control, SPC) bewaakt of een proces stabiel
   blijft: je neemt regelmatig een kleine steekproef, zet het resultaat uit op een regelkaart en grijpt pas in als de
   kaart een signaal geeft. Dit deel behandelt de regelkaarten voor metingen (\(\bar{X}\)-R en \(\bar{X}\)-s), de regels om een kaart te
-  lezen en zes SPC-oefeningen met hun uitgewerkte rekenbladen (deck "Capabiliteit – SPC", SPC p. 54–89). De I-MR-, p- en u-kaart staan alleen in Six Sigma For Dummies en
-  zijn niet te kennen voor het examen.</p>
+  lezen en zes SPC-oefeningen met hun uitgewerkte rekenbladen (deck "Capabiliteit – SPC", SPC p. 54–89).</p>
 
   <!-- ====================================================================================== 10.1 -->
   <section class="unit" id="d10-wat" data-kw="SPC; statistische procesbeheersing; statistical process control; regelkaart; controlekaart; control chart; stabiel proces; stable process; common cause; special cause; gewone oorzaak; speciale oorzaak; aanwijsbare oorzaak; assignable cause; centrale limietstelling; central limit theorem; Control-fase; sustain">
@@ -175,10 +174,9 @@
     wat te doen bij een alarm.</p>
     <figure class="fig"><img src="figures/10_ospc_schermen.png" alt="Twee schermen van online SPC voor diktemeters in mm, met de meetreeks in een groene middenband en oranje gearceerde zones bij de tolerantiegrenzen, en een OCAP-icoon">
     <figcaption>Figuur: twee OSPC-schermen van diktemeters (mm). De meetreeks loopt door een groene middenband; de oranje gearceerde zones liggen bij de tolerantiegrenzen. Links blijft de reeks in de groene band, met twee gemarkeerde punten bij de bovenste grens; rechts schiet de reeks een paar keer ver uit, tot in en voorbij de gearceerde zones. Het OCAP-icoon op het scherm opent het actieplan. <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=89">SPC p. 89</a></figcaption></figure>
-    <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-10-opzet">14 Dummies: rationele subgroepen en 25 subgroepen</a>.</p>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>Let op:</b> de cursus noemt twee minima: 20 subgroepen <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=58">SPC p. 58</a> en 25 in het Minitab-rapport bij een capabiliteitsanalyse <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=80">SPC p. 80</a>. Noem op het examen allebei, met de bron (beslissing 13).</li>
+      <li><b>Let op:</b> de cursus noemt twee minima: 20 subgroepen <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=58">SPC p. 58</a> en 25 in het Minitab-rapport bij een capabiliteitsanalyse <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=80">SPC p. 80</a>. Noem op het examen allebei, met de bron.</li>
       <li><b>"Tijdens het verzamelen van leerdata stuur je het proces extra zorgvuldig bij."</b> Fout: laat het proces ongemoeid lopen volgens de standaardprocedures <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=58">SPC p. 58</a>.</li>
       <li><b>"Bij een alarm onderzoekt het management meteen de oorzaak."</b> Fout: eerst doorloopt de operator het OCAP (diagnosefase); pas als dat geen antwoord geeft, onderzoekt het management het geval en past het OCAP aan (engineeringfase) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=59">SPC p. 59</a>.</li>
     </ul></div>
@@ -230,7 +228,6 @@
     "0,30 % totaal" <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=18">SPC p. 18</a>. De kans dat een punt van een stabiel proces buiten de grenzen valt, is dus maar 0,3 %. Zo'n
     punt is zo onwaarschijnlijk dat je een speciale oorzaak vermoedt: de grenzen scheiden op basis van kansen gewone en
     speciale oorzaken <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=57">SPC p. 57</a>.</p>
-    <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-10-formules">14 Dummies: de X̄-R- en X̄-s-kaart</a>.</p>
     <div class="calc-here" data-tool="regelkaart" data-blocks="3"></div>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
@@ -350,7 +347,6 @@
     tussen bronnen.</p>
     </div>
 
-    <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-10-formules">14 Dummies: de X̄-R- en X̄-s-kaart</a>.</p>
     <div class="calc-here" data-tool="regelkaart" data-blocks="0 1"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
@@ -448,7 +444,6 @@
     als tekst op het blad ("De kaart lezen: Western Electric-regels"): die controleer je zelf met de zones \(\left(\sym{sigma_zone}{\sigma}=\frac{\sym{ucl}{\mathrm{UCL}}-\sym{cl}{\mathrm{CL}}}{3}\right)\).</p>
     </div>
 
-    <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-10-regels">14 Dummies: regels en patronen op een regelkaart</a>.</p>
     <div class="calc-here" data-tool="regelkaart" data-blocks="4"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>

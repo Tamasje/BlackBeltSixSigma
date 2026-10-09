@@ -1,13 +1,13 @@
-<section class="part" id="d15" data-title="Deel 15 — Van gegevens naar methode" data-lecturer="" data-les="Examen">
-  <h2>Deel 15 — Van gegevens naar methode: wat krijg je, wat kan gevraagd worden, welk hulpmiddel?</h2>
+<section class="part" id="d14" data-title="Deel 14 — Van gegevens naar methode" data-lecturer="" data-les="Examen">
+  <h2>Deel 14 — Van gegevens naar methode: wat krijg je, wat kan gevraagd worden, welk hulpmiddel?</h2>
   <p class="intro">Weet je bij een opgave niet waar te beginnen, kijk dan eerst naar <b>wat je krijgt</b>: welk soort gegevens
   staat er in de opgave of in het bestand? Elke sectie hieronder start van één soort gegevens, somt op wat er typisch mee
   gevraagd wordt, en wijst naar de rekenmachine in deze gids, het werkblad in <code>bb_toolkit.xlsx</code> en de uitleg.
   De rekenmachines zijn hier ook ingevoegd, zodat je meteen kunt rekenen.</p>
 
-  <!-- ============================================================ 15.1 -->
-  <section class="unit" id="d15-start" data-kw="welke methode; which method; welke toets; which test; beslisboom; decision tree; wat moet ik doen; what to do; gegevens; data; opgave; question; stappenplan; aanpak">
-    <h3>15.1 Drie vragen voor je begint</h3>
+  <!-- ============================================================ 14.1 -->
+  <section class="unit" id="d14-start" data-kw="welke methode; which method; welke toets; which test; beslisboom; decision tree; wat moet ik doen; what to do; gegevens; data; opgave; question; stappenplan; aanpak">
+    <h3>14.1 Drie vragen voor je begint</h3>
     <ol class="steps">
       <li><b>Wat voor gegevens krijg ik?</b> Metingen op een schaal (lengte, gewicht, tijd: continu), goed/fout per stuk
       (0/1), aantallen defecten of gebeurtenissen, aantallen per categorie, paren (x, y), meerdere groepen of factoren,
@@ -20,24 +20,24 @@
     </ol>
     <table>
       <tr><th>Je krijgt …</th><th>Ga naar</th></tr>
-      <tr><td>één reeks metingen (of n, \(\bar{x}\), s), eventueel een norm of specificaties</td><td><a href="#d15-metingen">15.2</a></td></tr>
-      <tr><td>goed/defect per stuk: n stuks waarvan x defect, of een fractie p</td><td><a href="#d15-fractie">15.3</a></td></tr>
-      <tr><td>aantallen defecten per eenheid of per kans (opportunity), of gebeurtenissen per tijd</td><td><a href="#d15-defecten">15.4</a></td></tr>
-      <tr><td>aantallen per categorie (frequentietabel of kruistabel)</td><td><a href="#d15-categorie">15.5</a></td></tr>
-      <tr><td>twee reeksen metingen (twee machines, materialen, voor/na)</td><td><a href="#d15-twee">15.6</a></td></tr>
-      <tr><td>metingen bij meer dan twee groepen, of bij factoren op niveaus (proefopzet)</td><td><a href="#d15-groepen">15.7</a></td></tr>
-      <tr><td>paren (x, y) of een y met meerdere x'en</td><td><a href="#d15-verband">15.8</a></td></tr>
-      <tr><td>subgroepen metingen in de tijd, of \(\bar{\bar{X}}\), \(\bar{R}\), \(\bar{s}\)</td><td><a href="#d15-tijd">15.9</a></td></tr>
-      <tr><td>specificatiegrenzen met een gemiddelde en een spreiding</td><td><a href="#d15-capabiliteit">15.10</a></td></tr>
-      <tr><td>herhaalde metingen van dezelfde stukken door verschillende operatoren</td><td><a href="#d15-meetsysteem">15.11</a></td></tr>
-      <tr><td>een lot, een AQL en een steekproefplan (n, c)</td><td><a href="#d15-lot">15.12</a></td></tr>
-      <tr><td>voorspelde tegenover werkelijke klassen (confusion matrix)</td><td><a href="#d15-ml">15.13</a></td></tr>
+      <tr><td>één reeks metingen (of n, \(\bar{x}\), s), eventueel een norm of specificaties</td><td><a href="#d14-metingen">14.2</a></td></tr>
+      <tr><td>goed/defect per stuk: n stuks waarvan x defect, of een fractie p</td><td><a href="#d14-fractie">14.3</a></td></tr>
+      <tr><td>aantallen defecten per eenheid of per kans (opportunity), of gebeurtenissen per tijd</td><td><a href="#d14-defecten">14.4</a></td></tr>
+      <tr><td>aantallen per categorie (frequentietabel of kruistabel)</td><td><a href="#d14-categorie">14.5</a></td></tr>
+      <tr><td>twee reeksen metingen (twee machines, materialen, voor/na)</td><td><a href="#d14-twee">14.6</a></td></tr>
+      <tr><td>metingen bij meer dan twee groepen, of bij factoren op niveaus (proefopzet)</td><td><a href="#d14-groepen">14.7</a></td></tr>
+      <tr><td>paren (x, y) of een y met meerdere x'en</td><td><a href="#d14-verband">14.8</a></td></tr>
+      <tr><td>subgroepen metingen in de tijd, of \(\bar{\bar{X}}\), \(\bar{R}\), \(\bar{s}\)</td><td><a href="#d14-tijd">14.9</a></td></tr>
+      <tr><td>specificatiegrenzen met een gemiddelde en een spreiding</td><td><a href="#d14-capabiliteit">14.10</a></td></tr>
+      <tr><td>herhaalde metingen van dezelfde stukken door verschillende operatoren</td><td><a href="#d14-meetsysteem">14.11</a></td></tr>
+      <tr><td>een lot, een AQL en een steekproefplan (n, c)</td><td><a href="#d14-lot">14.12</a></td></tr>
+      <tr><td>voorspelde tegenover werkelijke klassen (confusion matrix)</td><td><a href="#d14-ml">14.13</a></td></tr>
     </table>
   </section>
 
-  <!-- ============================================================ 15.2 -->
-  <section class="unit" id="d15-metingen" data-kw="metingen; measurements; continu; continuous; reeks; series; gemiddelde; mean; standaardafwijking; standard deviation; norm; nominaal; nominal; BI gemiddelde; t-toets; z-toets; spreiding; variantie; tolerantie-interval; steekproefgrootte">
-    <h3>15.2 Je krijgt één reeks metingen</h3>
+  <!-- ============================================================ 14.2 -->
+  <section class="unit" id="d14-metingen" data-kw="metingen; measurements; continu; continuous; reeks; series; gemiddelde; mean; standaardafwijking; standard deviation; norm; nominaal; nominal; BI gemiddelde; t-toets; z-toets; spreiding; variantie; tolerantie-interval; steekproefgrootte">
+    <h3>14.2 Je krijgt één reeks metingen</h3>
     <p>Bijvoorbeeld 20 afmetingen van onderdelen, of alleen n, \(\bar{x}\) en s. Soms ook een nominale waarde (10 mm), een
     gekende \(\sigma\) of specificatiegrenzen.</p>
     <table>
@@ -56,9 +56,9 @@
     <div class="calc-here" data-tool="normaal" data-blocks="0 1"></div>
   </section>
 
-  <!-- ============================================================ 15.3 -->
-  <section class="unit" id="d15-fractie" data-kw="0/1; goed of defect; good or defective; fractie; fraction; proportie; proportion; percentage defectieven; fraction defective; pi; π; aantal defect; x op n; BI proportie; Z-toets proportie; binomiaal; binomial; AQL; twee proporties">
-    <h3>15.3 Je krijgt goed/defect per stuk (0/1-gegevens)</h3>
+  <!-- ============================================================ 14.3 -->
+  <section class="unit" id="d14-fractie" data-kw="0/1; goed of defect; good or defective; fractie; fraction; proportie; proportion; percentage defectieven; fraction defective; pi; π; aantal defect; x op n; BI proportie; Z-toets proportie; binomiaal; binomial; AQL; twee proporties">
+    <h3>14.3 Je krijgt goed/defect per stuk (0/1-gegevens)</h3>
     <p>Elk stuk is goed (0) of defect (1). Je krijgt dan n stuks waarvan x defect, of direct een fractie. De schatting van de
     ware fractie \(\pi\) is \(p=\frac{x}{n}\), het gemiddelde van de nullen en enen. Voorbeeld: 4 defecte tegels op 100 geeft
     \(p=0{,}04\) (<a href="#ex-04-6">oefening 04.6</a>).</p>
@@ -69,16 +69,16 @@
       <tr><td>"Verschilt lijn 1 van lijn 2?"</td><td>BI voor \(\pi_{1}-\pi_{2}\): ligt 0 erbuiten?</td><td><a href="#d04-pi">04.5</a></td></tr>
       <tr><td>"Hoeveel stuks moet je inspecteren voor een breedte W?"</td><td>steekproefgrootte met p (onbekend: 0,5)</td><td><a href="#d04-nauwkeurigheid">04.2</a></td></tr>
       <tr><td>"Wat is de kans op hoogstens 2 defecten in 50 stuks?"</td><td>binomiaal (of hypergeometrisch bij een klein lot)</td><td><a href="#d06-srs">06.4</a>; <a href="#ex-06-3">oefening 06.3</a></td></tr>
-      <tr><td>"Aanvaarden of afkeuren?" (met n, c en AQL)</td><td>steekproefplan: zie <a href="#d15-lot">15.12</a></td><td><a href="#d06-oc">06.9</a></td></tr>
+      <tr><td>"Aanvaarden of afkeuren?" (met n, c en AQL)</td><td>steekproefplan: zie <a href="#d14-lot">14.12</a></td><td><a href="#d06-oc">06.9</a></td></tr>
     </table>
     <p><b>Werkbladen:</b> Gemiddelde &amp; proportie (secties voor één en twee proporties), Verdelingen.</p>
     <div class="calc-here" data-tool="proportie" data-blocks="0 1"></div>
     <div class="calc-here" data-tool="steekproefgrootte" data-blocks="0"></div>
   </section>
 
-  <!-- ============================================================ 15.4 -->
-  <section class="unit" id="d15-defecten" data-kw="defecten; defects; aantal defecten; DPO; DPMO; DPU; opportunities; kansen per eenheid; yield; sigmaniveau; sigma level; Poisson; gebeurtenissen per tijd; events per interval; klanten per minuut; u-kaart">
-    <h3>15.4 Je krijgt aantallen defecten of gebeurtenissen</h3>
+  <!-- ============================================================ 14.4 -->
+  <section class="unit" id="d14-defecten" data-kw="defecten; defects; aantal defecten; DPO; DPMO; DPU; opportunities; kansen per eenheid; yield; sigmaniveau; sigma level; Poisson; gebeurtenissen per tijd; events per interval; klanten per minuut; u-kaart">
+    <h3>14.4 Je krijgt aantallen defecten of gebeurtenissen</h3>
     <p>Eén eenheid kan meerdere defecten hebben (een printplaat met 3 foute soldeerpunten), of je telt gebeurtenissen in een
     vast interval (klanten per minuut). Je krijgt D defecten op N eenheden met O kansen (opportunities) per eenheid, of een
     gemiddeld aantal \(\lambda\).</p>
@@ -93,9 +93,9 @@
     <div class="calc-here" data-tool="verdelingen" data-blocks="3"></div>
   </section>
 
-  <!-- ============================================================ 15.5 -->
-  <section class="unit" id="d15-categorie" data-kw="categorie; category; kruistabel; contingency table; frequentietabel; frequency table; voorwaardelijke kans; conditional probability; onafhankelijk; independent; chi-kwadraat; chi-square; goodness of fit; Bayes">
-    <h3>15.5 Je krijgt aantallen per categorie</h3>
+  <!-- ============================================================ 14.5 -->
+  <section class="unit" id="d14-categorie" data-kw="categorie; category; kruistabel; contingency table; frequentietabel; frequency table; voorwaardelijke kans; conditional probability; onafhankelijk; independent; chi-kwadraat; chi-square; goodness of fit; Bayes">
+    <h3>14.5 Je krijgt aantallen per categorie</h3>
     <p>Een tabel met aantallen, bijvoorbeeld per productielijn hoeveel stuks aanvaard en afgekeurd zijn (kruistabel), of hoe
     vaak elke uitkomst voorkomt (frequentietabel).</p>
     <table>
@@ -110,9 +110,9 @@
     <div class="calc-here" data-tool="chikwadraat" data-blocks="0 1"></div>
   </section>
 
-  <!-- ============================================================ 15.6 -->
-  <section class="unit" id="d15-twee" data-kw="twee groepen; two groups; twee machines; two machines; twee materialen; voor en na; before and after; gepaard; paired; niet-gepaard; unpaired; verschil gemiddelden; difference of means; F-toets; verhouding varianties; nauwkeuriger; Mann-Whitney; Wilcoxon">
-    <h3>15.6 Je krijgt twee reeksen metingen</h3>
+  <!-- ============================================================ 14.6 -->
+  <section class="unit" id="d14-twee" data-kw="twee groepen; two groups; twee machines; two machines; twee materialen; voor en na; before and after; gepaard; paired; niet-gepaard; unpaired; verschil gemiddelden; difference of means; F-toets; verhouding varianties; nauwkeuriger; Mann-Whitney; Wilcoxon">
+    <h3>14.6 Je krijgt twee reeksen metingen</h3>
     <p>Twee machines, twee materialen, voor en na een aanpassing. Kijk eerst hoe de data verzameld zijn: hoort elke meting van
     reeks 1 bij één meting van reeks 2 (hetzelfde stuk, dezelfde persoon, dezelfde dag)? Dan is het <b>gepaard</b>; anders
     <b>niet-gepaard</b>.</p>
@@ -128,9 +128,9 @@
     <div class="calc-here" data-tool="variantie" data-blocks="1"></div>
   </section>
 
-  <!-- ============================================================ 15.7 -->
-  <section class="unit" id="d15-groepen" data-kw="meer dan twee groepen; more than two groups; drie machines; factoren; factors; niveaus; levels; ANOVA; variantieanalyse; tweewegs; two-way; proefopzet; design of experiments; DOE; 2^k; effecten; effects; interactie; interaction; aliassen; fractioneel">
-    <h3>15.7 Je krijgt meer dan twee groepen, of factoren op niveaus</h3>
+  <!-- ============================================================ 14.7 -->
+  <section class="unit" id="d14-groepen" data-kw="meer dan twee groepen; more than two groups; drie machines; factoren; factors; niveaus; levels; ANOVA; variantieanalyse; tweewegs; two-way; proefopzet; design of experiments; DOE; 2^k; effecten; effects; interactie; interaction; aliassen; fractioneel">
+    <h3>14.7 Je krijgt meer dan twee groepen, of factoren op niveaus</h3>
     <p>Metingen bij drie of meer machines, concentraties of operatoren, of een proefopzet waarin factoren op een laag (−) en
     een hoog (+) niveau gezet worden.</p>
     <table>
@@ -145,9 +145,9 @@
     <div class="calc-here" data-tool="factorieel" data-blocks="0"></div>
   </section>
 
-  <!-- ============================================================ 15.8 -->
-  <section class="unit" id="d15-verband" data-kw="paren; pairs; x en y; verband; relationship; correlatie; correlation; regressie; regression; helling; slope; voorspellen; predict; R²; meervoudige regressie; multiple regression">
-    <h3>15.8 Je krijgt paren (x, y)</h3>
+  <!-- ============================================================ 14.8 -->
+  <section class="unit" id="d14-verband" data-kw="paren; pairs; x en y; verband; relationship; correlatie; correlation; regressie; regression; helling; slope; voorspellen; predict; R²; meervoudige regressie; multiple regression">
+    <h3>14.8 Je krijgt paren (x, y)</h3>
     <p>Bij elke x hoort een y: temperatuur en sterkte, gehalte en zuiverheid. Of een y met meerdere x'en.</p>
     <table>
       <tr><th>Wat kan gevraagd worden</th><th>Wat je doet</th><th>Uitleg en voorbeeld</th></tr>
@@ -161,23 +161,23 @@
     <div class="calc-here" data-tool="meervoudig" data-blocks="0"></div>
   </section>
 
-  <!-- ============================================================ 15.9 -->
-  <section class="unit" id="d15-tijd" data-kw="subgroepen; subgroups; in de tijd; over time; regelkaart; control chart; SPC; X̄-R; X̄-s; UCL; LCL; stabiel; stable; onder controle; in control; Western Electric">
-    <h3>15.9 Je krijgt subgroepen metingen in de tijd</h3>
+  <!-- ============================================================ 14.9 -->
+  <section class="unit" id="d14-tijd" data-kw="subgroepen; subgroups; in de tijd; over time; regelkaart; control chart; SPC; X̄-R; X̄-s; UCL; LCL; stabiel; stable; onder controle; in control; Western Electric">
+    <h3>14.9 Je krijgt subgroepen metingen in de tijd</h3>
     <p>Elk uur 5 stuks gemeten, 25 keer; of al de samenvattingen \(\bar{\bar{X}}\), \(\bar{R}\) of \(\bar{s}\).</p>
     <table>
       <tr><th>Wat kan gevraagd worden</th><th>Wat je doet</th><th>Uitleg en voorbeeld</th></tr>
       <tr><td>"Stel de X̄- en R-kaart op." / "Bereken UCL en LCL."</td><td>grenzen met de constanten \(A_{2}\), \(D_{3}\), \(D_{4}\) bij de subgroepgrootte</td><td><a href="#d10-formules">10.5</a>; <a href="#ex-10-5">oefening 10.5</a></td></tr>
       <tr><td>"Is het proces onder controle?"</td><td>punten tegen de grenzen en de Western Electric-regels</td><td><a href="#d10-regels">10.6</a></td></tr>
-      <tr><td>"Schat \(\sigma\) van het proces."</td><td>\(\hat{\sigma}=\frac{\bar{R}}{d_{2}}\) of \(\frac{\bar{s}}{c_{4}}\)</td><td><a href="#d10-formules">10.5</a>; daarna capabiliteit (<a href="#d15-capabiliteit">15.10</a>)</td></tr>
+      <tr><td>"Schat \(\sigma\) van het proces."</td><td>\(\hat{\sigma}=\frac{\bar{R}}{d_{2}}\) of \(\frac{\bar{s}}{c_{4}}\)</td><td><a href="#d10-formules">10.5</a>; daarna capabiliteit (<a href="#d14-capabiliteit">14.10</a>)</td></tr>
     </table>
     <p><b>Werkblad:</b> Regelkaarten (constanten: Tabellen).</p>
     <div class="calc-here" data-tool="regelkaart" data-blocks="0 1"></div>
   </section>
 
-  <!-- ============================================================ 15.10 -->
-  <section class="unit" id="d15-capabiliteit" data-kw="specificatie; specification; LSL; USL; tolerantie; capabiliteit; capability; Cp; Cpk; Pp; Ppk; ppm buiten specificatie; out of spec; uitval; scrap; centreren; centering">
-    <h3>15.10 Je krijgt specificatiegrenzen met een gemiddelde en een spreiding</h3>
+  <!-- ============================================================ 14.10 -->
+  <section class="unit" id="d14-capabiliteit" data-kw="specificatie; specification; LSL; USL; tolerantie; capabiliteit; capability; Cp; Cpk; Pp; Ppk; ppm buiten specificatie; out of spec; uitval; scrap; centreren; centering">
+    <h3>14.10 Je krijgt specificatiegrenzen met een gemiddelde en een spreiding</h3>
     <p>LSL en USL van de klant, plus het procesgemiddelde en een \(\sigma\) (gegeven, of geschat uit een regelkaart).</p>
     <table>
       <tr><th>Wat kan gevraagd worden</th><th>Wat je doet</th><th>Uitleg en voorbeeld</th></tr>
@@ -189,9 +189,9 @@
     <div class="calc-here" data-tool="capabiliteit" data-blocks="1"></div>
   </section>
 
-  <!-- ============================================================ 15.11 -->
-  <section class="unit" id="d15-meetsysteem" data-kw="operatoren; operators; herhalingen; repeats; meetsysteem; measurement system; Gage R&R; GRR; herhaalbaarheid; repeatability; reproduceerbaarheid; reproducibility; %GRR; bias; meetonzekerheid; uncertainty">
-    <h3>15.11 Je krijgt herhaalde metingen door verschillende operatoren</h3>
+  <!-- ============================================================ 14.11 -->
+  <section class="unit" id="d14-meetsysteem" data-kw="operatoren; operators; herhalingen; repeats; meetsysteem; measurement system; Gage R&R; GRR; herhaalbaarheid; repeatability; reproduceerbaarheid; reproducibility; %GRR; bias; meetonzekerheid; uncertainty">
+    <h3>14.11 Je krijgt herhaalde metingen door verschillende operatoren</h3>
     <p>Enkele onderdelen, elk een paar keer gemeten door twee of drie operatoren. Of een referentiewaarde met herhaalde
     metingen van één stuk.</p>
     <table>
@@ -204,9 +204,9 @@
     <div class="calc-here" data-tool="grr" data-blocks="0"></div>
   </section>
 
-  <!-- ============================================================ 15.12 -->
-  <section class="unit" id="d15-lot" data-kw="lot; partij; batch; AQL; LQL; steekproefplan; sampling plan; n en c; aanvaarden; accept; afkeuren; reject; OC-curve; producentenrisico; consumentenrisico; AOQ; AOQL">
-    <h3>15.12 Je krijgt een lot, een AQL en een steekproefplan</h3>
+  <!-- ============================================================ 14.12 -->
+  <section class="unit" id="d14-lot" data-kw="lot; partij; batch; AQL; LQL; steekproefplan; sampling plan; n en c; aanvaarden; accept; afkeuren; reject; OC-curve; producentenrisico; consumentenrisico; AOQ; AOQL">
+    <h3>14.12 Je krijgt een lot, een AQL en een steekproefplan</h3>
     <p>Een levering van N stuks, een aanvaardbaar kwaliteitsniveau (AQL) en eventueel een plan: trek n stuks, aanvaard bij
     hoogstens c defecten.</p>
     <table>
@@ -219,9 +219,9 @@
     <div class="calc-here" data-tool="steekproefplan" data-blocks="0 1"></div>
   </section>
 
-  <!-- ============================================================ 15.13 -->
-  <section class="unit" id="d15-ml" data-kw="confusion matrix; voorspelling; prediction; classificatie; classification; accuracy; precision; recall; F1; train; test; overfitting">
-    <h3>15.13 Je krijgt voorspelde tegenover werkelijke klassen</h3>
+  <!-- ============================================================ 14.13 -->
+  <section class="unit" id="d14-ml" data-kw="confusion matrix; voorspelling; prediction; classificatie; classification; accuracy; precision; recall; F1; train; test; overfitting">
+    <h3>14.13 Je krijgt voorspelde tegenover werkelijke klassen</h3>
     <p>Een model voorspelt bijvoorbeeld "defect" of "goed", en je krijgt een tabel met hoe vaak elke voorspelling klopte.</p>
     <table>
       <tr><th>Wat kan gevraagd worden</th><th>Wat je doet</th><th>Uitleg en voorbeeld</th></tr>

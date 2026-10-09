@@ -198,7 +198,8 @@ def _two_samples(ws: Worksheet) -> None:
     _used(ws, 38, "n2 gebruikt", DATA_2, "B34", is_n=True)
     _used(ws, 39, "s2 gebruikt", DATA_2, "B35", is_n=False)
     have = f"AND(ISNUMBER(B36),ISNUMBER(B37),ISNUMBER(B38),ISNUMBER(B39),B36>1,B38>1,B39>0,ISNUMBER({ALPHA}))"
-    result_row(ws, 40, "F = s1² / s2²", f'=IF({have},B37^2/B39^2,"")', "0.0000",
+    # the ratio needs only the two standard deviations; the critical values and the test need n and α as well
+    result_row(ws, 40, "F = s1² / s2²", '=IF(AND(ISNUMBER(B37),ISNUMBER(B39),N(B39)>0),B37^2/B39^2,"")', "0.0000",
                "Test Recipes p. 12-13: (s1²/σ1²)/(s2²/σ2²) ~ F(n1 − 1, n2 − 1)")
     label(ws, 41, 1, "vrijheidsgraden (teller n1 − 1, noemer n2 − 1)")
     output_cell(ws, "B41", '=IF(ISNUMBER(B36),B36-1,"")', "0")

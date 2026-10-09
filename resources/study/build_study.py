@@ -244,13 +244,6 @@ TOOLS: dict[str, Tool] = {
                         "uncertainty; uc; dekkingsfactor; coverage factor; bias-toets; bias test; meeteenheid; "
                         "discrimination; resolutie",
                         (("MSA", 24, "MSA p. 24–32"),)),
-    "sigma_extra": Tool("Extra (niet te kennen): DPU, yields, RTY en genormaliseerde yield",
-                        "DPU; defects per unit; throughput yield; first-time yield; FTY; verborgen fabriek; hidden factory; "
-                        "rolled throughput yield; RTY; normalized yield; genormaliseerde yield; Dummies; Harry",
-                        (("Dummies", 147, "Dummies p. 147–161"), ("H&S", 3, "Harry & Schroeder p. 3–5")), "Extra (boeken)"),
-    "regelkaart_extra": Tool("Extra (niet te kennen): I-MR-, p- en u-kaart",
-                             "I-MR; individuals; moving range; p-kaart; p chart; u-kaart; u chart; attributen; attributes; Dummies",
-                             (("Dummies", 249, "Dummies p. 249–256"),), "Extra (boeken)"),
     "confusion": Tool("Rekenmachine confusion matrix (2 × 2 en k klassen): accuracy, recall, precision, F1",
                       "confusion matrix; verwarringsmatrix; accuracy; nauwkeurigheid; recall; precision; F1; overfitting; "
                       "underfitting; train; test",
@@ -272,7 +265,6 @@ PART_TOOLS: dict[str, tuple[str, ...]] = {
     "10": ("regelkaart", "constanten", "normaal"),
     "11": ("grr", "meetsysteem", "msatabel", "regressie", "capabiliteit", "constanten", "bayes"),
     "12": ("confusion", "bayes"),
-    "14": ("sigma_extra", "regelkaart_extra", "constanten"),
     "13": ("variantie", "kwantielen", "capabiliteit", "normaal", "confusion", "verdelingen", "sigma", "regelkaart",
            "constanten", "kruistabel"),
 }

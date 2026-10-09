@@ -4,10 +4,6 @@
   standaardnormale Z-waarde met de Z-tabel, en de maten voor discrete data (DPO, DPMO, yield) met het sigmaniveau en de
   \(1{,}5\sigma\)-verschuiving.</p>
 
-  <p class="small">Paginaverwijzingen zijn PDF-paginanummers. In de SPC-slides is dat het dianummer van de .pptx; het
-  nummer onderaan de dia zelf is meestal één lager. Waarden met <span class="computed">zelf berekend</span> komen uit
-  <code>study/parts/03_numbers.py</code>.</p>
-
   <!-- ============================================================ 03.1 -->
   <section class="unit" id="d03-intro" data-kw="statistiek; statistics; data; statistisch denken; statistical thinking; spreiding; dispersion; variatie; variation; Lean; Six Sigma; methodologieën; methodologies landscape; steekproefgrootte; sample size; data collection; dataverzameling">
     <h3>03.1 Waarom statistiek: data als basis <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=1">SPC p. 1–13</a></h3>
@@ -301,7 +297,6 @@
     </ol>
     </div>
 
-    <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-03-sigmawoord">14 "Sigma": standaardafwijking of sigmascore</a>; <a href="#d14-03-sigmatabel">14 De sigmatabellen van de boeken</a>.</p>
     <div class="box tool"><span class="t">Rekentool</span>
     <p>Werkblad <b>Normaal</b>: secties "Waarde x bij een kans p" (ook met p verdeeld over beide staarten), "\(\sigma\)
     uit een staartfractie" (gemiddelde bekend) en "Gemiddelde uit een staartfractie" (\(\sigma\) bekend).</p>
@@ -500,7 +495,6 @@
     </div>
 
     <div class="calc-here" data-tool="sigma" data-blocks="0"></div>
-    <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-03-dpu">14 DPU en het tellen van opportuniteiten</a>.</p>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"Een defect en een defectief product zijn hetzelfde."</b> Fout: een defect is één afwijking op één kenmerk; een defectief product heeft één of meer defecten (1/0, wat de klant ziet). Er zijn dus minstens zoveel defecten als defectieven (notities bij <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=20">SPC p. 20</a>).</li>
@@ -509,7 +503,7 @@
 
     <div class="box tool"><span class="t">Rekentool</span>
     <p>Werkblad <b>Sigma &amp; DPMO</b>, sectie "Defecten (defects), eenheden (units) en kansen (opportunities)": vul D, N
-    en O in; je krijgt DPO, DPMO en de yield per opportuniteit. DPU (alleen uit de boeken) staat op werkblad <b>Extra (boeken)</b>.</p>
+    en O in; je krijgt DPO, DPMO en de yield per opportuniteit.</p>
     </div>
   </section>
 
@@ -525,7 +519,6 @@
     <figcaption>Figuur: de verborgen fabriek. De hoofdstroom loopt van invoer via de processtap en de inspectie naar
     de klant; herbewerken en uitval na de inspectie en de klachtenbehandeling na de klant vormen samen de verborgen
     fabriek. <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=40">LSS p. 40</a></figcaption></figure>
-    <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-03-yield">14 Yield-maten: traditionele yield, FTY, RTY en normalized yield</a>.</p>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"De verborgen fabriek is alleen het herbewerken na de inspectie."</b> Fout: herbewerken, uitval én de klachtenbehandeling bij de klant horen erbij <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=40">LSS p. 40</a>.</li>
@@ -565,8 +558,7 @@
     </div>
 
     <div class="box warn"><span class="t">Twee lezingen naast elkaar (conventie)</span>
-    <p>De cursus is hier niet consequent. Daarom toont deze gids, zoals de rekentool, altijd beide lezingen
-    (beslissing 3 in <code>inventory/conventions.md</code>):</p>
+    <p>De cursus is hier niet consequent. Daarom toont deze gids, zoals de rekentool, altijd beide lezingen:</p>
     <ul>
       <li><b>met \(1{,}5\sigma\)-verschuiving</b> (de tabellen: <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=21">SPC p. 21</a>, <a class="p" href="../source/course/Les%201/20260521_van%20volsem.pdf#page=7">LSS p. 7</a>): \(\sym{sigma_level}{\text{sigmaniveau}}=\sym{z}{Z}+1{,}5\);</li>
       <li><b>zonder verschuiving</b>: \(\sym{sigma_level}{\text{sigmaniveau}}=\sym{z}{Z}\).</li>
@@ -593,11 +585,10 @@
     USL. Verschuift het gemiddelde ±\(1{,}5\sigma\), dan valt voorbij de grens aan die kant 3,4 DPMO.
     <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a></figcaption></figure>
 
-    <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-03-sigmatabel">14 De sigmatabellen van de boeken</a>.</p>
     <div class="calc-here" data-tool="sigma" data-blocks="0"></div>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
-      <li><b>"Een \(6\sigma\)-proces heeft 3,4 defecten per miljoen voorbij \(6\sigma\)."</b> Fout: 3,4 DPMO is de staart voorbij \(4{,}5\sigma\ (6-1{,}5)\), met de \(1{,}5\sigma\)-verschuiving <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=21">SPC p. 21</a>. Zonder verschuiving is de staart voorbij \(6\sigma\) maar 0,001 DPMO <span class="computed">zelf berekend</span>. Geef beide lezingen (beslissing 3).</li>
+      <li><b>"Een \(6\sigma\)-proces heeft 3,4 defecten per miljoen voorbij \(6\sigma\)."</b> Fout: 3,4 DPMO is de staart voorbij \(4{,}5\sigma\ (6-1{,}5)\), met de \(1{,}5\sigma\)-verschuiving <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=21">SPC p. 21</a>. Zonder verschuiving is de staart voorbij \(6\sigma\) maar 0,001 DPMO <span class="computed">zelf berekend</span>. Geef beide lezingen.</li>
       <li><b>Let op:</b> de richting van de 1,5. Van DPMO naar sigmaniveau tel je 1,5 <i>bij</i>; van sigmaniveau naar DPMO trek je eerst 1,5 <i>af</i>. Zo is de tabel van <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=21">SPC p. 21</a> opgebouwd: bij 2 hoort de staart voorbij \(0{,}5\sigma\) <span class="computed">zelf berekend</span>.</li>
       <li><b>Let op:</b> de sigmatabel telt één staart, de kant waarheen het proces schuift: de 308 537 DPMO bij 2 is precies één staart voorbij \(0{,}5\sigma\) <span class="computed">zelf berekend</span>, en <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a> zet de 3,4 DPMO aan de kant waarheen het proces schoof. Verdubbel de DPMO uit de tabel dus niet.</li>
       <li><b>"De \(1{,}5\sigma\)-verschuiving is een natuurwet."</b> Fout: het is een empirische observatie van Motorola en een voorzichtige aanname, "not a universal law" (notities bij <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a>).</li>

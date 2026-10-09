@@ -26,7 +26,7 @@ t_between	T	Tijd tussen twee bestellingen: een wachttijd.	Exponentieel; \(E[T]=\
 c_cap	C	Capaciteit van één elco, in µF: een meetwaarde.	Normaal; \(E[C]=820\) µF, het gegeven gemiddelde (niet de nominale 800).	d02-verdelingen
 x_conf	X	Conformiteit van één elco: niet-conform of niet (ja/nee).	Bernoulli; \(E[X]=p=\frac{2}{40}=0{,}05\).	d02-verdelingen
 d_noncon	D	Aantal niet-conforme elco's in een lot van 100.	Binomiaal met \(n=100\) en \(p=0{,}05\); \(E[D]=n\cdot p=5\).	d06-oc
-lambda	\(\lambda\)	Gemiddeld aantal gebeurtenissen per tijdseenheid (Poisson-parameter).	Hier 175,3 bestellingen per week. \(E[B]=\operatorname{Var}[B]=\lambda\) en \(E[T]=\frac{1}{\lambda}\): standaarddefinities, niet in de slides (beslissing 20).	d02-poisson
+lambda	\(\lambda\)	Gemiddeld aantal gebeurtenissen per tijdseenheid (Poisson-parameter).	Hier 175,3 bestellingen per week. \(E[B]=\operatorname{Var}[B]=\lambda\) en \(E[T]=\frac{1}{\lambda}\): standaarddefinities, niet in de slides.	d02-poisson
 n_lot	n	Aantal elco's per lot: de parameter n van de binomiale verdeling van D.	Gegeven: loten van 100 stuks.	d06-oc
 p_noncon	p	Kans dat één elco niet-conform is (C onder 720 µF).	2 op 40 = 0,05.	d02-verdelingen
 sigma_c	\(\sigma\)	Standaardafwijking van de capaciteit C.	Uit \(P(C\lt720)=0{,}05\): \(\sigma=\frac{720-820}{z_{0{,}05}}=\frac{100}{1{,}645}=60{,}8\) µF; \(\operatorname{Var}[C]=\sigma^{2}\).	d03-z

@@ -279,7 +279,7 @@ def _unpaired(ws: Worksheet) -> None:
     spreads = f"AND({sizes},ISNUMBER(B51),ISNUMBER(B54))"
     result_row(ws, 55, "s_p = √[((n1 − 1)s1² + (n2 − 1)s2²) / (n1 + n2 − 2)]",
                f'=IF({spreads},SQRT(((B49-1)*B51^2+(B52-1)*B54^2)/(B49+B52-2)),"")', NUMBER,
-               "Test Recipes p. 5 (conventiebeslissing 8; CI Further Reading p. 15 drukt n1 + n2 − 1)")
+               "Test Recipes p. 5")
     result_row(ws, 56, "vrijheidsgraden n1 + n2 − 2", f'=IF({sizes},B49+B52-2,"")', "0")
     result_row(ws, 57, "standaardfout s_p √(1/n1 + 1/n2)", '=IF(ISNUMBER(B55),B55*SQRT(1/B49+1/B52),"")', NUMBER)
     result_row(ws, 58, "x̄1 − x̄2", '=IF(AND(ISNUMBER(B50),ISNUMBER(B53)),B50-B53,"")', NUMBER)
@@ -372,20 +372,25 @@ def _two_proportions(ws: Worksheet) -> None:
     input_row(ws, 114, "x1 = successen in steekproef 1")
     input_row(ws, 115, "n2")
     input_row(ws, 116, "x2 = successen in steekproef 2")
-    have = "AND(ISNUMBER(B113),ISNUMBER(B114),ISNUMBER(B115),ISNUMBER(B116),B113>0,B115>0)"
-    result_row(ws, 117, "p1 = x1 / n1", f'=IF({have},B114/B113,"")', PERCENT)
-    result_row(ws, 118, "p2 = x2 / n2", f'=IF({have},B116/B115,"")', PERCENT)
+    # each result needs only its own inputs: p1 from n1 and x1, p2 from n2 and x2, the difference from both
+    have1 = "AND(ISNUMBER(B113),ISNUMBER(B114),N(B113)>0)"  # N(): AND does not short-circuit
+    have2 = "AND(ISNUMBER(B115),ISNUMBER(B116),N(B115)>0)"
+    have = f"AND({have1},{have2})"
+    result_row(ws, 117, "p1 = x1 / n1", f'=IF({have1},B114/B113,"")', PERCENT)
+    result_row(ws, 118, "p2 = x2 / n2", f'=IF({have2},B116/B115,"")', PERCENT)
     result_row(ws, 119, "p1 − p2", f'=IF({have},B117-B118,"")', PERCENT)
     result_row(ws, 120, "standaardfout √(p1(1 − p1)/n1 + p2(1 − p2)/n2)",
                f'=IF({have},SQRT(B117*(1-B117)/B113+B118*(1-B118)/B115),"")', NUMBER,
                "CI Further Reading p. 20")
-    column_titles(ws, 122, ["BI voor π1 − π2 (1 − α)", "van", "tot", "± (halve breedte)", "", "Bron in de cursus"])
+    column_titles(ws, 122, ["BI voor π1 − π2 (1 − α)", "van", "tot", "± (halve breedte)", "z gebruikt",
+                            "Bron in de cursus"])
     _interval_labels(ws, TWO_PROPORTION_CI, "π1 − π2")
     ok = f"AND(ISNUMBER(B119),ISNUMBER(B120),ISNUMBER({ALPHA}))"
     z_two, z_one = f"_xlfn.NORM.S.INV(1-{ALPHA}/2)", f"_xlfn.NORM.S.INV(1-{ALPHA})"
     _interval_rows(ws, TWO_PROPORTION_CI, ok, "B119", f"{z_two}*B120", f"{z_one}*B120", ("B", "C"), percent=True)
     for key, z in (("two_sided", z_two), ("lower_only", z_one), ("upper_only", z_one)):
         output_cell(ws, f"D{TWO_PROPORTION_CI[key]}", f'=IF({ok},{z}*B120,"")', PERCENT)
+        output_cell(ws, f"E{TWO_PROPORTION_CI[key]}", f'=IF(ISNUMBER({ALPHA}),{z},"")', "0.0000")  # z needs only α
     label(ws, 123, 6, "CI Further Reading p. 20. Voorbeeld S08-WE13: Dummies p. 197 (extra, Dummies; niet te kennen)",
           italic=True)
 

@@ -100,8 +100,9 @@ var Calc = (function () {
   // error; a distance d gives it in standard errors and P(|X̄ − µ| ≤ d); α gives the critical values and half widths
   // ("x̄ ± h", even before x̄ is known); x̄ gives the intervals; µ0 the tests. Missing inputs leave their part empty.
   function oneMean(n, xbar, s, sigma, mu0, alpha, d) {
-    if (!num(n) || n < 1) return null;
-    var a = num(alpha) && alpha > 0 && alpha < 1, out = { n: n, xbar: num(xbar) ? xbar : null, df: n - 1 };
+    var a = num(alpha) && alpha > 0 && alpha < 1, known = num(n) && n >= 1;
+    var out = { n: known ? n : null, xbar: num(xbar) ? xbar : null, df: known ? n - 1 : null };
+    if (!known) return a ? out : null;   // α alone is enough for the z critical values
     function part(spread, df) {   // df null: z (σ known); a number: t with df
       var se = spread / Math.sqrt(n), cdf = function (x) { return df ? S.tCdf(x, df) : S.normCdf(x); }, r = { se: se };
       if (num(d) && d > 0) { r.k = d / se; r.within = 2 * cdf(r.k) - 1; r.beyond = 1 - cdf(r.k); }
@@ -115,36 +116,45 @@ var Calc = (function () {
     }
     if (num(sigma) && sigma > 0) { out.z = part(sigma, null); out.seZ = out.z.se; out.ciZ = out.z.ci; out.testZ = out.z.test; }
     if (num(s) && s > 0 && n > 1) { out.t = part(s, n - 1); out.seT = out.t.se; out.ciT = out.t.ci; out.testT = out.t.test; }
-    return out.z || out.t ? out : null;
+    return out;
   }
   // Two independent means with the pooled s (CI FR p. 15; TR p. 5): s_p and the standard error from n and s of both
   // samples; with α the critical t and half width; with both means the interval and the test.
   function twoMeansPooled(n1, m1, s1, n2, m2, s2, d0, alpha) {
-    if (!all(n1, s1, n2, s2) || n1 + n2 <= 2) return null;
-    var df = n1 + n2 - 2, sp = Math.sqrt(((n1 - 1) * s1 * s1 + (n2 - 1) * s2 * s2) / df);
-    var out = { sp: sp, df: df, se: sp * Math.sqrt(1 / n1 + 1 / n2) };
-    if (num(alpha) && alpha > 0 && alpha < 1) {
-      out.c2 = S.tInv(1 - alpha / 2, df); out.c1 = S.tInv(1 - alpha, df); out.half2 = out.c2 * out.se; out.half1 = out.c1 * out.se;
-      if (all(m1, m2)) {
-        out.diff = m1 - m2;
-        out.ci = intervals(out.diff, out.se, out.c2, out.c1);
-        out.test = tests((out.diff - (num(d0) ? d0 : 0)) / out.se, df, alpha);
+    // every result as soon as its own inputs are there: df from n1 and n2, the critical values from df and α,
+    // the difference from the two means, s_p and the standard error from the n's and s's
+    var a = num(alpha) && alpha > 0 && alpha < 1, out = {};
+    if (all(m1, m2)) out.diff = m1 - m2;
+    if (!all(n1, n2) || n1 + n2 <= 2) return Object.keys(out).length ? out : null;
+    out.df = n1 + n2 - 2;
+    if (a) { out.c2 = S.tInv(1 - alpha / 2, out.df); out.c1 = S.tInv(1 - alpha, out.df); }
+    if (all(s1, s2)) {
+      out.sp = Math.sqrt(((n1 - 1) * s1 * s1 + (n2 - 1) * s2 * s2) / out.df);
+      out.se = out.sp * Math.sqrt(1 / n1 + 1 / n2);
+      if (a) {
+        out.half2 = out.c2 * out.se; out.half1 = out.c1 * out.se;
+        if (num(out.diff)) {
+          out.ci = intervals(out.diff, out.se, out.c2, out.c1);
+          out.test = tests((out.diff - (num(d0) ? d0 : 0)) / out.se, out.df, alpha);
+        }
       }
     }
-    if (all(m1, m2)) out.diff = m1 - m2;
     return out;
   }
   // Paired observations: the differences as one sample (CI FR p. 17-18): s.e. and df from n and s_v; α adds the
   // critical t and half width; v̄ the interval and the test.
   function paired(n, dbar, sd, d0, alpha) {
-    if (!all(n, sd) || n < 2 || sd <= 0) return null;
-    var out = { se: sd / Math.sqrt(n), df: n - 1, dbar: num(dbar) ? dbar : null };
-    if (num(alpha) && alpha > 0 && alpha < 1) {
-      out.c2 = S.tInv(1 - alpha / 2, out.df); out.c1 = S.tInv(1 - alpha, out.df);
-      out.half2 = out.c2 * out.se; out.half1 = out.c1 * out.se;
-      if (num(dbar)) {
-        out.ci = intervals(dbar, out.se, out.c2, out.c1);
-        out.test = tests((dbar - (num(d0) ? d0 : 0)) / out.se, out.df, alpha);
+    if (!num(n) || n < 2) return null;
+    var a = num(alpha) && alpha > 0 && alpha < 1, out = { df: n - 1, dbar: num(dbar) ? dbar : null };
+    if (a) { out.c2 = S.tInv(1 - alpha / 2, out.df); out.c1 = S.tInv(1 - alpha, out.df); }
+    if (num(sd) && sd > 0) {
+      out.se = sd / Math.sqrt(n);
+      if (a) {
+        out.half2 = out.c2 * out.se; out.half1 = out.c1 * out.se;
+        if (num(dbar)) {
+          out.ci = intervals(dbar, out.se, out.c2, out.c1);
+          out.test = tests((dbar - (num(d0) ? d0 : 0)) / out.se, out.df, alpha);
+        }
       }
     }
     return out;
@@ -152,9 +162,11 @@ var Calc = (function () {
   // One proportion (CI p. 20; Test Recipes p. 9-10): with π0 the test's standard error under H0 (and with α the critical p);
   // with x the estimate and its standard error; with α also the intervals; with π0 and α the Z-test.
   function oneProportion(n, x, pi0, alpha) {
-    if (!num(n) || n <= 0) return null;
-    var a = num(alpha) && alpha > 0 && alpha < 1, h0 = num(pi0) && pi0 > 0 && pi0 < 1, out = {};
+    var a = num(alpha) && alpha > 0 && alpha < 1;
+    if (!num(n) || n <= 0) return a ? { c2: S.normInv(1 - alpha / 2), c1: S.normInv(1 - alpha) } : null;   // α alone gives z
+    var h0 = num(pi0) && pi0 > 0 && pi0 < 1, out = {};
     var z2 = a ? S.normInv(1 - alpha / 2) : null, z1 = a ? S.normInv(1 - alpha) : null;
+    if (a) { out.c2 = z2; out.c1 = z1; }
     if (h0) {
       out.se0 = Math.sqrt(pi0 * (1 - pi0) / n);
       out.condition = n * pi0 > 5;
@@ -178,14 +190,19 @@ var Calc = (function () {
   }
   // Two proportions: with x1 and x2 the difference and its standard error; with α also the intervals.
   function twoProportions(n1, x1, n2, x2, alpha) {
-    if (!all(n1, x1, n2, x2) || n1 <= 0 || n2 <= 0) return null;
-    var p1 = x1 / n1, p2 = x2 / n2, se = Math.sqrt(p1 * (1 - p1) / n1 + p2 * (1 - p2) / n2);
-    var out = { p1: p1, p2: p2, diff: p1 - p2, se: se };
-    if (num(alpha) && alpha > 0 && alpha < 1) {
-      out.c2 = S.normInv(1 - alpha / 2); out.c1 = S.normInv(1 - alpha);
-      out.ci = intervals(p1 - p2, se, out.c2, out.c1);
+    var a = num(alpha) && alpha > 0 && alpha < 1, out = {};
+    var ok1 = all(n1, x1) && n1 > 0, ok2 = all(n2, x2) && n2 > 0;
+    if (ok1) out.p1 = x1 / n1;
+    if (ok2) out.p2 = x2 / n2;
+    if (ok1 && ok2) {
+      out.diff = out.p1 - out.p2;
+      out.se = Math.sqrt(out.p1 * (1 - out.p1) / n1 + out.p2 * (1 - out.p2) / n2);
     }
-    return out;
+    if (a) {
+      out.c2 = S.normInv(1 - alpha / 2); out.c1 = S.normInv(1 - alpha);
+      if (num(out.se)) out.ci = intervals(out.diff, out.se, out.c2, out.c1);
+    }
+    return Object.keys(out).length ? out : null;
   }
 
   /* ---------- variances (sheet_variance.py) ---------- */
@@ -216,14 +233,16 @@ var Calc = (function () {
   // Two variances (TR p. 12-14; exam Q2): with n1, n2 and α the F critical values; with s1 and s2 the ratio, the
   // intervals in both orientations and the F-test.
   function twoVariances(n1, s1, n2, s2, alpha) {
-    if (!all(n1, n2) || n1 < 2 || n2 < 2) return null;
-    var v1 = n1 - 1, v2 = n2 - 1, a = num(alpha) && alpha > 0 && alpha < 1, out = { v1: v1, v2: v2 };
-    if (a) out.crit = { lo2: S.fInv(alpha / 2, v1, v2), hi2: S.fIsf(alpha / 2, v1, v2), lo1: S.fInv(alpha, v1, v2), hi1: S.fIsf(alpha, v1, v2) };
-    if (!all(s1, s2) || s1 <= 0 || s2 <= 0) return out;
-    var F = s1 * s1 / (s2 * s2);
-    out.F = F;
-    if (!a) return out;
-    var c = out.crit;
+    var a = num(alpha) && alpha > 0 && alpha < 1, out = {};
+    var sOk = all(s1, s2) && s1 > 0 && s2 > 0, nOk = all(n1, n2) && n1 >= 2 && n2 >= 2;
+    if (sOk) out.F = s1 * s1 / (s2 * s2);   // the ratio needs no n
+    if (nOk) {
+      out.v1 = n1 - 1; out.v2 = n2 - 1;
+      if (a) out.crit = { lo2: S.fInv(alpha / 2, out.v1, out.v2), hi2: S.fIsf(alpha / 2, out.v1, out.v2),
+                          lo1: S.fInv(alpha, out.v1, out.v2), hi1: S.fIsf(alpha, out.v1, out.v2) };
+    }
+    if (!(sOk && nOk && a)) return Object.keys(out).length ? out : null;
+    var F = out.F, v1 = out.v1, v2 = out.v2, c = out.crit;
     var ci = { two: [F / c.hi2, F / c.lo2], lower: [F / c.hi1, Infinity], upper: [0, F / c.lo1] };
     var inv = function (r) { return [r[1] === Infinity ? 0 : 1 / r[1], r[0] === 0 ? Infinity : 1 / r[0]]; };
     var lo = S.fCdf(F, v1, v2), hi = S.fSf(F, v1, v2), two = 2 * Math.min(lo, hi);
@@ -573,11 +592,18 @@ var Calc = (function () {
     return best;
   }
   function variablesPlan(p0, pt, alpha, beta) {
-    if (!all(p0, pt, alpha, beta) || pt <= p0) return null;
-    var z = S.normInv, k = (z(pt) * z(alpha) + z(p0) * z(beta)) / (z(1 - alpha) + z(1 - beta));
+    // the four z values as soon as each is known; k, n and the OC values need all four inputs and AQL < LQL
+    var z = S.normInv, out = {}, ok = function (x) { return num(x) && x > 0 && x < 1; };
+    if (ok(p0)) out.zP0 = z(p0);
+    if (ok(pt)) out.zPt = z(pt);
+    if (ok(alpha)) { out.zA = z(alpha); out.zA1 = z(1 - alpha); }
+    if (ok(beta)) { out.zB = z(beta); out.zB1 = z(1 - beta); }
+    if (!(ok(p0) && ok(pt) && ok(alpha) && ok(beta)) || pt <= p0) return Object.keys(out).length ? out : null;
+    var k = (z(pt) * z(alpha) + z(p0) * z(beta)) / (z(1 - alpha) + z(1 - beta));
     var n = Math.pow(z(1 - alpha) + z(1 - beta), 2) * (1 + k * k / 2) / Math.pow(z(pt) - z(p0), 2), nUp = Math.ceil(n - 1e-9);
     var oc = function (p) { return 1 - S.normCdf((z(p) + k) * Math.sqrt(nUp) / Math.sqrt(1 + k * k / 2)); };
-    return { k: k, n: n, nUp: nUp, ocAql: oc(p0), ocLql: oc(pt) };
+    out.k = k; out.n = n; out.nUp = nUp; out.ocAql = oc(p0); out.ocLql = oc(pt);
+    return out;
   }
 
   /* ---------- regression, one-way ANOVA, 2^k factorial (sheet_doe.py) ---------- */
@@ -809,38 +835,56 @@ var Calc = (function () {
   }
   // β and power of the Z-test for µ (TH FR p. 7–9, 14): critical values on the H0 distribution, β under the true mean
   function powerMean(mu0, mu1, sigma, n, alpha, targetBeta) {
-    if (!all(mu0, sigma, n, alpha) || sigma <= 0 || n <= 0) return null;
-    var se = sigma / Math.sqrt(n), z1 = S.normInv(1 - alpha), z2 = S.normInv(1 - alpha / 2), F = S.normCdf;
-    var gt = mu0 + z1 * se, lt = mu0 - z1 * se, lo = mu0 - z2 * se, hi = mu0 + z2 * se;
-    var out = { se: se, gt: { crit: [gt] }, lt: { crit: [lt] }, ne: { crit: [lo, hi] } };   // critical x̄ without µ1
-    if (!num(mu1)) return out;
-    out.gt.beta = F((gt - mu1) / se); out.lt.beta = 1 - F((lt - mu1) / se); out.ne.beta = F((hi - mu1) / se) - F((lo - mu1) / se);
-    ['gt', 'lt', 'ne'].forEach(function (s) { out[s].power = 1 - out[s].beta; });
-    if (num(targetBeta) && targetBeta > 0 && targetBeta < 1 && mu1 !== mu0) {
+    // each result as soon as its inputs are there: z from α, σ/√n from σ and n, the critical x̄ with µ0 added,
+    // β and the power with µ1 added, and the n for a target β needs no n at all
+    var a = num(alpha) && alpha > 0 && alpha < 1, sOk = num(sigma) && sigma > 0, out = {}, F = S.normCdf;
+    var z1 = a ? S.normInv(1 - alpha) : null, z2 = a ? S.normInv(1 - alpha / 2) : null;
+    if (a) { out.z1 = z1; out.z2 = z2; }
+    if (sOk && num(n) && n > 0) out.se = sigma / Math.sqrt(n);
+    if (a && num(out.se) && num(mu0)) {
+      var se = out.se, gt = mu0 + z1 * se, lt = mu0 - z1 * se, lo = mu0 - z2 * se, hi = mu0 + z2 * se;
+      out.gt = { crit: [gt] }; out.lt = { crit: [lt] }; out.ne = { crit: [lo, hi] };   // critical x̄ without µ1
+      if (num(mu1)) {
+        out.gt.beta = F((gt - mu1) / se); out.lt.beta = 1 - F((lt - mu1) / se); out.ne.beta = F((hi - mu1) / se) - F((lo - mu1) / se);
+        ['gt', 'lt', 'ne'].forEach(function (s) { out[s].power = 1 - out[s].beta; });
+      }
+    }
+    if (a && sOk && all(mu0, mu1) && mu1 !== mu0 && num(targetBeta) && targetBeta > 0 && targetBeta < 1) {
       out.nOneSided = Math.pow((z1 + S.normInv(1 - targetBeta)) * sigma / Math.abs(mu1 - mu0), 2);
       out.nOneSidedUp = Math.ceil(out.nOneSided - 1e-9);
     }
-    return out;
+    return Object.keys(out).length ? out : null;
   }
   // β of the Z-test for π (guide ex-05-12: π0 under the root for the critical value, π1 for the true distribution)
   function powerProportion(pi0, pi1, n, alpha, targetBeta) {
-    if (!all(pi0, pi1, n, alpha) || pi0 <= 0 || pi0 >= 1 || pi1 <= 0 || pi1 >= 1 || n <= 0) return null;
-    var z1 = S.normInv(1 - alpha), F = S.normCdf;
+    // each result as soon as its inputs are there: z from α, the standard error and the condition from π0 and n,
+    // the critical p with α added, β and the power with π1 added, and the n for a target β needs no n
+    var a = num(alpha) && alpha > 0 && alpha < 1, F = S.normCdf, out = {};
+    var p0 = num(pi0) && pi0 > 0 && pi0 < 1, p1 = num(pi1) && pi1 > 0 && pi1 < 1, nOk = num(n) && n > 0;
+    var z1 = a ? S.normInv(1 - alpha) : null;
     function betas(m) {
       var se0 = Math.sqrt(pi0 * (1 - pi0) / m), se1 = Math.sqrt(pi1 * (1 - pi1) / m);
       var cg = pi0 + z1 * se0, cl = pi0 - z1 * se0;
-      return { se0: se0, gt: { crit: cg, beta: F((cg - pi1) / se1) }, lt: { crit: cl, beta: 1 - F((cl - pi1) / se1) } };
+      return { gt: { crit: cg, beta: F((cg - pi1) / se1) }, lt: { crit: cl, beta: 1 - F((cl - pi1) / se1) } };
     }
-    var out = betas(n);
-    out.gt.power = 1 - out.gt.beta; out.lt.power = 1 - out.lt.beta; out.condition = n * pi0 > 5;
-    if (num(targetBeta) && targetBeta > 0 && targetBeta < 1 && pi1 !== pi0) {
+    if (a) out.z1 = z1;
+    if (p0 && nOk) { out.se0 = Math.sqrt(pi0 * (1 - pi0) / n); out.condition = n * pi0 > 5; }
+    if (a && p0 && nOk) {
+      out.gt = { crit: pi0 + z1 * out.se0 }; out.lt = { crit: pi0 - z1 * out.se0 };
+      if (p1) {
+        var b = betas(n);
+        out.gt.beta = b.gt.beta; out.lt.beta = b.lt.beta;
+        out.gt.power = 1 - out.gt.beta; out.lt.power = 1 - out.lt.beta;
+      }
+    }
+    if (a && p0 && p1 && num(targetBeta) && targetBeta > 0 && targetBeta < 1 && pi1 !== pi0) {
       var root = (z1 * Math.sqrt(pi0 * (1 - pi0)) + S.normInv(1 - targetBeta) * Math.sqrt(pi1 * (1 - pi1))) / Math.abs(pi1 - pi0);
       out.nFormula = root * root;
       var side = pi1 > pi0 ? 'gt' : 'lt', m = Math.max(1, Math.floor(out.nFormula) - 5);
       while (betas(m)[side].beta >= targetBeta && m < 1e7) m++;   // strict "<": "kleiner dan" (TH FR p. 22)
       out.nSearch = m;
     }
-    return out;
+    return Object.keys(out).length ? out : null;
   }
   // χ² goodness of fit (TR p. 15–17): expected e_k = n·π_k, df = r − g − 1, right tail
   function chi2Fit(observed, expected, g, alpha) {
@@ -917,21 +961,36 @@ var Calc = (function () {
 
   /* ---------- Les 2: sampling methods (AS p. 16–19) ---------- */
   function samplingVariance(piA, piB, wA, n) {
-    if (!all(piA, wA, n) || n <= 0) return null;
-    var out = { srs: piA * (1 - piA) / n };
-    if (num(piB)) {
-      var wB = 1 - wA, pi = wA * piA + wB * piB, sA2 = piA * (1 - piA), sB2 = piB * (1 - piB);
-      out = { pi: pi, sigma2: pi * (1 - pi), sA2: sA2, sB2: sB2, strat: (wA * sA2 + wB * sB2) / n,
-              srs: (wA * sA2 + wB * sB2 + wA * wB * (piA - piB) * (piA - piB)) / n,
-              nAprop: wA * n, nAopt: wA * Math.sqrt(sA2) / (wA * Math.sqrt(sA2) + wB * Math.sqrt(sB2)) * n };
-      out.nBopt = n - out.nAopt;
+    // each result as soon as its inputs are there: σ² per stratum from π, SRS with π_A alone, the stratified
+    // variance and the allocations with both strata, the weights and n
+    var out = {}, nOk = num(n) && n > 0;
+    if (num(piA)) out.sA2 = piA * (1 - piA);
+    if (num(piB)) out.sB2 = piB * (1 - piB);
+    if (!num(piB)) {   // one population: simple random sampling
+      if (num(piA) && nOk) out.srs = piA * (1 - piA) / n;
+      return Object.keys(out).length ? out : null;
     }
-    return out;
+    if (all(piA, wA)) {
+      var wB = 1 - wA;
+      out.pi = wA * piA + wB * piB; out.sigma2 = out.pi * (1 - out.pi);
+      if (nOk) {
+        out.strat = (wA * out.sA2 + wB * out.sB2) / n;
+        out.srs = (wA * out.sA2 + wB * out.sB2 + wA * wB * (piA - piB) * (piA - piB)) / n;
+        out.nAprop = wA * n;
+        out.nAopt = wA * Math.sqrt(out.sA2) / (wA * Math.sqrt(out.sA2) + wB * Math.sqrt(out.sB2)) * n;
+        out.nBopt = n - out.nAopt;
+      }
+    }
+    return Object.keys(out).length ? out : null;
   }
   function samplingMeans(muA, muB, s2, n) {   // two equal normal strata, W = ½ (AS p. 19 notes)
-    if (!all(muA, muB, s2, n) || n <= 0) return null;
-    return { mu: (muA + muB) / 2, sigma2: s2 + (muA - muB) * (muA - muB) / 4, strat: s2 / n,
-             srs: s2 / n + (muA - muB) * (muA - muB) / (4 * n) };
+    // µ from the two means; σ² of the population with σ_S²; the variances of x̄ also need n
+    var out = {};
+    if (all(muA, muB)) out.mu = (muA + muB) / 2;
+    if (all(muA, muB, s2)) out.sigma2 = s2 + (muA - muB) * (muA - muB) / 4;
+    if (num(s2) && num(n) && n > 0) out.strat = s2 / n;
+    if (all(muA, muB, s2, n) && n > 0) out.srs = s2 / n + (muA - muB) * (muA - muB) / (4 * n);
+    return Object.keys(out).length ? out : null;
   }
 
   /* ---------- Les 2: more acceptance sampling (AS FR p. 4–11, 13–15; AS p. 26–27) ---------- */
@@ -959,24 +1018,36 @@ var Calc = (function () {
   }
   // double plan (n1, c1, c2) + (n2, c3) of AS FR p. 5: accept X1 ≤ c1, reject X1 ≥ c2, else accept if X1 + X2 ≤ c3
   function doublePlan(n1, c1, c2, n2, c3, p, N) {
-    if (!all(n1, c1, c2, n2, c3, p) || !(c1 < c2)) return null;
-    var lot = num(N) && N >= n1 + n2, M = lot ? Math.floor(N * p + 1e-9) : null;
+    // each result as soon as its inputs are there: P(X1 ≤ c1) needs n1, c1, p; P(X1 ≥ c2) needs n1, c2, p;
+    // Π needs both; OC and ASN also need n2 and c3
+    if (!all(n1, p)) return null;
+    var lot = num(N) && N >= n1 + (num(n2) ? n2 : 0), M = lot ? Math.floor(N * p + 1e-9) : null, out = { hyper: lot };
     var pmf1 = function (j) { return lot ? S.hypergeomPmf(j, N, M, n1) : S.binomPmf(j, n1, p); };
     var cdf1 = function (j) { return lot ? S.hypergeomCdf(j, N, M, n1) : S.binomCdf(j, n1, p); };
     var cdf2 = function (k, j) { return k < 0 ? 0 : (lot ? S.hypergeomCdf(k, N - n1, M - j, n2) : S.binomCdf(k, n2, p)); };
-    var acc1 = cdf1(c1), rej1 = 1 - cdf1(c2 - 1), oc = acc1;
-    for (var j = c1 + 1; j <= c2 - 1; j++) oc += pmf1(j) * cdf2(c3 - j, j);
-    var pi = acc1 + rej1;
-    return { acc1: acc1, rej1: rej1, decided1: pi, oc: oc, asn: n1 * pi + (n1 + n2) * (1 - pi), hyper: lot };
+    if (num(c1)) out.acc1 = cdf1(c1);
+    if (num(c2)) out.rej1 = 1 - cdf1(c2 - 1);
+    if (num(out.acc1) && num(out.rej1) && c1 < c2) {
+      out.decided1 = out.acc1 + out.rej1;
+      if (all(n2, c3)) {
+        out.oc = out.acc1;
+        for (var j = c1 + 1; j <= c2 - 1; j++) out.oc += pmf1(j) * cdf2(c3 - j, j);
+        out.asn = n1 * out.decided1 + (n1 + n2) * (1 - out.decided1);
+      }
+    }
+    return num(out.acc1) || num(out.rej1) ? out : null;
   }
   // SPRT for attributes (AS FR p. 6–8)
   function sprt(p0, pt, alpha, beta, n, x) {
-    if (!all(p0, pt, alpha, beta) || !(p0 < pt)) return null;
-    var L = Math.log, g = L(pt * (1 - p0) / (p0 * (1 - pt)));
-    var h1 = L((1 - alpha) / beta) / g, h2 = L((1 - beta) / alpha) / g, s = L((1 - p0) / (1 - pt)) / g;
+    // g and the slope s need only p0 and pt; h1, h2, the ASN and the table need α and β as well
+    if (!all(p0, pt) || !(p0 < pt)) return null;
+    var L = Math.log, g = L(pt * (1 - p0) / (p0 * (1 - pt))), s = L((1 - p0) / (1 - pt)) / g;
+    var out = { g: g, s: s };
+    if (!all(alpha, beta)) return out;
+    var h1 = L((1 - alpha) / beta) / g, h2 = L((1 - beta) / alpha) / g;
     var A = beta / (1 - alpha), B = (1 - beta) / alpha;
-    var out = { g: g, h1: h1, h2: h2, s: s, nAccept: Math.floor(h1 / s) + 1, nReject: Math.floor(h2 / (1 - s)) + 1,
-                asnS: h1 * h2 / (s * (1 - s)), asn0: L(A) / L((1 - pt) / (1 - p0)) };
+    out.h1 = h1; out.h2 = h2; out.nAccept = Math.floor(h1 / s) + 1; out.nReject = Math.floor(h2 / (1 - s)) + 1;
+    out.asnS = h1 * h2 / (s * (1 - s)); out.asn0 = L(A) / L((1 - pt) / (1 - p0));
     function oc(tau) { var b = Math.pow(B, tau), a = Math.pow(A, tau); return (b - 1) / (b - a); }
     function pOf(tau) { var r = Math.pow((1 - pt) / (1 - p0), tau); return (1 - r) / (Math.pow(pt / p0, tau) - r); }
     function asn(p, o) { return (o * L(A) + (1 - o) * L(B)) / (p * L(pt / p0) + (1 - p) * L((1 - pt) / (1 - p0))); }
@@ -990,26 +1061,37 @@ var Calc = (function () {
   }
   // variables plan for a given n (AS p. 26–27, AS FR p. 9; AS.xlsm 'variable sampling plan')
   function variablesGivenN(p0, alpha, n, xi, mean, sd, k) {
-    if (!all(p0, alpha, n) || n < 2) return null;
-    var z = S.normInv, out = { zP: z(1 - p0), zA: z(alpha) };
-    out.t = toleranceFactor(out.zA, out.zP, n);
+    // z_(1−p0) from p0, z_α from α, t(1 − α, p0, n) with n; k, OC, Q and the decision as soon as their inputs are known
+    var z = S.normInv, out = {}, ok = function (x) { return num(x) && x > 0 && x < 1; };
+    if (ok(p0)) out.zP = z(1 - p0);
+    if (ok(alpha)) out.zA = z(alpha);
+    if (ok(p0) && ok(alpha) && num(n) && n >= 2) out.t = toleranceFactor(out.zA, out.zP, n);
     out.xi = xi;
     var kk = num(k) ? k : out.t;
     out.k = kk;
-    if (num(kk)) out.ocP0 = 1 - S.normCdf((z(p0) + kk) * Math.sqrt(n) / Math.sqrt(1 + kk * kk / 2));
-    if (all(xi, mean, sd) && sd > 0) { out.Q = (mean - xi) / sd; out.accept = num(kk) ? (out.Q >= kk ? 'aanvaarden' : 'verwerpen') : null; }
-    return out;
+    if (ok(p0) && num(kk) && num(n) && n >= 2) out.ocP0 = 1 - S.normCdf((z(p0) + kk) * Math.sqrt(n) / Math.sqrt(1 + kk * kk / 2));
+    if (all(xi, mean, sd) && sd > 0) {
+      out.Q = (mean - xi) / sd;
+      if (num(kk)) out.accept = out.Q >= kk ? 'aanvaarden' : 'verwerpen';
+    }
+    return [out.zP, out.zA, out.t, out.k, out.Q].some(num) ? out : null;
   }
   function skipLot(p, n, lots, d, last) {   // AS FR p. 11 notes: P_q = B(d; lots·n, p)·B(0; n, p)^last
-    if (!all(p, n, lots, d, last)) return null;
-    var a = S.binomCdf(d, lots * n, p), b = S.binomCdf(0, n, p);
-    return { first: a, lastOne: b, pq: a * Math.pow(b, last) };
+    // B(0; n, p) needs p and n; B(d; lots·n, p) also lots and d; P_q also the number of clean last samples
+    if (!all(p, n)) return null;
+    var out = { lastOne: S.binomCdf(0, n, p) };
+    if (all(lots, d)) out.first = S.binomCdf(d, lots * n, p);
+    if (num(out.first) && num(last)) out.pq = out.first * Math.pow(out.lastOne, last);
+    return out;
   }
   function deming(p, k1, k2) {   // AS FR p. 15: p < k1/k2 → no inspection; p > k1/k2 → 100 % inspection
-    if (!all(p, k1, k2) || k2 <= 0) return null;
-    var be = k1 / k2;
-    return { breakEven: be, decision: p < be ? 'geen inspectie (n = 0)' : (p > be ? 'volledige inspectie (n = N)' : 'gelijk: beide even duur'),
-             exact: p * (1 - p) };
+    var out = {};
+    if (all(k1, k2) && k2 > 0) out.breakEven = k1 / k2;
+    if (num(p)) out.exact = p * (1 - p);
+    if (num(p) && num(out.breakEven)) {
+      out.decision = p < out.breakEven ? 'geen inspectie (n = 0)' : (p > out.breakEven ? 'volledige inspectie (n = N)' : 'gelijk: beide even duur');
+    }
+    return Object.keys(out).length ? out : null;
   }
 
   /* ---------- descriptive statistics and correlation ---------- */
@@ -1086,9 +1168,16 @@ var Calc = (function () {
   }
   // partial F-test: does adding r terms (full model) explain significantly more than the reduced model?
   function partialF(sseReduced, sseFull, r, dfFull, alpha) {
-    if (!all(sseReduced, sseFull, r, dfFull) || r <= 0 || dfFull <= 0) return null;
-    var F = ((sseReduced - sseFull) / r) / (sseFull / dfFull);
-    return { F: F, p: S.fSf(F, r, dfFull), Fcrit: num(alpha) ? S.fIsf(alpha, r, dfFull) : null, d: decide(S.fSf(F, r, dfFull), alpha) };
+    // the critical F needs only α and the two degrees of freedom; F, p and the decision need the two SS_E as well
+    var a = num(alpha) && alpha > 0 && alpha < 1, ok = num(r) && r > 0 && num(dfFull) && dfFull > 0, out = {};
+    if (!ok) return null;
+    if (a) out.Fcrit = S.fIsf(alpha, r, dfFull);
+    if (all(sseReduced, sseFull)) {
+      out.F = ((sseReduced - sseFull) / r) / (sseFull / dfFull);
+      out.p = S.fSf(out.F, r, dfFull);
+      if (a) out.d = decide(out.p, alpha);
+    }
+    return Object.keys(out).length ? out : null;
   }
 
   /* ---------- two-way ANOVA, balanced (as Excel's 'Anova: Two-Factor With/Without Replication') ---------- */
@@ -1149,44 +1238,72 @@ var Calc = (function () {
 
   /* ---------- Bayes' rule and the Beta posterior of a proportion ---------- */
   function bayes(pA, pBgivenA, pBgivenNotA) {
-    if (!all(pA, pBgivenA, pBgivenNotA)) return null;
-    var pB = pA * pBgivenA + (1 - pA) * pBgivenNotA;
-    return { pB: pB, pAgivenB: pB ? pA * pBgivenA / pB : null, pNotAgivenB: pB ? (1 - pA) * pBgivenNotA / pB : null,
-             pAgivenNotB: 1 - pB ? pA * (1 - pBgivenA) / (1 - pB) : null,
-             priorOdds: pA / (1 - pA), likelihoodRatio: pBgivenNotA ? pBgivenA / pBgivenNotA : null,
-             posteriorOdds: pBgivenNotA && pA < 1 ? (pA / (1 - pA)) * (pBgivenA / pBgivenNotA) : null };
+    // the prior odds need only P(A), the likelihood ratio only the two P(B | …), the rest all three
+    var out = {};
+    if (num(pA) && pA < 1) out.priorOdds = pA / (1 - pA);
+    if (all(pBgivenA, pBgivenNotA) && pBgivenNotA) out.likelihoodRatio = pBgivenA / pBgivenNotA;
+    if (num(out.priorOdds) && num(out.likelihoodRatio)) out.posteriorOdds = out.priorOdds * out.likelihoodRatio;
+    if (all(pA, pBgivenA, pBgivenNotA)) {
+      var pB = pA * pBgivenA + (1 - pA) * pBgivenNotA;
+      out.pB = pB;
+      out.pAgivenB = pB ? pA * pBgivenA / pB : null;
+      out.pNotAgivenB = pB ? (1 - pA) * pBgivenNotA / pB : null;
+      out.pAgivenNotB = 1 - pB ? pA * (1 - pBgivenA) / (1 - pB) : null;
+    }
+    return Object.keys(out).length ? out : null;
   }
   // web slides p. 55: posterior Beta(α + k, β + n − k), mean; Naert notes L1 p. 4 figure: mode, mean, median of Beta(2, 8)
   function betaPosterior(a, b, x, n) {
-    if (!all(a, b) || a <= 0 || b <= 0) return null;
+    var out = {}, prior = all(a, b) && a > 0 && b > 0;
     function summary(p, q) {
       return { a: p, b: q, mean: p / (p + q), mode: p > 1 && q > 1 ? (p - 1) / (p + q - 2) : null, median: S.betaInv(0.5, p, q) };
     }
-    var out = { prior: summary(a, b) };
-    if (all(x, n) && x >= 0 && n >= x && n > 0) { out.posterior = summary(a + x, b + n - x); out.mle = x / n; }
-    return out;
+    if (prior) out.prior = summary(a, b);
+    if (all(x, n) && x >= 0 && n >= x && n > 0) {
+      out.mle = x / n;   // k/n needs no prior
+      if (prior) out.posterior = summary(a + x, b + n - x);
+    }
+    return Object.keys(out).length ? out : null;
   }
 
   /* ---------- regression from summary values (REG p. 18–38, 56, 61) ---------- */
   function regSums(n, sx, sy, sxx, sxy, syy) {
-    if (!all(n, sx, sy, sxx, sxy) || n < 3) return null;
-    var xb = sx / n, yb = sy / n, Sxx = sxx - n * xb * xb, Sxy = sxy - n * xb * yb;
-    if (!(Sxx > 0)) return null;
-    var out = { xbar: xb, ybar: yb, Sxx: Sxx, Sxy: Sxy, b1: Sxy / Sxx };
-    out.b0 = yb - out.b1 * xb;
-    if (num(syy)) {
-      out.sst = syy - n * yb * yb; out.ssr = out.b1 * Sxy; out.sse = out.sst - out.ssr;
-      out.r2 = out.ssr / out.sst; out.mse = out.sse / (n - 2); out.s = Math.sqrt(out.mse);
+    // each result as soon as its sums are there: the means from n and Σx, Σy; S_xx and S_xy with Σx², Σxy; b1 and b0
+    // from those; the sums of squares, R² and σ̂ with Σy²
+    if (!num(n) || n < 1) return null;
+    var out = {};
+    if (num(sx)) out.xbar = sx / n;
+    if (num(sy)) out.ybar = sy / n;
+    if (num(out.xbar) && num(sxx)) out.Sxx = sxx - n * out.xbar * out.xbar;
+    if (all(out.xbar, out.ybar) && num(sxy)) out.Sxy = sxy - n * out.xbar * out.ybar;
+    if (num(syy) && num(out.ybar)) out.sst = syy - n * out.ybar * out.ybar;
+    if (num(out.Sxx) && out.Sxx > 0 && num(out.Sxy)) {
+      out.b1 = out.Sxy / out.Sxx;
+      if (all(out.xbar, out.ybar)) out.b0 = out.ybar - out.b1 * out.xbar;
+      if (num(out.sst)) {
+        out.ssr = out.b1 * out.Sxy; out.sse = out.sst - out.ssr; out.r2 = out.ssr / out.sst;
+        if (n >= 3) { out.mse = out.sse / (n - 2); out.s = Math.sqrt(out.mse); }
+      }
     }
-    return out;
+    return Object.keys(out).length ? out : null;
   }
   function regFromSS(ssr, sse, n, k, alpha) {
-    if (!all(ssr, sse, n) || n < 3) return null;
-    k = num(k) ? k : 1;
-    var sst = ssr + sse, dfE = n - k - 1, mse = sse / dfE, msr = ssr / k, F = msr / mse, r2 = ssr / sst;
-    return { sst: sst, r2: r2, msr: msr, mse: mse, s: Math.sqrt(mse), F: F, p: S.fSf(F, k, dfE),
-             Fcrit: num(alpha) ? S.fIsf(alpha, k, dfE) : null, dfE: dfE,
-             r2adj: 1 - (1 - r2) * (n - 1) / (n - k - 1), r2adjP56: n - k - 2 > 0 ? 1 - (1 - r2) * (n - 1) / (n - k - 2) : null };
+    // each result as soon as its inputs are there: SS_T and R² from the two sums, the degrees of freedom and the
+    // critical F from n, k and α, the mean squares, F and p with the matching sums
+    var kk = num(k) && k >= 1 ? k : 1, out = {}, nOk = num(n) && n - kk - 1 > 0;
+    if (all(ssr, sse)) { out.sst = ssr + sse; out.r2 = ssr / out.sst; }
+    if (nOk) {
+      out.dfE = n - kk - 1;
+      if (num(alpha) && alpha > 0 && alpha < 1) out.Fcrit = S.fIsf(alpha, kk, out.dfE);
+    }
+    if (num(ssr)) out.msr = ssr / kk;
+    if (num(sse) && nOk) { out.mse = sse / out.dfE; out.s = Math.sqrt(out.mse); }
+    if (num(out.msr) && num(out.mse)) { out.F = out.msr / out.mse; out.p = S.fSf(out.F, kk, out.dfE); }
+    if (num(out.r2) && nOk) {
+      out.r2adj = 1 - (1 - out.r2) * (n - 1) / (n - kk - 1);
+      out.r2adjP56 = n - kk - 2 > 0 ? 1 - (1 - out.r2) * (n - 1) / (n - kk - 2) : null;
+    }
+    return Object.keys(out).length ? out : null;
   }
   function r2adj(r2, n, k) {
     if (!all(r2, n, k) || n - k - 1 <= 0) return null;
@@ -1194,22 +1311,30 @@ var Calc = (function () {
   }
   // tests and intervals of simple regression from b1, b0, MS_E, S_xx, n, x̄ (REG p. 30–38)
   function regTests(b1, b0, mse, sxx, n, xbar, x0, alpha, b1H0, b0H0) {
-    if (!all(b1, mse, sxx, n, alpha) || n < 3 || sxx <= 0 || mse <= 0) return null;
-    var df = n - 2, t2 = S.tInv(1 - alpha / 2, df), t1 = S.tInv(1 - alpha, df), out = { df: df, tcrit: t2 };
-    out.seB1 = Math.sqrt(mse / sxx);
-    out.tB1 = tests((b1 - (num(b1H0) ? b1H0 : 0)) / out.seB1, df, alpha); out.ciB1 = intervals(b1, out.seB1, t2, t1);
-    out.F = Math.pow(b1 / out.seB1, 2);
-    if (all(b0, xbar)) {
+    // each result as soon as its inputs are there: the critical t from n and α, the standard errors from MS_E and the
+    // spread of x, then the tests and intervals with the estimates added
+    var a = num(alpha) && alpha > 0 && alpha < 1, nOk = num(n) && n >= 3, out = {}, t2, t1;
+    var spread = all(mse, sxx) && mse > 0 && sxx > 0;
+    if (nOk) out.df = n - 2;
+    if (nOk && a) { t2 = S.tInv(1 - alpha / 2, out.df); t1 = S.tInv(1 - alpha, out.df); out.tcrit = t2; }
+    if (spread) out.seB1 = Math.sqrt(mse / sxx);
+    if (spread && num(b1)) out.F = Math.pow(b1 / out.seB1, 2);
+    if (spread && num(b1) && nOk && a) {
+      out.tB1 = tests((b1 - (num(b1H0) ? b1H0 : 0)) / out.seB1, out.df, alpha); out.ciB1 = intervals(b1, out.seB1, t2, t1);
+    }
+    if (spread && nOk && num(xbar)) {
       out.seB0 = Math.sqrt(mse * (1 / n + xbar * xbar / sxx));
-      out.tB0 = tests((b0 - (num(b0H0) ? b0H0 : 0)) / out.seB0, df, alpha); out.ciB0 = intervals(b0, out.seB0, t2, t1);
+      if (num(b0) && a) { out.tB0 = tests((b0 - (num(b0H0) ? b0H0 : 0)) / out.seB0, out.df, alpha); out.ciB0 = intervals(b0, out.seB0, t2, t1); }
       if (num(x0)) {
-        out.y0 = b0 + b1 * x0;
         out.seMean = Math.sqrt(mse * (1 / n + (x0 - xbar) * (x0 - xbar) / sxx));
         out.sePred = Math.sqrt(mse * (1 + 1 / n + (x0 - xbar) * (x0 - xbar) / sxx));
-        out.ciMean = intervals(out.y0, out.seMean, t2, t1); out.pi = intervals(out.y0, out.sePred, t2, t1);
       }
     }
-    return out;
+    if (all(b0, b1, x0)) out.y0 = b0 + b1 * x0;
+    if (num(out.y0) && num(out.seMean) && a) {
+      out.ciMean = intervals(out.y0, out.seMean, t2, t1); out.pi = intervals(out.y0, out.sePred, t2, t1);
+    }
+    return Object.keys(out).length ? out : null;
   }
 
   /* ---------- SPC: limits from standard values (Tabellen SPC p. 2, Table 7.2) and run rules (SPC p. 68–69) ---------- */
@@ -1288,13 +1413,26 @@ var Calc = (function () {
   }
   // MSA p. 31–32: bias = X̿ − ref; σ_r = R̄/d2; t = bias/σ_r·√(gm)·d2*/d2 with ν degrees of freedom (tabel MSA)
   function biasTest(xbarbar, rbar, g, m, ref, alpha, M) {
-    if (!all(xbarbar, rbar, g, m, ref, alpha) || rbar <= 0) return null;
-    var d2 = M.d2(m), d2s = M.d2star(g, m), nu = M.nu(g, m);
-    if (!all(d2, d2s, nu)) return { error: 'g of m staat niet in tabel MSA (g 1–20, m 2–20)' };
-    var bias = xbarbar - ref, sr = rbar / d2, t = bias / sr * Math.sqrt(g * m) * d2s / d2, tc = S.tInv(1 - alpha / 2, nu);
-    var half = sr * d2 / (d2s * Math.sqrt(g * m)) * tc, p = 2 * S.tSf(Math.abs(t), nu);
-    return { bias: bias, d2: d2, d2s: d2s, nu: nu, sr: sr, t: t, tcrit: tc, p: p, ci: [bias - half, bias + half],
-             significant: bias - half > 0 || bias + half < 0 };
+    // each result as soon as its inputs are there: the bias from X̿ and the reference, d2 from m, d2*, ν and the
+    // critical t from g, m and α, σ_r from R̄ and m, then t, p and the interval
+    var a = num(alpha) && alpha > 0 && alpha < 1, out = {};
+    if (num(xbarbar) && num(ref)) out.bias = xbarbar - ref;
+    if (num(m)) { out.d2 = M.d2(m); if (!num(out.d2)) return { error: 'm staat niet in tabel MSA (m 2–20)' }; }
+    if (all(g, m)) {
+      out.d2s = M.d2star(g, m); out.nu = M.nu(g, m);
+      if (!all(out.d2s, out.nu)) return { error: 'g of m staat niet in tabel MSA (g 1–20, m 2–20)' };
+      if (a) out.tcrit = S.tInv(1 - alpha / 2, out.nu);
+    }
+    if (num(rbar) && rbar > 0 && num(out.d2)) out.sr = rbar / out.d2;
+    if (num(out.sr) && num(out.d2s)) {
+      var unit = out.sr * out.d2 / (out.d2s * Math.sqrt(g * m));   // the standard error of the bias
+      if (num(out.bias)) { out.t = out.bias / unit; out.p = 2 * S.tSf(Math.abs(out.t), out.nu); }
+      if (num(out.bias) && a) {
+        out.ci = [out.bias - unit * out.tcrit, out.bias + unit * out.tcrit];
+        out.significant = out.ci[0] > 0 || out.ci[1] < 0;
+      }
+    }
+    return Object.keys(out).length ? out : null;
   }
   // MSA p. 30: count the multiples of the measurement unit between the range chart's limits (Table 18 D3, D4, d2)
   function discrimination(n, mu, rbar, K) {
@@ -1388,6 +1526,15 @@ var Calc = (function () {
       function () { return all(v.a, v.b, v.k) && !num(v.sigma) && v.k > 0 ? set('sigma', (v.b - v.a) / (2 * v.k)) : false; }
     ]);
     var out = { mu: v.mu, sigma: v.sigma, a: v.a, b: v.b, k: v.k, solved: solved, notes: notes };
+    // Each result appears as soon as its own inputs are known: one bound gives its z and tail,
+    // and k alone already gives the symmetric interval µ ± kσ in standard units.
+    if (all(v.mu, v.sigma, v.a)) { out.za = (v.a - v.mu) / v.sigma; out.below = S.normCdf(out.za); }
+    if (all(v.mu, v.sigma, v.b)) { out.zb = (v.b - v.mu) / v.sigma; out.above = S.normCdf(-out.zb); }
+    if (num(v.k) && v.k > 0 && !all(v.mu, v.sigma, v.a, v.b)) {
+      out.za = -v.k; out.zb = v.k; out.below = out.above = S.normCdf(-v.k);
+      out.inside = 1 - 2 * out.below; out.outside = 2 * out.below;
+      solved.push('inside', 'outside');
+    }
     if (all(v.mu, v.sigma, v.a, v.b)) {
       var lo = Math.min(v.a, v.b), hi = Math.max(v.a, v.b);
       out.za = (lo - v.mu) / v.sigma; out.zb = (hi - v.mu) / v.sigma;
@@ -1479,6 +1626,8 @@ var Calc = (function () {
     if (num(v.cpu)) { out.zUsl = 3 * v.cpu; out.above = Phi(-out.zUsl); }
     if (num(v.cpl)) { out.zLsl = 3 * v.cpl; out.below = Phi(-out.zLsl); }
     if (num(v.cp)) out.level = cpLevel(v.cp);
+    // Cpk alone fixes the tail beyond the nearest limit; with two limits the other tail is at most as large
+    if (num(v.cpk) && two && !num(v.out)) { out.nearTail = Phi(-3 * v.cpk); out.outRange = [out.nearTail, 2 * out.nearTail]; }
     if (num(v.cpk)) out.capable = v.cpk >= 1.33 ? 'ja' : 'nee';   // SPC p. 41: Cpk = 1,33 is 'Good'
     return out;
   }
@@ -1518,6 +1667,8 @@ var Calc = (function () {
         r.z = S.normInv(1 - alpha / 2); r.width = 2 * r.z * spread / Math.sqrt(n); r.n = n; r.alpha = alpha;
       } else if (all(W, n) && n > 0) {
         r.z = W * Math.sqrt(n) / (2 * spread); r.alpha = 2 * S.normCdf(-r.z); r.n = n; r.width = W;
+      } else if (num(alpha)) {   // α alone already fixes z
+        r.z = S.normInv(1 - alpha / 2); r.alpha = alpha;
       } else return null;
       r.confidence = 1 - r.alpha;
       return r;

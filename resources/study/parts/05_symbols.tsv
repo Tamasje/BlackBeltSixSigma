@@ -19,8 +19,6 @@ sigma	\(\sigma\)	Standaardafwijking van populatie of proces (population standard
 sigma0	\(\sigma_{0}\)	Waarde van \(\sigma\) onder \(H_{0}\) (hypothesized standard deviation).	Uit de opgave (0,01). In de \(\chi^{2}\)-grootheid gekwadrateerd: \(\sigma_{0}^{2}=0{,}0001\).	d05-chi2toets
 sigma1	\(\sigma_{1}\)	Standaardafwijking van populatie 1 (bv. machine 1).	Onbekend; geschat door \(s_{1}\). 'Machine 1 nauwkeuriger' betekent \(\sigma_{1}\lt\sigma_{2}\).	d05-chi2-f
 sigma2	\(\sigma_{2}\)	Standaardafwijking van populatie 2 (bv. machine 2).	Onbekend; geschat door \(s_{2}\). \(\sigma_{1}=\sigma_{2}\) is een voorwaarde van de niet-gepaarde t-toets.	d05-chi2-f
-sigma_a	\(\sigma_{A}\)	Standaardafwijking van verdeling A (Dummies-voorbeeld).	Onbekend; geschat door \(s_{A}\).	ex-14-05-1
-sigma_b	\(\sigma_{B}\)	Standaardafwijking van verdeling B (Dummies-voorbeeld).	Onbekend; geschat door \(s_{B}\).	ex-14-05-1
 xbar	\(\bar{x}\ (\bar{X})\)	Steekproefgemiddelde (sample mean); \(\bar{X}\) als toevalsgrootheid.	Som van de data gedeeld door n. Onder \(H_{0}\), \(\sigma\) gekend: \(\bar{X}\sim N\left(\mu_{0};\frac{\sigma}{\sqrt{n}}\right)\).	d05-recept
 xbar1	\(\bar{x}_{1}\)	Gemiddelde van steekproef 1.	Gemiddelde van groep 1 (schoenzolen: 28,7).	d05-t-recepten
 xbar2	\(\bar{x}_{2}\)	Gemiddelde van steekproef 2.	Gemiddelde van groep 2 (schoenzolen: 34,3).	d05-t-recepten
@@ -30,12 +28,8 @@ s1	\(s_{1}\)	Standaardafwijking van steekproef 1.	Standaardafwijking van groep 1
 s2	\(s_{2}\)	Standaardafwijking van steekproef 2.	Standaardafwijking van groep 2, deler n − 1 (schoenzolen: 7,53).	d05-t-recepten
 s1_sq	\(s_{1}^{2}\)	Variantie van steekproef 1.	Variantie van groep 1 (deler n − 1), of \(s_{1}\) in het kwadraat. In F en in \(s_{p}^{2}\) staan varianties, geen s.	d05-chi2-f
 s2_sq	\(s_{2}^{2}\)	Variantie van steekproef 2.	Variantie van groep 2 (deler n − 1), of \(s_{2}\) in het kwadraat. In F en in \(s_{p}^{2}\) staan varianties, geen s.	d05-chi2-f
-sa_sq	\(s_{A}^{2}\)	Steekproefvariantie van A (Dummies-voorbeeld).	Gegeven in de opgave (4).	ex-14-05-1
-sb_sq	\(s_{B}^{2}\)	Steekproefvariantie van B (Dummies-voorbeeld).	Gegeven in de opgave (7,5).	ex-14-05-1
-n_a	\(n_{A}\)	Steekproefgrootte van A (Dummies-voorbeeld).	Gegeven (10); vrijheidsgraden \(n_{A}-1=9\).	ex-14-05-1
-n_b	\(n_{B}\)	Steekproefgrootte van B (Dummies-voorbeeld).	Gegeven (5); vrijheidsgraden \(n_{B}-1=4\).	ex-14-05-1
 sp	\(s_{p}\)	Gepoolde standaardafwijking (pooled standard deviation) van twee steekproeven.	Vierkantswortel van \(s_{p}^{2}\) (schoenzolen: 6,59).	d05-t-recepten
-sp_sq	\(s_{p}^{2}\)	Gepoolde variantie (pooled variance).	\(\frac{(n_{1}-1)s_{1}^{2}+(n_{2}-1)s_{2}^{2}}{n_{1}+n_{2}-2}\). Noemer − 2, niet − 1 (beslissing 8).	d05-t-recepten
+sp_sq	\(s_{p}^{2}\)	Gepoolde variantie (pooled variance).	\(\frac{(n_{1}-1)s_{1}^{2}+(n_{2}-1)s_{2}^{2}}{n_{1}+n_{2}-2}\). Noemer − 2, niet − 1.	d05-t-recepten
 n1	\(n_{1}\)	Steekproefgrootte van groep 1.	Gegeven of tel de data. Vrijheidsgraden niet-gepaard: \(n_{1}+n_{2}-2\); F: \(n_{1}-1\).	d05-t-recepten
 n2	\(n_{2}\)	Steekproefgrootte van groep 2.	Gegeven of tel de data. Vrijheidsgraden niet-gepaard: \(n_{1}+n_{2}-2\); F: \(n_{2}-1\).	d05-t-recepten
 d_diff	d	Verschil \(\mu_{1}-\mu_{2}\) onder \(H_{0}\) (hypothesized difference).	Uit de opgave; meestal 0. Let op de volgorde: groep 1 min groep 2.	d05-t-recepten

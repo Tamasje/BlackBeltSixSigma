@@ -2,7 +2,7 @@
   <h2>Deel 13 — Voorbeeldexamen (interactief)</h2>
   <p class="intro">Het voorbeeldexamen van 9 oktober 2025 (7 vragen, 20 punten), vraag per vraag om zelf op te lossen.
   Er bestaat geen officiële antwoordsleutel: de oplossingen hieronder zijn <b>modelantwoorden</b>, opgebouwd uit het
-  cursusmateriaal waarnaar ze verwijzen. Getallen die de gids zelf berekent, komen uit <code>study/parts/13_numbers.py</code>.
+  cursusmateriaal waarnaar ze verwijzen.
   <a class="p" href="../source/exam/20251009_voorbeeldexamen%20six%20sigma.pdf#page=1">examen p. 1</a></p>
 
   <section class="unit" id="d13-v1" data-kw="voorbeeldexamen; exam; vraag 1; question 1; significant; relevant; betrouwbaarheidsinterval; confidence interval; nauwkeurigheid; precision; steekproefgrootte; sample size; cluster sampling; non-response bias; dualiteit; duality">
@@ -175,8 +175,7 @@
           (long term performance) met staarten buiten LSL en USL. Na liggen ze gecentreerd op het doel (Target) en zijn ze
           smal: de spreiding is verkleind (reduce dispersion) en het gemiddelde verschoven (shift mean).
           <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=25">SPC p. 25–26</a></figcaption></figure></li>
-          <li><b>d.</b> De cursus geeft twee lezingen van het \(6\sigma\)-criterium; geef ze allebei, met de lezing erbij
-          (beslissing 2 in <code>inventory/conventions.md</code>).
+          <li><b>d.</b> De cursus geeft twee lezingen van het \(6\sigma\)-criterium; geef ze allebei, met de lezing erbij.
           <ul>
             <li>Lange termijn, met de \(1{,}5\sigma\)-verschuiving: hoogstens <b>3,4 ppm</b> (= 0,00034 %) uitval
             <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a>.</li>
@@ -193,7 +192,7 @@
       <li><b>"\(\sym{cp}{C_{p}}=1\), dus het proces is net capabel met 0,27 % uitval."</b> Fout: Cp kijkt niet naar de ligging. Met \(\sym{mu}{\mu}=1440\) is \(\sym{cpk}{C_{pk}}=0{,}67\) en de uitval 2,28 %; 0,27 % geldt alleen gecentreerd op 1430 <span class="computed">zelf berekend</span>.</li>
       <li><b>Let op:</b> <var data-s="cp">Cp</var> deelt de hele tolerantie door \(6\sym{sigma}{\sigma}\), <var data-s="cpk">Cpk</var> de afstand tot de dichtste grens door \(3\sym{sigma}{\sigma}\): (1460 − 1440)/30, niet /60.</li>
       <li><b>Let op:</b> de uitval zijn beide staarten samen (2,275 % + 0,0032 %); hier is de onderste staart verwaarloosbaar, maar bij twee grenzen tel je ze altijd op.</li>
-      <li><b>"Het \(6\sigma\)-criterium betekent 3,4 % uitval."</b> Fout: 3,4 ppm = 0,00034 % (lange termijn, met de \(1{,}5\sigma\)-verschuiving) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a>; de cursus geeft ook 2 per miljard = 0,002 ppm (\(\sym{cp}{C_{p}}=2\), korte termijn) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a>. Geef beide (beslissing 2).</li>
+      <li><b>"Het \(6\sigma\)-criterium betekent 3,4 % uitval."</b> Fout: 3,4 ppm = 0,00034 % (lange termijn, met de \(1{,}5\sigma\)-verschuiving) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=37">SPC p. 37</a>; de cursus geeft ook 2 per miljard = 0,002 ppm (\(\sym{cp}{C_{p}}=2\), korte termijn) <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=40">SPC p. 40</a>. Geef beide.</li>
       <li><b>"De capabiliteit verbeter je door de specificaties ruimer te maken."</b> Niet op eigen houtje: de specificaties zijn de stem van de klant, dus ruimer kan alleen met de klant samen (de cursus noemt "widen specification limits" als teamwerk, <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=23">SPC p. 23</a>). De twee hefbomen in het proces zelf zijn centreren en de spreiding verkleinen <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=25">SPC p. 25–26</a>.</li>
     </ul></div>
   </section>
@@ -226,7 +225,6 @@
         </ol>
       </details>
     </div>
-    <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-10-imr">14 Dummies: individuele waarden, de I-MR-kaart</a>.</p>
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>a. "We mogen normaliteit aannemen omdat elk proces normaal verdeeld is."</b> Fout: niet elk proces is normaal. Je zet gemiddelden van steekproeven uit, en die zijn bij benadering normaal (centrale limietstelling); losse metingen niet <a class="p" href="../source/course/Les%204/2026%20Lean%20-%20Six%20Sigma%20v13%20-%20Capabiliteit%20-%20SPC.pdf#page=62">SPC p. 62–63</a>.</li>
@@ -340,7 +338,7 @@
         hypergeometrische) verdeling hoort bij het aantal defectieven in een lot
         <a class="p" href="../source/course/Les%202/20260529_ottoy_Acceptance%20Sampling.pdf#page=12">AS p. 12</a>. Voor T gebruik je
         \(E[\sym{t_between}{T}]=\frac{1}{\sym{lambda}{\lambda}}\), met \(\sym{lambda}{\lambda}=175{,}3\) bestellingen per week: een standaardformule die niet in
-        de slides staat (beslissing 20).</p>
+        de slides staat.</p>
         <p><b>b. Welke veranderlijken zijn niet iid?</b> "iid" betekent onafhankelijk én identiek verdeeld. Meerdere
         antwoorden zijn mogelijk. Voorbeelden: B en T, want bestellingen hangen af van het seizoen, de dag van de week en
         promoties, dus niet elke week of elk moment heeft dezelfde verdeling. X en D, want opeenvolgende elco's uit

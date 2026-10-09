@@ -402,7 +402,6 @@
       ondergrens", "alleen bovengrens"), zowel met z (\(\sigma\) gekend) als met t.</p>
     </div>
     <div class="calc-here" data-tool="gemiddelde" data-blocks="0"></div>
-    <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-04-mu">14 Dummies: z of t, en "95 %" = ±2σ in de tabellen</a>.</p>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
@@ -512,14 +511,13 @@
       met de controle \(\sym{n}{n}\sym{pi0}{\pi_{0}}\gt5\)) en sectie "Twee proporties".</p>
     </div>
     <div class="calc-here" data-tool="proportie" data-blocks="0 1"></div>
-    <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-04-proporties">14 Dummies: BI voor een proportie en voor het verschil van twee proporties</a>.</p>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"\(n=100\) is groot, dus de normale benadering mag."</b> Fout: de vuistregel is minstens 5 defectieven in de steekproef, niet een grote n (notities bij <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=10">CI p. 10</a>). Met 4 op 100 geeft de benadering [0,16 %; 7,84 %] <span class="computed">zelf berekend</span>, het exacte BI [1,1 %; 9,9 %] <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=4">CI p. 4</a> (<a href="#ex-04-6">oefening 04.6</a>).</li>
       <li><b>"Een BI voor een fractie ligt altijd symmetrisch rond p."</b> Fout: dat geldt alleen voor de normale benadering. Het exacte binomiale BI is scheef bij kleine fracties: [1,1 %; 9,9 %] rond 4 % <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=4">CI p. 4</a>.</li>
       <li><b>"Een 95%-BI voor het percentage defectieven is [1,4 %; 2,2 %]; het proces is dus niet geschikt om minder dan 1 % defectieven te leveren."</b> Juist, voor het proces zoals het nu loopt: het hele BI ligt boven 1 % <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals.pdf#page=4">CI p. 4</a> <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=9">CI FR p. 9</a>. Een verbeterd proces is een ander proces (examenvraag, <a href="#d13-v1">13.1</a>b).</li>
-      <li><b>Let op:</b> reken onder de wortel met fracties (0,04), niet met percentages (4). Komt een benaderd interval onder 0 of boven 1 uit, dan geldt de normale benadering niet: gebruik het exacte BI (voorbeeld uit de boeken: <a href="#ex-14-04-1">de tandartsen, Deel 14</a>). <span class="gen">algemeen</span></li>
+      <li><b>Let op:</b> reken onder de wortel met fracties (0,04), niet met percentages (4). Komt een benaderd interval onder 0 of boven 1 uit, dan geldt de normale benadering niet: gebruik het exacte BI. <span class="gen">algemeen</span></li>
     </ul></div>
 
     <div class="exercise" id="ex-04-6" data-kw="tegels; tiles; 4 op 100; BI proportie; normale benadering; normal approximation; exact; voorwaarde; condition; S03-WE01">
@@ -759,7 +757,6 @@
       (\(\sigma\) minstens …; (past bij de vraag "is σ groter dan σ0?"))").</p>
     </div>
     <div class="calc-here" data-tool="variantie" data-blocks="0"></div>
-    <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-04-sigma">14 Dummies: BI voor σ met Tabel 8-2</a>.</p>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
@@ -822,7 +819,7 @@
     rechterstaart.
     <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=12">Recepten p. 12</a></figcaption></figure>
     <p><b>Het interval.</b> Noem \(\sym{f_lo}{F_{\mathrm{lo}}}\) en \(\sym{f_hi}{F_{\mathrm{hi}}}\) de punten van \(F(n_{1}-1;n_{2}-1)\) met kans \(\frac{\alpha}{2}\) eronder en
-    \(\frac{\alpha}{2}\) erboven. Omkeren zoals bij \(\sigma^{2}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=21">CI FR p. 21</a> (beslissing 7 in <code>inventory/conventions.md</code>) geeft:</p>
+    \(\frac{\alpha}{2}\) erboven. Omkeren zoals bij \(\sigma^{2}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Confidence%20Intervals%20-%20Further%20Reading%20(Dutch).pdf#page=21">CI FR p. 21</a> geeft:</p>
     <div class="f">
       <div>\[\frac{\sym{sigma1_sq}{\sigma_{1}^{2}}}{\sym{sigma2_sq}{\sigma_{2}^{2}}}\in\left[\frac{\sym{s1_sq}{s_{1}^{2}}/\sym{s2_sq}{s_{2}^{2}}}{\sym{f_hi}{F_{\mathrm{hi}}}};\ \frac{\sym{s1_sq}{s_{1}^{2}}/\sym{s2_sq}{s_{2}^{2}}}{\sym{f_lo}{F_{\mathrm{lo}}}}\right]\]</div>
       <div>\[\frac{\sym{sigma2_sq}{\sigma_{2}^{2}}}{\sym{sigma1_sq}{\sigma_{1}^{2}}}\in\left[\frac{\sym{s2_sq}{s_{2}^{2}}}{\sym{s1_sq}{s_{1}^{2}}}\cdot\sym{f_lo}{F_{\mathrm{lo}}};\ \frac{\sym{s2_sq}{s_{2}^{2}}}{\sym{s1_sq}{s_{1}^{2}}}\cdot\sym{f_hi}{F_{\mathrm{hi}}}\right]\] (hetzelfde interval, omgekeerd)</div>
@@ -850,12 +847,11 @@
       hoogstens … (\(\frac{\sigma_{2}^{2}}{\sigma_{1}^{2}}\) minstens …)". Voor "is machine 1 nauwkeuriger?" lees je die laatste rij.</p>
     </div>
     <div class="calc-here" data-tool="variantie" data-blocks="1"></div>
-    <p class="small extra-ref">Uit de boeken (niet te kennen voor het examen): <a href="#d14-04-f">14 Dummies: BI voor σ<sub>A</sub>²/σ<sub>B</sub>² met Tabel 8-3</a>.</p>
 
     <div class="box pit"><span class="t">Valkuilen en strikvragen</span>
     <ul>
       <li><b>"Is machine 1 nauwkeuriger dan machine 2? Bereken het tweezijdige BI voor \(\frac{\sigma_{1}^{2}}{\sigma_{2}^{2}}\)."</b> Fout: de vraag heeft een richting, dus een eenzijdig BI: de ondergrens \(\frac{\sym{sigma2_sq}{\sigma_{2}^{2}}}{\sym{sigma1_sq}{\sigma_{1}^{2}}}\ge\left(\frac{\sym{s2_sq}{s_{2}^{2}}}{\sym{s1_sq}{s_{1}^{2}}}\right)\cdot\sym{f_q}{F_{\alpha}}(\sym{n1}{n_{1}}-1;\sym{n2}{n_{2}}-1)\). Ligt die boven 1, dan is machine 1 nauwkeuriger (examenvraag, <a href="#d13-v2">13.2</a>).</li>
-      <li><b>"De ondergrens voor \(\frac{\sigma_{2}^{2}}{\sigma_{1}^{2}}\) ligt onder 1, dus machine 2 is nauwkeuriger."</b> Fout: dan bevat het BI de waarde 1 en kun je niets besluiten (voorbeeld uit de boeken: <a href="#ex-14-04-4">verdeling A en B, Deel 14</a>, vraag e).</li>
+      <li><b>"De ondergrens voor \(\frac{\sigma_{2}^{2}}{\sigma_{1}^{2}}\) ligt onder 1, dus machine 2 is nauwkeuriger."</b> Fout: dan bevat het BI de waarde 1 en kun je niets besluiten.</li>
       <li><b>Let op:</b> de vrijheidsgraden volgen de verhouding: teller \(s_{1}^{2}\) hoort bij \(n_{1}-1\), noemer bij \(n_{2}-1\). Draai je de verhouding om, dan wisselen ook de vrijheidsgraden: \(\sym{f_q}{F_{\alpha}}(\sym{df_n}{n},\sym{df_m}{m})=\frac{1}{\sym{f_q}{F_{1-\alpha}}(\sym{df_m}{m},\sym{df_n}{n})}\) <a class="p" href="../source/course/Les%202/20260529_ottoy_Test%20Recipes%20-%20Further%20Reading%20(Dutch).pdf#page=12">Recepten p. 12</a>.</li>
     </ul></div>
 
@@ -971,7 +967,7 @@
           <span class="computed">zelf berekend</span>.</li>
           <li>b. \(\sym{ltl}{\mathrm{LTL}}=5{,}8-2{,}263\cdot0{,}15=\) <b>5,461</b> <span class="computed">zelf berekend</span>.</li>
           <li>c. <b>Nee</b>: 5,461 &lt; 5,48; de grens ligt in [<var data-s="ltl">LTL</var>; +∞[, dus met deze 10 blokken kun je niet aantonen dat 90 %
-          van de blokken sterk genoeg is, ook al ligt het gemiddelde hoog. Doordat \(\sigma\) geschat wordt, is k groter dan in 04.17.</li>
+          van de blokken sterk genoeg is, ook al ligt het gemiddelde hoog. Doordat \(\sigma\) geschat wordt, is k groter dan in oefening 04.17.</li>
         </ol>
       </details>
     </div>

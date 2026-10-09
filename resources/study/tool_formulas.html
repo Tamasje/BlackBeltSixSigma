@@ -64,7 +64,7 @@ P(\sym{X}{X}\gt\sym{b}{b})=1-\sym{Phi}{\Phi}\left(\frac{\sym{b}{b}-\sym{mu}{\mu}
 <li data-hoe="DPO maal een miljoen, of af te lezen in de sigmatabel bij een sigmaniveau.">\(\sym{dpmo}{\mathrm{DPMO}}\): het aantal defecten per miljoen kansen.</li>
 <li data-hoe="1 − DPO; de sigmatabellen geven het in %.">\(\sym{y}{\text{yield}}\): de fractie kansen zonder defect.</li>
 <li data-hoe="De Z-tabel omgekeerd gelezen: de z met Φ(z) = 1 − DPO.">\(\sym{Z}{Z}\): de sigmascore: het aantal \(\sigma\) tussen het gemiddelde en de grens waarbuiten een fractie DPO valt.</li>
-<li data-hoe="Z + 1,5, of af te lezen in de sigmatabel: 3,4 DPMO is 6 sigma.">\(\sym{L}{\text{sigmaniveau}}\): \(Z\) plus de 1,5σ-verschuiving van de lange termijn (beslissing 3, zoals de sigmatabellen van de cursus).</li>
+<li data-hoe="Z + 1,5, of af te lezen in de sigmatabel: 3,4 DPMO is 6 sigma.">\(\sym{L}{\text{sigmaniveau}}\): \(Z\) plus de 1,5σ-verschuiving van de lange termijn (zoals de sigmatabellen van de cursus).</li>
 <li data-hoe="Z-tabel of de rekenmachine normaal; omgekeerd: zoek de kans in de tabel.">\(\sym{Phi}{\Phi}\): de kans links van \(z\) (standaardnormaal); \(\Phi^{-1}\): kans → \(z\).</li>
 </ul>
 <p class="fx-src">SPC p. 20–21, 37–40.</p>
@@ -117,7 +117,7 @@ P(\sym{X}{X}\gt\sym{b}{b})=1-\sym{Phi}{\Phi}\left(\frac{\sym{b}{b}-\sym{mu}{\mu}
 <li data-hoe="Tel de metingen in elke steekproef.">\(\sym{n1}{n_{1}}\), \(\sym{n2}{n_{2}}\): de groottes van de twee onafhankelijke steekproeven.</li>
 <li data-hoe="Het gemiddelde van elke reeks.">\(\sym{x1}{\bar{x}_{1}}\), \(\sym{x2}{\bar{x}_{2}}\): de twee steekproefgemiddelden.</li>
 <li data-hoe="Uit elke reeks, deler n − 1.">\(\sym{s1}{s_{1}}\), \(\sym{s2}{s_{2}}\): de twee standaardafwijkingen.</li>
-<li data-hoe="Uit de formule erboven; de rekenmachine geeft het.">\(\sym{sp}{s_{p}}\): de gepoolde standaardafwijking (beide populaties dezelfde \(\sigma\)); noemer \(n_{1}+n_{2}-2\) (beslissing 8; CI FR p. 15 drukt \(n_{1}+n_{2}-1\)).</li>
+<li data-hoe="Uit de formule erboven; de rekenmachine geeft het.">\(\sym{sp}{s_{p}}\): de gepoolde standaardafwijking (beide populaties dezelfde \(\sigma\)); noemer \(n_{1}+n_{2}-2\).</li>
 <li data-hoe="Meestal 0 ('is er een verschil?').">\(\sym{d0}{d_{0}}\): het verschil \(\mu_{1}-\mu_{2}\) onder \(H_{0}\).</li>
 <li data-hoe="Gegeven; meestal 5 %.">\(\sym{alpha}{\alpha}\): het significantieniveau.</li>
 <li data-hoe="t-tabel of rekenmachine kwantielen, n1 + n2 − 2 vrijheidsgraden.">\(\sym{t}{t}\): de t-toetsgrootheid; \(t_{q;\,\nu}\) is het \(q\)-kwantiel.</li>
@@ -539,7 +539,7 @@ t_{0}=\frac{\sym{b}{b}-\sym{bh}{\beta_{H_{0}}}}{\mathrm{se}(\sym{b}{b})}\sim t(\
 <ul class="fx-vars">
 <li data-hoe="De specificatie van de klant (tolerantie).">\(\sym{lsl}{\mathrm{LSL}}\), \(\sym{usl}{\mathrm{USL}}\): de onderste en de bovenste specificatiegrens.</li>
 <li data-hoe="Het gemiddelde van de data, of X̿ van de regelkaart.">\(\sym{xbar}{\bar{x}}\): het procesgemiddelde.</li>
-<li data-hoe="Kies de schatting die de vraag bedoelt; de rekenmachine zet ze naast elkaar (beslissing 1).">\(\sym{sigma}{\sigma}\): de spreiding van het proces.</li>
+<li data-hoe="Kies de schatting die de vraag bedoelt; de rekenmachine zet ze naast elkaar.">\(\sym{sigma}{\sigma}\): de spreiding van het proces.</li>
 <li data-hoe="Gemiddelde van de spreidingsbreedtes (max − min) van de subgroepen.">\(\sym{rbar}{\bar{R}}\): de gemiddelde spreidingsbreedte.</li>
 <li data-hoe="Gemiddelde van de standaardafwijkingen van de subgroepen.">\(\sym{sbar}{\bar{s}}\): de gemiddelde standaardafwijking.</li>
 <li data-hoe="Tabel Constanten bij de subgroepgrootte n (Table 18, Table A).">\(\sym{d2}{d_{2}}\), \(\sym{c4}{c_{4}}\): constanten voor subgroepgrootte \(n\).</li>
@@ -939,81 +939,12 @@ n_{A}=\frac{\sym{WA}{W_{A}}\sigma_{A}}{\sym{WA}{W_{A}}\sigma_{A}+\sym{WB}{W_{B}}
 <p class="fx-src">AS FR p. 13–15.</p>
 </section>
 
-<section data-block="sigma_extra.0" data-uitleg="d14-03-dpu">
-\[\sym{dpu}{\mathrm{DPU}}=\frac{\sym{D}{D}}{\sym{N}{N}}\qquad \text{throughput yield}=1-\sym{dpu}{\mathrm{DPU}}\qquad \mathrm{RTY}\approx e^{-\sym{dpu}{\mathrm{DPU}}}\ \text{(kleine DPU)}\]
-<ul class="fx-vars">
-<li data-hoe="Tel alle defecten.">\(\sym{D}{D}\): het aantal defecten.</li>
-<li data-hoe="Tel de eenheden.">\(\sym{N}{N}\): het aantal eenheden.</li>
-<li data-hoe="D/N.">\(\sym{dpu}{\mathrm{DPU}}\): defecten per eenheid.</li>
-</ul>
-<p class="fx-src">Dummies p. 152–156; Harry &amp; Schroeder p. 5.</p>
-</section>
 
-<section data-block="sigma_extra.1" data-uitleg="d14-03-yield">
-\[\sym{Y}{Y}=\frac{\sym{out}{\text{uit}}}{\sym{in}{\text{in}}}\qquad \sym{fty}{\mathrm{FTY}}=\frac{\sym{in}{\text{in}}-\sym{scrap}{\text{scrap}}-\sym{rework}{\text{herwerk}}}{\sym{in}{\text{in}}}\qquad \text{verborgen fabriek}=\sym{Y}{Y}-\sym{fty}{\mathrm{FTY}}\]
-<ul class="fx-vars">
-<li data-hoe="Het aantal eenheden dat de stap ingaat.">\(\sym{in}{\text{in}}\): de eenheden in.</li>
-<li data-hoe="Het aantal goede eenheden dat de stap verlaat (na herwerk).">\(\sym{out}{\text{uit}}\): de eenheden uit.</li>
-<li data-hoe="Tel de afgekeurde eenheden.">\(\sym{scrap}{\text{scrap}}\): afgekeurd.</li>
-<li data-hoe="Tel de herwerkte eenheden.">\(\sym{rework}{\text{herwerk}}\): herwerkt.</li>
-<li data-hoe="Uit de formules.">\(\sym{Y}{Y}\): de traditionele yield; \(\sym{fty}{\mathrm{FTY}}\): de first-time yield (goed zonder herwerk).</li>
-</ul>
-<p class="fx-src">Dummies p. 147–151.</p>
-</section>
 
-<section data-block="sigma_extra.2" data-uitleg="d14-03-yield">
-\[\sym{rty}{\mathrm{RTY}}=\prod_{i=1}^{\sym{k}{k}}\sym{y}{y_{i}}\qquad \mathrm{NY}=\sym{rty}{\mathrm{RTY}}^{1/\sym{k}{k}}\qquad \mathrm{DPU}=-\ln\sym{rty}{\mathrm{RTY}}\qquad
-\text{eenheden per goede: }1+(1-\sym{rty}{\mathrm{RTY}})\ \text{(herstelbaar)},\ \ \frac{1}{\sym{rty}{\mathrm{RTY}}}\ \text{(afgekeurd)}\]
-<ul class="fx-vars">
-<li data-hoe="De first-time yield van elke processtap.">\(\sym{y}{y_{i}}\): de yield van stap \(i\).</li>
-<li data-hoe="Tel de stappen.">\(\sym{k}{k}\): het aantal stappen.</li>
-<li data-hoe="Het product van de yields.">\(\sym{rty}{\mathrm{RTY}}\): de rolled throughput yield; NY: de genormaliseerde yield per stap.</li>
-</ul>
-<p class="fx-src">Dummies p. 149; Harry &amp; Schroeder p. 5.</p>
-</section>
 
-<section data-block="sigma_extra.3" data-uitleg="d14-03-yield">
-\[\sym{rty}{\mathrm{RTY}}=\sym{y}{y}^{\sym{k}{k}}\qquad \text{één goede op }\frac{1}{\sym{rty}{\mathrm{RTY}}}\]
-<ul class="fx-vars">
-<li data-hoe="De yield die elke stap haalt.">\(\sym{y}{y}\): de yield per stap.</li>
-<li data-hoe="Tel de stappen.">\(\sym{k}{k}\): het aantal stappen.</li>
-<li data-hoe="y tot de macht k.">\(\sym{rty}{\mathrm{RTY}}\): de rolled throughput yield.</li>
-</ul>
-<p class="fx-src">Dummies p. 149.</p>
-</section>
 
-<section data-block="sigma_extra.4" data-uitleg="d14-03-yield">
-\[\sym{ypo}{\text{yield per kans}}=\sym{Y}{Y}^{1/\sym{O}{O}}\qquad \mathrm{DPMO}=(1-\sym{ypo}{\text{yield per kans}})\cdot10^{6}\qquad Z=\Phi^{-1}(\sym{ypo}{\text{yield per kans}})\qquad \text{sigmaniveau}=Z+1{,}5\]
-<ul class="fx-vars">
-<li data-hoe="De fractie eenheden zonder enig defect.">\(\sym{Y}{Y}\): de eindyield.</li>
-<li data-hoe="Tel de kansen op een defect per eenheid.">\(\sym{O}{O}\): het aantal kansen per eenheid.</li>
-<li data-hoe="Y tot de macht 1/O.">\(\sym{ypo}{\text{yield per kans}}\): de kans dat één kans foutloos is.</li>
-</ul>
-<p class="fx-src">Harry &amp; Schroeder p. 3–5.</p>
-</section>
 
-<section data-block="regelkaart_extra.0" data-uitleg="d14-10-imr">
-\[\sym{mr}{\mathrm{MR}_{i}}=|\sym{x}{x_{i}}-\sym{x}{x_{i-1}}|\qquad X\text{-kaart: }\sym{xbar}{\bar{X}}\pm \sym{E2}{E_{2}}\sym{mrbar}{\overline{\mathrm{MR}}}\qquad
-\mathrm{MR}\text{-kaart: }\sym{D3}{D_{3}}\sym{mrbar}{\overline{\mathrm{MR}}},\ \sym{mrbar}{\overline{\mathrm{MR}}},\ \sym{D4}{D_{4}}\sym{mrbar}{\overline{\mathrm{MR}}}\qquad \hat{\sigma}=\frac{\sym{mrbar}{\overline{\mathrm{MR}}}}{\sym{d2}{d_{2}}}=\frac{\sym{mrbar}{\overline{\mathrm{MR}}}}{1{,}128}\]
-<ul class="fx-vars">
-<li data-hoe="De metingen in volgorde.">\(\sym{x}{x_{i}}\): meting \(i\).</li>
-<li data-hoe="Verschil met de vorige meting, in absolute waarde.">\(\sym{mr}{\mathrm{MR}_{i}}\): de moving range.</li>
-<li data-hoe="Het gemiddelde van de metingen en van de moving ranges.">\(\sym{xbar}{\bar{X}}\), \(\sym{mrbar}{\overline{\mathrm{MR}}}\): de gemiddelden.</li>
-<li data-hoe="Tabel Constanten bij n = 2.">\(\sym{E2}{E_{2}}\), \(\sym{D3}{D_{3}}\), \(\sym{D4}{D_{4}}\), \(\sym{d2}{d_{2}}\): constanten voor \(n=2\).</li>
-</ul>
-<p class="fx-src">Dummies p. 116, 249.</p>
-</section>
 
-<section data-block="regelkaart_extra.1" data-uitleg="d14-10-attribuut">
-\[\sym{pbar}{\bar{p}}=\frac{\sum\text{defectieven}}{\sum\sym{ni}{n_{i}}}\qquad \sym{pbar}{\bar{p}}\pm3\sqrt{\frac{\sym{pbar}{\bar{p}}(1-\sym{pbar}{\bar{p}})}{\sym{ni}{n_{i}}}}\qquad
-\sym{ubar}{\bar{u}}=\frac{\sum\text{defecten}}{\sum\sym{ni}{n_{i}}}\qquad \sym{ubar}{\bar{u}}\pm3\sqrt{\frac{\sym{ubar}{\bar{u}}}{\sym{ni}{n_{i}}}}\qquad \mathrm{LCL}\lt0\Rightarrow0\]
-<ul class="fx-vars">
-<li data-hoe="Het aantal gecontroleerde eenheden in subgroep i.">\(\sym{ni}{n_{i}}\): de subgroepgrootte (mag per subgroep verschillen).</li>
-<li data-hoe="Totaal defectieven / totaal gecontroleerd.">\(\sym{pbar}{\bar{p}}\): de gemiddelde fractie defectief (p-kaart).</li>
-<li data-hoe="Totaal defecten / totaal eenheden.">\(\sym{ubar}{\bar{u}}\): het gemiddelde aantal defecten per eenheid (u-kaart).</li>
-</ul>
-<p class="fx-src">Dummies p. 254.</p>
-</section>
 
 <section data-block="beschrijvend.0" data-uitleg="d02-eda">
 \[\sym{xbar}{\bar{x}}=\frac{\sum\sym{x}{x_{i}}}{\sym{n}{n}}\qquad \sym{s}{s}^{2}=\frac{\sum(\sym{x}{x_{i}}-\sym{xbar}{\bar{x}})^{2}}{\sym{n}{n}-1}\qquad \sym{R}{R}=\max-\min\qquad \frac{\sym{s}{s}}{\sqrt{\sym{n}{n}}}\qquad \sigma_{\text{(deler }n)}=\sqrt{\frac{\sum(\sym{x}{x_{i}}-\sym{xbar}{\bar{x}})^{2}}{\sym{n}{n}}}\]
