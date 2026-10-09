@@ -1181,6 +1181,23 @@ def test_limits_inverse_finds_n_from_the_minitab_oil_chart_exercise_10_2() -> No
     assert two_signals["n"] == 3   # d2 = R̄/σ̂ = 1,714 is closest to 1,693 (n = 3)
 
 
+def test_new_subgroup_size_gives_the_limits_and_detection_chance_of_exercise_10_8() -> None:
+    # arrange -- SPC p. 85 (oefening 4): X̿ 33,9565 and R̄ 1,7478 with n = 5; new subgroup sizes 3 and 8; a shift of 2σ
+    # act
+    n3, n8, only_shift, nothing = run_js([("Calc.newSampleSize", [33.9565, 1.7478, 5, None, 3, 2, "@K"]),
+                                          ("Calc.newSampleSize", [33.9565, 1.7478, 5, None, 8, 2, "@K"]),
+                                          ("Calc.newSampleSize", [None, None, None, None, 3, 2, "@K"]),
+                                          ("Calc.newSampleSize", [None, None, None, None, None, None, "@K"])])
+    # assert -- the printed answers of the exercise, and p from the normal distribution
+    assert n3["xbar"][2] == pytest.approx(35.258, abs=0.003) and n3["xbar"][0] == pytest.approx(32.655, abs=0.003)
+    assert n3["R"][2] == pytest.approx(3.276, abs=0.003) and n8["R"][0] == pytest.approx(0.291, abs=0.003)
+    assert n8["xbar"][2] == pytest.approx(34.754, abs=0.003) and n8["R"][2] == pytest.approx(3.988, abs=0.003)
+    assert n3["pOut"] == pytest.approx(0.678713, abs=1e-6) and n8["pOut"] == pytest.approx(0.996056, abs=1e-6)
+    assert n3["pOut"] == pytest.approx(1 - (stats.norm.cdf(3 - 2 * math.sqrt(3)) - stats.norm.cdf(-3 - 2 * math.sqrt(3))))
+    assert only_shift["pOut"] == pytest.approx(n3["pOut"]) and only_shift.get("xbar") is None   # p needs no data
+    assert nothing is None
+
+
 def test_sample_size_solver_every_direction() -> None:
     # arrange -- CI p. 7, 10: n 1537 for a full width of 5 % at 95 %; then width and confidence back from n
     z = stats.norm.ppf(0.975)

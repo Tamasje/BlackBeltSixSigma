@@ -1235,6 +1235,32 @@
       } });
 
   /* ---------- Bayes, Beta, k-class confusion matrix ---------- */
+  // another subgroup size on the same process: new limits and the chance to see a shift (SPC p. 85)
+  TOOLS.regelkaart.push(
+    { title: 'Andere subgroepgrootte: nieuwe grenzen en de kans een verschuiving te zien',
+      help: 'Het proces blijft hetzelfde: σ̂ = R̄/d2(n) van de huidige kaart (of vul σ̂ zelf in). Geef één of meer nieuwe n (bv. "3 8"): ' +
+            'je krijgt per n de nieuwe grenzen van de X̄- en de R-kaart. Met een verschuiving k (in σ, bv. 2) ook de kans dat de eerste ' +
+            'steekproef erbuiten valt en het gemiddeld aantal steekproeven tot het signaal; dat vraagt geen data, alleen k en n.',
+      form: inp('xbb', 'X̿ van de huidige kaart') + inp('rbar', 'R̄ van de huidige kaart') + inp('nold', 'n van de huidige kaart') +
+            inp('sigma', 'of σ̂ zelf (dan zijn R̄ en n niet nodig)') + area('ns', 'nieuwe subgroepgrootte(s), bv. 3 8', '', 1) +
+            inp('k', 'verschuiving van het gemiddelde, in σ (bv. 2)'),
+      run: function (v) {
+        var sizes = parseList(v.text.ns), first = Calc.newSampleSize(v.xbb, v.rbar, v.nold, v.sigma, null, null, K), cols = [];
+        sizes.forEach(function (m) { var r = Calc.newSampleSize(v.xbb, v.rbar, v.nold, v.sigma, m, v.k, K); if (r) cols.push(r); });
+        var head = first && num(first.sigma) ? out([['σ̂ = R̄/d2(n huidige kaart)', f(first.sigma), 'blijft gelijk: het proces verandert niet']]) : '';
+        if (!cols.length) return head;
+        var rows = [['n nieuw', function (r) { return f(r.n); }],
+                    ['d2', function (r) { return f(r.d2); }], ['A2 ; D3 ; D4', function (r) { return f(r.A2) + ' ; ' + f(r.D3) + ' ; ' + f(r.D4); }],
+                    ['R̄ nieuw = d2·σ̂', function (r) { return f(r.rbar); }], ['σ van de gemiddelden = σ̂/√n', function (r) { return f(r.sigmaXbar); }],
+                    ['X̄-kaart: LCL', function (r) { return r.xbar ? f(r.xbar[0]) : '–'; }], ['X̄-kaart: UCL', function (r) { return r.xbar ? f(r.xbar[2]) : '–'; }],
+                    ['R-kaart: LCL', function (r) { return r.R ? f(r.R[0]) : '–'; }], ['R-kaart: UCL', function (r) { return r.R ? f(r.R[2]) : '–'; }],
+                    ['verschuiving in σ van de gemiddelden = k·√n', function (r) { return f(r.delta); }],
+                    ['kans dat de eerste steekproef buiten de grenzen valt', function (r) { return num(r.pOut) ? fp(r.pOut) : '–'; }],
+                    ['gemiddeld aantal steekproeven tot een signaal (1/kans)', function (r) { return f(r.arl); }]];
+        rows = rows.filter(function (row) { return cols.some(function (r) { var x = row[1](r); return x !== '–' && x !== '<td></td>'; }); });
+        return head + grid([''].concat(cols.map(function (r) { return 'n = ' + f(r.n); })), rows.map(function (row) { return [row[0]].concat(cols.map(row[1])); }));
+      } });
+
   TOOLS.bayes = [
     { title: 'Regel van Bayes: voorwaardelijke kans omkeren',
       form: inp('pa', 'P(A) (voorkennis, prior)') + inp('ba', 'P(B | A)') + inp('bn', 'P(B | niet A)'),

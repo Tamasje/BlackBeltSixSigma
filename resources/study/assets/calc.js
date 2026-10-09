@@ -503,6 +503,29 @@ var Calc = (function () {
     if (all(sbar, out.c4)) out.sigmaS = sbar / out.c4;
     return out;
   }
+  // A new subgroup size on the same process (SPC p. 85, exercise 4): σ̂ = R̄/d2(n_old) stays, so R̄_new = d2(n_new)·σ̂ and
+  // the limits are X̿ ± A2·R̄_new, D3·R̄_new … D4·R̄_new. A shift of k·σ moves x̄ by k·√n standard errors; the first
+  // sample falls outside the 3σ limits with probability 1 − [Φ(3 − k√n) − Φ(−3 − k√n)] (the limits are exactly 3σ/√n).
+  function newSampleSize(xbarbar, rbar, nOld, sigma, nNew, shift, K) {
+    var out = {};
+    var sigmaHat = num(sigma) && sigma > 0 ? sigma : (all(rbar, nOld) && num(K.get('d2', nOld)) ? rbar / K.get('d2', nOld) : null);
+    if (num(sigmaHat)) out.sigma = sigmaHat;
+    if (!num(nNew) || nNew < 2) return Object.keys(out).length ? out : null;
+    out.n = nNew;
+    if (num(sigmaHat)) out.sigmaXbar = sigmaHat / Math.sqrt(nNew);
+    ['d2', 'A2', 'D3', 'D4'].forEach(function (s) { out[s] = K.get(s, nNew); });
+    if (num(sigmaHat) && num(out.d2)) {
+      out.rbar = out.d2 * sigmaHat;
+      if (all(out.D3, out.D4)) out.R = [out.D3 * out.rbar, out.rbar, out.D4 * out.rbar];
+      if (num(xbarbar) && num(out.A2)) out.xbar = [xbarbar - out.A2 * out.rbar, xbarbar, xbarbar + out.A2 * out.rbar];
+    }
+    if (num(shift)) {   // needs no data at all: only the shift in σ and the subgroup size
+      out.delta = shift * Math.sqrt(nNew);
+      out.pOut = 1 - (S.normCdf(3 - out.delta) - S.normCdf(-3 - out.delta));
+      out.arl = out.pOut > 0 ? 1 / out.pOut : null;
+    }
+    return out;
+  }
   function flag(v, lim) { return !lim || !num(v) ? '' : (v > lim[2] ? 'boven UCL' : (v < lim[0] ? 'onder LCL' : '')); }
   function subgroupChart(groups, K) {
     if (!groups || !groups.length) return null;
@@ -1798,7 +1821,7 @@ var Calc = (function () {
            conditional: conditional, independence: independence, defects: defects,
            sigmaFromDpmo: sigmaFromDpmo, dpmoFromSigma: dpmoFromSigma, yields: yields, rolled: rolled,
            rollDerived: rollDerived, yieldPower: yieldPower, perOpportunity: perOpportunity, cpLevel: cpLevel,
-           capability: capability, capabilityInverse: capabilityInverse, limitsSummary: limitsSummary,
+           capability: capability, capabilityInverse: capabilityInverse, limitsSummary: limitsSummary, newSampleSize: newSampleSize,
            subgroupChart: subgroupChart, individuals: individuals, attributeChart: attributeChart,
            samplingPoint: samplingPoint, samplingRisks: samplingRisks, aoql: aoql, variablesPlan: variablesPlan,
            regression: regression, anova1: anova1, factorial: factorial, aliases: aliases, grr: grr, confusion: confusion,
